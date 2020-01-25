@@ -1,20 +1,21 @@
-# architecture
+# 前言
 
-在[龙书](https://en.wikipedia.org/wiki/Compilers:_Principles,_Techniques,_and_Tools)
+从多个方面对Unix-like operating system进行分析，主要集中在如下几个方面
 
-# kernel
+## architecture
+
+描述Unix-like operating system的architecture
+
+## kernel
 
 包含
 
-- kernel的基础知识
-- linux kernel的实现，以书籍《Understanding.The.Linux.kernel.3rd.Edition》为主
+- kernel的基础知识，主要参考维基百科
+- linux kernel的实现，主要参考书籍《[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)》
 
-主要参考：
 
-- 《Understanding.The.Linux.kernel.3rd.Edition》
-- 维基百科
 
-# programming
+## programming
 
 包含Unix-like系统中进行programming时需要掌握的所有知识，包括：
 
@@ -29,7 +30,7 @@
 - [man7.org](http://man7.org/index.html) [Linux man pages](http://man7.org/linux/man-pages/index.html)
 - [die.net](https://www.die.net/) [Linux man pages](https://linux.die.net/man/)
 
-# shell
+### shell
 
 Unix-like系统中的常见命令
 
