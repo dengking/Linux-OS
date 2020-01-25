@@ -1,0 +1,5 @@
+nav:
+    - Home: index.md
+    - architecture: architecture
+    - kernel: kernel
+    - programming: programming
