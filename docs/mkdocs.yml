@@ -1,5 +1,6 @@
 nav:
     - Home: index.md
-    - architecture: architecture
-    - kernel: kernel
-    - programming: programming
+    - Introduction: wikipedia-Operating-system.md
+    - Architecture: Architecture
+    - Kernel: Kernel
+    - Programming: Programming

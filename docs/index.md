@@ -1,12 +1,12 @@
 # 前言
 
-从多个方面对Unix-like operating system进行分析，主要集中在如下几个方面
+从多个方面对Unix-like operating system进行分析，主要集中在如下几个方面:
 
-## architecture
+## Architecture
 
 描述Unix-like operating system的architecture
 
-## kernel
+## Kernel
 
 包含
 
@@ -15,7 +15,7 @@
 
 
 
-## programming
+## Programming
 
 包含Unix-like系统中进行programming时需要掌握的所有知识，包括：
 
@@ -30,7 +30,7 @@
 - [man7.org](http://man7.org/index.html) [Linux man pages](http://man7.org/linux/man-pages/index.html)
 - [die.net](https://www.die.net/) [Linux man pages](https://linux.die.net/man/)
 
-### shell
+### Shell
 
 Unix-like系统中的常见命令
 
