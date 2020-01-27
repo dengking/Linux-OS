@@ -10,7 +10,11 @@
 
 
 
-# [Wikipedia Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel)
+# [wikipedia Linux](https://en.wikipedia.org/wiki/Linux)
+
+> NOTE: linux是Unix-like
+
+## [wikipedia Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel)
 
 
 
