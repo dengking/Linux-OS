@@ -7,4 +7,4 @@
 
 在理解了使用namespace的目的后，推荐阅读[Separation Anxiety: A Tutorial for Isolating Your System with Linux Namespaces](https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces)，这篇文章比较输入浅出，阅读完成后，基本上能够知道linux namespace所解决的实际问题和它的价值了。
 
-掌握了这些后，再去阅读man中对它的解释就会非常任意。
+掌握了这些后，再去阅读man中对它的解释就会非常容易了。

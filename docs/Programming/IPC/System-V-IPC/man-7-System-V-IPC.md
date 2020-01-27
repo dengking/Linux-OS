@@ -1,0 +1,1 @@
+# [SVIPC(7)](http://man7.org/linux/man-pages/man7/sysvipc.7.html)

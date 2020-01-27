@@ -1,12 +1,10 @@
 # 概述
 
-从多个方面对Unix-like operating system进行分析，主要集中在如下几个方面:
+从多个方面对Unix-like operating system（主要是linux operating system）进行分析，主要集中在如下几个方面:
 
 ## Architecture
 
 描述Unix-like operating system的architecture
-
-
 
 ## Kernel
 
@@ -14,8 +12,6 @@
 
 - [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system))的基础知识，主要参考维基百科
 - [linux kernel](https://en.wikipedia.org/wiki/Linux_kernel)的实现，主要参考书籍《[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)》
-
-
 
 ## Programming
 
@@ -31,6 +27,8 @@
 - [The Linux Programming Interface](http://man7.org/tlpi/index.html)
 - [man7.org](http://man7.org/index.html) [Linux man pages](http://man7.org/linux/man-pages/index.html)
 - [die.net](https://www.die.net/) [Linux man pages](https://linux.die.net/man/)
+
+
 
 ### Shell
 
