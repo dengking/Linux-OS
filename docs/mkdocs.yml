@@ -1,9 +1,8 @@
 nav:
     - Home: index.md
     - Operating-system: Operating-system.md
-    - Unix: Unix.md
-    - Unix-like: Unix-like.md
-    - Linux: Linux.md
+    - Unix-&-Unix-like-&-Linux: Unix-&-Unix-like-&-Linux.md
+    - Unix-standardization-and-implementation: Unix-standardization-and-implementation.md
     - Architecture: Architecture
     - Kernel: Kernel
     - Programming: Programming
