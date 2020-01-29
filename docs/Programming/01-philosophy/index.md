@@ -3,3 +3,5 @@
 # 20200128
 
 使用《Understanding.The.Linux.kernel.3rd.Edition》1.6. An Overview of Unix Kernels中的内容作为入场是非常好的。
+
+关于everything is a file，需要添加《Understanding.The.Linux.kernel.3rd.Edition》chapter 1.6.9. Device Drivers的内容。
