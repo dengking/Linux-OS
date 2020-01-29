@@ -4,7 +4,7 @@
 
 ## 理解标准与实现
 
-[Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))和[Process (computing)](https://en.wikipedia.org/wiki/Process_(computing))是software engineer非常熟系的概念，它们是标准所定义的两个概念，有着准确的含义，两者之间的关系也是非常清楚的。按照发展流程来看，应该是首先有计算机理论学家提出了这些概念/标准，然后操作系统厂商再实现这些概念/标准。所以从标准的出现到操作系统厂商实现这些标准之间是有一个时间间隔的。并且不同厂商的对同一概念/标准的实现方式也会有所不同，并且它们的实现方式也会不断地演进。所以在开始进入到本书的内容之前，我们需要首先建立如下观念：
+[Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))和[Process (computing)](https://en.wikipedia.org/wiki/Process_(computing))是software engineer非常熟系的概念，它们是标准所定义的两个概念，有着准确的含义，两者之间的关系也是非常清楚的。按照计算机科学的发展流程来看，应该是首先有计算机理论学家提出了这些概念/标准，然后操作系统厂商再实现这些概念/标准。所以从标准的出现到操作系统厂商实现这些标准，两者之间是有一个时间间隔的。不同厂商的对同一概念/标准的实现方式也会有所不同，并且它们的实现方式也会不断地演进。所以在开始进入到本书的内容之前，我们需要首先建立如下观念：
 
 - 标准与实现之间的关系
 - 以发展的眼光来看待软件的演进

@@ -1,2 +1,6 @@
 nav:
     - Chapter-1-Introduction: Chapter-1-Introduction.md
+    - 1.1-Linux-Versus-Other-Unix-Like-Kernels: 1.1-Linux-Versus-Other-Unix-Like-Kernels.md
+    - 1.4-Basic-Operating-System-Concepts: 1.4-Basic-Operating-System-Concepts.md
+    - 1.6-An-Overview-of-Unix-Kernels: 1.6-An-Overview-of-Unix-Kernels.md
+    - Giant-lock: Giant-lock.md
