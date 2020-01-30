@@ -93,11 +93,11 @@ chapter 1.1. Linux Versus Other Unix-Like Kernels
 
 - process作为system resource分配单位，它有哪些resource呢？显然，它的所有的resource都需要使用一个 kernel data structures来进行描述。有必要总结per-process的resource以及对应的kernel data structures。还有一个问题就是，这些resource哪些是child process可以继承的，哪些是无法继承的。
 
-  address space and virtual address space。address space是非常重要的，栈也是它的成分之一
+  address space and virtual address space。address space是非常重要的，栈也是它的成分之一，应该每个`task_descriptor`都有一个自己的栈
 
-   Page Table entry、page frame、page descriptor：
+   是在什么地方将virtual address space分割为如1.6.8.4. Process virtual address space handling
 
-  page descriptor用于描述page frame的一些信息
+  节所叙述的a **list** of *memory area descriptors* 
 
   其实最最简单的方式是查看`task_descriptor`的成员变量
 

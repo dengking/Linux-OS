@@ -14,6 +14,8 @@
 
 执行context switch的目的：[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)
 
+进程是operating system的概念，它是为了实现[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)，以充分利用hardware，在hardware中，并没有进程的概念。
+
 发生context switch的场景：
 
 ## Scheduler触发Process Switch
