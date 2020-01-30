@@ -6,13 +6,15 @@
 - kernel thread
 - process
 
-每个control path都有自己的context，它们都会涉及到context switch。
+每个control path都有自己的context，它们都会涉及到context switch。context包括有如下数据：
+
+- call stack
 
 # context switch
 
 执行context switch的目的：[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)
 
-发生context switch的地方：
+发生context switch的场景：
 
 ## Scheduler触发Process Switch
 
@@ -31,3 +33,9 @@ kernel substitutes one process for another process
 > As a kernel control path, the interrupt handler is lighter than a process (it has less context and requires less time to set up or tear down).
 
 4.3. Nested Execution of Exception and Interrupt Handlers
+
+
+
+
+
+思考：发生context switch的时候，要把context置于何处呢？

@@ -2,7 +2,7 @@
 
 在本书中频繁出现process，lightweight process，thread 这些词语，有必要对它们进行区别，否则很难准确理解书中内容；
 
-## 理解标准与实现
+# 理解标准与实现
 
 [Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))和[Process (computing)](https://en.wikipedia.org/wiki/Process_(computing))是software engineer非常熟系的概念，它们是标准所定义的两个概念，有着准确的含义，两者之间的关系也是非常清楚的。按照计算机科学的发展流程来看，应该是首先有计算机理论学家提出了这些概念/标准，然后操作系统厂商再实现这些概念/标准。所以从标准的出现到操作系统厂商实现这些标准，两者之间是有一个时间间隔的。不同厂商的对同一概念/标准的实现方式也会有所不同，并且它们的实现方式也会不断地演进。所以在开始进入到本书的内容之前，我们需要首先建立如下观念：
 
@@ -64,6 +64,54 @@ chapter 1.1. Linux Versus Other Unix-Like Kernels
 关于lightweight process，参见：
 
 - [Light-weight process](https://en.wikipedia.org/wiki/Light-weight_process)
+
+
+
+
+
+
+
+
+
+# linux kernel如何实现process与thread
+
+参见3.1. Processes, Lightweight Processes, and Threads
+
+我觉得要想解释好这个问题，需要梳理一下linux的fork，clone之间的关系。在[Fork (system call)](https://en.wikipedia.org/wiki/Fork_(system_call))这篇文章中梳理地非常好。在3.4. Creating Processes中也有相关的描述。
+
+
+
+
+
+
+
+
+
+# per-process kernel data structures
+
+在3.4. Creating Processes中提出了这个说法，它让我想起了两件事情：
+
+- process作为system resource分配单位，它有哪些resource呢？显然，它的所有的resource都需要使用一个 kernel data structures来进行描述。有必要总结per-process的resource以及对应的kernel data structures。还有一个问题就是，这些resource哪些是child process可以继承的，哪些是无法继承的。
+
+  address space and virtual address space。address space是非常重要的，栈也是它的成分之一
+
+   Page Table entry、page frame、page descriptor：
+
+  page descriptor用于描述page frame的一些信息
+
+  其实最最简单的方式是查看`task_descriptor`的成员变量
+
+  
+
+- 显然，多个lightweight process是可以共享per-process kernel data structure的，这种共享，我觉得实现上应该也是非常简单的，无非就是传入一个指针。
+
+
+
+
+
+
+
+
 
 
 

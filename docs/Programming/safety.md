@@ -10,3 +10,6 @@
 
 [Thread safety](https://en.wikipedia.org/wiki/Thread_safety)
 
+
+
+# race condition
