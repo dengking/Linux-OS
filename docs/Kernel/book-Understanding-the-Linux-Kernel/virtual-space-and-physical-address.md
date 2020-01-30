@@ -1,0 +1,14 @@
+进程的virtual address space都是相同的，那page是如何映射到physical memory的呢？
+
+我们通常将virtual address space分割为多块，又因为operating system采用的是demand paging，并且stack的增长方向和heap的增长方向相反，那这些又是如何实现的呢？
+
+每个thread都有各自独立的call stack，而所有的thread理论上都是共享process的address space的，那这又是如何实现的呢？
+
+需要注意的是， 进程运行的时候，使用的是virtual address
+
+编译器在给生成代码的时候，肯定是需要遵循alignment的，需要考虑alignment和page size之间的关系；应该只要符合alignment，那么应该就不会存在一个数据存储跨越了多个page的情况了。
+
+还需要阅读calling convention。
+
+另外一个问题是，为什么需要申请memory？其实如果这个系统中只有一个程序的话，那么它想怎么样使用memory就怎么样使用memory，但是问题是，我们的系统是需要支持多任务的，那它就需要做好不同的process之间的隔离，A process不能够使用B process的东西。所以，所有的process都必须要先想OS申请memory，然后才能够使用，OS会记住memory的所属，这样就能够保证不冲突了。
+
