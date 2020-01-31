@@ -1,0 +1,11 @@
+nav:
+    - Introduction: index.md
+    - Chapter-1-Introduction: Chapter-1-Introduction
+    - Chapter-2-Memory-Addressing: Chapter-2-Memory-Addressing
+    - Chapter-3-Processes: Chapter-3-Processes
+    - Chapter-4-Interrupts-and-Exceptions: Chapter-4-Interrupts-and-Exceptions
+    - Chapter-6-Timing-Measurements: Chapter-6-Timing-Measurements
+    - Chapter-7-Process-Scheduling: Chapter-7-Process-Scheduling
+    - Chapter-8-Memory-Management: Chapter-8-Memory-Management
+    - Chapter-9-Process-Address-Space: Chapter-9-Process-Address-Space
+    - Summary: Summary

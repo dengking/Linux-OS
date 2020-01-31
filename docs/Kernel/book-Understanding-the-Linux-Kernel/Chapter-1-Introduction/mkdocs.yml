@@ -1,6 +1,7 @@
 nav:
     - Chapter-1-Introduction: Chapter-1-Introduction.md
     - 1.1-Linux-Versus-Other-Unix-Like-Kernels: 1.1-Linux-Versus-Other-Unix-Like-Kernels.md
+    - 1.2-Hardware-Dependency: 1.2-Hardware-Dependency.md
     - 1.4-Basic-Operating-System-Concepts: 1.4-Basic-Operating-System-Concepts.md
     - 1.6-An-Overview-of-Unix-Kernels: 1.6-An-Overview-of-Unix-Kernels.md
     - 1.6.1-The-Process-Kernel-Model: 1.6.1-The-Process-Kernel-Model.md
