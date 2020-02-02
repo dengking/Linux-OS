@@ -6,7 +6,7 @@
 
 - 1.6. An Overview of Unix Kernels
 
-在阅读过程中，有必要建立起对OS运行概况的高屋建瓴的、整体的认知，从一个software engineer的视角来看，我觉得OS kernel可以看做是一个event-driven system，即整个OS kernel的运行是[event](https://en.wikipedia.org/wiki/Event_(computing))驱动的，linux OS kernel的实现采用（部分）的是[Event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture)，[Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming)。下面对这个论断的分析。
+在阅读过程中，有必要建立起对OS运行概况的高屋建瓴的、整体的认知（big picture），这样才能够梳理清楚书中各个章节之间的关联。从一个software engineer的视角来看，我觉得OS kernel可以看做是一个event-driven system，即整个OS kernel的运行是[event](https://en.wikipedia.org/wiki/Event_(computing))驱动的，linux OS kernel的实现采用（部分）的是[Event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture)，[Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming)。下面对这个论断的分析。
 
 正如在1.4. Basic Operating System Concepts所介绍的：
 
@@ -14,25 +14,31 @@
 
 > A Unix-like operating system hides all low-level details concerning the physical organization of the computer from applications run by the user.
 
-显然，OS kernel直接和hardware打交道，那有哪些hardware呢？
+显然，OS kernel直接和hardware打交道，那有哪些hardware呢？如下：
 
 - [I/O devices](https://en.wikipedia.org/wiki/Input/output)
 
-  [Operating System - I/O Hardware](https://www.tutorialspoint.com/operating_system/os_io_hardware.htm)
-
   Chapter 13. I/O Architecture and Device Drivers
+
+  补充：[Operating System - I/O Hardware](https://www.tutorialspoint.com/operating_system/os_io_hardware.htm)
 
 - Clock and Timer Circuits
 
   Chapter 6. Timing Measurements
 
-目前，基本上所有的hardware都是通过[interrupt](https://en.wikipedia.org/wiki/Interrupt)来通知OS kernel的，然后其对应的[Interrupt handler](https://en.wikipedia.org/wiki/Interrupt_handler)会被触发执行，也就是OS kernel是interrupt-driven的。拥有这样的认知对于完整地掌握本书的内容十分重要，因为它描述了OS kernel运行的概况。本书的Chapter 4. Interrupts and Exceptions专门描述中断相关内容，它是后面很多章节的基础，因为OS中有太多太多的活动都是interrupt触发的。
 
-Chapter 6. Timing Measurements主要描述的是timing measurements相关的hardware，主要包括Clock and Timer Circuits，正如本章开头所述：
+
+目前，基本上所有的hardware都是通过[interrupt](https://en.wikipedia.org/wiki/Interrupt)来通知OS kernel的，然后其对应的[Interrupt handler](https://en.wikipedia.org/wiki/Interrupt_handler)会被触发执行，也就是OS kernel是[interrupt-driven](https://en.wikipedia.org/wiki/Interrupt)的。拥有这样的认知对于完整地掌握本书的内容十分重要，因为它描述了OS kernel运行的概况。本书的Chapter 4. Interrupts and Exceptions专门描述中断相关内容，它是后面很多章节的基础，因为OS中有太多太多的活动都是interrupt触发的，比如：
+
+TODO: 此处添加一些例子
+
+
+
+Chapter 6. Timing Measurements主要描述的是timing measurements相关的hardware（主要包括Clock and Timer Circuits）以及OS kernel中由timing measurement驱动的重要的活动（下面会有介绍），正如本章开头所述：
 
 > Countless computerized activities are driven by timing measurements
 
-OS kernel的众多核心activity也是driven by timing measurements，正如6.2. The Linux Timekeeping Architecture中所总结的：
+OS kernel的众多核心activity是driven by timing measurements，正如6.2. The Linux Timekeeping Architecture中所总结的：
 
 - Updates the time elapsed since system startup
 
@@ -52,7 +58,7 @@ OS kernel的众多核心activity也是driven by timing measurements，正如6.2.
 
 - Checks whether the interval of time associated with each software timer (see the later section "Software Timers and Delay Functions") has elapsed.
 
-​	
+
 
 我们惊喜的发现站在计算机科学的不同的层次来描述本质上非常类似的事务有着不同的说法，下面对此进行了对比：
 
@@ -63,6 +69,8 @@ OS kernel的众多核心activity也是driven by timing measurements，正如6.2.
 | [Interrupt handler](https://en.wikipedia.org/wiki/Interrupt_handler)/[Interrupt service routine](https://en.wikipedia.org/wiki/Interrupt_handler) | [Event handler](https://en.wikipedia.org/wiki/Event_(computing)#Event_handler)/[Callback function](https://en.wikipedia.org/wiki/Callback_(computer_programming)) |
 
 各种interrupt就是所谓的event。
+
+
 
 # timer
 
