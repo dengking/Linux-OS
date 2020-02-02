@@ -1,0 +1,1 @@
+https://blog.quarkslab.com/unaligned-accesses-in-cc-what-why-and-solutions-to-do-it-properly.html#id20
