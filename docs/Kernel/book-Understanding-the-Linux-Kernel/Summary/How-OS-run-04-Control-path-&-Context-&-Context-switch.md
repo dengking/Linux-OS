@@ -1,14 +1,20 @@
 # control path
 
+control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行，之所以创建这个概念，是因为它具备一些特征可以方便我们来统一地、概括地描述问题。
+
 有如下control path：
 
 - kernel control path
 - kernel thread
 - process
 
-每个control path都有自己的context，它们都会涉及到context switch。context包括有如下数据：
+每个control path都有自己的context，它们都会涉及到context switch，因为OS为了高效，肯定会让多个control path interleave（交错运行），就必然需要维护每个control path的context，context其实是一种separation机制，它能够使一个control path在被suspend后，过后能够被resume，其实这是在[How-OS-run-02-kernel-control-path-and-reentrant-kernel](./How-OS-run-02-kernel-control-path-and-reentrant-kernel.md)中提出的reentrant思想。
+
+显然context包括每个control path的private数据，如下：
 
 - call stack
+
+
 
 # context switch
 

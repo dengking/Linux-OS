@@ -1,4 +1,4 @@
-# 原来OS kernel是event-driven的
+# OS kernel is event-driven
 
 关于OS的作用，本书中已经花了非常多的篇幅来进行介绍，具体可以参见如下章节：
 
@@ -72,9 +72,32 @@ OS kernel的众多核心activity是driven by timing measurements，正如6.2. Th
 
 
 
-# timer
+## timer
 
 timer interrupt对系统非常重要，它就相当于系统的heartbeat，从这个角度来看的话，timer就相当于相同的heart。因为它它触发这系统的运转，它就相当于相同的系统的[Electric motor](https://en.wikipedia.org/wiki/Electric_motor)，比如内燃机运转带动整个系统运转起来。
 
 
+
+## system call也相当于interrupt
+
+上面使用的是“相当于”，而不是“是”，这是因为随着技术的更新迭代，实现system call的assembly instruction也在进行更新迭代，在10.3. Entering and Exiting a System Call中对此进行了详细的说明，如下：
+
+Applications can invoke a system call in two different ways:
+
+- By executing the  `int $0x80` assembly language instruction; in older versions of the Linux kernel, this was the only way to switch from User Mode to Kernel Mode.
+- By executing the  `sysenter` assembly language instruction, introduced in the Intel Pentium II microprocessors; this instruction is now supported by the Linux 2.6 kernel.
+
+使用`int $0x80`的方式是interrupt，使用`sysenter` 的方式则不是interrupt，但是它的作用其实和interrupt非常类似，我们可以将它看做是interrupt。
+
+关于`sysenter`，参加：
+
+- https://wiki.osdev.org/Sysenter
+
+上面描述的interrupt主要来自于hardware，其实system call的实现也是依赖于interrupt。
+
+
+
+## 总结
+
+通过上述分析，我们可以看到OS kernel的所有activity其实都可以认为是event-driven的。OS kernel管理这hardware、process，它作为两者之间的中间层，可以认为OS的所有的activity都是由它们触发的。建立这样的一个统一模型对于后面讨论OS kernel的实现思路是非常重要的。
 

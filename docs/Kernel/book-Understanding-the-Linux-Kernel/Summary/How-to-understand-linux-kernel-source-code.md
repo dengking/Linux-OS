@@ -1,6 +1,6 @@
-如何阅读linux kernel的source code？在拿起本书的时候我思考了这个问题，后来我发现有人和我有相同的疑惑，下面是我检索到的我觉得有道理的观点：
+# [观点](https://softwareengineering.stackexchange.com/a/46640)
 
-## [观点](https://softwareengineering.stackexchange.com/a/46640)
+如何阅读linux kernel的source code？在拿起本书的时候我思考了这个问题，后来我发现有人和我有相同的疑惑，下面是我检索到的我觉得有道理的观点：
 
 **Focus on data structures**. Understanding **data structures** is usually more important than **code**.
 
@@ -17,3 +17,50 @@ Vice versa, if shown only code but not data structures, it's very hard to unders
 
 
 从structure入手，本书也是如此。
+
+
+
+下面总结了一些structure：
+
+# 各种各样的descriptor
+
+各种各样的descriptor，以及其对应的数据结构
+
+| Descriptor         | Chapter                    | Struct        | Source Code                                                  |
+| ------------------ | -------------------------- | ------------- | ------------------------------------------------------------ |
+| Process Descriptor | 3.2. Process Descriptor    | `task_struct` | - https://github.com/torvalds/linux/blob/master/include/linux/sched.h <br/>- https://elixir.bootlin.com/linux/latest/ident/task_struct |
+| Memory Descriptor  | 9.2. The Memory Descriptor | `mm_struct`   | - https://elixir.bootlin.com/linux/latest/ident/mm_struct <br/>- https://github.com/torvalds/linux/blob/master/include/linux/mm_types.h |
+| Page Descriptor    | 8.1.1. Page Descriptors    | `page`        | - https://elixir.bootlin.com/linux/latest/source/include/linux/mm_types.h#L68 |
+
+
+
+## Process Descriptor
+
+3.2. Process Descriptor
+
+
+
+## Task State Segment Descriptor 
+
+3.3. Process Switch
+
+## Global Descriptor Table
+
+
+
+## memory descriptor
+
+
+
+## signal descriptor 
+
+
+
+##  file descriptors
+
+
+
+## Interrupt Descriptor Table
+
+
+

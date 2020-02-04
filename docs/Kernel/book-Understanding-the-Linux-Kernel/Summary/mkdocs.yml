@@ -1,6 +1,6 @@
 nav:
     - How-to-read-the-code?: How-to-understand-linux-kernel-source-code.md
-    - 原来OS-kernel是event-driven的: 原来OS-kernel是event-driven的.md
+    - How-OS-run-01: How-OS-run-01.md
     - Entry-point-of-kernel: Entry-point-of-kernel.md
     - Descriptor: Descriptor.md
     - VS-process-VS-thread-VS-lightweight-process: VS-process-VS-thread-VS-lightweight-process.md
