@@ -19,11 +19,11 @@
 
 当产生interrupt或exception，此时kernel转去执行它们对应的handler，使用*kernel control path*概念来进行理解的话，可以认为kernel创建了一个执行这个handler的kernel control path；
 
-为什么要使用*kernel control path*概念来进行描述呢？因为我们知道，operating system的kernel的执行情况是非常复杂的，它需要同时处理非常多的事情，比如process请求的system call，在此过程中是会伴随中随时可能发生的interrupt和exception的。前面我们已经铺垫了，kernel为了保持高效，可能需要挂起正在执行的流程转去执行另外一个流程，而后在重启之前挂起的流程。此处所谓的流程，我们使用更加专业的术语就是kernel control path。显然与function相比，kernel control path蕴含着更加丰富的，更加符合kernel调度情况的内涵，比如它能够表示kernel的suspend（挂起），resume（重启），能够表示多个control path的interleave（交错运行）。这种通过创造新的概念来说表述更加便利的做法是在各种学科非常普遍的。
+为什么要使用*kernel control path*概念来进行描述呢？因为我们知道，operating system的kernel的执行情况是非常复杂的，它需要同时处理非常多的事情，比如process请求的system call，在此过程中是会伴随中随时可能发生的interrupt和exception的。前面我们已经铺垫了，kernel为了保持高效，可能需要挂起正在执行的流程转去执行另外一个流程，而后在重启之前挂起的流程。此处所谓的流程，我们使用更加专业的术语就是kernel control path。显然与function相比，kernel control path蕴含着更加丰富的，更加符合kernel调度情况的内涵，比如它能够表示kernel的suspend（挂起），resume（重启），能够表示多个control path的interleave（交错运行）。这种通过创造新的概念来使表述更加便利的做法是在各种学科非常普遍的。
 
 
 
-这种设计也不可避免地导致系统的复杂，正如在chapter 1.6.3. Reentrant Kernels后面所述的， 系统是在多个*kernel control path*中交错运行的，这种设计会派生出一系列的问题，比如将在1.6.5. Synchronization and Critical Regions中介绍的race condition，所以它对kernel的实现提出了更高的要求。当然可以预期的是，系统是在这样的交错中不断向前进的。
+这种设计也不可避免地导致系统的复杂，正如在chapter 1.6.3. Reentrant Kernels后面所述的， 系统是在多个*kernel control path*中交错运行的。这种设计会派生出一系列的问题，比如将在1.6.5. Synchronization and Critical Regions中介绍的race condition，所以它对kernel的实现提出了更高的要求。当然可以预期的是，系统是在这样的交错中不断向前进的。
 
 如何来实现reentrant kernel呢？这是一个需要系统地进行设计才能够解决的问题，下面总结了和这个问题相关的一些章节：
 
@@ -52,4 +52,6 @@
 下面是一些补充内容：
 
 [Kernel Control Path Definition](http://www.linfo.org/kernel_control_path.html)
+
+
 
