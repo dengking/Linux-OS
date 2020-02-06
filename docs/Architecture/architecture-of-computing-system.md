@@ -4,7 +4,7 @@
 
 # 前言
 
-本章所要探讨的是architecture of [computing system](https://en.wikipedia.org/wiki/Computing)，而不是寻常所说的[computer architecture](https://en.wikipedia.org/wiki/Computer_architecture)。[computer architecture](https://en.wikipedia.org/wiki/Computer_architecture)所指的是诸如[Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture)、[Harvard architecture](https://en.wikipedia.org/wiki/Harvard_architecture)等描述computer硬件的架构。本节所要描述的内容是从一个更加高的角度来看待[computing](https://en.wikipedia.org/wiki/Computing) system，从最底层的hardware，到operating system，到application software。
+本章所要探讨的是architecture of [computing system](https://en.wikipedia.org/wiki/Computing)，而不是寻常所说的[computer architecture](https://en.wikipedia.org/wiki/Computer_architecture)。[computer architecture](https://en.wikipedia.org/wiki/Computer_architecture)所指的是诸如[Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture)、[Harvard architecture](https://en.wikipedia.org/wiki/Harvard_architecture)等描述computer硬件的架构。本节所要描述的内容是从一个更加高的角度来看待[computing system](https://en.wikipedia.org/wiki/Computing) ，从最底层的hardware，到operating system，到application software。
 
 # architecture of [computing system](https://en.wikipedia.org/wiki/Computing)
 
@@ -46,3 +46,7 @@
 |             |  [kernel](https://en.wikipedia.org/wiki/Kernel_(computing))  |           |      |
 |             | [Instruction set](https://en.wikipedia.org/wiki/Instruction_set_architecture) | interface |      |
 | hardware    | [hardware](https://en.wikipedia.org/wiki/Computer_hardware)  |           |      |
+
+# 总结
+
+上面我使用了**层次化的结构**来描述[computing system](https://en.wikipedia.org/wiki/Computing)的架构。
