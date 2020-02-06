@@ -25,7 +25,7 @@
 
 
 
-另外一个关于multitask需要进行强调的是：multitask是operating system层的概念，在hardware层没有multitask的概念，所以它multitask由OS厂商实现，在hardware层比如CPU压根就没有这样的概念。不过CPU厂商肯定会为OS提供便于实现multitask的硬件支持，比如提供一些专门的指令等。
+另外一个关于multitask需要进行强调的是：multitask是operating system层的概念，在hardware层没有multitask的概念，所以multitask由OS厂商实现，在hardware层比如CPU压根就没有这样的概念。不过CPU厂商肯定会为OS提供便于实现multitask的硬件支持，比如提供一些专门的指令等。
 
 
 

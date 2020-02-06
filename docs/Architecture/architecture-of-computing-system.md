@@ -47,6 +47,14 @@
 |             | [Instruction set](https://en.wikipedia.org/wiki/Instruction_set_architecture) | interface |      |
 | hardware    | [hardware](https://en.wikipedia.org/wiki/Computer_hardware)  |           |      |
 
+
+
+### The Process/Kernel Model
+
+在[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的1.6.1. The Process/Kernel Model中，所描述Process/Kernel Model与上面所描述的architecture类似，但是更加精简。
+
+
+
 # 总结
 
 上面我使用了**层次化的结构**来描述[computing system](https://en.wikipedia.org/wiki/Computing)的架构。

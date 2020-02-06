@@ -4,23 +4,70 @@
 
 # Process model
 
+Process model图示如下：
+
+![img](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Multithreaded_process.svg/220px-Multithreaded_process.svg.png)
 
 
-## 理解标准
 
-[Thread](https://en.wikipedia.org/wiki/Thread_(computing))和[Process](https://en.wikipedia.org/wiki/Process_(computing))是software engineer非常熟系的概念，它们是标准所定义的两个概念，有着准确的含义，两者之间的关系也是非常清楚的。
 
-关于两者有如下问题需要分析：
 
-### process和thread之间的关系是什么？
+## Process 
 
-其实这个问题本质是：process model。
+主要参考文章：[Process](https://en.wikipedia.org/wiki/Process_(computing)) 
 
-#### 从演进来分析
+> In computing, a **process** is the [instance](https://en.wikipedia.org/wiki/Instance_(computer_science)) of a [computer program](https://en.wikipedia.org/wiki/Computer_program) that is being executed by one or many threads. It contains the program code and its activity. Depending on the [operating system](https://en.wikipedia.org/wiki/Operating_system) (OS), a process may be made up of multiple [threads of execution](https://en.wikipedia.org/wiki/Thread_(computing)) that execute instructions [concurrently](https://en.wikipedia.org/wiki/Concurrency_(computer_science)).
 
-在[stanford CS 140: Operating Systems (Spring 2014)](https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/index.php)的lecture中总结了
+显然thread是process的“成分”，下面看看thread。
 
-Evolution of operating system **process model**:
+### Thread
+
+主要参考文章：[Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))
+
+> In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **thread** of execution is the smallest sequence of programmed instructions that can be managed independently by a [scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing)). [Multiple threads](https://en.wikipedia.org/wiki/Thread_(computing)#Multithreading) can exist within one process, executing [concurrently](https://en.wikipedia.org/wiki/Concurrent_computation) and sharing resources
+
+
+
+综合上面描述，以下我所概括Process model：
+
+“OS是基于process的resource分配，基于[thread](https://en.wikipedia.org/wiki/Thread_(computing))的调度。一个[process](https://en.wikipedia.org/wiki/Process_(computing))可能由多个[thread](https://en.wikipedia.org/wiki/Thread_(computing))组成，[thread](https://en.wikipedia.org/wiki/Thread_(computing))共享process的resource、[并发](https://en.wikipedia.org/wiki/Concurrent_computation)执行 。”
+
+> 注意：上述概括的是现代大多数OS的process model，并非所有OS的process model都是如此，实现上是存在差异的。
+
+上面这段话虽然简短，但是蕴含着丰富的内涵，需要进行详细分析：
+
+## “OS是基于process的resource分配”
+
+上面这段话意味着：process是OS的进行resource分配的单位，process之间是彼此隔离的。
+
+> NOTE: 对于一些特殊的情况，如process之间共享memory的情况除外。
+
+### OS中有哪些resource？Process需要哪些resource？
+
+
+
+- OS是基于process的resource分配，resource包括：
+  - Memory 
+  - [address space](https://en.wikipedia.org/wiki/Virtual_address_space)
+
+-  [Multiple threads](https://en.wikipedia.org/wiki/Thread_(computing)#Multithreading) can exist within one process, executing [concurrently](https://en.wikipedia.org/wiki/Concurrent_computation) 
+-  [Multiple threads](https://en.wikipedia.org/wiki/Thread_(computing)#Multithreading) share the process resource
+
+
+
+。[Thread](https://en.wikipedia.org/wiki/Thread_(computing))的第一段基本上是按照这个关系来进行描述的。
+
+[Thread](https://en.wikipedia.org/wiki/Thread_(computing))
+
+> In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **thread** of execution is the smallest sequence of programmed instructions that can be managed independently by a [scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing)), which is typically a part of the [operating system](https://en.wikipedia.org/wiki/Operating_system). 
+
+
+
+### 
+
+## process model的演进历史
+
+在[stanford CS 140: Operating Systems (Spring 2014)](https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/index.php)的lecture中总结了Evolution of operating system **process model**:
 
 - Early operating systems supported a single process with a single thread at a time (*single tasking*). They ran batch jobs (one user at a time).
 - Some early personal computer operating systems used single-tasking (e.g. MS-DOS), but these systems are almost unheard of today.
@@ -31,44 +78,26 @@ Evolution of operating system **process model**:
 
 显然，早期的时候，并没有*multithreading*: multiple threads within each process，所以早期的时候multitasking的task所指**processes**。而随着技术的发展，后来才出现了*multithreading*: multiple threads within each process。
 
-那不禁要问：[multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture))相较于[Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing)优势是什么？
+## [multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture))相较于[Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing)优势是什么？
+
+不禁要问：[multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture))相较于[Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing)优势是什么？
 
 这个问题，在[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的[Multithreading](https://en.wikipedia.org/wiki/Computer_multitasking#Multithreading) 章节给出了答案解答。
 
 
 
-#### [Threads vs. processes](https://en.wikipedia.org/wiki/Thread_(computing)#Threads_vs._processes)
+## [Threads vs. processes](https://en.wikipedia.org/wiki/Thread_(computing)#Threads_vs._processes)
 
 
 
 
 
-## 理解标准与实现
+# Linux OS中Process model的实现
 
+参见章节：
 
-
-
-
-## 实现
-
-不同的OS有着不同的实现，但是它们肯定都会符合标准。
-
-按照计算机科学的发展流程来看，应该是首先有计算机理论学家提出了这些概念/标准，然后操作系统厂商再实现这些概念/标准。所以从标准的出现到操作系统厂商实现这些标准，两者之间是有一个时间间隔的。不同厂商的对同一概念/标准的实现方式也会有所不同，并且它们的实现方式也会不断地演进。所以在开始进入到本书的内容之前，我们需要首先建立如下观念：
-
-- 标准与实现之间的关系
-- 以发展的眼光来看待软件的演进
-
-下面以operating system如何来实现[Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))为例来进行说明，目前存在着两种实现方式：
-
-- user level thread，常称为user thread
-- kernel level thread
-
-两者之间的差异可以参见如下文章：
-
-- https://www.geeksforgeeks.org/difference-between-user-level-thread-and-kernel-level-thread/
-- [What is a user thread and a kernel thread?](https://superuser.com/questions/455316/what-is-a-user-thread-and-a-kernel-thread)
-
-显然，对于标准所提出的[Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))，可以有多种实现方式。关于此，维基百科的[Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))有着非常好的总结。
+1.6.2. Process Implementation
+1.6.4. Process Address Space
 
 
 
@@ -78,41 +107,41 @@ Evolution of operating system **process model**:
 
 
 
-process的一系列问题。
+# process的一系列问题
 
 
 
 
 
-# 生
+## 生
 
 创建process
 
-# 占用了哪些资源
+## 占用了哪些资源
 
 
 
-# 如何来控制process
+## 如何来控制process
 
 
 
-## 如何限制资源
+### 如何限制资源
 
 
 
-# process之间的关系
+## process之间的关系
 
 
 
-## process之间如何进行沟通
+### process之间如何进行沟通
 
 
 
-# 时空的角度
+## 时空的角度
 
 
 
-# process的状态
+## process的状态
 
 
 
@@ -120,7 +149,7 @@ process的一系列问题。
 
 
 
-# 死
+## 死
 
 
 
