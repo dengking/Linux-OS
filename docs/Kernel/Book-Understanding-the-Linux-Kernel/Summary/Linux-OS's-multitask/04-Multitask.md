@@ -1,17 +1,8 @@
-# 前言
+# [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)
 
 [multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)即多任务，是现代OS的必备feature。本章就对此进行分析（其实在上篇中已经涉及到了这些内容了）。
 
-所以在开始进入到本文的内容之前，我们需要首先建立如下观念：
-
-- 理解标准与实现之间的关系
-- 以发展的眼光来看待软件的演进
-
-# [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)
-
-> 维基百科的这篇[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)总结地非常好，下面是我的阅读笔记。
-
-## NOTE:
+维基百科的这篇[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)总结地非常好，下面是我的阅读笔记：
 
 需要注意的是，我们应该以发展的眼光来看待multitask的发展，multitask是一个很早提出的**概念**：
 
@@ -39,7 +30,7 @@ OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking
 
 问题二：operating system's [scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))如何实现来支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)？
 
-[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的实现是一个非常宏大的问题，在此我们仅仅讨论[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的调度策略，根据[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的调度策略，可以将[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)分为如下两种：
+[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的实现是一个非常宏大的主题，在此我们仅仅讨论[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的调度策略，根据[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的调度策略，可以将[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)分为如下两种：
 
 - [pre-emptive multitasking](https://en.wikipedia.org/wiki/Pre-emptive_multitasking)
 - [cooperative multitasking](https://en.wikipedia.org/wiki/Cooperative_multitasking)
@@ -50,3 +41,6 @@ OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking
 
 
 
+## Task是control path
+
+在[03-Control-path-&-Context-&-Context-switch](03-Control-path-&-Context-&-Context-switch.md)中，我们已经将task归入了control path的范轴，在下一章中，将对它进行详细分析。

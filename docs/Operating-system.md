@@ -167,11 +167,3 @@ Main article: [Device driver](https://en.wikipedia.org/wiki/Device_driver)
 *Further information:* [Usage share of operating systems](https://en.wikipedia.org/wiki/Usage_share_of_operating_systems)
 
 
-
-## 关于OS的更加深刻的描述
-
-上述内容是非常概括的，下面是关于OS的更加深刻的描述：
-
-- [Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的1.4. Basic Operating System Concepts
-
-  

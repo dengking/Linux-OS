@@ -33,19 +33,34 @@
 
 上述两个架构图都大体展示OS的architecture，两者都各有利弊，图一包含了hardware，但是忽视了各层之间的interface。图二则正好相反。所以将两者结合起来则正好，后面会按照图二中的表示方式，将interface也看做是一层。充当interface的layer作为它的上下两层之间的interface。
 
-| upper layer |                            layer                             |   role    |      |
-| ----------- | :----------------------------------------------------------: | :-------: | ---- |
-| software    |                         application                          |           |      |
-|             | [system calls](https://en.wikipedia.org/wiki/System_call)&library routines | interface |      |
-|             |  [kernel](https://en.wikipedia.org/wiki/Kernel_(computing))  |           |      |
-|             | [Instruction set](https://en.wikipedia.org/wiki/Instruction_set_architecture) | interface |      |
-| hardware    | [hardware](https://en.wikipedia.org/wiki/Computer_hardware)  |           |      |
+| upper layer |                            layer                             |   role    |
+| ----------- | :----------------------------------------------------------: | :-------: |
+| software    |                         application                          |           |
+|             | [system calls](https://en.wikipedia.org/wiki/System_call)&library routines | interface |
+|             |  [kernel](https://en.wikipedia.org/wiki/Kernel_(computing))  |           |
+|             | [Instruction set](https://en.wikipedia.org/wiki/Instruction_set_architecture) | interface |
+| hardware    | [hardware](https://en.wikipedia.org/wiki/Computer_hardware)  |           |
+
+
+
+### 通过architecture来分析OS的作用分析
+
+通过上述的OS的architecture，我们能够更加深刻地了解OS的作用了，下面是摘抄自[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的Chapter 1.4. Basic Operating System Concepts中关于OS的作用的描述：
+
+The operating system must fulfill two main objectives:
+
+- Interact with the **hardware** components, servicing all low-level programmable elements included in the hardware platform.
+- Provide an **execution environment** to the applications that run on the computer system (the so-called user programs).
+
+这两个objective（其实就是OS的作用）相当于两条线，后面我们将沿着这两条线深入对linux OS的学习。
+
+我们可以进一步简化：OS管理着hardware和process，它作为两者之间的桥梁。
 
 
 
 ### The Process/Kernel Model
 
-在[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的1.6.1. The Process/Kernel Model中，所描述Process/Kernel Model与上面所描述的architecture类似，但是更加精简。
+在[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的chapter 1.6.1. The Process/Kernel Model中所描述Process/Kernel Model与上面所描述的architecture相同，这个名称更加精简，便于表达。对于一个linux OS programmer，心中应该牢记这个model。
 
 
 

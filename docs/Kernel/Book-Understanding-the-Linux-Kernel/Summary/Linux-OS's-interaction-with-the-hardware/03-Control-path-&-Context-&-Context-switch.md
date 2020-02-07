@@ -1,6 +1,6 @@
 # Control path
 
-Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它具备一些特征可以方便我们来统一地、概括地描述问题（一个抽象过程）。
+Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述问题（一个抽象过程）。
 
 OS中有如下control path：
 
@@ -30,7 +30,7 @@ Control path的执行都可能会被interrupted：
 
 
 
-# context switch
+## context switch
 
 执行context switch的目的：[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)
 
@@ -38,13 +38,13 @@ Control path的执行都可能会被interrupted：
 
 发生context switch的场景：
 
-## Scheduler触发Process Switch
+### Scheduler触发Process Switch
 
 3.3. Process Switch
 
 kernel substitutes one process for another process
 
-## Interrupt Signals触发Switch
+### Interrupt Signals触发Switch
 
 4.1. The Role of Interrupt Signals
 
