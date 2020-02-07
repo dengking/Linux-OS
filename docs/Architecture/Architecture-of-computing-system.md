@@ -43,7 +43,7 @@
 
 
 
-### 通过architecture来分析OS的作用分析
+### 通过architecture来分析OS的作用
 
 通过上述的OS的architecture，我们能够更加深刻地了解OS的作用了，下面是摘抄自[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的Chapter 1.4. Basic Operating System Concepts中关于OS的作用的描述：
 
@@ -52,7 +52,7 @@ The operating system must fulfill two main objectives:
 - Interact with the **hardware** components, servicing all low-level programmable elements included in the hardware platform.
 - Provide an **execution environment** to the applications that run on the computer system (the so-called user programs).
 
-这两个objective（其实就是OS的作用）相当于两条线，后面我们将沿着这两条线深入对linux OS的学习。
+这两个objective（其实就是OS的作用、使命）相当于两条线，后面我们将沿着这两条线深入对linux OS的学习。
 
 我们可以进一步简化：OS管理着hardware和process，它作为两者之间的桥梁。
 

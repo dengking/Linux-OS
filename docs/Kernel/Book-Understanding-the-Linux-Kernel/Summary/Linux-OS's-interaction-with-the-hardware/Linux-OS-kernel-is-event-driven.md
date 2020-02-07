@@ -2,9 +2,7 @@
 
 为了更好地理解本书，我觉得有必要建立起对OS运行概况的高屋建瓴的、整体的认知（big picture），这样才能够梳理清楚书中各个章节之间的关联。
 
-从一个software engineer的视角来看，我觉得OS kernel可以看做是一个**event-driven system**，即整个OS kernel的运行是[event](https://en.wikipedia.org/wiki/Event_(computing))驱动的，linux OS kernel的实现采用（部分）的是[Event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture) ( [Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming) )。
-
-下面对这个论断的分析：
+从一个software engineer的视角来看，我觉得OS kernel可以看做是一个**event-driven system**，即整个OS kernel的运行是[event](https://en.wikipedia.org/wiki/Event_(computing))驱动的，linux OS kernel的实现采用（部分）的是[Event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture) ( [Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming) )。下面对这个论断的分析：
 
 在本书chapter 1.4. Basic Operating System Concepts所介绍的：
 
@@ -56,7 +54,7 @@ OS kernel的众多核心activity是driven by timing measurements，正如6.2. Th
 
 
 
-通过上面的内容可以看到：timer interrupt对系统非常重要，它就相当于系统的heartbeat，从这个角度来看的话，timer就相当于相同的heart。因为它触发这系统的运转，它就相当于相同的系统的[Electric motor](https://en.wikipedia.org/wiki/Electric_motor)，比如内燃机运转带动整个系统运转起来。
+通过上面的内容可以看到：timer interrupt对系统非常重要，它就相当于系统的heartbeat，它驱动着系统的运转，它就相当于相同的系统的[Electric motor](https://en.wikipedia.org/wiki/Electric_motor)（内燃机运转带动整个系统运转起来）。
 
 
 

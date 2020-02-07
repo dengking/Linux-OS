@@ -1,12 +1,12 @@
-# kernel control path and reentrant kernel
+# Kernel control path and reentrant kernel
 
 > 本节的内容主要源自chapter 1.6.3. Reentrant Kernels
 
-在[01-Linux-OS-kernel-is-event-driven](./01-Linux-OS-kernel-is-event-driven.md)中，我们已经建立起来了Linux OS kernel的运行模型了，即OS kernel是event-driven的，那现在让我们站在内核设计者的角度来思考如何来实现？
+在前一节中，我们已经建立起来了Linux OS kernel的运行模型了，即OS kernel是event-driven的，那现在让我们站在内核设计者的角度来思考如何来实现？
 
 内核的设计者会追求系统能够快速地响应用户的请求，系统能够高效地运行，系统需要尽可能的压缩CPU的空闲时间，让CPU更多地进行运转。所以，它就需要在某个system call暂时无法完成的情况下，将它挂起并转向另外一个system call；当该system call的执行条件满足的时候再将它重启；另外，kernel还需要处理无法预测何时会出现的各种interrupt和exception，一旦出现，则需要转去执行相应的interrupt handler，当这个interrupt handler执行完成后，再重启之前被中断的流程（是否会重启其实是一个比较复杂的问题，后面会对此进行专门分析）。这种能力就是chapter 1.6.3. Reentrant Kernels所述的*reentrant*。显然这种设计能够最大程度地保证系统的高效。
 
-## kernel control path
+## Kernel control path
 
 为了便于描述reentrant kernel的实现思路，在chapter 1.6.3. Reentrant Kernels中作者提出了*kernel control path*的概念，它表示了kernel所有的可能的activity，在[01-Linux-OS-kernel-is-event-driven](./01-Linux-OS-kernel-is-event-driven.md)中我们已经总结了，kernel的activity可能有如下几种情况触发：
 
@@ -39,7 +39,9 @@
 
 ## How kernel control path execute?
 
-关于kernel control path的执行细节，比如kernel control path和process之间的关联是本书中会一直强调的内容，需要进行一下总结，其中最最典型的就是kernel control path runs on behalf of process。为了今后便于快速地检索到这些内容，现将本书中所有的与此相关内容的位置全部都整理到这里：
+kernel control path的执行细节比较复杂，后续需要进行补充。
+
+Kernel control path和process之间的关联是本书中会一直强调的内容，需要进行一下总结，其中最最典型的就是"kernel control path runs on behalf of process"。为了今后便于快速地检索到这些内容，现将本书中所有的与此相关内容的位置全部都整理到这里：
 
 - chapter 1.6.3. Reentrant Kernels
 

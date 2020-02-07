@@ -1,6 +1,6 @@
 # Control path
 
-Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述问题（一个抽象过程）。
+Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述一些问题（一个抽象过程）。
 
 OS中有如下control path：
 
@@ -18,11 +18,7 @@ Control path的执行都可能会被interrupted：
 
   即它可能会interrupt（suspend）正在执行的task，然后转去执行另外一个task。
 
-显然这是OS为了高效，让多个control path interleave（交错运行），为了实现[Reentrancy](https://en.wikipedia.org/wiki/Reentrancy_(computing)) ，每个control path都要有自己private的context、address space，这其实是一个separation机制。它能够使一个control path在被suspend后，过后能够被resume，其实这是在[How-OS-run-02-kernel-control-path-and-reentrant-kernel](./How-OS-run-02-kernel-control-path-and-reentrant-kernel.md)中提出的reentrant思想。
-
-当它们被interrupted的时候，都会涉及到context switch，因为OS为了高效，肯定会让多个control path interleave（交错运行），就必然需要维护每个control path的context，context其实是一种separation机制，
-
-
+显然这是OS为了高效，让多个control path interleave（交错运行），为了实现[Reentrancy](https://en.wikipedia.org/wiki/Reentrancy_(computing)) ，每个control path都要有自己private的context、address space（这其实是一个separation机制），它能够保证一个control path在被suspend后，过后能够被resume。
 
 显然context包括每个control path的private数据，如下：
 
@@ -30,11 +26,9 @@ Control path的执行都可能会被interrupted：
 
 
 
-## context switch
+## Context switch
 
-执行context switch的目的：[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)
-
-进程是operating system的概念，它是为了实现[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)，以充分利用hardware，在hardware中，并没有进程的概念。
+需要注意的是，本节所述的context switch是广义的，而不是[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)中专指task（process/thread）的[context switch](https://en.wikipedia.org/wiki/Context_switch)。
 
 发生context switch的场景：
 
@@ -58,6 +52,10 @@ kernel substitutes one process for another process
 
 
 
-
-
 思考：发生context switch的时候，要把context置于何处呢？
+
+
+
+## 总结
+
+通过control path模型我们可以看到，OS在运行和控制它们的时候会面临中类似的问题。
