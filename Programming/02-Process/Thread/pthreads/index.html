@@ -2515,10 +2515,10 @@
               
                 
                 
-                <h1 id="pthreads7"><a href="http://man7.org/linux/man-pages/man7/pthreads.7.html">PTHREADS(7)</a></h1>
-<h2 id="name">NAME</h2>
+                <h1 id="pthreads7"><a href="http://man7.org/linux/man-pages/man7/pthreads.7.html">PTHREADS(7)</a><a class="headerlink" href="#pthreads7" title="Permanent link">#</a></h1>
+<h2 id="name">NAME<a class="headerlink" href="#name" title="Permanent link">#</a></h2>
 <p>pthreads - POSIX threads</p>
-<h2 id="description">DESCRIPTION</h2>
+<h2 id="description">DESCRIPTION<a class="headerlink" href="#description" title="Permanent link">#</a></h2>
 <p>POSIX.1 specifies a set of interfaces (functions, header files) for threaded programming commonly known as POSIX threads, or Pthreads.  A single process can contain multiple threads, all of which are executing the same program.  These threads share the same global memory (data and heap segments), but each thread has its own <strong>stack</strong> (automatic variables).</p>
 <p>POSIX.1 also requires that threads share a range of other attributes (i.e., these attributes are process-wide rather than per-thread):</p>
 <ul>
@@ -2593,15 +2593,15 @@
 <p>CPU affinity (<a href="http://man7.org/linux/man-pages/man2/sched_setaffinity.2.html">sched_setaffinity(2)</a>)</p>
 </li>
 </ul>
-<h3 id="pthreads-function-return-values">Pthreads function return values</h3>
+<h3 id="pthreads-function-return-values">Pthreads function return values<a class="headerlink" href="#pthreads-function-return-values" title="Permanent link">#</a></h3>
 <p>Most pthreads functions return 0 on success, and an <strong>error number</strong> on failure.  Note that the pthreads functions do not set <a href="http://man7.org/linux/man-pages/man3/errno.3.html">errno</a>.  For each of the pthreads functions that can return an error, POSIX.1-2001 specifies that the function can never fail with the error <code>EINTR</code>.</p>
 <p><strong><em>SUMMARY</em></strong> : linux system call是会设置<code>errno</code>的。</p>
-<h3 id="thread-ids">Thread IDs</h3>
+<h3 id="thread-ids">Thread IDs<a class="headerlink" href="#thread-ids" title="Permanent link">#</a></h3>
 <p>Each of the threads in a process has a unique thread identifier (stored in the type pthread_t).  This identifier is returned to the caller of <a href="http://man7.org/linux/man-pages/man3/pthread_create.3.html">pthread_create(3)</a>, and a thread can obtain its own thread identifier using <a href="http://man7.org/linux/man-pages/man3/pthread_self.3.html">pthread_self(3)</a>.</p>
 <p>Thread IDs are guaranteed to be unique only within a process.  (In all pthreads functions that accept a thread ID as an argument, that ID by definition refers to a thread in the same process as the caller.)</p>
 <p>The system may reuse a thread ID after a terminated thread has been joined, or a detached thread has terminated.  POSIX says: "If an application attempts to use a thread ID whose lifetime has ended, the behavior is undefined."</p>
-<h3 id="thread-safe-functions">Thread-safe functions</h3>
-<h3 id="async-cancel-safe-functions">Async-cancel-safe functions</h3>
+<h3 id="thread-safe-functions">Thread-safe functions<a class="headerlink" href="#thread-safe-functions" title="Permanent link">#</a></h3>
+<h3 id="async-cancel-safe-functions">Async-cancel-safe functions<a class="headerlink" href="#async-cancel-safe-functions" title="Permanent link">#</a></h3>
 <p>An <strong>async-cancel-safe</strong> function is one that can be safely called in an application where <strong>asynchronous cancelability</strong> is enabled (see <a href="http://man7.org/linux/man-pages/man3/pthread_setcancelstate.3.html">pthread_setcancelstate(3)</a>).</p>
 <p>Only the following functions are required to be async-cancel-safe by POSIX.1-2001 and POSIX.1-2008:</p>
 <pre><code class="c">pthread_cancel()
@@ -2609,7 +2609,7 @@ pthread_setcancelstate()
 pthread_setcanceltype()
 </code></pre>
 
-<h3 id="cancellation-points">Cancellation points</h3>
+<h3 id="cancellation-points">Cancellation points<a class="headerlink" href="#cancellation-points" title="Permanent link">#</a></h3>
 <p>POSIX.1 specifies that certain functions must, and certain other functions may, be <strong>cancellation points</strong>.  If a thread is cancelable, its cancelability type is <strong>deferred</strong>, and a <strong>cancellation request</strong> is pending for the thread, then the thread is canceled when it calls a function that is a <strong>cancellation point</strong>.</p>
 <p>The following functions are required to be <strong>cancellation points</strong> by POSIX.1-2001 and/or POSIX.1-2008:</p>
 <pre><code class="c">           accept()
@@ -2901,7 +2901,7 @@ pthread_setcanceltype()
 </code></pre>
 
 <p>An implementation may also mark other functions not specified in the standard as <strong>cancellation points</strong>.  In particular, an implementation is likely to mark any nonstandard function that may <strong>block</strong> as a <strong>cancellation point</strong>.  (This includes most functions that can touch files.)</p>
-<h3 id="linux-implementations-of-posix-threads">Linux implementations of POSIX threads</h3>
+<h3 id="linux-implementations-of-posix-threads">Linux implementations of POSIX threads<a class="headerlink" href="#linux-implementations-of-posix-threads" title="Permanent link">#</a></h3>
 <p>Over time, two threading implementations have been provided by the GNU C library on Linux:</p>
 <p>LinuxThreads</p>
 <p>This is the original Pthreads implementation.  Since glibc 2.4, this implementation is no longer supported.</p>

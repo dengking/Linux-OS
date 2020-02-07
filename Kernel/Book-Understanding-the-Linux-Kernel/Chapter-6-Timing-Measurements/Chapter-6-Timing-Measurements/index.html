@@ -2365,7 +2365,7 @@
 <li><a href="#chapter-6-timing-measurements">Chapter 6. Timing Measurements</a></li>
 </ul>
 </div>
-<h1 id="chapter-6-timing-measurements">Chapter 6. Timing Measurements</h1>
+<h1 id="chapter-6-timing-measurements">Chapter 6. Timing Measurements<a class="headerlink" href="#chapter-6-timing-measurements" title="Permanent link">#</a></h1>
 <p>Countless computerized activities are driven by <strong>timing measurements</strong> , often behind the user's back. For instance, if the screen is automatically switched off after you have stopped using the computer's console, it is due to a timer that allows the kernel to keep track of how much time has elapsed since you pushed a key or moved the mouse. If you receive a warning from the system asking you to remove a set of unused files, it is the outcome of a program that identifies all user files that have not been accessed for a long time. To do these things, programs must be able to retrieve a <code>timestamp</code> identifying its last access time from each file. Such a timestamp must be automatically written by the <strong>kernel</strong>. More significantly, <strong>timing drives process switches</strong> along with even more visible kernel activities such as checking for time-outs.</p>
 <p><strong><em>SUMMARY</em></strong> : CPU的控制器也是受时钟控制的：clock generator；</p>
 <p>We can distinguish two main kinds of <strong>timing measurement</strong> that must be performed by the Linux kernel:</p>

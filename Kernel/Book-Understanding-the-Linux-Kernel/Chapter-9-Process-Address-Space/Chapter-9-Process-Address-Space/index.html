@@ -2360,7 +2360,7 @@
               
                 
                 
-                <h1 id="chapter-9-process-address-space">Chapter 9. Process Address Space</h1>
+                <h1 id="chapter-9-process-address-space">Chapter 9. Process Address Space<a class="headerlink" href="#chapter-9-process-address-space" title="Permanent link">#</a></h1>
 <p>As seen in the previous chapter, a kernel function gets dynamic memory in a fairly straightforward manner by invoking one of a variety of functions:  <code>__get_free_pages( )</code> or  <code>alloc_pages( )</code> to get <strong>pages</strong> from the zoned page frame allocator,  <code>kmem_cache_alloc( )</code> or  <code>kmalloc( )</code> to use the slab allocator for specialized or general-purpose objects, and  <code>vmalloc( )</code> or  <code>vmalloc_32( )</code> to get a noncontiguous memory area. If the request can be satisfied, each of these functions returns a <strong>page descriptor address</strong> or a linear address identifying the beginning of the allocated dynamic memory area.</p>
 <blockquote>
 <p>NOTE: 普通的process是不会接触到page descriptor的</p>

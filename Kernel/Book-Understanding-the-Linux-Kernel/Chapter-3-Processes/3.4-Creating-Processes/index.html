@@ -2405,7 +2405,7 @@
               
                 
                 
-                <h1 id="34-creating-processes">3.4. Creating Processes</h1>
+                <h1 id="34-creating-processes">3.4. Creating Processes<a class="headerlink" href="#34-creating-processes" title="Permanent link">#</a></h1>
 <p>Unix operating systems rely heavily on process creation to satisfy user requests. For example, the shell creates a new process that executes another copy of the shell whenever the user enters a command.</p>
 <p>Traditional Unix systems treat all processes in the same way: resources owned by the parent process are duplicated in the child process. This approach makes process creation very slow and inefficient, because it requires copying the entire address space of the parent process. The child process rarely needs to read or modify all the resources inherited from the parent; in many cases, it issues an immediate  <a href="http://man7.org/linux/man-pages/man2/execve.2.html">execve( )</a> and wipes out the address space that was so carefully copied.</p>
 <p>Modern Unix kernels solve this problem by introducing three different mechanisms:</p>
@@ -2414,7 +2414,7 @@
 <li>Lightweight processes allow both the parent and the child to share many <strong>per-process kernel data structures</strong>, such as the <strong>paging tables</strong> (and therefore the entire <strong>User Mode address space</strong>), the open file tables, and the <strong>signal dispositions</strong>.</li>
 <li>The  <a href="http://man7.org/linux/man-pages/man2/vfork.2.html"><code>vfork( )</code></a> system call creates a process that shares the memory address space of its parent. To prevent the parent from overwriting data needed by the child, the parent's execution is blocked until the child exits or executes a new program. We'll learn more about the  <a href="http://man7.org/linux/man-pages/man2/vfork.2.html"><code>vfork( )</code></a> system call in the following section.</li>
 </ul>
-<h2 id="341-the-clone-fork-and-vfork-system-calls">3.4.1. The <code>clone( )</code>, <code>fork( )</code>, and <code>vfork( )</code> System Calls</h2>
+<h2 id="341-the-clone-fork-and-vfork-system-calls">3.4.1. The <code>clone( )</code>, <code>fork( )</code>, and <code>vfork( )</code> System Calls<a class="headerlink" href="#341-the-clone-fork-and-vfork-system-calls" title="Permanent link">#</a></h2>
 <p><strong>Lightweight processes</strong> are created in Linux by using a function named  <a href="http://man7.org/linux/man-pages/man2/clone.2.html"><code>clone( )</code></a> , which uses the
 following parameters:</p>
 <blockquote>

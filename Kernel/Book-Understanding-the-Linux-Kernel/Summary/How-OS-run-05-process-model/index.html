@@ -2360,18 +2360,18 @@
               
                 
                 
-                <h1 id="_1">前言</h1>
+                <h1 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/Thread_(computing)">Thread</a>和<a href="https://en.wikipedia.org/wiki/Process_(computing)">Process</a>是现代OS实现<a href="https://en.wikipedia.org/wiki/Computer_multitasking">multitasking</a>的关键所在。建立起完整、正确的process model对于在linux-like OS下进行开发、理解linux kernel的实现至关重要。</p>
-<h1 id="process-model">Process model</h1>
+<h1 id="process-model">Process model<a class="headerlink" href="#process-model" title="Permanent link">#</a></h1>
 <p>Process model图示如下：</p>
 <p><img alt="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Multithreaded_process.svg/220px-Multithreaded_process.svg.png" /></p>
-<h2 id="process">Process</h2>
+<h2 id="process">Process<a class="headerlink" href="#process" title="Permanent link">#</a></h2>
 <p>主要参考文章：<a href="https://en.wikipedia.org/wiki/Process_(computing)">Process</a> </p>
 <blockquote>
 <p>In computing, a <strong>process</strong> is the <a href="https://en.wikipedia.org/wiki/Instance_(computer_science)">instance</a> of a <a href="https://en.wikipedia.org/wiki/Computer_program">computer program</a> that is being executed by one or many threads. It contains the program code and its activity. Depending on the <a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a> (OS), a process may be made up of multiple <a href="https://en.wikipedia.org/wiki/Thread_(computing)">threads of execution</a> that execute instructions <a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)">concurrently</a>.</p>
 </blockquote>
 <p>显然thread是process的“成分”，下面看看thread。</p>
-<h3 id="thread">Thread</h3>
+<h3 id="thread">Thread<a class="headerlink" href="#thread" title="Permanent link">#</a></h3>
 <p>主要参考文章：<a href="https://en.wikipedia.org/wiki/Thread_(computing)">Thread (computing)</a></p>
 <blockquote>
 <p>In <a href="https://en.wikipedia.org/wiki/Computer_science">computer science</a>, a <strong>thread</strong> of execution is the smallest sequence of programmed instructions that can be managed independently by a <a href="https://en.wikipedia.org/wiki/Scheduling_(computing)">scheduler</a>. <a href="https://en.wikipedia.org/wiki/Thread_(computing)#Multithreading">Multiple threads</a> can exist within one process, executing <a href="https://en.wikipedia.org/wiki/Concurrent_computation">concurrently</a> and sharing resources</p>
@@ -2382,12 +2382,12 @@
 <p>注意：上述概括的是现代大多数OS的process model，并非所有OS的process model都是如此，实现上是存在差异的。</p>
 </blockquote>
 <p>上面这段话虽然简短，但是蕴含着丰富的内涵，需要进行详细分析：</p>
-<h2 id="osprocessresource">“OS是基于process的resource分配”</h2>
+<h2 id="osprocessresource">“OS是基于process的resource分配”<a class="headerlink" href="#osprocessresource" title="Permanent link">#</a></h2>
 <p>上面这段话意味着：process是OS的进行resource分配的单位，process之间是彼此隔离的。</p>
 <blockquote>
 <p>NOTE: 对于一些特殊的情况，如process之间共享memory的情况除外。</p>
 </blockquote>
-<h3 id="osresourceprocessresource">OS中有哪些resource？Process需要哪些resource？</h3>
+<h3 id="osresourceprocessresource">OS中有哪些resource？Process需要哪些resource？<a class="headerlink" href="#osresourceprocessresource" title="Permanent link">#</a></h3>
 <ul>
 <li>OS是基于process的resource分配，resource包括：</li>
 <li>Memory </li>
@@ -2404,8 +2404,8 @@
 <blockquote>
 <p>In <a href="https://en.wikipedia.org/wiki/Computer_science">computer science</a>, a <strong>thread</strong> of execution is the smallest sequence of programmed instructions that can be managed independently by a <a href="https://en.wikipedia.org/wiki/Scheduling_(computing)">scheduler</a>, which is typically a part of the <a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a>. </p>
 </blockquote>
-<h3 id="_2"></h3>
-<h2 id="process-model_1">process model的演进历史</h2>
+<h3 id="_2"><a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<h2 id="process-model_1">process model的演进历史<a class="headerlink" href="#process-model_1" title="Permanent link">#</a></h2>
 <p>在<a href="https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/index.php">stanford CS 140: Operating Systems (Spring 2014)</a>的lecture中总结了Evolution of operating system <strong>process model</strong>:</p>
 <ul>
 <li>Early operating systems supported a single process with a single thread at a time (<em>single tasking</em>). They ran batch jobs (one user at a time).</li>
@@ -2414,25 +2414,25 @@
 <li>In the 1990's most systems converted to <em>multithreading</em>: multiple threads within each process.</li>
 </ul>
 <p>显然，早期的时候，并没有<em>multithreading</em>: multiple threads within each process，所以早期的时候multitasking的task所指<strong>processes</strong>。而随着技术的发展，后来才出现了<em>multithreading</em>: multiple threads within each process。</p>
-<h2 id="multithreadingmultiprocessing"><a href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)">multithreading</a>相较于<a href="https://en.wikipedia.org/wiki/Multiprocessing">Multiprocessing</a>优势是什么？</h2>
+<h2 id="multithreadingmultiprocessing"><a href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)">multithreading</a>相较于<a href="https://en.wikipedia.org/wiki/Multiprocessing">Multiprocessing</a>优势是什么？<a class="headerlink" href="#multithreadingmultiprocessing" title="Permanent link">#</a></h2>
 <p>不禁要问：<a href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)">multithreading</a>相较于<a href="https://en.wikipedia.org/wiki/Multiprocessing">Multiprocessing</a>优势是什么？</p>
 <p>这个问题，在<a href="https://en.wikipedia.org/wiki/Computer_multitasking">Computer multitasking</a>的<a href="https://en.wikipedia.org/wiki/Computer_multitasking#Multithreading">Multithreading</a> 章节给出了答案解答。</p>
-<h2 id="threads-vs-processes"><a href="https://en.wikipedia.org/wiki/Thread_(computing)#Threads_vs._processes">Threads vs. processes</a></h2>
-<h1 id="linux-osprocess-model">Linux OS中Process model的实现</h1>
+<h2 id="threads-vs-processes"><a href="https://en.wikipedia.org/wiki/Thread_(computing)#Threads_vs._processes">Threads vs. processes</a><a class="headerlink" href="#threads-vs-processes" title="Permanent link">#</a></h2>
+<h1 id="linux-osprocess-model">Linux OS中Process model的实现<a class="headerlink" href="#linux-osprocess-model" title="Permanent link">#</a></h1>
 <p>参见章节：</p>
 <p>1.6.2. Process Implementation
 1.6.4. Process Address Space</p>
-<h1 id="process_1">process的一系列问题</h1>
-<h2 id="_3">生</h2>
+<h1 id="process_1">process的一系列问题<a class="headerlink" href="#process_1" title="Permanent link">#</a></h1>
+<h2 id="_3">生<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
 <p>创建process</p>
-<h2 id="_4">占用了哪些资源</h2>
-<h2 id="process_2">如何来控制process</h2>
-<h3 id="_5">如何限制资源</h3>
-<h2 id="process_3">process之间的关系</h2>
-<h3 id="process_4">process之间如何进行沟通</h3>
-<h2 id="_6">时空的角度</h2>
-<h2 id="process_5">process的状态</h2>
-<h2 id="_7">死</h2>
+<h2 id="_4">占用了哪些资源<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
+<h2 id="process_2">如何来控制process<a class="headerlink" href="#process_2" title="Permanent link">#</a></h2>
+<h3 id="_5">如何限制资源<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<h2 id="process_3">process之间的关系<a class="headerlink" href="#process_3" title="Permanent link">#</a></h2>
+<h3 id="process_4">process之间如何进行沟通<a class="headerlink" href="#process_4" title="Permanent link">#</a></h3>
+<h2 id="_6">时空的角度<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
+<h2 id="process_5">process的状态<a class="headerlink" href="#process_5" title="Permanent link">#</a></h2>
+<h2 id="_7">死<a class="headerlink" href="#_7" title="Permanent link">#</a></h2>
                 
                   
                 

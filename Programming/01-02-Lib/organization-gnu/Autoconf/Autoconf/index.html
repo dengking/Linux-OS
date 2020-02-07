@@ -2543,8 +2543,8 @@
               
                 
                 
-                <h1 id="autoconf"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Top">Autoconf</a></h1>
-<h2 id="1-introduction"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Introduction">1 Introduction</a></h2>
+                <h1 id="autoconf"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Top">Autoconf</a><a class="headerlink" href="#autoconf" title="Permanent link">#</a></h1>
+<h2 id="1-introduction"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Introduction">1 Introduction</a><a class="headerlink" href="#1-introduction" title="Permanent link">#</a></h2>
 <p>Autoconf is a tool for producing shell scripts that automatically configure software source code packages to adapt to many kinds of <strong>Posix-like systems</strong>. The <strong>configuration scripts</strong> produced by <strong>Autoconf</strong> are independent of Autoconf when they are run, so their users do not need to have Autoconf.</p>
 <p>The <strong>configuration scripts</strong> produced by Autoconf require no manual user intervention when run; they do not normally even need an argument specifying the system type. Instead, they individually test for the presence of each <strong>feature</strong> that the software package they are for might need. (Before each check, they print a one-line message stating what they are checking for, so the user doesn't get too bored while waiting for the script to finish.) As a result, they deal well with systems that are hybrids or customized from the more common Posix variants. There is no need to maintain files that list the features supported by each release of each variant of Posix.</p>
 <p>For each software package that Autoconf is used with, it creates a <strong>configuration script</strong> from a <strong>template file</strong> that lists the <strong>system features</strong> that the package needs or can use. After the shell code to recognize and respond to a <strong>system feature</strong> has been written, Autoconf allows it to be shared by many software packages that can use (or need) that feature. If it later turns out that the shell code needs adjustment for some reason, it needs to be changed in only one place; all of the configuration scripts can be regenerated automatically to take advantage of the updated code.</p>
@@ -2553,14 +2553,14 @@
 <p>Autoconf 的输入：template file，按照惯例，文件名为<code>configure.ac</code></p>
 <p>Autoconf 的输出：configuration script，按照惯例，文件名为<code>configure</code></p>
 </blockquote>
-<h2 id="2-the-gnu-build-system"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#The-GNU-Build-System">2 The GNU Build System</a></h2>
+<h2 id="2-the-gnu-build-system"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#The-GNU-Build-System">2 The GNU Build System</a><a class="headerlink" href="#2-the-gnu-build-system" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Automake">2.1 Automake</a></li>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Gnulib">2.2 Gnulib</a></li>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Libtool">2.3 Libtool</a></li>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Pointers">2.4 Pointers</a></li>
 </ul>
-<h2 id="3-making-configure-scripts"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Making-configure-Scripts">3 Making configure Scripts</a></h2>
+<h2 id="3-making-configure-scripts"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Making-configure-Scripts">3 Making configure Scripts</a><a class="headerlink" href="#3-making-configure-scripts" title="Permanent link">#</a></h2>
 <p>The configuration scripts that Autoconf produces are by convention called <code>configure</code>. When run, configure creates several files, replacing configuration parameters in them with appropriate values. The files that configure creates are:</p>
 <ul>
 <li>one or more Makefile files, usually one in each subdirectory of the package (see <a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Makefile-Substitutions">Makefile Substitutions</a>);</li>
@@ -2595,14 +2595,14 @@
      Makefile.am ---'
 </code></pre>
 
-<h3 id="31-writing-configureac"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Writing-Autoconf-Input">3.1 Writing configure.ac</a></h3>
+<h3 id="31-writing-configureac"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Writing-Autoconf-Input">3.1 Writing configure.ac</a><a class="headerlink" href="#31-writing-configureac" title="Permanent link">#</a></h3>
 <p>To produce a <strong>configure script</strong> for a software package, create a file called <code>configure.ac</code> that contains invocations of the <strong>Autoconf macros</strong> that test the <strong>system features</strong> your package needs or can use. <strong>Autoconf macros</strong> already exist to check for many features; see <a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Existing-Tests">Existing Tests</a>, for their descriptions. For most other features, you can use <strong>Autoconf template macros</strong> to produce <strong>custom checks</strong>; see <a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Writing-Tests">Writing Tests</a>, for information about them. For especially tricky or specialized features, <code>configure.ac</code> might need to contain some hand-crafted shell commands; see <a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Portable-Shell">Portable Shell Programming</a>. The <code>autoscan</code> program can give you a good start in writing <code>configure.ac</code> (see <a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#autoscan-Invocation">autoscan Invocation</a>, for more information).</p>
 <ul>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Shell-Script-Compiler">Shell Script Compiler</a>: Autoconf as solution of a problem</li>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Autoconf-Language">Autoconf Language</a>: Programming in Autoconf</li>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Autoconf-Input-Layout">Autoconf Input Layout</a>: Standard organization of <code>configure.ac</code></li>
 </ul>
-<h4 id="311-a-shell-script-compiler"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Shell-Script-Compiler">3.1.1 A Shell Script Compiler</a></h4>
+<h4 id="311-a-shell-script-compiler"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Shell-Script-Compiler">3.1.1 A Shell Script Compiler</a><a class="headerlink" href="#311-a-shell-script-compiler" title="Permanent link">#</a></h4>
 <p>Just as for any other computer language, in order to properly program configure.ac in Autoconf you must understand <em>what</em> problem the language tries to address and <em>how</em> it does so.</p>
 <p>The problem Autoconf addresses is that the world is a mess. After all, you are using Autoconf in order to have your package compile easily on all sorts of different systems, some of them being extremely hostile. Autoconf itself bears the price for these differences: configure must run on all those systems, and thus configure must limit itself to their lowest common denominator of features.</p>
 <p>Naturally, you might then think of shell scripts; who needs autoconf? A set of properly written shell functions is enough to make it easy to write configure scripts by hand. Sigh! Unfortunately, even in 2008, where shells without any function support are far and few between, there are pitfalls to avoid when making use of them. Also, finding a Bourne shell that accepts shell functions is not trivial, even though there is almost always one on interesting porting targets.</p>
@@ -2610,7 +2610,7 @@
 <p>How does <code>autoconf</code> perform this task?</p>
 <p>There are two obvious possibilities: creating a brand new language or extending an existing one. The former option is attractive: all sorts of optimizations could easily be implemented in the compiler and many rigorous checks could be performed on the Autoconf program (e.g., rejecting any non-portable construct). Alternatively, you can extend an existing language, such as the <code>sh</code> (Bourne shell) language.</p>
 <p>Autoconf does the latter: it is a layer on top of <code>sh</code>. It was therefore most convenient to implement <code>autoconf</code> as a <strong>macro expander</strong>: a program that repeatedly performs <strong>macro expansions</strong> on text input, replacing macro calls with macro bodies and producing a pure <code>sh</code> script in the end. Instead of implementing a dedicated Autoconf <strong>macro expander</strong>, it is natural to use an existing <strong>general-purpose macro language</strong>, such as M4, and implement the extensions as a set of M4 macros.</p>
-<h4 id="312-the-autoconf-language"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Autoconf-Language">3.1.2 The Autoconf Language</a></h4>
+<h4 id="312-the-autoconf-language"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Autoconf-Language">3.1.2 The Autoconf Language</a><a class="headerlink" href="#312-the-autoconf-language" title="Permanent link">#</a></h4>
 <p>The Autoconf language differs from many other computer languages because it treats actual code the same as plain text. Whereas in C, for instance, data and instructions have different syntactic status, in Autoconf their status is rigorously the same. Therefore, we need a means to distinguish literal strings from text to be expanded: quotation.</p>
 <p>When calling <strong>macros</strong> that take arguments, there must not be any white space between the macro name and the open parenthesis.</p>
 <pre><code>     AC_INIT ([oops], [1.0]) # incorrect
@@ -2639,7 +2639,7 @@
                      [AC_MSG_ERROR([sorry, can't do anything for you])])
 </code></pre>
 
-<h4 id="313-standard-configureac-layout"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Autoconf-Input-Layout">3.1.3 Standard configure.ac Layout</a></h4>
+<h4 id="313-standard-configureac-layout"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Autoconf-Input-Layout">3.1.3 Standard configure.ac Layout</a><a class="headerlink" href="#313-standard-configureac-layout" title="Permanent link">#</a></h4>
 <p>The order in which <code>configure.ac</code> calls the Autoconf macros is not important, with a few exceptions. Every <code>configure.ac</code> must contain a call to <code>AC_INIT</code> before the checks, and a call to <code>AC_OUTPUT</code> at the end (see <a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Output">Output</a>). Additionally, some macros rely on other macros having been called first, because they check previously set values of some variables to decide what to do. These macros are noted in the individual descriptions (see <a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#Existing-Tests">Existing Tests</a>), and they also warn you when configure is created if they are called out of order.</p>
 <p>To encourage consistency, here is a suggested order for calling the Autoconf macros. Generally speaking, the things near the end of this list are those that could depend on things earlier in it. For example, library functions could be affected by types and libraries.</p>
 <pre><code>     Autoconf requirements
@@ -2657,8 +2657,8 @@
      AC_OUTPUT
 </code></pre>
 
-<h3 id="32-using-autoscan-to-create-configureac"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#autoscan-Invocation">3.2 Using autoscan to Create configure.ac</a></h3>
-<h3 id="33-using-ifnames-to-list-conditionals"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#ifnames-Invocation">3.3 Using ifnames to List Conditionals</a></h3>
+<h3 id="32-using-autoscan-to-create-configureac"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#autoscan-Invocation">3.2 Using autoscan to Create configure.ac</a><a class="headerlink" href="#32-using-autoscan-to-create-configureac" title="Permanent link">#</a></h3>
+<h3 id="33-using-ifnames-to-list-conditionals"><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#ifnames-Invocation">3.3 Using ifnames to List Conditionals</a><a class="headerlink" href="#33-using-ifnames-to-list-conditionals" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#autoconf-Invocation">3.4 Using autoconf to Create configure</a></li>
 <li><a href="https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/autoconf.html#autoreconf-Invocation">3.5 Using autoreconf to Update configure Scripts</a></li>

@@ -2360,7 +2360,7 @@
               
                 
                 
-                <h1 id="what-the-linux-kernels-messages-about-segfaulting-programs-mean-on-64-bit-x86"><a href="https://utcc.utoronto.ca/~cks/space/blog/linux/KernelSegfaultMessageMeaning">What the Linux kernel's messages about segfaulting programs mean on 64-bit x86</a></h1>
+                <h1 id="what-the-linux-kernels-messages-about-segfaulting-programs-mean-on-64-bit-x86"><a href="https://utcc.utoronto.ca/~cks/space/blog/linux/KernelSegfaultMessageMeaning">What the Linux kernel's messages about segfaulting programs mean on 64-bit x86</a><a class="headerlink" href="#what-the-linux-kernels-messages-about-segfaulting-programs-mean-on-64-bit-x86" title="Permanent link">#</a></h1>
 <p>For quite a while the Linux kernel has had <a href="https://utcc.utoronto.ca/~cks/space/blog/linux/ShuttingUpSegfaultSyslogs">an option to log a kernel message about every faulting user program</a>, and it probably defaults to on in your Linux distribution. I've seen these messages fly by for years, but for reasons beyond the scope of this entry I've recently wanted to understand what they mean in some moderate amount of detail.</p>
 <p>I'll start with a straightforward and typical example, one that I see every time I build and test <code>Go</code> (as this is a test case that is supposed to crash):</p>
 <blockquote>
@@ -2393,7 +2393,7 @@
 <p>Sometimes these messages can be a little bit unusual and surprising. Here is a silly sample program and the error it produces when run. The code:</p>
 <blockquote>
 <p>```</p>
-<h1 id="include">include <stdio.h></h1>
+<h1 id="include">include <stdio.h><a class="headerlink" href="#include" title="Permanent link">#</a></h1>
 <p>int main(int argc, char <em><em>argv) {
    int (</em>p)();
    p = 0x0;
@@ -2409,7 +2409,7 @@
 <p>The error code of 14 is in hex, which means that as bits it's 010100. This is a user mode read of an unmapped area (our usual '4' case), but it's an instruction fetch, not a normal data read or write. Any error 14s are a sign of some form of mangled function call or a return to a mangled address because the stack has been mashed.</p>
 <p>(These bits turn out to come straight from <a href="https://wiki.osdev.org/Exceptions#Page_Fault">the CPU's page fault IDT</a>.)</p>
 <p>For 64-bit x86 Linux kernels (and possibly for 32-bit x86 ones as well), the code you want to look at is <code>show_signal_msg</code> in <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/x86/mm/fault.c">fault.c</a>, which prints the general 'segfault at ..' message, <code>do_trap</code> and<code>do_general_protection</code> in <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/x86/kernel/traps.c">traps.c</a>, which print the 'trap ...' messages, and <code>print_vma_addr</code> in<a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/mm/memory.c">memory.c</a>, which prints the 'in ...' portion for all of these messages.</p>
-<h3 id="sidebar-the-various-error-code-bits-as-numbers">Sidebar: The various error code bits as numbers</h3>
+<h3 id="sidebar-the-various-error-code-bits-as-numbers">Sidebar: The various error code bits as numbers<a class="headerlink" href="#sidebar-the-various-error-code-bits-as-numbers" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>

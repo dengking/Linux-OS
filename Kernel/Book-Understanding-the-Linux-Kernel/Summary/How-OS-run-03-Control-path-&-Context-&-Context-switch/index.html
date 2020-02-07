@@ -2360,7 +2360,7 @@
               
                 
                 
-                <h1 id="control-path">Control path</h1>
+                <h1 id="control-path">Control path<a class="headerlink" href="#control-path" title="Permanent link">#</a></h1>
 <p>Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它具备一些特征可以方便我们来统一地、概括地描述问题（一个抽象过程）。</p>
 <p>OS中有如下control path：</p>
 <ul>
@@ -2387,14 +2387,14 @@
 <ul>
 <li>call stack</li>
 </ul>
-<h1 id="context-switch">context switch</h1>
+<h1 id="context-switch">context switch<a class="headerlink" href="#context-switch" title="Permanent link">#</a></h1>
 <p>执行context switch的目的：<a href="https://en.wikipedia.org/wiki/Computer_multitasking">Computer multitasking</a></p>
 <p>进程是operating system的概念，它是为了实现<a href="https://en.wikipedia.org/wiki/Computer_multitasking">Computer multitasking</a>，以充分利用hardware，在hardware中，并没有进程的概念。</p>
 <p>发生context switch的场景：</p>
-<h2 id="schedulerprocess-switch">Scheduler触发Process Switch</h2>
+<h2 id="schedulerprocess-switch">Scheduler触发Process Switch<a class="headerlink" href="#schedulerprocess-switch" title="Permanent link">#</a></h2>
 <p>3.3. Process Switch</p>
 <p>kernel substitutes one process for another process</p>
-<h2 id="interrupt-signalsswitch">Interrupt Signals触发Switch</h2>
+<h2 id="interrupt-signalsswitch">Interrupt Signals触发Switch<a class="headerlink" href="#interrupt-signalsswitch" title="Permanent link">#</a></h2>
 <p>4.1. The Role of Interrupt Signals</p>
 <blockquote>
 <p>the code executed by an interrupt or by an exception handler is not a process. Rather, it is a kernel control path that runs at the expense of the same process that was running when the interrupt occurred</p>

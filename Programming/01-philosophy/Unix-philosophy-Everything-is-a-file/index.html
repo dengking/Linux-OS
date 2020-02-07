@@ -2377,7 +2377,7 @@
 <li><a href="#kerneleverything-in-unix-is-file">从kernel实现的角度来看待everything in Unix is file</a></li>
 </ul>
 </div>
-<h1 id="everything-is-a-file"><a href="https://en.wikipedia.org/wiki/Everything_is_a_file">Everything is a file</a></h1>
+<h1 id="everything-is-a-file"><a href="https://en.wikipedia.org/wiki/Everything_is_a_file">Everything is a file</a><a class="headerlink" href="#everything-is-a-file" title="Permanent link">#</a></h1>
 <p><strong><em>"Everything is a file"</em></strong> describes one of the defining(最典型的) features of <a href="https://en.wikipedia.org/wiki/Unix">Unix</a>, and its derivatives — that a wide range of input/output <a href="https://en.wikipedia.org/wiki/System_resource">resources</a> such as documents, directories, hard-drives, modems, keyboards, printers and even some inter-process and network communications are simple <strong>streams of bytes</strong> exposed through the <a href="https://en.wikipedia.org/wiki/Unix_directory_structure">filesystem name space</a>.[<a href="https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-1">1]</a></p>
 <p><strong><em>SUMMARY</em></strong> : 最后一段话是对<strong><em>"Everything is a file"</em></strong> 含义的解释：即将这些resource都看做是file（<strong>streams of bytes</strong> ）</p>
 <p><strong><em>SUMMARY</em></strong> : 上述 hard-drives，modems，keyboards，等都是device，显然在Unix中，它们都被看做成了file（<strong>streams of bytes</strong> ）</p>
@@ -2386,8 +2386,8 @@
 <p>An example of this purely virtual filesystem is under <a href="https://en.wikipedia.org/wiki/Procfs">/proc</a> that exposes many system properties as files.</p>
 <p>All of these "files" have standard Unix file attributes such as <a href="https://en.wikipedia.org/wiki/Chown">an owner</a> and <a href="https://en.wikipedia.org/wiki/Chmod">access permissions</a>, and can be queried by the same <a href="https://en.wikipedia.org/wiki/List_of_Unix_commands">classic Unix tools</a> and <a href="https://en.wikipedia.org/wiki/Filter_(Unix)">filters</a>. However, this is not universally considered a fast or portable approach. Some operating systems do not even mount /proc by default due to security or speed concerns.[<a href="https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-4">4]</a> It is, though, used heavily by both the widely installed <a href="https://en.wikipedia.org/wiki/BusyBox">BusyBox</a> [<a href="https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-5">5]</a> on <a href="https://en.wikipedia.org/wiki/Embedded_systems">embedded systems</a> and by procps, which is used on most <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> systems. In both cases it is used in implementations of process-related <a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> shell commands. It is similarly used on <a href="https://en.wikipedia.org/wiki/Android_(operating_system)">Android</a> systems in the operating system's Toolbox program.[<a href="https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-6">6]</a></p>
 <p>Unix's successor <a href="https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs">Plan 9</a> took this concept into <a href="https://en.wikipedia.org/wiki/Distributed_operating_system">distributed computing</a> with the <a href="https://en.wikipedia.org/wiki/9P_(protocol)">9P</a> protocol.</p>
-<h1 id="why-is-everything-is-a-file-unique-to-the-unix-operating-systems"><a href="https://superuser.com/questions/364152/why-is-everything-is-a-file-unique-to-the-unix-operating-systems">Why is “Everything is a file” unique to the Unix operating systems?</a></h1>
-<h2 id="a"><a href="https://superuser.com/a/364157">A</a></h2>
+<h1 id="why-is-everything-is-a-file-unique-to-the-unix-operating-systems"><a href="https://superuser.com/questions/364152/why-is-everything-is-a-file-unique-to-the-unix-operating-systems">Why is “Everything is a file” unique to the Unix operating systems?</a><a class="headerlink" href="#why-is-everything-is-a-file-unique-to-the-unix-operating-systems" title="Permanent link">#</a></h1>
+<h2 id="a"><a href="https://superuser.com/a/364157">A</a><a class="headerlink" href="#a" title="Permanent link">#</a></h2>
 <blockquote>
 <p>So, why is this unique to Unix?</p>
 </blockquote>
@@ -2401,23 +2401,23 @@
 <p>And, compared to what other operating systems is it unique?</p>
 </blockquote>
 <p>Not really any more. Linux has the same feature. Of course, if an OS adopts I/O redirection, then it tends to use other Unix features and ends up Unix-like in the end.</p>
-<h1 id="event-loop"><a href="https://en.wikipedia.org/wiki/Event_loop">Event loop</a></h1>
+<h1 id="event-loop"><a href="https://en.wikipedia.org/wiki/Event_loop">Event loop</a><a class="headerlink" href="#event-loop" title="Permanent link">#</a></h1>
 <p>在这篇文章的<a href="https://en.wikipedia.org/wiki/Event_loop#File_interface">File_interface</a>章节对every thing is a file进行阐释；</p>
-<h1 id="device-file"><a href="https://en.wikipedia.org/wiki/Device_file">Device file</a></h1>
+<h1 id="device-file"><a href="https://en.wikipedia.org/wiki/Device_file">Device file</a><a class="headerlink" href="#device-file" title="Permanent link">#</a></h1>
 <p>将device抽象为file，这就是everything is a file最好的体现；</p>
-<h1 id="beejs-guide-to-network-programming"><a href="https://beej.us/guide/bgnet/html/multi/index.html">Beej's Guide to Network Programming</a></h1>
+<h1 id="beejs-guide-to-network-programming"><a href="https://beej.us/guide/bgnet/html/multi/index.html">Beej's Guide to Network Programming</a><a class="headerlink" href="#beejs-guide-to-network-programming" title="Permanent link">#</a></h1>
 <p>在这本书的第二章<a href="https://beej.us/guide/bgnet/html/multi/theory.html">2. What is a socket?</a>中对everything is a file进行了阐述；</p>
-<h1 id="apue-chapter-16-network-ipc-sockets">APUE chapter 16 Network IPC: Sockets</h1>
-<h2 id="20190523">20190523</h2>
+<h1 id="apue-chapter-16-network-ipc-sockets">APUE chapter 16 Network IPC: Sockets<a class="headerlink" href="#apue-chapter-16-network-ipc-sockets" title="Permanent link">#</a></h1>
+<h2 id="20190523">20190523<a class="headerlink" href="#20190523" title="Permanent link">#</a></h2>
 <p>昨天在阅读APUE的的chapter 16 Network IPC: Sockets时，所想：</p>
 <p>everything in Unix is a file，所以和我应该采用看待普通文件的方式来看待Unix的socket。socket和file一样，都是通过<strong>file descriptor</strong>来进行访问。POSIX中提供的操作socket的函数的第一个参数都是<code>fd</code>，表示这个socket的file descriptor，这种做法和file是非常类似的。</p>
 <p><a href="http://man7.org/linux/man-pages/man2/socket.2.html"><code>socket()</code></a> 函数就好比<a href="https://linux.die.net/man/2/creat">create()</a>函数。其实APUE的作者在16.2中就对比了Unix的针对file的API和针对socket的API。</p>
 <p>如果从面向对象的角度来构造POSIX的文件api和socket api的话，接受file descriptor的api都可以作为成员函数，每个对象都有一个file descriptor。</p>
 <p>在<a href="https://beej.us/guide/bgnet/html/multi/index.html">Beej's Guide to Network Programming</a>的2. What is a socket?章节也是从file descriptor的角度来描述socket的；</p>
-<h1 id="why-everything-in-unix-is-a-file">why everything in Unix is a file</h1>
+<h1 id="why-everything-in-unix-is-a-file">why everything in Unix is a file<a class="headerlink" href="#why-everything-in-unix-is-a-file" title="Permanent link">#</a></h1>
 <p>Unix是典型的<a href="https://en.wikipedia.org/wiki/Monolithic_kernel">Monolithic kernel</a>，所以它需要将很多东西封装好而只提供一个descriptor来供用户使用，这个descriptor从用户的角度来看就是file descriptor。显然，everything in Unix is a file是一种简化的抽象，它让用户更加容易理解。</p>
 <p>当然，从内核的实现上是否真的是如此我目前还不得而知，但是从用户的角度来看，这是非常正确的。</p>
-<h1 id="everything-in-unix-is-file-file-api">everything in Unix is file 和 file API</h1>
+<h1 id="everything-in-unix-is-file-file-api">everything in Unix is file 和 file API<a class="headerlink" href="#everything-in-unix-is-file-file-api" title="Permanent link">#</a></h1>
 <p>需要注意的是，everything in Unix is file是一个个philosophy，它是概念上的，它更多的是指：将它看做是一个file，我们可以对其进行IO，但是这并不是指我们可以对everything in Unix都使用Unix file的API。</p>
 <p>关于这一点，APUE的16.2 Socket Descriptors进行了一些描述；</p>
 <p>关于这一点，在<a href="https://linux.die.net/man/7/pipe">pipe(7) - Linux man page</a>的I/O on pipes and FIFOs章节中提及：</p>
@@ -2425,7 +2425,7 @@
 <p>It is not possible to apply <a href="https://linux.die.net/man/2/lseek">lseek(2)</a> to a pipe.</p>
 </blockquote>
 <p>显然，我们可以<em>认为</em>（从逻辑上）pipe是一个file，但是它实际上并不是file，所以，并不能够对其使用lseek系统调用。</p>
-<h1 id="kerneleverything-in-unix-is-file">从kernel实现的角度来看待everything in Unix is file</h1>
+<h1 id="kerneleverything-in-unix-is-file">从kernel实现的角度来看待everything in Unix is file<a class="headerlink" href="#kerneleverything-in-unix-is-file" title="Permanent link">#</a></h1>
 <p>引用自<a href="https://en.wikipedia.org/wiki/File_descriptor">File descriptor</a> :</p>
 <p>In <a href="https://en.wikipedia.org/wiki/Unix-like">Unix-like</a> systems, file descriptors can refer to any <a href="https://en.wikipedia.org/wiki/Unix_file_type">Unix file type</a> named in a file system. As well as regular files, this includes <a href="https://en.wikipedia.org/wiki/Directory_(file_systems)">directories</a>, <a href="https://en.wikipedia.org/wiki/Block_device">block</a> and <a href="https://en.wikipedia.org/wiki/Character_device">character devices</a> (also called "special files"), <a href="https://en.wikipedia.org/wiki/Unix_domain_socket">Unix domain sockets</a>, and <a href="https://en.wikipedia.org/wiki/Named_pipe">named pipes</a>. File descriptors can also refer to other objects that do not normally exist in the file system, such as <a href="https://en.wikipedia.org/wiki/Anonymous_pipe">anonymous pipes</a>and <a href="https://en.wikipedia.org/wiki/Network_socket">network sockets</a>.</p>
 <p><strong><em>SUMMARY</em></strong> : <a href="https://en.wikipedia.org/wiki/Everything_is_a_file">Everything is a file</a> ；从kernel实现的角度来看看待everything in Unix is file，Unix-like system是<a href="https://en.wikipedia.org/wiki/Monolithic_kernel">monolithic kernel</a>，上面提到的这些device或者file都是由kernel来进行维护，它们都有对应的kernel structure；我们通过file descriptor来引用这些kernel structure，我们只能够通过system call来对这些kernel structure进行操作；</p>

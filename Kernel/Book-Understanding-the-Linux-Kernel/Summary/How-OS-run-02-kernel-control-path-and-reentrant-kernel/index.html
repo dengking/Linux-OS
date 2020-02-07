@@ -2405,13 +2405,13 @@
               
                 
                 
-                <h1 id="kernel-control-path-and-reentrant-kernel">kernel control path and reentrant kernel</h1>
+                <h1 id="kernel-control-path-and-reentrant-kernel">kernel control path and reentrant kernel<a class="headerlink" href="#kernel-control-path-and-reentrant-kernel" title="Permanent link">#</a></h1>
 <blockquote>
 <p>本节的内容主要源自chapter 1.6.3. Reentrant Kernels</p>
 </blockquote>
 <p>在<a href="../How-OS-run-01-OS-kernel-is-event-driven/">How-OS-run-01-OS-kernel-is-event-driven</a>中，我们已经建立起来了OS kernel的运行概况，即OS kernel是event-driven的，那现在让我们站在内核设计者的角度来思考如何来实现？</p>
 <p>内核的设计者会追求系统能够快速地响应用户的请求，系统能够高效地运行，系统需要尽可能的压缩CPU的空闲时间，让CPU更多地进行运转。所以，它就需要在某个system call暂时无法完成的情况下，将它挂起并转向另外一个system call；当该system call的执行条件满足的时候再将它重启；另外，kernel还需要处理无法预测何时会出现的各种interrupt和exception，挂起当前的system call转去执行相应的interrupt handler，当这个interrupt handler执行完成后，在重启之前被中断的system call（是否会重启其实是一个比较复杂的问题，后面会对此进行专门分析）。这种能力就是chapter 1.6.3. Reentrant Kernels所述的<em>reentrant</em>。显然这种设计能够最大程度地保证系统的高效。</p>
-<h2 id="kernel-control-path">kernel control path</h2>
+<h2 id="kernel-control-path">kernel control path<a class="headerlink" href="#kernel-control-path" title="Permanent link">#</a></h2>
 <p>为了便于描述reentrant kernel的实现思路，在chapter 1.6.3. Reentrant Kernels中作者提出了<em>kernel control path</em>的概念，它表示了kernel所有的可能的activity，在<a href="../How-OS-run-01-OS-kernel-is-event-driven/">How-OS-run-01-OS-kernel-is-event-driven</a>中我们已经总结了，kernel的activity可能有如下几种情况触发：</p>
 <ul>
 <li>system call</li>

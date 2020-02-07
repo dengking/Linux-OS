@@ -2345,7 +2345,7 @@
               
                 
                 
-                <h1 id="20190817">20190817</h1>
+                <h1 id="20190817">20190817<a class="headerlink" href="#20190817" title="Permanent link">#</a></h1>
 <p>今天在阅读《<code>Understanding.The.Linux.kernel.3rd.Edition</code>》的6.2.1.2. The jiffies variable章节的时候，其中的一段话引起了我对原子性的思考：</p>
 <blockquote>
 <p>You might wonder why  <code>jiffies</code> has not been directly declared as a 64-bit  <code>unsigned long long</code> integer on the 80 x 86 architecture. The answer is that accesses to 64-bit variables in 32-bit architectures cannot be done <strong>atomically</strong>. Therefore, every read operation on the whole 64 bits requires some synchronization technique to ensure that the counter is not updated while the two 32-bit half-counters are read; as a consequence, every 64-bit read operation is significantly slower than a 32-bit read operation.</p>
@@ -2365,13 +2365,13 @@
 <li><a href="https://dzone.com/articles/how-to-customize-serialization-in-java-using-the-e">How to Customize Serialization in Java Using the Externalizable Interface</a></li>
 <li><a href="https://stackoverflow.com/questions/27533611/are-64-bit-operations-atomic-for-a-32-bit-app-on-64-bit-windows">Are 64 bit operations atomic for a 32 bit app on 64 bit Windows</a></li>
 </ul>
-<h1 id="20190829">20190829</h1>
-<h2 id="epoll_wait-epoll_pwait"><code>epoll_wait</code> 、 <code>epoll_pwait</code>和信号之间的关系</h2>
+<h1 id="20190829">20190829<a class="headerlink" href="#20190829" title="Permanent link">#</a></h1>
+<h2 id="epoll_wait-epoll_pwait"><code>epoll_wait</code> 、 <code>epoll_pwait</code>和信号之间的关系<a class="headerlink" href="#epoll_wait-epoll_pwait" title="Permanent link">#</a></h2>
 <p>http://man7.org/linux/man-pages/man2/epoll_wait.2.html</p>
-<h2 id="epoll-and-nonblocking">epoll and nonblocking</h2>
+<h2 id="epoll-and-nonblocking">epoll and nonblocking<a class="headerlink" href="#epoll-and-nonblocking" title="Permanent link">#</a></h2>
 <p>使用epoll的时候，是否一定要使用nonblocking IO？</p>
-<h1 id="20190905">20190905</h1>
-<h2 id="passing-file-descriptor-between-process">passing file descriptor between process</h2>
+<h1 id="20190905">20190905<a class="headerlink" href="#20190905" title="Permanent link">#</a></h1>
+<h2 id="passing-file-descriptor-between-process">passing file descriptor between process<a class="headerlink" href="#passing-file-descriptor-between-process" title="Permanent link">#</a></h2>
 <p>https://docs.python.org/3.5/library/multiprocessing.html</p>
 <p>在python的multiprocessing文档中看到了它提出的这个问题：</p>
 <blockquote>
@@ -2381,48 +2381,48 @@
 </blockquote>
 <p>http://poincare.matf.bg.ac.rs/~ivana/courses/ps/sistemi_knjige/pomocno/apue/APUE/0201433079/ch17lev1sec4.html</p>
 <p>https://openforums.wordpress.com/2016/08/07/open-file-descriptor-passing-over-unix-domain-sockets/</p>
-<h2 id="semaphore-tracker-process">semaphore tracker process</h2>
+<h2 id="semaphore-tracker-process">semaphore tracker process<a class="headerlink" href="#semaphore-tracker-process" title="Permanent link">#</a></h2>
 <p>https://docs.python.org/3.5/library/multiprocessing.html</p>
-<h2 id="synchronization-between-processes">Synchronization between processes</h2>
+<h2 id="synchronization-between-processes">Synchronization between processes<a class="headerlink" href="#synchronization-between-processes" title="Permanent link">#</a></h2>
 <p>https://stackoverflow.com/questions/248911/how-do-i-synchronize-two-processes</p>
 <p>https://en.wikipedia.org/wiki/Semaphore_%28programming%29</p>
 <p>http://sce2.umkc.edu/csee/cotterr/cs431_sp13/CS431_Linux_Process_Sync_12_bw.ppt</p>
-<h1 id="20190906">20190906</h1>
+<h1 id="20190906">20190906<a class="headerlink" href="#20190906" title="Permanent link">#</a></h1>
 <p>https://stackoverflow.com/questions/11129212/tcp-can-two-different-sockets-share-a-port</p>
 <p>https://lwn.net/Articles/542629/</p>
 <p>https://stackoverflow.com/questions/1694144/can-two-applications-listen-to-the-same-port/25033226</p>
-<h1 id="20190909">20190909</h1>
-<h2 id="tcp-backlog">TCP backlog</h2>
+<h1 id="20190909">20190909<a class="headerlink" href="#20190909" title="Permanent link">#</a></h1>
+<h2 id="tcp-backlog">TCP backlog<a class="headerlink" href="#tcp-backlog" title="Permanent link">#</a></h2>
 <p>https://stackoverflow.com/questions/36594400/what-is-backlog-in-tcp-connections</p>
 <p>http://www.linuxjournal.com/files/linuxjournal.com/linuxjournal/articles/023/2333/2333s2.html</p>
 <p>https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html</p>
-<h1 id="20190913">20190913</h1>
-<h2 id="atomic-race-condition-lock-consistent-model">atomic &amp; race condition &amp; lock &amp; consistent model 专题</h2>
+<h1 id="20190913">20190913<a class="headerlink" href="#20190913" title="Permanent link">#</a></h1>
+<h2 id="atomic-race-condition-lock-consistent-model">atomic &amp; race condition &amp; lock &amp; consistent model 专题<a class="headerlink" href="#atomic-race-condition-lock-consistent-model" title="Permanent link">#</a></h2>
 <p>今天在阅读redis source code的时候，总结了redis中socket file descriptor都是non blocking的，然后我就查阅APUE中关于文件描述符标志，文件标志的内容；又重新看了一遍APUE 3.3节中关于TOCTTOU的描述，以及APUE 3.11 原子操作的描述，我才意识到原理linux的system call也是能够保证atomic的（从底层实现来看，是因为big kernel lock ）；原来我仅仅认知到一个instruction是atomic，其实这种认知是比较局限的；联想到我之前总结过关于atomic的内容，如下：</p>
 <p>everything中使用如下命令查找所有atomic相关的内容：</p>
 <pre><code>nowholeword:c:\users\dengkai17334\appdata\local\ynote\data\ content:atomic 
 </code></pre>
 
 <p>现在是有必要整理一番了。</p>
-<h2 id="linux-system-call-atomic">linux system call atomic</h2>
-<h1 id="network">network</h1>
-<h2 id="data-integrity-in-network"><a href="https://en.wikipedia.org/wiki/Data_integrity"><strong>data integrity</strong></a> in network</h2>
+<h2 id="linux-system-call-atomic">linux system call atomic<a class="headerlink" href="#linux-system-call-atomic" title="Permanent link">#</a></h2>
+<h1 id="network">network<a class="headerlink" href="#network" title="Permanent link">#</a></h1>
+<h2 id="data-integrity-in-network"><a href="https://en.wikipedia.org/wiki/Data_integrity"><strong>data integrity</strong></a> in network<a class="headerlink" href="#data-integrity-in-network" title="Permanent link">#</a></h2>
 <p>在<a href="https://beej.us/guide/bgnet/html/multi/theory.html#twotypes">2.1. Two Types of Internet Sockets</a>中提及TCP能够保证<a href="https://en.wikipedia.org/wiki/Data_integrity"><strong>data integrity</strong></a>，可见<a href="https://en.wikipedia.org/wiki/Data_integrity"><strong>data integrity</strong></a>并不仅仅局限于一方面；</p>
-<h2 id="whats-the-difference-between-127001-and-0000">What's the difference between 127.0.0.1 and 0.0.0.0?</h2>
+<h2 id="whats-the-difference-between-127001-and-0000">What's the difference between 127.0.0.1 and 0.0.0.0?<a class="headerlink" href="#whats-the-difference-between-127001-and-0000" title="Permanent link">#</a></h2>
 <p><a href="https://superuser.com/questions/949428/whats-the-difference-between-127-0-0-1-and-0-0-0-0">What's the difference between 127.0.0.1 and 0.0.0.0?</a></p>
-<h2 id="interface-address">interface address</h2>
+<h2 id="interface-address">interface address<a class="headerlink" href="#interface-address" title="Permanent link">#</a></h2>
 <p>在很多地方都见到了这个词：</p>
-<h2 id="-getaddrinfo3-linux-man-page">- <a href="https://linux.die.net/man/3/getaddrinfo">getaddrinfo(3) - Linux man page</a></h2>
+<h2 id="-getaddrinfo3-linux-man-page">- <a href="https://linux.die.net/man/3/getaddrinfo">getaddrinfo(3) - Linux man page</a><a class="headerlink" href="#-getaddrinfo3-linux-man-page" title="Permanent link">#</a></h2>
 <p>它到底是什么含义</p>
-<h2 id="stream-of-bytes-and-bitstream">stream of bytes and bitstream</h2>
+<h2 id="stream-of-bytes-and-bitstream">stream of bytes and bitstream<a class="headerlink" href="#stream-of-bytes-and-bitstream" title="Permanent link">#</a></h2>
 <p><a href="https://en.wikipedia.org/wiki/Bitstream">Bitstream</a></p>
 <p>已经阅读</p>
-<h2 id="maximum-segment-lifetime">Maximum segment lifetime</h2>
+<h2 id="maximum-segment-lifetime">Maximum segment lifetime<a class="headerlink" href="#maximum-segment-lifetime" title="Permanent link">#</a></h2>
 <p>https://en.wikipedia.org/wiki/Maximum_segment_lifetime</p>
-<h1 id="20190909_1">20190909</h1>
+<h1 id="20190909_1">20190909<a class="headerlink" href="#20190909_1" title="Permanent link">#</a></h1>
 <p>epoll中的file descripor是否一定要设置为non blocking</p>
 <p><code>SO_RCVLOWAT</code> and <code>SO_SNDLOWAT</code>的值都是1，那么如何确定message boundary？</p>
-<h1 id="shell">shell</h1>
+<h1 id="shell">shell<a class="headerlink" href="#shell" title="Permanent link">#</a></h1>
 <ul>
 <li><code>getconf</code></li>
 <li><code>echo "2^12" | bc</code></li>
@@ -2431,85 +2431,85 @@
 <li>how to get all threads of a process</li>
 <li></li>
 </ul>
-<h2 id="process">process</h2>
+<h2 id="process">process<a class="headerlink" href="#process" title="Permanent link">#</a></h2>
 <p>https://www.cyberciti.biz/faq/show-all-running-processes-in-linux/</p>
 <p>https://unix.stackexchange.com/questions/2107/how-to-suspend-and-resume-processes</p>
-<h2 id="how-to-print-out-a-variable-in-makefile">How to print out a variable in makefile</h2>
+<h2 id="how-to-print-out-a-variable-in-makefile">How to print out a variable in makefile<a class="headerlink" href="#how-to-print-out-a-variable-in-makefile" title="Permanent link">#</a></h2>
 <p>https://stackoverflow.com/questions/16467718/how-to-print-out-a-variable-in-makefile</p>
-<h1 id="process-control-block">Process control block</h1>
+<h1 id="process-control-block">Process control block<a class="headerlink" href="#process-control-block" title="Permanent link">#</a></h1>
 <p><a href="https://www.tldp.org/LDP/lki/lki-2.html">https://www.tldp.org/LDP/lki/lki-2.html</a></p>
 <p>上面这篇文章主要讲述的是linux kernel的实现</p>
-<h1 id="how-to-find-out-which-windows-process-is-using-a-file"><a href="https://www.techsupportalert.com/content/how-find-out-which-windows-process-using-file.htm">How to Find Out Which Windows Process is Using a File</a></h1>
+<h1 id="how-to-find-out-which-windows-process-is-using-a-file"><a href="https://www.techsupportalert.com/content/how-find-out-which-windows-process-using-file.htm">How to Find Out Which Windows Process is Using a File</a><a class="headerlink" href="#how-to-find-out-which-windows-process-is-using-a-file" title="Permanent link">#</a></h1>
 <p>user the software:Process Explorer</p>
-<h1 id="how-find-out-which-process-is-using-a-file-in-linux"><a href="https://stackoverflow.com/questions/24554614/how-find-out-which-process-is-using-a-file-in-linux">How find out which process is using a file in Linux?</a></h1>
+<h1 id="how-find-out-which-process-is-using-a-file-in-linux"><a href="https://stackoverflow.com/questions/24554614/how-find-out-which-process-is-using-a-file-in-linux">How find out which process is using a file in Linux?</a><a class="headerlink" href="#how-find-out-which-process-is-using-a-file-in-linux" title="Permanent link">#</a></h1>
 <pre><code>fuser file_name
 </code></pre>
 
-<h1 id="what-will-happen-if-a-process-exceed-its-resource-limits">what will happen if a process exceed its resource limits</h1>
+<h1 id="what-will-happen-if-a-process-exceed-its-resource-limits">what will happen if a process exceed its resource limits<a class="headerlink" href="#what-will-happen-if-a-process-exceed-its-resource-limits" title="Permanent link">#</a></h1>
 <p>记得在redis in action这本书中有提及过类似的问题；</p>
-<h1 id="c-posix-library">C POSIX library</h1>
+<h1 id="c-posix-library">C POSIX library<a class="headerlink" href="#c-posix-library" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/C_POSIX_library</p>
 <p>http://pubs.opengroup.org/onlinepubs/9699919799/idx/head.html</p>
-<h1 id="c-standard-library">C standard library</h1>
+<h1 id="c-standard-library">C standard library<a class="headerlink" href="#c-standard-library" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/C_standard_library</p>
-<h1 id="process-id">process id</h1>
+<h1 id="process-id">process id<a class="headerlink" href="#process-id" title="Permanent link">#</a></h1>
 <p>APUE 4.4  Set-User-ID and Set-Group-ID</p>
 <p>https://en.wikipedia.org/wiki/User_identifier</p>
-<h1 id="time-of-check-to-time-of-use">Time of check to time of use</h1>
+<h1 id="time-of-check-to-time-of-use">Time of check to time of use<a class="headerlink" href="#time-of-check-to-time-of-use" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use</p>
-<h1 id="user-identifier">User identifier</h1>
+<h1 id="user-identifier">User identifier<a class="headerlink" href="#user-identifier" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/User_identifier</p>
-<h1 id="secure-programming-howto">Secure Programming HOWTO</h1>
+<h1 id="secure-programming-howto">Secure Programming HOWTO<a class="headerlink" href="#secure-programming-howto" title="Permanent link">#</a></h1>
 <p>https://dwheeler.com/secure-programs/Secure-Programs-HOWTO/index.html</p>
-<h1 id="thread-local">thread-local</h1>
+<h1 id="thread-local">thread-local<a class="headerlink" href="#thread-local" title="Permanent link">#</a></h1>
 <p>thread-local和reentry之间的关系</p>
-<h1 id="hole-in-file">hole in file</h1>
+<h1 id="hole-in-file">hole in file<a class="headerlink" href="#hole-in-file" title="Permanent link">#</a></h1>
 <p>hole对文件大小的影响；上周在查看https://liftoff.github.io/pyminifier/文档的时候，其中有minifying功能，是和hole in file有关的；</p>
 <p>同时binary mode来保存文件也能够降低文件大小；</p>
-<h1 id="linux-memory">linux memory</h1>
+<h1 id="linux-memory">linux memory<a class="headerlink" href="#linux-memory" title="Permanent link">#</a></h1>
 <p>memory usage </p>
 <p>memory available</p>
-<h1 id="virtual-process-space">virtual process space</h1>
+<h1 id="virtual-process-space">virtual process space<a class="headerlink" href="#virtual-process-space" title="Permanent link">#</a></h1>
 <p>https://www.tutorialspoint.com/where-are-static-variables-stored-in-c-cplusplus</p>
 <p>https://cs61.seas.harvard.edu/wiki/2016/Kernel2X 这篇文章非常好</p>
 <p>https://www.cs.utexas.edu/~lorenzo/corsi/cs372/06F/hw/3sol.html</p>
 <p>https://cs.stackexchange.com/questions/56825/how-to-calculate-virtual-address-space-from-page-size-virtual-address-size-and</p>
-<h1 id="process-environment">process environment</h1>
+<h1 id="process-environment">process environment<a class="headerlink" href="#process-environment" title="Permanent link">#</a></h1>
 <p>7.12不同语言的environment是否不同</p>
-<h1 id="file-iopython-vs-linux">file IO：python VS linux</h1>
+<h1 id="file-iopython-vs-linux">file IO：python VS linux<a class="headerlink" href="#file-iopython-vs-linux" title="Permanent link">#</a></h1>
 <p>Python与Linux类似，与文件相关的操作都是从open函数开始的</p>
-<h1 id="fragmentation-computing">Fragmentation (computing)</h1>
+<h1 id="fragmentation-computing">Fragmentation (computing)<a class="headerlink" href="#fragmentation-computing" title="Permanent link">#</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/Fragmentation_(computing)">https://en.wikipedia.org/wiki/Fragmentation_(computing)</a></p>
-<h1 id="page-table-size">page table size</h1>
+<h1 id="page-table-size">page table size<a class="headerlink" href="#page-table-size" title="Permanent link">#</a></h1>
 <p><a href="https://www.cs.cornell.edu/courses/cs4410/2015su/lectures/lec14-pagetables.html">https://www.cs.cornell.edu/courses/cs4410/2015su/lectures/lec14-pagetables.html</a>
 http://www.cs.cornell.edu/courses/cs4410/2016su/slides/lecture11.pdf</p>
 <p>http://www.cs.cornell.edu/courses/cs4410/2016su/schedule.html</p>
-<h1 id="data-segment">Data segment</h1>
+<h1 id="data-segment">Data segment<a class="headerlink" href="#data-segment" title="Permanent link">#</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/Data_segment">https://en.wikipedia.org/wiki/Data_segment</a></p>
-<h1 id="enoent">ENOENT</h1>
+<h1 id="enoent">ENOENT<a class="headerlink" href="#enoent" title="Permanent link">#</a></h1>
 <p><a href="https://stackoverflow.com/questions/19902828/why-does-enoent-mean-no-such-file-or-directory">Why does ENOENT mean “No such file or directory”?</a></p>
-<h1 id="eacces">EACCES</h1>
-<h1 id="cron">cron</h1>
+<h1 id="eacces">EACCES<a class="headerlink" href="#eacces" title="Permanent link">#</a></h1>
+<h1 id="cron">cron<a class="headerlink" href="#cron" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/Cron</p>
 <p>https://www.adminschoice.com/crontab-quick-reference</p>
-<h1 id="shell_1">在shell中删除掉进程使用的文件</h1>
+<h1 id="shell_1">在shell中删除掉进程使用的文件<a class="headerlink" href="#shell_1" title="Permanent link">#</a></h1>
 <p>今天在测试的时候发现了一个有趣的问题：进程运行中，这个进程会不断地向其日志文件中写入日志；然后我在shell中将这个日志文件给删除了，发现进程并没有发现它的日志文件被删了，也没有出现创建这个日志文件，程序也没有停止下来；</p>
 <p>磁盘空间满后，也会导致process无法写入到文件中；但是当释放一部分空间后，发现process仍然不会写入，就像是放弃了一样；</p>
-<h1 id="segmentation-fault">Segmentation fault</h1>
+<h1 id="segmentation-fault">Segmentation fault<a class="headerlink" href="#segmentation-fault" title="Permanent link">#</a></h1>
 <p>hiredis不是线程安全的，今天在多线程环境下测试出它会导致process core dump，dump的原因是<code>Program terminated with signal 11, Segmentation fault.</code></p>
 <p>https://kb.iu.edu/d/aqsj</p>
 <p>https://en.wikipedia.org/wiki/Segmentation_fault</p>
-<h3 id="thread-unsafe-and-core-dump">thread unsafe and core dump</h3>
-<h1 id="how-to-test">how to test</h1>
+<h3 id="thread-unsafe-and-core-dump">thread unsafe and core dump<a class="headerlink" href="#thread-unsafe-and-core-dump" title="Permanent link">#</a></h3>
+<h1 id="how-to-test">how to test<a class="headerlink" href="#how-to-test" title="Permanent link">#</a></h1>
 <p>如果是支持网络，需要测试多个client连接；</p>
 <p>需要进行压力测试</p>
 <p>需要进行并发测试</p>
-<h1 id="process-and-its-thread">process and its thread</h1>
+<h1 id="process-and-its-thread">process and its thread<a class="headerlink" href="#process-and-its-thread" title="Permanent link">#</a></h1>
 <p><a href="https://unix.stackexchange.com/questions/892/is-there-a-way-to-see-details-of-all-the-threads-that-a-process-has-in-linux">Is there a way to see details of all the threads that a process has in Linux?</a></p>
 <p>google:how to get all threads of a process</p>
 <p>https://www.unix.com/aix/154772-how-list-all-threads-running-process.html</p>
 <p>http://ask.xmodulo.com/view-threads-process-linux.html</p>
-<h1 id="how-os-know-process-use-a-illegal-memory-location">how OS know process use a illegal memory location</h1>
+<h1 id="how-os-know-process-use-a-illegal-memory-location">how OS know process use a illegal memory location<a class="headerlink" href="#how-os-know-process-use-a-illegal-memory-location" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/Memory_protection</p>
 <p>https://stackoverflow.com/questions/41172563/how-os-catches-illegal-memory-references-at-paging-scheme</p>
 <p>https://unix.stackexchange.com/questions/511963/how-linux-finds-out-about-illegal-memory-access-error</p>
@@ -2517,26 +2517,26 @@ http://www.cs.cornell.edu/courses/cs4410/2016su/slides/lecture11.pdf</p>
 <p>https://www.kernel.org/doc/gorman/html/understand/index.html</p>
 <p>https://www.kernel.org/doc/gorman/</p>
 <p>https://www.kernel.org/doc/</p>
-<h1 id="dev-file">dev file</h1>
+<h1 id="dev-file">dev file<a class="headerlink" href="#dev-file" title="Permanent link">#</a></h1>
 <p>https://unix.stackexchange.com/questions/93531/what-is-stored-in-dev-pts-files-and-can-we-open-them</p>
-<h1 id="unix-memory-usage">Unix memory usage</h1>
+<h1 id="unix-memory-usage">Unix memory usage<a class="headerlink" href="#unix-memory-usage" title="Permanent link">#</a></h1>
 <p>https://utcc.utoronto.ca/~cks/space/blog/linux/LinuxMemoryStats</p>
 <p>https://utcc.utoronto.ca/~cks/space/blog/unix/UnderstandingRSS</p>
 <p>https://stackoverflow.com/questions/131303/how-to-measure-actual-memory-usage-of-an-application-or-process</p>
 <p>https://unix.stackexchange.com/questions/554/how-to-monitor-cpu-memory-usage-of-a-single-process</p>
-<h1 id="how-can-i-kill-a-process-by-name-instead-of-pid">How can I kill a process by name instead of PID?</h1>
+<h1 id="how-can-i-kill-a-process-by-name-instead-of-pid">How can I kill a process by name instead of PID?<a class="headerlink" href="#how-can-i-kill-a-process-by-name-instead-of-pid" title="Permanent link">#</a></h1>
 <p>https://stackoverflow.com/questions/160924/how-can-i-kill-a-process-by-name-instead-of-pid</p>
 <p>http://osxdaily.com/2017/01/12/kill-process-by-name-command-line/</p>
-<h1 id="apueunix-interruption-and-atomwanch">APUE的《Unix-interruption-and-atom》还没有wanch</h1>
+<h1 id="apueunix-interruption-and-atomwanch">APUE的《Unix-interruption-and-atom》还没有wanch<a class="headerlink" href="#apueunix-interruption-and-atomwanch" title="Permanent link">#</a></h1>
 <p>其中主要讨论了Atomicity</p>
-<h1 id="consistency-models">Consistency models</h1>
+<h1 id="consistency-models">Consistency models<a class="headerlink" href="#consistency-models" title="Permanent link">#</a></h1>
 <p>在parallel computing中的Consistency models还没有完成</p>
 <p>https://en.wikipedia.org/wiki/Category:Consistency_models</p>
-<h1 id="epoll">epoll</h1>
+<h1 id="epoll">epoll<a class="headerlink" href="#epoll" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/Epoll</p>
-<h1 id="youdao-unix-abort">youdao Unix-abort</h1>
-<h1 id="init-of-linux">init of linux</h1>
-<h2 id="init">init进程</h2>
+<h1 id="youdao-unix-abort">youdao Unix-abort<a class="headerlink" href="#youdao-unix-abort" title="Permanent link">#</a></h1>
+<h1 id="init-of-linux">init of linux<a class="headerlink" href="#init-of-linux" title="Permanent link">#</a></h1>
+<h2 id="init">init进程<a class="headerlink" href="#init" title="Permanent link">#</a></h2>
 <p>ch8.2中有对init进程的一个介绍</p>
 <p>ch9.2介绍到，init会读取文件<code>/etc/ttys</code></p>
 <p>how to know what init system linux use</p>
@@ -2544,25 +2544,25 @@ http://www.cs.cornell.edu/courses/cs4410/2016su/slides/lecture11.pdf</p>
 <p><a href="https://fedoramagazine.org/what-is-an-init-system/">https://fedoramagazine.org/what-is-an-init-system/</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Init">https://en.wikipedia.org/wiki/Init</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Systemd">https://en.wikipedia.org/wiki/Systemd</a></p>
-<h1 id="convert-between-unix-and-windows-text-files">Convert between Unix and Windows text files</h1>
+<h1 id="convert-between-unix-and-windows-text-files">Convert between Unix and Windows text files<a class="headerlink" href="#convert-between-unix-and-windows-text-files" title="Permanent link">#</a></h1>
 <p>https://kb.iu.edu/d/acux</p>
 <p>https://stackoverflow.com/questions/16239551/eol-conversion-in-notepad</p>
-<h1 id="memory-management-algorithms">Memory management algorithms</h1>
+<h1 id="memory-management-algorithms">Memory management algorithms<a class="headerlink" href="#memory-management-algorithms" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/Category:Memory_management_algorithms</p>
 <p><a href="https://en.wikipedia.org/wiki/Slab_allocation">Slab allocation</a></p>
-<h1 id="interrupt-in-unix">interrupt in Unix</h1>
+<h1 id="interrupt-in-unix">interrupt in Unix<a class="headerlink" href="#interrupt-in-unix" title="Permanent link">#</a></h1>
 <p><a href="https://en.wikipedia.org/wiki/Interrupt_vector_table">interrupt vector table</a></p>
 <p><a href="http://www.cis.upenn.edu/~lee/03cse380/lectures/ln2-process-v4.pdf">http://www.cis.upenn.edu/~lee/03cse380/lectures/ln2-process-v4.pdf</a></p>
 <p>在<a href="https://en.wikipedia.org/wiki/Context_switch">Context switch</a>中也对interrupt进行了介绍</p>
-<h2 id="signal">signal</h2>
+<h2 id="signal">signal<a class="headerlink" href="#signal" title="Permanent link">#</a></h2>
 <p>signal也是一种interrupt，故将它放在interrupt之下</p>
-<h3 id="google-unix-signals-and-threads">Google unix signals and threads</h3>
+<h3 id="google-unix-signals-and-threads">Google unix signals and threads<a class="headerlink" href="#google-unix-signals-and-threads" title="Permanent link">#</a></h3>
 <p>https://stackoverflow.com/questions/2575106/posix-threads-and-signals</p>
 <p>https://en.wikipedia.org/wiki/Signal_(IPC)</p>
-<h1 id="scheduling-computing">Scheduling (computing)</h1>
+<h1 id="scheduling-computing">Scheduling (computing)<a class="headerlink" href="#scheduling-computing" title="Permanent link">#</a></h1>
 <p>https://en.wikipedia.org/wiki/Scheduling_(computing)</p>
-<h1 id="thread-join-and-detach">thread join and detach</h1>
-<h1 id="wait">wait</h1>
+<h1 id="thread-join-and-detach">thread join and detach<a class="headerlink" href="#thread-join-and-detach" title="Permanent link">#</a></h1>
+<h1 id="wait">wait<a class="headerlink" href="#wait" title="Permanent link">#</a></h1>
 <p>https://linux.die.net/man/2/waitpid</p>
                 
                   

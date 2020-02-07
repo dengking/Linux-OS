@@ -2365,7 +2365,7 @@
 <li><a href="#41-the-role-of-interrupt-signals">4.1. The Role of Interrupt Signals</a></li>
 </ul>
 </div>
-<h1 id="41-the-role-of-interrupt-signals">4.1. The Role of Interrupt Signals</h1>
+<h1 id="41-the-role-of-interrupt-signals">4.1. The Role of Interrupt Signals<a class="headerlink" href="#41-the-role-of-interrupt-signals" title="Permanent link">#</a></h1>
 <p>As the name suggests, <strong>interrupt signals</strong> provide a way to divert（转换） the processor to code outside the normal flow of control. When an interrupt signal arrives, the CPU must stop what it's currently doing and switch to a new activity; it does this by saving the current value of the program counter (i.e., the content of the  <code>eip</code> and  <code>cs</code> registers) in the <strong>Kernel Mode stack</strong> and by placing an address related to the interrupt type into the <strong>program counter</strong>.</p>
 <blockquote>
 <p>NOTE: context switch</p>

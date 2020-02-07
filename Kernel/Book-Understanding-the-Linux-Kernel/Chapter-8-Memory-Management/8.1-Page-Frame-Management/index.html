@@ -2405,13 +2405,13 @@
               
                 
                 
-                <h1 id="81-page-frame-management">8.1. Page Frame Management</h1>
+                <h1 id="81-page-frame-management">8.1. Page Frame Management<a class="headerlink" href="#81-page-frame-management" title="Permanent link">#</a></h1>
 <p>We saw in the section "Paging in Hardware" in Chapter 2 how the Intel Pentium processor can use two different page frame sizes: 4 KB and 4 MB (or 2 MB if PAE is enabled see the section "The Physical Address Extension (PAE) Paging Mechanism" in Chapter 2). Linux adopts the smaller 4 KB page frame size as the <strong>standard memory allocation unit</strong>. This makes things simpler for two reasons:</p>
 <ul>
 <li>The Page Fault exceptions issued by the paging circuitry are easily interpreted. Either the page requested exists but the process is not allowed to address it, or the page does not exist. In the second case, the memory allocator must find a free 4 KB page frame and assign it to the process.</li>
 <li>Although both 4 KB and 4 MB are multiples of all disk block sizes, transfers of data between main memory and disks are in most cases more efficient when the smaller size is used.</li>
 </ul>
-<h2 id="811-page-descriptors">8.1.1. Page Descriptors</h2>
+<h2 id="811-page-descriptors">8.1.1. Page Descriptors<a class="headerlink" href="#811-page-descriptors" title="Permanent link">#</a></h2>
 <p>The kernel must keep track of the current status of each <strong>page frame</strong>. For instance, it must be able to distinguish the <strong>page frames</strong> that are used to contain pages that belong to processes from those that contain kernel code or kernel data structures. Similarly, it must be able to determine whether a page frame in dynamic memory is free. A page frame in dynamic memory is free if it does not contain any useful data. It is not free when the page frame contains data of a User Mode process, data of a software cache, dynamically allocated kernel data structures, buffered data of a device driver, code of a kernel module, and so on.</p>
 <p>State information of a <strong>page frame</strong> is kept in a <strong>page descriptor</strong> of type  <code>page</code> , whose fields are shown in Table 8-1. All <strong>page descriptors</strong> are stored in the  <code>mem_map</code> array. Because each descriptor is 32 bytes long, the space required by  <code>mem_map</code> is slightly less than 1% of the whole RAM. The <code>virt_to_page(addr)</code> macro yields the address of the <strong>page descriptor</strong> associated with the linear address  <code>addr</code> . The <code>pfn_to_page(pfn)</code> macro yields the address of the <strong>page descriptor</strong> associated with the <strong>page frame</strong> having number  <code>pfn</code> .</p>
 <blockquote>

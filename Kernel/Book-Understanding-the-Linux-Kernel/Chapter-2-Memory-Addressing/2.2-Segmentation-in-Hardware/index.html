@@ -2393,13 +2393,13 @@
 </li>
 </ul>
 </div>
-<h1 id="22-segmentation-in-hardware">2.2. Segmentation in Hardware</h1>
+<h1 id="22-segmentation-in-hardware">2.2. Segmentation in Hardware<a class="headerlink" href="#22-segmentation-in-hardware" title="Permanent link">#</a></h1>
 <p>Starting with the 80286 model, Intel microprocessors perform <strong>address translation</strong> in two different
 ways called <strong><em>real mode</em></strong> and <strong><em>protected mode</em></strong> . We'll focus in the next sections on <strong>address translation</strong>
 when <strong>protected mode</strong> is enabled. <strong>Real mode</strong> exists mostly to maintain processor compatibility with
 older models and to allow the operating system to <strong>bootstrap</strong> (see Appendix A for a short description
 of real mode).</p>
-<h2 id="221-segment-selectors-and-segmentation-registers">2.2.1. Segment Selectors and Segmentation Registers</h2>
+<h2 id="221-segment-selectors-and-segmentation-registers">2.2.1. Segment Selectors and Segmentation Registers<a class="headerlink" href="#221-segment-selectors-and-segmentation-registers" title="Permanent link">#</a></h2>
 <p>A <strong>logical address</strong> consists of two parts: a <strong>segment identifier</strong> and an <strong>offset</strong> that specifies the relative
 address within the segment. The <strong>segment identifier</strong> is a 16-bit field called the <strong><em>Segment Selector</em></strong> (see
 Figure 2-2), while the offset is a 32-bit field. We'll describe the fields of Segment Selectors in the
@@ -2422,7 +2422,7 @@ segments.</p>
 <p>The  <code>cs</code> register has another important function: it includes a 2-bit field that specifies the <strong>Current
 Privilege Level</strong> (CPL) of the CPU. The value <code>0</code> denotes the highest privilege level, while the value <code>3</code>
 denotes the lowest one. Linux uses only levels 0 and 3, which are respectively called <strong><em>Kernel Mode</em></strong> and <strong><em>User Mode</em></strong>.</p>
-<h2 id="222-segment-descriptors">2.2.2. Segment Descriptors</h2>
+<h2 id="222-segment-descriptors">2.2.2. Segment Descriptors<a class="headerlink" href="#222-segment-descriptors" title="Permanent link">#</a></h2>
 <p>Each segment is represented by an 8-byte <strong><em>Segment Descriptor</em></strong> that describes the segment
 characteristics. Segment Descriptors are stored either in the <strong><em>Global Descriptor Table (<code>GDT</code> )</em></strong> or in the
 <strong><em>Local Descriptor Table(<code>LDT</code>)</em></strong>.</p>
@@ -2489,7 +2489,7 @@ the <code>GDT</code> or in the <code>LDT</code>. The descriptor has the  S flag 
 <p><strong><em>Task State Segment Descriptor (TSSD)</em></strong></p>
 <p>Indicates that the Segment Descriptor refers to a Task State Segment (TSS) that is, a segment used to save the contents of the processor registers (see the section "Task State Segment" in Chapter 3); it can appear only in the GDT. The corresponding  Type field has the value 11 or 9, depending on whether the corresponding process is currently executing on a CPU. The  S flag of such descriptors is set to 0.</p>
 <p><strong><em>SUMMARY</em></strong> : 需要注意的是，没有stack segment descriptor；根据第2.3章的内容来看，这是因为stack segment是 inside data segment的；</p>
-<h2 id="223-fast-access-to-segment-descriptors">2.2.3. Fast Access to Segment Descriptors</h2>
+<h2 id="223-fast-access-to-segment-descriptors">2.2.3. Fast Access to Segment Descriptors<a class="headerlink" href="#223-fast-access-to-segment-descriptors" title="Permanent link">#</a></h2>
 <p>We recall that logical addresses consist of a 16-bit Segment Selector and a 32-bit Offset, and that
 segmentation registers store only the Segment Selector.</p>
 <p>To speed up the translation of <strong>logical addresses</strong> into <strong>linear addresses</strong>, the 80 x 86 processor
@@ -2531,7 +2531,7 @@ registers change (see Figure 2-4).</p>
 obtained by multiplying the 13-bit index field of the Segment Selector by 8. For instance, if the <code>GDT</code> is at  <code>0x00020000</code> (the value stored in the  <code>gdtr</code> register) and the index specified by the Segment
 Selector is 2, the address of the corresponding Segment Descriptor is  <code>0x00020000 +  (2 x  8)</code> , or
 <code>0x00020010</code> .</p>
-<h2 id="224-segmentation-unit">2.2.4. Segmentation Unit</h2>
+<h2 id="224-segmentation-unit">2.2.4. Segmentation Unit<a class="headerlink" href="#224-segmentation-unit" title="Permanent link">#</a></h2>
 <p>Figure 2-5 shows in detail how a <strong>logical address</strong> is translated into a corresponding <strong>linear address</strong>. The <strong>segmentation unit</strong> performs the following operations:</p>
 <ul>
 <li>Examines the  <code>TI</code> field of the <strong>Segment Selector</strong> to determine which <strong>Descriptor Table</strong> stores the

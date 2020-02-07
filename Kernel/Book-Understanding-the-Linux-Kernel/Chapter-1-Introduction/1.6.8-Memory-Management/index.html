@@ -2461,9 +2461,9 @@
               
                 
                 
-                <h1 id="168-memory-management">1.6.8. Memory Management</h1>
+                <h1 id="168-memory-management">1.6.8. Memory Management<a class="headerlink" href="#168-memory-management" title="Permanent link">#</a></h1>
 <p>Memory management is by far the most complex activity in a Unix kernel. More than a third of this book is dedicated just to describing how Linux handles memory management. This section illustrates some of the main issues related to memory management.</p>
-<h2 id="1681-virtual-memory">1.6.8.1. Virtual memory</h2>
+<h2 id="1681-virtual-memory">1.6.8.1. Virtual memory<a class="headerlink" href="#1681-virtual-memory" title="Permanent link">#</a></h2>
 <p>All recent Unix systems provide a useful abstraction called <em>virtual memory</em> . <strong>Virtual memory</strong> acts as a logical layer between the application memory requests and the hardware Memory Management Unit (MMU). Virtual memory has many purposes and advantages: </p>
 <ul>
 <li>Several processes can be executed concurrently.</li>
@@ -2487,7 +2487,7 @@
 <li>chapter 2.5. Paging in Linux</li>
 </ul>
 </blockquote>
-<h2 id="1682-random-access-memory-usage">1.6.8.2. Random access memory usage</h2>
+<h2 id="1682-random-access-memory-usage">1.6.8.2. Random access memory usage<a class="headerlink" href="#1682-random-access-memory-usage" title="Permanent link">#</a></h2>
 <p>All Unix operating systems clearly distinguish between two portions of the random access memory (RAM). A few megabytes are dedicated to storing the kernel image (i.e., the kernel code and the kernel static data structures). The remaining portion of RAM is usually handled by the virtual memory system and is used in three possible ways:</p>
 <ul>
 <li>To satisfy kernel requests for buffers, descriptors, and other dynamic kernel data structures</li>
@@ -2499,7 +2499,7 @@
 </blockquote>
 <p>Each request type is valuable. On the other hand, because the available RAM is limited, some balancing among request types must be done, particularly when little available memory is left. Moreover, when some critical threshold of available memory is reached and a page-frame-reclaiming algorithm is invoked to free additional memory, which are the page frames most suitable for reclaiming? As we will see in Chapter 17, there is no simple answer to this question and very little support from theory. The only available solution lies in developing carefully tuned empirical algorithms.</p>
 <p>One major problem that must be solved by the virtual memory system is <strong>memory fragmentation</strong> . Ideally, a memory request should fail only when the number of free page frames is too small. However, the kernel is often forced to use physically contiguous memory areas. Hence the memory request could fail even if there is enough memory available, but it is not available as one contiguous chunk.</p>
-<h2 id="1683-kernel-memory-allocator">1.6.8.3. Kernel Memory Allocator</h2>
+<h2 id="1683-kernel-memory-allocator">1.6.8.3. Kernel Memory Allocator<a class="headerlink" href="#1683-kernel-memory-allocator" title="Permanent link">#</a></h2>
 <p>The Kernel Memory Allocator (KMA) is a subsystem that tries to satisfy the requests for memory areas from all parts of the system. Some of these requests come from other kernel subsystems needing memory for kernel use, and some requests come via system calls from user programs to increase their processes' address spaces. A good KMA should have the following features:</p>
 <ul>
 <li>It must be fast. Actually, this is the most crucial attribute, because it is invoked by all kernel subsystems (including the interrupt handlers).</li>
@@ -2538,7 +2538,7 @@
 <li><a href="https://www.kernel.org/doc/html/latest/core-api/memory-allocation.html">Memory Allocation Guide</a></li>
 </ul>
 </blockquote>
-<h2 id="1684-process-virtual-address-space-handling">1.6.8.4. Process virtual address space handling</h2>
+<h2 id="1684-process-virtual-address-space-handling">1.6.8.4. Process virtual address space handling<a class="headerlink" href="#1684-process-virtual-address-space-handling" title="Permanent link">#</a></h2>
 <p>The <strong>address space</strong> of a process contains all the virtual memory addresses that the process is allowed to reference. The kernel usually stores a process virtual address space as a <strong>list</strong> of <em>memory area descriptors</em> . For example, when a process starts the execution of some program via an  exec( ) -like system call, the kernel assigns to the process a virtual address space that comprises <strong>memory areas</strong> for:</p>
 <ul>
 <li>The executable code of the program</li>
@@ -2550,7 +2550,7 @@
 </ul>
 <p>All recent Unix operating systems adopt a memory allocation strategy called <em>demand paging</em> . With demand paging, a process can start program execution with none of its pages in physical memory. As it accesses a nonpresent page, the MMU generates an exception; the <strong>exception handler</strong> finds the affected memory region, allocates a free page, and initializes it with the appropriate data. In a similar fashion, when the process dynamically requires memory by using  <a href="http://man7.org/linux/man-pages/man3/malloc.3.html"><code>malloc( )</code></a> , or the  <a href="http://man7.org/linux/man-pages/man2/brk.2.html"><code>brk( )</code></a> system call (which is invoked internally by   <a href="http://man7.org/linux/man-pages/man3/malloc.3.html"><code>malloc( )</code></a> ), the kernel just updates the size of the <strong>heap memory region</strong> of the process. A page frame is assigned to the process only when it generates an exception by trying to refer its virtual memory addresses.</p>
 <p><strong>Virtual address spaces</strong> also allow other efficient strategies, such as the Copy On Write strategy mentioned earlier. For example, when a new process is created, the kernel just assigns the parent's page frames to the child address space, but marks them read-only. An exception is raised as soon the parent or the child tries to modify the contents of a page. The exception handler assigns a new page frame to the affected process and initializes it with the contents of the original page.</p>
-<h2 id="1685-caching">1.6.8.5. Caching</h2>
+<h2 id="1685-caching">1.6.8.5. Caching<a class="headerlink" href="#1685-caching" title="Permanent link">#</a></h2>
 <p>A good part of the available physical memory is used as cache for hard disks and other block devices. This is because hard drives are very slow: a disk access requires several milliseconds, which is a very long time compared with the RAM access time. Therefore, disks are often the bottleneck in system performance. As a general rule, one of the policies already implemented in the earliest Unix system is to defer writing to disk as long as possible. As a result, data read previously from disk and no longer used by any process continue to stay in RAM.</p>
 <p>This strategy is based on the fact that there is a good chance that new processes will require data read from or written to disk by processes that no longer exist. When a process asks to access a disk, the kernel checks first whether the required data are in the cache. Each time this happens (a cache hit), the kernel is able to service the process request without accessing the disk. </p>
 <p>The  <a href="http://man7.org/linux/man-pages/man2/sync.2.html">sync( )</a> system call forces disk synchronization by writing all of the "dirty" buffers (i.e., all the buffers whose contents differ from that of the corresponding disk blocks) into disk. To avoid data loss, all operating systems take care to periodically write dirty buffers back to disk.</p>

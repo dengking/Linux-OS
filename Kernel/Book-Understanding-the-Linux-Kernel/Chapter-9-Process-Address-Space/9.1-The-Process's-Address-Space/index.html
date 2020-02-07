@@ -2360,7 +2360,7 @@
               
                 
                 
-                <h1 id="91-the-processs-address-space">9.1. The Process's Address Space</h1>
+                <h1 id="91-the-processs-address-space">9.1. The Process's Address Space<a class="headerlink" href="#91-the-processs-address-space" title="Permanent link">#</a></h1>
 <p>The <em>address space</em> of a process consists of all <strong>linear addresses</strong> that the process is allowed to use. Each process sees a different set of <strong>linear addresses</strong>; the address used by one process bears no relation to the address used by another. As we will see later, the kernel may dynamically modify a <strong>process address space</strong> by adding or removing <strong>intervals</strong> of <strong>linear addresses</strong>.</p>
 <p>The <strong>kernel</strong> represents intervals of linear addresses by means of resources called memory regions, which are characterized by an <strong>initial linear address</strong>, a <strong>length</strong>, and some <strong>access rights</strong>. For reasons of efficiency, both the initial address and the length of a memory region must be multiples of 4,096, so that the data identified by each <strong>memory region</strong> completely fills up the <strong>page frames</strong> allocated to it. Following are some typical situations in which a process gets new <strong>memory regions</strong>:</p>
 <ul>

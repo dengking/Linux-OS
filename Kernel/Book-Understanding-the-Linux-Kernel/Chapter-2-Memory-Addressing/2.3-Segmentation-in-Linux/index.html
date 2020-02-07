@@ -2380,7 +2380,7 @@
 <li><a href="#x86-memory-segmentation-later-developments">x86 memory segmentation Later developments</a></li>
 </ul>
 </div>
-<h1 id="23-segmentation-in-linux">2.3. Segmentation in Linux</h1>
+<h1 id="23-segmentation-in-linux">2.3. Segmentation in Linux<a class="headerlink" href="#23-segmentation-in-linux" title="Permanent link">#</a></h1>
 <p><strong>Segmentation</strong> has been included in 80 x 86 microprocessors to encourage programmers to split their
 applications into logically related entities, such as subroutines or global and local data areas.
 However, Linux uses segmentation in a very limited way. In fact, segmentation and paging are
@@ -2427,7 +2427,7 @@ pointers to user data structures (the kernel explicitly uses the  <code>es</code
 <p><strong><em>SUMMARY</em></strong> : 没有读懂</p>
 <p>Besides the four segments just described, Linux makes use of a few other specialized segments.
 We'll introduce them in the next section while describing the Linux <code>GDT</code>.</p>
-<h2 id="231-the-linux-gdt">2.3.1. The Linux <code>GDT</code></h2>
+<h2 id="231-the-linux-gdt">2.3.1. The Linux <code>GDT</code><a class="headerlink" href="#231-the-linux-gdt" title="Permanent link">#</a></h2>
 <p>In uniprocessor systems there is only one <code>GDT</code>, while in multiprocessor systems there is one <code>GDT</code> for
 every CPU in the system. All <code>GDT</code>s are stored in the  <code>cpu_gdt_table</code> array, while the addresses and
 sizes of the <code>GDT</code>s (used when initializing the  <code>gdtr</code> registers) are stored in the  <code>cpu_gdt_descr</code> array. If
@@ -2435,8 +2435,8 @@ you look in the Source Code Index, you can see that these symbols are defined in
 <code>arch/i386/kernel/head.S</code> . Every macro, function, and other symbol in this book is listed in the
 Source Code Index, so you can quickly find it in the source code.</p>
 <hr />
-<h1 id="_1">补充内容</h1>
-<h1 id="segmentation-in-linux-segmentation-paging-are-redundant"><a href="https://stackoverflow.com/questions/3029064/segmentation-in-linux-segmentation-paging-are-redundant">Segmentation in Linux : Segmentation &amp; Paging are redundant?</a></h1>
+<h1 id="_1">补充内容<a class="headerlink" href="#_1" title="Permanent link">#</a></h1>
+<h1 id="segmentation-in-linux-segmentation-paging-are-redundant"><a href="https://stackoverflow.com/questions/3029064/segmentation-in-linux-segmentation-paging-are-redundant">Segmentation in Linux : Segmentation &amp; Paging are redundant?</a><a class="headerlink" href="#segmentation-in-linux-segmentation-paging-are-redundant" title="Permanent link">#</a></h1>
 <p>I'm reading "Understanding Linux Kernel". This is the snippet that explains how Linux uses Segmentation which I didn't understand.</p>
 <blockquote>
 <p>Segmentation has been included in 80 x 86 microprocessors to encourage programmers to split their applications into logically related entities, such as subroutines or global and local data areas. However, Linux uses segmentation in a very limited way. <em>In fact, segmentation and paging are somewhat redundant</em>, because both can be used to separate the physical address spaces of processes: segmentation can assign a different linear address space to each process, while paging can map the same linear address space into different physical address spaces. Linux prefers paging to segmentation for the following reasons:</p>
@@ -2445,7 +2445,7 @@ Source Code Index, so you can quickly find it in the source code.</p>
 <p>All Linux processes running in User Mode use the same pair of segments to address instructions and data. These segments are called user code segment and user data segment , respectively. Similarly, all Linux processes running in Kernel Mode use the same pair of segments to address instructions and data: they are called kernel code segment and kernel data segment , respectively. Table 2-3 shows the values of the Segment Descriptor fields for these four crucial segments.</p>
 </blockquote>
 <p>I'm unable to understand 1st and last paragraph.</p>
-<h2 id="a"><a href="https://stackoverflow.com/a/3029086">A</a></h2>
+<h2 id="a"><a href="https://stackoverflow.com/a/3029086">A</a><a class="headerlink" href="#a" title="Permanent link">#</a></h2>
 <p>The <code>80x86</code> family of CPUs generate a real address by adding the contents of a CPU register called a segment register to that of the program counter. Thus by changing the segment register contents you can change the physical addresses that the program accesses. Paging does something similar by mapping the same <strong>virtual address</strong> to different <strong>real addresses</strong>. Linux using uses the latter - the <strong>segment registers</strong> for Linux processes will always have the same unchanging contents.</p>
 <ul>
 <li>
@@ -2464,7 +2464,7 @@ Source Code Index, so you can quickly find it in the source code.</p>
 <li></li>
 </ul>
 <p>@caf Thanks for the elaboration about protected mode. <a href="https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture#CPU_Operation_Modes">Here's more info</a> about the different CPU modes for those who are curious. – <a href="https://stackoverflow.com/users/2636454/gdp2">GDP2</a> <a href="https://stackoverflow.com/questions/3029064/segmentation-in-linux-segmentation-paging-are-redundant#comment81457260_3029086">Nov 12 '17 at 20:18</a></p>
-<h1 id="does-linux-not-use-segmentation-but-only-paging"><a href="https://unix.stackexchange.com/questions/469253/does-linux-not-use-segmentation-but-only-paging">Does Linux not use segmentation but only paging?</a></h1>
+<h1 id="does-linux-not-use-segmentation-but-only-paging"><a href="https://unix.stackexchange.com/questions/469253/does-linux-not-use-segmentation-but-only-paging">Does Linux not use segmentation but only paging?</a><a class="headerlink" href="#does-linux-not-use-segmentation-but-only-paging" title="Permanent link">#</a></h1>
 <p><em>The Linux Programming Interface</em> shows the layout of a virtual address space of a process. Is each region in the diagram a segment?</p>
 <p><a href="https://i.stack.imgur.com/dvK8G.png"><img alt="enter image description here" src="https://i.stack.imgur.com/dvK8G.png" /></a></p>
 <p>From <em>Understanding The Linux Kernel</em>,</p>
@@ -2480,18 +2480,18 @@ Source Code Index, so you can quickly find it in the source code.</p>
 <p>• One of the design objectives of Linux is portability to a wide range of architectures; RISC architectures, in particular, have limited support for segmentation.</p>
 <p>The 2.6 version of Linux uses segmentation only when required by the 80x86 architecture.</p>
 </blockquote>
-<h2 id="a_1"><a href="https://unix.stackexchange.com/a/469254">A</a></h2>
+<h2 id="a_1"><a href="https://unix.stackexchange.com/a/469254">A</a><a class="headerlink" href="#a_1" title="Permanent link">#</a></h2>
 <p><em>The x86-64 architecture does not use segmentation in long mode (64-bit mode).</em></p>
 <p><em>Four of the segment registers: CS, SS, DS, and ES are forced to 0, and the limit to 2^64.</em></p>
 <p>https://en.wikipedia.org/wiki/X86_memory_segmentation#Later_developments</p>
 <p>It is no longer possible for the OS to limit which ranges of the "linear addresses" are available. Therefore it cannot use segmentation for memory protection; it must rely entirely on paging.</p>
 <p>Do not worry about the details of x86 CPUs which would only apply when running in the legacy 32-bit modes. Linux for the 32-bit modes is not used as much. It may even be considered "in a state of benign neglect for several years". See <a href="https://lwn.net/Articles/728207/">32-Bit x86 support in Fedora</a> [LWN.net, 2017].</p>
 <p>(It happens that 32-bit Linux does not use segmentation either. But you don't need to trust me on that, you can just ignore it :-).</p>
-<h2 id="a_2"><a href="https://unix.stackexchange.com/a/469256">A</a></h2>
+<h2 id="a_2"><a href="https://unix.stackexchange.com/a/469256">A</a><a class="headerlink" href="#a_2" title="Permanent link">#</a></h2>
 <p>As the <code>x86</code> has segments, it is not possible to not use them. But both <code>cs</code> (code segment) and <code>ds</code>(data segment) base addresses are set to zero, so the segmentation is not really used. An exception is thread local data, one of the normally unused segment registers points to <strong>thread local data</strong>. But that is mainly to avoid reserving one of the general purpose registers for this task.</p>
 <p>It doesn't say that Linux doesn't use segmentation on the x86, as that would not be possible. You already highlighted one part, <strong>Linux uses segmentation in a very limited way</strong>. The second part is <strong>Linux uses segmentation only when required by the 80x86 architecture</strong></p>
 <p>You already quoted the reasons, paging is easier and more portable.</p>
-<h1 id="x86-memory-segmentation-later-developments"><a href="https://en.wikipedia.org/wiki/X86_memory_segmentation">x86 memory segmentation</a> Later developments</h1>
+<h1 id="x86-memory-segmentation-later-developments"><a href="https://en.wikipedia.org/wiki/X86_memory_segmentation">x86 memory segmentation</a> Later developments<a class="headerlink" href="#x86-memory-segmentation-later-developments" title="Permanent link">#</a></h1>
                 
                   
                 

@@ -2503,7 +2503,7 @@
               
                 
                 
-                <h1 id="11-linux-versus-other-unix-like-kernels">1.1. Linux Versus Other Unix-Like Kernels</h1>
+                <h1 id="11-linux-versus-other-unix-like-kernels">1.1. Linux Versus Other Unix-Like Kernels<a class="headerlink" href="#11-linux-versus-other-unix-like-kernels" title="Permanent link">#</a></h1>
 <p>The various Unix-like systems on the market, some of which have a long history and show signs of archaic（古老的，陈旧的） practices, differ in many important respects. All commercial variants were derived from either SVR4 or 4.4BSD, and all tend to agree on some common standards like IEEE's Portable
 Operating Systems based on Unix (POSIX) and X/Open's Common Applications Environment (CAE).</p>
 <p>The current standards specify only an <strong>application programming interface</strong> (API)that is, a <strong>well-defined</strong> environment in which user programs should run. Therefore, the standards do not impose any
@@ -2516,7 +2516,7 @@ restriction on internal design choices of a compliant <strong>kernel</strong>. <
 <p>The 2.6 version of the <strong>Linux kernel</strong> aims to be compliant with the IEEE POSIX standard. This, of course, means that most existing Unix programs can be compiled and executed on a Linux system with very little effort or even without the need for patches to the source code. Moreover, Linux includes all the features of a modern Unix operating system, such as <strong>virtual memory</strong>, a <strong>virtual</strong> <strong>filesystem</strong>, <strong>lightweight processes</strong>, <strong>Unix signals</strong> , <strong>SVR4 interprocess communications</strong>, support for <strong>Symmetric Multiprocessor (SMP) systems</strong>, and so on.</p>
 <p>When Linus Torvalds wrote the first kernel, he referred to some classical books on Unix internals, like Maurice Bach's The Design of the Unix Operating System (Prentice Hall, 1986). Actually, Linux still has some bias toward the Unix baseline described in Bach's book (i.e., SVR2). However, Linux doesn't stick to any particular variant. Instead, it tries to adopt the best features and design choices of several different Unix kernels.</p>
 <p>The following list describes how Linux competes against some well-known commercial Unix kernels:</p>
-<h2 id="monolithic-kernel"><em>Monolithic kernel</em></h2>
+<h2 id="monolithic-kernel"><em>Monolithic kernel</em><a class="headerlink" href="#monolithic-kernel" title="Permanent link">#</a></h2>
 <p>It is a large, complex do-it-yourself program, composed of several logically different components. In this, it is quite conventional; most commercial Unix variants are monolithic. (Notable exceptions are the Apple Mac OS X and the GNU Hurd operating systems, both derived from the Carnegie-Mellon's Mach, which follow a microkernel approach.)</p>
 <blockquote>
 <p>NOTE: See also</p>
@@ -2524,7 +2524,7 @@ restriction on internal design choices of a compliant <strong>kernel</strong>. <
 <li><a href="https://en.wikipedia.org/wiki/Monolithic_kernel">Monolithic kernel</a></li>
 </ul>
 </blockquote>
-<h2 id="compiled-and-statically-linked-traditional-unix-kernels"><em>Compiled and statically linked traditional Unix kernels</em></h2>
+<h2 id="compiled-and-statically-linked-traditional-unix-kernels"><em>Compiled and statically linked traditional Unix kernels</em><a class="headerlink" href="#compiled-and-statically-linked-traditional-unix-kernels" title="Permanent link">#</a></h2>
 <p>Most modern kernels can dynamically load and unload some portions of the kernel code (typically, <strong>device drivers</strong>), which are usually called <strong><em>modules</em></strong> . Linux's support for <strong>modules</strong> is very good, because it is able to automatically load and unload modules on demand. Among the main commercial Unix variants, only the SVR4.2 and Solaris kernels have a similar feature.</p>
 <blockquote>
 <p>NOTE: </p>
@@ -2541,7 +2541,7 @@ restriction on internal design choices of a compliant <strong>kernel</strong>. <
 <li><a href="https://en.wikipedia.org/wiki/Loadable_kernel_module">Loadable kernel module</a></li>
 </ul>
 </blockquote>
-<h2 id="kernel-threading"><em>Kernel threading</em></h2>
+<h2 id="kernel-threading"><em>Kernel threading</em><a class="headerlink" href="#kernel-threading" title="Permanent link">#</a></h2>
 <p>Some Unix kernels, such as Solaris and SVR4.2/MP, are organized as a set of kernel threads .A <strong>kernel thread</strong> is an execution context that can be independently scheduled; it may be associated with a user program, or it may run only some kernel functions. Context switches between <strong>kernel threads</strong> are usually much less expensive than context switches between ordinary processes, because the former usually operate on a common address space. Linux uses <strong>kernel threads</strong> in a very limited way to execute a few <strong>kernel functions</strong> periodically; however, they do not represent the basic <strong>execution context</strong> abstraction. (That's the topic of the next item.)</p>
 <blockquote>
 <p>NOTE: 本书讨论kernel thread的章节：</p>
@@ -2549,7 +2549,7 @@ restriction on internal design choices of a compliant <strong>kernel</strong>. <
 <li>3.4.2. Kernel Threads</li>
 </ul>
 </blockquote>
-<h2 id="multithreaded-application-support"><em>Multithreaded application support</em></h2>
+<h2 id="multithreaded-application-support"><em>Multithreaded application support</em><a class="headerlink" href="#multithreaded-application-support" title="Permanent link">#</a></h2>
 <p>Most modern operating systems have some kind of support for multithreaded applications that is, user programs that are designed in terms of many relatively independent execution flows that share a large portion of the application data structures. A multithreaded user application could be composed of many <strong>lightweight processes</strong> (LWP), which are processes that can operate on a common address space, common physical memory pages, common opened files, and so on. Linux defines its own version of lightweight processes, which is different from the types used on other systems such as SVR4 and Solaris. While all the commercial Unix variants of <strong>LWP</strong> are based on <strong>kernel threads</strong>, Linux regards <strong>lightweight processes</strong> as the basic <strong>execution context</strong> and handles them via the nonstandard  <a href="http://man7.org/linux/man-pages/man2/clone.2.html"><code>clone( )</code></a> system call.</p>
 <blockquote>
 <p>NOTE: See also</p>
@@ -2569,7 +2569,7 @@ restriction on internal design choices of a compliant <strong>kernel</strong>. <
 </li>
 </ul>
 </blockquote>
-<h2 id="preemptive-kernel"><em>Preemptive kernel</em></h2>
+<h2 id="preemptive-kernel"><em>Preemptive kernel</em><a class="headerlink" href="#preemptive-kernel" title="Permanent link">#</a></h2>
 <p>When compiled with the "Preemptible Kernel" option, Linux 2.6 can arbitrarily interleave execution flows while they are in <strong>privileged mode</strong>. Besides Linux 2.6, a few other conventional, general-purpose Unix systems, such as Solaris and Mach 3.0 , are fully <strong>preemptive kernels</strong>. SVR4.2/MP introduces some fixed preemption points as a method to get limited preemption capability.</p>
 <blockquote>
 <p>NOTE: See also</p>
@@ -2578,15 +2578,15 @@ restriction on internal design choices of a compliant <strong>kernel</strong>. <
 <li><a href="https://en.wikipedia.org/wiki/Kernel_preemption">Kernel preemption</a></li>
 </ul>
 </blockquote>
-<h2 id="multiprocessor-support"><em>Multiprocessor support</em></h2>
+<h2 id="multiprocessor-support"><em>Multiprocessor support</em><a class="headerlink" href="#multiprocessor-support" title="Permanent link">#</a></h2>
 <p>Several Unix kernel variants take advantage of multiprocessor systems. Linux 2.6 supports symmetric multiprocessing (SMP ) for different memory models, including NUMA: the system can use multiple processors and each processor can handle any task there is no discrimination among them. Although a few parts of the kernel code are still serialized by means of a single "<strong>big kernel lock</strong> ," it is fair to say that Linux 2.6 makes a near optimal use of SMP.</p>
 <blockquote>
 <p>NOTE: </p>
 <p><a href="../Giant-lock/">Giant-lock</a></p>
 </blockquote>
-<h2 id="filesystem"><em>Filesystem</em></h2>
+<h2 id="filesystem"><em>Filesystem</em><a class="headerlink" href="#filesystem" title="Permanent link">#</a></h2>
 <p>Linux's standard filesystems come in many flavors. You can use the plain old Ext2 filesystem if you don't have specific needs. You might switch to Ext3 if you want to avoid lengthy filesystem checks after a system crash. If you'll have to deal with many small files, the ReiserFS filesystem is likely to be the best choice. Besides Ext3 and ReiserFS, several other journaling filesystems can be used in Linux; they include IBM AIX's Journaling File System (JFS ) and Silicon Graphics IRIX 's XFS filesystem. Thanks to a powerful <strong>object-oriented Virtual File System technology</strong> (inspired by Solaris and SVR4), porting a foreign filesystem to Linux is generally easier than porting to other kernels.</p>
-<h2 id="streams"><em>STREAMS</em></h2>
+<h2 id="streams"><em>STREAMS</em><a class="headerlink" href="#streams" title="Permanent link">#</a></h2>
 <p>Linux has no analog to the STREAMS I/O subsystem introduced in SVR4, although it is included now in most Unix kernels and has become the preferred interface for writing device drivers, terminal drivers, and network protocols.</p>
                 
                   

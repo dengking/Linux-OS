@@ -2433,7 +2433,7 @@
               
                 
                 
-                <h1 id="os-kernel-is-event-driven">OS kernel is event-driven</h1>
+                <h1 id="os-kernel-is-event-driven">OS kernel is event-driven<a class="headerlink" href="#os-kernel-is-event-driven" title="Permanent link">#</a></h1>
 <p>关于OS的作用，本书中已经花了非常多的篇幅来进行介绍，具体可以参见如下章节：</p>
 <ul>
 <li>
@@ -2521,9 +2521,9 @@
 </tbody>
 </table>
 <p>各种interrupt就是所谓的event。</p>
-<h2 id="timer">timer</h2>
+<h2 id="timer">timer<a class="headerlink" href="#timer" title="Permanent link">#</a></h2>
 <p>timer interrupt对系统非常重要，它就相当于系统的heartbeat，从这个角度来看的话，timer就相当于相同的heart。因为它它触发这系统的运转，它就相当于相同的系统的<a href="https://en.wikipedia.org/wiki/Electric_motor">Electric motor</a>，比如内燃机运转带动整个系统运转起来。</p>
-<h2 id="system-callinterrupt">system call也相当于interrupt</h2>
+<h2 id="system-callinterrupt">system call也相当于interrupt<a class="headerlink" href="#system-callinterrupt" title="Permanent link">#</a></h2>
 <p>上面使用的是“相当于”，而不是“是”，这是因为随着技术的更新迭代，实现system call的assembly instruction也在进行更新迭代，可能原来使用的中断指令（<code>int</code> assembly instruction）会替换为更加高效的assembly instruction。在10.3. Entering and Exiting a System Call中对此进行了详细的说明，如下：</p>
 <p>Applications can invoke a system call in two different ways:</p>
 <ul>
@@ -2536,7 +2536,7 @@
 <li>https://wiki.osdev.org/Sysenter</li>
 </ul>
 <p>上面描述的interrupt主要来自于hardware，其实system call的实现也是依赖于interrupt。</p>
-<h2 id="_1">总结</h2>
+<h2 id="_1">总结<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
 <p>通过上述分析，我们可以看到OS kernel的所有activity其实都可以认为是event-driven的：OS kernel管理着hardware、process，它作为两者之间的中间层，可以认为OS的所有的activity都是由它们触发的。</p>
 <p>建立这样的一个统一模型对于后面讨论OS kernel的实现思路是非常重要的。</p>
                 

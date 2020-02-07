@@ -2360,7 +2360,7 @@
               
                 
                 
-                <h1 id="43-nested-execution-of-exception-and-interrupt-handlers">4.3. Nested Execution of Exception and Interrupt Handlers</h1>
+                <h1 id="43-nested-execution-of-exception-and-interrupt-handlers">4.3. Nested Execution of Exception and Interrupt Handlers<a class="headerlink" href="#43-nested-execution-of-exception-and-interrupt-handlers" title="Permanent link">#</a></h1>
 <p>Every interrupt or exception gives rise to a <em>kernel control path</em> or separate sequence of instructions that execute in <strong>Kernel Mode</strong> on behalf of the <strong>current process</strong>. For instance, when an I/O device raises an interrupt, the first instructions of the corresponding <strong>kernel control path</strong> are those that save the contents of the CPU registers in the <strong>Kernel Mode stack</strong>, while the last are those that restore the contents of the registers.</p>
 <p><strong>Kernel control paths</strong> may be arbitrarily nested; an <strong>interrupt handler</strong> may be interrupted by another <strong>interrupt handler</strong>, thus giving rise to a nested execution of <strong>kernel control paths</strong> , as shown in Figure 4-3. As a result, the last instructions of a <strong>kernel control path</strong> that is taking care of an interrupt do not always put the current process back into User Mode: if the level of nesting is greater than 1, these instructions will put into execution the kernel control path that was interrupted last, and the CPU will continue to run in Kernel Mode.</p>
 <p><img alt="" src="../Figure-4-3-An-example-of-nested-execution-of-kernel-control-paths.jpg" /></p>

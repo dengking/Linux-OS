@@ -2461,7 +2461,7 @@
               
                 
                 
-                <h1 id="165-synchronization-and-critical-regions">1.6.5. Synchronization and Critical Regions</h1>
+                <h1 id="165-synchronization-and-critical-regions">1.6.5. Synchronization and Critical Regions<a class="headerlink" href="#165-synchronization-and-critical-regions" title="Permanent link">#</a></h1>
 <blockquote>
 <p>NOTE: 虽然本节所描述的是kernel的synchronization，但是其中所描述的方法、思路可以广泛应用于其他领域。</p>
 </blockquote>
@@ -2473,13 +2473,13 @@
 <p><code>[*]</code> Synchronization problems have been fully described in other works; we refer the interested reader to books on the Unix operating systems (see the Bibliography).</p>
 </blockquote>
 <p>These problems occur not only among <strong>kernel control paths</strong> but also among processes sharing common data. Several synchronization techniques have been adopted. The following section concentrates on how to synchronize <strong>kernel control paths</strong>.</p>
-<h2 id="1651-kernel-preemption-disabling">1.6.5.1. Kernel preemption disabling</h2>
+<h2 id="1651-kernel-preemption-disabling">1.6.5.1. Kernel preemption disabling<a class="headerlink" href="#1651-kernel-preemption-disabling" title="Permanent link">#</a></h2>
 <p>To provide a drastically simple solution to synchronization problems, some traditional Unix kernels are nonpreemptive: when a process executes in Kernel Mode, it cannot be arbitrarily suspended and substituted with another process. Therefore, on a uniprocessor system, all kernel data structures that are not updated by interrupts or exception handlers are safe for the kernel to access.</p>
 <p>Of course, a process in Kernel Mode can voluntarily relinquish the CPU, but in this case, it must ensure that all data structures are left in a consistent state. Moreover, when it resumes its execution, it must recheck the value of any previously accessed data structures that could be changed.</p>
 <p>A synchronization mechanism applicable to preemptive kernels consists of disabling kernel preemption before entering a critical region and reenabling it right after leaving the region. Nonpreemptability is not enough for multiprocessor systems, because two kernel control paths running on different CPUs can concurrently access the same data structure.</p>
-<h2 id="1652-interrupt-disabling">1.6.5.2. Interrupt disabling</h2>
+<h2 id="1652-interrupt-disabling">1.6.5.2. Interrupt disabling<a class="headerlink" href="#1652-interrupt-disabling" title="Permanent link">#</a></h2>
 <p>Another <strong>synchronization mechanism</strong> for <strong>uniprocessor systems</strong> consists of disabling all hardware interrupts before entering a critical region and reenabling them right after leaving it. This mechanism, while simple, is far from optimal. If the critical region is large, interrupts can remain disabled for a relatively long time, potentially causing all hardware activities to freeze.</p>
-<h2 id="1653-semaphores">1.6.5.3. Semaphores</h2>
+<h2 id="1653-semaphores">1.6.5.3. Semaphores<a class="headerlink" href="#1653-semaphores" title="Permanent link">#</a></h2>
 <p>A widely used mechanism, effective in both uniprocessor and multiprocessor systems, relies on the use of <em>semaphores</em> . A semaphore is simply a counter associated with a data structure; it is checked by all kernel threads before they try to access the data structure. Each semaphore may be viewed as an object composed of:</p>
 <ul>
 <li>An integer variable</li>
@@ -2488,11 +2488,11 @@
 </ul>
 <p>The  <code>down( )</code> method decreases the value of the semaphore. If the new value is less than 0, the method adds the running process to the <code>semaphore list</code> and then blocks (i.e., invokes the <strong>scheduler</strong>). The  <code>up( )</code> method increases the value of the semaphore and, if its new value is greater than or equal to 0, reactivates one or more processes in the semaphore list.</p>
 <p>Each data structure to be protected has its own semaphore, which is initialized to 1. When a kernel control path wishes to access the data structure, it executes the  <code>down( )</code> method on the proper semaphore. If the value of the new semaphore isn't negative, access to the data structure is granted. Otherwise, the process that is executing the kernel control path is added to the semaphore list and blocked. When another process executes the  <code>up( )</code> method on that semaphore, one of the processes in the semaphore list is allowed to proceed.</p>
-<h2 id="1654-spin-locks">1.6.5.4. Spin locks</h2>
+<h2 id="1654-spin-locks">1.6.5.4. Spin locks<a class="headerlink" href="#1654-spin-locks" title="Permanent link">#</a></h2>
 <p>In multiprocessor systems, semaphores are not always the best solution to the <strong>synchronization</strong> problems. Some kernel data structures should be protected from being concurrently accessed by <strong>kernel control paths</strong> that run on different CPUs. In this case, if the time required to update the data structure is short, a semaphore could be very inefficient. To check a semaphore, the kernel must insert a process in the semaphore list and then suspend it. Because both operations are relatively expensive, in the time it takes to complete them, the other kernel control path could have already released the semaphore.</p>
 <p>In these cases, multiprocessor operating systems use <strong>spin locks</strong> . A <strong>spin lock</strong> is very similar to a semaphore, but it has no <strong>process list</strong>; when a process finds the lock closed by another process, it "spins" around repeatedly, executing a tight instruction loop until the lock becomes open.</p>
 <p>Of course, <strong>spin locks</strong> are useless in a uniprocessor environment. When a kernel control path tries to access a locked data structure, it starts an endless loop. Therefore, the kernel control path that is updating the protected data structure would not have a chance to continue the execution and release the spin lock. The final result would be that the system hangs.</p>
-<h2 id="1655-avoiding-deadlocks">1.6.5.5. Avoiding deadlocks</h2>
+<h2 id="1655-avoiding-deadlocks">1.6.5.5. Avoiding deadlocks<a class="headerlink" href="#1655-avoiding-deadlocks" title="Permanent link">#</a></h2>
 <p>Processes or kernel control paths that synchronize with other control paths may easily enter a deadlock state. The simplest case of deadlock occurs when process <code>p1</code> gains access to data structure <code>a</code> and process <code>p2</code> gains access to <code>b</code>, but <code>p1</code> then waits for <code>b</code> and <code>p2</code> waits for <code>a</code>. Other more complex cyclic waits among groups of processes also may occur. Of course, a deadlock condition causes a complete freeze of the affected processes or kernel control paths.</p>
 <p>As far as kernel design is concerned, deadlocks become an issue when the number of kernel locks used is high. In this case, it may be quite difficult to ensure that no deadlock state will ever be reached for all possible ways to interleave kernel control paths. Several operating systems, including Linux, avoid this problem by requesting locks in a predefined order.</p>
                 

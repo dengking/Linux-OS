@@ -2495,7 +2495,7 @@
 </li>
 </ul>
 </div>
-<h2 id="322-identifying-a-process">3.2.2. Identifying a Process</h2>
+<h2 id="322-identifying-a-process">3.2.2. Identifying a Process<a class="headerlink" href="#322-identifying-a-process" title="Permanent link">#</a></h2>
 <p>As a general rule, each <strong>execution context</strong> that can be independently scheduled must have its own
 <strong>process descriptor</strong>; therefore, even <strong>lightweight processes</strong>, which share a large portion of their kernel
 data structures, have their own  <code>task_struct</code> structures.</p>
@@ -2543,7 +2543,7 @@ field, thus the  <code>getpid( )</code> system call works as usual for this kind
 <p>Later, we'll show you how it is possible to derive a true process descriptor pointer efficiently from its
 respective <code>PID</code>. Efficiency is important because many system calls such as  <code>kill( )</code> use the <code>PID</code> to
 denote the affected process.</p>
-<h4 id="3221-process-descriptors-handling">3.2.2.1. Process descriptors handling</h4>
+<h4 id="3221-process-descriptors-handling">3.2.2.1. Process descriptors handling<a class="headerlink" href="#3221-process-descriptors-handling" title="Permanent link">#</a></h4>
 <p>Processes are dynamic entities whose lifetimes range from a few milliseconds to months. Thus, the
 kernel must be able to handle many processes at the same time, and <strong>process descriptors</strong> are stored
 in <strong>dynamic memory</strong> rather than in the memory area permanently assigned to the kernel. For each
@@ -2625,7 +2625,7 @@ stack is stored starting at address  <code>0x015fc000</code> . The value of the 
 of the stack at  <code>0x015fa878</code> .</p>
 <p>The kernel uses the  <code>alloc_thread_info</code> and  <code>free_thread_info</code> macros to allocate and release the
 memory area storing a  <code>thread_info</code> structure and a <strong>kernel stack</strong>.</p>
-<h4 id="3222-identifying-the-current-process">3.2.2.2. Identifying the current process</h4>
+<h4 id="3222-identifying-the-current-process">3.2.2.2. Identifying the current process<a class="headerlink" href="#3222-identifying-the-current-process" title="Permanent link">#</a></h4>
 <p>The close association between the  <code>thread_info</code> structure and the <strong>Kernel Mode stack</strong> just described
 offers a key benefit in terms of efficiency: the <strong>kernel</strong> can easily obtain the address of the
 <code>thread_info</code> structure of the process currently running on a CPU from the value of the  <code>esp</code> register.
@@ -2662,7 +2662,7 @@ the stack, as shown previously. Earlier versions of Linux did not store the <str
 necessary to define  current as an array one element for each available CPU.</p>
 <p><strong><em>SUMMARY</em></strong> : 所有的<strong>process descriptor</strong> 和 <strong>kernel stack</strong> 都是位于kernel中；由kernel来执行调度；当CPU需要执行某个<strong>process descriptor</strong>的时候，它需要读取这个<strong>process descriptor</strong>的一些数据，比如之前保存的register数据等以便resume；从上面的描述可以看出，CPU是根据<code>esp</code>的值来获得<strong>process descriptor</strong>的地址，并且，从前面的描述来看，每个<code>thread_union</code>都有一个自己的 <strong>kernel stack</strong> ，而从上面的描述来看，是根据<code>esp</code>的值来获得<strong>process descriptor</strong>的地址，所以CPU是在某个`thread_union的 <strong>kernel stack</strong>中执行，然后得到对应的<strong>process descriptor</strong>；</p>
 <p><strong><em>SUMMARY</em></strong> : 因为scheduler在调度一个task开始运行之前会将这个task的所有的register都恢复到CPU中，所以必然会包含<code>esp</code>，所以它就可以根据<code>esp</code>快速地定位到process descriptor；</p>
-<h4 id="3223-doubly-linked-lists">3.2.2.3. Doubly linked lists</h4>
+<h4 id="3223-doubly-linked-lists">3.2.2.3. Doubly linked lists<a class="headerlink" href="#3223-doubly-linked-lists" title="Permanent link">#</a></h4>
 <p>Before moving on and describing how the kernel keeps track of the various processes in the system,
 we would like to emphasize the role of special data structures that implement doubly linked lists.</p>
 <p>For each list, a set of primitive operations must be implemented: initializing the list, inserting and
@@ -2687,7 +2687,7 @@ a pointer  <code>pprev</code> to the  <code>next</code> field of the previous el
 field of the first element and the  <code>next</code> field of the last element are set to  <code>NULL</code> . The list can be
 handled by means of several helper functions and macros similar to those listed in Table 3-1:
 <code>hlist_add_head( )</code> ,  <code>hlist_del( )</code> ,  <code>hlist_empty( )</code> ,  <code>hlist_entry</code> ,  <code>hlist_for_each_entry</code> , and so on.</p>
-<h4 id="3224-the-process-list">3.2.2.4. The process list</h4>
+<h4 id="3224-the-process-list">3.2.2.4. The process list<a class="headerlink" href="#3224-the-process-list" title="Permanent link">#</a></h4>
 <p>The first example of a doubly linked list we will examine is the <em>process list</em>, a list that links together
 all existing process descriptors. Each  <code>task_struct</code> structure includes a  <code>tasks</code> field of type  <code>list_head</code>
 whose  <code>prev</code> and  <code>next</code> fields point, respectively, to the previous and to the next  <code>task_struct</code> element.</p>
@@ -2711,7 +2711,7 @@ past  <code>init_task</code> to the next task and continues until it reaches  <c
 <strong>circularity</strong> of the list). At each iteration, the variable passed as the argument of the macro contains
 the address of the currently scanned process descriptor, as returned by the  <code>list_entry</code> macro.</p>
 <p><strong><em>SUMMARY</em></strong> : 在multiprocessor中，是否是每个processor都有一个process list，还是说所有的process descriptor都放在一个process list中？</p>
-<h4 id="3225-the-lists-of-task_running-processes">3.2.2.5. The lists of <code>TASK_RUNNING</code> processes</h4>
+<h4 id="3225-the-lists-of-task_running-processes">3.2.2.5. The lists of <code>TASK_RUNNING</code> processes<a class="headerlink" href="#3225-the-lists-of-task_running-processes" title="Permanent link">#</a></h4>
 <p>When looking for a new process to run on a CPU, the kernel has to consider only the runnable processes (that is, the processes in the  <code>TASK_RUNNING</code> state).</p>
 <p>Earlier Linux versions put all runnable processes in the same list called <em><code>runqueue</code></em>. Because it would
 be too costly to maintain the list ordered according to process priorities, the earlier schedulers were

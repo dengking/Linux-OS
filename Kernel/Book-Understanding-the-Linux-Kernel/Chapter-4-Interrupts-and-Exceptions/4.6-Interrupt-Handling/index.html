@@ -2413,7 +2413,7 @@
 </li>
 </ul>
 </div>
-<h1 id="46-interrupt-handling">4.6. Interrupt Handling</h1>
+<h1 id="46-interrupt-handling">4.6. Interrupt Handling<a class="headerlink" href="#46-interrupt-handling" title="Permanent link">#</a></h1>
 <p>As we explained earlier, most <strong>exceptions</strong> are handled simply by sending a <strong>Unix signal</strong> to the process that caused the exception. The action to be taken is thus deferred until the process receives the signal; as a result, the kernel is able to process the <strong>exception</strong> quickly.</p>
 <p>This approach does not hold for <strong>interrupts</strong>, because they frequently arrive long after the process to which they are related (for instance, a process that requested a data transfer) has been <strong>suspended</strong> and a completely unrelated process is running. So it would make no sense to send a <strong>Unix signal</strong> to the <strong>current process</strong>.</p>
 <p><strong>Interrupt handling</strong> depends on the type of interrupt. For our purposes, we'll distinguish three main classes of interrupts:</p>
@@ -2423,7 +2423,7 @@
 <p>Some timer, either a local <strong>APIC timer</strong> or an <strong>external timer</strong>, has issued an interrupt; this kind of <strong>interrupt</strong> tells the <strong>kernel</strong> that a fixed-time interval has elapsed. These <strong>interrupts</strong> are handled mostly as I/O interrupts; we discuss the peculiar characteristics of timer interrupts in Chapter 6.</p>
 <p><strong><em>Interprocessor interrupts</em></strong></p>
 <p>A CPU issued an interrupt to another CPU of a multiprocessor system. We cover such interrupts in the later section "Interprocessor Interrupt Handling."</p>
-<h2 id="461-io-interrupt-handling">4.6.1. I/O Interrupt Handling</h2>
+<h2 id="461-io-interrupt-handling">4.6.1. I/O Interrupt Handling<a class="headerlink" href="#461-io-interrupt-handling" title="Permanent link">#</a></h2>
 <p>In general, an <strong>I/O interrupt handler</strong> must be flexible enough to service several devices at the same time. In the PCI bus architecture, for instance, several devices may share the same <strong>IRQ line</strong>. This means that the <strong>interrupt vector</strong> alone does not tell the whole story. In the example shown in Table 4-3, the same vector 43 is assigned to the USB port and to the sound card. However, some hardware devices found in older PC architectures (such as ISA) do not reliably operate if their <strong>IRQ line</strong> is shared with other devices.</p>
 <p><strong>Interrupt handler flexibility</strong> is achieved in two distinct ways, as discussed in the following list.</p>
                 

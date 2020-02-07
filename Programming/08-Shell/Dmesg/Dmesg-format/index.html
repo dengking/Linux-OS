@@ -2378,8 +2378,8 @@
 </li>
 </ul>
 </div>
-<h1 id="how-do-i-read-the-output-of-dmesg-to-determine-how-much-memory-a-process-is-using-when-oom-killer-is-invoked"><a href="https://unix.stackexchange.com/questions/103792/how-do-i-read-the-output-of-dmesg-to-determine-how-much-memory-a-process-is-us">How do I read the output of <code>dmesg</code> to determine how much memory a process is using when oom-killer is invoked?</a></h1>
-<h1 id="how-to-translate-kernels-trap-divide-error-rsp2b6d2ea40450-to-a-source-location"><a href="https://stackoverflow.com/questions/25450311/how-to-translate-kernels-trap-divide-error-rsp2b6d2ea40450-to-a-source-locatio">How to translate kernel's trap divide error rsp:2b6d2ea40450 to a source location?</a></h1>
+<h1 id="how-do-i-read-the-output-of-dmesg-to-determine-how-much-memory-a-process-is-using-when-oom-killer-is-invoked"><a href="https://unix.stackexchange.com/questions/103792/how-do-i-read-the-output-of-dmesg-to-determine-how-much-memory-a-process-is-us">How do I read the output of <code>dmesg</code> to determine how much memory a process is using when oom-killer is invoked?</a><a class="headerlink" href="#how-do-i-read-the-output-of-dmesg-to-determine-how-much-memory-a-process-is-using-when-oom-killer-is-invoked" title="Permanent link">#</a></h1>
+<h1 id="how-to-translate-kernels-trap-divide-error-rsp2b6d2ea40450-to-a-source-location"><a href="https://stackoverflow.com/questions/25450311/how-to-translate-kernels-trap-divide-error-rsp2b6d2ea40450-to-a-source-locatio">How to translate kernel's trap divide error rsp:2b6d2ea40450 to a source location?</a><a class="headerlink" href="#how-to-translate-kernels-trap-divide-error-rsp2b6d2ea40450-to-a-source-location" title="Permanent link">#</a></h1>
 <p>Customer reported an error in one of our programs caused by division by zero. We have only this VLM line:</p>
 <pre><code>kernel: myprog[16122] trap divide error rip:79dd99 rsp:2b6d2ea40450 error:0 
 </code></pre>
@@ -2390,7 +2390,7 @@
 <p>I suspect that <code>rsp:2b6d2ea40450</code> has something to do with the address of the line that caused the error (<code>0x2b6d2ea40450</code>) but is that true?</p>
 <p>If it is then how can I translate it to a physical approximate location in the source assuming I can load debug version of myprog into gdb, and then request to show the context around this address...</p>
 <p>Any, any help will be greatly appreciated!</p>
-<h2 id="a"><a href="https://stackoverflow.com/a/25450942">A</a></h2>
+<h2 id="a"><a href="https://stackoverflow.com/a/25450942">A</a><a class="headerlink" href="#a" title="Permanent link">#</a></h2>
 <p><code>ip</code> is the <strong>instruction pointer</strong>, <code>rsp</code> is the <strong>stack pointer</strong>. The <strong>stack pointer</strong> is not too useful unless you have a core image or a running process.</p>
 <p>You can use either <code>addr2line</code> or the <code>disassemble</code> command in <code>gdb</code> to see the line that got the error, based on the <code>ip</code>.</p>
 <pre><code class="C">$ cat divtest.c
@@ -2434,7 +2434,7 @@ Dump of assembler code for function main:
 End of assembler dump.
 </code></pre>
 
-<h1 id="how-do-you-read-a-segfault-kernel-log-message"><a href="https://stackoverflow.com/questions/2179403/how-do-you-read-a-segfault-kernel-log-message">How do you read a segfault kernel log message</a></h1>
+<h1 id="how-do-you-read-a-segfault-kernel-log-message"><a href="https://stackoverflow.com/questions/2179403/how-do-you-read-a-segfault-kernel-log-message">How do you read a segfault kernel log message</a><a class="headerlink" href="#how-do-you-read-a-segfault-kernel-log-message" title="Permanent link">#</a></h1>
 <p>This can be a very simple question, I'm am attempting to debug an application which generates the following <strong>segfault error</strong> in the <code>kern.log</code></p>
 <pre><code>kernel: myapp[15514]: segfault at 794ef0 ip 080513b sp 794ef0 error 6 in myapp[8048000+24000]
 </code></pre>
@@ -2451,12 +2451,12 @@ End of assembler dump.
 <li>at = ????</li>
 <li>myapp[8048000+24000] = address of symbol?</li>
 </ul>
-<h2 id="a_1"><a href="https://stackoverflow.com/a/2549593">A</a></h2>
-<h2 id="when-the-report-points-to-a-program-not-a-shared-library">When the report points to a program, not a shared library</h2>
+<h2 id="a_1"><a href="https://stackoverflow.com/a/2549593">A</a><a class="headerlink" href="#a_1" title="Permanent link">#</a></h2>
+<h2 id="when-the-report-points-to-a-program-not-a-shared-library">When the report points to a program, not a shared library<a class="headerlink" href="#when-the-report-points-to-a-program-not-a-shared-library" title="Permanent link">#</a></h2>
 <p>Run <code>addr2line -e myapp 080513b</code> (and repeat for the other <strong>instruction pointer</strong> values given) to see where the error is happening. Better, get a <strong>debug-instrumented build</strong>, and reproduce the problem under a debugger such as gdb.</p>
-<h2 id="if-its-a-shared-library">If it's a shared library</h2>
+<h2 id="if-its-a-shared-library">If it's a shared library<a class="headerlink" href="#if-its-a-shared-library" title="Permanent link">#</a></h2>
 <p>In the <code>libfoo.so[NNNNNN+YYYY]</code> part, the <code>NNNNNN</code> is where the library was loaded. Subtract this from the instruction pointer (<code>ip</code>) and you'll get the offset into the <code>.so</code> of the offending instruction. Then you can use <code>objdump -DCgl libfoo.so</code> and search for the instruction at that offset. You should easily be able to figure out which function it is from the asm labels. If the <code>.so</code> doesn't have optimizations you can also try using <code>addr2line -e libfoo.so &lt;offset&gt;</code>.</p>
-<h2 id="what-the-error-means">What the error means</h2>
+<h2 id="what-the-error-means">What the error means<a class="headerlink" href="#what-the-error-means" title="Permanent link">#</a></h2>
 <p>Here's the breakdown of the fields:</p>
 <ul>
 <li><code>address</code> - the location in memory the code is trying to access (it's likely that <code>10</code> and <code>11</code> are offsets from a pointer we expect to be set to a valid value but which is instead pointing to <code>0</code>)</li>
@@ -2484,7 +2484,7 @@ End of assembler dump.
 <li></li>
 </ul>
 <p>@Charles Duffy If I ever see you I will hug like I never hugged a living soul. – <a href="https://stackoverflow.com/users/4304746/baroudi-safwen">Baroudi Safwen</a> <a href="https://stackoverflow.com/questions/2179403/how-do-you-read-a-segfault-kernel-log-message#comment83409521_2549593">Jan 11 '18 at 18:47</a></p>
-<h2 id="a_2"><a href="https://stackoverflow.com/a/2179464">A</a></h2>
+<h2 id="a_2"><a href="https://stackoverflow.com/a/2179464">A</a><a class="headerlink" href="#a_2" title="Permanent link">#</a></h2>
 <p>Based on my limited knowledge, your assumptions are correct.</p>
 <ul>
 <li><code>sp</code> = stack pointer</li>
@@ -2529,7 +2529,7 @@ End of assembler dump.
 <li></li>
 </ul>
 <p>Thank you, this is very helpful – <a href="https://stackoverflow.com/users/263800/sullenx">Sullenx</a> <a href="https://stackoverflow.com/questions/2179403/how-do-you-read-a-segfault-kernel-log-message#comment2126883_2179464">Feb 1 '10 at 20:56</a></p>
-<h2 id="a_3"><a href="https://stackoverflow.com/a/10918932">A</a></h2>
+<h2 id="a_3"><a href="https://stackoverflow.com/a/10918932">A</a><a class="headerlink" href="#a_3" title="Permanent link">#</a></h2>
 <blockquote>
 <p>If it's a shared library</p>
 <p><strong>You're hosed, unfortunately; it's not possible to know where the libraries were placed in memory by the dynamic linker after-the-fact</strong>.</p>

@@ -2605,7 +2605,7 @@
 </li>
 </ul>
 </div>
-<h1 id="file-descriptor"><a href="https://en.wikipedia.org/wiki/File_descriptor">File descriptor</a></h1>
+<h1 id="file-descriptor"><a href="https://en.wikipedia.org/wiki/File_descriptor">File descriptor</a><a class="headerlink" href="#file-descriptor" title="Permanent link">#</a></h1>
 <p>In <a href="https://en.wikipedia.org/wiki/Unix">Unix</a> and <a href="https://en.wikipedia.org/wiki/Unix-like">related</a> computer operating systems, a <strong>file descriptor</strong> (<strong>FD</strong>, less frequently <strong>fildes</strong>) is an abstract indicator (<a href="https://en.wikipedia.org/wiki/Handle_(computing)">handle</a>) used to access a <a href="https://en.wikipedia.org/wiki/File_(computing)">file</a> or other <a href="https://en.wikipedia.org/wiki/Input/output">input/output</a><a href="https://en.wikipedia.org/wiki/System_resource">resource</a>, such as a <a href="https://en.wikipedia.org/wiki/Pipe_(Unix)">pipe</a> or <a href="https://en.wikipedia.org/wiki/Network_socket">network socket</a>. <strong>File descriptors</strong> form part of the <a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> <a href="https://en.wikipedia.org/wiki/Application_programming_interface">application programming interface</a>. A file descriptor is a non-negative <a href="https://en.wikipedia.org/wiki/Integer">integer</a>, generally represented in the <a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a> programming language as the type int (negative values being reserved to indicate "no value" or an error condition).</p>
 <p>Each Unix <a href="https://en.wikipedia.org/wiki/Process_(computing)">process</a> (except perhaps a <a href="https://en.wikipedia.org/wiki/Daemon_(computer_software)">daemon</a>) should expect to have three standard POSIX file descriptors, corresponding to the three <a href="https://en.wikipedia.org/wiki/Standard_streams">standard streams</a>:</p>
 <table>
@@ -2638,7 +2638,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="overview">Overview</h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
 <p>In the traditional implementation of Unix, <strong>file descriptors</strong> index into a per-process <strong>file descriptor table</strong> maintained by the kernel, that in turn indexes into a system-wide table of files opened by all processes, called the <strong>file table</strong>. This table records the <em>mode</em> with which the file (or other resource) has been opened: for reading, writing, appending, and possibly other modes. It also indexes into a third table called the <a href="https://en.wikipedia.org/wiki/Inode">inode table</a> that describes the actual underlying files.[<a href="https://en.wikipedia.org/wiki/File_descriptor#cite_note-bach-3">3]</a> To perform input or output, the process passes the file descriptor to the kernel through a <a href="https://en.wikipedia.org/wiki/System_call">system call</a>, and the kernel will access the file on behalf of the process. The process does not have direct access to the file or <strong>inode tables</strong>.</p>
 <p><strong><em>SUMMARY</em></strong> : 在APUE的3.10 File Sharing也描述了这部分内容；需要注意的是：the data structures used by the kernel for all I/O.即所有的IO都是采用的类似于上述的结构；并且上述结构需要和<a href="https://en.wikipedia.org/wiki/Process_control_block">Process control block</a> 一起来理解才能够很好的对Unix OS的IO有一个整体的认知；</p>
 <p><strong><em>SUMMARY</em></strong> : 需要注意，上面这段话中提及 <strong>file descriptor table</strong> 和 <strong>file table</strong> 时，前面分别加上了修饰语： per-process 和  system-wide ；这两个修饰语是非常重要的，需要将它们和the data structures used by the kernel for all I/O一起来进行理解；因为 <strong>file descriptor table</strong> 的scope是process，即每个process都有一套自己的  <strong>file descriptor table</strong> ，所以每个process的file descriptor都是从0开始增长；显然比较两个process的file descriptor是没有意义的（处理0,1,2，因为它们都已经被默认绑定到<code>STDIN_FILENO</code> ,<code>STDOUT_FILENO</code> ,<code>STDERR_FILENO</code> ）；而file table的scope是system，即所有的process都将共享file table；</p>
@@ -2659,9 +2659,9 @@
 <p>是有可能存在多个不同的file table entry指向了同一个iNode的；</p>
 <p>显然OS的这种设计，就导致当一个文件被多个不同的process进行share的时候，而每个process都可以执行一系列的IO操作，这就导致了可能存在的数据冲突问题；</p>
 <p>总的来说，按照OS的这总结构设计，以及OS提供的各种操作，是可以总结出可能的所有情形的；</p>
-<h2 id="operations-on-file-descriptors">Operations on file descriptors</h2>
+<h2 id="operations-on-file-descriptors">Operations on file descriptors<a class="headerlink" href="#operations-on-file-descriptors" title="Permanent link">#</a></h2>
 <p>The following lists typical operations on file descriptors on modern <a href="https://en.wikipedia.org/wiki/Unix-like">Unix-like</a> systems. Most of these functions are declared in the <code>&lt;unistd.h&gt;</code> header, but some are in the <code>&lt;fcntl.h&gt;</code> header instead.</p>
-<h3 id="creating-file-descriptors">Creating file descriptors</h3>
+<h3 id="creating-file-descriptors">Creating file descriptors<a class="headerlink" href="#creating-file-descriptors" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Open_(system_call)">open</a>()</li>
 <li><a href="http://man7.org/linux/man-pages/man2/open.2.html">creat()</a>[<a href="https://en.wikipedia.org/wiki/File_descriptor#cite_note-4">4]</a></li>
@@ -2677,12 +2677,12 @@
 <li><code>memfd_create()</code> (Linux)</li>
 <li><code>userfaultfd()</code> (Linux)</li>
 </ul>
-<h3 id="deriving-file-descriptors">Deriving file descriptors</h3>
+<h3 id="deriving-file-descriptors">Deriving file descriptors<a class="headerlink" href="#deriving-file-descriptors" title="Permanent link">#</a></h3>
 <ul>
 <li>dirfd()</li>
 <li>fileno()</li>
 </ul>
-<h3 id="operations-on-a-single-file-descriptor">Operations on a single file descriptor</h3>
+<h3 id="operations-on-a-single-file-descriptor">Operations on a single file descriptor<a class="headerlink" href="#operations-on-a-single-file-descriptor" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Read_(system_call)">read</a>(), <a href="https://en.wikipedia.org/wiki/Write_(system_call)">write</a>()</li>
 <li>readv(), writev()</li>
@@ -2702,7 +2702,7 @@
 <li>dprintf()</li>
 <li>vmsplice() (Linux)</li>
 </ul>
-<h3 id="operations-on-multiple-file-descriptors">Operations on multiple file descriptors</h3>
+<h3 id="operations-on-multiple-file-descriptors">Operations on multiple file descriptors<a class="headerlink" href="#operations-on-multiple-file-descriptors" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Select_(Unix)">select()</a>, pselect()</li>
 <li>poll()</li>
@@ -2711,7 +2711,7 @@
 <li>sendfile()</li>
 <li><a href="https://en.wikipedia.org/wiki/Splice_(system_call)">splice()</a>, tee() (for Linux)</li>
 </ul>
-<h3 id="operations-on-the-file-descriptor-table">Operations on the file descriptor table</h3>
+<h3 id="operations-on-the-file-descriptor-table">Operations on the file descriptor table<a class="headerlink" href="#operations-on-the-file-descriptor-table" title="Permanent link">#</a></h3>
 <p>The <code>fcntl()</code> function is used to perform various operations on a file descriptor, depending on the command argument passed to it. There are commands to get and set attributes associated with a file descriptor, including <code>F_GETFD</code>, <code>F_SETFD</code>, <code>F_GETFL</code> and <code>F_SETFL</code>.</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Close_(system_call)">close()</a></li>
@@ -2720,18 +2720,18 @@
 <li><a href="https://en.wikipedia.org/wiki/Dup2">dup2()</a> (the new file descriptor will have the value passed as an argument)</li>
 <li>fcntl (<code>F_DUPFD</code>)</li>
 </ul>
-<h3 id="operations-that-modify-process-state">Operations that modify process state</h3>
+<h3 id="operations-that-modify-process-state">Operations that modify process state<a class="headerlink" href="#operations-that-modify-process-state" title="Permanent link">#</a></h3>
 <ul>
 <li>fchdir() (sets the process's current working directory based on a directory file descriptor)</li>
 <li>mmap() (maps ranges of a file into the process's address space)</li>
 </ul>
-<h3 id="file-locking">File locking</h3>
+<h3 id="file-locking">File locking<a class="headerlink" href="#file-locking" title="Permanent link">#</a></h3>
 <ul>
 <li>flock()</li>
 <li>fcntl() (<code>F_GETLK</code>, <code>F_SETLK</code>) and <code>F_SETLKW</code></li>
 <li>lockf()</li>
 </ul>
-<h3 id="sockets">Sockets</h3>
+<h3 id="sockets">Sockets<a class="headerlink" href="#sockets" title="Permanent link">#</a></h3>
 <ul>
 <li>connect()</li>
 <li>bind()</li>
@@ -2743,11 +2743,11 @@
 <li>setsockopt()</li>
 <li>shutdown() (shuts down one or both halves of a full duplex connection)</li>
 </ul>
-<h3 id="miscellaneous">Miscellaneous</h3>
+<h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Ioctl">ioctl()</a> (a large collection of miscellaneous operations on a single file descriptor, often associated with a device)</li>
 </ul>
-<h2 id="upcoming-operations">Upcoming operations</h2>
+<h2 id="upcoming-operations">Upcoming operations<a class="headerlink" href="#upcoming-operations" title="Permanent link">#</a></h2>
 <p>A series of new operations on file descriptors has been added to many modern Unix-like systems, as well as numerous C libraries, to be standardized in a future version of <a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a>.[<a href="https://en.wikipedia.org/wiki/File_descriptor#cite_note-5">5]</a> The <code>at</code> suffix signifies that the function takes an additional first argument supplying a file descriptor from which <a href="https://en.wikipedia.org/wiki/Relative_path">relative paths</a> are resolved, the forms lacking the <code>at</code> suffix thus becoming equivalent to passing a file descriptor corresponding to the current <a href="https://en.wikipedia.org/wiki/Working_directory">working directory</a>. The purpose of these new operations is to defend against a certain class of <a href="https://en.wikipedia.org/wiki/Time-of-check-to-time-of-use">TOCTTOU</a> attacks.</p>
 <ul>
 <li>openat()</li>
@@ -2766,7 +2766,7 @@
 <li>mkfifoat()</li>
 <li>fdopendir()</li>
 </ul>
-<h2 id="file-descriptors-as-capabilities">File descriptors as capabilities</h2>
+<h2 id="file-descriptors-as-capabilities">File descriptors as capabilities<a class="headerlink" href="#file-descriptors-as-capabilities" title="Permanent link">#</a></h2>
 <p>Unix file descriptors behave in many ways as <a href="https://en.wikipedia.org/wiki/Capability-based_security">capabilities</a>. They can be passed between processes across <a href="https://en.wikipedia.org/wiki/Unix_domain_socket">Unix domain sockets</a> using the <code>sendmsg()</code> system call. Note, however, that what is actually passed is a reference to an "open file description" that has mutable state (the file offset, and the file status and access flags). This complicates the secure use of file descriptors as capabilities, since when programs share access to the same open file description, they can interfere with each other's use of it by changing its offset or whether it is blocking or non-blocking, for example.[<a href="https://en.wikipedia.org/wiki/File_descriptor#cite_note-6">6]</a>[<a href="https://en.wikipedia.org/wiki/File_descriptor#cite_note-7">7]</a> In operating systems that are specifically designed as capability systems, there is very rarely any mutable state associated with a capability itself.</p>
 <p>A Unix process' file descriptor table is an example of a <a href="https://en.wikipedia.org/wiki/C-list_(computer_security)">C-list</a>.</p>
                 

@@ -2458,7 +2458,7 @@
 </li>
 </ul>
 </div>
-<h1 id="42-interrupts-and-exceptions">4.2. Interrupts and Exceptions</h1>
+<h1 id="42-interrupts-and-exceptions">4.2. Interrupts and Exceptions<a class="headerlink" href="#42-interrupts-and-exceptions" title="Permanent link">#</a></h1>
 <p>The Intel documentation classifies interrupts and exceptions as follows:</p>
 <ul>
 <li>
@@ -2487,25 +2487,25 @@
 <p><em>Programmed exceptions</em></p>
 <p>Occur at the request of the programmer. They are triggered by  <code>int</code> or  <code>int3</code> instructions; the  <code>into</code> (check for overflow) and  <code>bound</code> (check on address bound) instructions also give rise to a <strong>programmed exception</strong> when the condition they are checking is not true. <strong>Programmed exceptions</strong> are handled by the <strong>control unit</strong> as <strong>traps</strong>; they are often called <strong><em>software interrupts</em></strong> . Such exceptions have two common uses: to implement system calls and to notify a debugger of a specific event (see Chapter 10).</p>
 <p>Each interrupt or exception is identified by a number ranging from 0 to 255; Intel calls this 8-bit unsigned number a vector. The vectors of nonmaskable interrupts and exceptions are fixed, while those of maskable interrupts can be altered by programming the Interrupt Controller (see the next section).</p>
-<h2 id="421-irqs-and-interrupts">4.2.1. IRQs and Interrupts</h2>
+<h2 id="421-irqs-and-interrupts">4.2.1. IRQs and Interrupts<a class="headerlink" href="#421-irqs-and-interrupts" title="Permanent link">#</a></h2>
 <blockquote>
 <p>NOTE:</p>
 <p><a href="https://en.wikipedia.org/wiki/Interrupt_request_(PC_architecture)">Interrupt request (PC architecture)</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Programmable_interrupt_controller">Programmable interrupt controller</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Interrupt_vector_table">Interrupt vector table</a></p>
 </blockquote>
-<h2 id="422-exceptions">4.2.2. Exceptions</h2>
+<h2 id="422-exceptions">4.2.2. Exceptions<a class="headerlink" href="#422-exceptions" title="Permanent link">#</a></h2>
 <p>The 80x86 microprocessors issue roughly 20 different exceptions . <code>[*]</code> The kernel must provide a dedicated <strong>exception handler</strong> for each exception type. For some exceptions, the CPU control unit also generates a <strong>hardware error code</strong> and pushes it on the <strong>Kernel Mode stack</strong> before starting the <strong>exception handler</strong>.</p>
 <blockquote>
 <p><code>[*]</code> The exact number depends on the processor model.</p>
 </blockquote>
 <p>The following list gives the vector, the name, the type, and a brief description of the exceptions found in 80x86 processors. Additional information may be found in the Intel technical documentation.</p>
-<h2 id="423-interrupt-descriptor-table">4.2.3. Interrupt Descriptor Table</h2>
+<h2 id="423-interrupt-descriptor-table">4.2.3. Interrupt Descriptor Table<a class="headerlink" href="#423-interrupt-descriptor-table" title="Permanent link">#</a></h2>
 <blockquote>
 <p>NOTE:</p>
 <p><a href="https://en.wikipedia.org/wiki/Interrupt_descriptor_table">Interrupt descriptor table</a></p>
 </blockquote>
-<h2 id="424-hardware-handling-of-interrupts-and-exceptions">4.2.4. Hardware Handling of Interrupts and Exceptions</h2>
+<h2 id="424-hardware-handling-of-interrupts-and-exceptions">4.2.4. Hardware Handling of Interrupts and Exceptions<a class="headerlink" href="#424-hardware-handling-of-interrupts-and-exceptions" title="Permanent link">#</a></h2>
                 
                   
                 
