@@ -1,1 +1,1 @@
-本章结合[linux kernel](https://en.wikipedia.org/wiki/Linux_kernel)来探索OS kernel。
+本章开始讨论[linux kernel](https://en.wikipedia.org/wiki/Linux_kernel)的实现。
