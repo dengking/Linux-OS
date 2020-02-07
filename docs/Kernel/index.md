@@ -1,1 +1,1 @@
-以[linux kernel](https://en.wikipedia.org/wiki/Linux_kernel)来例来进行说明。
+本章结合[linux kernel](https://en.wikipedia.org/wiki/Linux_kernel)来探索OS kernel。

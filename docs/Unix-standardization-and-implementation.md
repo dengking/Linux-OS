@@ -1,11 +1,8 @@
-# 前言
 
-本节梳理[Unix operating system](https://en.wikipedia.org/wiki/Unix)和[Unix-like operating system](https://en.wikipedia.org/wiki/Unix-like)之间的标准、演进、关系等。对于这些标准有必要了解一下，因为在很多书籍，文章中都会见到这些标准。
 
-# UNIX Standardization and Implementations
+# UNIX standardization and implementations
 
-> NOTE: 本章的内容主要源自于[Advanced Programming in the UNIX® Environment, Third Edition](http://www.apuebook.com/cover3e.html)的chapter 2 UNIX Standardization and Implementations
->
+本节梳理[Unix operating system](https://en.wikipedia.org/wiki/Unix)和[Unix-like operating system](https://en.wikipedia.org/wiki/Unix-like)之间的标准、演进、关系等。对于这些标准有必要了解一下，因为在很多书籍，文章中都会见到这些标准。本节的内容主要源自于[Advanced Programming in the UNIX® Environment, Third Edition](http://www.apuebook.com/cover3e.html)的chapter 2 UNIX Standardization and Implementations
 
 ## Introduction
 
@@ -39,7 +36,7 @@ The ISO C library can be divided into 24 areas, based on the headers defined by 
 
 ### IEEE POSIX
 
-> NOTE: 本节介绍了IEEE POSIX standard的演进过程，这些历史可以pass掉。下面关于ISO C standard的一些网站链接：
+> NOTE: 本节介绍了IEEE POSIX standard的演进过程，这些历史可以pass掉。下面关于IEEE POSIX的一些网站链接：
 >
 > - [wikipedia POSIX](https://en.wikipedia.org/wiki/POSIX)
 > - [POSIX official site](http://get.posixcertified.ieee.org/)
@@ -122,6 +119,6 @@ provided reliable signals in a way that differs from the POSIX.1 standard. In Ch
 
 
 
-# [man STANDARDS(7)](http://man7.org/linux/man-pages/man7/standards.7.html)
+## [man STANDARDS(7)](http://man7.org/linux/man-pages/man7/standards.7.html)
 
 > NOTE: 这是linux文档中对standard的介绍。

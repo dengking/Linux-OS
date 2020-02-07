@@ -1,8 +1,8 @@
-# 前言
+# Operating system概述
 
-operating system是一个非常宏大的主题，设计的内容非常多。作为一名software engineer，掌握operating system的基础知识是必须的。下面是维基百科对operating system的介绍。
+Operating system（简称OS）是一个非常宏大的主题，涉及的内容非常多。作为一名software engineer，掌握operating system的基础知识是必须的。本节是对OS的概述，参考的是维基百科[Operating system](https://en.wikipedia.org/wiki/Operating_system)。
 
-# [Operating system](https://en.wikipedia.org/wiki/Operating_system)
+
 
 An **operating system** (**OS**) is [system software](https://en.wikipedia.org/wiki/System_software) that manages [computer hardware](https://en.wikipedia.org/wiki/Computer_hardware) and [software](https://en.wikipedia.org/wiki/Computer_software) resources and provides common [services](https://en.wikipedia.org/wiki/Daemon_(computing)) for [computer programs](https://en.wikipedia.org/wiki/Computer_program).
 
@@ -158,8 +158,6 @@ Main article: [Device driver](https://en.wikipedia.org/wiki/Device_driver)
 
 
 
-
-
 ## [Diversity of operating systems and portability](https://en.wikipedia.org/wiki/Operating_system#Diversity_of_operating_systems_and_portability)
 
 
@@ -167,3 +165,13 @@ Main article: [Device driver](https://en.wikipedia.org/wiki/Device_driver)
 ## [Market share](https://en.wikipedia.org/wiki/Operating_system#Market_share)
 
 *Further information:* [Usage share of operating systems](https://en.wikipedia.org/wiki/Usage_share_of_operating_systems)
+
+
+
+## 关于OS的更加深刻的描述
+
+上述内容是非常概括的，下面是关于OS的更加深刻的描述：
+
+- [Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的1.4. Basic Operating System Concepts
+
+  
