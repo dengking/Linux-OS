@@ -4,7 +4,7 @@
 
 ## Architecture
 
-描述Linux operating system的architecture
+描述Computing system的architecture。
 
 ## Kernel
 
