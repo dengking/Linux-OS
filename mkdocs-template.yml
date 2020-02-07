@@ -1,0 +1,26 @@
+site_name: Linux-OS
+site_url: https://dengking.github.io/Linux-OS
+site_description: Project documentation with Markdown.
+site_author: DengKing
+
+
+repo_url: https://github.com/dengking/Linux-OS
+
+edit_uri: ""
+
+
+
+theme:
+    name: material
+
+        
+nav: None
+
+    
+extra_css:
+    - css/extra.css
+
+google_analytics: ['UA-27795084-5', 'mkdocs.org']
+       
+plugins:
+    - search
