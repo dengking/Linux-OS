@@ -4,6 +4,9 @@ extra_css:
 google_analytics:
 - UA-27795084-5
 - mkdocs.org
+markdown_extensions:
+- toc:
+    permalink: '#'
 nav:
 - Home: index.md
 - "Operating-system-\u6982\u8FF0": Operating-system.md

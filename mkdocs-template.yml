@@ -21,6 +21,10 @@ extra_css:
     - css/extra.css
 
 google_analytics: ['UA-27795084-5', 'mkdocs.org']
-       
+
+markdown_extensions:
+    - toc:
+        permalink: '#'
+        
 plugins:
     - search
