@@ -1,7 +1,3 @@
-[TOC]
-
-
-
 # unix handler and start_rtn
 
 ## FORWORD

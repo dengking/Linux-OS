@@ -1,7 +1,3 @@
-[TOC]
-
-
-
 # [What the Linux kernel's messages about segfaulting programs mean on 64-bit x86](https://utcc.utoronto.ca/~cks/space/blog/linux/KernelSegfaultMessageMeaning)
 
 For quite a while the Linux kernel has had [an option to log a kernel message about every faulting user program](https://utcc.utoronto.ca/~cks/space/blog/linux/ShuttingUpSegfaultSyslogs), and it probably defaults to on in your Linux distribution. I've seen these messages fly by for years, but for reasons beyond the scope of this entry I've recently wanted to understand what they mean in some moderate amount of detail.

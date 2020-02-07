@@ -1,0 +1,4 @@
+nav:
+    - Dmesg: Dmesg.md
+    - Dmesg-format: Dmesg-format.md
+    - Dmesg-segfaulting: Dmesg-segfaulting.md
