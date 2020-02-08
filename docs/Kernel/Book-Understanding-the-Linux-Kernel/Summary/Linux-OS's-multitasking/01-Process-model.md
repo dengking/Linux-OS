@@ -1,6 +1,6 @@
 # Process model
 
-[Thread](https://en.wikipedia.org/wiki/Thread_(computing))和[Process](https://en.wikipedia.org/wiki/Process_(computing))是现代OS实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的关键所在。建立起完整、正确的process model对于在linux-like OS下进行开发、理解linux kernel的实现至关重要。
+[Thread](https://en.wikipedia.org/wiki/Thread_(computing))和[Process](https://en.wikipedia.org/wiki/Process_(computing))是现代OS实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的关键所在。建立起完整、正确的process model对于在linux OS下进行开发、理解linux kernel的实现至关重要。需要注意的是， 本文所述的process model是一个[Conceptual model](https://en.wikipedia.org/wiki/Conceptual_model)，也可以说本文所描述的process model是标准所定义的。不同的OS对process model的实现方式是不同的。
 
 Process model图示如下：
 
@@ -89,23 +89,6 @@ Process model图示如下：
 
 
 ## [Threads vs. processes](https://en.wikipedia.org/wiki/Thread_(computing)#Threads_vs._processes)
-
-
-
-
-
-# Linux OS中Process model的实现
-
-参见章节：
-
-1.6.2. Process Implementation
-1.6.4. Process Address Space
-
-
-
-
-
-
 
 
 

@@ -18,6 +18,38 @@ nav:
   - Introduction: Kernel/index.md
   - Kernel: Kernel/Kernel(operating-system).md
   - Book-Understanding-the-Linux-Kernel:
+    - Summary:
+      - How-to-understand-linux-kernel-source-code: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-to-understand-linux-kernel-source-code.md
+      - Linux-OS's-interaction-with-the-hardware:
+        - Linux-OS-kernel-is-event-driven: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven.md
+        - Kernel-control-path-and-reentrant-kernel: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel.md
+        - Control-path-&-Context-&-Context-switch: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch.md
+      - Linux-OS's-multitasking:
+        - Multitask: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/00-Multitask.md
+        - Process-model: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/01-Process-model.md
+        - Process-address-space.md: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/02-Process-address-space.md
+        - Linux-OS-implementation-of-process-model-01: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model.md
+        - Linux-OS-implementation-of-process-model-02: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model.md
+        - Linux-OS-implementation-of-process-model-03: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model.md
+        - Thread: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/04-Thread.md
+      - Memory-management:
+        - Memory-management: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Memory-management.md
+        - Memory-protection: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Memory-protection.md
+        - Difference-Between-Paging-and-Segmentation-in-OS: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS.md
+        - Virtual-memory:
+          - Virtual-memory: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-memory.md
+          - Paging: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Paging.md
+          - Unix-system-page-size: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Unix-system-page-size.md
+          - Virtual-address-space:
+            - Virtual-address-space: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space.md
+            - Virtual-memory-address-space-thinking: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-memory-address-space-thinking.md
+            - Virtual-address-space-size:
+              - Unix-virtual-address-space: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Unix-virtual-address-space.md
+              - Virtual-address-space-size-reading-list: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Virtual-address-space-size-reading-list.md
+            - Layout-of-process:
+              - Memory-layout-of-a-process: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Memory-layout-of-a-process.md
+              - Data-segment: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Data-segment.md
+      - Debugger: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Debugger.md
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
       - Chapter-1-Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction.md
@@ -44,7 +76,13 @@ nav:
       - Chapter-3-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/Chapter-3-Processes.md
       - 3.1-Processes-and-Lightweight-Processes-and-Threads: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads.md
       - 3.2-Process-Descriptor: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2-Process-Descriptor.md
+      - 3.2.1-Process-State: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.1-Process-State.md
       - 3.2.2-Identifying-a-Process: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2-Identifying-a-Process.md
+      - 3.2.2.1-Process-descriptors-handling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.1-Process-descriptors-handling.md
+      - 3.2.2.2-Identifying-the-current-process: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.2-Identifying-the-current-process.md
+      - 3.2.2.3-Doubly-linked-lists: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.3-Doubly-linked-lists.md
+      - 3.2.2.4-The-process-list: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.4-The-process-list.md
+      - 3.2.2.5-The-lists-of-TASK_RUNNING-processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.5-The-lists-of-TASK_RUNNING-processes.md
       - 3.4-Creating-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes.md
       - Copy-on-write: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/wikipedia-Copy-on-write.md
     - Chapter-4-Interrupts-and-Exceptions:
@@ -64,18 +102,6 @@ nav:
       - Chapter-9-Process-Address-Space: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space.md
       - 9.1-The-Process's-Address-Space.: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space.md
       - 9.2-The-Memory-Descriptor: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor.md
-    - Summary:
-      - How-to-understand-linux-kernel-source-code: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-to-understand-linux-kernel-source-code.md
-      - How-OS-run-01-OS-kernel-is-event-driven: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-01-OS-kernel-is-event-driven.md
-      - How-OS-run-02-kernel-control-path-and-reentrant-kernel: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-02-kernel-control-path-and-reentrant-kernel.md
-      - How-OS-run-03-Control-path-&-Context-&-Context-switch: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-03-Control-path-&-Context-&-Context-switch.md
-      - How-OS-run-04-multitask: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-04-multitask.md
-      - How-OS-run-05-process-model: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-05-process-model.md
-      - How-OS-run-06-process-address-space: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-06-process-address-space.md
-      - How-OS-run-07-thread: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-07-thread.md
-      - How-OS-run-08-Entry-point-of-kernel: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-08-Entry-point-of-kernel.md
-      - VS-process-VS-thread-VS-lightweight-process: Kernel/Book-Understanding-the-Linux-Kernel/Summary/VS-process-VS-thread-VS-lightweight-process.md
-      - Debugger: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Debugger.md
 - Programming:
   - Introduction: Programming/index.md
   - Convention:

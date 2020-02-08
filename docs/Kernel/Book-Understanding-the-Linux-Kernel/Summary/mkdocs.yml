@@ -2,7 +2,9 @@ nav:
     - How-to-understand-linux-kernel-source-code: How-to-understand-linux-kernel-source-code.md
     - Linux-OS's-interaction-with-the-hardware: Linux-OS's-interaction-with-the-hardware
     - Linux-OS's-multitasking: Linux-OS's-multitasking
+    - Memory-management: Memory-management
     - Debugger: Debugger.md
+    
 backup:
     - How-OS-run-01-OS-kernel-is-event-driven: How-OS-run-01-OS-kernel-is-event-driven.md
     - How-OS-run-02-kernel-control-path-and-reentrant-kernel: How-OS-run-02-kernel-control-path-and-reentrant-kernel.md

@@ -8,7 +8,9 @@ OS中有如下control path：
 - kernel thread
 - task（process/thread，现代OS需要支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)）
 
-Control path的执行都可能会被interrupted：
+在本书的有些章节会使用“execution context”、“execution flow”等词语，其实它们和本文所定义的control path表示的是相同的意思。
+
+Control path的典型特征是：它执行都可能会被interrupted：
 
 - 一旦发生了hardware interrupt，OS kernel会立即去响应，从而interrupt（suspend）当前执行的kernel control path，转去执行新的kernel control path。即原kernel control path会被interrupted。
 
@@ -17,6 +19,8 @@ Control path的执行都可能会被interrupted：
   > It is normally carried out by a [privileged](https://en.wikipedia.org/wiki/Protection_ring) task or part of the system known as a preemptive [scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing)), which has the power to **preempt**, or interrupt, and later resume, other tasks in the system.
 
   即它可能会interrupt（suspend）正在执行的task，然后转去执行另外一个task。
+
+
 
 显然这是OS为了高效，让多个control path interleave（交错运行），为了实现[Reentrancy](https://en.wikipedia.org/wiki/Reentrancy_(computing)) ，每个control path都要有自己private的context、address space（这其实是一个separation机制），它能够保证一个control path在被suspend后，过后能够被resume。
 
@@ -29,6 +33,8 @@ Control path的执行都可能会被interrupted：
 ## Context switch
 
 需要注意的是，本节所述的context switch是广义的，而不是[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)中专指task（process/thread）的[context switch](https://en.wikipedia.org/wiki/Context_switch)。
+
+
 
 发生context switch的场景：
 
