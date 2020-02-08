@@ -2,477 +2,572 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://dengking.github.io/Linux-OS/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Operating-system/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Unix-standardization-and-implementation/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Unix-&-Unix-like-&-Linux/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Architecture/Architecture-of-computing-system/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Kernel(operating-system)/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.2-Hardware-Dependency/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.4-Basic-Operating-System-Concepts/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6-An-Overview-of-Unix-Kernels/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.1-The-Process-Kernel-Model/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.2-Process-Implementation/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.3-Reentrant-Kernels/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.4-Process-Address-Space/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.5-Synchronization-and-Critical-Regions/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.6-Signals-and-Interprocess-Communication/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.7-Process-Management/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.8-Memory-Management/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.9-Device-Drivers/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Giant-lock/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Chapter-2-Memory-Addressing/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.1-Memory-Addresses/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.5-Paging-in-Linux/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/Chapter-3-Processes/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2-Process-Descriptor/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2-Identifying-a-Process/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/wikipedia-Copy-on-write/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.2-Interrupts-and-Exceptions/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.6-Interrupt-Handling/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/Chapter-8-Memory-Management/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/8.1-Page-Frame-Management/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space/</loc>
-     <lastmod>2020-02-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-to-understand-linux-kernel-source-code/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-01-OS-kernel-is-event-driven/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-02-kernel-control-path-and-reentrant-kernel/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-03-Control-path-&-Context-&-Context-switch/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-04-multitask/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/00-Multitask/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-05-process-model/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/01-Process-model/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-06-process-address-space/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/02-Process-address-space/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-07-thread/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-OS-run-08-Entry-point-of-kernel/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/VS-process-VS-thread-VS-lightweight-process/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/04-Thread/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Memory-management/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Memory-protection/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-memory/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Paging/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Unix-system-page-size/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-memory-address-space-thinking/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Unix-virtual-address-space/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Virtual-address-space-size-reading-list/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Memory-layout-of-a-process/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Data-segment/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Debugger/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.2-Hardware-Dependency/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.4-Basic-Operating-System-Concepts/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6-An-Overview-of-Unix-Kernels/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.1-The-Process-Kernel-Model/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.2-Process-Implementation/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.3-Reentrant-Kernels/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.4-Process-Address-Space/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.5-Synchronization-and-Critical-Regions/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.6-Signals-and-Interprocess-Communication/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.7-Process-Management/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.8-Memory-Management/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.9-Device-Drivers/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Giant-lock/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Chapter-2-Memory-Addressing/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.1-Memory-Addresses/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.5-Paging-in-Linux/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/Chapter-3-Processes/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2-Process-Descriptor/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.1-Process-State/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2-Identifying-a-Process/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.1-Process-descriptors-handling/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.2-Identifying-the-current-process/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.3-Doubly-linked-lists/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.4-The-process-list/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.5-The-lists-of-TASK_RUNNING-processes/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/wikipedia-Copy-on-write/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.2-Interrupts-and-Exceptions/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.6-Interrupt-Handling/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/Chapter-8-Memory-Management/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/8.1-Page-Frame-Management/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space/</loc>
+     <lastmod>2020-02-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor/</loc>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-01-Convention/Conventions/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-02-Lib/organization-gnu/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-02-Lib/organization-gnu/Autoconf/Autoconf/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-02-Lib/organization-gnu/Automake/Automake/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-02-Lib/organization-gnu/Autotools-Mythbuster/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-02-Lib/organiztion-posix/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-03-Common/Unix-programming-time-and-space/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-03-Common/Unix-system-call/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-03-Common/safety/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-03-Common/Capabilities/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-03-Common/Path-resolution/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-philosophy/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-philosophy/Unix-philosophy-Everything-is-a-file/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-philosophy/File-descriptor/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/01-philosophy/Unix-philosophy/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/02-Process/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/02-Process/IPC/System-V-IPC/System-V-IPC/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/02-Process/IPC/POSIX-semaphores/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/02-Process/IPC/POSIX-message-queues/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/02-Process/Thread/pthreads/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/03-IO/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/03-Time/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/04-Signal/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/05-Linux-Virtualization/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/05-Linux-Virtualization/Virtualization/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/05-Linux-Virtualization/Linux-containers/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/05-Linux-Virtualization/Linux-namespaces/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/05-Linux-Virtualization/Linux-namespaces/Linux-Namespaces/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/05-Linux-Virtualization/Linux-namespaces/man-7-namespaces/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/05-Linux-Virtualization/Linux-control-groups/Control-groups/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/06-Util/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/06-Util/Log/Linux-log-files/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/06-Util/Log/Syslog/Syslog/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/07-Linux-Kernel-module/Loadable-kernel-module/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/08-Shell/Dmesg/Dmesg/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/08-Shell/Dmesg/Dmesg-format/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/08-Shell/Dmesg/Dmesg-segfaulting/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dengking.github.io/Linux-OS/Programming/08-Shell/Linux-Kernel-module/</loc>
-     <lastmod>2020-02-07</lastmod>
+     <lastmod>2020-02-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

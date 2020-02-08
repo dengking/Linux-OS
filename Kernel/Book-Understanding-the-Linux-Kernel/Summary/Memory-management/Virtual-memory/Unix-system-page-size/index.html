@@ -1,0 +1,2961 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Project documentation with Markdown.">
+      
+      
+        <link rel="canonical" href="https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Unix-system-page-size/">
+      
+      
+        <meta name="author" content="DengKing">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Unix-system-page-size - Linux-OS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../../../css/extra.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-27795084-5", "mkdocs.org")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#how-is-page-size-determined-in-virtual-address-space" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dengking.github.io/Linux-OS" title="Linux-OS" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Linux-OS
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Unix-system-page-size
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dengking/Linux-OS" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dengking.github.io/Linux-OS" title="Linux-OS" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Linux-OS
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dengking/Linux-OS" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Operating-system/" title="Operating-system-概述" class="md-nav__link">
+      Operating-system-概述
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Unix-standardization-and-implementation/" title="Unix-standardization-and-implementation" class="md-nav__link">
+      Unix-standardization-and-implementation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Unix-&-Unix-like-&-Linux/" title="Unix-&-Unix-like-&-Linux" class="md-nav__link">
+      Unix-&-Unix-like-&-Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Architecture/Architecture-of-computing-system/" title="Architecture-of-computing-system" class="md-nav__link">
+      Architecture-of-computing-system
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      Kernel
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Kernel
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../Kernel(operating-system)/" title="Kernel" class="md-nav__link">
+      Kernel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3" checked>
+    
+    <label class="md-nav__link" for="nav-6-3">
+      Book-Understanding-the-Linux-Kernel
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        Book-Understanding-the-Linux-Kernel
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1" type="checkbox" id="nav-6-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-6-3-1">
+      Summary
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-1">
+        Summary
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../How-to-understand-linux-kernel-source-code/" title="How-to-understand-linux-kernel-source-code" class="md-nav__link">
+      How-to-understand-linux-kernel-source-code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1-2" type="checkbox" id="nav-6-3-1-2">
+    
+    <label class="md-nav__link" for="nav-6-3-1-2">
+      Linux-OS's-interaction-with-the-hardware
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-3-1-2">
+        Linux-OS's-interaction-with-the-hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven/" title="Linux-OS-kernel-is-event-driven" class="md-nav__link">
+      Linux-OS-kernel-is-event-driven
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel/" title="Kernel-control-path-and-reentrant-kernel" class="md-nav__link">
+      Kernel-control-path-and-reentrant-kernel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch/" title="Control-path-&-Context-&-Context-switch" class="md-nav__link">
+      Control-path-&-Context-&-Context-switch
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1-3" type="checkbox" id="nav-6-3-1-3">
+    
+    <label class="md-nav__link" for="nav-6-3-1-3">
+      Linux-OS's-multitasking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-3-1-3">
+        Linux-OS's-multitasking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-multitasking/00-Multitask/" title="Multitask" class="md-nav__link">
+      Multitask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-multitasking/01-Process-model/" title="Process-model" class="md-nav__link">
+      Process-model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-multitasking/02-Process-address-space/" title="Process-address-space.md" class="md-nav__link">
+      Process-address-space.md
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model/" title="Linux-OS-implementation-of-process-model-01" class="md-nav__link">
+      Linux-OS-implementation-of-process-model-01
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model/" title="Linux-OS-implementation-of-process-model-02" class="md-nav__link">
+      Linux-OS-implementation-of-process-model-02
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model/" title="Linux-OS-implementation-of-process-model-03" class="md-nav__link">
+      Linux-OS-implementation-of-process-model-03
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Linux-OS's-multitasking/04-Thread/" title="Thread" class="md-nav__link">
+      Thread
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1-4" type="checkbox" id="nav-6-3-1-4" checked>
+    
+    <label class="md-nav__link" for="nav-6-3-1-4">
+      Memory-management
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-3-1-4">
+        Memory-management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Memory-management/" title="Memory-management" class="md-nav__link">
+      Memory-management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Memory-protection/" title="Memory-protection" class="md-nav__link">
+      Memory-protection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Difference-Between-Paging-and-Segmentation-in-OS/" title="Difference-Between-Paging-and-Segmentation-in-OS" class="md-nav__link">
+      Difference-Between-Paging-and-Segmentation-in-OS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1-4-4" type="checkbox" id="nav-6-3-1-4-4" checked>
+    
+    <label class="md-nav__link" for="nav-6-3-1-4-4">
+      Virtual-memory
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-3-1-4-4">
+        Virtual-memory
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual-memory/" title="Virtual-memory" class="md-nav__link">
+      Virtual-memory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Paging/" title="Paging" class="md-nav__link">
+      Paging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Unix-system-page-size
+      </label>
+    
+    <a href="./" title="Unix-system-page-size" class="md-nav__link md-nav__link--active">
+      Unix-system-page-size
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    A
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-shifting-give-you-4096" class="md-nav__link">
+    How does shifting give you 4096?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1-4-4-4" type="checkbox" id="nav-6-3-1-4-4-4">
+    
+    <label class="md-nav__link" for="nav-6-3-1-4-4-4">
+      Virtual-address-space
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="6">
+      <label class="md-nav__title" for="nav-6-3-1-4-4-4">
+        Virtual-address-space
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual-address-space/Virtual-address-space/" title="Virtual-address-space" class="md-nav__link">
+      Virtual-address-space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual-address-space/Virtual-memory-address-space-thinking/" title="Virtual-memory-address-space-thinking" class="md-nav__link">
+      Virtual-memory-address-space-thinking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1-4-4-4-3" type="checkbox" id="nav-6-3-1-4-4-4-3">
+    
+    <label class="md-nav__link" for="nav-6-3-1-4-4-4-3">
+      Virtual-address-space-size
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="7">
+      <label class="md-nav__title" for="nav-6-3-1-4-4-4-3">
+        Virtual-address-space-size
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual-address-space/Virtual-address-space-size/Unix-virtual-address-space/" title="Unix-virtual-address-space" class="md-nav__link">
+      Unix-virtual-address-space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual-address-space/Virtual-address-space-size/Virtual-address-space-size-reading-list/" title="Virtual-address-space-size-reading-list" class="md-nav__link">
+      Virtual-address-space-size-reading-list
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1-4-4-4-4" type="checkbox" id="nav-6-3-1-4-4-4-4">
+    
+    <label class="md-nav__link" for="nav-6-3-1-4-4-4-4">
+      Layout-of-process
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="7">
+      <label class="md-nav__title" for="nav-6-3-1-4-4-4-4">
+        Layout-of-process
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual-address-space/Layout-of-process/Memory-layout-of-a-process/" title="Memory-layout-of-a-process" class="md-nav__link">
+      Memory-layout-of-a-process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Virtual-address-space/Layout-of-process/Data-segment/" title="Data-segment" class="md-nav__link">
+      Data-segment
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Debugger/" title="Debugger" class="md-nav__link">
+      Debugger
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-3" type="checkbox" id="nav-6-3-3">
+    
+    <label class="md-nav__link" for="nav-6-3-3">
+      Chapter-1-Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-3">
+        Chapter-1-Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/Chapter-1-Introduction/" title="Chapter-1-Introduction" class="md-nav__link">
+      Chapter-1-Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/" title="1.1-Linux-Versus-Other-Unix-Like-Kernels" class="md-nav__link">
+      1.1-Linux-Versus-Other-Unix-Like-Kernels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.2-Hardware-Dependency/" title="1.2-Hardware-Dependency" class="md-nav__link">
+      1.2-Hardware-Dependency
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.4-Basic-Operating-System-Concepts/" title="1.4-Basic-Operating-System-Concepts" class="md-nav__link">
+      1.4-Basic-Operating-System-Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6-An-Overview-of-Unix-Kernels/" title="1.6-An-Overview-of-Unix-Kernels" class="md-nav__link">
+      1.6-An-Overview-of-Unix-Kernels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.1-The-Process-Kernel-Model/" title="1.6.1-The-Process-Kernel-Model" class="md-nav__link">
+      1.6.1-The-Process-Kernel-Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.2-Process-Implementation/" title="1.6.2-Process-Implementation" class="md-nav__link">
+      1.6.2-Process-Implementation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.3-Reentrant-Kernels/" title="1.6.3-Reentrant-Kernels" class="md-nav__link">
+      1.6.3-Reentrant-Kernels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.4-Process-Address-Space/" title="1.6.4-Process-Address-Space" class="md-nav__link">
+      1.6.4-Process-Address-Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.5-Synchronization-and-Critical-Regions/" title="1.6.5-Synchronization-and-Critical-Regions" class="md-nav__link">
+      1.6.5-Synchronization-and-Critical-Regions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.6-Signals-and-Interprocess-Communication/" title="1.6.6-Signals-and-Interprocess-Communication" class="md-nav__link">
+      1.6.6-Signals-and-Interprocess-Communication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.7-Process-Management/" title="1.6.7-Process-Management" class="md-nav__link">
+      1.6.7-Process-Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.8-Memory-Management/" title="1.6.8-Memory-Management" class="md-nav__link">
+      1.6.8-Memory-Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/1.6.9-Device-Drivers/" title="1.6.9-Device-Drivers" class="md-nav__link">
+      1.6.9-Device-Drivers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-1-Introduction/Giant-lock/" title="Giant-lock" class="md-nav__link">
+      Giant-lock
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-4" type="checkbox" id="nav-6-3-4">
+    
+    <label class="md-nav__link" for="nav-6-3-4">
+      Chapter-2-Memory-Addressing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-4">
+        Chapter-2-Memory-Addressing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-2-Memory-Addressing/Chapter-2-Memory-Addressing/" title="Chapter-2-Memory-Addressing" class="md-nav__link">
+      Chapter-2-Memory-Addressing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-2-Memory-Addressing/2.1-Memory-Addresses/" title="2.1-Memory-Addresses" class="md-nav__link">
+      2.1-Memory-Addresses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware/" title="2.4-Paging-in-Hardware" class="md-nav__link">
+      2.4-Paging-in-Hardware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-2-Memory-Addressing/2.5-Paging-in-Linux/" title="2.5-Paging-in-Linux" class="md-nav__link">
+      2.5-Paging-in-Linux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-5" type="checkbox" id="nav-6-3-5">
+    
+    <label class="md-nav__link" for="nav-6-3-5">
+      Chapter-3-Processes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-5">
+        Chapter-3-Processes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/Chapter-3-Processes/" title="Chapter-3-Processes" class="md-nav__link">
+      Chapter-3-Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads/" title="3.1-Processes-and-Lightweight-Processes-and-Threads" class="md-nav__link">
+      3.1-Processes-and-Lightweight-Processes-and-Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.2-Process-Descriptor/" title="3.2-Process-Descriptor" class="md-nav__link">
+      3.2-Process-Descriptor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.2.1-Process-State/" title="3.2.1-Process-State" class="md-nav__link">
+      3.2.1-Process-State
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.2.2-Identifying-a-Process/" title="3.2.2-Identifying-a-Process" class="md-nav__link">
+      3.2.2-Identifying-a-Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.2.2.1-Process-descriptors-handling/" title="3.2.2.1-Process-descriptors-handling" class="md-nav__link">
+      3.2.2.1-Process-descriptors-handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.2.2.2-Identifying-the-current-process/" title="3.2.2.2-Identifying-the-current-process" class="md-nav__link">
+      3.2.2.2-Identifying-the-current-process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.2.2.3-Doubly-linked-lists/" title="3.2.2.3-Doubly-linked-lists" class="md-nav__link">
+      3.2.2.3-Doubly-linked-lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.2.2.4-The-process-list/" title="3.2.2.4-The-process-list" class="md-nav__link">
+      3.2.2.4-The-process-list
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.2.2.5-The-lists-of-TASK_RUNNING-processes/" title="3.2.2.5-The-lists-of-TASK_RUNNING-processes" class="md-nav__link">
+      3.2.2.5-The-lists-of-TASK_RUNNING-processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/3.4-Creating-Processes/" title="3.4-Creating-Processes" class="md-nav__link">
+      3.4-Creating-Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-3-Processes/wikipedia-Copy-on-write/" title="Copy-on-write" class="md-nav__link">
+      Copy-on-write
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-6" type="checkbox" id="nav-6-3-6">
+    
+    <label class="md-nav__link" for="nav-6-3-6">
+      Chapter-4-Interrupts-and-Exceptions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-6">
+        Chapter-4-Interrupts-and-Exceptions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions/" title="Chapter-4-Interrupts-and-Exceptions" class="md-nav__link">
+      Chapter-4-Interrupts-and-Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals/" title="4.1-The-Role-of-Interrupt-Signals" class="md-nav__link">
+      4.1-The-Role-of-Interrupt-Signals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-4-Interrupts-and-Exceptions/4.2-Interrupts-and-Exceptions/" title="4.2-Interrupts-and-Exceptions" class="md-nav__link">
+      4.2-Interrupts-and-Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-4-Interrupts-and-Exceptions/4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers/" title="4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers" class="md-nav__link">
+      4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-4-Interrupts-and-Exceptions/4.6-Interrupt-Handling/" title="4.6-Interrupt-Handling" class="md-nav__link">
+      4.6-Interrupt-Handling
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-7" type="checkbox" id="nav-6-3-7">
+    
+    <label class="md-nav__link" for="nav-6-3-7">
+      Chapter-6-Timing-Measurements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-7">
+        Chapter-6-Timing-Measurements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements/" title="Chapter-6-Timing-Measurements" class="md-nav__link">
+      Chapter-6-Timing-Measurements
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-8" type="checkbox" id="nav-6-3-8">
+    
+    <label class="md-nav__link" for="nav-6-3-8">
+      Chapter-7-Process-Scheduling
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-8">
+        Chapter-7-Process-Scheduling
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling/" title="Chapter-7-Process-Scheduling" class="md-nav__link">
+      Chapter-7-Process-Scheduling
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-9" type="checkbox" id="nav-6-3-9">
+    
+    <label class="md-nav__link" for="nav-6-3-9">
+      Chapter-8-Memory-Management
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-9">
+        Chapter-8-Memory-Management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-8-Memory-Management/Chapter-8-Memory-Management/" title="Chapter-8-Memory-Management" class="md-nav__link">
+      Chapter-8-Memory-Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-8-Memory-Management/8.1-Page-Frame-Management/" title="8.1-Page-Frame-Management" class="md-nav__link">
+      8.1-Page-Frame-Management
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-10" type="checkbox" id="nav-6-3-10">
+    
+    <label class="md-nav__link" for="nav-6-3-10">
+      Chapter-9-Process-Address-Space
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-10">
+        Chapter-9-Process-Address-Space
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space/" title="Chapter-9-Process-Address-Space" class="md-nav__link">
+      Chapter-9-Process-Address-Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space/" title="9.1-The-Process's-Address-Space." class="md-nav__link">
+      9.1-The-Process's-Address-Space.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor/" title="9.2-The-Memory-Descriptor" class="md-nav__link">
+      9.2-The-Memory-Descriptor
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Programming
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Programming
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Convention
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        Convention
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-01-Convention/Conventions/" title="Conventions" class="md-nav__link">
+      Conventions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Lib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Lib
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3-1" type="checkbox" id="nav-7-3-1">
+    
+    <label class="md-nav__link" for="nav-7-3-1">
+      GNU
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-3-1">
+        GNU
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-02-Lib/organization-gnu/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3-1-2" type="checkbox" id="nav-7-3-1-2">
+    
+    <label class="md-nav__link" for="nav-7-3-1-2">
+      Autoconf
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-7-3-1-2">
+        Autoconf
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-02-Lib/organization-gnu/Autoconf/Autoconf/" title="Autoconf" class="md-nav__link">
+      Autoconf
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3-1-3" type="checkbox" id="nav-7-3-1-3">
+    
+    <label class="md-nav__link" for="nav-7-3-1-3">
+      Automake
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-7-3-1-3">
+        Automake
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-02-Lib/organization-gnu/Automake/Automake/" title="Automake" class="md-nav__link">
+      Automake
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3-1-4" type="checkbox" id="nav-7-3-1-4">
+    
+    <label class="md-nav__link" for="nav-7-3-1-4">
+      Autotools-Mythbuster
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-7-3-1-4">
+        Autotools-Mythbuster
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-02-Lib/organization-gnu/Autotools-Mythbuster/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3-2" type="checkbox" id="nav-7-3-2">
+    
+    <label class="md-nav__link" for="nav-7-3-2">
+      POSIX
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-3-2">
+        POSIX
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-02-Lib/organiztion-posix/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
+    
+    <label class="md-nav__link" for="nav-7-4">
+      Common
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4">
+        Common
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-03-Common/Unix-programming-time-and-space/" title="Time-and-space" class="md-nav__link">
+      Time-and-space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-03-Common/Unix-system-call/" title="System-call" class="md-nav__link">
+      System-call
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-03-Common/safety/" title="Safety" class="md-nav__link">
+      Safety
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-03-Common/Capabilities/" title="Capabilities" class="md-nav__link">
+      Capabilities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-03-Common/Path-resolution/" title="Path-resolution" class="md-nav__link">
+      Path-resolution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
+    
+    <label class="md-nav__link" for="nav-7-5">
+      Philosophy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-5">
+        Philosophy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-philosophy/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-philosophy/Unix-philosophy-Everything-is-a-file/" title="Unix-philosophy-everything-is-a-file" class="md-nav__link">
+      Unix-philosophy-everything-is-a-file
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-philosophy/File-descriptor/" title="File-descriptor" class="md-nav__link">
+      File-descriptor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/01-philosophy/Unix-philosophy/" title="Unix-philosophy" class="md-nav__link">
+      Unix-philosophy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-6" type="checkbox" id="nav-7-6">
+    
+    <label class="md-nav__link" for="nav-7-6">
+      Process
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-6">
+        Process
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/02-Process/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-6-2" type="checkbox" id="nav-7-6-2">
+    
+    <label class="md-nav__link" for="nav-7-6-2">
+      IPC
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-6-2">
+        IPC
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-6-2-1" type="checkbox" id="nav-7-6-2-1">
+    
+    <label class="md-nav__link" for="nav-7-6-2-1">
+      System-V-IPC
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-7-6-2-1">
+        System-V-IPC
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/02-Process/IPC/System-V-IPC/System-V-IPC/" title="System-V-IPC" class="md-nav__link">
+      System-V-IPC
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/02-Process/IPC/POSIX-semaphores/" title="POSIX-semaphores" class="md-nav__link">
+      POSIX-semaphores
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/02-Process/IPC/POSIX-message-queues/" title="POSIX-message-queues" class="md-nav__link">
+      POSIX-message-queues
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-6-3" type="checkbox" id="nav-7-6-3">
+    
+    <label class="md-nav__link" for="nav-7-6-3">
+      Thread
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-6-3">
+        Thread
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/02-Process/Thread/pthreads/" title="pthreads" class="md-nav__link">
+      pthreads
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-7" type="checkbox" id="nav-7-7">
+    
+    <label class="md-nav__link" for="nav-7-7">
+      IO
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-7">
+        IO
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/03-IO/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-8" type="checkbox" id="nav-7-8">
+    
+    <label class="md-nav__link" for="nav-7-8">
+      Time
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-8">
+        Time
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/03-Time/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-9" type="checkbox" id="nav-7-9">
+    
+    <label class="md-nav__link" for="nav-7-9">
+      Signal
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-9">
+        Signal
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/04-Signal/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-10" type="checkbox" id="nav-7-10">
+    
+    <label class="md-nav__link" for="nav-7-10">
+      Virtualization
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-10">
+        Virtualization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/05-Linux-Virtualization/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/05-Linux-Virtualization/Virtualization/" title="Virtualization" class="md-nav__link">
+      Virtualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/05-Linux-Virtualization/Linux-containers/" title="Linux-containers" class="md-nav__link">
+      Linux-containers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-10-4" type="checkbox" id="nav-7-10-4">
+    
+    <label class="md-nav__link" for="nav-7-10-4">
+      Linux-namespaces
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-10-4">
+        Linux-namespaces
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/05-Linux-Virtualization/Linux-namespaces/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/05-Linux-Virtualization/Linux-namespaces/Linux-Namespaces/" title="Linux-Namespaces" class="md-nav__link">
+      Linux-Namespaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/05-Linux-Virtualization/Linux-namespaces/man-7-namespaces/" title="man-7-namespaces" class="md-nav__link">
+      man-7-namespaces
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-10-5" type="checkbox" id="nav-7-10-5">
+    
+    <label class="md-nav__link" for="nav-7-10-5">
+      Linux-control-groups
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-10-5">
+        Linux-control-groups
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/05-Linux-Virtualization/Linux-control-groups/Control-groups/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-11" type="checkbox" id="nav-7-11">
+    
+    <label class="md-nav__link" for="nav-7-11">
+      Util
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-11">
+        Util
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/06-Util/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-11-2" type="checkbox" id="nav-7-11-2">
+    
+    <label class="md-nav__link" for="nav-7-11-2">
+      Log
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-11-2">
+        Log
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/06-Util/Log/Linux-log-files/" title="Linux-log-files" class="md-nav__link">
+      Linux-log-files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-11-2-2" type="checkbox" id="nav-7-11-2-2">
+    
+    <label class="md-nav__link" for="nav-7-11-2-2">
+      Syslog
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-7-11-2-2">
+        Syslog
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/06-Util/Log/Syslog/Syslog/" title="Syslog" class="md-nav__link">
+      Syslog
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-12" type="checkbox" id="nav-7-12">
+    
+    <label class="md-nav__link" for="nav-7-12">
+      Kernel-module
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-12">
+        Kernel-module
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/07-Linux-Kernel-module/Loadable-kernel-module/" title="Loadable-kernel-module" class="md-nav__link">
+      Loadable-kernel-module
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-13" type="checkbox" id="nav-7-13">
+    
+    <label class="md-nav__link" for="nav-7-13">
+      Shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-13">
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-13-1" type="checkbox" id="nav-7-13-1">
+    
+    <label class="md-nav__link" for="nav-7-13-1">
+      Dmesg
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-13-1">
+        Dmesg
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/08-Shell/Dmesg/Dmesg/" title="Dmesg" class="md-nav__link">
+      Dmesg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/08-Shell/Dmesg/Dmesg-format/" title="Dmesg-format" class="md-nav__link">
+      Dmesg-format
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/08-Shell/Dmesg/Dmesg-segfaulting/" title="Dmesg-segfaulting" class="md-nav__link">
+      Dmesg-segfaulting
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-13-2" type="checkbox" id="nav-7-13-2">
+    
+    <label class="md-nav__link" for="nav-7-13-2">
+      Linux-Kernel-module
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-7-13-2">
+        Linux-Kernel-module
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../../Programming/08-Shell/Linux-Kernel-module/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    A
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-shifting-give-you-4096" class="md-nav__link">
+    How does shifting give you 4096?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="how-is-page-size-determined-in-virtual-address-space"><a href="https://unix.stackexchange.com/questions/128213/how-is-page-size-determined-in-virtual-address-space">how is page size determined in virtual address space?</a><a class="headerlink" href="#how-is-page-size-determined-in-virtual-address-space" title="Permanent link">#</a></h1>
+<p>Linux uses a <strong>virtual memory system</strong> where all of the addresses are <a href="https://en.wikipedia.org/wiki/Virtual_memory"><strong>virtual addresses</strong></a> and not <strong>physical addresses</strong>. These <strong>virtual addresses</strong> are converted into <strong>physical addresses</strong> by the processor.</p>
+<p>To make this translation easier, virtual and physical memory are divided into <strong>pages</strong>. Each of these pages is given a unique number; the page frame number.</p>
+<p>Some <strong>page sizes</strong> can be 2 KB, 4 KB, etc. But how is this page size number determined? Is it influenced by the size of the architecture? For example, a 32-bit bus will have 4 GB address space.</p>
+<h2 id="a"><a href="https://unix.stackexchange.com/a/128218">A</a><a class="headerlink" href="#a" title="Permanent link">#</a></h2>
+<p>You can find out a system's default page size by querying its configuration via the <code>getconf</code>command:</p>
+<pre><code class="shell">$ getconf PAGE_SIZE
+4096
+</code></pre>
+
+<p>or</p>
+<pre><code class="shell">$ getconf PAGESIZE
+4096
+</code></pre>
+
+<p><strong>NOTE:</strong> The above units are typically in bytes, so the 4096 equates to 4096 bytes or 4kB.</p>
+<p>This is hardwired in the Linux kernel's source here:</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h3>
+<pre><code class="C">$ more /usr/src/kernels/3.13.9-100.fc19.x86_64/include/asm-generic/page.h
+...
+...
+/* PAGE_SHIFT determines the page size */
+
+#define PAGE_SHIFT  12
+#ifdef __ASSEMBLY__
+#define PAGE_SIZE   (1 &lt;&lt; PAGE_SHIFT)
+#else
+#define PAGE_SIZE   (1UL &lt;&lt; PAGE_SHIFT)
+#endif
+#define PAGE_MASK   (~(PAGE_SIZE-1))
+</code></pre>
+
+<h3 id="how-does-shifting-give-you-4096">How does shifting give you 4096?<a class="headerlink" href="#how-does-shifting-give-you-4096" title="Permanent link">#</a></h3>
+<p>When you shift bits, you're performing a binary multiplication by 2. So in effect a shifting of bits to the left (<code>1 &lt;&lt; PAGE_SHIFT</code>) is doing the multiplication of 2^12 = 4096.</p>
+<pre><code class="shell">$ echo &quot;2^12&quot; | bc
+4096
+</code></pre>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Paging/" title="Paging" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Paging
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Virtual-address-space/Virtual-address-space/" title="Virtual-address-space" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Virtual-address-space
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../../../.."}})</script>
+      
+    
+  </body>
+</html>
