@@ -21,13 +21,21 @@ lazy，即无需一次性分配整个virtual address space，而是用时再分�
 copy on write
 
 
+
+其实通过这个思考才发现virtual memory的重要价值所在，它是实现demand page的基础，它是实现扩充memory的基础，它是实现copy on write的基础。
+
+
 ## linux process virtual address space和page table之间的关系
 
 当然是有差别的，process virtual address space则是表示进程的地址空间，其中所使用的是virtual address，page table是记录着virtual address和physical address之间的映射关系。
 
 显然page table对user是透明的，但是我们却可以访问到virtual address，通过pointer。
 
+### 描述process virtual address space的数据结构
 
+在9.2. The Memory Descriptor中指出：
+
+[`mm_struct`](https://elixir.bootlin.com/linux/latest/ident/mm_struct)
 
 ### 描述page table的data structure
 
@@ -37,9 +45,17 @@ copy on write
 
 ## 从memory usage的角度来分析process的运行
 
-进程的运行伴随着内存的使用，目前为止，我还没有一个完整、清晰的认知。如何时分配memory？何时回收memory？分配memory的一个典型的场景就是函数调用。
+进程的运行伴随着内存的使用，目前为止，我还没有一个完整、清晰的认知。如何时分配memory？何时回收memory？
+
+分配memory的场景：
+
+- 函数调用
+- stored program
+- 在context switch的时候，OS需要将process的context保存起来
 
 
+
+其实我知道，回答这个问题的更好的方式是阅读计算机执行指令的流程。
 
 
 
