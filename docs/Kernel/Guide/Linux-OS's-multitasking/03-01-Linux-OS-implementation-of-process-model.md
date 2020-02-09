@@ -83,54 +83,6 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 
 
-#### Address space
-
-这个问题是由前面的关于process的resource的思考衍生出来的。Address space是一个process非常重要的resource，可以认为它是process进行活动的空间。目前的OS都是采用的virtual address，即process运行的时候，所使用的是virtual memory，所以也可以将Address space称为Virtual address space。关于process的Virtual address space，我有如下疑问：
-
-Question:
-
-process使用virtual memory，并且使用基于page的memory management，那它是如何实现的基于page的virtual memory呢？是分割为一个一个的page？
-
-经过简单的思考，我觉得应该是编译器在给生成代码的时候其实是不需要考虑这个问题的，因为是OS在运行program的时候按照page进行memory management，无论编译器生成的program是怎样的，是OS负责将这些program装入到memory中，这一切对compiler而言都是透明的。
-
-但是这个问题可以延伸一下：我们知道，编译器生成的代码肯定是需要遵循alignment的，那这就涉及到alignment和page size之间的关系；应该只要符合alignment，那么应该就不会存在一个数据存储跨越了多个page的情况了。
-
-Question:
-
-进程的virtual address space都是相同的，那virtual address是如何映射到physical memory address的呢？
-
-既然使用的是demand page，也就是在process运行的时候需要访问该virtual memory的时候，才allocate physical memory或者swap-in，才将virtual address映射到physical memory并将这些信息保存到该process的page table中。
-
-其实通过这个思考才发现virtual memory的重要价值所在，它是实现demand page的基础，它是实现扩充memory的基础，它是实现copy on write的基础。
-
-
-
-Question:
-
-如1.6.8.4. Process virtual address space handling节所叙述的
-
-> The kernel usually stores a process virtual address space as a list of memory area descriptors .
-
-即我们通常将virtual address space分割为多块，那是在什么地方将virtual address space分割为如上所述的a **list** of *memory area descriptors* ？
-
-operating system采用的是demand paging，并且stack的增长方向和heap的增长方向相反，那这些又是如何实现的呢？
-
-要想完全理解这个问题，阅读calling convention。我觉得process在运行过程中，对call stack的维护是一个非常重要的活动，每次new一个栈帧都需要分配新的内存空间重要才能够保证process运行下去。
-
-另外一个问题是，为什么需要申请memory？
-
-其实如果这个系统中只有一个程序的话，那么它想怎么样使用memory就怎么样使用memory，但是问题是，我们的系统是需要支持多任务的，那它就需要做好不同的process之间的隔离，A process不能够使用B process的东西。所以，所有的process都必须要先想OS申请memory，然后才能够使用，OS会记住memory的所属，这样就能够保证不冲突了。其次是process的运行是需要一定的memory space来存放它的相关的数据的，比如在发生context switch的时候，就需要将它的context相关的数据都保存到它的memory space中来。另外一个就是process的call stack，这是非常重要的一个需要memory space的场所。
-
-
-
-Question:
-
-如前所述，栈也是virtual address space的成分之一，每个thread都有各自**独立**的call stack，而所有的thread理论上都是共享process的virtual address space的，那这又是如何实现的呢？
-
-其实最最简单的方式是查看`task_descriptor`的成员变量
-
-
-
 ## LWP VS thread VS kernel thread?
 
 关于本段，有疑问：LWP VS thread VS kernel thread?
