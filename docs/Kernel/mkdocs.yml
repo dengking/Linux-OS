@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - Kernel: Kernel(operating-system).md
+    - Kernel: Kernel(operating-system).md: 
+    - Guide: Guide
     - Book-Understanding-the-Linux-Kernel: Book-Understanding-the-Linux-Kernel

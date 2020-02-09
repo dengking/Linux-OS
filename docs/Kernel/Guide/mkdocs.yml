@@ -1,8 +1,10 @@
 nav:
-    - How-to-understand-linux-kernel-source-code: How-to-understand-linux-kernel-source-code.md
+    
     - Linux-OS's-interaction-with-the-hardware: Linux-OS's-interaction-with-the-hardware
     - Linux-OS's-multitasking: Linux-OS's-multitasking
     - Memory-management: Memory-management
+    - How-to-understand-linux-kernel-source-code: How-to-understand-linux-kernel-source-code.md
+    - Kernel-data-structure: Kernel-data-structure.md
     - Debugger: Debugger.md
     
 backup:

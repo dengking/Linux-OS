@@ -1,6 +1,6 @@
 # Kernel (operating system)概述
 
-本章开始套利OS的kernel，本节是对Kernel的概述，参考的是维基百科[Kernel (operating system)](https://en.wikipedia.org/wiki/Kernel_(operating_system))。关于linux kernel，参见
+本节讨论OS的kernel，本节是对Kernel的概述，参考的是维基百科[Kernel (operating system)](https://en.wikipedia.org/wiki/Kernel_(operating_system))。
 
 The **kernel** is a [computer program](https://en.wikipedia.org/wiki/Computer_program) that is the core of a computer's [operating system](https://en.wikipedia.org/wiki/Operating_system), with complete control over everything in the system. On most systems, it is one of the first programs loaded on [start-up](https://en.wikipedia.org/wiki/Booting) (after the [bootloader](https://en.wikipedia.org/wiki/Bootloader)). It handles the rest of start-up as well as [input/output](https://en.wikipedia.org/wiki/Input/output) requests from [software](https://en.wikipedia.org/wiki/Software), translating them into [data-processing](https://en.wikipedia.org/wiki/Data_processing) instructions for the [central processing unit](https://en.wikipedia.org/wiki/Central_processing_unit). It handles memory and [peripherals](https://en.wikipedia.org/wiki/Peripheral) (外设) like keyboards, monitors, printers, and speakers.
 
