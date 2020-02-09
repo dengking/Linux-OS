@@ -1,6 +1,6 @@
-# Memory management
+# [Memory management](https://en.wikipedia.org/wiki/Memory_management)
 
-本章主要描述现代linux OS的Memory management，主要参考的维基百科[Memory management](https://en.wikipedia.org/wiki/Memory_management)。维基百科总结了非常多的Memory management技术，本章所关注的是现代OS普遍使用的[Paged virtual memory](https://en.wikipedia.org/wiki/Virtual_memory#Paged_virtual_memory)技术。
+
 
 **Memory management** is a form of [resource management](https://en.wikipedia.org/wiki/Resource_management_(computing)) applied to [computer memory](https://en.wikipedia.org/wiki/Computer_memory). The essential requirement of memory management is to provide ways to dynamically allocate portions of memory to programs at their request, and free it for reuse when no longer needed. This is critical to any advanced computer system where more than a single [process](https://en.wikipedia.org/wiki/Process_(computing)) might be underway（运行中） at any time. 
 
