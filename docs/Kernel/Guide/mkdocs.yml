@@ -1,0 +1,17 @@
+nav:
+    - How-to-understand-linux-kernel-source-code: How-to-understand-linux-kernel-source-code.md
+    - Linux-OS's-interaction-with-the-hardware: Linux-OS's-interaction-with-the-hardware
+    - Linux-OS's-multitasking: Linux-OS's-multitasking
+    - Memory-management: Memory-management
+    - Debugger: Debugger.md
+    
+backup:
+    - How-OS-run-01-OS-kernel-is-event-driven: How-OS-run-01-OS-kernel-is-event-driven.md
+    - How-OS-run-02-kernel-control-path-and-reentrant-kernel: How-OS-run-02-kernel-control-path-and-reentrant-kernel.md
+    - How-OS-run-03-Control-path-&-Context-&-Context-switch: How-OS-run-03-Control-path-&-Context-&-Context-switch.md
+    - How-OS-run-04-multitask: How-OS-run-04-multitask.md
+    - How-OS-run-05-process-model: How-OS-run-05-process-model.md
+    - How-OS-run-06-process-address-space: How-OS-run-06-process-address-space.md
+    - How-OS-run-07-thread: How-OS-run-07-thread.md
+    - How-OS-run-08-Entry-point-of-kernel: How-OS-run-08-Entry-point-of-kernel.md
+    - VS-process-VS-thread-VS-lightweight-process: VS-process-VS-thread-VS-lightweight-process.md
