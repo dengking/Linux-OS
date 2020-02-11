@@ -18,6 +18,8 @@
 
 另外一个关于multitask需要进行强调的是：multitask是operating system层的概念，在hardware层没有multitask的概念，所以multitask由OS厂商实现，在hardware层比如CPU压根就没有这样的概念。不过CPU厂商肯定会为OS提供便于实现multitask的硬件支持，比如提供一些专门的指令等。
 
+## 关于[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)实现的一些思考
+
 
 
 OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)都会衍生出一些列的问题，并且实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)往往需要hardware和OS同时支持：
@@ -44,3 +46,12 @@ OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking
 ## Task是control path
 
 在[03-Control-path-&-Context-&-Context-switch](03-Control-path-&-Context-&-Context-switch.md)中，我们已经将task归入了control path的范轴，在下一章中，将对它进行详细分析。
+
+
+
+## Linux OS的实现
+
+在本书中，其实并没有专门的章节来描述linux OS中multitask的实现，而是分散在多个章节。所以在此对linux OS的multitask的实现进行综述。
+
+使用task model来进行描述。
+
