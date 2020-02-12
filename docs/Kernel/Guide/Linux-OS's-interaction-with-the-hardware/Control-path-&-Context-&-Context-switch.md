@@ -10,9 +10,9 @@ OS中有如下control path：
 
 在本书的有些章节会使用“execution context”、“execution flow”等词语，其实它们和本文所定义的control path表示的是相同的意思。
 
-Control path的典型特征是：它执行都可能会被interrupted：
+Control path的典型特征是reentrant，即它的执行可能会被suspend而后被resume：
 
-- 一旦发生了hardware interrupt，OS kernel会立即去响应，从而interrupt（suspend）当前执行的kernel control path，转去执行新的kernel control path。即原kernel control path会被interrupted。
+- 一旦发生了hardware interrupt，OS kernel会立即去响应，从而interrupt（suspend）当前执行的kernel control path，转去执行新的kernel control path，即原kernel control path会被interrupted。
 
 - task是现代OS为支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)而创建的，它由[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))进行调度执行的，目前linux采取的调度策略是[Preemptive multitasking](https://en.wikipedia.org/wiki/Preemption_(computing))，这种策略的本质是：
 
@@ -20,13 +20,28 @@ Control path的典型特征是：它执行都可能会被interrupted：
 
   即它可能会interrupt（suspend）正在执行的task，然后转去执行另外一个task。
 
-
+## 如何实现Reentrant？
 
 显然这是OS为了高效，让多个control path interleave（交错运行），为了实现[Reentrancy](https://en.wikipedia.org/wiki/Reentrancy_(computing)) ，每个control path都要有自己private的context、address space（这其实是一个separation机制），它能够保证一个control path在被suspend后，过后能够被resume。
 
 显然context包括每个control path的private数据，如下：
 
-- call stack
+hardware context：
+
+- [Program counter](https://en.wikipedia.org/wiki/Program_counter)
+
+置于何处：
+
+call stack（可能是Kernel Mode process stack，也可能是User Mode process stack）
+
+关于这一点，证据来源于：
+
+- chapter 4.1. The Role of Interrupt Signals
+- 龙书7.2.2 Activation Records
+
+
+
+
 
 
 
@@ -62,6 +77,27 @@ kernel substitutes one process for another process
 
 
 
+
+
+## How kernel control path execute?
+
+kernel control path的执行细节比较复杂，后续需要进行补充。
+
+Kernel control path和process之间的关联是本书中会一直强调的内容，需要进行一下总结，其中最最典型的就是"kernel control path runs on behalf of process"。为了今后便于快速地检索到这些内容，现将本书中所有的与此相关内容的位置全部都整理到这里：
+
+- chapter 1.6.3. Reentrant Kernels
+
+  本节的后半部分对kernel control path的一些可能情况进行了枚举，并描述了这些情况下，kernel control path和process之间的关系
+
+- Chapter 4. Interrupts and Exceptions
+
+  主要描述了Interrupts and Exceptions触发的kernel control path的执行情况。并且其中还对比了interrupt 触发的kernel control path和system call触发的kernel control path之间的差异等内容。
+
+
+
+
+
 ## 总结
 
 通过control path模型我们可以看到，OS在运行和控制它们的时候会面临中类似的问题。
+
