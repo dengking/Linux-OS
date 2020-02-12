@@ -1,6 +1,6 @@
 # Control path
 
-Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述一些问题（一个抽象过程）。
+Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述一些问题（一个抽象过程）。与它比较接近的一个概念是[Control flow](https://en.wikipedia.org/wiki/Control_flow)。
 
 OS中有如下control path：
 
@@ -18,7 +18,7 @@ Control path的典型特征是reentrant，即它的执行可能会被suspend而�
 
   > It is normally carried out by a [privileged](https://en.wikipedia.org/wiki/Protection_ring) task or part of the system known as a preemptive [scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing)), which has the power to **preempt**, or interrupt, and later resume, other tasks in the system.
 
-  即它可能会interrupt（suspend）正在执行的task，然后转去执行另外一个task。
+  即它可能会preempt（suspend）正在执行的task，然后转去执行另外一个task。
 
 ## 如何实现Reentrant？
 
@@ -30,9 +30,7 @@ hardware context：
 
 - [Program counter](https://en.wikipedia.org/wiki/Program_counter)
 
-置于何处：
-
-call stack（可能是Kernel Mode process stack，也可能是User Mode process stack）
+每当一个正在执行的control path要被suspend之前，需要将它的context置于它的当前执行它的process（linux 的lightweight process，而不是标准的process）的[call stack](https://en.wikipedia.org/wiki/Call_stack)（可能是Kernel Mode process stack，也可能是User Mode process stack），在它被restart的时候，再将保存在[call stack](https://en.wikipedia.org/wiki/Call_stack)上的context恢复，这就所谓的context switch，后面会进行专门介绍。
 
 关于这一点，证据来源于：
 
@@ -45,7 +43,9 @@ call stack（可能是Kernel Mode process stack，也可能是User Mode process 
 
 
 
-## Context switch
+
+
+### Context switch
 
 需要注意的是，本节所述的context switch是广义的，而不是[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)中专指task（process/thread）的[context switch](https://en.wikipedia.org/wiki/Context_switch)。
 
@@ -53,13 +53,13 @@ call stack（可能是Kernel Mode process stack，也可能是User Mode process 
 
 发生context switch的场景：
 
-### Scheduler触发Process Switch
+#### Scheduler触发Process Switch
 
 3.3. Process Switch
 
 kernel substitutes one process for another process
 
-### Interrupt Signals触发Switch
+#### Interrupt Signals触发Switch
 
 4.1. The Role of Interrupt Signals
 
@@ -73,15 +73,23 @@ kernel substitutes one process for another process
 
 
 
-思考：发生context switch的时候，要把context置于何处呢？
+#### 思考：context switch的成本
+
+不同的control path进行context switch的成本是不同的， 软件工程师经常听说的就是thread的context switch比process的context switch要快，就是说的这个道理。
 
 
+
+
+
+### Control path context switch VS function call
+
+control path的context switch和function call中将[**return state**](https://en.wikipedia.org/wiki/Call_stack#Functions_of_the_call_stack)保存到[call stack](https://en.wikipedia.org/wiki/Call_stack)待被调函数返回后再进行恢复的做法是非常类似的。
 
 
 
 ## How kernel control path execute?
 
-kernel control path的执行细节比较复杂，后续需要进行补充。
+**kernel control path**（注意不是control path）的执行细节比较复杂，后续需要进行补充。
 
 Kernel control path和process之间的关联是本书中会一直强调的内容，需要进行一下总结，其中最最典型的就是"kernel control path runs on behalf of process"。为了今后便于快速地检索到这些内容，现将本书中所有的与此相关内容的位置全部都整理到这里：
 
