@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Memory-management: Memory-management.md
+    - Memory-protection: Memory-protection.md
+    - Difference-Between-Paging-and-Segmentation-in-OS: Difference-Between-Paging-and-Segmentation-in-OS.md
+    - Virtual-memory: Virtual-memory
