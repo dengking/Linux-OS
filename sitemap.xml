@@ -36,123 +36,128 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-multitasking/00-Multitask/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-multitasking/01-Process-model/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-multitasking/04-Thread/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Memory-management/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Memory-protection/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Virtual-memory/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Paging/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Unix-system-page-size/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-memory-address-space-thinking/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Unix-virtual-address-space/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Virtual-address-space-size-reading-list/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Memory-layout-of-a-process/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Data-segment/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/How-to-understand-linux-kernel-source-code/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Kernel-data-structure/</loc>
+     <lastmod>2020-02-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Debugger/</loc>
+     <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
