@@ -1,5 +1,4 @@
 nav:
-    - Summary: Summary
     - Introduction: index.md
     - Chapter-1-Introduction: Chapter-1-Introduction
     - Chapter-2-Memory-Addressing: Chapter-2-Memory-Addressing

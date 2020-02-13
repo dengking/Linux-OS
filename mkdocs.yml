@@ -17,39 +17,40 @@ nav:
 - Kernel:
   - Introduction: Kernel/index.md
   - Kernel: Kernel/Kernel(operating-system).md
+  - Guide:
+    - Linux-OS's-interaction-with-the-hardware:
+      - Linux-OS-kernel-is-event-driven: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven.md
+      - Kernel-control-path-and-reentrant-kernel: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel.md
+      - Control-path-&-Context-&-Context-switch: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch.md
+    - Linux-OS's-multitasking:
+      - Multitask: Kernel/Guide/Linux-OS's-multitasking/00-Multitask.md
+      - Process-model: Kernel/Guide/Linux-OS's-multitasking/01-Process-model.md
+      - Linux-OS-implementation-of-process-model-01: Kernel/Guide/Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model.md
+      - Linux-OS-implementation-of-process-model-02: Kernel/Guide/Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model.md
+      - Linux-OS-implementation-of-process-model-03: Kernel/Guide/Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model.md
+      - Thread: Kernel/Guide/Linux-OS's-multitasking/04-Thread.md
+    - Memory-management:
+      - Introduction: Kernel/Guide/Memory-management/index.md
+      - Memory-management: Kernel/Guide/Memory-management/Memory-management.md
+      - Memory-protection: Kernel/Guide/Memory-management/Memory-protection.md
+      - Difference-Between-Paging-and-Segmentation-in-OS: Kernel/Guide/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS.md
+      - Virtual-memory:
+        - Virtual-memory: Kernel/Guide/Memory-management/Virtual-memory/Virtual-memory.md
+        - Paging: Kernel/Guide/Memory-management/Virtual-memory/Paging.md
+        - Unix-system-page-size: Kernel/Guide/Memory-management/Virtual-memory/Unix-system-page-size.md
+        - Virtual-address-space:
+          - Virtual-address-space: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space.md
+          - Virtual-memory-address-space-thinking: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-memory-address-space-thinking.md
+          - Virtual-address-space-size:
+            - Unix-virtual-address-space: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Unix-virtual-address-space.md
+            - Virtual-address-space-size-reading-list: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Virtual-address-space-size-reading-list.md
+          - Layout-of-process:
+            - Memory-layout-of-a-process: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Memory-layout-of-a-process.md
+            - Data-segment: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Data-segment.md
+    - How-to-understand-linux-kernel-source-code: Kernel/Guide/How-to-understand-linux-kernel-source-code.md
+    - Kernel-data-structure: Kernel/Guide/Kernel-data-structure.md
+    - Debugger: Kernel/Guide/Debugger.md
   - Book-Understanding-the-Linux-Kernel:
-    - Summary:
-      - How-to-understand-linux-kernel-source-code: Kernel/Book-Understanding-the-Linux-Kernel/Summary/How-to-understand-linux-kernel-source-code.md
-      - Linux-OS's-interaction-with-the-hardware:
-        - Linux-OS-kernel-is-event-driven: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven.md
-        - Kernel-control-path-and-reentrant-kernel: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel.md
-        - Control-path-&-Context-&-Context-switch: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch.md
-      - Linux-OS's-multitasking:
-        - Multitask: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/00-Multitask.md
-        - Process-model: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/01-Process-model.md
-        - Process-address-space.md: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/02-Process-address-space.md
-        - Linux-OS-implementation-of-process-model-01: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model.md
-        - Linux-OS-implementation-of-process-model-02: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model.md
-        - Linux-OS-implementation-of-process-model-03: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model.md
-        - Thread: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Linux-OS's-multitasking/04-Thread.md
-      - Memory-management:
-        - Memory-management: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Memory-management.md
-        - Memory-protection: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Memory-protection.md
-        - Difference-Between-Paging-and-Segmentation-in-OS: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS.md
-        - Virtual-memory:
-          - Virtual-memory: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-memory.md
-          - Paging: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Paging.md
-          - Unix-system-page-size: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Unix-system-page-size.md
-          - Virtual-address-space:
-            - Virtual-address-space: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space.md
-            - Virtual-memory-address-space-thinking: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-memory-address-space-thinking.md
-            - Virtual-address-space-size:
-              - Unix-virtual-address-space: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Unix-virtual-address-space.md
-              - Virtual-address-space-size-reading-list: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Virtual-address-space-size-reading-list.md
-            - Layout-of-process:
-              - Memory-layout-of-a-process: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Memory-layout-of-a-process.md
-              - Data-segment: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Data-segment.md
-      - Debugger: Kernel/Book-Understanding-the-Linux-Kernel/Summary/Debugger.md
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
       - Chapter-1-Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction.md
