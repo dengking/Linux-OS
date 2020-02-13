@@ -44,8 +44,6 @@ Process model图示如下：
 
 #### OS中有哪些resource？Process需要哪些resource？
 
-
-
 - OS是基于process的resource分配，resource包括：
   - Memory 
   - [address space](https://en.wikipedia.org/wiki/Virtual_address_space)
