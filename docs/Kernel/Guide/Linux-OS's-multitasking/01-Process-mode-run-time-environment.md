@@ -1,12 +1,25 @@
 # Process model
 
-本文处于草稿状态。
+本文处于草稿状态。本文描述process的运行模型。
+
+编写思路：从进程的运行形态作为切入点：
+
+目前的所有的hight level programming language都将函数作为程序中user-defined action的单位（在hardware层，显然user-defined action的单位是instruction），这可以作为程序的运行模型（对于该运行模型是还可以进一步修正的，它的最小粒度的user-defined action其实是语句，但是这种运行模型是更加符合call stack的）。
+
+为了实现这个运行模型，使用的结构是stack，call stack。由此就引出了一些列的问题：函数传参如何实现等等，由此就引出了calling convention。
+
+其实我的这个描述思路是和龙书的7.2 Stack Allocation of Space的描述思路类似的。
+
+将所有与此相关的内容集中到这里来进行，包括：
+
+- ABI。
+- 龙书chapter 7所论述的concept model。
 
 本章的内容是主要源自龙书的[Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)，原文内容是非常好的，为我们清晰地勾画出了process的memory、runtime的concept model。
 
 
 
-# 需要建立统一的memory model
+## 需要建立统一的memory model
 
 龙书，OS书、维基百科
 
@@ -27,7 +40,7 @@ push 指令就可以实现
 
 process在运行过程中的主要活动其实就是不断地函数调用，所以搞清楚函数调用的过程对理解process是非常重要的。龙书的chapter 7就是介绍此的非常好的内容。这些内容我觉得全部都整理到OS book中去。
 
-## linux OS process model的实现
+### linux OS process model的实现
 
 之前我一直有一个疑问就是：一个process的所有的thread都共享该process的address space，而每个thread有一个自己的[call stack](https://en.wikipedia.org/wiki/Call_stack)，并且call stack是向下生长的，当时我就非常疑惑，这要如何实现呀？今天在阅读[Call stack](https://en.wikipedia.org/wiki/Call_stack)、[Stack register](https://en.wikipedia.org/wiki/Stack_register)的时候，我有了如下的认知：
 
@@ -51,7 +64,7 @@ https://blog.csdn.net/zDavid_2018/article/details/89255630
 
 总的来说，龙书的chapter 7总结的是非常好的。
 
-## 进程运行形态
+### 进程运行形态
 
 进程完全是基于function的运行模式，它的所有活动都发生在call stack上。
 
@@ -59,5 +72,5 @@ https://blog.csdn.net/zDavid_2018/article/details/89255630
 
 关于这一点在龙书的7.2 Stack Allocation of Space中有这样的描述：
 
-> Almost all compilers for languages that use procedures, functions, or methods as units of user-defined actions manage at least part of their run-time memory as a stack. Each time a procedure is called, space for its lo cal variables is pushed onto a stack, and when the procedure terminates, that space is popped off the stack. 
+> Almost all compilers for languages that use procedures, functions, or methods as units of user-defined actions manage at least part of their run-time memory as a stack. Each time a procedure is called, space for its local variables is pushed onto a stack, and when the procedure terminates, that space is popped off the stack. 
 

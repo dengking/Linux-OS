@@ -13,8 +13,10 @@
 
 本章会对第一条线“Interact with the **hardware** components”进行总结。
 
-本章会对Linux OS的[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)进行总结，我觉得这是和第二条线密切相关的。
+本章会对Linux OS的[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)进行总结，这是和第二条线密切相关的。
 
 本章会给出阅读Linux OS kernel源码的指导，并对Linux OS kernel源码中的一些重要的data structure进行总结。
+
+阅读本书，需要一些hardware的基础知识，参见我的另外一个项目[Hardware](https://dengking.github.io/Hardware/)。
 
 总的来说，本章旨在帮助自己和读者更好地理解本书的内容。
