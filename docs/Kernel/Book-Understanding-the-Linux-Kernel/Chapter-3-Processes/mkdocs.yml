@@ -9,5 +9,10 @@ nav:
     - 3.2.2.3-Doubly-linked-lists: 3.2.2.3-Doubly-linked-lists.md
     - 3.2.2.4-The-process-list: 3.2.2.4-The-process-list.md
     - 3.2.2.5-The-lists-of-TASK_RUNNING-processes: 3.2.2.5-The-lists-of-TASK_RUNNING-processes.md
+    - 3.2.3-Relationships-Among-Processes: 3.2.3-Relationships-Among-Processes.md
+    - 3.2.4-How-Processes-Are-Organized: 3.2.4-How-Processes-Are-Organized.md
+    - 3.2.5-Process-Resource-Limits: 3.2.5-Process-Resource-Limits.md
+    - 3.3-Process-Switch: 3.3-Process-Switch.md
     - 3.4-Creating-Processes: 3.4-Creating-Processes.md
+    - 3.4.2-Kernel-Threads: 3.4.2-Kernel-Threads.md
     - Copy-on-write: wikipedia-Copy-on-write.md
