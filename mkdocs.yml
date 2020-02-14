@@ -49,7 +49,10 @@ nav:
             - Data-segment: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Data-segment.md
     - How-to-understand-linux-kernel-source-code: Kernel/Guide/How-to-understand-linux-kernel-source-code.md
     - Kernel-data-structure: Kernel/Guide/Kernel-data-structure.md
-    - Debugger: Kernel/Guide/Debugger.md
+    - Debugger:
+      - Introduction: Kernel/Guide/Debugger/index.md
+      - Debugger: Kernel/Guide/Debugger/Debugger.md
+      - Trap: Kernel/Guide/Debugger/Trap.md
   - Book-Understanding-the-Linux-Kernel:
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
