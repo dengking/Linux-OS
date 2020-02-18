@@ -1,17 +1,23 @@
-# Process model
+# Thread run model
 
 本文的内容基于：
 
 - 龙书 Chapter 7 Run-Time Environments
 - 维基百科ABI
 
+在上一篇中，我们已经知道现代OS中，thread是调度单位，即每个thread都能够独立执行，那thread是如何执行的呢？这就是本文所要进行讨论的，总的来说，本文主要想要描述thread的运行模型。
 
 
 
+> Languages that use procedures, functions, or methods as units of user-defined actions manage at least part of their run-time memory as a stack. Each time a procedure is called, space for its local variables is pushed onto a stack, and when the procedure terminates, that space is popped off the stack. As we shall see, this arrangement not only allows space to be shared by procedure calls whose durations do not overlap in time, but it allows us to compile code for a procedure in such a way that the relative addresses of its nonlocal variables are always the same, regardless of the sequence of procedure calls.
 
+Function（包括成员函数）是很多现代programming language都会提供的一个概念（参见文章抽象），比如`C++`、python，对于SQL这种语言是不存在的。对于使用这种语言编译而成的程序，在进行运行的时候以function为运行单位，function的运行都是发生在call stack上，每次调用function，则入栈， 函数运行结束，则出栈。
 
+这就是thread的运行模型。
 
+## 如何来实现？
 
+如何利用硬件来实现上述model。
 
 本文处于草稿状态。本文描述process的运行模型。
 
