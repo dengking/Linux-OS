@@ -1,5 +1,18 @@
 # Process model
 
+本文的内容基于：
+
+- 龙书 Chapter 7 Run-Time Environments
+- 维基百科ABI
+
+
+
+
+
+
+
+
+
 本文处于草稿状态。本文描述process的运行模型。
 
 编写思路：从进程的运行形态作为切入点：
