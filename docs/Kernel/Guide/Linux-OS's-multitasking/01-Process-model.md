@@ -88,10 +88,6 @@ Process model图示如下：
 
 ## [Threads vs. processes](https://en.wikipedia.org/wiki/Thread_(computing)#Threads_vs._processes)
 
-
-
-
-
 显然operating system为了支持multiple thread，就必须要让每个thread有一个自己的[call stack](https://en.wikipedia.org/wiki/Call_stack)；在Wikipedia的[Thread control block](https://en.wikipedia.org/wiki/Thread_control_block)中就谈及每个thread都有一个[Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)，而[Process control block](https://en.wikipedia.org/wiki/Process_control_block)中，可能就不需要[Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)了；
 
 
