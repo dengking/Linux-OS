@@ -23,25 +23,25 @@
 
 ## Thread run model:  function as user-defined action
 
-Thread是调度单位，即每个thread都能够独立执行，那thread是如何执行的呢？这就是本节所要进行讨论的。
+在上一篇中，我们已经知道了：thread是调度单位，即每个thread都能够独立执行；在文章[Unit](https://dengking.github.io/Post/Unit)中，通过分析我们已经知道了thread的unit of user-defined **action**是function（也就是我们平时所说的线程执行函数）。那thread是如何运行的呢？这就是本节所要进行讨论的。
 
-在文章[Unit](https://dengking.github.io/Post/Unit)中，通过分析我们已经知道了thread的unit of user-defined **action**是function。
+在龙书的chapter [7.2 Stack Allocation of Space](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/)中有对此的描述：
 
-> Languages that use procedures, functions, or methods as units of user-defined actions manage at least part of their run-time memory as a stack. Each time a procedure is called, space for its local variables is pushed onto a stack, and when the procedure terminates, that space is popped off the stack. As we shall see, this arrangement not only allows space to be shared by procedure calls whose durations do not overlap in time, but it allows us to compile code for a procedure in such a way that the relative addresses of its nonlocal variables are always the same, regardless of the sequence of procedure calls.
+> Languages that use procedures, functions, or methods as **units of user-defined actions** manage at least part of their **run-time memory** as a **stack**. Each time a procedure is called, space for its local variables is pushed onto a stack, and when the procedure terminates, that space is popped off the stack. As we shall see, this arrangement not only allows space to be shared by procedure calls whose durations do not overlap in time, but it allows us to compile code for a procedure in such a way that the relative addresses of its nonlocal variables are always the same, regardless of the sequence of procedure calls.
 
-Function（包括成员函数）是很多现代programming language都会提供的一个概念（参见文章[Abstraction](https://dengking.github.io/Post/Abstraction/Abstraction/)），比如`C++`、python，对于SQL这种语言是不存在的。
+上面这段话中的stack，所指为call stack（在后面会对此进行展开）。
 
-Thread的unit of user-defined **action**是function，那function的执行需要哪些配置呢？答案如下：
+每个thread都有一个自己独立的call stack，function的运行都是发生在call stack上，每次调用function，则入栈， 函数运行结束，则出栈，这就是thread的运行模型。
+
+综合上面的内容：thread的unit of user-defined **action**是function，并且thread需要能够被单独的调度，为了实现此，OS kernel需要为每个thread都提供一套“配套设施”	（我们可以想见“配套设施”的内容主要是和函数执行相关的），其中包括如下内容：
 
 - [Call stack](https://en.wikipedia.org/wiki/Call_stack)
 - [Program counter](https://en.wikipedia.org/wiki/Program_counter)
 - [Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)
 
-显然，每个thread都需要有自己的独立的一份这样的配置，thread的[thread control block](https://en.wikipedia.org/wiki/Thread_control_block)需要保存这些内容。
+每个thread都需要有自己的独立的一份这样的“配套设施”，thread的[thread control block](https://en.wikipedia.org/wiki/Thread_control_block)需要保存这些内容。
 
-每个thread都有一个自己独立的call stack，function的运行都是发生在call stack上，每次调用function，则入栈， 函数运行结束，则出栈，这就是thread的运行模型。
-
-
+> Function（包括成员函数）是很多现代programming language都会提供的一个概念（参见文章[Abstraction](https://dengking.github.io/Post/Abstraction/Abstraction/)），比如`C++`、python，对于SQL这种语言是不存在的。
 
 ### call stack
 
