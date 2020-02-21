@@ -45,7 +45,7 @@ OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking
 
 ## Task是control path
 
-在[03-Control-path-&-Context-&-Context-switch](03-Control-path-&-Context-&-Context-switch.md)中，我们已经将task归入了control path的范轴，在下一章中，将对它进行详细分析。
+在[Control-path-&-Context-&-Context-switch](../Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch.md)中，我们已经将task归入了control path的范轴，在下一章中，将对它进行详细分析。
 
 
 
