@@ -1,8 +1,10 @@
 # [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)
 
-[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)即多任务，是现代OS的必备feature。本章就对此进行分析（其实在上篇中已经涉及到了这些内容了）。
+Multitasking即多任务，是现代OS的必备feature，本章就对此进行分析（其实在上一章中已经涉及到了这些内容了）。
 
-维基百科的这篇[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)总结地非常好，下面是我的阅读笔记：
+在文章[Abstraction and model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)的[Task model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/#task-model)章节总结了Task model，支持multitasking的OS kernel其实是一个task model。
+
+维基百科[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)对multitasking总结地非常好，下面是我的阅读笔记：
 
 需要注意的是，我们应该以发展的眼光来看待multitask的发展，multitask是一个很早提出的**概念**：
 
@@ -17,6 +19,8 @@
 
 
 另外一个关于multitask需要进行强调的是：multitask是operating system层的概念，在hardware层没有multitask的概念，所以multitask由OS厂商实现，在hardware层比如CPU压根就没有这样的概念。不过CPU厂商肯定会为OS提供便于实现multitask的硬件支持，比如提供一些专门的指令等。
+
+
 
 ## 关于[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)实现的一些思考
 

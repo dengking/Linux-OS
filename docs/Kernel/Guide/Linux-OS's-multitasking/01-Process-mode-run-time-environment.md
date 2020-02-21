@@ -23,7 +23,7 @@
 
 ## Thread run model:  function as user-defined action
 
-在上一篇中，我们已经知道了：thread是调度单位，即每个thread都能够独立执行；在文章[Unit](https://dengking.github.io/Post/Unit)中，通过分析我们已经知道了thread的unit of user-defined **action**是function（也就是我们平时所说的线程执行函数）。那thread是如何运行的呢？这就是本节所要进行讨论的。
+在上一篇中，我们已经知道了：thread是OS kernel调度单位（即线程的执行可能被[preempt](https://en.wikipedia.org/wiki/Pre-emptive_multitasking)），即每个thread都能够独立执行；在文章[Unit](https://dengking.github.io/Post/Unit)中，通过分析我们已经知道了thread的unit of user-defined **action**是function（也就是我们平时所说的线程执行函数）。那thread是如何运行的呢？这就是本节所要进行讨论的。
 
 在龙书的chapter [7.2 Stack Allocation of Space](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/)中有对此的描述：
 
@@ -33,11 +33,17 @@
 
 每个thread都有一个自己独立的call stack，function的运行都是发生在call stack上，每次调用function，则入栈， 函数运行结束，则出栈，这就是thread的运行模型。
 
-综合上面的内容：thread的unit of user-defined **action**是function，并且thread需要能够被单独的调度，为了实现此，OS kernel需要为每个thread都提供一套“配套设施”	（我们可以想见“配套设施”的内容主要是和函数执行相关的），其中包括如下内容：
+综合上面的内容：thread的unit of user-defined **action**是function，thread是OS kernel调度单位，为了实现此，OS kernel需要为每个thread都提供一套“配套设施”和“机制”，那这个“配套设置”要包含哪些内容？“机制”的逻辑是什么？
+
+让我们站在OS kernel的设计者的角色来思考这些问题：
+
+“thread的unit of user-defined **action**是function”要求我们的“配套设施”至少要包含function的执行所需要的"配套设施"，诸如：
 
 - [Call stack](https://en.wikipedia.org/wiki/Call_stack)
 - [Program counter](https://en.wikipedia.org/wiki/Program_counter)
 - [Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)
+
+“thread是OS kernel调度单位"要求OS kernel能够suspend、restart thread，执行context switch。
 
 每个thread都需要有自己的独立的一份这样的“配套设施”，thread的[thread control block](https://en.wikipedia.org/wiki/Thread_control_block)需要保存这些内容。
 
