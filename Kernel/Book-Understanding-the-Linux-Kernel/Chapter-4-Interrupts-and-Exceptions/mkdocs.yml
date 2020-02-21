@@ -3,4 +3,7 @@ nav:
     - 4.1-The-Role-of-Interrupt-Signals: 4.1-The-Role-of-Interrupt-Signals.md
     - 4.2-Interrupts-and-Exceptions: 4.2-Interrupts-and-Exceptions.md
     - 4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers: 4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers.md
+    - 4.4-Initializing-the-Interrupt-Descriptor-Table: 4.4-Initializing-the-Interrupt-Descriptor-Table.md
+    - 4.5-Exception-Handling: 4.5-Exception-Handling.md
     - 4.6-Interrupt-Handling: 4.6-Interrupt-Handling.md
+    - Trap: Trap.md
