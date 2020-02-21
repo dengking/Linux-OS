@@ -21,10 +21,33 @@ nav:
     - Linux-OS's-interaction-with-the-hardware:
       - Linux-OS-kernel-is-event-driven: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven.md
       - Kernel-control-path-and-reentrant-kernel: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel.md
+      - Linux-OS-interrupt-and-interrupte-handler: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-interrupt-and-interrupte-handler.md
       - Control-path-&-Context-&-Context-switch: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch.md
     - Linux-OS's-multitasking:
       - Multitask: Kernel/Guide/Linux-OS's-multitasking/00-Multitask.md
       - Process-model: Kernel/Guide/Linux-OS's-multitasking/01-Process-model.md
+      - Process-mode-run-time-environment: Kernel/Guide/Linux-OS's-multitasking/01-Process-mode-run-time-environment.md
+      - ABI:
+        - Introduction: Kernel/Guide/Linux-OS's-multitasking/ABI/index.md
+        - Application-binary-interface: Kernel/Guide/Linux-OS's-multitasking/ABI/Application-binary-interface.md
+        - Function-Call:
+          - Call-stack:
+            - Call-stack: Kernel/Guide/Linux-OS's-multitasking/ABI/Function-Call/Call-stack/Call-stack.md
+            - Call-stack-summary: Kernel/Guide/Linux-OS's-multitasking/ABI/Function-Call/Call-stack/Call-stack-summary.md
+          - Call-convention:
+            - Calling-convention: Kernel/Guide/Linux-OS's-multitasking/ABI/Function-Call/Call-convention/Calling-convention.md
+            - Calling-Conventions-Demystified: Kernel/Guide/Linux-OS's-multitasking/ABI/Function-Call/Call-convention/Calling-Conventions-Demystified.md
+        - Library:
+          - Library(computing): Kernel/Guide/Linux-OS's-multitasking/ABI/Library/Library(computing).md
+          - Position-independent-code:
+            - Position-independent-code: Kernel/Guide/Linux-OS's-multitasking/ABI/Library/Position-independent-code/Position-independent-code.md
+            - Position-Independent-Code(PIC)-in-shared-libraries: Kernel/Guide/Linux-OS's-multitasking/ABI/Library/Position-independent-code/Position-Independent-Code(PIC)-in-shared-libraries.md
+          - Relocation:
+            - Relocation(computing): Kernel/Guide/Linux-OS's-multitasking/ABI/Library/Relocation/Relocation(computing).md
+        - Name-mangling:
+          - Name-mangling: Kernel/Guide/Linux-OS's-multitasking/ABI/Name-mangling/Name-mangling.md
+        - Book-x86-Disassembly:
+          - Introduction: Kernel/Guide/Linux-OS's-multitasking/ABI/Book-x86-Disassembly/index.md
       - Linux-OS-implementation-of-process-model-01: Kernel/Guide/Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model.md
       - Linux-OS-implementation-of-process-model-02: Kernel/Guide/Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model.md
       - Linux-OS-implementation-of-process-model-03: Kernel/Guide/Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model.md
@@ -87,14 +110,22 @@ nav:
       - 3.2.2.3-Doubly-linked-lists: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.3-Doubly-linked-lists.md
       - 3.2.2.4-The-process-list: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.4-The-process-list.md
       - 3.2.2.5-The-lists-of-TASK_RUNNING-processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.5-The-lists-of-TASK_RUNNING-processes.md
+      - 3.2.3-Relationships-Among-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.3-Relationships-Among-Processes.md
+      - 3.2.4-How-Processes-Are-Organized: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.4-How-Processes-Are-Organized.md
+      - 3.2.5-Process-Resource-Limits: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.5-Process-Resource-Limits.md
+      - 3.3-Process-Switch: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.3-Process-Switch.md
       - 3.4-Creating-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes.md
+      - 3.4.2-Kernel-Threads: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4.2-Kernel-Threads.md
       - Copy-on-write: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/wikipedia-Copy-on-write.md
     - Chapter-4-Interrupts-and-Exceptions:
       - Chapter-4-Interrupts-and-Exceptions: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions.md
       - 4.1-The-Role-of-Interrupt-Signals: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals.md
       - 4.2-Interrupts-and-Exceptions: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.2-Interrupts-and-Exceptions.md
       - 4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers.md
+      - 4.4-Initializing-the-Interrupt-Descriptor-Table: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.4-Initializing-the-Interrupt-Descriptor-Table.md
+      - 4.5-Exception-Handling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.5-Exception-Handling.md
       - 4.6-Interrupt-Handling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.6-Interrupt-Handling.md
+      - Trap: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Trap.md
     - Chapter-6-Timing-Measurements:
       - Chapter-6-Timing-Measurements: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements.md
     - Chapter-7-Process-Scheduling:
