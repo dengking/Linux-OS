@@ -2,7 +2,7 @@
 
 Multitasking即多任务，是现代OS的必备feature，本章就对此进行分析（其实在上一章中已经涉及到了这些内容了）。
 
-在文章[Abstraction and model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)的[Task model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/#task-model)章节总结了Task model，支持multitasking的OS kernel其实是一个task model。
+在文章[Abstraction and model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)的[Task model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/#task-model)章节总结了Task model，支持multitasking的OS kernel是可以使用[task model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)来进行描述的。
 
 维基百科[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)对multitasking总结地非常好，下面是我的阅读笔记：
 
@@ -22,9 +22,11 @@ Multitasking即多任务，是现代OS的必备feature，本章就对此进行�
 
 
 
-## 关于[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)实现的一些思考
+## 如何实现multitask？
 
+那如何实现multitask呢？这是本章要重点讨论的问题，本章将分多篇对multitask的实现进行梳理。
 
+### 关于[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)实现的一些思考
 
 OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)都会衍生出一些列的问题，并且实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)往往需要hardware和OS同时支持：
 
@@ -57,5 +59,5 @@ OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking
 
 在本书中，其实并没有专门的章节来描述linux OS中multitask的实现，而是分散在多个章节。所以在此对linux OS的multitask的实现进行综述。
 
-使用task model来进行描述。
+
 

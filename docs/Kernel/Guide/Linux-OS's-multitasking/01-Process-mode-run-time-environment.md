@@ -9,7 +9,7 @@
 
 本文将对process的run-time进行分析，以对process model进行更加深入的分析。
 
-本文的标题是参考自龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)，本文的内容主要是基于龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)的内容，在它的基础上进行了扩充。龙书正如其名（原文原名），它所述的是原理，它所讲述的是[概念模型](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)（是一个简化的模型，没有考虑multi-thread等），实际的实现肯定是基于该概念模型的，但是需要考虑的很多其他元素，如：
+本文的标题是参考自龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)，本文的内容主要是基于龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)的内容，在它的基础上进行了扩充。龙书正如其名（原文原名），它所述的是原理，它所讲述的是[概念模型](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)（是一个简化的模型，没有考虑multi-thread等），实际的实现肯定是基于该概念模型的，需要考虑的很多其他元素，如：
 
 - multi-thread
 - ......（TODO:还要一些其他的因素）
@@ -33,9 +33,7 @@
 
 每个thread都有一个自己独立的call stack，function的运行都是发生在call stack上，每次调用function，则入栈， 函数运行结束，则出栈，这就是thread的运行模型。
 
-综合上面的内容：thread的unit of user-defined **action**是function，thread是OS kernel调度单位，为了实现此，OS kernel需要为每个thread都提供一套“配套设施”和“机制”，那这个“配套设置”要包含哪些内容？“机制”的逻辑是什么？
-
-让我们站在OS kernel的设计者的角色来思考这些问题：
+综合上面的内容：thread的unit of user-defined **action**是function，thread是OS kernel调度单位，为了实现此，OS kernel需要为每个thread都提供一套“配套设施”和“机制”，那这个“配套设置”要包含哪些内容？“机制”的逻辑是什么？让我们站在OS kernel的设计者的角色来思考这些问题：
 
 “thread的unit of user-defined **action**是function”要求我们的“配套设施”至少要包含function的执行所需要的"配套设施"，诸如：
 
@@ -43,7 +41,7 @@
 - [Program counter](https://en.wikipedia.org/wiki/Program_counter)
 - [Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)
 
-“thread是OS kernel调度单位"要求OS kernel能够suspend、restart thread，执行context switch。
+“thread是OS kernel调度单位"要求OS kernel能够suspend、restart一个thread，执行context switch。
 
 每个thread都需要有自己的独立的一份这样的“配套设施”，thread的[thread control block](https://en.wikipedia.org/wiki/Thread_control_block)需要保存这些内容。
 

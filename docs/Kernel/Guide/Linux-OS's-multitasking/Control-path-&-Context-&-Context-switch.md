@@ -2,7 +2,7 @@
 
 Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述一些问题（一个抽象过程）。与它比较接近的一个概念是[Control flow](https://en.wikipedia.org/wiki/Control_flow)。
 
-OS中有如下control path：
+Linux OS中有如下control path：
 
 - kernel control path
 - kernel thread
@@ -10,7 +10,7 @@ OS中有如下control path：
 
 在本书的有些章节会使用“execution context”、“execution flow”等词语，其实它们和本文所定义的control path表示的是相同的意思。
 
-Control path的典型特征是reentrant，即它的执行可能会被suspend而后被resume：
+Control path的典型特征是“reentrant”，即它的执行可能会被suspend而后被resume。下面枚举了两个例子来说明“reentrant”的含义：
 
 - 一旦发生了hardware interrupt，OS kernel会立即去响应，从而interrupt（suspend）当前执行的kernel control path，转去执行新的kernel control path，即原kernel control path会被interrupted。
 
