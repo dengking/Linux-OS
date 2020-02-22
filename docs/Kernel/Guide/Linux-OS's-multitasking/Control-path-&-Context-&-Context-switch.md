@@ -113,6 +113,10 @@ Unix进程调度程序本身是一个进程，还是以与系统调用相同的�
 
 
 
+4.3. Nested Execution of Exception and Interrupt Handlers:
+
+> the first instructions of the corresponding kernel control path are those that save the contents of the CPU registers in the Kernel Mode stack, while the last are those that restore the contents of the registers.
+
 ## 总结
 
 通过control path模型我们可以看到，OS在运行和控制它们的时候会面临中类似的问题。
