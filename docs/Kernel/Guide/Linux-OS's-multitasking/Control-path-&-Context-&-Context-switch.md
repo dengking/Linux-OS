@@ -1,12 +1,12 @@
 # Control path
 
-Control path这个概念是我由kernel control path启发而创建的，它表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述一些问题（一个抽象过程）。与它比较接近的一个概念是[Control flow](https://en.wikipedia.org/wiki/Control_flow)。
+Control path这个概念是我由kernel control path启发而创建的，Control path表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述一些问题（一个抽象过程）。与它比较接近的一个概念是[Control flow](https://en.wikipedia.org/wiki/Control_flow)。
 
 Linux OS中有如下control path：
 
 - kernel control path
 - kernel thread
-- task（process/thread，现代OS需要支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)）
+- task（process/thread，现代OS需要支持[multitasking](./00-Multitask.md)）
 
 在本书的有些章节会使用“execution context”、“execution flow”等词语，其实它们和本文所定义的control path表示的是相同的意思。
 
@@ -102,6 +102,14 @@ Kernel control path和process之间的关联是本书中会一直强调的内容
   主要描述了Interrupts and Exceptions触发的kernel control path的执行情况。并且其中还对比了interrupt 触发的kernel control path和system call触发的kernel control path之间的差异等内容。
 
 
+
+***SUMMARY*** : 执行system call也是kernel control path，那么是否system call的执行步骤和上面描述的类似？在这篇文章中，有如下的提问：[Is the Unix process scheduler itself a process?](https://unix.stackexchange.com/questions/155766/is-the-unix-process-scheduler-itself-a-process)
+
+> Is the **Unix process scheduler** itself a process, or does it piggyback on other processes in the same way a **system call** does (running kernel code in the user process with the **kernel bit** set)?
+
+按照上面这一段的描述来看，interrupt的执行是piggyback on processes ；按照1.6.3. Reentrant Kernels中所定义的kernel control path，它支持A kernel control path denotes the sequence of instructions executed by the kernel to handle a system call, an exception, or an interrupt.显然，system call和exception handler都是kernel control path；上面所描述的exception handler的执行方式是否也适用于system call；
+
+Unix进程调度程序本身是一个进程，还是以与系统调用相同的方式搭载在其他进程上（在内核位设置的用户进程中运行内核代码）？
 
 
 

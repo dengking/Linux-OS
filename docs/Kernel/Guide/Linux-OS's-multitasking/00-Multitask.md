@@ -1,6 +1,6 @@
 # [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)
 
-Multitasking即多任务，是现代OS的必备feature，本章就对此进行分析（其实在上一章中已经涉及到了这些内容了）。
+Multitasking即多任务，是现代OS的必备feature，本章就对此进行分析。
 
 在文章[Abstraction and model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)的[Task model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/#task-model)章节总结了Task model，支持multitasking的OS kernel是可以使用[task model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)来进行描述的。
 
@@ -51,7 +51,7 @@ OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking
 
 ## Task是control path
 
-在[Control-path-&-Context-&-Context-switch](../Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch.md)中，我们已经将task归入了control path的范轴，在下一章中，将对它进行详细分析。
+在[Control-path-&-Context-&-Context-switch](./Control-path-&-Context-&-Context-switch.md)中，我们已经将task归入了control path的范轴，在下一章中，将对它进行详细分析。
 
 
 
