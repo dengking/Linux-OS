@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Input-output: Input-output.md
     - IO-model: IO-model
     - File: File
     - Network: Network

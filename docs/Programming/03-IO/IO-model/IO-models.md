@@ -113,3 +113,15 @@ POSIX defines these two terms as follows:
 - An asynchronous I/O operation does not cause the requesting process to be blocked.
 
 Using these definitions, the first four I/O models—blocking,   nonblocking, I/O multiplexing, and signal-riven I/O—are all synchronous because  the actual I/O operation (`recvfrom`) blocks the process. Only the asynchronous I/O model matches the asynchronous I/O definition.
+
+
+
+### 维基百科[Asynchronous I/O](https://en.wikipedia.org/wiki/Asynchronous_I/O)
+
+维基百科[Asynchronous I/O](https://en.wikipedia.org/wiki/Asynchronous_I/O)的[Forms](https://en.wikipedia.org/wiki/Asynchronous_I/O#Forms)章节对IO form的分类和本节前面所描述的POSIX 的IO 分类是一致的。
+
+> |      |  Blocking   |        Non-blocking         |    Asynchronous     |
+> | :--: | :---------: | :-------------------------: | :-----------------: |
+> | API  | write, read | write, read + poll / select | aio_write, aio_read |
+
+维基百科[Asynchronous I/O](https://en.wikipedia.org/wiki/Asynchronous_I/O)的[Examples](https://en.wikipedia.org/wiki/Asynchronous_I/O#Examples)章节给出的例子值的一读。
