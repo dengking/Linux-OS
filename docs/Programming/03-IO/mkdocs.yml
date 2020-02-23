@@ -1,2 +1,5 @@
 nav:
     - Introduction: index.md
+    - IO-model: IO-model
+    - File: File
+    - Network: Network
