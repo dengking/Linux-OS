@@ -4,7 +4,7 @@
 
 > For example, most operating systems provide application programs with the concept of [files](https://en.wikipedia.org/wiki/Computer_file). The [C](https://en.wikipedia.org/wiki/C_(programming_language)) and [C++](https://en.wikipedia.org/wiki/C%2B%2B) programming languages, and operating systems in the [Unix](https://en.wikipedia.org/wiki/Unix) family, traditionally abstract files and devices as [streams](https://en.wikipedia.org/wiki/Stream_(computing)), which can be read or written, or sometimes both. The [C standard library](https://en.wikipedia.org/wiki/C_standard_library) provides [functions for manipulating streams](https://en.wikipedia.org/wiki/C_file_input/output) for input and output.
 
-这提示了我们：C系语言、Unix-like OS使用stream来描述IO。本文将对stream进行总结。
+这提示了我们：C系语言、Unix-like OS可以（说明不止一种方式）使用stream来描述IO。本文将对stream进行总结。
 
 
 
@@ -43,6 +43,60 @@ The term "stream" is used in a number of similar ways:
 
 Streams can be used as the underlying data type for [channels](https://en.wikipedia.org/wiki/Channel_(programming)) in [interprocess communication](https://en.wikipedia.org/wiki/Interprocess_communication).
 
-### Other uses
+### [Other uses](https://en.wikipedia.org/wiki/Stream_(computing)#Other_uses)
 
-The term "stream" is also applied to [file system](https://en.wikipedia.org/wiki/File_system) **forks**, where multiple sets of data are associated with a single filename. Most often, there is one main stream that makes up the normal file data, while additional streams contain [metadata](https://en.wikipedia.org/wiki/Metadata_Encoding_and_Transmission_Standard). Here "stream" is used to indicate "variable size data", as opposed to fixed size metadata such as [extended attributes](https://en.wikipedia.org/wiki/Extended_file_attributes), but differs from "stream" as used otherwise, meaning "data available over time, potentially infinite".
+
+
+## [What is the difference between a stream and a file?](https://stackoverflow.com/questions/20937616/what-is-the-difference-between-a-stream-and-a-file)
+
+
+
+### [A](https://stackoverflow.com/a/20937904)
+
+In the context of the C Standard Library a stream is a generic interface for performing certain I/O operations. You can read from streams, write to streams, some streams are seekable. Opening a file as a stream is only one way to get a stream as an I/O interface for an application.
+
+[Let me quote:](https://www.gnu.org/software/libc/manual/html_mono/libc.html#Streams-and-File-Descriptors)
+
+> **11.1.1 Streams and File Descriptors**
+>
+> When you want to do input or output to a file, you have a choice of two basic mechanisms for representing the connection between your program and the file: file descriptors and streams. File descriptors are represented as objects of type `int`, while streams are represented as `FILE *` objects.
+>
+> File descriptors provide a primitive, low-level interface to input and output operations. Both file descriptors and streams can represent a connection to a device (such as a terminal), or a pipe or socket for communicating with another process, as well as a normal file. [...]
+
+[... and further:](https://www.gnu.org/software/libc/manual/html_mono/libc.html#Streams)
+
+> **12.1 Streams**
+>
+> For historical reasons, the type of the C data structure that represents a stream is called `FILE` rather than “stream”. Since most of the library functions deal with objects of type `FILE *`, sometimes the term *file pointer* is also used to mean “stream”. This leads to unfortunate confusion over terminology in many books on C.
+
+Examples for I/O streams in C:
+
+- **Standard Streams:** https://linux.die.net/man/3/stdin
+- **File Streams:** https://linux.die.net/man/3/fopen
+- **Pipes:** https://linux.die.net/man/3/popen
+- **Stream Sockets:** https://linux.die.net/man/2/socket
+
+For further reading, also have a look at these links:
+
+- https://www.gnu.org/software/libc/manual/html_mono/libc.html#I_002fO-Overview
+- https://www.gnu.org/software/libc/manual/html_mono/libc.html#I_002fO-on-Streams
+
+The stream-based API is built on top of the low-level *file descriptor* API and provides additional functionality. Some low-level features are however only available via the lower level API, e.g., *memory-mapped I/O*, *non-blocking I/O* or "event-driven" I/O:
+
+- https://www.gnu.org/software/libc/manual/html_node/Memory_002dmapped-I_002fO.html
+- https://linux.die.net/man/2/poll
+- https://linux.die.net/man/4/epoll
+
+
+
+## Stream VS file descriptor
+
+
+
+## C++ Files and Streams
+
+https://www.tutorialspoint.com/cplusplus/cpp_files_streams.htm
+
+http://www.cplusplus.com/doc/tutorial/files/	
+
+## [C file input/output](https://en.wikipedia.org/wiki/C_file_input/output)
