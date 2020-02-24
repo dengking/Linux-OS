@@ -22,11 +22,12 @@ nav:
       - Linux-OS-kernel-is-event-driven: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven.md
       - Kernel-control-path-and-reentrant-kernel: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel.md
       - Linux-OS-interrupt-and-interrupte-handler: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-interrupt-and-interrupte-handler.md
-      - Control-path-&-Context-&-Context-switch: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Control-path-&-Context-&-Context-switch.md
     - Linux-OS's-multitasking:
       - Multitask: Kernel/Guide/Linux-OS's-multitasking/00-Multitask.md
       - Process-model: Kernel/Guide/Linux-OS's-multitasking/01-Process-model.md
+      - Control-path-&-Context-&-Context-switch: Kernel/Guide/Linux-OS's-multitasking/Control-path-&-Context-&-Context-switch.md
       - Process-mode-run-time-environment: Kernel/Guide/Linux-OS's-multitasking/01-Process-mode-run-time-environment.md
+      - Program-memory: Kernel/Guide/Linux-OS's-multitasking/Program-memory.md
       - ABI:
         - Introduction: Kernel/Guide/Linux-OS's-multitasking/ABI/index.md
         - Application-binary-interface: Kernel/Guide/Linux-OS's-multitasking/ABI/Application-binary-interface.md
@@ -128,6 +129,7 @@ nav:
       - Trap: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Trap.md
     - Chapter-6-Timing-Measurements:
       - Chapter-6-Timing-Measurements: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements.md
+      - 6.1-Clock-and-Timer-Circuits: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.1-Clock-and-Timer-Circuits.md
     - Chapter-7-Process-Scheduling:
       - Chapter-7-Process-Scheduling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling.md
     - Chapter-8-Memory-Management:
@@ -174,6 +176,14 @@ nav:
       - pthreads: Programming/02-Process/Thread/pthreads.md
   - IO:
     - Introduction: Programming/03-IO/index.md
+    - Input-output: Programming/03-IO/Input-output.md
+    - IO-model:
+      - Introduction: Programming/03-IO/IO-model/index.md
+      - IO-models: Programming/03-IO/IO-model/IO-models.md
+    - File:
+      - Introduction: Programming/03-IO/File/index.md
+    - Network:
+      - Introduction: Programming/03-IO/Network/index.md
   - Time:
     - Introduction: Programming/03-Time/index.md
   - Signal:
