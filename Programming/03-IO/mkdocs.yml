@@ -1,2 +1,9 @@
 nav:
     - Introduction: index.md
+    - Input-output: Input-output.md
+    - IO-model: IO-model
+    - Stream: Stream.md
+    - Bitstream: Bitstream.md   
+    - File: File
+    - Network: Network
+    - Notify-via-fd: Notify-via-fd.md

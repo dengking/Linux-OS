@@ -1,7 +1,9 @@
 nav:
     - Multitask: 00-Multitask.md
     - Process-model: 01-Process-model.md
+    - Control-path-&-Context-&-Context-switch: Control-path-&-Context-&-Context-switch.md
     - Process-mode-run-time-environment: 01-Process-mode-run-time-environment.md
+    - Program-memory: Program-memory.md
     - ABI: ABI
     - Linux-OS-implementation-of-process-model-01: 03-01-Linux-OS-implementation-of-process-model.md
     - Linux-OS-implementation-of-process-model-02: 03-02-Linux-OS-implementation-of-process-model.md
