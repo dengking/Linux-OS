@@ -186,6 +186,7 @@ nav:
       - Introduction: Programming/03-IO/File/index.md
     - Network:
       - Introduction: Programming/03-IO/Network/index.md
+    - Notify-via-fd: Programming/03-IO/Notify-via-fd.md
   - Time:
     - Introduction: Programming/03-Time/index.md
   - Signal:
