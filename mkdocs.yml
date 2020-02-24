@@ -180,6 +180,8 @@ nav:
     - IO-model:
       - Introduction: Programming/03-IO/IO-model/index.md
       - IO-models: Programming/03-IO/IO-model/IO-models.md
+    - Stream: Programming/03-IO/Stream.md
+    - Bitstream: Programming/03-IO/Bitstream.md
     - File:
       - Introduction: Programming/03-IO/File/index.md
     - Network:
