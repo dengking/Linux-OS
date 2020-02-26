@@ -44,22 +44,19 @@ The FILE data structure in the [C standard I/O library](https://en.wikipedia.org
 
 File descriptors for a single process, file table and [inode](https://en.wikipedia.org/wiki/Inode) table. Note that multiple file descriptors can refer to the same file table entry (e.g., as a result of the [dup](https://en.wikipedia.org/wiki/Dup_(system_call)) system call[[3\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-bach-3):104 and that multiple file table entries can in turn refer to the same inode (if it has been opened multiple times; the table is still simplified because it represents inodes by file names, even though an inode can have [multiple names](https://en.wikipedia.org/wiki/Hard_link)). File descriptor 3 does not refer to anything in the file table, signifying that it has been closed.
 
-***SUMMARY*** : 上述的三层对应关系存在着多种可能的情况，再加上OS提供的fork机制（子进程继承父进程的file descriptor和file tableentry），各种IO操作（比如dup，read，write）等等都导致了问题的复杂性；
-
-比如存在着这些可能的情况：
-
-- `dup`，同一进程中，多个file descriptor指向了同一个file table entry
-- `fork`后，父进程，子进程的同一个file descriptor共享同一个file table entry（因为file descriptor table是每个进程私有的，所以这种情况其实类似于第一种情况，即多个file descriptor指向了同一个file table entry）
-
-
-
-上面描述了file descriptor和file table entry之间的对应关系，下面描述file table entry和iNode之间的关系：
-
-是有可能存在多个不同的file table entry指向了同一个iNode的；
-
-显然OS的这种设计，就导致当一个文件被多个不同的process进行share的时候，而每个process都可以执行一系列的IO操作，这就导致了可能存在的数据冲突问题；
-
-总的来说，按照OS的这总结构设计，以及OS提供的各种操作，是可以总结出可能的所有情形的；
+> NOTE: 上述的三层对应关系存在着多种可能的情况，再加上OS提供的fork机制（子进程继承父进程的file descriptor和file table entry），各种IO操作（比如dup，read，write）等等都导致了问题的复杂性；
+>
+> 比如存在着这些可能的情况：
+> - `dup`，同一进程中，多个file descriptor指向了同一个file table entry
+>
+> - `fork`后，父进程，子进程的同一个file descriptor共享同一个file table entry（因为file descriptor table是每个进程私有的，所以这种情况其实类似于第一种情况，即多个file descriptor指向了同一个file table entry）
+>
+> 上面描述了file descriptor和file table entry之间的对应关系，下面描述file table entry和iNode之间的关系：
+> 是有可能存在多个不同的file table entry指向了同一个iNode的；
+>
+> 显然OS的这种设计，就导致当一个文件被多个不同的process进行share的时候，而每个process都可以执行一系列的IO操作，这就导致了可能存在的数据冲突问题；
+>
+> 总的来说，按照OS的这总结构设计，以及OS提供的各种操作，是可以总结出可能的所有情形的；
 
 
 
@@ -70,7 +67,7 @@ The following lists typical operations on file descriptors on modern [Unix-like]
 #### Creating file descriptors
 
 - [open](https://en.wikipedia.org/wiki/Open_(system_call))()
-- [creat()](http://man7.org/linux/man-pages/man2/open.2.html)[[4\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-4)
+- [creat()](http://man7.org/linux/man-pages/man2/open.2.html) 
 - [`socket()`](http://man7.org/linux/man-pages/man2/socket.2.html) 
 - `accept()`
 - `socketpair`()

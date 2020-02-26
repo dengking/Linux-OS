@@ -6,17 +6,17 @@
 
 ***"Everything is a file"*** describes one of the defining(最典型的) features of [Unix](https://en.wikipedia.org/wiki/Unix), and its derivatives — that a wide range of input/output [resources](https://en.wikipedia.org/wiki/System_resource) such as documents, directories, hard-drives, modems, keyboards, printers and even some inter-process and network communications are simple **streams of bytes** exposed through the [filesystem name space](https://en.wikipedia.org/wiki/Unix_directory_structure). 
 
-***SUMMARY*** : 最后一段话是对***"Everything is a file"*** 含义的解释：即将这些resource都看做是file（**streams of bytes** ）
+> NOTE: 最后一段话是对***"Everything is a file"*** 含义的解释：即将这些resource都看做是file（**streams of bytes** ）
 
-***SUMMARY*** : 上述 hard-drives，modems，keyboards，等都是device，显然在Unix中，它们都被看做成了file（**streams of bytes** ）
+> NOTE: 上述 hard-drives，modems，keyboards，等都是device，显然在Unix中，它们都被看做成了file（**streams of bytes** ）
 
-The advantage of this approach is that the same set of tools, utilities and [APIs](https://en.wikipedia.org/wiki/API) can be used on a wide range of resources. There are a number of [file types](https://en.wikipedia.org/wiki/Unix_file_types). When a file is opened, a [file descriptor](https://en.wikipedia.org/wiki/File_descriptor) is created. The [file path](https://en.wikipedia.org/wiki/Path_(computing)) becoming the addressing system and the file descriptor being the byte stream I/O interface. But **file descriptors** are also created for things like [anonymous pipes](https://en.wikipedia.org/wiki/Anonymous_pipe) and [network sockets](https://en.wikipedia.org/wiki/Network_socket) via different methods. So it is more accurate to say ***"Everything is a file descriptor"***.[[2\]](https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-2)[[3\]](https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-3)
+The advantage of this approach is that the same set of tools, utilities and [APIs](https://en.wikipedia.org/wiki/API) can be used on a wide range of resources. There are a number of [file types](https://en.wikipedia.org/wiki/Unix_file_types). When a file is opened, a [file descriptor](https://en.wikipedia.org/wiki/File_descriptor) is created. The [file path](https://en.wikipedia.org/wiki/Path_(computing)) becoming the addressing system and the file descriptor being the byte stream I/O interface. But **file descriptors** are also created for things like [anonymous pipes](https://en.wikipedia.org/wiki/Anonymous_pipe) and [network sockets](https://en.wikipedia.org/wiki/Network_socket) via different methods. So it is more accurate to say ***"Everything is a file descriptor"***. 
 
 Additionally, a range of [pseudo and virtual filesystems](https://en.wikipedia.org/wiki/List_of_file_systems#Pseudo-_and_virtual_file_systems) exists which exposes information about processes and other system information in a hierarchical file-like structure. These are [mounted](https://en.wikipedia.org/wiki/Mount_(computing)) into the [single file hierarchy](https://en.wikipedia.org/wiki/File_system#Unix-like_operating_systems).
 
 An example of this purely virtual filesystem is under [/proc](https://en.wikipedia.org/wiki/Procfs) that exposes many system properties as files.
 
-All of these "files" have standard Unix file attributes such as [an owner](https://en.wikipedia.org/wiki/Chown) and [access permissions](https://en.wikipedia.org/wiki/Chmod), and can be queried by the same [classic Unix tools](https://en.wikipedia.org/wiki/List_of_Unix_commands) and [filters](https://en.wikipedia.org/wiki/Filter_(Unix)). However, this is not universally considered a fast or portable approach. Some operating systems do not even mount /proc by default due to security or speed concerns.[[4\]](https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-4) It is, though, used heavily by both the widely installed [BusyBox](https://en.wikipedia.org/wiki/BusyBox) [[5\]](https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-5) on [embedded systems](https://en.wikipedia.org/wiki/Embedded_systems) and by procps, which is used on most [Linux](https://en.wikipedia.org/wiki/Linux) systems. In both cases it is used in implementations of process-related [POSIX](https://en.wikipedia.org/wiki/POSIX) shell commands. It is similarly used on [Android](https://en.wikipedia.org/wiki/Android_(operating_system)) systems in the operating system's Toolbox program.[[6\]](https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-6)
+All of these "files" have standard Unix file attributes such as [an owner](https://en.wikipedia.org/wiki/Chown) and [access permissions](https://en.wikipedia.org/wiki/Chmod), and can be queried by the same [classic Unix tools](https://en.wikipedia.org/wiki/List_of_Unix_commands) and [filters](https://en.wikipedia.org/wiki/Filter_(Unix)). However, this is not universally considered a fast or portable approach. Some operating systems do not even mount /proc by default due to security or speed concerns. It is, though, used heavily by both the widely installed [BusyBox](https://en.wikipedia.org/wiki/BusyBox) [[5\]](https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-5) on [embedded systems](https://en.wikipedia.org/wiki/Embedded_systems) and by procps, which is used on most [Linux](https://en.wikipedia.org/wiki/Linux) systems. In both cases it is used in implementations of process-related [POSIX](https://en.wikipedia.org/wiki/POSIX) shell commands. It is similarly used on [Android](https://en.wikipedia.org/wiki/Android_(operating_system)) systems in the operating system's Toolbox program. 
 
 Unix's successor [Plan 9](https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs) took this concept into [distributed computing](https://en.wikipedia.org/wiki/Distributed_operating_system) with the [9P](https://en.wikipedia.org/wiki/9P_(protocol)) protocol.
 
@@ -109,3 +109,9 @@ NOTE: [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file)
 对这个观点的验证包括：
 
 - [EPOLL instance](http://man7.org/linux/man-pages/man2/epoll_create.2.html)
+
+
+
+## 《Understanding.The.Linux.kernel.3rd.Edition》chapter 1.6.9. Device Drivers的
+
+关于everything is a file，《Understanding.The.Linux.kernel.3rd.Edition》chapter 1.6.9. Device Drivers的内容与此有关。
