@@ -1,8 +1,10 @@
-[TOC]
+# Everything is a file
 
-# [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file)
+“Everything is a file”是Unix-like OS的一个philosophy，它对于在linux OS中进行programming大有裨益。
 
-***"Everything is a file"*** describes one of the defining(最典型的) features of [Unix](https://en.wikipedia.org/wiki/Unix), and its derivatives — that a wide range of input/output [resources](https://en.wikipedia.org/wiki/System_resource) such as documents, directories, hard-drives, modems, keyboards, printers and even some inter-process and network communications are simple **streams of bytes** exposed through the [filesystem name space](https://en.wikipedia.org/wiki/Unix_directory_structure).[[1\]](https://en.wikipedia.org/wiki/Everything_is_a_file#cite_note-1)
+## 维基百科[Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file)
+
+***"Everything is a file"*** describes one of the defining(最典型的) features of [Unix](https://en.wikipedia.org/wiki/Unix), and its derivatives — that a wide range of input/output [resources](https://en.wikipedia.org/wiki/System_resource) such as documents, directories, hard-drives, modems, keyboards, printers and even some inter-process and network communications are simple **streams of bytes** exposed through the [filesystem name space](https://en.wikipedia.org/wiki/Unix_directory_structure). 
 
 ***SUMMARY*** : 最后一段话是对***"Everything is a file"*** 含义的解释：即将这些resource都看做是file（**streams of bytes** ）
 
@@ -18,9 +20,9 @@ All of these "files" have standard Unix file attributes such as [an owner](https
 
 Unix's successor [Plan 9](https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs) took this concept into [distributed computing](https://en.wikipedia.org/wiki/Distributed_operating_system) with the [9P](https://en.wikipedia.org/wiki/9P_(protocol)) protocol.
 
-# [Why is “Everything is a file” unique to the Unix operating systems?](https://superuser.com/questions/364152/why-is-everything-is-a-file-unique-to-the-unix-operating-systems)
+## [Why is “Everything is a file” unique to the Unix operating systems?](https://superuser.com/questions/364152/why-is-everything-is-a-file-unique-to-the-unix-operating-systems)
 
-## [A](https://superuser.com/a/364157)
+### [A](https://superuser.com/a/364157)
 
 > So, why is this unique to Unix?
 
@@ -36,25 +38,23 @@ Of course all modern OSes support various filesystems and can "operate on files"
 
 Not really any more. Linux has the same feature. Of course, if an OS adopts I/O redirection, then it tends to use other Unix features and ends up Unix-like in the end.
 
-# [Event loop](https://en.wikipedia.org/wiki/Event_loop)
+## 维基百科[Event loop](https://en.wikipedia.org/wiki/Event_loop)
 
 在这篇文章的[File_interface](https://en.wikipedia.org/wiki/Event_loop#File_interface)章节对every thing is a file进行阐释；
 
 
 
-# [Device file](https://en.wikipedia.org/wiki/Device_file)
+## 维基百科[Device file](https://en.wikipedia.org/wiki/Device_file)
 
 将device抽象为file，这就是everything is a file最好的体现；
 
-# [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/html/multi/index.html)
+## [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/html/multi/index.html)
 
 在这本书的第二章[2. What is a socket?](https://beej.us/guide/bgnet/html/multi/theory.html)中对everything is a file进行了阐述；
 
 
 
-# APUE chapter 16 Network IPC: Sockets
-
-## 20190523
+## APUE chapter 16 Network IPC: Sockets
 
 昨天在阅读APUE的的chapter 16 Network IPC: Sockets时，所想：
 
@@ -72,7 +72,7 @@ everything in Unix is a file，所以和我应该采用看待普通文件的方�
 
 
 
-# why everything in Unix is a file
+## Why everything in Unix is a file
 
 
 
@@ -84,7 +84,7 @@ Unix是典型的[Monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_ker
 
 
 
-# everything in Unix is file 和 file API
+## Everything in Unix is file 和 file API
 
 需要注意的是，everything in Unix is file是一个个philosophy，它是概念上的，它更多的是指：将它看做是一个file，我们可以对其进行IO，但是这并不是指我们可以对everything in Unix都使用Unix file的API。
 
@@ -98,13 +98,13 @@ Unix是典型的[Monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_ker
 
 
 
-# 从kernel实现的角度来看待everything in Unix is file
+## 从kernel实现的角度来看待everything in Unix is file
 
-引用自[File descriptor](https://en.wikipedia.org/wiki/File_descriptor) :
+引用自维基百科[File descriptor](https://en.wikipedia.org/wiki/File_descriptor) :
 
-In [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems, file descriptors can refer to any [Unix file type](https://en.wikipedia.org/wiki/Unix_file_type) named in a file system. As well as regular files, this includes [directories](https://en.wikipedia.org/wiki/Directory_(file_systems)), [block](https://en.wikipedia.org/wiki/Block_device) and [character devices](https://en.wikipedia.org/wiki/Character_device) (also called "special files"), [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket), and [named pipes](https://en.wikipedia.org/wiki/Named_pipe). File descriptors can also refer to other objects that do not normally exist in the file system, such as [anonymous pipes](https://en.wikipedia.org/wiki/Anonymous_pipe)and [network sockets](https://en.wikipedia.org/wiki/Network_socket).
+> In [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems, file descriptors can refer to any [Unix file type](https://en.wikipedia.org/wiki/Unix_file_type) named in a file system. As well as regular files, this includes [directories](https://en.wikipedia.org/wiki/Directory_(file_systems)), [block](https://en.wikipedia.org/wiki/Block_device) and [character devices](https://en.wikipedia.org/wiki/Character_device) (also called "special files"), [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket), and [named pipes](https://en.wikipedia.org/wiki/Named_pipe). File descriptors can also refer to other objects that do not normally exist in the file system, such as [anonymous pipes](https://en.wikipedia.org/wiki/Anonymous_pipe)and [network sockets](https://en.wikipedia.org/wiki/Network_socket).
 
-***SUMMARY*** : [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file) ；从kernel实现的角度来看看待everything in Unix is file，Unix-like system是[monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel)，上面提到的这些device或者file都是由kernel来进行维护，它们都有对应的kernel structure；我们通过file descriptor来引用这些kernel structure，我们只能够通过system call来对这些kernel structure进行操作；
+NOTE: [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file) ；从kernel实现的角度来看看待everything in Unix is file，Unix-like system是[monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel)，上面提到的这些device或者file都是由kernel来进行维护，它们都有对应的kernel structure；我们通过file descriptor来引用这些kernel structure，我们只能够通过system call来对这些kernel structure进行操作；
 
 对这个观点的验证包括：
 
