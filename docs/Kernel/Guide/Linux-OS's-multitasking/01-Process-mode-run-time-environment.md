@@ -64,9 +64,11 @@ context的内容如下：
 
 > Function（包括成员函数）是很多现代programming language都会提供的一个概念（参见文章[Abstraction](https://dengking.github.io/Post/Abstraction/Abstraction/)），比如`C++`、python，对于SQL这种语言是不存在的。
 
+### Function（Subroutine）
 
+参见[Subroutine](./Subroutine/Subroutine.md)。
 
-### call stack
+### Call stack
 
 前面我们已经分析了，每个thread都配备了自己的call stack来作为function运行场所，由此就引出了一些列的问题：函数传参如何实现等等，由此就引出了calling convention。
 
