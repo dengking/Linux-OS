@@ -1,3 +1,4 @@
 nav:
     - Dmesg: Dmesg
+    - Rsync: Rsync
     - Linux-Kernel-module: Linux-Kernel-module
