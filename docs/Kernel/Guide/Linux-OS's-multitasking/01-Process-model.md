@@ -18,7 +18,7 @@ Process model图示如下：
 
 显然thread是process的“成分”，下面看看thread。
 
-### Thread
+## Thread
 
 主要参考文章：[Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))
 
@@ -90,53 +90,6 @@ Process model图示如下：
 
 显然operating system为了支持multiple thread，就必须要让每个thread有一个自己的[call stack](https://en.wikipedia.org/wiki/Call_stack)；在Wikipedia的[Thread control block](https://en.wikipedia.org/wiki/Thread_control_block)中就谈及每个thread都有一个[Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)，而[Process control block](https://en.wikipedia.org/wiki/Process_control_block)中，可能就不需要[Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)了；
 
-
-
-
-
-# process的一系列问题
-
-
-
-
-
-## 生
-
-创建process
-
-## 占用了哪些资源
-
-
-
-## 如何来控制process
-
-
-
-### 如何限制资源
-
-
-
-## process之间的关系
-
-
-
-### process之间如何进行沟通
-
-
-
-## 时空的角度
-
-
-
-## process的状态
-
-
-
-
-
-
-
-## 死
 
 
 
