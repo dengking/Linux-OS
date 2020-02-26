@@ -1,36 +1,34 @@
-[TOC]
+# File descriptor
 
 
 
-# [File descriptor](https://en.wikipedia.org/wiki/File_descriptor)
+## 维基百科[File descriptor](https://en.wikipedia.org/wiki/File_descriptor)
 
-In [Unix](https://en.wikipedia.org/wiki/Unix) and [related](https://en.wikipedia.org/wiki/Unix-like) computer operating systems, a **file descriptor** (**FD**, less frequently **fildes**) is an abstract indicator ([handle](https://en.wikipedia.org/wiki/Handle_(computing))) used to access a [file](https://en.wikipedia.org/wiki/File_(computing)) or other [input/output](https://en.wikipedia.org/wiki/Input/output)[resource](https://en.wikipedia.org/wiki/System_resource), such as a [pipe](https://en.wikipedia.org/wiki/Pipe_(Unix)) or [network socket](https://en.wikipedia.org/wiki/Network_socket). **File descriptors** form part of the [POSIX](https://en.wikipedia.org/wiki/POSIX) [application programming interface](https://en.wikipedia.org/wiki/Application_programming_interface). A file descriptor is a non-negative [integer](https://en.wikipedia.org/wiki/Integer), generally represented in the [C](https://en.wikipedia.org/wiki/C_(programming_language)) programming language as the type int (negative values being reserved to indicate "no value" or an error condition).
+In [Unix](https://en.wikipedia.org/wiki/Unix) and [related](https://en.wikipedia.org/wiki/Unix-like) computer operating systems, a **file descriptor** (**FD**, less frequently **fildes**) is an abstract indicator ([handle](https://en.wikipedia.org/wiki/Handle_(computing))) used to access a [file](https://en.wikipedia.org/wiki/File_(computing)) or other [input/output](https://en.wikipedia.org/wiki/Input/output) [resource](https://en.wikipedia.org/wiki/System_resource), such as a [pipe](https://en.wikipedia.org/wiki/Pipe_(Unix)) or [network socket](https://en.wikipedia.org/wiki/Network_socket). **File descriptors** form part of the [POSIX](https://en.wikipedia.org/wiki/POSIX) [application programming interface](https://en.wikipedia.org/wiki/Application_programming_interface). A file descriptor is a non-negative [integer](https://en.wikipedia.org/wiki/Integer), generally represented in the [C](https://en.wikipedia.org/wiki/C_(programming_language)) programming language as the type int (negative values being reserved to indicate "no value" or an error condition).
 
 Each Unix [process](https://en.wikipedia.org/wiki/Process_(computing)) (except perhaps a [daemon](https://en.wikipedia.org/wiki/Daemon_(computer_software))) should expect to have three standard POSIX file descriptors, corresponding to the three [standard streams](https://en.wikipedia.org/wiki/Standard_streams):
 
-| Integer value |                          Name                           | [unistd.h](https://en.wikipedia.org/wiki/Unistd.h) symbolic constant[[1\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-1) | [stdio.h](https://en.wikipedia.org/wiki/Stdio.h) file stream[[2\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-2) |
+| Integer value |                          Name                           | [unistd.h](https://en.wikipedia.org/wiki/Unistd.h) symbolic constant | [stdio.h](https://en.wikipedia.org/wiki/Stdio.h) file stream |
 | :-----------: | :-----------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |       0       |  [Standard input](https://en.wikipedia.org/wiki/Stdin)  |                        `STDIN_FILENO`                        |                           `stdin`                            |
 |       1       | [Standard output](https://en.wikipedia.org/wiki/Stdout) |                       `STDOUT_FILENO`                        |                           `stdout`                           |
 |       2       | [Standard error](https://en.wikipedia.org/wiki/Stderr)  |                       `STDERR_FILENO`                        |                           `stderr`                           |
 
-## Overview
-
-In the traditional implementation of Unix, **file descriptors** index into a per-process **file descriptor table** maintained by the kernel, that in turn indexes into a system-wide table of files opened by all processes, called the **file table**. This table records the *mode* with which the file (or other resource) has been opened: for reading, writing, appending, and possibly other modes. It also indexes into a third table called the [inode table](https://en.wikipedia.org/wiki/Inode) that describes the actual underlying files.[[3\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-bach-3) To perform input or output, the process passes the file descriptor to the kernel through a [system call](https://en.wikipedia.org/wiki/System_call), and the kernel will access the file on behalf of the process. The process does not have direct access to the file or **inode tables**.
 
 
+### Overview
 
-***SUMMARY*** : 在APUE的3.10 File Sharing也描述了这部分内容；需要注意的是：the data structures used by the kernel for all I/O.即所有的IO都是采用的类似于上述的结构；并且上述结构需要和[Process control block](https://en.wikipedia.org/wiki/Process_control_block) 一起来理解才能够很好的对Unix OS的IO有一个整体的认知；
+In the traditional implementation of Unix, **file descriptors** index into a per-process **file descriptor table** maintained by the kernel, that in turn indexes into a system-wide table of files opened by all processes, called the **file table**. This table records the *mode* with which the file (or other resource) has been opened: for reading, writing, appending, and possibly other modes. It also indexes into a third table called the [inode table](https://en.wikipedia.org/wiki/Inode) that describes the actual underlying files. To perform input or output, the process passes the file descriptor to the kernel through a [system call](https://en.wikipedia.org/wiki/System_call), and the kernel will access the file on behalf of the process. The process does not have direct access to the file or **inode tables**.
 
+> NOTE : 在APUE的3.10 File Sharing也描述了这部分内容；需要注意的是：the data structures used by the kernel for all I/O.即所有的IO都是采用的类似于上述的结构；并且上述结构需要和[Process control block](https://en.wikipedia.org/wiki/Process_control_block) 一起来理解才能够很好的对Unix OS的IO有一个整体的认知；
 
+> NOTE: 需要注意，上面这段话中提及 **file descriptor table** 和 **file table** 时，前面分别加上了修饰语： per-process 和  system-wide ；这两个修饰语是非常重要的，需要将它们和the data structures used by the kernel for all I/O一起来进行理解；因为 **file descriptor table** 的scope是process，即每个process都有一套自己的  **file descriptor table** ，所以每个process的file descriptor都是从0开始增长；显然比较两个process的file descriptor是没有意义的（处理0,1,2，因为它们都已经被默认绑定到`STDIN_FILENO` ,`STDOUT_FILENO` ,`STDERR_FILENO` ）；而file table的scope是system，即所有的process都将共享file table；
 
-***SUMMARY*** : 需要注意，上面这段话中提及 **file descriptor table** 和 **file table** 时，前面分别加上了修饰语： per-process 和  system-wide ；这两个修饰语是非常重要的，需要将它们和the data structures used by the kernel for all I/O一起来进行理解；因为 **file descriptor table** 的scope是process，即每个process都有一套自己的  **file descriptor table** ，所以每个process的file descriptor都是从0开始增长；显然比较两个process的file descriptor是没有意义的（处理0,1,2，因为它们都已经被默认绑定到`STDIN_FILENO` ,`STDOUT_FILENO` ,`STDERR_FILENO` ）；而file table的scope是system，即所有的process都将共享file table；
-
-***SUMMARY*** : 每次调用`open`系统调用，都会创建一个file table entry
+> NOTE: 每次调用`open`系统调用，都会创建一个file table entry
 
 On [Linux](https://en.wikipedia.org/wiki/Linux), the set of file descriptors open in a process can be accessed under the path `/proc/PID/fd/`, where PID is the [process identifier](https://en.wikipedia.org/wiki/Process_identifier).
 
-In [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems, file descriptors can refer to any [Unix file type](https://en.wikipedia.org/wiki/Unix_file_type) named in a file system. As well as regular files, this includes [directories](https://en.wikipedia.org/wiki/Directory_(file_systems)), [block](https://en.wikipedia.org/wiki/Block_device) and [character devices](https://en.wikipedia.org/wiki/Character_device) (also called "special files"), [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket), and [named pipes](https://en.wikipedia.org/wiki/Named_pipe). File descriptors can also refer to other objects that do not normally exist in the file system, such as [anonymous pipes](https://en.wikipedia.org/wiki/Anonymous_pipe)and [network sockets](https://en.wikipedia.org/wiki/Network_socket).
+In [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems, file descriptors can refer to any [Unix file type](https://en.wikipedia.org/wiki/Unix_file_type) named in a file system. As well as regular files, this includes [directories](https://en.wikipedia.org/wiki/Directory_(file_systems)), [block](https://en.wikipedia.org/wiki/Block_device) and [character devices](https://en.wikipedia.org/wiki/Character_device) (also called "special files"), [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket), and [named pipes](https://en.wikipedia.org/wiki/Named_pipe). File descriptors can also refer to other objects that do not normally exist in the file system, such as [anonymous pipes](https://en.wikipedia.org/wiki/Anonymous_pipe) and [network sockets](https://en.wikipedia.org/wiki/Network_socket).
 
 ***SUMMARY*** : [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file) ；从kernel实现的角度来看看待everything in Unix is file，Unix-like system是[monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel)，上面提到的这些device或者file都是由kernel来进行维护，它们都有对应的kernel structure；我们通过file descriptor来引用这些kernel structure，我们只能够通过system call来对这些kernel structure进行操作；
 
@@ -65,11 +63,11 @@ File descriptors for a single process, file table and [inode](https://en.wikiped
 
 
 
-## Operations on file descriptors
+### Operations on file descriptors
 
 The following lists typical operations on file descriptors on modern [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems. Most of these functions are declared in the `<unistd.h>` header, but some are in the `<fcntl.h>` header instead.
 
-### Creating file descriptors
+#### Creating file descriptors
 
 - [open](https://en.wikipedia.org/wiki/Open_(system_call))()
 - [creat()](http://man7.org/linux/man-pages/man2/open.2.html)[[4\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-4)
@@ -87,14 +85,14 @@ The following lists typical operations on file descriptors on modern [Unix-like]
 
 
 
-### Deriving file descriptors
+#### Deriving file descriptors
 
 - dirfd()
 - fileno()
 
 
 
-### Operations on a single file descriptor
+#### Operations on a single file descriptor
 
 - [read](https://en.wikipedia.org/wiki/Read_(system_call))(), [write](https://en.wikipedia.org/wiki/Write_(system_call))()
 - readv(), writev()
@@ -116,7 +114,7 @@ The following lists typical operations on file descriptors on modern [Unix-like]
 
 
 
-### Operations on multiple file descriptors
+#### Operations on multiple file descriptors
 
 - [select()](https://en.wikipedia.org/wiki/Select_(Unix)), pselect()
 - poll()
@@ -127,7 +125,7 @@ The following lists typical operations on file descriptors on modern [Unix-like]
 
 
 
-### Operations on the file descriptor table
+#### Operations on the file descriptor table
 
 
 
@@ -141,14 +139,14 @@ The `fcntl()` function is used to perform various operations on a file descripto
 
 
 
-### Operations that modify process state
+#### Operations that modify process state
 
 - fchdir() (sets the process's current working directory based on a directory file descriptor)
 - mmap() (maps ranges of a file into the process's address space)
 
 
 
-### File locking
+#### File locking
 
 - flock()
 - fcntl() (`F_GETLK`, `F_SETLK`) and `F_SETLKW`
@@ -156,7 +154,7 @@ The `fcntl()` function is used to perform various operations on a file descripto
 
 
 
-### Sockets
+#### Sockets
 
 - connect()
 - bind()
@@ -170,13 +168,13 @@ The `fcntl()` function is used to perform various operations on a file descripto
 
 
 
-### Miscellaneous
+#### Miscellaneous
 
 - [ioctl()](https://en.wikipedia.org/wiki/Ioctl) (a large collection of miscellaneous operations on a single file descriptor, often associated with a device)
 
 
 
-## Upcoming operations
+### Upcoming operations
 
 A series of new operations on file descriptors has been added to many modern Unix-like systems, as well as numerous C libraries, to be standardized in a future version of [POSIX](https://en.wikipedia.org/wiki/POSIX).[[5\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-5) The `at` suffix signifies that the function takes an additional first argument supplying a file descriptor from which [relative paths](https://en.wikipedia.org/wiki/Relative_path) are resolved, the forms lacking the `at` suffix thus becoming equivalent to passing a file descriptor corresponding to the current [working directory](https://en.wikipedia.org/wiki/Working_directory). The purpose of these new operations is to defend against a certain class of [TOCTTOU](https://en.wikipedia.org/wiki/Time-of-check-to-time-of-use) attacks.
 
@@ -198,7 +196,7 @@ A series of new operations on file descriptors has been added to many modern Uni
 
 
 
-## File descriptors as capabilities
+### File descriptors as capabilities
 
 Unix file descriptors behave in many ways as [capabilities](https://en.wikipedia.org/wiki/Capability-based_security). They can be passed between processes across [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket) using the `sendmsg()` system call. Note, however, that what is actually passed is a reference to an "open file description" that has mutable state (the file offset, and the file status and access flags). This complicates the secure use of file descriptors as capabilities, since when programs share access to the same open file description, they can interfere with each other's use of it by changing its offset or whether it is blocking or non-blocking, for example.[[6\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-6)[[7\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-7) In operating systems that are specifically designed as capability systems, there is very rarely any mutable state associated with a capability itself.
 
