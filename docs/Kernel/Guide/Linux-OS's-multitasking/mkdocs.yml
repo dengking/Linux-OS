@@ -1,8 +1,9 @@
 nav:
     - Multitask: 00-Multitask.md
     - Process-model: 01-Process-model.md
-    - Process-mode-run-time-environment: 01-Process-mode-run-time-environment.md
-    - Program-memory: Program-memory.md
+    - Process-model-run-time-environment: 01-Process-model-run-time-environment.md
+    - Process-model-memory-model: 01-Process-model-memory-model.md
+    - Process-model-life-cycle: 01-Process-model-life-cycle.md
     - Subroutine: Subroutine
     - ABI: ABI
     - Control-path-&-Context-&-Context-switch: Control-path-&-Context-&-Context-switch.md
