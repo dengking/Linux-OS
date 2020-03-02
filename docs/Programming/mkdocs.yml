@@ -4,6 +4,7 @@ nav:
     - Lib: 01-02-Lib
     - Common: 01-03-Common
     - Philosophy: 01-philosophy
+    - File-system: 01-04-File-system
     - Process: 02-Process
     - IO: 03-IO
     - Time: 03-Time

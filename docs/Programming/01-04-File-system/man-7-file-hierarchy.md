@@ -1,0 +1,1 @@
+# [FILE-HIERARCHY(7)](http://man7.org/linux/man-pages/man7/file-hierarchy.7.html)
