@@ -8,7 +8,7 @@
 
 nesting in time，在时间维度是一条线，即一条path，相当于能够将他们给串联起来，类似于一个chain。貌似能够nesting的，都能够线性化。
 
-函数调用过程看做是production的推导过程，一个函数使用就相当于一个non-terminal，需要进行expand。函数是具备hierarchy结构的：如果将函数中的每个语句看做是一个leaf node，将函数调用看做是一个inner node，每次调用一个函数就相当于expand这个node。则整个函数就形成了一棵树。
+函数调用过程看做是production的推导过程，一个函数调用就相当于一个non-terminal，需要进行expand。函数是具备hierarchy结构的：如果将函数中的每个语句看做是一个leaf node，将函数调用看做是一个inner node，每次调用一个函数就相当于expand这个node。则整个函数就形成了一棵树。
 
 函数的执行过程非常类似于`build_nav_tree`中构造整个`nav_tree`的过程。`nav_tree`是nesting in space。
 
@@ -34,3 +34,4 @@ programming language是context free language。具备nesting结构。
 则main函数就相当于start symbol。
 
 则整个函数的执行过程就类似于一个自顶向下的parsing。
+
