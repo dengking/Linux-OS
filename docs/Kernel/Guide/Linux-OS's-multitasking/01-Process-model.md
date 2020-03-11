@@ -51,7 +51,7 @@ Process model图示如下：
 
 
 
-#### process如何实现隔离？
+#### Process如何实现隔离？
 
 
 
@@ -63,9 +63,7 @@ Process model图示如下：
 
 
 
-
-
-## process model的演进历史
+## Process model的演进历史
 
 在[stanford CS 140: Operating Systems (Spring 2014)](https://web.stanford.edu/~ouster/cgi-bin/cs140-spring14/index.php)的lecture中总结了Evolution of operating system **process model**:
 

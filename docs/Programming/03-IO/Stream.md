@@ -100,3 +100,9 @@ https://www.tutorialspoint.com/cplusplus/cpp_files_streams.htm
 http://www.cplusplus.com/doc/tutorial/files/	
 
 ## [C file input/output](https://en.wikipedia.org/wiki/C_file_input/output)
+
+## TODO
+
+[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)
+
+基于流的方式
