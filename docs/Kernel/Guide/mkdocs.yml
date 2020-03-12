@@ -4,7 +4,6 @@ nav:
     - Memory-management: Memory-management
     - How-to-understand-linux-kernel-source-code: How-to-understand-linux-kernel-source-code.md
     - Kernel-data-structure: Kernel-data-structure.md
-    - Debugger: Debugger
     
 backup:
     - How-OS-run-01-OS-kernel-is-event-driven: How-OS-run-01-OS-kernel-is-event-driven.md

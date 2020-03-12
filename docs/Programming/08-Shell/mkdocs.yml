@@ -1,6 +1,8 @@
 nav:
+    # 如果程序不知不觉地退出了执行，如何进行分析
     - Dmesg: Dmesg
     - Rsync: Rsync
     - Linux-Kernel-module: Linux-Kernel-module
+    # 编程工具相关
     - Debugger: Debugger
     - Performance: Performance
