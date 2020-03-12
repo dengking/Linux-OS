@@ -2,3 +2,5 @@ nav:
     - Dmesg: Dmesg
     - Rsync: Rsync
     - Linux-Kernel-module: Linux-Kernel-module
+    - Debugger: Debugger
+    - Performance: Performance

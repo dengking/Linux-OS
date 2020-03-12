@@ -9,3 +9,7 @@ TODO:
 [ptrace](https://en.wikipedia.org/wiki/Ptrace)
 
 [Say this five times fast: strace, ptrace, dtrace, dtruss](https://dev.to/captainsafia/say-this-five-times-fast-strace-ptrace-dtrace-dtruss-3e1b)
+
+
+
+维基百科[Category:Debugging](https://en.wikipedia.org/wiki/Category:Debugging)
