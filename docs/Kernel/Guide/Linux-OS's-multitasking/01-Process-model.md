@@ -44,11 +44,7 @@ Process model图示如下：
 
 #### OS中有哪些resource？Process需要哪些resource？
 
-- OS是基于process的resource分配，resource包括：
-  - Memory 
-  - [address space](https://en.wikipedia.org/wiki/Virtual_address_space)
-
-
+参见[Process mode: resource](./01-Process-model-resource.md)
 
 
 #### Process如何实现隔离？
@@ -60,6 +56,10 @@ Process model图示如下：
 这段话意味着thread是OS的调度单位。显然每个thread可以独立执行，则每个thread都有执行的必备条件：
 
 - call stack
+
+在维基百科[Threads vs. processes](https://en.wikipedia.org/wiki/Thread_(computing)#Threads_vs._processes)中有如下描述：
+
+显然operating system为了支持multiple thread，就必须要让每个thread有一个自己的[call stack](https://en.wikipedia.org/wiki/Call_stack)；在Wikipedia的[Thread control block](https://en.wikipedia.org/wiki/Thread_control_block)中就谈及每个thread都有一个[Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)，而[Process control block](https://en.wikipedia.org/wiki/Process_control_block)中，可能就不需要[Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)了；
 
 
 
@@ -76,17 +76,15 @@ Process model图示如下：
 
 显然，早期的时候，并没有*multithreading*: multiple threads within each process，所以早期的时候multitasking的task所指**processes**。而随着技术的发展，后来才出现了*multithreading*: multiple threads within each process。
 
-### [multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture))相较于[Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing)优势是什么？
+
+
+## [multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)) VS [Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing)
 
 不禁要问：[multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture))相较于[Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing)优势是什么？
 
-这个问题，在[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的[Multithreading](https://en.wikipedia.org/wiki/Computer_multitasking#Multithreading) 章节给出了答案解答。
+这个问题，在维基百科[Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的[Multithreading](https://en.wikipedia.org/wiki/Computer_multitasking#Multithreading) 章节给出了答案解答。
 
-
-
-## [Threads vs. processes](https://en.wikipedia.org/wiki/Thread_(computing)#Threads_vs._processes)
-
-显然operating system为了支持multiple thread，就必须要让每个thread有一个自己的[call stack](https://en.wikipedia.org/wiki/Call_stack)；在Wikipedia的[Thread control block](https://en.wikipedia.org/wiki/Thread_control_block)中就谈及每个thread都有一个[Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)，而[Process control block](https://en.wikipedia.org/wiki/Process_control_block)中，可能就不需要[Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)了；
+我觉得另外一个优势是：thread使concurrency编程更加容易实现。我们常常需要使用第三方库，如果想要充分实现concurrency，如果不支持thread，则库中只能够使用process，在这种情况下，就涉及和第三方库中的process中的IPC，显然这会导致和第三库的交互会变得非常困难；而如果使用thread，则库的使用这和库处于同一个process space，两者之间的交互是非常任意的，显然这种涉及能够充分发挥concurrency的优势。
 
 
 
