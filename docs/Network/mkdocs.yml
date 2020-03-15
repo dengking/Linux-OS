@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - MAC-address: MAC-address.md
+    - Reconnect: Reconnect.md
