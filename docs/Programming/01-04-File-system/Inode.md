@@ -1,16 +1,16 @@
-[TOC]
+# Inode
 
 
 
-# [inode](https://en.wikipedia.org/wiki/Inode)
+## 维基百科[inode](https://en.wikipedia.org/wiki/Inode)
 
 The **inode** (index node) is a [data structure](https://en.wikipedia.org/wiki/Data_structure) in a [Unix-style file system](https://en.wikipedia.org/wiki/Unix_filesystem) that describes a [file-system](https://en.wikipedia.org/wiki/File_system) object such as a [file](https://en.wikipedia.org/wiki/Computer_file) or a [directory](https://en.wikipedia.org/wiki/Directory_(computing)). Each inode stores the **attributes** and **disk block location**(s) of the object's data.[[1\]](https://en.wikipedia.org/wiki/Inode#cite_note-1) File-system object **attributes** may include [metadata](https://en.wikipedia.org/wiki/Metadata) (times of last change,[[2\]](https://en.wikipedia.org/wiki/Inode#cite_note-2) access, modification), as well as owner and [permission](https://en.wikipedia.org/wiki/File_system_permissions) data.[[3\]](https://en.wikipedia.org/wiki/Inode#cite_note-3)
 
-***SUMMARY*** : 根据3.10 File Sharing中的描述：This information is read from disk when the file is opened, so that all the pertinent（相关的） information about the file is readily available. 
+> NOTE: 根据3.10 File Sharing中的描述：This information is read from disk when the file is opened, so that all the pertinent（相关的） information about the file is readily available. 
 
 Directories are lists of names assigned to inodes. A directory contains an entry for itself, its parent, and each of its children.
 
-## Details
+### Details
 
 A file system relies on **data structures** *about* the files, beside the file content. The former are called *metadata*—data that describes data. Each file is associated with an *inode*, which is identified by an **integer number**, often referred to as an *i-number* or *inode number*.
 
@@ -29,4 +29,8 @@ File names and directory implications:
 - The file system driver must search a directory looking for a particular filename and then convert the filename to the correct corresponding inode number.
 
 The operating system kernel's in-memory representation of this data is called `struct inode` in [Linux](https://en.wikipedia.org/wiki/Linux). Systems derived from [BSD](https://en.wikipedia.org/wiki/BSD) use the term `vnode`, with the **v** of **vnode** referring to the kernel's [virtual file system](https://en.wikipedia.org/wiki/Virtual_file_system) layer.
+
+
+
+## [INODE(7)](http://man7.org/linux/man-pages/man7/inode.7.html)
 

@@ -25,9 +25,15 @@ nav:
     - Linux-OS's-multitasking:
       - Multitask: Kernel/Guide/Linux-OS's-multitasking/00-Multitask.md
       - Process-model: Kernel/Guide/Linux-OS's-multitasking/01-Process-model.md
-      - Control-path-&-Context-&-Context-switch: Kernel/Guide/Linux-OS's-multitasking/Control-path-&-Context-&-Context-switch.md
-      - Process-mode-run-time-environment: Kernel/Guide/Linux-OS's-multitasking/01-Process-mode-run-time-environment.md
-      - Program-memory: Kernel/Guide/Linux-OS's-multitasking/Program-memory.md
+      - Process-model-run-time-environment: Kernel/Guide/Linux-OS's-multitasking/01-Process-model-run-time-environment.md
+      - Process-model-memory-model: Kernel/Guide/Linux-OS's-multitasking/01-Process-model-memory-model.md
+      - Process-model-life-cycle: Kernel/Guide/Linux-OS's-multitasking/01-Process-model-life-cycle.md
+      - Subroutine:
+        - Subroutine: Kernel/Guide/Linux-OS's-multitasking/Subroutine/Subroutine.md
+        - Activation-tree: Kernel/Guide/Linux-OS's-multitasking/Subroutine/Activation-tree.md
+        - Evaluation-strategy:
+          - Evaluation-strategy: Kernel/Guide/Linux-OS's-multitasking/Subroutine/Evaluation-strategy/Evaluation-strategy.md
+          - Lazy-evaluation: Kernel/Guide/Linux-OS's-multitasking/Subroutine/Evaluation-strategy/Lazy-evaluation.md
       - ABI:
         - Introduction: Kernel/Guide/Linux-OS's-multitasking/ABI/index.md
         - Application-binary-interface: Kernel/Guide/Linux-OS's-multitasking/ABI/Application-binary-interface.md
@@ -49,6 +55,7 @@ nav:
           - Name-mangling: Kernel/Guide/Linux-OS's-multitasking/ABI/Name-mangling/Name-mangling.md
         - Book-x86-Disassembly:
           - Introduction: Kernel/Guide/Linux-OS's-multitasking/ABI/Book-x86-Disassembly/index.md
+      - Control-path-&-Context-&-Context-switch: Kernel/Guide/Linux-OS's-multitasking/Control-path-&-Context-&-Context-switch.md
       - Linux-OS-implementation-of-process-model-01: Kernel/Guide/Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model.md
       - Linux-OS-implementation-of-process-model-02: Kernel/Guide/Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model.md
       - Linux-OS-implementation-of-process-model-03: Kernel/Guide/Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model.md
@@ -73,10 +80,6 @@ nav:
             - Data-segment: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Data-segment.md
     - How-to-understand-linux-kernel-source-code: Kernel/Guide/How-to-understand-linux-kernel-source-code.md
     - Kernel-data-structure: Kernel/Guide/Kernel-data-structure.md
-    - Debugger:
-      - Introduction: Kernel/Guide/Debugger/index.md
-      - Debugger: Kernel/Guide/Debugger/Debugger.md
-      - Trap: Kernel/Guide/Debugger/Trap.md
   - Book-Understanding-the-Linux-Kernel:
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
@@ -139,19 +142,15 @@ nav:
       - Chapter-9-Process-Address-Space: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space.md
       - 9.1-The-Process's-Address-Space.: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space.md
       - 9.2-The-Memory-Descriptor: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor.md
+- Network:
+  - Introduction: Network/index.md
+  - MAC-address: Network/MAC-address.md
+  - Reconnect: Network/Reconnect.md
 - Programming:
   - Introduction: Programming/index.md
   - Convention:
     - Conventions: Programming/01-01-Convention/Conventions.md
   - Lib:
-    - GNU:
-      - Introduction: Programming/01-02-Lib/organization-gnu/index.md
-      - Autoconf:
-        - Autoconf: Programming/01-02-Lib/organization-gnu/Autoconf/Autoconf.md
-      - Automake:
-        - Automake: Programming/01-02-Lib/organization-gnu/Automake/Automake.md
-      - Autotools-Mythbuster:
-        - Introduction: Programming/01-02-Lib/organization-gnu/Autotools-Mythbuster/index.md
     - POSIX:
       - Introduction: Programming/01-02-Lib/organiztion-posix/index.md
   - Common:
@@ -162,14 +161,21 @@ nav:
     - Path-resolution: Programming/01-03-Common/Path-resolution.md
   - Philosophy:
     - Introduction: Programming/01-philosophy/index.md
-    - Unix-philosophy-everything-is-a-file: Programming/01-philosophy/Unix-philosophy-Everything-is-a-file.md
+    - Everything-is-a-file: Programming/01-philosophy/Everything-is-a-file.md
     - File-descriptor: Programming/01-philosophy/File-descriptor.md
     - Unix-philosophy: Programming/01-philosophy/Unix-philosophy.md
+  - File-system:
+    - Unix-filesystem: Programming/01-04-File-system/Unix-filesystem.md
+    - man-7-file-hierarchy: Programming/01-04-File-system/man-7-file-hierarchy.md
+    - Inode: Programming/01-04-File-system/Inode.md
+    - man-2-stat: Programming/01-04-File-system/man-2-stat.md
   - Process:
     - Introduction: Programming/02-Process/index.md
+    - Credential:
+      - man-7-credentials: Programming/02-Process/Credential/man-7-credentials.md
     - IPC:
       - System-V-IPC:
-        - System-V-IPC: Programming/02-Process/IPC/System-V-IPC/System-V-IPC.md
+        - man-7-SVIPC: Programming/02-Process/IPC/System-V-IPC/man-7-SVIPC.md
       - POSIX-semaphores: Programming/02-Process/IPC/POSIX-semaphores.md
       - POSIX-message-queues: Programming/02-Process/IPC/POSIX-message-queues.md
     - Thread:
@@ -182,6 +188,7 @@ nav:
       - IO-models: Programming/03-IO/IO-model/IO-models.md
     - Stream: Programming/03-IO/Stream.md
     - Bitstream: Programming/03-IO/Bitstream.md
+    - VS-stream-VS-fd: Programming/03-IO/VS-stream-VS-fd.md
     - File:
       - Introduction: Programming/03-IO/File/index.md
     - Network:
@@ -191,6 +198,7 @@ nav:
     - Introduction: Programming/03-Time/index.md
   - Signal:
     - Introduction: Programming/04-Signal/index.md
+    - Signal-note: Programming/04-Signal/Signal-note.md
   - Virtualization:
     - Introduction: Programming/05-Linux-Virtualization/index.md
     - Virtualization: Programming/05-Linux-Virtualization/Virtualization.md
@@ -210,12 +218,26 @@ nav:
   - Kernel-module:
     - Loadable-kernel-module: Programming/07-Linux-Kernel-module/Loadable-kernel-module.md
   - Shell:
-    - Dmesg:
-      - Dmesg: Programming/08-Shell/Dmesg/Dmesg.md
-      - Dmesg-format: Programming/08-Shell/Dmesg/Dmesg-format.md
-      - Dmesg-segfaulting: Programming/08-Shell/Dmesg/Dmesg-segfaulting.md
+    - Sched:
+      - taskset: Programming/08-Shell/Sched/taskset.md
     - Linux-Kernel-module:
       - Introduction: Programming/08-Shell/Linux-Kernel-module/index.md
+  - Tools:
+    - organization-gnu:
+      - Introduction: Programming/Tools/organization-gnu/index.md
+    - Dmesg:
+      - Dmesg: Programming/Tools/Dmesg/Dmesg.md
+      - Dmesg-format: Programming/Tools/Dmesg/Dmesg-format.md
+      - Dmesg-segfaulting: Programming/Tools/Dmesg/Dmesg-segfaulting.md
+    - Rsync:
+      - Rsync: Programming/Tools/Rsync/Rsync.md
+    - Debug:
+      - Introduction: Programming/Tools/Debug/index.md
+      - Debugger: Programming/Tools/Debug/Debugger.md
+      - Trap: Programming/Tools/Debug/Trap.md
+      - Trace: Programming/Tools/Debug/Trace.md
+    - Performance:
+      - Introduction: Programming/Tools/Performance/index.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Linux-OS
