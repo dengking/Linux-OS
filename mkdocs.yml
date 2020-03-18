@@ -215,6 +215,16 @@ nav:
       - Linux-log-files: Programming/06-Util/Log/Linux-log-files.md
       - Syslog:
         - Syslog: Programming/06-Util/Log/Syslog/Syslog.md
+  - Terminal:
+    - Introduction: Programming/Terminal/index.md
+  - Computer-errors:
+    - Double-free:
+      - Double-free: Programming/Computer-errors/Double-free/Double-free.md
+    - Segment-fault:
+      - Segmentation-fault: Programming/Computer-errors/Segment-fault/Segmentation-fault.md
+      - Misalignment:
+        - __strcpy_sse2_unaligned:
+          - __strcpy_sse2_unaligned: Programming/Computer-errors/Segment-fault/Misalignment/__strcpy_sse2_unaligned/__strcpy_sse2_unaligned.md
   - Kernel-module:
     - Loadable-kernel-module: Programming/07-Linux-Kernel-module/Loadable-kernel-module.md
   - Shell:
