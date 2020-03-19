@@ -18,8 +18,6 @@ nav:
     # 那些经常会碰到的错误
     - Computer-errors: Computer-errors
     - Kernel-module: 07-Linux-Kernel-module
-    - Shell: 08-Shell
-    # 系统提供的各种工具
-    - Tools: Tools
+
     
     
