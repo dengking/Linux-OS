@@ -12,7 +12,7 @@ Multitasking即多任务，是现代OS的必备feature，本章就对此进行�
 
 > In [computing](https://en.wikipedia.org/wiki/Computing), **multitasking** is the [concurrent](https://en.wikipedia.org/wiki/Concurrent_computing) execution of multiple tasks
 
-显然这个概念所强调的是task的concurrent（并发）执行。至于task所指为何？是process（进程）还是thread（线程）？不同的实现肯定答案就不同了。在早期，thread还没有出现的时候，显然task所指为process。但是随着技术的发展，提出了thread的概念，如果OS的实现支持的thread的话，那么task就可能是指thread了（显然task是一种抽象的描述，类似于kernel control path）。
+显然这个概念所强调的是task的concurrent（并发）执行。至于task所指为何？是process（进程）还是thread（线程）？不同的实现肯定答案就不同了。在早期，thread还没有出现的时候，显然task所指为process。但是随着技术的发展，提出了thread的概念，如果OS的实现支持的thread的话，那么task就可能是指thread了（显然task是一种抽象的描述，类似于[kernel control path](https://dengking.github.io/Post/Abstraction/Abstraction/#kernel-control-path)）。
 
 在本文的[Multithreading](https://en.wikipedia.org/wiki/Computer_multitasking#Multithreading)章节就说明了这种演进：从process到thread。这一段的论述是比较好的，它说明了thread的价值所在。在本文的开头也对此进行了说明：
 

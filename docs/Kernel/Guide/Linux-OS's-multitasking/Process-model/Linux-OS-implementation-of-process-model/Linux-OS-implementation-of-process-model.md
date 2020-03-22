@@ -18,8 +18,6 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 
 
-
-
 ---
 
 需要注意的是，在本书中有时候会将lightweight process简称为process，比如上面这段话中的这句：
@@ -105,7 +103,7 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 - 标准process ID
 
-# See also
+## See also
 
 参见章节：
 

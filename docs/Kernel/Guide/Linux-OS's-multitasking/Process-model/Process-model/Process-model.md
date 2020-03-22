@@ -28,7 +28,7 @@ Process model图示如下：
 
 综合上面描述，以下我所概括Process model：
 
-“OS是基于process的resource分配，基于[thread](https://en.wikipedia.org/wiki/Thread_(computing))的调度。一个[process](https://en.wikipedia.org/wiki/Process_(computing))可能由多个[thread](https://en.wikipedia.org/wiki/Thread_(computing))组成，[thread](https://en.wikipedia.org/wiki/Thread_(computing))共享process的resource、[并发](https://en.wikipedia.org/wiki/Concurrent_computation)执行 。”
+“OS是基于process的resource分配，基于[thread](https://en.wikipedia.org/wiki/Thread_(computing))的调度。一个[process](https://en.wikipedia.org/wiki/Process_(computing))可能由多个[thread](https://en.wikipedia.org/wiki/Thread_(computing))组成，[thread](https://en.wikipedia.org/wiki/Thread_(computing))共享process的resource，[并发](https://en.wikipedia.org/wiki/Concurrent_computation)执行 。”
 
 > 注意：上述概括的是现代大多数OS的process model，并非所有OS的process model都是如此，实现上是存在差异的。
 
@@ -49,7 +49,7 @@ Process model图示如下：
 
 #### Process如何实现隔离？
 
-
+TODO
 
 ### “基于[thread](https://en.wikipedia.org/wiki/Thread_(computing))的调度”
 
@@ -88,4 +88,6 @@ Process model图示如下：
 
 
 
+## 总结
 
+process是OS的概念，在instruction层级并没有process的概念。OS使用process的目的是为了实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)，为了充分利用hardware。process是program的执行，它是OS进行resource分配的单位，不同process之间的资源需要完全隔离（特殊情况除外），OS中的所有process共享OS所管理的hardware资源。OS需要清楚地知道process和资源之间的关系，即一个process拥有哪些resource。

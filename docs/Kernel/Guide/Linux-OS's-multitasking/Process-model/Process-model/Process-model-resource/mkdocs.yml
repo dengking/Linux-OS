@@ -1,0 +1,4 @@
+nav:
+    - System-resource: System-resource.md
+    - Process-model-resource: Process-model-resource.md
+    - Process-memory-model: Process-memory-model.md

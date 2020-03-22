@@ -1,8 +1,8 @@
-# Process mode: run time environment
+# Process run model
 
 本文的内容基于：
 
-- [上一篇](./01-Process-model.md)
+- [上一篇](./Process-model.md)
 
 - 龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)
 - 维基百科ABI
@@ -19,68 +19,56 @@
 - 一些实现相关的细节，如ABI等
 - 添加multi-thread相关的内容
 
-总的来说，本文的目标是对process的run-time进行分析，构建起更加完整的process model。
+总的来说，本文的目标是对process的runtime进行分析，构建起更加完整的process model。
 
-## Thread run model:  function as user-defined action
+## Thread run model
 
-在上一篇中，我们已经知道了：thread是OS kernel调度单位（即线程的执行可能被[preempt](https://en.wikipedia.org/wiki/Pre-emptive_multitasking)），即每个thread都能够独立执行；
+在上一篇中，我们已经知道了：thread是OS kernel调度单位（线程的执行可能被[preempt](https://en.wikipedia.org/wiki/Pre-emptive_multitasking)），即每个thread都能够独立执行；在文章[Unit](https://dengking.github.io/Post/Unit)中，我们已经知道了thread的unit of user-defined **action**是**subroutine**，也就是我们平时所说的**线程执行函数**。（需要注意的是，这些都是computer science中的规定、事实，它们是无数的计算机科学家们经过精心设计而构建出来的，作为工程师，我们无需去证明为什么是这样的，我们需要的是知道这个事实，我们可以去思考这样设计的优势有哪些）
 
-在文章[Unit](https://dengking.github.io/Post/Unit)中，通过分析我们已经知道了thread的unit of user-defined **action**是function（也就是我们平时所说的线程执行函数）。
+综合上面的内容：“thread的unit of user-defined **action**是subroutine，thread是OS kernel调度单位”。
 
-那thread是如何运行的呢？这就是本节所要进行讨论的。
-
-在龙书的chapter [7.2 Stack Allocation of Space](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/)中有对此的描述：
+那thread是如何运行的呢？在龙书的chapter [7.2 Stack Allocation of Space](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/7.2-Stack-Allocation-of-Space/)中有对此的描述：
 
 > Languages that use procedures, functions, or methods as **units of user-defined actions** manage at least part of their **run-time memory** as a **stack**. Each time a procedure is called, space for its local variables is pushed onto a stack, and when the procedure terminates, that space is popped off the stack. As we shall see, this arrangement not only allows space to be shared by procedure calls whose durations do not overlap in time, but it allows us to compile code for a procedure in such a way that the relative addresses of its nonlocal variables are always the same, regardless of the sequence of procedure calls.
 
 上面这段话中的stack，所指为call stack（在后面会对此进行展开）。
 
-综合上面的内容：“thread的unit of user-defined **action**是function，thread是OS kernel调度单位”，让我们站在OS kernel的设计者的角色来思考如何实现这种设计？显然，OS kernel需要为每个thread都提供一套“设施”和提供一种“机制”来实现此，下面对此进行分析：
+让我们站在OS kernel的设计者的角色来思考如何实现这种设计？显然，OS kernel需要为每个thread都提供一套“**基础设施**”和一种“**调度机制**”来实现这种设计，下面对此进行分析：
 
 ### “thread的unit of user-defined **action**是function”
 
-要求OS至少要为thread配备function的执行所需要的"基础设施"，诸如：
+要求OS至少要为thread配备function的执行所需要的"**基础设施**"，诸如：
 
 - [Call stack](https://en.wikipedia.org/wiki/Call_stack)
 
-每个thread都有一个自己独立的call stack，function的运行都是发生在call stack上，每次调用function，则入栈， 函数运行结束，则出栈，这就是thread的运行模型。
+每个thread都有一个自己独立的call stack，function的运行都是发生在call stack上，每次调用function，则入栈， 函数运行结束，则出栈，这就是thread的**运行模型**。
 
 Call stack 又称为 control stack，所以它也体现了它与**program counter**，**flow of control** 之间的关系。
 
 ### “thread是OS kernel调度单位"
 
-OS中的所有的thread共享CPU，OS kernel scheduler能够suspend、restart一个thread，在suspend一个thread之前需要保存thread运行的context，在restart一个thread的时候，需要恢复之前保存的context。
-
-context的内容如下：
+OS中的所有的thread共享CPU，“**调度机制**”是由OS kernel scheduler（后面简称scheduler）来完成，scheduler能够suspend、restart一个thread，在suspend一个thread之前需要保存thread运行的**context**，在restart一个thread的时候，需要恢复之前保存的**context**，context的内容如下：
 
 - [Program counter](https://en.wikipedia.org/wiki/Program_counter)
 - [Stack pointer](https://en.wikipedia.org/wiki/Stack_pointer)
+- ......
 
-这就是“调度机制”中非常重要的context switch步骤。
+这就是“**调度机制**”中非常重要的**context switch**步骤。
 
 
 
-每个thread都需要有自己的独立的一份这样的“配套设施”，thread的[thread control block](https://en.wikipedia.org/wiki/Thread_control_block)需要保存这些内容。
+每个thread都有自己的独立的一份“**基础设施**”，“**基础设施**”包括：
 
-> Function（包括成员函数）是很多现代programming language都会提供的一个概念（参见文章[Abstraction](https://dengking.github.io/Post/Abstraction/Abstraction/)），比如`C++`、python，对于SQL这种语言是不存在的。
+- thread的[thread control block](https://en.wikipedia.org/wiki/Thread_control_block)
+- call stack
 
-### Function（Subroutine）
+### Subroutine（函数）
 
 参见[Subroutine](./Subroutine/Subroutine.md)。
 
 ### Call stack
 
-前面我们已经分析了，每个thread都配备了自己的call stack来作为function运行场所，由此就引出了一些列的问题：函数传参如何实现等等，由此就引出了calling convention。
-
-
-
-在进入函数之前，如何得知要申请多少栈空间？应该不是提前一次性申请该函数所需要的所有的栈空间，而是运行到该指令的时候，才在栈上分配空间。这让我想到了stored-program思想。
-
-
-
-TODO 此段对call stack相关的ABI进行描述，由此引出控制流、传参、等等一系列问题。
-
-
+前面我们已经分析了，每个thread都配备了自己的call stack来作为subroutine运行场所，由此就引出了一些列的问题：函数传参如何实现、在进入函数之前，如何得知要申请多少栈空间？应该不是提前一次性申请该函数所需要的所有的栈空间，而是运行到该指令的时候，才在栈上分配空间。这些内容都将在calling convention中进行讲解。
 
 关于函数调用，下面内容是需要进行补充的：
 
@@ -88,6 +76,12 @@ TODO 此段对call stack相关的ABI进行描述，由此引出控制流、传�
 - [Function prologue](https://en.wikipedia.org/wiki/Function_prologue)
 - [Housekeeping (computing)](https://en.wikipedia.org/wiki/Housekeeping_(computing))
 - [Subroutine](https://en.wikipedia.org/wiki/Subroutine)
+
+## Process run model
+
+有了前面的thread run model，那么process的run model就相对比较好分析了。显然一个process有多个process组成，多个thread独立进行运行，共享process的resource。
+
+
 
 
 
@@ -105,21 +99,11 @@ TODO 此段对call stack相关的ABI进行描述，由此引出控制流、传�
 
 即新创建的thread的默认的call stack的大小默认是2M，这说明是可以由用户了来指定新创建的thread的call stack的，我们知道，[pthread_create](https://linux.die.net/man/3/pthread_create)最终是通过调用[clone(2)](https://linux.die.net/man/2/clone)，该函数的第二个入参就是由用户来指定该lightweight process的call stack的。
 
-看到了上面的描述， 其实我又想到了一个问题：一个函数，如果声明的自动变量大小超过了call stack的大小，会发生什么？关于这个问题，参见：
+看到了上面的描述， 其实我又想到了一个问题：一个函数，如果声明的自动变量大小超过了call stack的大小，会发生什么？会发生[Stack overflow](https://en.wikipedia.org/wiki/Stack_overflow)，关于这个问题，参见：
 
 https://www.cnblogs.com/zmlctt/p/3987181.html
 
 https://blog.csdn.net/zDavid_2018/article/details/89255630
 
 维基百科的[Stack overflow](https://en.wikipedia.org/wiki/Stack_overflow)总结的非常好。
-
-总的来说，龙书的chapter 7总结的是非常好的。
-
-## Process run model
-
-有了前面的thread run model，那么process的run model就相对比较好分析了。显然一个process有多个process组成，多个thread独立进行运行，共享process的resource。
-
-
-
-
 
