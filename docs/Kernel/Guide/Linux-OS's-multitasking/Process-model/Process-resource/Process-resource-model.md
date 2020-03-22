@@ -1,4 +1,4 @@
-# Process resource
+# Process resource model
 
 process的成员变量：
 
