@@ -24,60 +24,47 @@ nav:
       - Linux-OS-interrupt-and-interrupte-handler: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-interrupt-and-interrupte-handler.md
     - Linux-OS's-multitasking:
       - Multitask: Kernel/Guide/Linux-OS's-multitasking/00-Multitask.md
-      - Process-model: Kernel/Guide/Linux-OS's-multitasking/01-Process-model.md
-      - Process-model-run-time-environment: Kernel/Guide/Linux-OS's-multitasking/01-Process-model-run-time-environment.md
-      - Process-model-memory-model: Kernel/Guide/Linux-OS's-multitasking/01-Process-model-memory-model.md
-      - Process-model-life-cycle: Kernel/Guide/Linux-OS's-multitasking/01-Process-model-life-cycle.md
-      - Subroutine:
-        - Subroutine: Kernel/Guide/Linux-OS's-multitasking/Subroutine/Subroutine.md
-        - Activation-tree: Kernel/Guide/Linux-OS's-multitasking/Subroutine/Activation-tree.md
-        - Evaluation-strategy:
-          - Evaluation-strategy: Kernel/Guide/Linux-OS's-multitasking/Subroutine/Evaluation-strategy/Evaluation-strategy.md
-          - Lazy-evaluation: Kernel/Guide/Linux-OS's-multitasking/Subroutine/Evaluation-strategy/Lazy-evaluation.md
-      - ABI:
-        - Introduction: Kernel/Guide/Linux-OS's-multitasking/ABI/index.md
-        - Application-binary-interface: Kernel/Guide/Linux-OS's-multitasking/ABI/Application-binary-interface.md
-        - Function-Call:
-          - Call-stack:
-            - Call-stack: Kernel/Guide/Linux-OS's-multitasking/ABI/Function-Call/Call-stack/Call-stack.md
-            - Call-stack-summary: Kernel/Guide/Linux-OS's-multitasking/ABI/Function-Call/Call-stack/Call-stack-summary.md
-          - Call-convention:
-            - Calling-convention: Kernel/Guide/Linux-OS's-multitasking/ABI/Function-Call/Call-convention/Calling-convention.md
-            - Calling-Conventions-Demystified: Kernel/Guide/Linux-OS's-multitasking/ABI/Function-Call/Call-convention/Calling-Conventions-Demystified.md
-        - Library:
-          - Library(computing): Kernel/Guide/Linux-OS's-multitasking/ABI/Library/Library(computing).md
-          - Position-independent-code:
-            - Position-independent-code: Kernel/Guide/Linux-OS's-multitasking/ABI/Library/Position-independent-code/Position-independent-code.md
-            - Position-Independent-Code(PIC)-in-shared-libraries: Kernel/Guide/Linux-OS's-multitasking/ABI/Library/Position-independent-code/Position-Independent-Code(PIC)-in-shared-libraries.md
-          - Relocation:
-            - Relocation(computing): Kernel/Guide/Linux-OS's-multitasking/ABI/Library/Relocation/Relocation(computing).md
-        - Name-mangling:
-          - Name-mangling: Kernel/Guide/Linux-OS's-multitasking/ABI/Name-mangling/Name-mangling.md
-        - Book-x86-Disassembly:
-          - Introduction: Kernel/Guide/Linux-OS's-multitasking/ABI/Book-x86-Disassembly/index.md
-      - Control-path-&-Context-&-Context-switch: Kernel/Guide/Linux-OS's-multitasking/Control-path-&-Context-&-Context-switch.md
-      - Linux-OS-implementation-of-process-model-01: Kernel/Guide/Linux-OS's-multitasking/03-01-Linux-OS-implementation-of-process-model.md
-      - Linux-OS-implementation-of-process-model-02: Kernel/Guide/Linux-OS's-multitasking/03-02-Linux-OS-implementation-of-process-model.md
-      - Linux-OS-implementation-of-process-model-03: Kernel/Guide/Linux-OS's-multitasking/03-03-Linux-OS-implementation-of-process-model.md
-      - Thread: Kernel/Guide/Linux-OS's-multitasking/04-Thread.md
+      - Process-model:
+        - Process-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-model.md
+        - Process-run-model:
+          - Process-run-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Process-run-model.md
+          - Subroutine:
+            - Introduction: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/index.md
+            - Subroutine: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Subroutine.md
+            - Call-subroutine:
+              - Introduction: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/index.md
+              - Call-stack: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/Call-stack.md
+              - Call-convention: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/Call-convention.md
+            - Activation-tree: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Activation-tree.md
+            - Evaluation-strategy:
+              - Evaluation-strategy: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Evaluation-strategy/Evaluation-strategy.md
+              - Lazy-evaluation: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Evaluation-strategy/Lazy-evaluation.md
+        - Linux-OS-implementation-of-process-model:
+          - Linux-OS-implementation-of-process-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Linux-OS-implementation-of-process-model/Linux-OS-implementation-of-process-model.md
+        - Process-resource:
+          - System-resource: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/System-resource.md
+          - Process-resource-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/Process-resource-model.md
+          - Process-memory-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/Process-memory-model.md
+        - Process-life-cycle: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-life-cycle.md
+        - Thread: Kernel/Guide/Linux-OS's-multitasking/Process-model/Thread.md
+      - Sched:
+        - Introduction: Kernel/Guide/Linux-OS's-multitasking/Sched/index.md
+        - Scheduling(computing): Kernel/Guide/Linux-OS's-multitasking/Sched/Scheduling(computing).md
+        - Preemption(computing): Kernel/Guide/Linux-OS's-multitasking/Sched/Preemption(computing).md
+        - Kernel-preemption: Kernel/Guide/Linux-OS's-multitasking/Sched/Kernel-preemption.md
+        - man-7-sched: Kernel/Guide/Linux-OS's-multitasking/Sched/man-7-sched.md
+        - Context-switch: Kernel/Guide/Linux-OS's-multitasking/Sched/Context-switch.md
+        - Unix-Scheduler-and-Dispatcher: Kernel/Guide/Linux-OS's-multitasking/Sched/Unix-Scheduler-and-Dispatcher.md
+        - Processor-affinity:
+          - Introduction: Kernel/Guide/Linux-OS's-multitasking/Sched/Processor-affinity/index.md
     - Memory-management:
-      - Introduction: Kernel/Guide/Memory-management/index.md
       - Memory-management: Kernel/Guide/Memory-management/Memory-management.md
       - Memory-protection: Kernel/Guide/Memory-management/Memory-protection.md
-      - Difference-Between-Paging-and-Segmentation-in-OS: Kernel/Guide/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS.md
       - Virtual-memory:
         - Virtual-memory: Kernel/Guide/Memory-management/Virtual-memory/Virtual-memory.md
         - Paging: Kernel/Guide/Memory-management/Virtual-memory/Paging.md
         - Unix-system-page-size: Kernel/Guide/Memory-management/Virtual-memory/Unix-system-page-size.md
-        - Virtual-address-space:
-          - Virtual-address-space: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space.md
-          - Virtual-memory-address-space-thinking: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-memory-address-space-thinking.md
-          - Virtual-address-space-size:
-            - Unix-virtual-address-space: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Unix-virtual-address-space.md
-            - Virtual-address-space-size-reading-list: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Virtual-address-space-size/Virtual-address-space-size-reading-list.md
-          - Layout-of-process:
-            - Memory-layout-of-a-process: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Memory-layout-of-a-process.md
-            - Data-segment: Kernel/Guide/Memory-management/Virtual-memory/Virtual-address-space/Layout-of-process/Data-segment.md
+      - Difference-Between-Paging-and-Segmentation-in-OS: Kernel/Guide/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS.md
     - How-to-understand-linux-kernel-source-code: Kernel/Guide/How-to-understand-linux-kernel-source-code.md
     - Kernel-data-structure: Kernel/Guide/Kernel-data-structure.md
   - Book-Understanding-the-Linux-Kernel:
@@ -191,6 +178,11 @@ nav:
     - VS-stream-VS-fd: Programming/03-IO/VS-stream-VS-fd.md
     - File:
       - Introduction: Programming/03-IO/File/index.md
+      - Notify:
+        - Inotify:
+          - man-7-inotify: Programming/03-IO/File/Notify/Inotify/man-7-inotify.md
+        - Fanotify:
+          - man-7-fanotify: Programming/03-IO/File/Notify/Fanotify/man-7-fanotify.md
     - Network:
       - Introduction: Programming/03-IO/Network/index.md
     - Notify-via-fd: Programming/03-IO/Notify-via-fd.md
@@ -227,27 +219,28 @@ nav:
           - __strcpy_sse2_unaligned: Programming/Computer-errors/Segment-fault/Misalignment/__strcpy_sse2_unaligned/__strcpy_sse2_unaligned.md
   - Kernel-module:
     - Loadable-kernel-module: Programming/07-Linux-Kernel-module/Loadable-kernel-module.md
+- Shell-and-tools:
   - Shell:
     - Sched:
-      - taskset: Programming/08-Shell/Sched/taskset.md
+      - taskset: Shell-and-tools/08-Shell/Sched/taskset.md
     - Linux-Kernel-module:
-      - Introduction: Programming/08-Shell/Linux-Kernel-module/index.md
+      - Introduction: Shell-and-tools/08-Shell/Linux-Kernel-module/index.md
   - Tools:
     - organization-gnu:
-      - Introduction: Programming/Tools/organization-gnu/index.md
+      - Introduction: Shell-and-tools/Tools/organization-gnu/index.md
     - Dmesg:
-      - Dmesg: Programming/Tools/Dmesg/Dmesg.md
-      - Dmesg-format: Programming/Tools/Dmesg/Dmesg-format.md
-      - Dmesg-segfaulting: Programming/Tools/Dmesg/Dmesg-segfaulting.md
+      - Dmesg: Shell-and-tools/Tools/Dmesg/Dmesg.md
+      - Dmesg-format: Shell-and-tools/Tools/Dmesg/Dmesg-format.md
+      - Dmesg-segfaulting: Shell-and-tools/Tools/Dmesg/Dmesg-segfaulting.md
     - Rsync:
-      - Rsync: Programming/Tools/Rsync/Rsync.md
+      - Rsync: Shell-and-tools/Tools/Rsync/Rsync.md
     - Debug:
-      - Introduction: Programming/Tools/Debug/index.md
-      - Debugger: Programming/Tools/Debug/Debugger.md
-      - Trap: Programming/Tools/Debug/Trap.md
-      - Trace: Programming/Tools/Debug/Trace.md
+      - Introduction: Shell-and-tools/Tools/Debug/index.md
+      - Debugger: Shell-and-tools/Tools/Debug/Debugger.md
+      - Trap: Shell-and-tools/Tools/Debug/Trap.md
+      - Trace: Shell-and-tools/Tools/Debug/Trace.md
     - Performance:
-      - Introduction: Programming/Tools/Performance/index.md
+      - Introduction: Shell-and-tools/Tools/Performance/index.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Linux-OS
