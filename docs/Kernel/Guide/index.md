@@ -2,7 +2,7 @@
 
 本章的内容是我基于阅读本书（部分章节）后所总结的，对一些专题进行了总结，梳理了脉络。
 
-在Architecture中，我们已经总结了OS的两个objective：
+在文章[Architecture-of-computing-system](../../Architecture/Architecture-of-computing-system.md)中，我们已经总结了OS的两个objective：
 
 > The operating system must fulfill two main objectives:
 >
