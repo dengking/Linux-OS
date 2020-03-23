@@ -1,4 +1,8 @@
-# [Segmentation fault](https://en.wikipedia.org/wiki/Segmentation_fault)
+# Segmentation fault
+
+
+
+## 维基百科[Segmentation fault](https://en.wikipedia.org/wiki/Segmentation_fault)
 
 In [computing](https://en.wikipedia.org/wiki/Computing), a **segmentation fault** (often shortened to **segfault**) or **access violation** is a [fault](https://en.wikipedia.org/wiki/Fault_(computing)), or failure condition, raised by hardware with [memory protection](https://en.wikipedia.org/wiki/Memory_protection), notifying an [operating system](https://en.wikipedia.org/wiki/Operating_system) (OS) the software has attempted to access a restricted area of memory (a memory access violation). On standard [x86](https://en.wikipedia.org/wiki/X86) computers, this is a form of [general protection fault](https://en.wikipedia.org/wiki/General_protection_fault). The OS [kernel](https://en.wikipedia.org/wiki/Kernel_(computing)) will, in response, usually perform some corrective action, generally passing the fault on to the offending [process](https://en.wikipedia.org/wiki/Process_(computing)) by sending the process a [signal](https://en.wikipedia.org/wiki/Signal_(computing)). Processes can in some cases install a custom signal handler, allowing them to recover on their own,[[1\]](https://en.wikipedia.org/wiki/Segmentation_fault#cite_note-Peter_Van_der_Linden-1) but otherwise the OS default signal handler is used, generally causing [abnormal termination](https://en.wikipedia.org/wiki/Abnormal_termination) of the process (a program [crash](https://en.wikipedia.org/wiki/Crash_(computing))), and sometimes a [core dump](https://en.wikipedia.org/wiki/Core_dump).
 
@@ -6,7 +10,7 @@ Segmentation faults are a common class of error in programs written in languages
 
 Many programming languages may employ mechanisms designed to avoid segmentation faults and improve memory safety. For example, the [Rust programming language](https://en.wikipedia.org/wiki/Rust_(programming_language)) which appeared in 2010 employs an 'Ownership'[[2\]](https://en.wikipedia.org/wiki/Segmentation_fault#cite_note-2) based model to ensure memory safety,[[3\]](https://en.wikipedia.org/wiki/Segmentation_fault#cite_note-3) and garbage collection has been employed since around 1960,[[4\]](https://en.wikipedia.org/wiki/Segmentation_fault#cite_note-4) which avoids certain classes of memory errors which could lead to segmentation faults.[[5\]](https://en.wikipedia.org/wiki/Segmentation_fault#cite_note-5)
 
-## Overview
+### Overview
 
 A segmentation fault occurs when a program attempts to access a [memory](https://en.wikipedia.org/wiki/Computer_memory) location that it is not allowed to access, or attempts to access a memory location in a way that is not allowed (for example, attempting to write to a [read-only](https://en.wikipedia.org/wiki/Read-only_memory) location, or to overwrite part of the [operating system](https://en.wikipedia.org/wiki/Operating_system)).
 

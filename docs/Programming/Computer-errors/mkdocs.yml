@@ -1,3 +1,2 @@
 nav:
-    - Double-free: Double-free
-    - Segment-fault: Segment-fault
+    - Memory-access-error: Memory-access-error
