@@ -5,4 +5,6 @@ nav:
     - Unix-&-Unix-like-&-Linux: Unix-&-Unix-like-&-Linux.md
     - Architecture: Architecture
     - Kernel: Kernel
+    - Network: Network
     - Programming: Programming
+    - Shell-and-tools: Shell-and-tools

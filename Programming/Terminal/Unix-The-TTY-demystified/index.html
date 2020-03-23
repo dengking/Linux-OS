@@ -1,0 +1,4456 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Project documentation with Markdown.">
+      
+      
+        <link rel="canonical" href="https://dengking.github.io/Linux-OS/Programming/Terminal/Unix-The-TTY-demystified/">
+      
+      
+        <meta name="author" content="DengKing">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>Unix The TTY demystified - Linux-OS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../css/extra.css">
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-27795084-5", "mkdocs.org")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#the-tty-demystified" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dengking.github.io/Linux-OS" title="Linux-OS" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Linux-OS
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Unix The TTY demystified
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dengking/Linux-OS" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dengking.github.io/Linux-OS" title="Linux-OS" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Linux-OS
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dengking/Linux-OS" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Operating-system/" title="Operating-system-概述" class="md-nav__link">
+      Operating-system-概述
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Unix-standardization-and-implementation/" title="Unix-standardization-and-implementation" class="md-nav__link">
+      Unix-standardization-and-implementation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../Unix-&-Unix-like-&-Linux/" title="Unix-&-Unix-like-&-Linux" class="md-nav__link">
+      Unix-&-Unix-like-&-Linux
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Architecture/Architecture-of-computing-system/" title="Architecture-of-computing-system" class="md-nav__link">
+      Architecture-of-computing-system
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Kernel
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Kernel
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Kernel(operating-system)/" title="Kernel" class="md-nav__link">
+      Kernel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-1" type="checkbox" id="nav-6-3-1">
+    
+    <label class="md-nav__link" for="nav-6-3-1">
+      Linux-OS's-interaction-with-the-hardware
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-1">
+        Linux-OS's-interaction-with-the-hardware
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven/" title="Linux-OS-kernel-is-event-driven" class="md-nav__link">
+      Linux-OS-kernel-is-event-driven
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel/" title="Kernel-control-path-and-reentrant-kernel" class="md-nav__link">
+      Kernel-control-path-and-reentrant-kernel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-interrupt-and-interrupte-handler/" title="Linux-OS-interrupt-and-interrupte-handler" class="md-nav__link">
+      Linux-OS-interrupt-and-interrupte-handler
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2" type="checkbox" id="nav-6-3-2">
+    
+    <label class="md-nav__link" for="nav-6-3-2">
+      Linux-OS's-multitasking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-2">
+        Linux-OS's-multitasking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/00-Multitask.md" title="Multitask" class="md-nav__link">
+      Multitask
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-2" type="checkbox" id="nav-6-3-2-2">
+    
+    <label class="md-nav__link" for="nav-6-3-2-2">
+      Process-model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-3-2-2">
+        Process-model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-model/" title="Process-model" class="md-nav__link">
+      Process-model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-2-2" type="checkbox" id="nav-6-3-2-2-2">
+    
+    <label class="md-nav__link" for="nav-6-3-2-2-2">
+      Process-run-model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-3-2-2-2">
+        Process-run-model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Process-run-model/" title="Process-run-model" class="md-nav__link">
+      Process-run-model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-2-2-2" type="checkbox" id="nav-6-3-2-2-2-2">
+    
+    <label class="md-nav__link" for="nav-6-3-2-2-2-2">
+      Subroutine
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="6">
+      <label class="md-nav__title" for="nav-6-3-2-2-2-2">
+        Subroutine
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Subroutine/" title="Subroutine" class="md-nav__link">
+      Subroutine
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-2-2-2-3" type="checkbox" id="nav-6-3-2-2-2-2-3">
+    
+    <label class="md-nav__link" for="nav-6-3-2-2-2-2-3">
+      Call-subroutine
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="7">
+      <label class="md-nav__title" for="nav-6-3-2-2-2-2-3">
+        Call-subroutine
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/Call-stack/" title="Call-stack" class="md-nav__link">
+      Call-stack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/Call-convention/" title="Call-convention" class="md-nav__link">
+      Call-convention
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Activation-tree/" title="Activation-tree" class="md-nav__link">
+      Activation-tree
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-2-2-2-5" type="checkbox" id="nav-6-3-2-2-2-2-5">
+    
+    <label class="md-nav__link" for="nav-6-3-2-2-2-2-5">
+      Evaluation-strategy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="7">
+      <label class="md-nav__title" for="nav-6-3-2-2-2-2-5">
+        Evaluation-strategy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Evaluation-strategy/Evaluation-strategy/" title="Evaluation-strategy" class="md-nav__link">
+      Evaluation-strategy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Evaluation-strategy/Lazy-evaluation/" title="Lazy-evaluation" class="md-nav__link">
+      Lazy-evaluation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-2-3" type="checkbox" id="nav-6-3-2-2-3">
+    
+    <label class="md-nav__link" for="nav-6-3-2-2-3">
+      Linux-OS-implementation-of-process-model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-3-2-2-3">
+        Linux-OS-implementation-of-process-model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Linux-OS-implementation-of-process-model/Linux-OS-implementation-of-process-model/" title="Linux-OS-implementation-of-process-model" class="md-nav__link">
+      Linux-OS-implementation-of-process-model
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-2-4" type="checkbox" id="nav-6-3-2-2-4">
+    
+    <label class="md-nav__link" for="nav-6-3-2-2-4">
+      Process-resource
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-3-2-2-4">
+        Process-resource
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/System-resource/" title="System-resource" class="md-nav__link">
+      System-resource
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/Process-resource-model/" title="Process-resource-model" class="md-nav__link">
+      Process-resource-model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/Process-memory-model.md" title="Process-memory-model" class="md-nav__link">
+      Process-memory-model
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-life-cycle/" title="Process-life-cycle" class="md-nav__link">
+      Process-life-cycle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Process-model/Thread/" title="Thread" class="md-nav__link">
+      Thread
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-3" type="checkbox" id="nav-6-3-2-3">
+    
+    <label class="md-nav__link" for="nav-6-3-2-3">
+      Sched
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-3-2-3">
+        Sched
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Sched/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Sched/Scheduling(computing)/" title="Scheduling(computing)" class="md-nav__link">
+      Scheduling(computing)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Sched/Preemption(computing)/" title="Preemption(computing)" class="md-nav__link">
+      Preemption(computing)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Sched/Kernel-preemption/" title="Kernel-preemption" class="md-nav__link">
+      Kernel-preemption
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Sched/man-7-sched/" title="man-7-sched" class="md-nav__link">
+      man-7-sched
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Sched/Context-switch/" title="Context-switch" class="md-nav__link">
+      Context-switch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Sched/Unix-Scheduler-and-Dispatcher/" title="Unix-Scheduler-and-Dispatcher" class="md-nav__link">
+      Unix-Scheduler-and-Dispatcher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-2-3-8" type="checkbox" id="nav-6-3-2-3-8">
+    
+    <label class="md-nav__link" for="nav-6-3-2-3-8">
+      Processor-affinity
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-6-3-2-3-8">
+        Processor-affinity
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Linux-OS's-multitasking/Sched/Processor-affinity/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-3" type="checkbox" id="nav-6-3-3">
+    
+    <label class="md-nav__link" for="nav-6-3-3">
+      Memory-management
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-3-3">
+        Memory-management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Memory-management/Memory-management/" title="Memory-management" class="md-nav__link">
+      Memory-management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Memory-management/Memory-protection/" title="Memory-protection" class="md-nav__link">
+      Memory-protection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3-3-3" type="checkbox" id="nav-6-3-3-3">
+    
+    <label class="md-nav__link" for="nav-6-3-3-3">
+      Virtual-memory
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-6-3-3-3">
+        Virtual-memory
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Memory-management/Virtual-memory/Virtual-memory/" title="Virtual-memory" class="md-nav__link">
+      Virtual-memory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Memory-management/Virtual-memory/Paging/" title="Paging" class="md-nav__link">
+      Paging
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Memory-management/Virtual-memory/Unix-system-page-size/" title="Unix-system-page-size" class="md-nav__link">
+      Unix-system-page-size
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS/" title="Difference-Between-Paging-and-Segmentation-in-OS" class="md-nav__link">
+      Difference-Between-Paging-and-Segmentation-in-OS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/How-to-understand-linux-kernel-source-code/" title="How-to-understand-linux-kernel-source-code" class="md-nav__link">
+      How-to-understand-linux-kernel-source-code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Guide/Kernel-data-structure/" title="Kernel-data-structure" class="md-nav__link">
+      Kernel-data-structure
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      Book-Understanding-the-Linux-Kernel
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        Book-Understanding-the-Linux-Kernel
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4-2" type="checkbox" id="nav-6-4-2">
+    
+    <label class="md-nav__link" for="nav-6-4-2">
+      Chapter-1-Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-4-2">
+        Chapter-1-Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction/" title="Chapter-1-Introduction" class="md-nav__link">
+      Chapter-1-Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/" title="1.1-Linux-Versus-Other-Unix-Like-Kernels" class="md-nav__link">
+      1.1-Linux-Versus-Other-Unix-Like-Kernels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.2-Hardware-Dependency/" title="1.2-Hardware-Dependency" class="md-nav__link">
+      1.2-Hardware-Dependency
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.4-Basic-Operating-System-Concepts/" title="1.4-Basic-Operating-System-Concepts" class="md-nav__link">
+      1.4-Basic-Operating-System-Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6-An-Overview-of-Unix-Kernels/" title="1.6-An-Overview-of-Unix-Kernels" class="md-nav__link">
+      1.6-An-Overview-of-Unix-Kernels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.1-The-Process-Kernel-Model/" title="1.6.1-The-Process-Kernel-Model" class="md-nav__link">
+      1.6.1-The-Process-Kernel-Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.2-Process-Implementation/" title="1.6.2-Process-Implementation" class="md-nav__link">
+      1.6.2-Process-Implementation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.3-Reentrant-Kernels/" title="1.6.3-Reentrant-Kernels" class="md-nav__link">
+      1.6.3-Reentrant-Kernels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.4-Process-Address-Space/" title="1.6.4-Process-Address-Space" class="md-nav__link">
+      1.6.4-Process-Address-Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.5-Synchronization-and-Critical-Regions/" title="1.6.5-Synchronization-and-Critical-Regions" class="md-nav__link">
+      1.6.5-Synchronization-and-Critical-Regions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.6-Signals-and-Interprocess-Communication/" title="1.6.6-Signals-and-Interprocess-Communication" class="md-nav__link">
+      1.6.6-Signals-and-Interprocess-Communication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.7-Process-Management/" title="1.6.7-Process-Management" class="md-nav__link">
+      1.6.7-Process-Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.8-Memory-Management/" title="1.6.8-Memory-Management" class="md-nav__link">
+      1.6.8-Memory-Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.9-Device-Drivers/" title="1.6.9-Device-Drivers" class="md-nav__link">
+      1.6.9-Device-Drivers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Giant-lock/" title="Giant-lock" class="md-nav__link">
+      Giant-lock
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4-3" type="checkbox" id="nav-6-4-3">
+    
+    <label class="md-nav__link" for="nav-6-4-3">
+      Chapter-2-Memory-Addressing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-4-3">
+        Chapter-2-Memory-Addressing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Chapter-2-Memory-Addressing/" title="Chapter-2-Memory-Addressing" class="md-nav__link">
+      Chapter-2-Memory-Addressing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.1-Memory-Addresses/" title="2.1-Memory-Addresses" class="md-nav__link">
+      2.1-Memory-Addresses
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware/" title="2.4-Paging-in-Hardware" class="md-nav__link">
+      2.4-Paging-in-Hardware
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.5-Paging-in-Linux/" title="2.5-Paging-in-Linux" class="md-nav__link">
+      2.5-Paging-in-Linux
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4-4" type="checkbox" id="nav-6-4-4">
+    
+    <label class="md-nav__link" for="nav-6-4-4">
+      Chapter-3-Processes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-4-4">
+        Chapter-3-Processes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/Chapter-3-Processes/" title="Chapter-3-Processes" class="md-nav__link">
+      Chapter-3-Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads/" title="3.1-Processes-and-Lightweight-Processes-and-Threads" class="md-nav__link">
+      3.1-Processes-and-Lightweight-Processes-and-Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2-Process-Descriptor/" title="3.2-Process-Descriptor" class="md-nav__link">
+      3.2-Process-Descriptor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.1-Process-State/" title="3.2.1-Process-State" class="md-nav__link">
+      3.2.1-Process-State
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2-Identifying-a-Process/" title="3.2.2-Identifying-a-Process" class="md-nav__link">
+      3.2.2-Identifying-a-Process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.1-Process-descriptors-handling/" title="3.2.2.1-Process-descriptors-handling" class="md-nav__link">
+      3.2.2.1-Process-descriptors-handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.2-Identifying-the-current-process/" title="3.2.2.2-Identifying-the-current-process" class="md-nav__link">
+      3.2.2.2-Identifying-the-current-process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.3-Doubly-linked-lists/" title="3.2.2.3-Doubly-linked-lists" class="md-nav__link">
+      3.2.2.3-Doubly-linked-lists
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.4-The-process-list/" title="3.2.2.4-The-process-list" class="md-nav__link">
+      3.2.2.4-The-process-list
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.5-The-lists-of-TASK_RUNNING-processes/" title="3.2.2.5-The-lists-of-TASK_RUNNING-processes" class="md-nav__link">
+      3.2.2.5-The-lists-of-TASK_RUNNING-processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.3-Relationships-Among-Processes/" title="3.2.3-Relationships-Among-Processes" class="md-nav__link">
+      3.2.3-Relationships-Among-Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.4-How-Processes-Are-Organized/" title="3.2.4-How-Processes-Are-Organized" class="md-nav__link">
+      3.2.4-How-Processes-Are-Organized
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.5-Process-Resource-Limits/" title="3.2.5-Process-Resource-Limits" class="md-nav__link">
+      3.2.5-Process-Resource-Limits
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.3-Process-Switch/" title="3.3-Process-Switch" class="md-nav__link">
+      3.3-Process-Switch
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes/" title="3.4-Creating-Processes" class="md-nav__link">
+      3.4-Creating-Processes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4.2-Kernel-Threads/" title="3.4.2-Kernel-Threads" class="md-nav__link">
+      3.4.2-Kernel-Threads
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/wikipedia-Copy-on-write/" title="Copy-on-write" class="md-nav__link">
+      Copy-on-write
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4-5" type="checkbox" id="nav-6-4-5">
+    
+    <label class="md-nav__link" for="nav-6-4-5">
+      Chapter-4-Interrupts-and-Exceptions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-4-5">
+        Chapter-4-Interrupts-and-Exceptions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions/" title="Chapter-4-Interrupts-and-Exceptions" class="md-nav__link">
+      Chapter-4-Interrupts-and-Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals/" title="4.1-The-Role-of-Interrupt-Signals" class="md-nav__link">
+      4.1-The-Role-of-Interrupt-Signals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.2-Interrupts-and-Exceptions/" title="4.2-Interrupts-and-Exceptions" class="md-nav__link">
+      4.2-Interrupts-and-Exceptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers/" title="4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers" class="md-nav__link">
+      4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.4-Initializing-the-Interrupt-Descriptor-Table/" title="4.4-Initializing-the-Interrupt-Descriptor-Table" class="md-nav__link">
+      4.4-Initializing-the-Interrupt-Descriptor-Table
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.5-Exception-Handling/" title="4.5-Exception-Handling" class="md-nav__link">
+      4.5-Exception-Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.6-Interrupt-Handling/" title="4.6-Interrupt-Handling" class="md-nav__link">
+      4.6-Interrupt-Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Trap/" title="Trap" class="md-nav__link">
+      Trap
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4-6" type="checkbox" id="nav-6-4-6">
+    
+    <label class="md-nav__link" for="nav-6-4-6">
+      Chapter-6-Timing-Measurements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-4-6">
+        Chapter-6-Timing-Measurements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements/" title="Chapter-6-Timing-Measurements" class="md-nav__link">
+      Chapter-6-Timing-Measurements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.1-Clock-and-Timer-Circuits/" title="6.1-Clock-and-Timer-Circuits" class="md-nav__link">
+      6.1-Clock-and-Timer-Circuits
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4-7" type="checkbox" id="nav-6-4-7">
+    
+    <label class="md-nav__link" for="nav-6-4-7">
+      Chapter-7-Process-Scheduling
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-4-7">
+        Chapter-7-Process-Scheduling
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling/" title="Chapter-7-Process-Scheduling" class="md-nav__link">
+      Chapter-7-Process-Scheduling
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4-8" type="checkbox" id="nav-6-4-8">
+    
+    <label class="md-nav__link" for="nav-6-4-8">
+      Chapter-8-Memory-Management
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-4-8">
+        Chapter-8-Memory-Management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/Chapter-8-Memory-Management/" title="Chapter-8-Memory-Management" class="md-nav__link">
+      Chapter-8-Memory-Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/8.1-Page-Frame-Management/" title="8.1-Page-Frame-Management" class="md-nav__link">
+      8.1-Page-Frame-Management
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4-9" type="checkbox" id="nav-6-4-9">
+    
+    <label class="md-nav__link" for="nav-6-4-9">
+      Chapter-9-Process-Address-Space
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-4-9">
+        Chapter-9-Process-Address-Space
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space/" title="Chapter-9-Process-Address-Space" class="md-nav__link">
+      Chapter-9-Process-Address-Space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space/" title="9.1-The-Process's-Address-Space." class="md-nav__link">
+      9.1-The-Process's-Address-Space.
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor/" title="9.2-The-Memory-Descriptor" class="md-nav__link">
+      9.2-The-Memory-Descriptor
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Network
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Network
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Network/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Network/MAC-address/" title="MAC-address" class="md-nav__link">
+      MAC-address
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Network/Reconnect/" title="Reconnect" class="md-nav__link">
+      Reconnect
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Programming
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Programming
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      Convention
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Convention
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-01-Convention/Conventions/" title="Conventions" class="md-nav__link">
+      Conventions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
+    
+    <label class="md-nav__link" for="nav-8-3">
+      Lib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-3">
+        Lib
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3-1" type="checkbox" id="nav-8-3-1">
+    
+    <label class="md-nav__link" for="nav-8-3-1">
+      POSIX
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-3-1">
+        POSIX
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-02-Lib/organiztion-posix/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-4" type="checkbox" id="nav-8-4">
+    
+    <label class="md-nav__link" for="nav-8-4">
+      Common
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-4">
+        Common
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-03-Common/Unix-programming-time-and-space/" title="Time-and-space" class="md-nav__link">
+      Time-and-space
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-03-Common/Unix-system-call/" title="System-call" class="md-nav__link">
+      System-call
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-03-Common/safety/" title="Safety" class="md-nav__link">
+      Safety
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-03-Common/Capabilities/" title="Capabilities" class="md-nav__link">
+      Capabilities
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-03-Common/Path-resolution/" title="Path-resolution" class="md-nav__link">
+      Path-resolution
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-5" type="checkbox" id="nav-8-5">
+    
+    <label class="md-nav__link" for="nav-8-5">
+      Philosophy
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-5">
+        Philosophy
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-philosophy/index.md" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-philosophy/Everything-is-a-file.md" title="Everything-is-a-file" class="md-nav__link">
+      Everything-is-a-file
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-philosophy/File-descriptor.md" title="File-descriptor" class="md-nav__link">
+      File-descriptor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-philosophy/Unix-philosophy.md" title="Unix-philosophy" class="md-nav__link">
+      Unix-philosophy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-6" type="checkbox" id="nav-8-6">
+    
+    <label class="md-nav__link" for="nav-8-6">
+      File-system
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-6">
+        File-system
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-04-File-system/Unix-filesystem/" title="Unix-filesystem" class="md-nav__link">
+      Unix-filesystem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-04-File-system/man-7-file-hierarchy/" title="man-7-file-hierarchy" class="md-nav__link">
+      man-7-file-hierarchy
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-04-File-system/Inode/" title="Inode" class="md-nav__link">
+      Inode
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../01-04-File-system/man-2-stat/" title="man-2-stat" class="md-nav__link">
+      man-2-stat
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-7" type="checkbox" id="nav-8-7">
+    
+    <label class="md-nav__link" for="nav-8-7">
+      Process
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-7">
+        Process
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02-Process/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-7-2" type="checkbox" id="nav-8-7-2">
+    
+    <label class="md-nav__link" for="nav-8-7-2">
+      Credential
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-7-2">
+        Credential
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02-Process/Credential/man-7-credentials/" title="man-7-credentials" class="md-nav__link">
+      man-7-credentials
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-7-3" type="checkbox" id="nav-8-7-3">
+    
+    <label class="md-nav__link" for="nav-8-7-3">
+      IPC
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-7-3">
+        IPC
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-7-3-1" type="checkbox" id="nav-8-7-3-1">
+    
+    <label class="md-nav__link" for="nav-8-7-3-1">
+      System-V-IPC
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-8-7-3-1">
+        System-V-IPC
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02-Process/IPC/System-V-IPC/man-7-SVIPC/" title="man-7-SVIPC" class="md-nav__link">
+      man-7-SVIPC
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02-Process/IPC/POSIX-semaphores/" title="POSIX-semaphores" class="md-nav__link">
+      POSIX-semaphores
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02-Process/IPC/POSIX-message-queues/" title="POSIX-message-queues" class="md-nav__link">
+      POSIX-message-queues
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-7-4" type="checkbox" id="nav-8-7-4">
+    
+    <label class="md-nav__link" for="nav-8-7-4">
+      Thread
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-7-4">
+        Thread
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../02-Process/Thread/pthreads/" title="pthreads" class="md-nav__link">
+      pthreads
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-8" type="checkbox" id="nav-8-8">
+    
+    <label class="md-nav__link" for="nav-8-8">
+      IO
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-8">
+        IO
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/Input-output/" title="Input-output" class="md-nav__link">
+      Input-output
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-8-3" type="checkbox" id="nav-8-8-3">
+    
+    <label class="md-nav__link" for="nav-8-8-3">
+      IO-model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-8-3">
+        IO-model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/IO-model/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/IO-model/IO-models/" title="IO-models" class="md-nav__link">
+      IO-models
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/Stream/" title="Stream" class="md-nav__link">
+      Stream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/Bitstream/" title="Bitstream" class="md-nav__link">
+      Bitstream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/VS-stream-VS-fd/" title="VS-stream-VS-fd" class="md-nav__link">
+      VS-stream-VS-fd
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-8-7" type="checkbox" id="nav-8-8-7">
+    
+    <label class="md-nav__link" for="nav-8-8-7">
+      File
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-8-7">
+        File
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/File/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-8-7-2" type="checkbox" id="nav-8-8-7-2">
+    
+    <label class="md-nav__link" for="nav-8-8-7-2">
+      Notify
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-8-8-7-2">
+        Notify
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-8-7-2-1" type="checkbox" id="nav-8-8-7-2-1">
+    
+    <label class="md-nav__link" for="nav-8-8-7-2-1">
+      Inotify
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-8-8-7-2-1">
+        Inotify
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/File/Notify/Inotify/man-7-inotify/" title="man-7-inotify" class="md-nav__link">
+      man-7-inotify
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-8-7-2-2" type="checkbox" id="nav-8-8-7-2-2">
+    
+    <label class="md-nav__link" for="nav-8-8-7-2-2">
+      Fanotify
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-8-8-7-2-2">
+        Fanotify
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/File/Notify/Fanotify/man-7-fanotify/" title="man-7-fanotify" class="md-nav__link">
+      man-7-fanotify
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-8-8" type="checkbox" id="nav-8-8-8">
+    
+    <label class="md-nav__link" for="nav-8-8-8">
+      Network
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-8-8">
+        Network
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/Network/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-IO/Notify-via-fd/" title="Notify-via-fd" class="md-nav__link">
+      Notify-via-fd
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-9" type="checkbox" id="nav-8-9">
+    
+    <label class="md-nav__link" for="nav-8-9">
+      Time
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-9">
+        Time
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../03-Time/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-10" type="checkbox" id="nav-8-10">
+    
+    <label class="md-nav__link" for="nav-8-10">
+      Signal
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-10">
+        Signal
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../04-Signal/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../04-Signal/Signal-note/" title="Signal-note" class="md-nav__link">
+      Signal-note
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-11" type="checkbox" id="nav-8-11">
+    
+    <label class="md-nav__link" for="nav-8-11">
+      Virtualization
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-11">
+        Virtualization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05-Linux-Virtualization/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05-Linux-Virtualization/Virtualization/" title="Virtualization" class="md-nav__link">
+      Virtualization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05-Linux-Virtualization/Linux-containers/" title="Linux-containers" class="md-nav__link">
+      Linux-containers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-11-4" type="checkbox" id="nav-8-11-4">
+    
+    <label class="md-nav__link" for="nav-8-11-4">
+      Linux-namespaces
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-11-4">
+        Linux-namespaces
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05-Linux-Virtualization/Linux-namespaces/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05-Linux-Virtualization/Linux-namespaces/Linux-Namespaces/" title="Linux-Namespaces" class="md-nav__link">
+      Linux-Namespaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05-Linux-Virtualization/Linux-namespaces/man-7-namespaces/" title="man-7-namespaces" class="md-nav__link">
+      man-7-namespaces
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-11-5" type="checkbox" id="nav-8-11-5">
+    
+    <label class="md-nav__link" for="nav-8-11-5">
+      Linux-control-groups
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-11-5">
+        Linux-control-groups
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../05-Linux-Virtualization/Linux-control-groups/Control-groups/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-12" type="checkbox" id="nav-8-12">
+    
+    <label class="md-nav__link" for="nav-8-12">
+      Util
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-12">
+        Util
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../06-Util/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-12-2" type="checkbox" id="nav-8-12-2">
+    
+    <label class="md-nav__link" for="nav-8-12-2">
+      Log
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-12-2">
+        Log
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../06-Util/Log/Linux-log-files/" title="Linux-log-files" class="md-nav__link">
+      Linux-log-files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-12-2-2" type="checkbox" id="nav-8-12-2-2">
+    
+    <label class="md-nav__link" for="nav-8-12-2-2">
+      Syslog
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-8-12-2-2">
+        Syslog
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../06-Util/Log/Syslog/Syslog/" title="Syslog" class="md-nav__link">
+      Syslog
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-13" type="checkbox" id="nav-8-13">
+    
+    <label class="md-nav__link" for="nav-8-13">
+      Terminal
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-13">
+        Terminal
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-14" type="checkbox" id="nav-8-14">
+    
+    <label class="md-nav__link" for="nav-8-14">
+      Computer-errors
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-14">
+        Computer-errors
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-14-1" type="checkbox" id="nav-8-14-1">
+    
+    <label class="md-nav__link" for="nav-8-14-1">
+      Double-free
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-14-1">
+        Double-free
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Computer-errors/Double-free/Double-free/" title="Double-free" class="md-nav__link">
+      Double-free
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-14-2" type="checkbox" id="nav-8-14-2">
+    
+    <label class="md-nav__link" for="nav-8-14-2">
+      Segment-fault
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-8-14-2">
+        Segment-fault
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Computer-errors/Segment-fault/Segmentation-fault/" title="Segmentation-fault" class="md-nav__link">
+      Segmentation-fault
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-14-2-2" type="checkbox" id="nav-8-14-2-2">
+    
+    <label class="md-nav__link" for="nav-8-14-2-2">
+      Misalignment
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-8-14-2-2">
+        Misalignment
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-14-2-2-1" type="checkbox" id="nav-8-14-2-2-1">
+    
+    <label class="md-nav__link" for="nav-8-14-2-2-1">
+      __strcpy_sse2_unaligned
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-8-14-2-2-1">
+        __strcpy_sse2_unaligned
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Computer-errors/Segment-fault/Misalignment/__strcpy_sse2_unaligned/__strcpy_sse2_unaligned/" title="__strcpy_sse2_unaligned" class="md-nav__link">
+      __strcpy_sse2_unaligned
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-15" type="checkbox" id="nav-8-15">
+    
+    <label class="md-nav__link" for="nav-8-15">
+      Kernel-module
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-15">
+        Kernel-module
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../07-Linux-Kernel-module/Loadable-kernel-module/" title="Loadable-kernel-module" class="md-nav__link">
+      Loadable-kernel-module
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Shell-and-tools
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Shell-and-tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1" type="checkbox" id="nav-9-1">
+    
+    <label class="md-nav__link" for="nav-9-1">
+      Shell
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-1">
+        Shell
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1-1" type="checkbox" id="nav-9-1-1">
+    
+    <label class="md-nav__link" for="nav-9-1-1">
+      Sched
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-1-1">
+        Sched
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/08-Shell/Sched/taskset/" title="taskset" class="md-nav__link">
+      taskset
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1-2" type="checkbox" id="nav-9-1-2">
+    
+    <label class="md-nav__link" for="nav-9-1-2">
+      Linux-Kernel-module
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-1-2">
+        Linux-Kernel-module
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/08-Shell/Linux-Kernel-module/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2" type="checkbox" id="nav-9-2">
+    
+    <label class="md-nav__link" for="nav-9-2">
+      Tools
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-2">
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2-1" type="checkbox" id="nav-9-2-1">
+    
+    <label class="md-nav__link" for="nav-9-2-1">
+      organization-gnu
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-2-1">
+        organization-gnu
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/organization-gnu/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2-2" type="checkbox" id="nav-9-2-2">
+    
+    <label class="md-nav__link" for="nav-9-2-2">
+      Dmesg
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-2-2">
+        Dmesg
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Dmesg/Dmesg/" title="Dmesg" class="md-nav__link">
+      Dmesg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Dmesg/Dmesg-format/" title="Dmesg-format" class="md-nav__link">
+      Dmesg-format
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Dmesg/Dmesg-segfaulting/" title="Dmesg-segfaulting" class="md-nav__link">
+      Dmesg-segfaulting
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2-3" type="checkbox" id="nav-9-2-3">
+    
+    <label class="md-nav__link" for="nav-9-2-3">
+      Rsync
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-2-3">
+        Rsync
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Rsync/Rsync/" title="Rsync" class="md-nav__link">
+      Rsync
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2-4" type="checkbox" id="nav-9-2-4">
+    
+    <label class="md-nav__link" for="nav-9-2-4">
+      Debug
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-2-4">
+        Debug
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Debug/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Debug/Debugger/" title="Debugger" class="md-nav__link">
+      Debugger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Debug/Trap/" title="Trap" class="md-nav__link">
+      Trap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Debug/Trace/" title="Trace" class="md-nav__link">
+      Trace
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2-5" type="checkbox" id="nav-9-2-5">
+    
+    <label class="md-nav__link" for="nav-9-2-5">
+      Performance
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-2-5">
+        Performance
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../Shell-and-tools/Tools/Performance/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#history" class="md-nav__link">
+    History
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-use-cases" class="md-nav__link">
+    The use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processes" class="md-nav__link">
+    Processes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobs-and-sessions" class="md-nav__link">
+    Jobs and sessions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-following-shell-interactions" class="md-nav__link">
+    The following shell interactions...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#correspond-to-these-processes" class="md-nav__link">
+    ...correspond to these processes...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#and-these-kernel-structures" class="md-nav__link">
+    ...and these kernel structures.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-madness" class="md-nav__link">
+    Signal madness
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sighup" class="md-nav__link">
+    SIGHUP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigint" class="md-nav__link">
+    SIGINT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigquit" class="md-nav__link">
+    SIGQUIT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigpipe" class="md-nav__link">
+    SIGPIPE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigchld" class="md-nav__link">
+    SIGCHLD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigstop" class="md-nav__link">
+    SIGSTOP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigcont" class="md-nav__link">
+    SIGCONT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigtstp" class="md-nav__link">
+    SIGTSTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigttin" class="md-nav__link">
+    SIGTTIN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigttou" class="md-nav__link">
+    SIGTTOU
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sigwinch" class="md-nav__link">
+    SIGWINCH
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-example" class="md-nav__link">
+    An example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flow-control-and-blocking-io" class="md-nav__link">
+    Flow control and blocking I/O
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-tty-device" class="md-nav__link">
+    Configuring the TTY device
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <div class="toc">
+<ul>
+<li><a href="#the-tty-demystified">The TTY demystified</a><ul>
+<li><a href="#history">History</a></li>
+<li><a href="#the-use-cases">The use cases</a></li>
+<li><a href="#processes">Processes</a></li>
+<li><a href="#jobs-and-sessions">Jobs and sessions</a><ul>
+<li><a href="#the-following-shell-interactions">The following shell interactions...</a></li>
+<li><a href="#correspond-to-these-processes">...correspond to these processes...</a></li>
+<li><a href="#and-these-kernel-structures">...and these kernel structures.</a></li>
+</ul>
+</li>
+<li><a href="#signal-madness">Signal madness</a><ul>
+<li><a href="#sighup">SIGHUP</a></li>
+<li><a href="#sigint">SIGINT</a></li>
+<li><a href="#sigquit">SIGQUIT</a></li>
+<li><a href="#sigpipe">SIGPIPE</a></li>
+<li><a href="#sigchld">SIGCHLD</a></li>
+<li><a href="#sigstop">SIGSTOP</a></li>
+<li><a href="#sigcont">SIGCONT</a></li>
+<li><a href="#sigtstp">SIGTSTP</a></li>
+<li><a href="#sigttin">SIGTTIN</a></li>
+<li><a href="#sigttou">SIGTTOU</a></li>
+<li><a href="#sigwinch">SIGWINCH</a></li>
+</ul>
+</li>
+<li><a href="#an-example">An example</a></li>
+<li><a href="#flow-control-and-blocking-io">Flow control and blocking I/O</a></li>
+<li><a href="#configuring-the-tty-device">Configuring the TTY device</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="the-tty-demystified"><a href="http://www.linusakesson.net/programming/tty/index.php">The TTY demystified</a><a class="headerlink" href="#the-tty-demystified" title="Permanent link">#</a></h1>
+<blockquote>
+<p>注：demystify 揭秘</p>
+</blockquote>
+<p>The TTY subsystem is central to the design of Linux, and UNIX in general. Unfortunately, its importance is often overlooked, and it is difficult to find good introductory articles about it. I believe that a basic understanding of TTYs in Linux is essential for the developer and the advanced user.</p>
+<p>在这篇文章:<a href="https://en.wikipedia.org/wiki/Tty_(unix)">tty</a>中介绍了TTY所代表的含义</p>
+<p>Beware, though: What you are about to see is not particularly elegant. In fact, the TTY subsystem — while quite functional from a user's point of view — is a twisty(曲折) little mess of special cases. To understand how this came to be, we have to go back in time.</p>
+<h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">#</a></h2>
+<p>In 1869, the <em>stock ticker</em>(股票报价机) was invented. It was an electro-mechanical machine consisting of a typewriter, a long pair of wires and a ticker tape printer, and its purpose was to distribute stock prices over long distances in realtime. This concept gradually evolved into the faster, ASCII-based <em>teletype</em>. Teletypes were once connected across the world in a large network, called <em>Telex</em>, which was used for transferring commercial telegrams(商业电报), but the teletypes weren't connected to any computers yet.</p>
+<p><strong><em>TRANSLAITION</em></strong> : 1869年，股票代码被发明了。 它是一台机电一体机，由一台打字机，一对长电线和一台自动收报机组成，其目的是实时分配长距离的股票价格。 这个概念逐渐演变成更快，基于ASCII的电传打字机。 Teletypes曾经在一个名为Telex的大型网络中连接到世界各地，该网络用于传输商业电报，但电话类型尚未连接到任何计算机。</p>
+<p>Meanwhile, however, the computers — still quite large and primitive, but able to multitask — were becoming powerful enough to be able to interact with users in realtime. When the command line eventually replaced the old batch processing model, teletypes were used as <strong>input and output devices</strong>, because they were readily available on the market.</p>
+<p>总结：参见<a href="https://en.wikipedia.org/wiki/Getty_%28Unix%29">getty</a>，这篇文章中介绍的内容和上面这段有关。</p>
+<p>There was a plethora（过多，过剩） of teletype models around, all slightly different, so some kind of software compatibility layer was called for（需要）. In the UNIX world, the approach was to let the operating system kernel handle all the low-level details, such as word length, baud rate（波特率）, flow control, parity（奇偶校验）, control codes for rudimentary line editing（用于基本行编辑的控制代码） and so on. Fancy cursor movements, color output and other advanced features made possible in the late 1970s by solid state <em>video terminals</em>（固态视频终端） such as the VT-100, were left to the applications.</p>
+<p>In present time, we find ourselves in a world where physical teletypes and video terminals are practically extinct（绝迹）. Unless you visit a museum or a hardware enthusiast（硬件爱好者）, all the TTYs you're likely to see will be <strong>emulated video terminals</strong> — software simulations of the real thing. But as we shall see, the legacy from the old cast-iron beasts is still lurking beneath the surface.</p>
+<p>总结：如今我们所见的TTY都是emulated video terminals ；最后一句话的表名意思是：来自旧铸铁野兽的遗产仍潜伏在水面之下；引申的含义就是：虽然外在变化了，但是本质是未变的。</p>
+<h2 id="the-use-cases">The use cases<a class="headerlink" href="#the-use-cases" title="Permanent link">#</a></h2>
+<p><img alt="图" src="http://www.linusakesson.net/programming/tty/case1.png" /></p>
+<p>A user types at a terminal (a physical teletype). This terminal is connected through a pair of wires to a <em>UART</em> (Universal Asynchronous Receiver and Transmitter) on the computer. The operating system contains a <em>UART driver</em> which manages the physical transmission of bytes, including parity checks(奇偶校验) and flow control. In a naïve system, the <strong>UART driver</strong> would then deliver the incoming bytes directly to some application process. But such an approach would lack the following essential features:</p>
+<p>总结：从上图来看，<em>UART</em>并没有直接和application process 进行connect，而是中间还有<em>line discipline</em>和<em>tty</em></p>
+<p><strong>Line editing</strong>（行编辑）.  Most users make mistakes while typing, so a backspace key（退格键） is often useful. This could of course be implemented by the applications themselves, but in accordance with the UNIX design philosophy, applications should be kept as simple as possible. So as a convenience, the operating system provides an editing buffer（编辑缓冲区） and some rudimentary（基本的） editing commands (backspace, erase word, clear line, reprint), which are enabled by default inside the <em>line discipline</em>（行规则）. Advanced applications may disable these features by putting the <em>line discipline</em>（行规则） in <em>raw</em> mode instead of the default <em>cooked</em> (or <em>canonical</em>) mode. Most interactive applications (editors, mail user agents, shells, all programs relying on <code>curses</code> or <code>readline</code>) run in <em>raw</em> mode, and handle all the line editing commands themselves. The <em>line discipline</em> also contains options for character echoing and automatic conversion between carriage returns and linefeeds. Think of it as a primitive kernel-level <code>sed(1)</code>, if you like.</p>
+<p>Incidentally, the kernel provides several different <em>line disciplines</em>. Only one of them is attached to a given serial device at a time. The default discipline, which provides line editing, is called <code>N_TTY</code> (<code>drivers/char/n_tty.c</code>, if you're feeling adventurous). Other disciplines are used for other purposes, such as managing packet switched data (ppp, IrDA, serial mice), but that is outside the scope of this article.</p>
+<p>总结：上图中的<strong>Line discipline</strong>就是为了<strong>Line Editing</strong>功能的。</p>
+<p><strong>Session management.</strong> The user probably wants to run several programs simultaneously, and interact with them one at a time（一次一个）. If a program goes into an endless loop, the user may want to kill it or suspend it. Programs that are started in the background should be able to execute until they try to write to the terminal, at which point they should be suspended. Likewise, user input should be directed to the <strong>foreground program</strong> only. The operating system implements these features in the <em>TTY driver</em> (<code>drivers/char/tty_io.c</code>).</p>
+<p>An operating system process is "alive" (has an <em>execution context</em>), which means that it can perform actions. The <strong>TTY driver</strong> is not alive; in object oriented terminology, the TTY driver is a <strong>passive object</strong>（被动）. It has some data fields and some methods, but the only way it can actually do something is when one of its methods gets called from the context of a process or a kernel interrupt handler. The line discipline is likewise a passive entity.</p>
+<p>总结：关于passive object参见<a href="https://en.wikipedia.org/wiki/Passive_data_structure">Passive data structure</a>.其实是看了上面这段话我才想起passive object的含义，它的正确含义在于passive。</p>
+<p>总结：上图中的TTY driver就是为了实现Session management的。</p>
+<p>Together, a particular triplet of UART driver, line discipline instance and TTY driver may be referred to as a <em>TTY device</em>, or sometimes just TTY. A user process can affect the behaviour of any TTY device by manipulating the corresponding <strong>device file</strong> under <code>/dev</code>. <strong>Write permissions</strong> to the device file are required, so when a user logs in on a particular TTY, that user must become the owner of the <strong>device file</strong>. This is traditionally done by the <code>login(1)</code>program, which runs with root privileges.</p>
+<p>总结：此处给出了在现在的linux系统中，TTY的详细的，底层的含义。</p>
+<p>总结：通过<code>tty</code>命令可以获得当前terminal的device file 。</p>
+<p>The physical line in the previous diagram could of course be a long-distance phone line:</p>
+<p><img alt="" src="http://www.linusakesson.net/programming/tty/case2.png" /></p>
+<p><strong><em>SUMMARY</em></strong> : 这种情况显然是通过网络进行连接的情况；</p>
+<p>This does not change much, except that the system now has to handle a modem hangup situation as well.</p>
+<p>Let's move on to a typical desktop system. This is how the Linux console works:</p>
+<p><img alt="" src="http://www.linusakesson.net/programming/tty/case3.png" /></p>
+<p>The <strong>TTY driver</strong> and <strong>line discipline</strong> behave just like in the previous examples, but there is no UART or <strong>physical terminal</strong> involved anymore. Instead, a <strong>video terminal</strong> (a complex state machine including a <em>frame buffer</em> of characters and graphical character attributes) is emulated in software, and rendered to a VGA display.</p>
+<p>总结：对比该图和前图，就可以对比它们之间的差异，这种对比也印证了作者在第六段中所提及的<strong>emulated video terminals</strong>。从上图可以看出，<strong>terminal emulator</strong>的output是VGA driver，它的input是keyboard driver；</p>
+<p>The console subsystem is somewhat rigid（死板的）. Things get more flexible (and abstract) if we move the <strong>terminal emulation</strong> into userland. This is how <code>xterm(1)</code> and its clones work:</p>
+<p>总结：从下图可以看出，这段话的意思是将terminal emulation从kernel中移除，移到userland即用户空间中。目的是增加灵活性；</p>
+<p><img alt="" src="http://www.linusakesson.net/programming/tty/case4.png" /></p>
+<p>To facilitate moving the <strong>terminal emulation</strong> into userland, while still keeping the TTY subsystem (<strong>session management</strong> and <strong>line discipline</strong>) intact（完整）, the <em>pseudo terminal</em> or <em>pty</em> was invented. And as you may have guessed, things get even more complicated when you start running pseudo terminals inside pseudo terminals, à la <code>screen(1)</code> or <code>ssh(1)</code>.</p>
+<p>总结：pseudo teminal或pty是为了实现moving terminal emulation into userland而创建的。需要仔细地来研究上图，并且需要结合上图和上上图一起来进行理解；TTY driver是和User process连接，联系上面对TTY driver的介绍，它的一个主要功能是为了实现<strong>Session management.</strong>，而PTY是和 <a href="https://en.wikipedia.org/wiki/Xterm"><code>xterm</code></a> 连接，它主要是为了实现<strong>video terminal</strong>；</p>
+<p>Now let's take a step back and see how all of this fits into the <strong>process model</strong>.</p>
+<h2 id="processes">Processes<a class="headerlink" href="#processes" title="Permanent link">#</a></h2>
+<p>A Linux process can be in one of the following states:</p>
+<p><img alt="" src="http://www.linusakesson.net/programming/tty/linuxprocess.png" />
+||含义|
+| ---- | ------------------------------------------------------------ |
+| R    | Running or runnable (on run queue)                           |
+| D    | Uninterruptible sleep (waiting for some event)               |
+| S    | Interruptible sleep (waiting for some event or signal)       |
+| T    | Stopped, either by a job control signal or because it is being traced by a debugger. |
+| Z    | Zombie process, terminated but not yet reaped by its parent. |</p>
+<p>By running <code>ps l</code>, you can see which processes are running, and which are sleeping. If a process is sleeping, the <code>WCHAN</code> column ("wait channel", the name of the wait queue) will tell you what <strong>kernel event</strong> the process is waiting for.</p>
+<pre><code class="bash">$ ps l
+F   UID   PID  PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+0   500  5942  5928  15   0  12916  1460 wait   Ss   pts/14     0:00 -/bin/bash
+0   500 12235  5942  15   0  21004  3572 wait   S+   pts/14     0:01 vim index.php
+0   500 12580 12235  15   0   8080  1440 wait   S+   pts/14     0:00 /bin/bash -c (ps l) &gt;/tmp/v727757/1 2&gt;&amp;1
+0   500 12581 12580  15   0   4412   824 -      R+   pts/14     0:00 ps l
+</code></pre>
+
+<p>The "<code>wait</code>" wait queue corresponds to the <code>wait(2)</code> syscall, so these processes will be moved to the <strong>running state</strong> whenever there's a state change in one of their child processes. There are two sleeping states: <strong>Interruptible sleep</strong> and <strong>uninterruptible sleep</strong>. Interruptible sleep (the most common case) means that while the process is part of a wait queue, it may actually also be moved to the <strong>running state</strong> when a <strong>signal</strong> is sent to it. If you look inside the kernel source code, you will find that any kernel code which is waiting for an event must check if a signal is pending after <code>schedule()</code> returns, and abort the syscall in that case.</p>
+<p>In the <code>ps</code> listing above, the <code>STAT</code> column displays the current state of each process. The same column may also contain one or more attributes, or flags:
+||含义|
+| ---- | --------------------------------------------------- |
+| s    | This process is a session leader.                   |
+| +    | This process is part of a foreground process group. |</p>
+<p>These attributes are used for job control.</p>
+<h2 id="jobs-and-sessions">Jobs and sessions<a class="headerlink" href="#jobs-and-sessions" title="Permanent link">#</a></h2>
+<p><strong>Job control</strong> is what happens when you press <code>^Z</code> to suspend a program, or when you start a program in the background using <code>&amp;</code>. A <strong>job</strong> is the same as a <strong>process group</strong>. Internal shell commands like <code>jobs</code>, <code>fg</code> and <code>bg</code> can be used to manipulate the existing jobs within a <em>session</em>. Each session is managed by a <em>session leader</em>, the shell, which is cooperating tightly with the kernel using a complex protocol of <strong>signals</strong> and <strong>system calls</strong>.</p>
+<p>总结：上面这段话说明了何时会触发job control，如何操作job。更多关于作业控制的内容可以参见APUE的《9.8作业控制》。同时上面这段的最后一句话告诉了我们往往session leader是由shell来充当的。</p>
+<p>The following example illustrates the relationship between processes, jobs and sessions:</p>
+<h3 id="the-following-shell-interactions">The following shell interactions...<a class="headerlink" href="#the-following-shell-interactions" title="Permanent link">#</a></h3>
+<p><img alt="" src="http://www.linusakesson.net/programming/tty/exampleterm.png" /></p>
+<h3 id="correspond-to-these-processes">...correspond to these processes...<a class="headerlink" href="#correspond-to-these-processes" title="Permanent link">#</a></h3>
+<p><img alt="" src="http://www.linusakesson.net/programming/tty/examplediagram.png" /></p>
+<h3 id="and-these-kernel-structures">...and these kernel structures.<a class="headerlink" href="#and-these-kernel-structures" title="Permanent link">#</a></h3>
+<ul>
+<li>TTY Driver (/dev/pts/0).</li>
+</ul>
+<p><code>bash
+Size: 45x13
+  Controlling process group: (101)
+Foreground process group: (103)
+  UART configuration (ignored, since this is an xterm):
+    Baud rate, parity, word length and much more.
+  Line discipline configuration:
+    cooked/raw mode, linefeed correction,
+    meaning of interrupt characters etc.
+  Line discipline state:
+    edit buffer (currently empty),
+    cursor position within buffer etc.</code></p>
+<ul>
+<li>pipe0</li>
+</ul>
+<p><code>bash
+  Readable end (connected to PID 104 as file descriptor 0)
+  Writable end (connected to PID 103 as file descriptor 1)
+  Buffer</code></p>
+<p>The basic idea is that every pipeline is a job, because every process in a pipeline should be manipulated (stopped, resumed, killed) simultaneously（同时）. That's why <code>kill(2)</code> allows you to send signals to entire <strong>process groups</strong>. By default, <code>fork(2)</code> places a newly created child process in the same <strong>process group</strong> as its parent, so that e.g. a <code>^C</code> from the keyboard will affect both parent and child. But the shell, as part of its <strong>session leader</strong> duties, creates a new process group every time it launches a pipeline.</p>
+<p>总结：shell，作为session leader的职责包括每次启动管道时都会创建一个新的进程组</p>
+<p>The <strong>TTY driver</strong> keeps track of the foreground process group id, but only in a passive way. The session leader has to update this information explicitly when necessary. Similarly, the <strong>TTY driver</strong> keeps track of the size of the connected terminal, but this information has to be updated explicitly, by the terminal emulator or even by the user.</p>
+<p>As you can see in the diagram above, several processes have <code>/dev/pts/0</code> attached to their standard input. But only the <strong>foreground job</strong> (the <code>ls | sort</code> pipeline) will receive input from the TTY. Likewise, only the <strong>foreground job</strong> will be allowed to write to the TTY device (in the default configuration). If the cat process were to attempt to write to the TTY, the kernel would suspend it using a signal.</p>
+<p>总结：terminal和job之间的关系。</p>
+<h2 id="signal-madness">Signal madness<a class="headerlink" href="#signal-madness" title="Permanent link">#</a></h2>
+<p>Now let's take a closer look at how the <strong>TTY drivers</strong>, the <strong>line disciplines</strong> and the <strong>UART drivers</strong> in the kernel communicate with the <em>userland processes</em>（用户进程）.</p>
+<p>UNIX files, including the TTY device file, can of course be read from and written to, and further manipulated by means of the magic <code>ioctl(2)</code> call (the Swiss army-knife of UNIX) for which lots of TTY related operations have been defined. Still, <code>ioctl</code> requests have to be initiated from processes, so they can't be used when the kernel needs to communicate <em>asynchronously</em> with an application（<code>ioctl</code>请求必须从进程启动，因此当内核需要与应用程序异步通信时，不能使用它们）.</p>
+<p>In <em>The Hitchhiker's Guide to the Galaxy</em>, Douglas Adams mentions an extremely dull planet, inhabited by a bunch of depressed humans and a certain breed of animals with sharp teeth which communicate with the humans by biting them very hard in the thighs. This is strikingly similar to UNIX, in which the kernel communicates with processes by sending paralyzing or deadly signals to them. Processes may intercept(拦截) some of the signals, and try to adapt to the situation, but most of them don't.</p>
+<p>总结：kernel 通过向process发送信号来与process进行通信，这些信号包括paralyzing signal（麻痹信号）或deadly signal（致命信号）。进程可以拦截一些信号，并尝试适应这种情况，但大多数信号都没有。</p>
+<p>So a signal is a <strong>crude mechanism</strong> that allows the kernel to communicate asynchronously with a process. Signals in UNIX aren't clean or general; rather, each signal is unique, and must be studied individually.</p>
+<p>总结：信号是一种允许kernel和process进行异步交流的非常粗略的机制。</p>
+<p>You can use the command <code>kill -l</code> to see which signals your system implements. This is what it may look like:</p>
+<pre><code class="bash">$ kill -l
+ 1) SIGHUP   2) SIGINT   3) SIGQUIT  4) SIGILL
+ 5) SIGTRAP  6) SIGABRT  7) SIGBUS   8) SIGFPE
+ 9) SIGKILL 10) SIGUSR1 11) SIGSEGV 12) SIGUSR2
+13) SIGPIPE 14) SIGALRM 15) SIGTERM 16) SIGSTKFLT
+17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP
+21) SIGTTIN 22) SIGTTOU 23) SIGURG  24) SIGXCPU
+25) SIGXFSZ 26) SIGVTALRM   27) SIGPROF 28) SIGWINCH
+29) SIGIO   30) SIGPWR  31) SIGSYS  34) SIGRTMIN
+35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3  38) SIGRTMIN+4
+39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12
+47) SIGRTMIN+13 48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14
+51) SIGRTMAX-13 52) SIGRTMAX-12 53) SIGRTMAX-11 54) SIGRTMAX-10
+55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7  58) SIGRTMAX-6
+59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+63) SIGRTMAX-1  64) SIGRTMAX    
+</code></pre>
+
+<p>As you can see, signals are numbered starting with 1. However, when they are used in bitmasks (e.g. in the output of <code>ps s</code>), the least significant bit corresponds to signal 1.</p>
+<p>总结：如您所见，信号从1开始编号。但是，当它们用于位掩码时（例如在ps s的输出中），最低有效位对应于信号1。</p>
+<p>This article will focus on the following signals: <code>SIGHUP</code>, <code>SIGINT</code>, <code>SIGQUIT</code>, <code>SIGPIPE</code>, <code>SIGCHLD</code>,<code>SIGSTOP</code>, <code>SIGCONT</code>, <code>SIGTSTP</code>, <code>SIGTTIN</code>, <code>SIGTTOU</code> and <code>SIGWINCH</code>.</p>
+<h3 id="sighup">SIGHUP<a class="headerlink" href="#sighup" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Terminate</strong></li>
+<li>Possible actions: Terminate, Ignore, Function call</li>
+</ul>
+<p><code>SIGHUP</code> is sent by the UART driver to the entire session when a <strong>hangup condition</strong>（挂起条件） has been detected. Normally, this will kill all the processes. Some programs, such as <code>nohup(1)</code> and <code>screen(1)</code>, detach（脱离） from their session (and TTY), so that their child processes won't notice a hangup.</p>
+<h3 id="sigint">SIGINT<a class="headerlink" href="#sigint" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Terminate</strong></li>
+<li>Possible actions: Terminate, Ignore, Function call</li>
+</ul>
+<p><code>SIGINT</code> is sent by the <strong>TTY driver</strong> to the <strong>current foreground job</strong> when the <em>interactive attention</em> character (typically <code>^C</code>, which has ASCII code 3) appears in the <strong>input stream</strong>, unless this behaviour has been turned off. Anybody with access permissions to the <strong>TTY device</strong> can change the <strong>interactive attention character</strong> and toggle（切换） this feature; additionally, the session manager keeps track of the TTY configuration of each job, and updates the TTY whenever there is a job switch.</p>
+<p>总结：上面这段话中出现了input stream，这个概念我之前一直是比较模糊的，今天看了这篇文章，才发现这个概念是和terminal密切相关的。</p>
+<h3 id="sigquit">SIGQUIT<a class="headerlink" href="#sigquit" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Core dump</strong></li>
+<li>Possible actions: Core dump, Ignore, Function call</li>
+</ul>
+<p><code>SIGQUIT</code> works just like <code>SIGINT</code>, but the quit character is typically <code>^\</code> and the default action is different.</p>
+<h3 id="sigpipe">SIGPIPE<a class="headerlink" href="#sigpipe" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Terminate</strong></li>
+<li>Possible actions: Terminate, Ignore, Function call</li>
+</ul>
+<p>The kernel sends <code>SIGPIPE</code> to any process which tries to write to a pipe with no readers. This is useful, because otherwise jobs like <code>yes | head</code> would never terminate.</p>
+<h3 id="sigchld">SIGCHLD<a class="headerlink" href="#sigchld" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Ignore</strong></li>
+<li>Possible actions: Ignore, Function call</li>
+</ul>
+<p>When a process dies or changes state (stop/continue), the kernel sends a <code>SIGCHLD</code>to its <strong>parent process</strong>. The <code>SIGCHLD</code> signal carries additional information, namely the process id, the user id, the exit status (or termination signal) of the terminated process and some execution time statistics. The <strong>session leader</strong> (shell) keeps track of its jobs using this signal.</p>
+<h3 id="sigstop">SIGSTOP<a class="headerlink" href="#sigstop" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Suspend</strong></li>
+<li>Possible actions: Suspend</li>
+</ul>
+<p>This signal will unconditionally suspend the recipient, i.e. its signal action can't be reconfigured. Please note, however, that <code>SIGSTOP</code> isn't sent by the kernel during <strong>job control.</strong> Instead, <code>^Z</code> typically triggers a <code>SIGTSTP</code>, which can be intercepted by the application. The application may then e.g. move the cursor to the bottom of the screen or otherwise put the terminal in a known state, and subsequently put itself to sleep using <code>SIGSTOP</code>.</p>
+<h3 id="sigcont">SIGCONT<a class="headerlink" href="#sigcont" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Wake up</strong></li>
+<li>Possible actions: Wake up, Wake up + Function call</li>
+</ul>
+<p><code>SIGCONT</code> will un-suspend a stopped process. It is sent explicitly by the shell when the user invokes the <code>fg</code> command. Since <code>SIGSTOP</code> can't be intercepted by an application, an unexpected <code>SIGCONT</code> signal might indicate that the process was suspended some time ago, and then un-suspended.</p>
+<h3 id="sigtstp">SIGTSTP<a class="headerlink" href="#sigtstp" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Suspend</strong></li>
+<li>Possible actions: Suspend, Ignore, Function call</li>
+</ul>
+<p><code>SIGTSTP</code> works just like <code>SIGINT</code> and <code>SIGQUIT</code>, but the magic character is typically <code>^Z</code> and the default action is to suspend the process.</p>
+<h3 id="sigttin">SIGTTIN<a class="headerlink" href="#sigttin" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Suspend</strong></li>
+<li>Possible actions: Suspend, Ignore, Function call</li>
+</ul>
+<p>If a process within <strong>a background job</strong> tries to read from a TTY device, the TTY sends a <code>SIGTTIN</code> signal to the entire job. This will normally suspend the job.</p>
+<h3 id="sigttou">SIGTTOU<a class="headerlink" href="#sigttou" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Suspend</strong></li>
+<li>Possible actions: Suspend, Ignore, Function call</li>
+</ul>
+<p>If a process within a <strong>background job</strong> tries to write to a TTY device, the TTY sends a <code>SIGTTOU</code> signal to the entire job. This will normally suspend the job. It is possible to turn off this feature on a per-TTY basis.</p>
+<h3 id="sigwinch">SIGWINCH<a class="headerlink" href="#sigwinch" title="Permanent link">#</a></h3>
+<ul>
+<li>Default action: <strong>Ignore</strong></li>
+<li>Possible actions: Ignore, Function call</li>
+</ul>
+<p>As mentioned, the TTY device keeps track of the terminal size, but this information needs to be updated manually. Whenever that happens, the TTY device sends <code>SIGWINCH</code> to the <strong>foreground job</strong>. Well-behaving interactive applications, such as editors, react upon this, fetch the new terminal size from the TTY device and redraw themselves accordingly.</p>
+<h2 id="an-example">An example<a class="headerlink" href="#an-example" title="Permanent link">#</a></h2>
+<p>Suppose that you are editing a file in your (terminal based) editor of choice. The cursor is somewhere in the middle of the screen, and the editor is busy executing some processor intensive task, such as a search and replace operation on a large file. Now you press <code>^Z</code>. Since the <strong>line discipline</strong> has been configured to intercept this character (<code>^Z</code> is a single byte, with ASCII code 26), you don't have to wait for the editor to complete its task and start reading from the TTY device. Instead, the line discipline subsystem instantly sends <code>SIGTSTP</code>to the <strong>foreground process group</strong>. This process group contains the editor, as well as any child processes created by it.</p>
+<p>总结：<code>SIGTSTP</code>是被发送都了 <strong>foreground process group</strong>，而非直接发送到了目标进程。</p>
+<p>The editor has installed a <strong>signal handler</strong> for <code>SIGTSTP</code>, so the kernel diverts（转接） the process into executing the signal handler code（在process收到signal的情况下是由kernel来进行divert然后调用它的signal handler code的）. This code moves the cursor to the last line on the screen, by writing the corresponding control sequences to the TTY device. Since the editor is still in the foreground, the control sequences are transmitted as requested. But then the editor sends a <code>SIGSTOP</code> to its own <strong>process group</strong>.</p>
+<p>The editor has now been stopped（此时editor process就停止了）. This fact is reported to the <strong>session leader</strong> using a <code>SIGCHLD</code> signal, which includes the id of the suspended process（停止session leader）. When all processes in the <strong>foreground job</strong> have been suspended, the <strong>session leader</strong> reads the current configuration from the TTY device, and stores it for later retrieval（思考：此处的it是指current configuration吗）. The session leader goes on to install itself as the <strong>current foreground process group</strong> for the TTY using an <code>ioctl</code> call. Then, it prints something like "[1]+ Stopped" to inform the user that a job was just suspended.</p>
+<p>At this point, <code>ps(1)</code> will tell you that the editor process is in the stopped state ("<code>T</code>"). If we try to wake it up, either by using the <code>bg</code> built-in shell command, or by using <code>kill(1)</code> to send <code>SIGCONT</code> to the process(es), the editor will start executing its <code>SIGCONT</code> signal handler. This <strong>signal handler</strong> will probably attempt to redraw the editor GUI by writing to the TTY device. But since the editor is now a <strong>background job</strong>, the TTY device will not allow it. Instead, the TTY will send <code>SIGTTOU</code> to the editor, stopping it again. This fact will be communicated to the session leader using <code>SIGCHLD</code>, and the shell will once again write "[1]+ Stopped" to the terminal.</p>
+<p>When we type <code>fg</code>, however, the shell first restores the <strong>line discipline configuration</strong> that was saved earlier. It informs the TTY driver that the editor job should be treated as the foreground job from now on. And finally, it sends a <code>SIGCONT</code> signal to the process group. The editor process attempts to redraw its GUI, and this time it will not be interrupted by <code>SIGTTOU</code> since it is now a part of the <strong>foreground job</strong>.</p>
+<h2 id="flow-control-and-blocking-io">Flow control and blocking I/O<a class="headerlink" href="#flow-control-and-blocking-io" title="Permanent link">#</a></h2>
+<p>Run <code>yes</code> in an <code>xterm</code>, and you will see a lot of "<code>y</code>" lines swooshing past your eyes. Naturally, the <code>yes</code> process is able to generate "<code>y</code>" lines much faster than the <code>xterm</code> application is able to parse them, update its frame buffer, communicate with the X server in order to scroll the window and so on. How is it possible for these programs to cooperate?</p>
+<p>The answer lies in <em>blocking I/O</em>. The <strong>pseudo terminal</strong> can only keep a certain amount of data inside its kernel buffer, and when that buffer is full and <code>yes</code> tries to call <code>write(2)</code>, then <code>write(2)</code> will <em>block</em>, moving the <code>yes</code> process into the <strong>interruptible sleep state</strong> where it remains until the <code>xterm</code> process has had a chance to read off some of the buffered bytes.</p>
+<p>The same thing happens if the TTY is connected to a serial port. <code>yes</code> would be able to transmit data at a much higher rate than, say, 9600 baud, but if the serial port is limited to that speed, the kernel buffer soon fills up and any subsequent <code>write(2)</code> calls block the process (or fail with the error code <code>EAGAIN</code> if the process has requested non-blocking I/O).</p>
+<p>What if I told you, that it is possible to explicitly put the TTY in a <strong>blocking state</strong> even though there is space left in the kernel buffer? That until further notice, every process trying to <code>write(2)</code> to the TTY automatically blocks. What would be the use of such a feature?</p>
+<p>Suppose we're talking to some old VT-100 hardware at 9600 baud. We just sent a complex <strong>control sequence</strong> asking the terminal to scroll the display. At this point, the terminal gets so bogged down with the scrolling operation（终端因滚动操作陷入困境）, that it's unable to receive new data at the full rate of 9600 baud. Well, physically, the terminal UART still runs at 9600 baud, but there won't be enough buffer space in the terminal to keep a backlog of received characters. This is when it would be a good time to put the TTY in a <strong>blocking state.</strong> But how do we do that from the terminal?</p>
+<p>We have already seen that a <strong>TTY device</strong> may be configured to give certain data bytes a special treatment. In the default configuration, for instance, a received <code>^C</code> byte won't be handed off to the application through <code>read(2)</code>, but will instead cause a <code>SIGINT</code> to be delivered to the <strong>foreground job</strong>. In a similar way, it is possible to configure the TTY to react on a <em>stop flow</em> byte and a <em>start flow</em> byte. These are typically <code>^S</code> (ASCII code 19) and <code>^Q</code> (ASCII code 17) respectively. Old hardware terminals transmit these bytes automatically, and expect the operating system to regulate（调节） its flow of data accordingly. This is called <strong>flow control</strong>, and it's the reason why your <code>xterm</code> sometimes appears to lock up when you accidentally press <code>^S</code>.</p>
+<p>There's an important difference here: Writing to a TTY which is stopped due to <strong>flow control</strong>, or due to <strong>lack of kernel buffer space</strong>, will <em>block</em> your process, whereas writing to a TTY from a background job will cause a <code>SIGTTOU</code> to suspend the entire process group. I don't know why the designers of UNIX had to go all the way to invent <code>SIGTTOU</code> and <code>SIGTTIN</code>instead of relying on <strong>blocking I/O</strong>, but my best guess is that the TTY driver, being in charge of job control, was designed to monitor and manipulate whole jobs; never the individual processes within them.</p>
+<h2 id="configuring-the-tty-device">Configuring the TTY device<a class="headerlink" href="#configuring-the-tty-device" title="Permanent link">#</a></h2>
+<p><img alt="Control panel" src="http://www.linusakesson.net/programming/tty/cockpit.jpg" /></p>
+<p>To find out what the controlling TTY for your shell is called, you could refer to the <code>ps l</code> listing as described earlier, or you could simply run the <code>tty(1)</code> command.</p>
+<p>A process may read or modify the configuration of an open TTY device using <code>ioctl(2)</code>. The API is described in <code>tty_ioctl(4)</code>. Since it's part of the binary interface between <strong>Linux applications</strong> and the <strong>kernel</strong>, it will remain stable across Linux versions. However, the interface is non-portable, and applications should rather use the <strong>POSIX wrappers</strong> described in the <code>termios(3)</code> man page.</p>
+<p>I won't go into the details of the <code>termios(3)</code> interface, but if you're writing a C program and would like to intercept <code>^C</code> before it becomes a <code>SIGINT</code>, disable line editing or character echoing, change the baud rate of a serial port, turn off flow control etc. then you will find what you need in the aforementioned man page.</p>
+<p>There is also a command line tool, called <code>stty(1)</code>, to manipulate TTY devices. It uses the <code>termios(3)</code> API.</p>
+<p>Let's try it!</p>
+<pre><code class="bash">$ stty -a
+speed 38400 baud; rows 73; columns 238; line = 0;
+intr = ^C; quit = ^\; erase = ^?; kill = ^U; eof = ^D; eol = &lt;undef&gt;; eol2 = &lt;undef&gt;; swtch = &lt;undef&gt;; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R; werase = ^W; lnext = ^V; flush = ^O; min = 1; time = 0;
+-parenb -parodd cs8 -hupcl -cstopb cread -clocal -crtscts
+-ignbrk brkint ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl ixon -ixoff -iuclc -ixany imaxbel -iutf8
+opost -olcuc -ocrnl onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0
+isig icanon iexten echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke
+</code></pre>
+
+<p>The <code>-a</code> flag tells <code>stty</code> to display <strong>all</strong> settings. By default, it will look at the TTY device attached to your shell, but you can specify another device with <code>-F</code>.</p>
+<p>Some of these settings refer to UART parameters, some affect the line discipline and some are for job control. <em>All mixed up in a bucket for monsieur.</em> Let's have a look at the first line:</p>
+<table>
+<thead>
+<tr>
+<th>speed</th>
+<th>UART</th>
+<th>The baud rate. Ignored for pseudo terminals.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rows, columns</td>
+<td>TTY driver</td>
+<td>Somebody's idea of the size, in characters, of the terminal attached to this TTY device. Basically, it's just a pair of variables within kernel space, that you may freely set and get. Setting them will cause the TTY driver to dispatch a <code>SIGWINCH</code> to the foreground job.</td>
+</tr>
+<tr>
+<td>line</td>
+<td>Line discipline</td>
+<td>The line discipline attached to the TTY device. 0 is <code>N_TTY</code>. All valid numbers are listed in <code>/proc/tty/ldiscs</code>. Unlisted numbers appear to be aliases for <code>N_TTY</code>, but don't rely on it.</td>
+</tr>
+</tbody>
+</table>
+<p>Try the following: Start an <code>xterm</code>. Make a note of its TTY device (as reported by <code>tty</code>) and its size (as reported by <code>stty -a</code>). Start <code>vim</code> (or some other full-screen terminal application) in the <code>xterm</code>. The editor queries the TTY device for the current terminal size in order to fill the entire window. Now, from a different shell window, type:</p>
+<pre><code class="bash">stty -F X rows Y
+</code></pre>
+
+<p>where <em>X</em> is the TTY device, and <em>Y</em> is half the terminal height. This will update the TTY data structure in kernel memory, and send a <code>SIGWINCH</code> to the editor, which will promptly redraw itself using only the upper half of the available window area.</p>
+<p>The second line of <code>stty -a</code> output lists all the special characters. Start a new <code>xterm</code> and try this:</p>
+<pre><code class="bash">stty intr o
+</code></pre>
+
+<p>Now "<code>o</code>", rather than <code>^C</code>, will send a <code>SIGINT</code> to the foreground job. Try starting something, such as <code>cat</code>, and verify that you can't kill it using <code>^C</code>. Then, try typing "<code>hello</code>" into it.</p>
+<p>Occasionally, you may come across a UNIX system where the backspace key doesn't work. This happens when the terminal emulator transmits a backspace code (either ASCII 8 or ASCII 127) which doesn't match the <code>erase</code> setting in the TTY device. To remedy the problem, one usually types <code>stty erase ^H</code> (for ASCII 8) or <code>stty erase ^?</code> (for ASCII 127). But please remember that many terminal applications use <code>readline</code>, which puts the line discipline in raw mode. Those applications aren't affected.</p>
+<p>Finally, <code>stty -a</code> lists a bunch of switches. As expected, they are listed in no particular order. Some of them are UART-related, some affect the line discipline behaviour, some are for flow control and some are for job control. A dash (<code>-</code>) indicates that the switch is off; otherwise it is on. All of the switches are explained in the <code>stty(1)</code> man page, so I'll just briefly mention a few:</p>
+<p><strong>icanon</strong> toggles the canonical (line-based) mode. Try this in a new <code>xterm</code>:</p>
+<pre><code class="bash">stty -icanon; cat
+</code></pre>
+
+<p>Note how all the line editing characters, such as backspace and <code>^U</code>, have stopped working. Also note that <code>cat</code> is receiving (and consequently outputting) one character at a time, rather than one line at a time.</p>
+<p><strong>echo</strong> enables character echoing, and is on by default. Re-enable canonical mode (<code>stty icanon</code>), and then try:</p>
+<pre><code class="bash">stty -echo; cat
+</code></pre>
+
+<p>As you type, your terminal emulator transmits information to the kernel. Usually, the kernel echoes the same information back to the terminal emulator, allowing you to see what you type. Without character echoing, you can't see what you type, but we're in cooked mode so the line editing facilities are still working. Once you press enter, the line discipline will transmit the edit buffer to <code>cat</code>, which will reveal what your wrote.</p>
+<p><strong>tostop</strong> controls whether background jobs are allowed to write to the terminal. First try this:</p>
+<pre><code class="bash">stty tostop; (sleep 5; echo hello, world) &amp;
+</code></pre>
+
+<p>The <code>&amp;</code> causes the command to run as a background job. After five seconds, the job will attempt to write to the TTY. The TTY driver will suspend it using <code>SIGTTOU</code>, and your shell will probably report this fact, either immediately, or when it's about to issue a new prompt to you. Now kill the background job, and try the following instead:</p>
+<pre><code class="bash">stty -tostop; (sleep 5; echo hello, world) &amp;
+</code></pre>
+
+<p>You will get your prompt back, but after five seconds, the background job transmits <code>hello, world</code> to the terminal, in the middle of whatever you were typing.</p>
+<p>Finally, <code>stty sane</code> will restore your TTY device configuration to something reasonable.</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">#</a></h2>
+<p>I hope this article has provided you with enough information to get to terms with TTY drivers and line disciplines, and how they are related to terminals, line editing and job control. Further details can be found in the various man pages I've mentioned, as well as in the glibc manual (<code>info libc</code>, "Job Control").</p>
+<p>Finally, while I don't have enough time to answer all the questions I get, I do welcome feedback on this and other pages on the site. Thanks for reading!</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.808e90bb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>

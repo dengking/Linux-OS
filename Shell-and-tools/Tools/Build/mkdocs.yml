@@ -1,0 +1,6 @@
+nav: 
+    - Introduction: index.md
+    - Autoconf: Autoconf
+    - Automake: Automake
+    - Autotools-Mythbuster: Autotools-Mythbuster
+    - Make: Make

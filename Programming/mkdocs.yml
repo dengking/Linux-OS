@@ -4,13 +4,20 @@ nav:
     - Lib: 01-02-Lib
     - Common: 01-03-Common
     - Philosophy: 01-philosophy
+    - File-system: 01-04-File-system
     - Process: 02-Process
     - IO: 03-IO
     - Time: 03-Time
     - Signal: 04-Signal
+    # 系统提供的虚拟化功能
     - Virtualization: 05-Linux-Virtualization
+    # OS提供的一些基础功能，比如日志等
     - Util: 06-Util
+    # 终端也是一个非常重要的内容，我们都是通过pseudo-terminal登录到系统的
+    - Terminal: Terminal
+    # 那些经常会碰到的错误
+    - Computer-errors: Computer-errors
     - Kernel-module: 07-Linux-Kernel-module
-    - Shell: 08-Shell
+
     
     

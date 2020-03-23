@@ -1,0 +1,4 @@
+nav:
+    - Makefile-template: Makefile-template.md
+    - Template-for-executable: Template-for-executable
+    - Template-for-so: Template-for-so

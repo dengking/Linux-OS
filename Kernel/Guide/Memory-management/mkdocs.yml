@@ -1,6 +1,6 @@
 nav:
-    - Introduction: index.md
     - Memory-management: Memory-management.md
     - Memory-protection: Memory-protection.md
-    - Difference-Between-Paging-and-Segmentation-in-OS: Difference-Between-Paging-and-Segmentation-in-OS.md
     - Virtual-memory: Virtual-memory
+    # paging在virtual memory中才会使用，所以先将介绍virtual memory，然后再来介绍paging和segmentation之间的差异
+    - Difference-Between-Paging-and-Segmentation-in-OS: Difference-Between-Paging-and-Segmentation-in-OS.md

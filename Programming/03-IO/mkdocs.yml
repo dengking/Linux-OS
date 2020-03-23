@@ -3,7 +3,8 @@ nav:
     - Input-output: Input-output.md
     - IO-model: IO-model
     - Stream: Stream.md
-    - Bitstream: Bitstream.md   
+    - Bitstream: Bitstream.md 
+    - VS-stream-VS-fd: VS-stream-VS-fd.md
     - File: File
     - Network: Network
     - Notify-via-fd: Notify-via-fd.md
