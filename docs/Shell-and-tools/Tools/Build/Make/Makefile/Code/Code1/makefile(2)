@@ -1,0 +1,81 @@
+# 编译参数
+# 打包生成目录 
+PREFIX:=../Run
+
+# 公共模块或插件
+PUB_MOD:=algo_public fsc_hqaccess fsc_predict
+# 策略服务模块
+ALGOSERVER_MOD:=algo strategy_public_c component_public \
+				algo_twap_plus algo_vwap_plus \
+				algo_pov algo_iceberg algo_is
+
+
+ALGOSERVER_INSTALL:=libalgo_public.so \
+                   libstrategy_public.so libcomponent_public.so \
+                   libfsc_hqaccess.so libh5api.so libfsc_predict.so \
+                   libuhqapih5.so libuhqapiadapter.so libf_os.so libprotoc.so.8 libprotobuf.so.8 libt2sdk.so libsm34_algo.so \
+                   libalgoframe.so libcrypto.so libfsc_algojrmem.so \
+                   libfsc_algolog.so libs_glbfunction_or.so libs_helper.so \
+                   libs_json.so libs_jsonpack_interface.so libs_liblogpublic.so \
+                   libs_libpublic.so libs_pub_logmgmt.so libssl.so \
+                   libs_ls_ls_algo_serverflow_twap_plus.so libalgo_twap_plus.so \
+                   libs_ls_ls_algo_serverflow_vwap_plus.so libalgo_vwap_plus.so \
+                   libs_ls_ls_algo_serverflow_pov.so libalgo_pov.so \
+                   libs_ls_ls_algo_serverflow_iceberg.so libalgo_iceberg.so \
+                   libs_ls_ls_algo_serverflow_is.so libalgo_is.so
+
+# 打包函数定义
+define algoserver_pack
+	$(shell mkdir -p $(PREFIX)/AlgoServer/appcom/) \
+	@for sub in $(ALGOSERVER_INSTALL); do \
+		install -v ../appcom/$$sub $(PREFIX)/AlgoServer/appcom/$$sub;    \
+	done
+endef
+
+
+# 最后appcom全编并打包至Run
+all: clean pub_set public algoserver algoserver_pack
+
+.PHONY:all rebuild clean algoserver_pack pub_set public public_clean algoserver algoserver_clean  $(PUB_MOD) $(ALGOSERVER_MOD)
+
+#公共模块依赖关系
+fsc_hqaccess fsc_algojrmem s_pub_logmgmt fsc_algolog: pub_set algo_public 
+
+pub_set:
+	$(shell mkdir -p ../appcom)
+	install -v ./lib/* ../appcom
+	install -v ./lib/libs_ls_ls_algo_serverflow.so ../appcom/libs_ls_ls_algo_serverflow_twap_plus.so
+	install -v ./lib/libs_ls_ls_algo_serverflow.so ../appcom/libs_ls_ls_algo_serverflow_vwap_plus.so
+	install -v ./lib/libs_ls_ls_algo_serverflow.so ../appcom/libs_ls_ls_algo_serverflow_pov.so
+	install -v ./lib/libs_ls_ls_algo_serverflow.so ../appcom/libs_ls_ls_algo_serverflow_iceberg.so
+	install -v ./lib/libs_ls_ls_algo_serverflow.so ../appcom/libs_ls_ls_algo_serverflow_is.so
+	
+	
+public: pub_set $(PUB_MOD)
+
+$(PUB_MOD): pub_set
+	@$(MAKE) -C $@ || exit "$$?";
+
+public_clean:
+	@for dir in $(PUB_MOD); do	\
+		make -C $$dir clean || exit "$$?";	\
+	done
+
+algoserver: $(ALGOSERVER_MOD)
+
+$(ALGOSERVER_MOD): pub_set algo_public
+	@$(MAKE) -C $@ || exit "$$?";
+
+
+algoserver_clean:
+	@for dir in $(ALGOSERVER_MOD); do	\
+		make -C $$dir clean || exit "$$?";	\
+	done
+
+
+algoserver_pack:
+	$(call algoserver_pack)
+
+
+clean: public_clean algoserver_clean
+	rm -rf ../appcom/* ../Run/*

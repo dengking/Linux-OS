@@ -210,13 +210,17 @@ nav:
   - Terminal:
     - Introduction: Programming/Terminal/index.md
   - Computer-errors:
-    - Double-free:
-      - Double-free: Programming/Computer-errors/Double-free/Double-free.md
-    - Segment-fault:
-      - Segmentation-fault: Programming/Computer-errors/Segment-fault/Segmentation-fault.md
-      - Misalignment:
-        - __strcpy_sse2_unaligned:
-          - __strcpy_sse2_unaligned: Programming/Computer-errors/Segment-fault/Misalignment/__strcpy_sse2_unaligned/__strcpy_sse2_unaligned.md
+    - Memory-access-error:
+      - Introduction: Programming/Computer-errors/Memory-access-error/index.md
+      - Double-free:
+        - Double-free: Programming/Computer-errors/Memory-access-error/Double-free/Double-free.md
+      - Segment-fault:
+        - Segmentation-fault: Programming/Computer-errors/Memory-access-error/Segment-fault/Segmentation-fault.md
+        - Misalignment:
+          - __strcpy_sse2_unaligned:
+            - __strcpy_sse2_unaligned: Programming/Computer-errors/Memory-access-error/Segment-fault/Misalignment/__strcpy_sse2_unaligned/__strcpy_sse2_unaligned.md
+      - Out-of-bound:
+        - Introduction: Programming/Computer-errors/Memory-access-error/Out-of-bound/index.md
   - Kernel-module:
     - Loadable-kernel-module: Programming/07-Linux-Kernel-module/Loadable-kernel-module.md
 - Shell-and-tools:
