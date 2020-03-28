@@ -1,5 +1,8 @@
 nav:
     - Introduction: index.md
     - Credential: Credential
+    - Organization-of-process: Organization-of-process
+    - Capabilities: Capabilities
     - IPC: IPC
     - Thread: Thread
+    

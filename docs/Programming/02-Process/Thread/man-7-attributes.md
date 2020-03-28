@@ -1,0 +1,1 @@
+# [ATTRIBUTES(7)](http://man7.org/linux/man-pages/man7/attributes.7.html)
