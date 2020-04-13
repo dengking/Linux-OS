@@ -1,10 +1,18 @@
 nav:
     - Home: index.md
     - Operating-system-概述: Operating-system.md
-    - Unix-standardization-and-implementation: Unix-standardization-and-implementation.md
-    - Unix-&-Unix-like-&-Linux: Unix-&-Unix-like-&-Linux.md
+########## 描述linux OS的标准与实现##########     
+    - Unix-standardization-and-implementation: Unix-standardization-and-implementation
+##############################     
+##############################         
     - Architecture: Architecture
+########## 描述内核的相关知识##########             
     - Kernel: Kernel
-    - Network: Network
+##############################                 
+########## 描述linux OS中进行programming时的知识##########            
     - Programming: Programming
+##############################     
+########## 描述网络的知识##########                 
+    - Network: Network
+##############################                     
     - Shell-and-tools: Shell-and-tools

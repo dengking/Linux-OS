@@ -1,9 +1,14 @@
 nav:
     - Introduction: index.md
+########## Convention描述了linux OS中的一些惯例，如命名惯例等########## 
     - Convention: Convention
+############################## 
+########## lib描述linux OS的重要的库等##########     
     - Lib: Lib
-    - Common: Common
+##############################         
     - Philosophy: 01-philosophy
+    - Common: Common
+
     - File-system: 01-04-File-system
     - Process: 02-Process
     - IO: 03-IO

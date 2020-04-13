@@ -1,2 +1,3 @@
 nav:
-    - POSIX: organiztion-posix
+    - Introduction: index.md
+    - Glibc: Glibc.md
