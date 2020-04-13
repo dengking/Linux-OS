@@ -6,11 +6,13 @@ nav:
 ########## lib描述linux OS的重要的库等##########     
     - Lib: Lib
 ##############################         
-########## 在Linux OS中进行programming的哲学##########   
+########## 在Linux OS中进行programming的哲学##########       
     - Philosophy: 01-philosophy
+##############################             
+########## Linux OS的文件系统##########
+    - File-system: File-system
+##############################             
     - Common: Common
-
-    - File-system: 01-04-File-system
     - Process: 02-Process
     - IO: 03-IO
     - Time: 03-Time
