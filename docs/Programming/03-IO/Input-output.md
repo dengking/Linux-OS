@@ -1,6 +1,8 @@
-# [Input/output](https://en.wikipedia.org/wiki/Input/output)
+# Input output
 
-什么是IO，看看维基百科[Input/output](https://en.wikipedia.org/wiki/Input/output)的解释吧：
+什么是IO，看看维基百科[Input/output](https://en.wikipedia.org/wiki/Input/output)的解释吧。
+
+## 维基百科 [Input/output](https://en.wikipedia.org/wiki/Input/output)
 
 In [computing](https://en.wikipedia.org/wiki/Computing), **input/output** or **I/O** (or, informally, **io** or **IO**) is the communication between an [information processing system](https://en.wikipedia.org/wiki/Information_processing_system), such as a [computer](https://en.wikipedia.org/wiki/Computer), and the outside world, possibly a human or another [information processing system](https://en.wikipedia.org/wiki/Information_processor). [Inputs](https://en.wikipedia.org/wiki/Information) are the signals or data received by the system and outputs are the signals or [data](https://en.wikipedia.org/wiki/Data_(computing)) sent from it. The term can also be used as part of an action; to "perform I/O" is to perform an [input or output operation](https://en.wikipedia.org/wiki/I/O_scheduling).
 
@@ -14,9 +16,9 @@ In computer architecture, the combination of the [CPU](https://en.wikipedia.org/
 
 > NOTE: 这就是我们平时所说的IO。
 
-## Interface
+### Interface
 
-### Higher-level implementation
+#### Higher-level implementation
 
 Higher-level [operating system](https://en.wikipedia.org/wiki/Operating_system) and programming facilities employ separate, more abstract I/O concepts and [primitives](https://en.wikipedia.org/wiki/Primitive_(computer_science)). For example, most operating systems provide application programs with the concept of [files](https://en.wikipedia.org/wiki/Computer_file). The [C](https://en.wikipedia.org/wiki/C_(programming_language)) and [C++](https://en.wikipedia.org/wiki/C%2B%2B) programming languages, and operating systems in the [Unix](https://en.wikipedia.org/wiki/Unix) family, traditionally abstract files and devices as [streams](https://en.wikipedia.org/wiki/Stream_(computing)), which can be read or written, or sometimes both. The [C standard library](https://en.wikipedia.org/wiki/C_standard_library) provides [functions for manipulating streams](https://en.wikipedia.org/wiki/C_file_input/output) for input and output.
 

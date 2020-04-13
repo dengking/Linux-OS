@@ -1,6 +1,6 @@
 # 关于本章
 
-本章总结“subroute”即“函数”相关内容。
+本章总结“subroute”即“函数”相关内容。这部分内容已经转移到了到了工程[programming-language](https://dengking.github.io/programming-language/)。
 
 
 

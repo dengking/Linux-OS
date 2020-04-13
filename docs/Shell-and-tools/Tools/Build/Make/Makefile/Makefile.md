@@ -36,7 +36,23 @@ mod1:
 
 
 
-### 官方文档[8 Functions for Transforming Text](https://www.gnu.org/software/make/manual/html_node/Functions.html#Functions)
+### 官方文档 [8 Functions for Transforming Text](https://www.gnu.org/software/make/manual/html_node/Functions.html#Functions)
+
+
+
+#### [Text Functions](https://www.gnu.org/software/make/manual/html_node/Text-Functions.html#Text-Functions)
+
+在官方文档的这一章节定义了很多非常好用的由于文本操作的函数。
+
+
+
+##### patsubst
+
+CSDN的[makefile中的patsubst](https://blog.csdn.net/srw11/article/details/7516712)结合具体例子，介绍地较好。
+
+问题：patsubst中添加`or`
+
+答：在[How to add “or” in pathsubst in Makefile](https://stackoverflow.com/questions/19488990/how-to-add-or-in-pathsubst-in-makefile)中，给出了比较好的方法。
 
 
 
