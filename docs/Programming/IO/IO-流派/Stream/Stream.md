@@ -1,10 +1,22 @@
 # Stream
 
-在阅读[Input/output](https://en.wikipedia.org/wiki/Input/output)时，其中的一句话引起了我的注意：
+“stream”即“流”，在计算机科学中它是一个非常重要的概念：计算机科学是关于数据的科学，我们的计算机系统处理着各种各样的数据，我们可以形象地将数据的传递看做是“水流”一般，数据就像水流的流转一般在计算机系统中进行流转，可以将stream看做是一种描述数据流的模型，在使用stream来进行抽象的时候，我们可以考虑这样的问题：
 
-> For example, most operating systems provide application programs with the concept of [files](https://en.wikipedia.org/wiki/Computer_file). The [C](https://en.wikipedia.org/wiki/C_(programming_language)) and [C++](https://en.wikipedia.org/wiki/C%2B%2B) programming languages, and operating systems in the [Unix](https://en.wikipedia.org/wiki/Unix) family, traditionally abstract files and devices as [streams](https://en.wikipedia.org/wiki/Stream_(computing)), which can be read or written, or sometimes both. The [C standard library](https://en.wikipedia.org/wiki/C_standard_library) provides [functions for manipulating streams](https://en.wikipedia.org/wiki/C_file_input/output) for input and output.
+- 数据流向何处
+- 数据从何处流入
 
-这提示了我们：C系语言、Unix-like OS可以（说明不止一种方式）使用stream来描述IO。本文将对stream进行总结。
+stream模型抽象了数据的流动（流出、流入），stream模型可以抽象 input/output device，它能够抽象file、network device、custom adaptor device，所以使用stream模型构建的程序，允许我们实现使用抽象的stream来完成对多种device的IO。这个思想就是[abstraction](https://dengking.github.io/Post/Abstraction/Abstraction/)思想。
+
+stream模型基本上统治了IO领域：
+
+- 在[Everything-is-a-file](../../../Philosophy/Everything-is-a-file/Everything-is-a-file.md)中，我们其实已经探讨了linux的file descriptor其实代表的就是一个stream，它使用的就是stream模型，并且维基百科[Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file)描述的思想和上一段中的思想一致。
+- C++的[Input/output library](Input/output library)就是基于stream模型创建的。
+
+stream模型的另外一个非常重要的特性是它是discrete的，所以我们可以one-by-one地来对它计算，一种最最常见的方式就是iteration，关于此，参见工程[discrete-math](https://dengking.github.io/discrete-math/)的iteration章节，关于此，在维基百科[Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing))中也进行了详细地介绍。
+
+IO即输入、输出，就是典型的可以使用stream来进行描述的。
+
+
 
 
 
@@ -21,7 +33,7 @@
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), a **stream** is a [sequence](https://en.wikipedia.org/wiki/Sequence) of [data elements](https://en.wikipedia.org/wiki/Data_element) made available over time. A stream can be thought of as items on a [conveyor belt](https://en.wikipedia.org/wiki/Conveyor_belt) (传送带) being processed one at a time rather than in large batches.
 
-***TRANSLATION*** : 在计算机科学中，stream是随时间推移可用的一系列数据元素。 可以将stream视为传送带上的物品，一次一个地处理，而不是大批量处理。
+> TRANSLATION: 在计算机科学中，stream是随时间推移可用的一系列数据元素。 可以将stream视为传送带上的物品，一次一个地处理，而不是大批量处理。
 
 **Streams** are processed differently from [batch data](https://en.wikipedia.org/wiki/Batch_processing) – normal functions cannot operate on streams as a whole(不能够整个的操作stream), as they have potentially **unlimited data**, and formally, streams are [*codata*](https://en.wikipedia.org/wiki/Codata_(computer_science)) (potentially unlimited), not data (which is finite). Functions that operate on a stream, producing another stream, are known as [filters](https://en.wikipedia.org/wiki/Filter_(software)), and can be connected in [pipelines](https://en.wikipedia.org/wiki/Pipeline_(computing)), analogously to [function composition](https://en.wikipedia.org/wiki/Function_composition_(computer_science)). Filters may operate on one item of a stream at a time, or may base an item of output on multiple items of input, such as a [moving average](https://en.wikipedia.org/wiki/Moving_average).
 
