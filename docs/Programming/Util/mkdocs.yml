@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - Log: Log
+    - Shared-library: Shared-library

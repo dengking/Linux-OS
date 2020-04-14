@@ -1,0 +1,1 @@
+# [Linux Standard Base Core Specification for X86-64](https://refspecs.linuxfoundation.org/LSB_5.0.0/LSB-Core-AMD64/LSB-Core-AMD64/book1.html)

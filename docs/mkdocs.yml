@@ -8,7 +8,10 @@ nav:
     - Architecture: Architecture
 ########## 描述内核的相关知识##########             
     - Kernel: Kernel
-##############################                 
+##############################  
+##########Linux-Foundation定义了linux OS的方方面面##########               
+    - Linux-Foundation: Linux-Foundation
+##############################  
 ########## 描述linux OS中进行programming时的知识##########            
     - Programming: Programming
 ##############################     

@@ -1,2 +1,4 @@
 nav:
     - Introduction: index.md
+    - Date-and-Time: Date-and-Time.md
+    - man-clock_gettime: man-clock_gettime.md

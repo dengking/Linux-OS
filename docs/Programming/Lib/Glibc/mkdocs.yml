@@ -1,5 +1,4 @@
 nav:
     - Introduction: index.md
-    - LSB-Core: LSB-Core
     - Glibc: Glibc.md
     - The-GNU-C-Library: The-GNU-C-Library.md
