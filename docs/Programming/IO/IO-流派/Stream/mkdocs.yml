@@ -1,3 +1,4 @@
 nav:
     - Stream: Stream.md
+    - Standard-streams: Standard-streams.md
     - Bitstream: Bitstream.md
