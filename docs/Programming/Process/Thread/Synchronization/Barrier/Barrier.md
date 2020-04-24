@@ -25,3 +25,9 @@
 ## Exmaple
 
 http://man7.org/tlpi/code/online/dist/threads/pthread_barrier_demo.c.html
+
+
+
+### APUE 11.6.8 Barriers
+
+在APUE 11.6.8 Barriers给出了一个使用排序的非常好的例子，在本节的目录下有改例子的可执行程序。
