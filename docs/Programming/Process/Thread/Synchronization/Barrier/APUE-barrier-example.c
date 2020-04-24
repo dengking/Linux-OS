@@ -12,8 +12,12 @@
 /**
  * 这是源自于APUE的11.6.8节的例子。
  *编译指令：
+ * gcc -std=gnu99 barrier.c -lpthread
  *
- *
+ * 需要注意的是，如果使用如下编译指令：
+ * gcc -std=c99 barrier.c -lpthread
+ * 则会报如下错误：
+ * 未知的类型名‘pthread_barrier_t’
  */
 
 

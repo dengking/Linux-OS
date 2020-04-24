@@ -31,3 +31,22 @@ http://man7.org/tlpi/code/online/dist/threads/pthread_barrier_demo.c.html
 ### APUE 11.6.8 Barriers
 
 在APUE 11.6.8 Barriers给出了一个使用排序的非常好的例子，在本节的目录下有改例子的可执行程序。
+
+
+
+#### 编译问题
+
+使用`pthread_barrier_t`时，如果使用如下编译指令：
+```
+gcc -std=gnu99 barrier.c -lpthread
+```
+需要注意的是，如果使用如下编译指令：
+```
+gcc -std=c99 barrier.c -lpthread
+```
+则会报如下错误：
+```
+未知的类型名‘pthread_barrier_t’
+```
+
+具体参考：https://stackoverflow.com/questions/15673492/gcc-compile-fails-with-pthread-and-option-std-c99
