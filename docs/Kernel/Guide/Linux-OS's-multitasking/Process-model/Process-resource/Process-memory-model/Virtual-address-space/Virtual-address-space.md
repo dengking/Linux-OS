@@ -1,6 +1,6 @@
+# Virtual address space
 
-
-# [Virtual address space](https://en.wikipedia.org/wiki/Virtual_address_space)
+## 维基百科[Virtual address space](https://en.wikipedia.org/wiki/Virtual_address_space)
 
 In [computing](https://en.wikipedia.org/wiki/Computing), a **virtual address space** (**VAS**) or **address space** is the set of ranges of virtual addresses that an [operating system](https://en.wikipedia.org/wiki/Operating_system) makes available to a process. The range of virtual addresses usually starts at a low address and can extend to the highest address allowed by the computer's [instruction set architecture](https://en.wikipedia.org/wiki/Instruction_set) and supported by the [operating system](https://en.wikipedia.org/wiki/Operating_system)'s pointer size implementation, which can be 4 [bytes](https://en.wikipedia.org/wiki/Bytes) for [32-bit](https://en.wikipedia.org/wiki/32-bit) or 8 [bytes](https://en.wikipedia.org/wiki/Bytes) for [64-bit](https://en.wikipedia.org/wiki/64-bit) OS versions. This provides several benefits, one of which is security through [process isolation](https://en.wikipedia.org/wiki/Process_isolation) assuming each process is given a separate [address space](https://en.wikipedia.org/wiki/Address_space).
 

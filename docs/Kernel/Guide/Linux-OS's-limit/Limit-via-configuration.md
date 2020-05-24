@@ -20,3 +20,10 @@
 
 
 修改完毕以后，需重新登录，以便生效。
+
+## core dump unlimited
+
+```bash
+username - core unlimited
+```
+

@@ -90,4 +90,5 @@ TODO
 
 ## 总结
 
-process是OS的概念，在instruction层级并没有process的概念。OS使用process的目的是为了实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)，为了充分利用hardware。process是program的执行，它是OS进行resource分配的单位，不同process之间的资源需要完全隔离（特殊情况除外），OS中的所有process共享OS所管理的hardware资源。OS需要清楚地知道process和资源之间的关系，即一个process拥有哪些resource。
+process是OS的概念，在instruction层级并没有process的概念（[分层思想](https://dengking.github.io/Post/Abstraction/Abstraction-and-architecture-and-layer/)）。OS使用process的目的是为了实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)，为了充分利用hardware（one-to-many model，在工程[discrete math](https://dengking.github.io/discrete-math)中对此进行了描述）。process是program的执行，它是OS进行resource分配的单位，不同process之间的资源需要完全隔离（特殊情况除外），OS中的所有process共享OS所管理的hardware资源。OS需要清楚地知道process和资源之间的关系，即一个process拥有哪些resource（所以，每个process需要有自己独立的address space、file table等）。
+

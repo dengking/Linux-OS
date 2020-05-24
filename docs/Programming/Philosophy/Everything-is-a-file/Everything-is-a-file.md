@@ -8,7 +8,7 @@
 
 > NOTE: 最后一段话是对***"Everything is a file"*** 含义的解释：即将这些resource都看做是file（**streams of bytes** ）
 
-> NOTE: 上述 hard-drives，modems，keyboards，等都是device，显然在Unix中，它们都被看做成了file（**streams of bytes** ）
+> NOTE: 上述 hard-drives，modems，keyboards，等都是device，显然在Unix中，它们都被看做成了file（**streams of bytes** ），所以everything is a file，可以解释为everything is a file descriptor，每个descriptor对应的是一个stream，所以everything is a file descriptor可以解释为everything is a stream。
 
 The advantage of this approach is that the same set of tools, utilities and [APIs](https://en.wikipedia.org/wiki/API) can be used on a wide range of resources. There are a number of [file types](https://en.wikipedia.org/wiki/Unix_file_types). When a file is opened, a [file descriptor](https://en.wikipedia.org/wiki/File_descriptor) is created. The [file path](https://en.wikipedia.org/wiki/Path_(computing)) becoming the addressing system and the file descriptor being the byte stream I/O interface. But **file descriptors** are also created for things like [anonymous pipes](https://en.wikipedia.org/wiki/Anonymous_pipe) and [network sockets](https://en.wikipedia.org/wiki/Network_socket) via different methods. So it is more accurate to say ***"Everything is a file descriptor"***. 
 
