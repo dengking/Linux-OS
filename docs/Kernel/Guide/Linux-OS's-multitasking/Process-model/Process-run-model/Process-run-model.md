@@ -2,7 +2,7 @@
 
 本文的内容基于：
 
-- [上一篇](./Process-model.md)
+- [上一篇](../Process-model.md)
 
 - 龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)
 - 维基百科ABI

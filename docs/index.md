@@ -2,9 +2,13 @@
 
 从多个方面对Linux operating system进行分析，主要集中在如下几个方面:
 
+## Operating system 概述
+
+主要描述operating system的概念。
+
 ## Architecture
 
-描述Computing system的architecture。
+描述Computing system的architecture，建立起一个高屋建瓴的视角。
 
 ## Kernel
 
@@ -39,3 +43,9 @@ Linux operating system中的常见命令
 - [Linux Documentation](https://linux.die.net/)
 - [man7.org](http://man7.org/index.html) [Linux man pages](http://man7.org/linux/man-pages/index.html)
 - [die.net](https://www.die.net/) [Linux man pages](https://linux.die.net/man/)
+
+
+
+## Network
+
+network是一个和operating system密切相关的内容，和network相关的内容将在这一章节进行描述。
