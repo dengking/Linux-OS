@@ -3,3 +3,4 @@ nav:
     - Debugger: Debugger.md
     - Trap: Trap.md
     - Trace: Trace.md
+    - GDB: GDB
