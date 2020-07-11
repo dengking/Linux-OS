@@ -14,6 +14,8 @@
 
 ## Example of double free
 
+### Shallow copy
+
 在文章[C++ Made Easier: The Rule of Three](https://www.drdobbs.com/c-made-easier-the-rule-of-three/184401400)给出了一个非常典型的C++例子：
 
 ```c++
@@ -41,7 +43,7 @@ int main()
 
 > The reason for the trouble is that the **IntVec** class does not explicitly define a copy constructor. When a class does not define a copy constructor, the implementation synthesizes one, defining copying an object of the class in terms of copying the members of the class. In other words, when we initialize **y** as a copy of **x**, the implementation handles that definition by initializing **y.data** to be a copy of **x.data**. Forming this copy is not harmful by itself. However, when the program terminates, the local variables **x** and **y** will both be destroyed, which will result in executing **delete[]** on **x.data** and **y.data**. Because **x.data** and **y.data** have the same value, these two **delete[]** operations will try to free the same memory twice, the effect of which is undefined.
 
-### 运行结果
+#### 运行结果
 
 运行上述程序，进行回crash，产生core dump
 
@@ -62,6 +64,41 @@ Missing separate debuginfos, use: debuginfo-install glibc-2.17-260.el7.x86_64 li
 这是典型的因为shallow copy导致被double free的错误。
 
 可以看到，`delete` operator会被编译为调用`/lib64/libc.so`中的`_int_free`函数，这个函数中应该有在下一节中讲述的机制，然后一旦发现异常情况，就调用`abort`，`raise`来发送signal 6。其实还是比较好的情况，在下一节中，描述了另外一种更加隐晦、严重的情况。
+
+
+
+### 错误地使用[`std::shard_ptr`](https://en.cppreference.com/w/cpp/memory/shared_ptr) 
+
+错误地使用[`std::shard_ptr`](https://en.cppreference.com/w/cpp/memory/shared_ptr) 也是可能导致double free的，这个例子源自[learncpp 15.6 — std::shared_ptr](https://www.learncpp.com/cpp-tutorial/15-6-stdshared_ptr/)：
+
+```c++
+#include <iostream>
+#include <memory> // for std::shared_ptr
+ 
+class Resource
+{
+public:
+	Resource() { std::cout << "Resource acquired\n"; }
+	~Resource() { std::cout << "Resource destroyed\n"; }
+};
+ 
+int main()
+{
+	Resource *res = new Resource;
+	std::shared_ptr<Resource> ptr1(res);
+	{
+		std::shared_ptr<Resource> ptr2(res); // create ptr2 directly from res (instead of ptr1)
+ 
+		std::cout << "Killing one shared pointer\n";
+	} // ptr2 goes out of scope here, and the allocated Resource is destroyed
+ 
+	std::cout << "Killing another shared pointer\n";
+ 
+	return 0;
+} // ptr1 goes out of scope here, and the allocated Resource is destroyed again
+```
+
+> The difference here is that we created two std::shared_ptr independently from each other. As a consequence, even though they’re both pointing to the same Resource, they aren’t aware of each other. When ptr2 goes out of scope, it thinks it’s the only owner of the Resource, and deallocates it. When ptr1 later goes out of the scope, it thinks the same thing, and tries to delete the Resource again. Then bad things happen.
 
 ## Why does free crash when called twice?
 
