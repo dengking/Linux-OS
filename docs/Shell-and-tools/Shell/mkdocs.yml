@@ -1,3 +1,5 @@
 nav:
+    - Run-command: Run-command.md
     - Sched: Sched
     - Linux-Kernel-module: Linux-Kernel-module
+    
