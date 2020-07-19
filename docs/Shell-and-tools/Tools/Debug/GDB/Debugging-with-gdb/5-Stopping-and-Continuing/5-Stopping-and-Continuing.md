@@ -292,7 +292,49 @@ Pretty much anything you like! Just write the condition exactly as if you were t
 
 ### 5.1.7 Breakpoint Command Lists
 
+> NOTE: 这是automatic gdb debug的基础。
+
 You can give any **breakpoint** (or **watchpoint** or **catchpoint**) a series of commands to execute when your program stops due to that **breakpoint**. For example, you might want to print the values of certain expressions, or enable other breakpoints.
+
+```
+commands [range...]
+... command-list ...
+end
+```
+
+
+
+#### Example: print variable
+
+For example, here is how you could use breakpoint commands to print the value of `x` at entry to `foo` whenever `x` is positive.
+
+```shell
+break foo if x>0
+commands
+silent
+printf "x is %d\n",x
+cont
+end
+```
+
+
+
+#### Example:  compensate for one bug
+
+One application for breakpoint commands is to compensate(偿还) for one bug so you can test for another. 
+
+Put a breakpoint just after the erroneous line of code, give it a condition to detect the case in which something erroneous has been done, and give it commands to assign correct values to any variables that need them. End with the continue command so that your program does not stop, and start with the silent command so that no output is produced. Here is an example:
+
+```
+break 403
+commands
+silent
+set x = y + 4
+cont
+end
+```
+
+
 
 
 
