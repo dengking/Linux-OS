@@ -2,13 +2,13 @@
 
 ## 5.1 Breakpoints, Watchpoints, and Catchpoints
 
-增
 
-|            | command |      |      |
-| ---------- | ------- | ---- | ---- |
-| breakpoint | `break` |      |      |
-| watchpoint | `watch` |      |      |
-| catchpoint | `catch` |      |      |
+
+| 名称       | 说明                                                         | command |      |      |
+| ---------- | ------------------------------------------------------------ | ------- | ---- | ---- |
+| breakpoint | A **breakpoint** makes your program stop whenever a certain point(location) in the program is reached. | `break` |      |      |
+| watchpoint | A **watchpoint** is a special breakpoint that stops your program when the value of an expression changes. | `watch` |      |      |
+| catchpoint | A catchpoint is another special breakpoint that stops your program when a certain kind of event occurs, such as the throwing of a C++ exception or the loading of a library. | `catch` |      |      |
 
 查
 
@@ -17,6 +17,50 @@
 删
 
 5.1.4 Deleting Breakpoints节
+
+### 5.1.1 Setting Breakpoints
+
+| ccomand             | 说明                                                         |                      |
+| ------------------- | ------------------------------------------------------------ | -------------------- |
+| `break location`    |                                                              |                      |
+| `break`             | When called without any arguments, break sets a breakpoint at the next instruction to be executed in the selected stack frame |                      |
+| `break ... if cond` | Set a breakpoint with condition `cond`;                      |                      |
+| `tbreak args`       | Set a breakpoint enabled only for one stop                   | temporary breakpoint |
+| `hbreak args`       | Set a hardware-assisted breakpoint.                          |                      |
+| `thbreak args`      | Set a hardware-assisted breakpoint enabled only for one stop. |                      |
+| `rbreak regex`      | Set breakpoints on all functions matching the regular expression regex. |                      |
+| `rbreak file:regex` | If `rbreak` is called with a filename qualification, it limits the search for functions matching the given regular expression to the specified file. |                      |
+
+### 5.1.2 Setting Watchpoints
+
+
+
+
+
+#### Example
+
+[GDB: break if variable equal value](https://stackoverflow.com/questions/14390256/gdb-break-if-variable-equal-value):
+
+```c
+#include <stdio.h>
+main()
+{ 
+     int i = 0;
+     for(i=0;i<7;++i)
+        printf("%d\n", i);
+
+     return 0;
+}
+```
+
+[A](https://stackoverflow.com/a/14390352)
+
+You can use a watchpoint for this (A breakpoint on data instead of code).
+
+You can start by using `watch i`.
+Then set a condition for it using `condition <breakpoint num> i == 5`
+
+You can get the breakpoint number by using `info watch`
 
 ### 5.1.3 Setting Catchpoints
 
@@ -100,6 +144,157 @@ Catchpoint 1 (returned from syscall ’chroot’), \
 ```
 
 ### 5.1.4 Deleting Breakpoints
+
+#### `clear`
+
+### 5.1.6 Break Conditions
+
+The simplest sort of breakpoint breaks every time your program reaches a specified place. You can also specify a ***condition*** for a breakpoint. A condition is just a Boolean expression in your programming language (see Section 10.1 [Expressions], page 117). A breakpoint with a condition evaluates the expression each time your program reaches it, and your program stops only if the condition is ***true***.
+
+#### Break Condition VS assertion
+
+...
+
+#### Break Condition VS watchpoint
+
+...
+
+
+
+Break conditions can be specified when a breakpoint is set, by using ‘if’ in the arguments to the break command. See Section 5.1.1 [Setting Breakpoints], page 46. They can also be changed at any time with the condition command.
+
+You can also use the if keyword with the watch command. The catch command does not recognize the if keyword; condition is the only way to impose a further condition on a catchpoint.
+
+#### `condition bnum expression`
+
+Specify expression as the break condition for breakpoint, watchpoint, or catchpoint number `bnum`. 
+
+#### `condition bnum`
+
+Remove the condition from breakpoint number `bnum`.
+
+
+
+#### Example: specify a condition on an existing breakpoint
+
+文章[GDB Conditional Breakpoints](https://www.fayewilliams.com/2011/07/13/gdb-conditional-breakpoints/)中给出了一些例子：
+
+example: specify a condition on an existing breakpoint by using the breakpoint number as a reference
+
+You can also specify a condition on an existing breakpoint by using the breakpoint number as a reference:
+
+```
+cond 3 i == 99
+```
+
+```
+cond 3
+```
+
+
+
+#### Example: break if variable equal value
+
+[GDB Conditional Breakpoints](https://www.fayewilliams.com/2011/07/13/gdb-conditional-breakpoints/)中给出的例子：
+
+```shell
+b Message.cpp:112 if i == 99
+```
+
+我的实践:
+
+```shell
+b CHQImpl::DealMessage
+info locals
+cond 1 nFuncNo=107
+```
+
+上述表达的是：当函数`CHQImpl::DealMessage`的临时变量`nFuncNo`的值为`107`时，则break。
+
+[GDB: break if variable equal value](https://stackoverflow.com/questions/14390256/gdb-break-if-variable-equal-value)中给出的例子：
+
+I like to make GDB set a break point when a variable equal some value I set, I tried this example:
+
+```c
+#include <stdio.h>
+main()
+{ 
+     int i = 0;
+     for(i=0;i<7;++i)
+        printf("%d\n", i);
+
+     return 0;
+}
+```
+
+[A](https://stackoverflow.com/a/14390740):
+
+```shell
+(gdb) break iter.c:6 if i == 5
+Breakpoint 2 at 0x4004dc: file iter.c, line 6.
+(gdb) c
+Continuing.
+0
+1
+2
+3
+4
+
+Breakpoint 2, main () at iter.c:6
+6           printf("%d\n", i);
+```
+
+If like me you get tired of line numbers changing, you can add a label then set the breakpoint on the label like so:
+
+```c
+#include <stdio.h>
+main()
+{ 
+     int i = 0;
+     for(i=0;i<7;++i) {
+       looping:
+        printf("%d\n", i);
+     }
+     return 0;
+}
+
+(gdb) break main:looping if i == 5
+```
+
+
+
+#### Example: 更加复杂的条件
+
+[GDB Conditional Breakpoints](https://www.fayewilliams.com/2011/07/13/gdb-conditional-breakpoints/)中给出的例子：
+
+Pretty much anything you like! Just write the condition exactly as if you were testing for it in your code, e.g.:
+
+```shell
+(gdb) cond 1 strcmp(message,"earthquake") == 0
+//stop if the array message is equal to 'earthquake'
+```
+
+
+
+```shell
+(gdb) cond 2 *p == 'r'
+//stop if the char* pointer p points to the letter 'r'
+```
+
+
+
+```
+(gdb) cond 3 num < 0.75
+//stop while the float num is less than 0.75
+```
+
+
+
+### 5.1.7 Breakpoint Command Lists
+
+You can give any **breakpoint** (or **watchpoint** or **catchpoint**) a series of commands to execute when your program stops due to that **breakpoint**. For example, you might want to print the values of certain expressions, or enable other breakpoints.
+
+
 
 ## [5.2 Continuing and Stepping](https://sourceware.org/gdb/current/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping)
 

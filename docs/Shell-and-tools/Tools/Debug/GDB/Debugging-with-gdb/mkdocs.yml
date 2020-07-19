@@ -1,3 +1,11 @@
 nav:
+    - 2-Getting-In-and-Out-of-gdb: 2-Getting-In-and-Out-of-gdb
+    - 3-gdb-Commands: 3-gdb-Commands
+    - 4-Running-Programs-Under-gdb: 4-Running-Programs-Under-gdb
     - 5-Stopping-and-Continuing: 5-Stopping-and-Continuing
-    - gdb-in-action: gdb-in-action.md
+    - 6-Running-programs-backward: 6-Running-programs-backward
+    - 7-Recording-Inferior's-Execution-and-Replaying-It: 7-Recording-Inferior's-Execution-and-Replaying-It
+    - 8-Examining-the-Stack: 8-Examining-the-Stack
+    - 9-Examining-Source-Files: 9-Examining-Source-Files
+    - 18-gdb-Files: 18-gdb-Files
+    
