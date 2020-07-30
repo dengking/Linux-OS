@@ -10,3 +10,6 @@ Code3 makefile template for so
 
 Code4 makefile template for executable
 
+
+
+[GenericMakefile](https://github.com/mbcrawfo/GenericMakefile)
