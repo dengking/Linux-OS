@@ -20,3 +20,26 @@
 | `abort`           | `pthread_cancel`       | request abnormal termination of flow of control             |
 
 > Figure 11.6 Comparison of process and thread primitives
+
+
+
+## Fork-join model
+
+在工程[parallel-computing](https://dengking.github.io/machine-learning/)的`Model\Fork–join-model.md`中总结了Fork–join model，可以看到上述thread functions和process functions显然是遵循这种model的：
+
+下面是草稿
+
+fork api：
+
+| entity  | api                                                          |
+| ------- | ------------------------------------------------------------ |
+| process | [`fork`](https://www.man7.org/linux/man-pages/man2/fork.2.html) |
+| thread  | [`pthread_create`](https://man7.org/linux/man-pages/man3/pthread_create.3.html) |
+
+join api
+
+| entity  | api                                                          |
+| ------- | ------------------------------------------------------------ |
+| process | [WAIT(2)](http://man7.org/linux/man-pages/man2/waitpid.2.html)、[WAIT4(2)](http://man7.org/linux/man-pages/man2/wait4.2.html) |
+| thread  | [PTHREAD_JOIN(3)](http://man7.org/linux/man-pages/man3/pthread_join.3.html)、[pthread_barrier_wait(3)](https://linux.die.net/man/3/pthread_barrier_wait) |
+

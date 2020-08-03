@@ -1,4 +1,4 @@
 nav:
     - Barrier: Barrier
-    - Condition-variables-and-mutex: Condition-variables-and-mutex.md
+    - Condition-variables: Condition-variables.md
     - Join: Join.md
