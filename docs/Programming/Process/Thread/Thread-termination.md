@@ -107,7 +107,7 @@ By calling `pthread_join`, we automatically place the thread with which we’re 
 
 If we’re not interested in a thread’s **return value**, we can set `rval_ptr` to NULL. In this case, calling `pthread_join` allows us to wait for the specified thread, but does not retrieve the thread’s **termination status**.
 
-### Example
+### Example 11.3 
 
 Figure 11.3 shows how to fetch the exit code from a thread that has terminated.
 
@@ -224,7 +224,7 @@ The **typeless pointer** passed to `pthread_create` and `pthread_exit` can be us
 
 > NOTE: 上面所描述的问题就是dangling pointer问题，关于dangling pointer，参见`Programming\Computer-errors\Memory-access-error\Dangling-and-wild-pointer`
 
-### Example
+### Example 11.4: using an automatic variable (allocated on the stack) as the argument to `pthread_exit`
 
 The program in Figure 11.4 shows the problem with using an automatic variable (allocated on the stack) as the argument to `pthread_exit`.
 
