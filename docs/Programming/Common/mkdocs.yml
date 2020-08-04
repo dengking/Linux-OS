@@ -1,5 +1,5 @@
 nav:
-    - Time-and-space: Unix-programming-time-and-space.md
-    - System-call: Unix-system-call.md
-    - Safety: safety.md
+    - Time-and-space: Time-and-space.md
+    - System-call: System-call.md
+    - Safety: Safety.md
     - Path-resolution: Path-resolution.md
