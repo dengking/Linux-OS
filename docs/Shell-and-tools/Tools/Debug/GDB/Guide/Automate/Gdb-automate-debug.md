@@ -230,6 +230,86 @@ sudo gdb -p $(pidof my-app) -batch \
 
 
 
+## 使用`source start` 
+
+### Example [GDB: Automatic 'Next'ing?](https://stackoverflow.com/questions/5812411/gdb-automatic-nexting)
+
+```shell
+# file: step_mult.gdb
+
+define step_mult
+    set $step_mult_max = 1000
+    if $argc >= 1
+        set $step_mult_max = $arg0
+    end
+
+    set $step_mult_count = 0
+    while ($step_mult_count < $step_mult_max)
+        set $step_mult_count = $step_mult_count + 1
+        printf "step #%d\n", $step_mult_count
+        step
+    end
+end
+```
+
+
+
+```c++
+#include<stdio.h>
+
+int x[] = {
+    0, 1, 2, 3, 4, 5, 6, 7, 8,9, 10 
+};
+
+int* p[11];
+
+int main()
+{
+    int i;
+
+    for (i = 0; i < 11; ++i) {
+        p[i] = &x[i];
+    }
+
+    p[5] = 0;
+
+    for (i = 0; i < 11; ++i) {
+        printf( "*p[%d] == %d\n", i, *p[i]);
+    }
+
+    return 0;
+}
+```
+
+
+
+```shell
+C:\temp>gdb test.exe
+GNU gdb (GDB) 7.2
+...
+Reading symbols from C:\temp/test.exe...done.
+
+(gdb) source c:/temp/step_mult.gdb
+(gdb) start
+
+Temporary breakpoint 1 at 0x401385: file C:\temp\test.c, line 23.
+Starting program: C:\temp/test.exe
+[New Thread 5396.0x1638]
+
+Temporary breakpoint 1, main () at C:\temp\test.c:23
+23          for (i = 0; i < 11; ++i) {
+
+(gdb) step_mult 70
+
+step #1
+24              p[i] = &x[i];
+step #2
+23          for (i = 0; i < 11; ++i) {
+......
+```
+
+
+
 
 
 ## TO READ

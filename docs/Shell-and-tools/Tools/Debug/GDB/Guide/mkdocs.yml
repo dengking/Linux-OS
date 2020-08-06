@@ -3,4 +3,5 @@ nav:
     - gdb-primer: gdb-primer
     - GDB-Command-Reference: GDB-Command-Reference.md
     - Automate: Automate
+    - Debug-assembly: Debug-assembly.md
     - gdb-in-action: gdb-in-action.md

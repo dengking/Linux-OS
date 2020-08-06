@@ -350,5 +350,14 @@ end
 | -------------- | -------------- |
 | step会进入函数 | next不进入函数 |
 | 逐语句         | 逐过程         |
-|                |                |
+
+### 单位
+
+- 以function为单位 `next`
+
+- 以statement/source line为单位 `step`
+
+- 以instruction为单位 `stepi`、`nexti`
+
+  > NOTE: 主要用于debug assembly，关于debug assembly，参见`Shell-and-tools\Tools\Debug\GDB\Guide\Debug-assembly.md`
 

@@ -8,4 +8,5 @@ nav:
     - 8-Examining-the-Stack: 8-Examining-the-Stack
     - 9-Examining-Source-Files: 9-Examining-Source-Files
     - 18-gdb-Files: 18-gdb-Files
+    - 25-gdb-Text-User-Interface: 25-gdb-Text-User-Interface
     
