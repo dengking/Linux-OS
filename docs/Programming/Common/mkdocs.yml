@@ -1,5 +1,5 @@
 nav:
     - Time-and-space: Time-and-space.md
-    - Classification-of-system-call: Classification-of-system-call.md
+    - Classification-of-system-call: Classification-of-system-call
     - Safety: Safety.md
     - Path-resolution: Path-resolution.md
