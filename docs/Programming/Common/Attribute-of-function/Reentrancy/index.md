@@ -20,3 +20,10 @@ OS book的1.6.3. Reentrant Kernels中的“Reentrant”和Reentrant function中�
 
 
 
+### 3
+
+https://www.gnu.org/software/libc/manual/html_node/Nonreentrancy.html
+
+https://stackoverflow.com/questions/3941271/why-are-malloc-and-printf-said-as-non-reentrant
+
+https://stackoverflow.com/questions/855763/is-malloc-thread-safe
