@@ -1,5 +1,7 @@
 nav:
     - Time-and-space: Time-and-space.md
+    - Race-condition: Race-condition
     - Classification-of-system-call: Classification-of-system-call
+    - Attribute-of-function: Attribute-of-function
     - Safety: Safety.md
     - Path-resolution: Path-resolution.md
