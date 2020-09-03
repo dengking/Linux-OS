@@ -27,3 +27,9 @@ https://www.gnu.org/software/libc/manual/html_node/Nonreentrancy.html
 https://stackoverflow.com/questions/3941271/why-are-malloc-and-printf-said-as-non-reentrant
 
 https://stackoverflow.com/questions/855763/is-malloc-thread-safe
+
+### 4
+
+在 https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf 中，提及了
+
+> Unfortunately, this implementation is not reliable in a multithreaded environment. Suppose that Thread A enters the instance function, executes through Line 14, and is then suspended. At the point where it is suspended, it has just determined that pInstance is null, i.e., that no Singleton object has yet been created
