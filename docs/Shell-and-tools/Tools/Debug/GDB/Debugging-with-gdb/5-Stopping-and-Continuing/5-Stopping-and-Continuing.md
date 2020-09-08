@@ -20,16 +20,56 @@
 
 ### 5.1.1 Setting Breakpoints
 
-| ccomand             | 说明                                                         |                      |
-| ------------------- | ------------------------------------------------------------ | -------------------- |
-| `break location`    |                                                              |                      |
-| `break`             | When called without any arguments, break sets a breakpoint at the next instruction to be executed in the selected stack frame |                      |
-| `break ... if cond` | Set a breakpoint with condition `cond`;                      |                      |
-| `tbreak args`       | Set a breakpoint enabled only for one stop                   | temporary breakpoint |
-| `hbreak args`       | Set a hardware-assisted breakpoint.                          |                      |
-| `thbreak args`      | Set a hardware-assisted breakpoint enabled only for one stop. |                      |
-| `rbreak regex`      | Set breakpoints on all functions matching the regular expression regex. |                      |
-| `rbreak file:regex` | If `rbreak` is called with a filename qualification, it limits the search for functions matching the given regular expression to the specified file. |                      |
+| ccomand             | 说明                                                         |                           |
+| ------------------- | ------------------------------------------------------------ | ------------------------- |
+| `break location`    |                                                              |                           |
+| `break`             | When called without any arguments, break sets a breakpoint at the next instruction to be executed in the selected stack frame |                           |
+| `break ... if cond` | Set a breakpoint with condition `cond`;                      | 具体用法参见下面的example |
+| `tbreak args`       | Set a breakpoint enabled only for one stop                   | temporary breakpoint      |
+| `hbreak args`       | Set a hardware-assisted breakpoint.                          |                           |
+| `thbreak args`      | Set a hardware-assisted breakpoint enabled only for one stop. |                           |
+| `rbreak regex`      | Set breakpoints on all functions matching the regular expression regex. |                           |
+| `rbreak file:regex` | If `rbreak` is called with a filename qualification, it limits the search for functions matching the given regular expression to the specified file. |                           |
+
+#### Example
+
+**`break ... if cond`** 
+
+stackoverflow [GDB: break if variable equal value](https://stackoverflow.com/questions/14390256/gdb-break-if-variable-equal-value)的[回答](https://stackoverflow.com/a/14390740) 给出了它的用法：
+
+in addition to a **watchpoint** nested inside a breakpoint you can also set a single breakpoint on the 'filename:line_number' and use a condition. I find it sometimes easier.
+
+```c
+(gdb) break iter.c:6 if i == 5
+Breakpoint 2 at 0x4004dc: file iter.c, line 6.
+(gdb) c
+Continuing.
+0
+1
+2
+3
+4
+
+Breakpoint 2, main () at iter.c:6
+6           printf("%d\n", i);
+```
+
+If like me you get tired of line numbers changing, you can add a label then set the breakpoint on the label like so:
+
+```c
+#include <stdio.h>
+main()
+{ 
+     int i = 0;
+     for(i=0;i<7;++i) {
+       looping:
+        printf("%d\n", i);
+     }
+     return 0;
+}
+
+(gdb) break main:looping if i == 5
+```
 
 ### 5.1.2 Setting Watchpoints
 
@@ -39,7 +79,7 @@
 
 #### Example
 
-[GDB: break if variable equal value](https://stackoverflow.com/questions/14390256/gdb-break-if-variable-equal-value):
+stackoverflow [GDB: break if variable equal value](https://stackoverflow.com/questions/14390256/gdb-break-if-variable-equal-value):
 
 ```c
 #include <stdio.h>
@@ -61,6 +101,8 @@ You can start by using `watch i`.
 Then set a condition for it using `condition <breakpoint num> i == 5`
 
 You can get the breakpoint number by using `info watch`
+
+
 
 ### 5.1.3 Setting Catchpoints
 
@@ -177,7 +219,7 @@ Remove the condition from breakpoint number `bnum`.
 
 #### Example: specify a condition on an existing breakpoint
 
-文章[GDB Conditional Breakpoints](https://www.fayewilliams.com/2011/07/13/gdb-conditional-breakpoints/)中给出了一些例子：
+文章fayewilliams [GDB Conditional Breakpoints](https://www.fayewilliams.com/2011/07/13/gdb-conditional-breakpoints/)中给出了一些例子：
 
 example: specify a condition on an existing breakpoint by using the breakpoint number as a reference
 
