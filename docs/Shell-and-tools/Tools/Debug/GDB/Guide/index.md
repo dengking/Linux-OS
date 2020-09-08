@@ -4,5 +4,6 @@
 
 参考：
 
-- visualgdb 
+- visualgdb [GDB Command Reference](https://visualgdb.com/gdbreference/commands/)
 - cnblogs [gdb命令调试技巧](https://www.cnblogs.com/Forever-Kenlen-Ja/p/8631663.html)
+

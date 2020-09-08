@@ -63,7 +63,7 @@ From                To                  Syms Read   Shared Object Library
 
 ### aixxe [Loading, unloading & reloading shared libraries](https://aixxe.net/2016/09/shared-library-injection)
 
-
+Using dynamic linker functions to load, unload and reload our code into a process.
 
 ### stackoverflow [make gdb load a shared library from a specific path](https://stackoverflow.com/questions/33886913/make-gdb-load-a-shared-library-from-a-specific-path)
 
