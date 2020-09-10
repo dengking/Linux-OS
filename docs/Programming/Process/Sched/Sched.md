@@ -150,3 +150,8 @@ main(int argc, char *argv[])
 
 
 
+
+
+## `pthread_setaffinity_np`
+
+### man 3 [pthread_setaffinity_np](https://www.man7.org/linux/man-pages/man3/pthread_setaffinity_np.3.html)
