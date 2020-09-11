@@ -77,7 +77,7 @@ set logging off
 
 > NOTE: 开启或关闭 logging
 
-### Example: 将程序运行输出重定向到指定文件
+### Application: 将程序运行输出重定向到指定文件
 
 `run > outfile`
 
@@ -93,3 +93,22 @@ set logging off
 
 - stackoverflow [Gdb print to file instead of stdout](https://stackoverflow.com/questions/5941158/gdb-print-to-file-instead-of-stdout) `#` [A](https://stackoverflow.com/a/5941271)
 
+`tee` 
+
+Extending on @qubodup's answer
+
+```
+gdb core.3599 -ex bt -ex quit |& tee backtrace.log
+```
+
+the `-ex` switch runs a gdb command. So the above loads the core file, runs `bt` command, then `quit` command. Output is written to `backtrace.log` and also on the screen.
+
+Another useful gdb invocation (giving stacktrace with local variables from all threads) is
+
+```
+gdb core.3599 -ex 'thread apply all bt full' -ex quit
+```
+
+参考:
+
+- https://stackoverflow.com/a/36821621
