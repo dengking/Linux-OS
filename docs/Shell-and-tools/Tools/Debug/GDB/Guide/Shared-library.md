@@ -69,6 +69,12 @@ Using dynamic linker functions to load, unload and reload our code into a proces
 
 
 
+## stackoverflow [how to set breakpoint on function in a shared library which has not been loaded in gdb](https://stackoverflow.com/questions/2642983/how-to-set-breakpoint-on-function-in-a-shared-library-which-has-not-been-loaded)
+
+
+
+Actually gdb should tell you that it's able to resolve the symbol in the future, when new libraries are loaded
+
 ## TO READ
 
 https://sysprogs.com/w/resolving-library-symbol-load-errors-when-debugging-with-cross-toolchains/
