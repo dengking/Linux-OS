@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
     - gdb-primer: gdb-primer
-    - Symbol-table: Symbol-table.md
     - Shared-library: Shared-library.md
     - Cpp: Cpp.md
     - Function: Function.md

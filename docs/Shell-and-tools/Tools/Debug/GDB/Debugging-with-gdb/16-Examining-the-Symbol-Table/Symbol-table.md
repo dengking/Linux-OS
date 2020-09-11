@@ -16,15 +16,14 @@
 
 ## gdb onlinedocs [16 Examining the Symbol Table](https://sourceware.org/gdb/onlinedocs/gdb/Symbols.html#Symbols)
 
+### `whatis[/flags] [arg]`
 
+### `ptype[/flags] [arg]`
 
-## `struct` 
+application：
 
-- [How do I show what fields a struct has in GDB?](https://stackoverflow.com/questions/1768620/how-do-i-show-what-fields-a-struct-has-in-gdb)
-
-
-
-
+- Show all members of a class（参见`Debug\GDB\Guide`）
+- `struct` （参见`Debug\GDB\Guide`）
 
 ## `add-symbol-file` command
 

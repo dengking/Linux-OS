@@ -77,3 +77,19 @@ set logging off
 
 > NOTE: 开启或关闭 logging
 
+### Example: 将程序运行输出重定向到指定文件
+
+`run > outfile`
+
+参考:
+
+- https://stackoverflow.com/a/19715092
+
+`set logging on`
+
+如何实现自定义文件？
+
+参考: 
+
+- stackoverflow [Gdb print to file instead of stdout](https://stackoverflow.com/questions/5941158/gdb-print-to-file-instead-of-stdout) `#` [A](https://stackoverflow.com/a/5941271)
+
