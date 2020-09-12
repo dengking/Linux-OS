@@ -7,8 +7,10 @@ nav:
     - 7-Recording-Inferior's-Execution-and-Replaying-It: 7-Recording-Inferior's-Execution-and-Replaying-It
     - 8-Examining-the-Stack: 8-Examining-the-Stack
     - 9-Examining-Source-Files: 9-Examining-Source-Files
+    - 13-Tracepoints: 13-Tracepoints
     - 11-Debugging-Optimized-Code: 11-Debugging-Optimized-Code
     - 16-Examining-the-Symbol-Table: 16-Examining-the-Symbol-Table
     - 18-gdb-Files: 18-gdb-Files
+    - 19-Specifying-a-Debugging-Target: 19-Specifying-a-Debugging-Target
     - 25-gdb-Text-User-Interface: 25-gdb-Text-User-Interface
     
