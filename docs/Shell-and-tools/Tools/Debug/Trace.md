@@ -1,9 +1,50 @@
-[STRACE(1)](http://man7.org/linux/man-pages/man1/strace.1.html)  trace system call，维基百科[strace](https://en.wikipedia.org/wiki/Strace)
+# Trace
 
-[PERF-TRACE(1)](http://man7.org/linux/man-pages/man1/perf-trace.1.html)
+trace是debug中非常常见的一种形式。
 
-[LTRACE(1)](http://man7.org/linux/man-pages/man1/ltrace.1.html) trace library call，维基百科[ltrace](https://en.wikipedia.org/wiki/Ltrace)
+## What is trace?
 
-https://stackoverflow.com/questions/29840213/how-do-i-trace-a-system-call-in-linux
+"trace"即“跟踪”。
 
-https://www.tecmint.com/strace-commands-for-troubleshooting-and-debugging-linux/#:~:text=
+### wikipedia [Tracing (software)](https://en.wikipedia.org/wiki/Tracing_(software))
+
+
+
+### wikipedia [Trace](https://en.wikipedia.org/wiki/Trace)
+
+
+
+
+
+## Examples
+
+
+
+### Stack trace
+
+wikipedia [Stack trace](https://en.wikipedia.org/wiki/Stack_trace)
+
+Stack-trace: `Shell-and-tools\Tools\Debug\Stack-trace`
+
+
+
+### System call trace
+
+System-call-trace: `Shell-and-tools\Tools\Debug\System-call-trace`
+
+
+
+### Library call tracer
+
+Library-call-tracer: `Shell-and-tools\Tools\Debug\Library-call-tracer`
+
+
+
+### Signal trace
+
+wikipedia [Signal trace](https://en.wikipedia.org/wiki/Signal_trace)
+
+
+
+
+

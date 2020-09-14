@@ -10,4 +10,4 @@
 
 ## 如何获得mac地址
 
-[How to Find MAC Address on Linux](https://appuals.com/find-mac-address-linux/)
+appuals [How to Find MAC Address on Linux](https://appuals.com/find-mac-address-linux/)
