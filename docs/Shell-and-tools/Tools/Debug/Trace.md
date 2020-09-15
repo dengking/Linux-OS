@@ -40,6 +40,16 @@ Library-call-tracer: `Shell-and-tools\Tools\Debug\Library-call-tracer`
 
 
 
+### Trace point
+
+gdb [Tracepoints](https://sourceware.org/gdb/onlinedocs/gdb/Tracepoints.html)
+
+linux tracepoint:
+
+- [Using the Linux Kernel Tracepoints](https://www.kernel.org/doc/Documentation/trace/tracepoints.txt)
+- [tracepoint(3) — Linux manual page](https://man7.org/linux/man-pages/man3/tracepoint.3.html)
+- lwn [Fun with tracepoints](https://lwn.net/Articles/346470/)
+
 ### Signal trace
 
 wikipedia [Signal trace](https://en.wikipedia.org/wiki/Signal_trace)
