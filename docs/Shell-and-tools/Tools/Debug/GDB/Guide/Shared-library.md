@@ -59,7 +59,7 @@ From                To                  Syms Read   Shared Object Library
 
 
 
-## load, unload and reload shared library 
+## Load, unload and reload shared library 
 
 ### aixxe [Loading, unloading & reloading shared libraries](https://aixxe.net/2016/09/shared-library-injection)
 
@@ -69,11 +69,17 @@ Using dynamic linker functions to load, unload and reload our code into a proces
 
 
 
-## stackoverflow [how to set breakpoint on function in a shared library which has not been loaded in gdb](https://stackoverflow.com/questions/2642983/how-to-set-breakpoint-on-function-in-a-shared-library-which-has-not-been-loaded)
+### Directly load shared library
+
+gdb能够直接load shared library，即使没有可执行程序，这个特性是有一定价值的，我们可以可以直接读取shared library中的一些信息。
+
+## Set breakpoint in shared library
+
+stackoverflow [how to set breakpoint on function in a shared library which has not been loaded in gdb](https://stackoverflow.com/questions/2642983/how-to-set-breakpoint-on-function-in-a-shared-library-which-has-not-been-loaded): 
+
+> Actually gdb should tell you that it's able to resolve the symbol in the future, when new libraries are loaded
 
 
-
-Actually gdb should tell you that it's able to resolve the symbol in the future, when new libraries are loaded
 
 ## TO READ
 
