@@ -78,6 +78,8 @@ You can get multiple executables into a debugging session via the `add-inferior`
 
 ## 4.10 Debugging Programs with Multiple Threads
 
+> NOTE: 在 [5.5 Stopping and Starting Multi-thread Programs](https://sourceware.org/gdb/current/onlinedocs/gdb/Thread-Stops.html#Thread-Stops) 中也介绍了Multiple Thread调试的问题。
+
 ### current thread
 
 The gdb thread debugging facility allows you to observe all threads while your program runs—but whenever gdb takes control, one thread in particular is always the focus of debugging. This thread is called the ***current thread***. Debugging commands show program information from the perspective of the current thread.
