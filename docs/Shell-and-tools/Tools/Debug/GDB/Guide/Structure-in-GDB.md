@@ -10,6 +10,19 @@
 
 一个thread有一个call stack，call stack **contain** 多个 stack frame；
 
+通过上面的描述可知：整体形成了一个tree structure
+
+```
+                              
+              
+              inferior1
+
+
+session
+```
+
+
+
 ## 一对多关系
 
 在使用gdb的时候，我们只有一个session，但是可能有多个inferior、多个thread、多个stack frame，显然这是一种 **一对多** 关系；
