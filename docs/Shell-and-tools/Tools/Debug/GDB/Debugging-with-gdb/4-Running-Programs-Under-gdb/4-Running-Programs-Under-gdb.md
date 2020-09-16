@@ -98,6 +98,18 @@ For debugging purposes, gdb associates its own thread number —always a single 
 
 You can refer to a given thread in an inferior using the qualified `inferior-num.thread-num` syntax, also known as **qualified thread ID**, with **inferior-num** being the inferior number and **thread-num** being the thread number of the given inferior. For example, `thread 2.3` refers to thread number 3 of inferior 2. If you omit inferior-num (e.g., thread 3), then gdb infers you’re referring to a thread of the **current inferior**.
 
+### GDB Global thread ID
+
+In addition to a *per-inferior* number, each thread is also assigned a unique *global* number, also known as *global thread ID*, a single integer. 
+
+
+
+### `$_thread` and `$_gthread`
+
+See [Convenience Variables](https://sourceware.org/gdb/current/onlinedocs/gdb/Convenience-Vars.html#Convenience-Vars), for general information on convenience variables.
+
+### `info threads`
+
 
 
 ```c++
@@ -110,9 +122,26 @@ You can refer to a given thread in an inferior using the qualified `inferior-num
 * 1    Thread 0x7f77777cf780 (LWP 81329) "main" 0x00007f77764de1ad in nanosleep () from /lib64/libc.so.6
 ```
 
+An asterisk ‘`*`’ to the left of the GDB thread number indicates the current thread.
+
+### `thread apply`
 
 
 
+#### Example
+
+stackoverflow [How do I get the backtrace for all the threads in GDB?](https://stackoverflow.com/questions/18391808/how-do-i-get-the-backtrace-for-all-the-threads-in-gdb)
+
+```shell
+thread apply all bt
+```
+
+
+
+### TO READ
+
+- csdn [线程的查看以及利用gdb调试多线程](https://blog.csdn.net/zhangye3017/article/details/80382496)
+- 
 
 ## 4.11 Debugging Forks
 

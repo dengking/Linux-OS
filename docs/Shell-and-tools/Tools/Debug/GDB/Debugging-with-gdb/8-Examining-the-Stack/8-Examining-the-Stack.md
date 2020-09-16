@@ -6,7 +6,11 @@ Each time your program performs a function call, information about the call is g
 
 One of the stack frames is selected by gdb and many gdb commands refer implicitly to the selected frame. In particular, whenever you ask gdb for the value of a variable in your program, the value is found in the selected frame. There are special gdb commands to select whichever frame you are interested in. See Section 8.3 [Selecting a Frame], page 98.
 
-> NOTE: 尤其是在debug一个already running process的时候，必须先select一个frame，然后才能够查看其中的variable。
+> NOTE: 
+>
+> 默认选中的stack frame: current inferior的current thread的current frame，即frame 0。
+>
+> 尤其是在debug一个already running process的时候，必须先select一个frame，然后才能够查看其中的variable。
 
 ## 8.1 Stack Frames
 

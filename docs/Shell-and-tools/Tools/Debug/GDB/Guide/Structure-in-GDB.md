@@ -2,7 +2,7 @@
 
 使用**结构化思维**来分析GDB。
 
-## contain关系
+## Contain关系
 
 一个gdb session可以 **contain** 多个 inferior；
 
@@ -13,12 +13,15 @@
 通过上面的描述可知：整体形成了一个tree structure
 
 ```
-                              
-              
-              inferior1
+                                thread1 
+                                 
+              inferior1         thread2
 
 
-session
+session       inferior2
+
+
+              inferior3
 ```
 
 
