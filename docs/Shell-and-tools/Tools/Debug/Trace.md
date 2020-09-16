@@ -58,3 +58,11 @@ wikipedia [Signal trace](https://en.wikipedia.org/wiki/Signal_trace)
 
 
 
+### Kernel tracing framework
+
+| framework                                      | OS kernel                                                    |
+| ---------------------------------------------- | ------------------------------------------------------------ |
+| [ktrace](https://en.wikipedia.org/wiki/Ktrace) | - [BSD Unix](https://en.wikipedia.org/wiki/BSD_Unix) <br>- [Mac OS X](https://en.wikipedia.org/wiki/Mac_OS_X) |
+| [ftrace](https://en.wikipedia.org/wiki/Ftrace) | - [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel) |
+| [DTrace](https://en.wikipedia.org/wiki/DTrace) | - [Solaris](https://en.wikipedia.org/wiki/Solaris_(operating_system)) |
+

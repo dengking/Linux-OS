@@ -1,4 +1,4 @@
-# 25 gdb Text User Interface
+# [25 gdb Text User Interface](https://sourceware.org/gdb/current/onlinedocs/gdb/TUI.html#TUI)
 
 > NOTE: 是在检索View both source and assembly发现的TUI
 

@@ -76,6 +76,44 @@ You can get multiple executables into a debugging session via the `add-inferior`
 
 
 
+## 4.10 Debugging Programs with Multiple Threads
+
+### current thread
+
+The gdb thread debugging facility allows you to observe all threads while your program runs—but whenever gdb takes control, one thread in particular is always the focus of debugging. This thread is called the ***current thread***. Debugging commands show program information from the perspective of the current thread.
+
+> NOTE: 从实践结果来看，如果是debug an already running process，则gdb默认是attach到main thread，即默认情况下current 他head是main thread。
+
+### systag
+
+> NOTE: “systag”的含义是system tag
+
+Whenever gdb detects a new thread in your program, it displays the target system’s **identification** for the thread with a message in the form ‘[New systag]’, where ***systag*** is a thread identifier whose form varies depending on the particular system.
+
+### GDB per-inferior thread ID
+
+For debugging purposes, gdb associates its own thread number —always a single integer—with each thread of an inferior. This number is unique between all threads of an inferior, but not unique between threads of different inferiors.
+
+### Qualified thread ID
+
+You can refer to a given thread in an inferior using the qualified `inferior-num.thread-num` syntax, also known as **qualified thread ID**, with **inferior-num** being the inferior number and **thread-num** being the thread number of the given inferior. For example, `thread 2.3` refers to thread number 3 of inferior 2. If you omit inferior-num (e.g., thread 3), then gdb infers you’re referring to a thread of the **current inferior**.
+
+
+
+```c++
+(gdb) info threads 
+  Id   Target Id         Frame 
+  5    Thread 0x7f7775589700 (LWP 81330) "main" 0x00007f777620ecf2 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+  4    Thread 0x7f7774d88700 (LWP 81331) "main" 0x00007f77764de1ad in nanosleep () from /lib64/libc.so.6
+  3    Thread 0x7f7774587700 (LWP 81332) "main" 0x00007f7776517923 in epoll_wait () from /lib64/libc.so.6
+  2    Thread 0x7f7773d86700 (LWP 81333) "main" 0x00007f7776517923 in epoll_wait () from /lib64/libc.so.6
+* 1    Thread 0x7f77777cf780 (LWP 81329) "main" 0x00007f77764de1ad in nanosleep () from /lib64/libc.so.6
+```
+
+
+
+
+
 ## 4.11 Debugging Forks
 
 On most systems, `gdb` has no special support for debugging programs which create additional processes using the fork function. When a program forks, `gdb` will continue to debug the parent process and the child process will run unimpeded（未受阻的）. If you have set a breakpoint in any code which the child then executes, the child will get a `SIGTRAP` signal which (unless it catches the signal) will cause it to terminate.
