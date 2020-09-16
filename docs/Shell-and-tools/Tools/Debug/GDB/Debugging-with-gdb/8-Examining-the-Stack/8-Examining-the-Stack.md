@@ -1,4 +1,4 @@
-# 8 Examining the Stack
+# [8 Examining the Stack](https://sourceware.org/gdb/current/onlinedocs/gdb/Stack.html#Stack)
 
 When your program has stopped, the first thing you need to know is where it stopped and how it got there.
 

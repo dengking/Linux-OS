@@ -2,6 +2,7 @@ nav:
     - Introduction: index.md
     - Point-in-GDB: Point-in-GDB.md
     - Abstraction-in-GDB: Abstraction-in-GDB.md
+    - Structure-in-GDB: Structure-in-GDB.md
     - gdb-primer: gdb-primer
     - Shared-library: Shared-library.md
     - Cpp: Cpp.md
