@@ -50,7 +50,11 @@ From                To                  Syms Read   Shared Object Library
 
 ## `set stop-on-solib-events` command
 
+
+
 ### visualgdb [set stop-on-solib-events](https://visualgdb.com/gdbreference/commands/set_stop-on-solib-events)
+
+
 
 ### codeyarns [How to set regex breakpoint for shared library in GDB](https://codeyarns.com/2017/08/22/how-to-set-regex-breakpoint-for-shared-library-in-gdb/)
 
