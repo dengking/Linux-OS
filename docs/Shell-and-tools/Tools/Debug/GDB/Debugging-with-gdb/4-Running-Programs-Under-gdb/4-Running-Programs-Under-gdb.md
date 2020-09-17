@@ -135,18 +135,21 @@ An asterisk ‘`*`’ to the left of the GDB thread number indicates the current
 
 #### Example
 
-stackoverflow [How do I get the backtrace for all the threads in GDB?](https://stackoverflow.com/questions/18391808/how-do-i-get-the-backtrace-for-all-the-threads-in-gdb)
+- stackoverflow [How do I get the backtrace for all the threads in GDB?](https://stackoverflow.com/questions/18391808/how-do-i-get-the-backtrace-for-all-the-threads-in-gdb)
 
 ```shell
 thread apply all bt
 ```
+
+- drdobbs [Multithreaded Debugging Techniques](https://www.drdobbs.com/cpp/multithreaded-debugging-techniques/199200938?pgno=6)
 
 
 
 ### TO READ
 
 - csdn [线程的查看以及利用gdb调试多线程](https://blog.csdn.net/zhangye3017/article/details/80382496)
-- 
+
+  
 
 ## 4.11 Debugging Forks
 
