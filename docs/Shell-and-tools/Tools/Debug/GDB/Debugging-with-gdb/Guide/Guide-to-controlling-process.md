@@ -1,6 +1,6 @@
 # Guide to controlling process
 
-本节主要讨论的内容是：对process的运行进行控制，它是gdb的一个非常重要的特性。
+本文主要讨论的内容是：对process的运行进行控制，它是gdb的一个非常重要的特性。
 
 ## 章节
 
@@ -25,6 +25,18 @@ alter
 ## Mode
 
 process execution 是非常复杂的，它不仅仅涉及gdb，还涉及OS；对于各种复杂的场景，gdb都有着较好的支持，因此可以看到，在gdb中，有着非常多的mode，本节对gdb中涉及process execution的mode进行汇总：
+
+
+
+| Mode                            | 章节                                                         | 简介 |
+| ------------------------------- | ------------------------------------------------------------ | ---- |
+| All-Stop Mode and Non-Stop Mode | [5.5 Stopping and Starting Multi-thread Programs](https://sourceware.org/gdb/onlinedocs/gdb/Thread-Stops.html#Thread-Stops) |      |
+| Scheduler locking mode          | [5.5.1 All-Stop Mode](https://sourceware.org/gdb/onlinedocs/gdb/All_002dStop-Mode.html#All_002dStop-Mode) |      |
+| Record mode and replay mode     | [7 Recording Inferior’s Execution and Replaying It](https://sourceware.org/gdb/onlinedocs/gdb/Process-Record-and-Replay.html#Process-Record-and-Replay) |      |
+
+
+
+### 
 
 
 

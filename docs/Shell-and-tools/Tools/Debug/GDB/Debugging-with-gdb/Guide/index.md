@@ -22,9 +22,4 @@ gdb的用户手册[Debugging with GDB](https://sourceware.org/gdb/onlinedocs/gdb
 
 ### Examine data
 
-本节标题的含义是：查看数据，它是gdb的一个非常重要的特性。下面是涉及这个主题的章节：
-
-- [8 Examining the Stack](https://sourceware.org/gdb/onlinedocs/gdb/Stack.html#Stack)
-- [9 Examining Source Files](https://sourceware.org/gdb/onlinedocs/gdb/Source.html#Source)
-- [10 Examining Data](https://sourceware.org/gdb/onlinedocs/gdb/Data.html#Data)
-- [16 Examining the Symbol Table](https://sourceware.org/gdb/onlinedocs/gdb/Symbols.html#Symbols)
+在`Shell-and-tools\Tools\Debug\GDB\Debugging-with-gdb\Guide\Guide-to-examining-data.md`中对此进行了讨论。
