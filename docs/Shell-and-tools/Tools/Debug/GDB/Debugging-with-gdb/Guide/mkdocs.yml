@@ -1,11 +1,11 @@
 nav:
     - Introduction: index.md
-    - Point-in-GDB: Point-in-GDB.md
     - Abstraction-in-GDB: Abstraction-in-GDB.md
-    - Structure-in-GDB: Structure-in-GDB.md
-    - gdb-primer: gdb-primer
+    - Structure-in-GDB: Structure-in-GDB.md    
+    - Point-in-GDB: Point-in-GDB.md
     - Shared-library: Shared-library.md
     - Cpp: Cpp.md
     - Function: Function.md
     - Automate: Automate
     - Debug-assembly: Debug-assembly.md
+    - gdb-primer: gdb-primer
