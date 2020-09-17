@@ -38,3 +38,83 @@ process execution 是非常复杂的，它不仅仅涉及gdb，还涉及OS；对
 
 ## Command shortcut
 
+| command    | chapter                                                      | explanation |
+| ---------- | ------------------------------------------------------------ | ----------- |
+| `run`      | See [Starting your Program](https://sourceware.org/gdb/onlinedocs/gdb/Starting.html#Starting). |             |
+| `attach`   | See [Debugging an Already-running Process](https://sourceware.org/gdb/onlinedocs/gdb/Attach.html#Attach). |             |
+| `step`     | See [step](https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping). |             |
+| `stepi`    | See [stepi](https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping). |             |
+| `next`     | See [next](https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping). |             |
+| `nexti`    | See [nexti](https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping). |             |
+| `continue` | See [continue](https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping). |             |
+| `finish`   | See [finish](https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping). |             |
+| `until`    | See [until](https://sourceware.org/gdb/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping). |             |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,3 +10,12 @@
 - [9 Examining Source Files](https://sourceware.org/gdb/onlinedocs/gdb/Source.html#Source)
 - [10 Examining Data](https://sourceware.org/gdb/onlinedocs/gdb/Data.html#Data)
 - [16 Examining the Symbol Table](https://sourceware.org/gdb/onlinedocs/gdb/Symbols.html#Symbols)
+
+
+
+## Search
+
+gdb提供了search功能，便于用户快速定位到目标。
+
+- [9.4 Searching Source Files](https://sourceware.org/gdb/onlinedocs/gdb/Search.html#Search)
+- [10.22 Search Memory](https://sourceware.org/gdb/onlinedocs/gdb/Searching-Memory.html#Searching-Memory)
