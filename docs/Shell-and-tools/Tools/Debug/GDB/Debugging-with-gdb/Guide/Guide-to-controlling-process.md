@@ -26,13 +26,13 @@ alter
 
 process execution 是非常复杂的，它不仅仅涉及gdb，还涉及OS；对于各种复杂的场景，gdb都有着较好的支持，因此可以看到，在gdb中，有着非常多的mode，本节对gdb中涉及process execution的mode进行汇总：
 
-
-
-| Mode                            | 章节                                                         | 简介 |
-| ------------------------------- | ------------------------------------------------------------ | ---- |
-| All-Stop Mode and Non-Stop Mode | [5.5 Stopping and Starting Multi-thread Programs](https://sourceware.org/gdb/onlinedocs/gdb/Thread-Stops.html#Thread-Stops) |      |
-| Scheduler locking mode          | [5.5.1 All-Stop Mode](https://sourceware.org/gdb/onlinedocs/gdb/All_002dStop-Mode.html#All_002dStop-Mode) |      |
-| Record mode and replay mode     | [7 Recording Inferior’s Execution and Replaying It](https://sourceware.org/gdb/onlinedocs/gdb/Process-Record-and-Replay.html#Process-Record-and-Replay) |      |
+| Mode                                                   | 章节                                                         | 简介 |
+| ------------------------------------------------------ | ------------------------------------------------------------ | ---- |
+| All-Stop Mode and Non-Stop Mode                        | [5.5 Stopping and Starting Multi-thread Programs](https://sourceware.org/gdb/onlinedocs/gdb/Thread-Stops.html#Thread-Stops) |      |
+| Scheduler locking mode                                 | [5.5.1 All-Stop Mode](https://sourceware.org/gdb/onlinedocs/gdb/All_002dStop-Mode.html#All_002dStop-Mode) |      |
+| Schedule-multiple mode                                 | [5.5.1 All-Stop Mode](https://sourceware.org/gdb/onlinedocs/gdb/All_002dStop-Mode.html#All_002dStop-Mode) |      |
+| Normal execution、record mode and replay mode          | [7 Recording Inferior’s Execution and Replaying It](https://sourceware.org/gdb/onlinedocs/gdb/Process-Record-and-Replay.html#Process-Record-and-Replay) |      |
+| Foreground (synchronous) and background (asynchronous) | [5.5.3 Background Execution](https://sourceware.org/gdb/onlinedocs/gdb/Background-Execution.html#Background-Execution) |      |
 
 
 
