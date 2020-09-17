@@ -1,4 +1,10 @@
-# C++
+# [C family language](https://sourceware.org/gdb/onlinedocs/gdb/C.html#C)
+
+
+
+
+
+
 
 
 
@@ -63,4 +69,14 @@ Function return type is not part of its signature and has *nothing* to do with w
 - `GDB\Debugging-with-gdb\16-Examining-the-Symbol-Table`
 
 
+
+## `sizeof`
+
+gdb是能够理解`sizeof`的，所以通过此可以获知一个struct的size，下面是例子:
+
+```C++
+(gdb) p sizeof(CHSInsRspInfoField)
+$1 = 264
+(gdb) 
+```
 

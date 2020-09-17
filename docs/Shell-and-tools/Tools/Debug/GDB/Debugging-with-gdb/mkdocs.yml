@@ -15,5 +15,6 @@ nav:
     - 16-Examining-the-Symbol-Table: 16-Examining-the-Symbol-Table
     - 18-gdb-Files: 18-gdb-Files
     - 19-Specifying-a-Debugging-Target: 19-Specifying-a-Debugging-Target
+    - 23-Extending-GDB: 23-Extending-GDB
     - 25-gdb-Text-User-Interface: 25-gdb-Text-User-Interface
     
