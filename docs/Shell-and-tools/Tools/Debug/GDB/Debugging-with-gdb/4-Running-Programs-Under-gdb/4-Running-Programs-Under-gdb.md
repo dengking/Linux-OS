@@ -78,7 +78,10 @@ You can get multiple executables into a debugging session via the `add-inferior`
 
 ## 4.10 Debugging Programs with Multiple Threads
 
-> NOTE: 在 [5.5 Stopping and Starting Multi-thread Programs](https://sourceware.org/gdb/current/onlinedocs/gdb/Thread-Stops.html#Thread-Stops) 中也介绍了Multiple Thread调试的问题。
+> NOTE: 在下列章节中，也介绍了thread相关的主题:
+>
+> - [5.5 Stopping and Starting Multi-thread Programs](https://sourceware.org/gdb/current/onlinedocs/gdb/Thread-Stops.html#Thread-Stops) 
+> - [5.5.4 Thread-Specific Breakpoints](https://sourceware.org/gdb/onlinedocs/gdb/Thread_002dSpecific-Breakpoints.html#Thread_002dSpecific-Breakpoints)
 
 ### current thread
 

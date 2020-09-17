@@ -1,2 +1,4 @@
 nav:
+    - Introduction: index.md
     - Show-thread-start-rtn: Show-thread-start-rtn.md
+    - Race-condition: Race-condition.md

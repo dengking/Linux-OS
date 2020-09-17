@@ -1,4 +1,5 @@
 nav:
+    - Guide: Guide
     - 2-Getting-In-and-Out-of-gdb: 2-Getting-In-and-Out-of-gdb
     - 3-gdb-Commands: 3-gdb-Commands
     - 4-Running-Programs-Under-gdb: 4-Running-Programs-Under-gdb
