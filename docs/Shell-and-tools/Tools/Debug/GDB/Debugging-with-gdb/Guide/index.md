@@ -18,19 +18,7 @@ gdb的用户手册[Debugging with GDB](https://sourceware.org/gdb/onlinedocs/gdb
 
 ### Control process
 
-本节标题的含义是：对process的运行进行控制，它是gdb的一个非常重要的特性。下面是涉及这个主题的章节：
-
-run and kill，即运行和终止程序，下面是涉及这个主题的章节
-
-- [4 Running Programs Under GDB](https://sourceware.org/gdb/onlinedocs/gdb/Running.html#Running)
-- [6 Running programs backward](https://sourceware.org/gdb/onlinedocs/gdb/Reverse-Execution.html#Reverse-Execution)
-- [7 Recording Inferior’s Execution and Replaying It](https://sourceware.org/gdb/onlinedocs/gdb/Process-Record-and-Replay.html#Process-Record-and-Replay)
-
-stop and continue，即在process运行过程中，stop、continue，下面是涉及这个主题的章节：
-
-- [5 Stopping and Continuing](https://sourceware.org/gdb/onlinedocs/gdb/Stopping.html#Stopping)
-
-
+在`Shell-and-tools\Tools\Debug\GDB\Debugging-with-gdb\Guide\Guide-to-controlling-process.md`中对此进行了讨论。
 
 ### Examine data
 

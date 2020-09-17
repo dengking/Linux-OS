@@ -11,6 +11,7 @@ nav:
     - 10-Examining-Data: 10-Examining-Data
     - 11-Debugging-Optimized-Code: 11-Debugging-Optimized-Code
     - 13-Tracepoints: 13-Tracepoints
+    - 15-Using-GDB-with-Different-Languages: 15-Using-GDB-with-Different-Languages
     - 16-Examining-the-Symbol-Table: 16-Examining-the-Symbol-Table
     - 18-gdb-Files: 18-gdb-Files
     - 19-Specifying-a-Debugging-Target: 19-Specifying-a-Debugging-Target
