@@ -8,9 +8,5 @@ nav:
     - Debug: Debug
     # 如何统计性能
     - Performance: Performance
-    # 如何控制调度
-    - Sched: Sched
     # 如何构建应用
     - Build: Build
-    
-    - Linux-Kernel-module: Linux-Kernel-module
