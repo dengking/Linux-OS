@@ -1,0 +1,350 @@
+# 进程的虚拟地址空间（virtual memory area,VMA）
+
+## 理解进程的虚拟地址空间
+
+我们知道我们编写的**应用程序**最终要以**进程**的形式来运行，任何一个**进程**都被赋予其自己的**虚拟地址空间**，该**虚拟地址空间**覆盖了一个相当大的范围，对于32位操作系统，其进程进程的地址空间为$2^{32}=4,294,967,296$ Byte，这使得一个**指针**可以使用从`0x00000000`到`0xFFFFFFFF`的4GB范围之内的任何一个值。虽然每一个32位进程可使用**4GB**的**地址空间**，但并不意味着每一个进程**实际**拥有`4GB`的**物理地址空间**，该地址空间仅仅是一个**虚拟地址空间**，它是一个逻辑上的设计。此**虚拟地址空间**只是内存地址的一个范围。进程实际可以得到的**物理内存**要远小于其**虚拟地址空间**。进程的**虚拟地址空间**是为每个进程所私有的，在进程内运行的**线程**对**内存空间**的访问都被限制在**调用进程**之内，而不能访问属于其他进程的内存空间。这样，在不同的进程中可以使用相同地址的指针来指向属于各自调用进程的内容而不会由此引起混乱。
+
+> 通过上面这段话的描述，可以知道进程使用的全部资源是’虚拟‘的，我们知道我们编写的**应用程序**最终要以**进程**的形式来运行，因而进程就相当于一个虚拟机（虚拟的计算机），所以我们很容易感受到自己编写的应用程序似乎使用的是所有的计算机资源，32bit的计算机我们进程似乎就是使用完整的4G内存，但是对系统稍有了解，我们就知道一个进程使用的物理内存实际可能不到几百m甚至几m！这就是一种虚拟，**进程使用的是虚拟的全部计算机资源**！回来再看内存，实际上使用几m的内存，但每个进程的虚拟内存却是4G！这就是虚拟内存的奥妙！
+
+虚拟内存空间（virtual memory area,VMA），也称作线性区。虚拟存储器是一个抽象概念，它为每一个进程提供了一个假象，好像每个进程都在独占的使用主存。每个进程看到的存储器都是一致的，称之为虚拟地址空间。
+
+## [Linux进程虚拟地址空间布局](http://www.cnblogs.com/fellow1988/p/6220710.html)
+
+在32 bit系统中，内核分配1GB，而各个用户空间进程可用的部分为3GB。
+
+下图展示了一个32位系统的进程虚拟地址空间的布局：
+
+![](https://images2015.cnblogs.com/blog/709240/201612/709240-20161226184059898-719651798.png)
+
+进程虚拟地址空间由若干个区域组成：
+
+1.当前运行代码的二进制代码.text段。
+
+2.程序使用的动态库代码。
+
+3.存储**区局变量**和**静态变量**的数据段，bss,data段
+
+4.保存动态分配数据的堆
+
+5.保存局部变量和实现**函数调用**的栈
+
+6.环境变量和命令行参数。
+
+7.文件内容映射到虚拟地址空间的内存映射。
+
+如果全局变量`randomize_va_space`设置为`1`，那么启用地址**空间随机化机制**（上图的`ramdom xxx offset`）。用户可以通过`/proc/sys/kernel/randomize_va_space`停用该特性。
+
+每个进程都有mm_struct(linux/mm_types.h)的实例，保存**进程虚拟内存管理信息**。
+
+```c
+struct mm_struct {
+struct vm_area_struct *mmap;	/* list of VMAs */
+struct rb_root mm_rb;
+#ifdef CONFIG_MMU
+unsigned long (*get_unmapped_area) (struct file *filp,unsigned long addr, unsigned long len,unsigned long pgoff, unsigned long flags);
+#endif
+unsigned long mmap_base;	/* base of mmap area */虚拟地址空间中用于内存映射的起始地址。
+unsigned long mmap_legacy_base; /* base of mmap area in bottom-up allocations */
+unsigned long task_size;	/* size of task vm space */进程地址空间的size.
+
+struct list_head mmlist;	/* List of maybe swapped mm's.	These are globally strung
+
+unsigned long start_code, end_code, start_data, end_data;//text段，数据段的起始地址和终止地址
+unsigned long start_brk, brk, start_stack;//堆首地址，堆尾地址，栈首地址。
+unsigned long arg_start, arg_end, env_start, env_end;//命令行参数，环境变量的起始地址和终止地址
+
+....
+
+};
+```
+
+**进程虚拟地址空间**由多个`VMA`组成（`struct mm_struct`中`struct vm_area_struct \*mmap;/* list of VMAs */`成员）。有两种组织`VMA`的方式，链表（`mmap`）和红黑树（`mm_rb`）
+
+VMA结构体如下：
+
+```c
+struct vm_area_struct {
+　　/* The first cache line has the info for VMA tree walking. */
+
+　　unsigned long vm_start;	/* Our start address within vm_mm. */
+　　unsigned long vm_end;	/* The first byte after our end address within vm_mm. */
+
+　　/* linked list of VM areas per task, sorted by address */
+　　struct vm_area_struct *vm_next, *vm_prev;
+
+　　struct rb_node vm_rb;
+
+　　struct mm_struct *vm_mm;	/* The address space we belong to. */
+
+　　/* Function pointers to deal with this struct. */
+　　const struct vm_operations_struct *vm_ops;
+
+　　struct file * vm_file;	/* File we map to (can be NULL). */
+　　void * vm_private_data;	/* was vm_pte (shared mem) */
+
+};
+```
+
+VMA链表组织形式如下图：
+
+![img](https://images2015.cnblogs.com/blog/709240/201612/709240-20161225223640698-63997329.png)
+
+ VMA红黑树组织形式如下：
+
+![img](https://images2015.cnblogs.com/blog/709240/201612/709240-20161226185622632-1727321718.png)
+
+## 输出地址空间
+
+原文链接：https://blog.csdn.net/zhongjiekangping/article/details/6910211
+
+```c
+#include <stdio.h>   
+#include <stdlib.h>   
+  
+int global_init_a=1;  
+int global_uninit_a;  
+static int static_global_init_a=1;  
+static int static_global_uninit_a;  
+const int const_global_a=1;  
+  
+int global_init_b=1;  
+int global_uninit_b;  
+static int static_global_init_b=1;  
+static int static_global_uninit_b;  
+const int const_global_b=1;  
+/*上面全部为全局变量，main函数中的为局部变量*/  
+int main()  
+{  
+    int local_init_a=1;  
+    int local_uninit_a;  
+    static int static_local_init_a=1;  
+    static int static_local_uninit_a;  
+    const int const_local_a=1;  
+  
+    int local_init_b=1;  
+    int local_uninit_b;  
+    static int static_local_init_b=1;  
+    static int static_local_uninit_b;  
+    const int const_local_b=1;  
+  
+    int * malloc_p_a;  
+    malloc_p_a=malloc(sizeof(int));  
+    //将上面定义的变量全部都打印出来
+    printf("\n         &global_init_a=%p \t            
+         global_init_a=%d\n",&global_init_a,global_init_a);   
+  
+    printf("       &global_uninit_a=%p \t          
+        global_uninit_a=%d\n",&global_uninit_a,global_uninit_a);      
+  
+    printf("  &static_global_init_a=%p \t     
+        static_global_init_a=%d\n",&static_global_init_a,static_global_init_a);  
+      
+    printf("&static_global_uninit_a=%p \t   
+        static_global_uninit_a=%d\n",&static_global_uninit_a,static_global_uninit_a);  
+      
+    printf("        &const_global_a=%p \t           
+        const_global_a=%d\n",&const_global_a,const_global_a);     
+  
+      
+    printf("\n         &global_init_b=%p \t            
+        global_init_b=%d\n",&global_init_b,global_init_b);    
+  
+    printf("       &global_uninit_b=%p \t          
+        global_uninit_b=%d\n",&global_uninit_b,global_uninit_b);      
+  
+    printf("  &static_global_init_b=%p \t     
+        static_global_init_b=%d\n",&static_global_init_b,static_global_init_b);  
+      
+    printf("&static_global_uninit_b=%p \t   
+        static_global_uninit_b=%d\n",&static_global_uninit_b,static_global_uninit_b);  
+      
+    printf("        &const_global_b=%p \t           
+        const_global_b=%d\n",&const_global_b,const_global_b);  
+  
+                  
+  
+    printf("\n          &local_init_a=%p \t            
+        local_init_a=%d\n",&local_init_a,local_init_a);   
+  
+    printf("        &local_uninit_a=%p \t          
+        local_uninit_a=%d\n",&local_uninit_a,local_uninit_a);  
+      
+    printf("   &static_local_init_a=%p \t     
+        static_local_init_a=%d\n",&static_local_init_a,static_local_init_a);  
+      
+    printf(" &static_local_uninit_a=%p \t   
+        static_local_uninit_a=%d\n",&static_local_uninit_a,static_local_uninit_a);    
+  
+    printf("         &const_local_a=%p \t           
+        const_local_a=%d\n",&const_local_a,const_local_a);    
+  
+      
+    printf("\n          &local_init_b=%p \t            
+        local_init_b=%d\n",&local_init_b,local_init_b);   
+  
+    printf("        &local_uninit_b=%p \t          
+        local_uninit_b=%d\n",&local_uninit_b,local_uninit_b);  
+      
+    printf("   &static_local_init_b=%p \t     
+        static_local_init_b=%d\n",&static_local_init_b,static_local_init_b);  
+      
+    printf(" &static_local_uninit_b=%p \t   
+        static_local_uninit_b=%d\n",&static_local_uninit_b,static_local_uninit_b);    
+  
+    printf("         &const_local_b=%p \t           
+        const_local_b=%d\n",&const_local_b,const_local_b);  
+  
+  
+    printf("             malloc_p_a=%p \t             
+        *malloc_p_a=%d\n",malloc_p_a,*malloc_p_a);  
+      
+    return 0;  
+}  
+```
+
+下面是输出结果。![img](http://hi.csdn.net/attachment/201110/22/0_1319291233G3Fq.gif)
+
+先仔细分析一下上面的输出结果，看看能得出什么结论。貌似很难分析出来什么结果。好了我们继续往下看吧。
+
+接下来，通过查看**proc文件系统**下的文件，看一下这个进程的**真实内存分配情况**。（我们需要在程序结束前加一个死循环，不让进程结束，以便我们进一步分析）。
+
+​      在`return 0`前，增加 `while(1);` 语句。
+
+重新编译后，运行程序，程序将进入死循环。
+
+使用ps命令查看一下进程的pid。
+
+```shell
+ps -aux | grep a.out
+```
+
+查看`/proc/2699/maps`文件，这个文件显示了进程在内存空间中各个区域的分配情况。
+
+```shell
+cat  /proc/2699/maps
+```
+
+![img](http://hi.csdn.net/attachment/201110/22/0_13192938162jG2.gif)
+
+上面红颜色标出的几个区间是我们感兴趣的区间：
+
+- 08048000-08049000  r-xp  貌似是代码段
+- 08049000-0804a000 r--p   暂时不清楚，看不出来
+- 0804a000-0804b000 rw-p  貌似为数据段
+- 08a7e000-08a9f000  rw-p  堆
+- bff73000-bff88000     rw-p   栈  
+
+
+我们把这些数据与最后一次的程序运行结果进行比较，看看有什么结论。
+
+​                &global_init_a=0x804a018       全局初始化：数据段              global_init_a=1
+​            &global_uninit_a=0x804a04c      全局未初始化：数据段          global_uninit_a=0
+​     &static_global_init_a=0x804a01c      全局静态初始化：数据段      static_global_init_a=1
+&static_global_uninit_a=0x804a038      全局静态未初始化：数据段     static_global_uninit_a=0
+​             &const_global_a=0x80487c0     全局只读变量： 代码段        const_global_a=1
+​                 &global_init_b=0x804a020       全局初始化：数据段      global_init_b=1
+​            &global_uninit_b=0x804a048        全局未初始化：数据段      global_uninit_b=0
+​     &static_global_init_b=0x804a024        全局静态初始化：数据段    static_global_init_b=1
+&static_global_uninit_b=0x804a03c        全局静态未初始化：数据段   static_global_uninit_b=0
+​            &const_global_b=0x80487c4        全局只读变量： 代码段             const_global_b=1
+​                 &local_init_a=0xbff8600c          局部初始化：栈                     local_init_a=1
+​             &local_uninit_a=0xbff86008         局部未初始化：栈                 local_uninit_a=134514459
+​     &static_local_init_a=0x804a028         局部静态初始化：数据段      static_local_init_a=1
+ &static_local_uninit_a=0x804a040        局部静态未初始化：数据段     static_local_uninit_a=0
+​             &const_local_a=0xbff86004        局部只读变量：栈     const_local_a=1
+​                  &local_init_b=0xbff86000        局部初始化：栈          local_init_b=1
+​                &local_uninit_b=0xbff85ffc         局部未初始化：栈        local_uninit_b=-1074241512
+​      &static_local_init_b=0x804a02c        局部静态初始化：数据段      static_local_init_b=1
+ &static_local_uninit_b=0x804a044        局部静态未初始化：数据段      static_local_uninit_b=0
+​                &const_local_b=0xbff85ff8        局部只读变量：栈        const_local_b=1
+
+​                           p_chars=0x80487c8        字符串常量：代码段          p_chars=abcdef
+​                    malloc_p_a=0x8a7e008        malloc动态分配：堆        *malloc_p_a=0
+
+通过以上分析我们暂时可以得到的结论如下，**在进程的地址空间中**：
+
+- **数据段**中存放：**全局变量**（初始化以及未初始化的）、**静态变量**（全局的和局部的、初始化的以及未初始化的）
+- 代码段中存放：全局只读变量（const）、字符串常量
+- 堆中存放：动态分配的区域
+- 栈中存放：局部变量（初始化以及未初始化的，但不包含静态变量）、局部只读变量（const）
+
+这里我们没有发现BSS段，但是我们将未初始化的数据按照地址进行排序看一下，可以发现一个规律。
+
+&global_init_a=0x804a018       全局初始化：数据段              global_init_a=1
+​    &static_global_init_a=0x804a01c      全局静态初始化：数据段      static_global_init_a=1
+​                &global_init_b=0x804a020       全局初始化：数据段      global_init_b=1
+​    &static_global_init_b=0x804a024        全局静态初始化：数据段    static_global_init_b=1
+​       &static_local_init_a=0x804a028         局部静态初始化：数据段      static_local_init_a=1
+​       &static_local_init_b=0x804a02c        局部静态初始化：数据段      static_local_init_b=1
+&static_global_uninit_a=0x804a038      全局静态未初始化：数据段     static_global_uninit_a=0
+&static_global_uninit_b=0x804a03c        全局静态未初始化：数据段   static_global_uninit_b=0
+  &static_local_uninit_a=0x804a040        局部静态未初始化：数据段     static_local_uninit_a=0
+  &static_local_uninit_b=0x804a044        局部静态未初始化：数据段      static_local_uninit_b=0
+​           &global_uninit_b=0x804a048        全局未初始化：数据段      global_uninit_b=0
+​            &global_uninit_a=0x804a04c      全局未初始化：数据段          global_uninit_a=0
+
+​    这里可以发现，**初始化的和未初始化的数据好像是分开存放的**，因此我们可以猜测BSS段是存在的，只不过数据段是分为初始化和未初始化（即BSS段）的两部分，他们在加载到进程地址空间时是合并为数据段了，在进程地址空间中没有单独分为一个区域。
+
+还有一个问题，静态数据与非静态数据是否是分开存放的呢？请读者自行分析一下。
+
+接下来我们从**程序的角度**看一下，这些存储区域是如何分配的。首先我们先介绍一下ELF文件格式。
+
+ELF（Executable and Linkable Format ）文件格式是一个开放标准，各种UNIX系统的可执行文件都采用ELF格式，它有三种不同的类型：
+
+–可重定位的目标文件（Relocatable，或者Object File）
+
+–可执行文件（Executable）
+
+–共享库（Shared Object，或者Shared Library）
+
+ 
+
+下图为ELF文件的结构示意图（来源，不详）：
+
+![img](http://hi.csdn.net/attachment/201110/22/0_1319296523sGdn.gif)
+
+一个程序编译生成目标代码文件（ELF文件）的过程如下，此图引自《程序员的自我修养》一书的一个图：![img](http://hi.csdn.net/attachment/201110/22/0_1319296665xX21.gif)
+
+可以通过readelf命令查看EFL文件的相关信息，例如 readelf  -a  a.out  ，我们只关心各个段的分配情况，因此我们使用以下命令：
+
+```shell
+readelf -S a.out
+```
+
+![img](http://hi.csdn.net/attachment/201110/22/0_1319297156d3UK.gif)将这里的内存布局与之前看到的程序的运行结果进行分析：
+
+​                &global_init_a=0x804a018       全局初始化：数据段              global_init_a=1
+​            &global_uninit_a=0x804a04c      全局未初始化：BSS段          global_uninit_a=0
+​     &static_global_init_a=0x804a01c      全局静态初始化：数据段      static_global_init_a=1
+&static_global_uninit_a=0x804a038      全局静态未初始化：BSS段     static_global_uninit_a=0
+​             &const_global_a=0x80487c0     全局只读变量： 只读数据段        const_global_a=1
+​                 &global_init_b=0x804a020       全局初始化：数据段      global_init_b=1
+​            &global_uninit_b=0x804a048        全局未初始化：BSS段      global_uninit_b=0
+​     &static_global_init_b=0x804a024        全局静态初始化：数据段    static_global_init_b=1
+&static_global_uninit_b=0x804a03c        全局静态未初始化：BSS段   static_global_uninit_b=0
+​            &const_global_b=0x80487c4        全局只读变量： 只读数据段             const_global_b=1
+​     &static_local_init_a=0x804a028         局部静态初始化：数据段      static_local_init_a=1
+ &static_local_uninit_a=0x804a040        局部静态未初始化：BSS段     static_local_uninit_a=0
+​      &static_local_init_b=0x804a02c        局部静态初始化：数据段      static_local_init_b=1
+ &static_local_uninit_b=0x804a044        局部静态未初始化：BSS段      static_local_uninit_b=0
+​                           p_chars=0x80487c8        字符串常量：只读数据段          p_chars=abcdef
+ELF 文件一般包含以下几个段 :
+
+- **.text section：主要是编译后的源码指令，是只读字段。**
+- **.data section ：初始化后的非const的全局变量、局部static变量。**
+- **.bss：未初始化后的非const全局变量、局部static变量。**
+- **.rodata字段  是存放只读数据 **
+
+分析到这以后，我们在和之前分析的结果对比一下，**会发现确实存在BSS段**，地址为0804a030 ，大小为0x20，之前我们的程序中未初始化的的确存放在这个地址区间中了，只不过执行exec系统调用时，将这部分的数据初始化为0后，放到了进程地址空间的数据段中了，在进程地址空间中就没有必要存在BSS段了，因此都称做数据段。同理，.rodata字段也是与text段放在一起了。
+
+在ELF文件中，找不到局部非静态变量和动态分配的内容。
+
+
+
+## TODO
+
+https://blog.csdn.net/feilengcui008/article/details/44141495
+
+
+
+https://www.cnblogs.com/dyllove98/archive/2013/07/05/3174341.html
