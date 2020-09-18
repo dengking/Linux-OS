@@ -1,0 +1,4 @@
+nav:
+    - Executable-file-format: Executable-file-format.md
+    - man-5-elf: man-5-elf.md
+    - Tool: Tool
