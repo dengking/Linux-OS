@@ -1,5 +1,5 @@
 nav:
+    - Introduction: index.md
     - Run-command: Run-command.md
-    - Sched: Sched
-    - Linux-Kernel-module: Linux-Kernel-module
+    
     
