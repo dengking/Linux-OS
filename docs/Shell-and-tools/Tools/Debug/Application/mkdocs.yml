@@ -1,0 +1,4 @@
+nav:
+    - Stuck-process: Stuck-process.md
+    - Dead-lock: Dead-lock.md
+    - Race-condition: Race-condition

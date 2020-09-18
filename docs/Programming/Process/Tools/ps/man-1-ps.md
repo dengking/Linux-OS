@@ -215,7 +215,15 @@ Processes marked `<defunct>` are dead processes (so-called "zombies") that remai
 
 If the length of the username is greater than the length of the display column, the numeric user ID is displayed instead.
 
+### `System.map` file
 
+This **ps** needs access to namelist data for proper `WCHAN` display. For kernels prior to 2.6, the `System.map` file must be installed.
+
+> NOTE:
+>
+> 本段所描述的问题，在stackoverflow [in ps -l, what does wchan=stext mean?](https://stackoverflow.com/questions/404854/in-ps-l-what-does-wchan-stext-mean) 中也对这个问题进行了探讨。
+>
+> 关于`System.map` file，参见`Kernel\Guide\Debug\System.map`。
 
 ## Process Flags
 
@@ -235,6 +243,12 @@ Here are the different values that the **s**, **stat** and **state** output spec
 ### `D`
 
 Uninterruptible sleep (usually IO)
+
+> NOTE: docstore [21.7. Hanging Processes: Detection and Diagnostics ](https://docstore.mik.ua/orelly/weblinux2/modperl/ch21_07.htm)中，有这样的描述:
+>
+> '`D`' **disk wait** in `ps` report
+>
+> 所以，我觉得`D`应该代表的就是disk wait。
 
 ### `I`
 
@@ -279,6 +293,10 @@ low-priority (nice to other users)
 ### L
 
 has pages locked into memory (for real-time and custom IO)
+
+> NOTE: 关于此，参见:
+>
+> - docstore [21.7.1. Hanging Because of an Operating System Problem](https://docstore.mik.ua/orelly/weblinux2/modperl/ch21_07.htm) 
 
 ### s
 
