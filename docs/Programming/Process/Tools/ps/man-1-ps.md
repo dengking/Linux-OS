@@ -18,15 +18,15 @@ This version of **ps** accepts several kinds of options:
 - 2 BSD options, which may be grouped and must not be used with a dash.
 - 3 GNU long options, which are preceded by two dashes.
 
+> NOTE: 显然`ps`的实现，根据dash个数来区分是哪种option。结合后文来看，1UNIX option是standard。
 
-
-Options of different types may be freely mixed, but conflicts can appear. There are some synonymous options, which are functionally identical, due to the many standards and **ps** implementations that this **ps** is compatible with.
+Options of different types may be freely mixed, but conflicts can appear. There are some synonymous（同义的） options, which are functionally identical, due to the many standards and **ps** implementations that this **ps** is compatible with.
 
 Note that "**ps -aux**" is distinct from "**ps aux**". The POSIX and UNIX standards require that "**ps -aux**" print all processes owned by a **user** named "x", as well as printing all processes that would be selected by the **-a** option. If the user named "x" does not exist, this **ps** may interpret the command as "**ps aux**" instead and print a warning. This behavior is intended to aid in transitioning(过渡) old scripts and habits. It is fragile, subject to change, and thus should not be relied upon.
 
 
 
-By default, **ps** selects all processes with the same **effective user ID** (`euid`=`EUID`) as the current user and associated with the same **terminal** as the invoker. It displays the process ID (`pid`=`PID`), the terminal associated with the process (`tname`=`TTY`), the cumulated(累计的) CPU time in `[dd-]hh:mm:ss` format (time=TIME), and the executable name (`ucmd`=`CMD`). Output is unsorted by default.
+By default, **ps** selects all processes with the same **effective user ID** (`euid`=`EUID`) as the **current user** and associated with the same **terminal** as the invoker. It displays the process ID (`pid`=`PID`), the terminal associated with the process (`tname`=`TTY`), the cumulated(累计的) CPU time in `[dd-]hh:mm:ss` format (time=TIME), and the executable name (`ucmd`=`CMD`). Output is unsorted by default.
 
 ```bash
 [tensorflow@localhost ~]$ ps
@@ -37,11 +37,13 @@ By default, **ps** selects all processes with the same **effective user ID** (`e
 
 
 
-The use of BSD-style options will add **process state** (stat=STAT) to the default display and show the command `args` (`args`=COMMAND) instead of the executable name. You can override this with the **PS_FORMAT** environment variable. The use of BSD-style options will also change the process selection to include processes on other terminals (TTYs) that are owned by you; alternately, this may be described as setting the selection to be the set of all processes filtered to exclude processes owned by other users or not on a terminal. These effects are not considered when options are described as being "identical" below, so **-M** will be considered identical to **Z** and so on.
+The use of BSD-style options will add **process state** (stat=STAT) to the default display and show the command `args` (`args`=COMMAND) instead of the executable name. You can override this with the **PS_FORMAT** environment variable. The use of BSD-style options will also change the **process selection** to include processes on other terminals (TTYs) that are owned by you; alternately, this may be described as setting the selection to be the set of all processes filtered to exclude processes owned by other users or not on a terminal. These effects are not considered when options are described as being "identical" below, so **-M** will be considered identical to **Z** and so on.
 
-Except as described below, process selection options are additive. The default selection is discarded, and then the selected processes are added to the set of processes to be displayed. A process will thus be shown if it meets any of the given selection criteria.
+Except as described below, **process selection options** are additive. The default selection is discarded, and then the selected processes are added to the set of processes to be displayed. A process will thus be shown if it meets any of the given selection criteria.
 
 ## Examples
+
+### All process
 
 To see every process on the system using standard syntax:
 
@@ -59,6 +61,8 @@ ps ax
 ps axu
 ```
 
+### Process tree
+
 To print a process tree:
 
 ```bash
@@ -66,12 +70,16 @@ ps -ejH
 ps axjf
 ```
 
+### Threads
+
 To get info about threads:
 
 ```bash
 ps -eLf
 ps axms
 ```
+
+### Security info
 
 To get security info:
 
@@ -81,11 +89,15 @@ ps axZ
 ps -eM
 ```
 
+### Run as root
+
 To see every process running as root (real & effective ID) in **user format**:
 
 ```bash
 ps -U root -u root u
 ```
+
+### User-defined format
 
 To see every process with a user-defined format:
 
@@ -95,13 +107,15 @@ ps axo stat,euid,ruid,tty,tpgid,sess,pgrp,ppid,pid,pcpu,comm
 ps -eopid,tt,user,fname,tmout,f,wchan
 ```
 
+### Process ID of
+
 Print only the process IDs of `syslogd`:
 
 ```bash
 ps -C syslogd -o pid=
 ```
 
-​	
+### Name of
 
 Print only the name of PID 42:
 
@@ -111,67 +125,29 @@ ps -p 42 -o comm=
 
 
 
-## Simple Process Selection
-
-### -A
-
-Select all processes. Identical to **-e**.
-
-### -N
-
-Select all processes except those that fulfill the specified conditions. (negates the selection) Identical to **--deselect**.
-
-### T
-
-Select all processes associated with this terminal. Identical to the **t** option without any argument.
-
-### -a
-
-Select all processes except both **session leaders** (see [**getsid**(2)](https://linux.die.net/man/2/getsid)) and processes not associated with a terminal.
-
-### a
-
-Lift the BSD-style "only yourself" restriction, which is imposed upon the set of all processes when some BSD-style (without "-") options are used or when the **ps** personality setting is BSD-like. The set of processes selected in this manner is in addition to the set of processes selected by other means. An alternate description is that this option causes **ps** to list all processes with a terminal (tty), or to list all processes when used together with the **x** option.
+### `ps -x`
 
 
 
-### -d
+## Process Selection
 
-Select all processes except **session leaders**.
+> NOTE: 使用`ps`的一个非常重要的内容是：process selection
 
-### -e
-
-Select all processes. Identical to **-A**.
-
-### g
-
-Really all, even **session leaders**. This flag is obsolete and may be discontinued in a future release. It is normally implied by the **a** flag, and is only useful when operating in the sunos4 personality.
-
-### r
-
-Restrict the selection to only **running processes**.
-
-### x
-
-Lift the BSD-style "must have a tty" restriction, which is imposed upon the set of all processes when some BSD-style (without "-") options are used or when the **ps** personality setting is BSD-like. The set of processes selected in this manner is in addition to the set of processes selected by other means. An alternate description is that this option causes **ps** to list all processes owned by you (same EUID as **ps**), or to list all processes when used together with the **a** option.
-
-### --deselect
-
-Select all processes except those that fulfill the specified conditions. (negates the selection) Identical to **-N**.
+### Simple Process Selection
 
 
 
-## Process Selection By List
+### Process Selection By List
 
 These options accept a single argument in the form of a blank-separated or comma-separated list. They can be used multiple times. For example: `ps -p "1 2" -p 3,4`
 
-### **-C** *cmdlist*
+#### `-C cmdlist`
 
 Select by **command name**.
 
 This selects the processes whose **executable name** is given in *cmdlist*.
 
-### **-G** *grplist*
+#### `-G grplist`
 
 Select by **real group ID** (RGID) or name.
 
@@ -179,19 +155,15 @@ This selects the processes whose **real group name** or ID is in the *grplist* l
 
 
 
-
-
-
-
 ## Output Format Control
 
 These options are used to choose the information displayed by **ps**. The output may differ by personality.
 
-### **-F**
+### `-F`
 
 extra full format. See the **-f** option, which **-F** implies.
 
-### **-O** *format*
+### `-O format`
 
 
 
@@ -217,33 +189,29 @@ extra full format. See the **-f** option, which **-F** implies.
 
 ## Notes
 
-
-
 This **ps** works by reading the virtual files in `/proc`. This **ps** does not need to be `setuid kmem` or have any privileges to run. Do not give this **ps** any special permissions.
 
-***TODO*** : 
+> NOTE: 参见`Programming\Process\Proc-filesystem`。
 
-- kmem group
 
-  -  [SystemGroups](https://wiki.debian.org/SystemGroups) 
-
-  - [Non-root read access to /dev/mem by kmem group members fails](https://unix.stackexchange.com/questions/475800/non-root-read-access-to-dev-mem-by-kmem-group-members-fails)
-- [**kmem**](https://linux.die.net/man/4/kmem) 
-- `/proc`
-  - [procfs](https://en.wikipedia.org/wiki/Procfs)
-  - [1.14. /proc](https://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html)
 
 This **ps** needs access to namelist data for proper WCHAN display. For kernels prior to 2.6, the System.map file must be installed.
 
-***TODO*** : 
+> NOTE
+>
+> wikipedia [System.map](https://en.wikipedia.org/wiki/System.map)
 
-- [System.map](https://en.wikipedia.org/wiki/System.map)
+### CPU usage 
 
 CPU usage is currently expressed as the percentage of time spent running during the entire lifetime of a process. This is not ideal, and it does not conform to the standards that **ps** otherwise conforms to. CPU usage is unlikely to add up to exactly 100%.
 
-The SIZE and RSS fields don't count some parts of a process including the page tables, kernel stack, struct thread_info, and struct task_struct. This is usually at least 20 KiB of memory that is always resident. SIZE is the virtual size of the process (code+data+stack).
+### `SIZE` and `RSS`
 
-Processes marked <defunct> are dead processes (so-called "zombies") that remain because their parent has not destroyed them properly. These processes will be destroyed by **init**(8) if the parent process exits.
+The `SIZE` and `RSS` fields don't count some parts of a process including the page tables, kernel stack, struct thread_info, and struct task_struct. This is usually at least 20 KiB of memory that is always resident. SIZE is the virtual size of the process (code+data+stack).
+
+### `<defunct>`
+
+Processes marked `<defunct>` are dead processes (so-called "zombies") that remain because their parent has not destroyed them properly. These processes will be destroyed by **init**(8) if the parent process exits.
 
 If the length of the username is greater than the length of the display column, the numeric user ID is displayed instead.
 
@@ -256,15 +224,21 @@ The sum of these values is displayed in the "F" column, which is provided by the
 - 1 forked but didn't exec
 - 4 used super-user privileges
 
-
+> NOTE: 没有理解意思
 
 ## Process State Codes
 
+> NOTE: Process State 非常重要
+
 Here are the different values that the **s**, **stat** and **state** output specifiers (header "STAT" or "S") will display to describe the state of a process.
 
-### D
+### `D`
 
 Uninterruptible sleep (usually IO)
+
+### `I`
+
+Idle kernel thread
 
 ### R
 
@@ -290,6 +264,8 @@ dead (should never be seen)
 
 Defunct ("zombie") process, terminated but not reaped by its parent.
 
+
+
 For BSD formats and when the **stat** keyword is used, additional characters may be displayed:
 
 ### <
@@ -308,11 +284,22 @@ has pages locked into memory (for real-time and custom IO)
 
 is a session leader
 
-### l
+### `l`
 
-is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
+is multi-threaded (using `CLONE_THREAD`, like NPTL pthreads do)
 
 ### +
 
 is in the foreground process group
 
+
+
+## STANDARD FORMAT SPECIFIERS 
+
+
+
+## ENVIRONMENT VARIABLES  
+
+
+
+## PERSONALITY     

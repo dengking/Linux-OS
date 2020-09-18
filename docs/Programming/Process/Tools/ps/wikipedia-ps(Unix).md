@@ -81,8 +81,3 @@ Most systems derived from [BSD](https://en.wikipedia.org/wiki/BSD) fail to accep
 - [`top`](https://en.wikipedia.org/wiki/Top_(Unix)) 
 - [`lsof`](https://en.wikipedia.org/wiki/Lsof) 
 
-## External links
-
-- `ps` – Commands & Utilities Reference, [The Single UNIX Specification](https://en.wikipedia.org/wiki/Single_Unix_Specification), Issue 7 from [The Open Group](https://en.wikipedia.org/wiki/The_Open_Group)
-- [Show all running processes in Linux using ps command](http://www.cyberciti.biz/faq/show-all-running-processes-in-linux/)
-- [In Unix, what do the output fields of the ps command mean?](http://kb.iu.edu/data/afnv.html)
