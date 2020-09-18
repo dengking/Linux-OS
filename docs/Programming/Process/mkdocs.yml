@@ -3,6 +3,10 @@ nav:
     - Credential: Credential
     - Organization-of-process: Organization-of-process
     - Capabilities: Capabilities
+    - Sched: Sched
     - IPC: IPC
     - Thread: Thread
+    - Exit: Exit
+    - Tools: Tools
+    
     

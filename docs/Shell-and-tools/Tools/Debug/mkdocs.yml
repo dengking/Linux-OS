@@ -7,3 +7,4 @@ nav:
     - Stack-trace: Stack-trace
     - System-call-trace: System-call-trace
     - Library-call-tracer: Library-call-tracer
+    - Application: Application

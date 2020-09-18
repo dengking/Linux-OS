@@ -2,8 +2,6 @@
 
 
 
-
-
 ## DESCRIPTION
 
 ### Process ID (PID)
@@ -13,14 +11,6 @@ Each process has a unique nonnegative integer identifier that is assigned when t
 PIDs are used in a range of system calls to identify the process affected by the call, for example: [	](http://man7.org/linux/man-pages/man2/kill.2.html), [ptrace(2)](http://man7.org/linux/man-pages/man2/ptrace.2.html), [setpriority(2)](http://man7.org/linux/man-pages/man2/setpriority.2.html) [setpgid(2)](http://man7.org/linux/man-pages/man2/setpgid.2.html), [setsid(2)](http://man7.org/linux/man-pages/man2/setsid.2.html), [sigqueue(3)](http://man7.org/linux/man-pages/man3/sigqueue.3.html), and [waitpid(2)](http://man7.org/linux/man-pages/man2/waitpid.2.html).
 
 A process's PID is preserved across an [execve(2)](http://man7.org/linux/man-pages/man2/execve.2.html).
-
-
-
-
-
-
-
-
 
 
 
@@ -37,7 +27,7 @@ same session, so that sessions and process groups form a strict two-level hierar
 
 All of the processes in a session **share** a **controlling terminal**.  The **controlling terminal** is established when the **session leader** first opens a **terminal** (unless the `O_NOCTTY` flag is specified when calling `open(2)`).  A terminal may be the **controlling terminal** of at most one session.
 
-***SUMMARY*** : 如果session leader不去open terminal，则这个session就没有controlling terminal了；
+> NOTE: 如果session leader不去open terminal，则这个session就没有controlling terminal了；
 
 At most one of the jobs in a session may be the **foreground job**; other jobs in the session are **background jobs**.  Only the foreground job may read from the terminal; when a process in the background attempts to
 read from the terminal, its process group is sent a SIGTTIN signal,  which suspends the job.  If the TOSTOP flag has been set for the terminal (see termios(3)), then only the foreground job may write to the terminal; writes from background job cause a SIGTTOU signal to be generated, which suspends the job.  When terminal keys that generate a signal (such as the interrupt key, normally control-C) are pressed, the signal is sent to the processes in the foreground job.
