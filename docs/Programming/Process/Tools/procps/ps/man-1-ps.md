@@ -312,6 +312,23 @@ is in the foreground process group
 
 
 
+### Examples
+
+[In UNIX, what are the Ss, Sl, and Ssl proccess types I see with ps aux?](https://superuser.com/questions/136487/in-unix-what-are-the-ss-sl-and-ssl-proccess-types-i-see-with-ps-aux)
+
+From the [ps manpage](http://unixhelp.ed.ac.uk/CGI/man-cgi?ps):
+
+> ```
+>    S    Interruptible sleep (waiting for an event to complete)
+> 
+>   For BSD formats and when the stat keyword is used, additional
+>   characters may be displayed:
+>   s    is a session leader
+>   l    is multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
+> ```
+
+
+
 ## STANDARD FORMAT SPECIFIERS 
 
 

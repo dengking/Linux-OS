@@ -1,3 +1,3 @@
 # 关于本章
 
-本章介绍与network相关的IO。
+与network相关的IO放到了`Network`章节。
