@@ -1,4 +1,5 @@
 nav:
+    - Introduction: index.md
     - organization-gnu: organization-gnu
     # 如果程序不知不觉地退出了执行，如何进行分析
     - Dmesg: Dmesg
@@ -11,3 +12,5 @@ nav:
     # 如何构建应用
     - Build: Build
     - Hardware: Hardware
+    
+    - uptime: uptime.md

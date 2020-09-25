@@ -17,3 +17,21 @@ For this first column, I start with one of the most common problems you will run
 
 ### Uptime and Load
 
+When administrators mention high load, generally they are talking about the *load average*. When I diagnose why a server is slow, the **first** command I run when I log in to the system is `uptime`:
+
+```
+$ uptime
+ 18:30:35 up 365 days, 5:29, 2 users, load average: 1.37, 10.15, 8.10
+```
+
+> NOTE: 关于`uptime`，参见 `Shell-and-tools\Tools\uptime.md` 
+
+
+
+### How High Is High?
+
+> NOTE: 多高才能算是高？
+
+After you understand what load average means, the next logical question is “What load average is good and what is bad?” The answer to that is “It depends.” You see, a lot of different things can cause load to be high, each of which affects performance differently. One server might have a load of 50 and still be pretty responsive, while another server might have a load of 10 and take forever to log in to.
+
+What really matters when you troubleshoot a system with high load is *why* the load is high. When you start to diagnose high load, you find that most load seems to fall into three categories: CPU-bound load, load caused by out of memory issues and I/O-bound load. I explain each of these categories in detail below and how to use tools like top and iostat to isolate the root cause.
