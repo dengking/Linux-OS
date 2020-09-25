@@ -14,3 +14,10 @@
 
 
 
+
+
+[PERF-TRACE(1)](http://man7.org/linux/man-pages/man1/perf-trace.1.html) 
+
+[PERF-SCRIPT(1)](http://man7.org/linux/man-pages/man1/perf-script.1.html)
+
+[PERF-RECORD(1)](http://man7.org/linux/man-pages/man1/perf-record.1.html)
