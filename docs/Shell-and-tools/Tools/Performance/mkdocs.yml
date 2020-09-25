@@ -1,2 +1,4 @@
 nav:
     - Introduction: index.md
+    - perf: perf
+    - sysstat: sysstat
