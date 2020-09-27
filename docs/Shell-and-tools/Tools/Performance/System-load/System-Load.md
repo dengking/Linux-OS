@@ -216,3 +216,43 @@ Total DISK READ: 189.52 K/s | Total DISK WRITE: 0.00 B/s
 How you deal with these load-causing processes is up to you and depends on a lot of factors. In some cases, you might have a script that has gone out of control and is something you can easily kill. In other situations, such as in the case of a database process, it might not be safe simply to kill the process, because it could leave corrupted data behind. Plus, it could just be that your service is running out of capacity, and the real solution is either to add more resources to your current server or add more servers to share the load. It might even be load from a one-time job that is running on the machine and shouldn't impact load in the future, so you just can let the process complete. Because so many different things can cause processes to tie up（占用） server resources, it's hard to list them all here, but hopefully, being able to identify the causes of your high load will put you on the right track the next time you get an alert that a machine is slow.
 
 Kyle Rankin is a Systems Architect in the San Francisco Bay Area and the author of a number of books, including *The Official Ubuntu Server Book*, *Knoppix Hacks* and *Ubuntu Hacks*. He is currently the president of the North Bay Linux Users' Group.
+
+
+
+## redhat [Troubleshooting slow servers: How to check CPU, RAM, and Disk I/O](https://www.redhat.com/sysadmin/troubleshooting-slow-servers)
+
+If you been doing sysadmin work long enough, you’ve seen the dreaded "Server is slow" incidents. For a long time, these types of incidents would give me a pit in my stomach. How the heck do you troubleshoot something so subjective（你怎么能解决这么主观的问题呢）? An everyday user’s "slow" might just be caused by other processes (scheduled or not) running and consuming more resources than usual, or something could actually be wrong with the server.
+
+
+
+### The "Big 3" (aka CPU, RAM, and Disk I/O)
+
+Now, let’s look at the three biggest causes of server slowdown: CPU, RAM, and disk I/O. CPU usage can cause overall slowness on the host, and difficulty completing tasks in a timely fashion. Some tools I use when looking at CPU are `top` and`sar`.
+
+### Checking CPU usage with top
+
+The `top` utility gives you a real-time look at what’s going on with the server. By default, when `top` starts, it shows activity for all CPUs:
+
+Image
+
+![The first three rows of top&#039;s initial output.](https://www.redhat.com/sysadmin/sites/default/files/styles/embed_large/public/2019-09/how-to-check-big-3-top-1.png?itok=2e43MxSN)
+
+This view can be changed by pressing the numeric 1 key, which adds more detail regarding the usage values for each CPU:
+
+Image
+
+![Press 1 in top to see details for each CPU.](https://www.redhat.com/sysadmin/sites/default/files/styles/embed_large/public/2019-09/how-to-check-big-3-top-2.png?itok=NQUQnE3U)
+
+Some things to look for in this view would be the load average (displayed on the right side of the top row), and the value of the following for each CPU:
+
+- `us`: This percentage represents the amount of CPU consumed by user processes.
+- `sy`: This percentage represents the amount of CPU consumed by system processes.
+- `id`: This percentage represents how idle each CPU is.
+
+Each of these three values can give you a fairly good, real-time idea of whether CPUs are bound by user processes or system processes.
+
+**Note:** For more information about load average and why some people think it’s a silly number, check out [Brendan Gregg’s in-depth research](http://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html).
+
+### Checking all of the "Big 3" with sar
+
+For historical CPU performance data I rely on the `sar` command, which is provided by the `sysstat` package. On most server versions of Linux, `sysstat` is installed by default, but if it’s not, you can add it with your distro’s package manager. The `sar` utility collects system data every 10 minutes via a cron job located in `/etc/cron.d/sysstat` (CentOS 7.6). Here’s how to check all of the "Big 3" using `sar`.

@@ -1,6 +1,82 @@
 # top
 
+## [top(1) - Linux man page](https://linux.die.net/man/1/top)
 
+### Overview
+
+The remaining Table of Contents 
+
+1 COMMAND-LINE Options 
+
+2 FIELDS / Columns 
+
+a. DESCRIPTIONS of Fields 
+
+b. SELECTING and ORDERING Columns 
+
+3 INTERACTIVE Commands 
+
+a. GLOBAL Commands 
+
+b. SUMMARY Area Commands 
+
+c. TASK Area Commands 
+
+d. COLOR Mapping 
+
+4 ALTERNATE-DISPLAY Mode 
+
+a. WINDOWS Overview 
+
+b. COMMANDS for Windows 
+
+5 FILES 
+
+a. SYSTEM Configuration File 
+
+b. PERSONAL Configuration File 
+
+6 STUPID TRICKS Sampler 
+
+a. Kernel Magic 
+
+b. Bouncing Windows 
+
+c. The Big Bird Window 
+
+7 BUGS
+
+8 HISTORY Former top
+
+9 AUTHOR
+
+10 SEE ALSO
+
+### 1. COMMAND-LINE Options
+
+### 2. FIELDS / Columns
+
+### 2a. DESCRIPTIONS of Fields
+
+### 2b. SELECTING and ORDERING Columns
+
+### 2c. SUMMARY Area Fields
+
+### 3. INTERACTIVE Commands
+
+### 3a. GLOBAL Commands
+
+### 3b. SUMMARY Area Commands
+
+**'1'**
+
+*Toggle_Single/Separate_Cpu_States* **--** On/Off
+
+> NOTE: 简单说来，键入1，表示我们想要查看: Show CPU Usage on all cores，这是我在阅读haydenjames [Linux server performance: Is disk I/O slowing your application?](https://haydenjames.io/linux-server-performance-disk-io-slowing-application/) 时发现的，它的视频中展示了CPU-wise usage info。下面是一些对此进行说明的文章:
+>
+> - bencane [Top: Show CPU Usage on all cores](https://bencane.com/2011/08/28/top-show-cpu-usage-on-all-cores/) 
+> - stackexchange [top command on multi core processor](https://unix.stackexchange.com/questions/146085/top-command-on-multi-core-processor) 
+> - cyberciti [How to display cpu wise usage using top command on FreeBSD Unix operating system](https://www.cyberciti.biz/faq/how-to-find-the-usage-of-individual-cpu-top-command-usage-freebsd/)
 
 
 

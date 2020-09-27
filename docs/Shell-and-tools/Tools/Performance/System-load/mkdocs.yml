@@ -2,3 +2,4 @@ nav:
     - System-Load: System-Load.md
     - uptime: uptime.md    
     - Troubleshoot-disk-IO-bottleneck: Troubleshoot-disk-IO-bottleneck.md
+    - Troubleshoot-CPU-bound-bottleneck: Troubleshoot-CPU-bound-bottleneck.md
