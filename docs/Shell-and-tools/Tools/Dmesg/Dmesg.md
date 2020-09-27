@@ -1,3 +1,11 @@
+# `dmesg`
+
+
+
+## [dmesg(1) — Linux manual page](https://www.man7.org/linux/man-pages/man1/dmesg.1.html)
+
+
+
 https://blog.quarkslab.com/unaligned-accesses-in-cc-what-why-and-solutions-to-do-it-properly.html#id20
 
 
