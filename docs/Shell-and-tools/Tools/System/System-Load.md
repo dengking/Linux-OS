@@ -118,18 +118,101 @@ As you look at this output during **CPU-bound load**, you probably will see one 
 
 ### Out of RAM Issues
 
-The next cause for **high load** is a system that has run out of available RAM and has started to go into **swap**. Because **swap space** is usually on a hard drive that is much slower than RAM, when you use up available RAM and go into swap, each process slows down dramatically as the disk gets used. Usually this causes a downward spiral as processes that have been swapped run slower, take longer to respond and cause more processes to stack up until the system either runs out of RAM or slows down to an absolute crawl. What's tricky about swap issues is that because they hit the disk so hard, it's easy to misdiagnose them as I/O-bound load. After all, if your disk is being used as RAM, any processes that actually want to access files on the disk are going to have to wait in line. So, if I see high I/O wait in the CPU row in top, I check RAM next and rule it out before I troubleshoot any other I/O issues.
+The next cause for **high load** is a system that has run out of available **RAM** and has started to go into **swap**. Because **swap space** is usually on a hard drive that is much slower than **RAM**, when you use up available **RAM** and go into **swap**, each process slows down dramatically as the disk gets used. 
+
+Usually this causes a downward spiral as processes that have been swapped run slower, take longer to respond and cause more processes to stack up until the system either runs out of RAM or slows down to an absolute crawl. 
+
+> 通常这会导致螺旋式下降，因为交换过的进程运行得更慢，响应时间更长，并导致更多进程堆积在一起，直到系统耗尽RAM或慢到完全爬行。
+
+What's tricky about swap issues is that because they hit the disk so hard, it's easy to misdiagnose them as **I/O-bound load**. After all, if your disk is being used as RAM, any processes that actually want to access files on the disk are going to have to wait in line. So, if I see high **I/O wait** in the CPU row in `top`, I check RAM next and rule it out before I troubleshoot any other I/O issues.
+
+> NOTE: 当“a system that has run out of available **RAM** and has started to go into **swap**”时，由于disk is being used as RAM, any processes that actually want to access files on the disk are going to have to wait in line，所以我们就看到了high **I/O wait** in the CPU row in `top`
+
+When I want to diagnose **out of memory issues**, the first place I look is the next couple of lines in the `top` output:
+
+```shell
+Mem: 1024176k total, 997408k used, 26768k free, 85520k buffers
+Swap: 1004052k total, 4360k used, 999692k free, 286040k cached
+```
+
+These lines tell you the total amount of RAM and swap along with how much is used and free; however, look carefully, as these numbers can be misleading. I've seen many new and even experienced administrators who would look at the above output and conclude the system was almost out of RAM because there was only 26768k free. Although that does show how much RAM is currently unused, it doesn't tell the full story.
+
+> NOTE: 在“The Linux File Cache”中会对此进行解释
 
 #### The Linux File Cache
 
+When you access a file and the Linux kernel loads it into RAM, the kernel doesn't necessarily unload the file when you no longer need it. If there is enough free RAM available, the kernel tries to cache as many files as it can into RAM. That way, if you access the file a second time, the kernel can retrieve it from RAM instead of the disk and give much better performance. As a system stays running, you will find the free RAM actually will appear to get rather small. If a process needs more RAM though, the kernel simply uses some of its **file cache**. In fact, I see a lot of the overclocking crowd who want to improve performance and create a ramdisk to store their files. What they don't realize is that more often than not, if they just let the kernel do the work for them, they'd probably see much better results and make more efficient use of their RAM.
 
+> 事实上，我看到许多超频用户希望提高性能并创建一个ramdisk来存储他们的文件。他们没有意识到的是，通常情况下，如果让内核为他们做这些工作，他们可能会看到更好的结果，并更有效地使用他们的RAM。
+
+To get a more accurate amount of **free RAM**, you need to combine the values from the **free column** with the **cached column**. In my example, I would have 26768k + 286040k, or over 300Mb of free RAM. In this case, I could safely assume my system was not experiencing an out of RAM issue. Of course, even a system that has very little free RAM may not have gone into swap. That's why you also must check the Swap: line and see if a high proportion of your swap is being used.
+
+> NOTE: 最后一句话作者并没有给出结论，我觉得结论是：如果swap的使用比例较高，则说明out of RAM的可能性就比较大了
 
 #### Track Down High RAM Usage
 
+If you do find you are low on free RAM, go back to the same process output from `top`, only this time, look in the `%MEM` column. By default, `top` will sort by the `%CPU` column, so simply type `M` and it will re-sort to show you which processes are using the highest percentage of RAM. In the output in Listing 3, I sorted the same processes by RAM, and you can see that the `nagios2db_status` process is using the most at 6.6%.
 
+**Listing 3. Processes Sorted by RAM**
+
+```
+  PID USER   PR NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+18749 nagios 16  0  140m 134m 1868 S   12  6.6   1345:01 nagios2db_status
+ 9463 mysql  16  0  686m 111m 3328 S   53  5.5 569:17.64 mysqld
+24636 nagios 17  0 34660  10m  712 S    8  0.5   1195:15 nagios
+22442 nagios 24  0  6048 2024 1452 S    8  0.1   0:00.04 check_time.pl
+```
 
 ### I/O-Bound Load
 
+**I/O-bound load** can be tricky to track down sometimes. As I mentioned earlier, if your system is swapping, it can make the load appear to be I/O-bound. Once you rule out swapping though, if you do have a high I/O wait, the next step is to attempt to track down which disk and partition is getting the bulk of the I/O traffic. To do this, you need a tool like `iostat`.
 
+The `iostat` tool, like `top`, is a complicated and full-featured tool that could fill up its own article. Unlike `top`, although it should be available for your distribution, it may not be installed on your system by default, so you need to track down which package provides it. Under Red Hat and Debian-based systems, you can get it in the sysstat package. Once it's installed, simply run `iostat` with no arguments to get a good overall view of your disk I/O statistics:
+
+```shell
+Linux 2.6.24-19-server (hostname) 	01/31/2009
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           5.73    0.07    2.03    0.53    0.00   91.64
+
+Device:    tps  Blk_read/s  Blk_wrtn/s   Blk_read   Blk_wrtn
+sda       9.82       417.96        27.53   30227262    1990625
+sda1      6.55       219.10         7.12   15845129     515216
+sda2      0.04         0.74         3.31      53506     239328
+sda3      3.24       198.12        17.09   14328323    1236081
+```
+
+Like with `top`, `iostat` gives you the CPU percentage output. Below that, it provides a breakdown of each drive and partition on your system and statistics for each:
+
+| column       | explanation                |      |
+| ------------ | -------------------------- | ---- |
+| `tps`        | transactions per second.   |      |
+| `Blk_read/s` | blocks read per second.    |      |
+| `Blk_wrtn/s` | blocks written per second. |      |
+| `Blk_read`   | total blocks read.         |      |
+| `Blk_wrtn`   | total blocks written.      |      |
+
+By looking at these different values and comparing them to each other, ideally you will be able to find out first, which partition (or partitions) is getting the bulk of the I/O traffic, and second, whether the majority of that traffic is reads (`Blk_read/s`) or writes (`Blk_wrtn/s`). As I said, tracking down the cause of I/O issues can be tricky, but hopefully, those values will help you isolate what **processes** might be causing the load.
+
+For instance, if you have an **I/O-bound load** and you suspect that your remote backup job might be the culprit（元凶）, compare the read and write statistics. Because you know that a remote backup job is primarily going to read from your disk, if you see that the majority of the disk I/O is writes, you reasonably can assume it's not from the backup job. If, on the other hand, you do see a heavy amount of read I/O on a particular partition, you might run the `lsof` command and `grep` for that **backup process** and see whether it does in fact have some open file handles on that partition.
+
+As you can see, tracking down I/O issues with `iostat` is not straightforward. Even with no arguments, it can take some time and experience to make sense of the output. That said, `iostat` does have a number of arguments you can use to get more information about different types of I/O, including modes to find details about NFS shares. Check out the man page for `iostat` if you want to know more.
+
+Up until recently, tools like `iostat` were about the limit systems administrators had in their toolboxes for tracking down I/O issues, but due to recent developments in the kernel, it has become easier to find the causes of I/O on a per-process level. If you have a relatively new system, check out the `iotop` tool. Like with `iostat`, it may not be installed by default, but as the name implies, it essentially acts like `top`, only for disk I/O. In Listing 4, you can see that an `rsync` process on this machine is using the most I/O (in this case, read I/O).
+
+**Listing 4. Example iotop Tool Output**
+
+```shell
+Total DISK READ: 189.52 K/s | Total DISK WRITE: 0.00 B/s
+  TID  PRIO  USER DISK READ DISK WRITE  SWAPIN     IO>    COMMAND          
+ 8169 be/4 root  189.52 K/s   0.00 B/s  0.00 %  0.00 % rsync --server --se
+ 4243 be/4 kyle    0.00 B/s   3.79 K/s  0.00 %  0.00 % cli /usr/lib/gnome-
+ 4244 be/4 kyle    0.00 B/s   3.79 K/s  0.00 %  0.00 % cli /usr/lib/gnome-
+    1 be/4 root    0.00 B/s   0.00 B/s  0.00 %  0.00 % init
+```
 
 #### Once You Track Down the Culprit
+
+How you deal with these load-causing processes is up to you and depends on a lot of factors. In some cases, you might have a script that has gone out of control and is something you can easily kill. In other situations, such as in the case of a database process, it might not be safe simply to kill the process, because it could leave corrupted data behind. Plus, it could just be that your service is running out of capacity, and the real solution is either to add more resources to your current server or add more servers to share the load. It might even be load from a one-time job that is running on the machine and shouldn't impact load in the future, so you just can let the process complete. Because so many different things can cause processes to tie up（占用） server resources, it's hard to list them all here, but hopefully, being able to identify the causes of your high load will put you on the right track the next time you get an alert that a machine is slow.
+
+Kyle Rankin is a Systems Architect in the San Francisco Bay Area and the author of a number of books, including *The Official Ubuntu Server Book*, *Knoppix Hacks* and *Ubuntu Hacks*. He is currently the president of the North Bay Linux Users' Group.
