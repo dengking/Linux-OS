@@ -48,3 +48,7 @@ I hope this short article was useful. Feel free to leave tips, feedback, and/or 
 
 **Here are some additional command line tools used:**
 [iostat](https://linux.die.net/man/1/iostat), [dstat](https://linux.die.net/man/1/dstat), [lsof](https://linux.die.net/man/8/lsof), [vmstat](https://linux.die.net/man/8/vmstat), [nmon](http://nmon.sourceforge.net/pmwiki.php), [sar](https://linux.die.net/man/1/sar), [iptraf](http://iptraf.seul.org/) [iftop](http://www.ex-parrot.com/pdw/iftop/), [netstat](https://linux.die.net/man/8/netstat), [lsof](https://linux.die.net/man/8/lsof), [pvdisplay](https://linux.die.net/man/8/pvdisplay), [lspci](https://linux.die.net/man/8/lspci), [ps](https://linux.die.net/man/1/ps).
+
+
+
+## [Understanding Disk I/O - when should you be worried?](https://scoutapm.com/blog/understanding-disk-i-o-when-should-you-be-worried)
