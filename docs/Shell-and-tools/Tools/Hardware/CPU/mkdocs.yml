@@ -1,2 +1,2 @@
 nav:
-    - CPU-load: CPU-load
+    - lscpu: lscpu.md
