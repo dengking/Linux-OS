@@ -1,0 +1,10 @@
+#使用rsync来复制一个vim环境
+rsync -raz -e ssh algodev@192.168.58.51:~/.vimrc .
+rsync -raz -e ssh algodev@192.168.58.51:~/.vim .
+
+rsync -avz -e ssh src_user@src_address:src_dir dest_dir
+
+rsync -avz -e ssh algodev@192.168.58.51:~/ ~/
+表示将58.51的algodev用户下所有文件同步到当前用户的home目录下
+
+这种同步可以保持权限

@@ -1,0 +1,1 @@
+ipcs -s|grep `whoami`|awk -v user=`whoami` '{system("ipcrm -s" $2);printf("remove %s for %s\n",$2,user)}'

@@ -2,9 +2,23 @@
 
 本章总结Linux中的常见工具。
 
+## Command总览
+
+查询process、thread
+
+查询file：
+
+- open files 动态
+- file 静态
+
+process 与 file 之间的映射关系：
+
+- fuser
+- lsof
 
 
-## `**`stat
+
+### `**`stat
 
 vmstat
 
