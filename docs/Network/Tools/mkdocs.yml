@@ -1,2 +1,5 @@
 nav:
     - Packet-analyzer: Packet-analyzer
+    - TODO-Troubleshoot-local-network: TODO-Troubleshoot-local-network.md
+    - TODO-Troubleshoot-remote-network: TODO-Troubleshoot-remote-network.md
+    - TODO-Troubleshoot-packet-loss: TODO-Troubleshoot-packet-loss.md

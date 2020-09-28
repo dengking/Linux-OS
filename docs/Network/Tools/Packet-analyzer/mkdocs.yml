@@ -1,2 +1,4 @@
 nav:
     - Packet-analyzer: Packet-analyzer.md
+    - tcpdump: tcpdump.md
+    - Wireshark: Wireshark
