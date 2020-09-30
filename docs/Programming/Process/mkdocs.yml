@@ -7,6 +7,7 @@ nav:
     - IPC: IPC
     - Thread: Thread
     - Exit: Exit
+    - Daemon: Daemon
     - Proc-filesystem: Proc-filesystem
     - Tools: Tools
     
