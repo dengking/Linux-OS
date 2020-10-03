@@ -97,16 +97,21 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 - 向下
 - 向上
 
-### Packet of layer
-
-协议栈的每一层都定义了自己的packet，这是它们communicate的单位。比如: 
-
-| layer                                                        | packet                                                       |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 3 [Transport layer](https://en.wikipedia.org/wiki/Transport_layer) [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) | [TCP packet](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#TCP_segment_structure) |
-| 2 [Network layer](https://en.wikipedia.org/wiki/Network_layer) [IP](https://en.wikipedia.org/wiki/Internet_Protocol) | Internet Protocol (IP) datagram                              |
 
 
+### Unit of layer
+
+协议栈的每一层都定义了自己的packet，这是它们communicate的单位。
+
+| terminology | explanation                                                  |
+| ----------- | ------------------------------------------------------------ |
+| Segment     | A **segment** is the unit of end-to-end transmission in the<br/>**TCP protocol**. A segment consists of a **TCP header** followed<br/>by **application data**. A segment is transmitted by<br/>encapsulation inside an **IP datagram**. |
+| Message     | In this description of the lower-layer protocols, <br/>a **message** is the unit of transmission in a **transport layer protocol**. <br>In particular, a TCP segment is a message. <br/>A message consists of a **transport protocol header** followed<br/>by application protocol data. To be transmitted end-to-end through the Internet, <br/>a message must be encapsulated inside a **datagram**. |
+| IP Datagram | An IP datagram is the unit of end-to-end transmission in<br/>the IP protocol. An IP datagram consists of an IP header<br/>followed by transport layer data, i.e., of an IP header<br/>followed by a message. |
+| Packet      | A packet is the unit of data passed across the interface<br/>between the internet layer and the link layer. It<br/>includes an IP header and data. A packet may be a<br/>complete IP datagram or a fragment of an IP datagram. |
+| Frame       | A frame is the unit of transmission in a link layer<br/>protocol, and consists of a link-layer header followed by<br/>a packet. |
+
+![](./Unit-of-layer.png)
 
 ### Descend: Encapsulation of application data
 
@@ -114,7 +119,7 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 Encapsulation of application data descending through the layers described in [RFC 1122](https://tools.ietf.org/html/rfc1122)
 
-Descend
+
 
 ### Ascend: Unpack/Expose
 
