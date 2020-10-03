@@ -1,4 +1,15 @@
-# wikipedia [OSI model](https://en.wikipedia.org/wiki/OSI_model)
+# Network protocol model
+
+本文讨论network protocol model:
+
+| model                  | 简介                       |
+| ---------------------- | -------------------------- |
+| OSI model              | 理论模型，实际并没有采用它 |
+| Internet protocol suit | 实际采用的模型             |
+
+
+
+## wikipedia [OSI model](https://en.wikipedia.org/wiki/OSI_model)
 
 The **Open Systems Interconnection model** (**OSI model**) is a [conceptual model](https://en.wikipedia.org/wiki/Conceptual_model) that characterizes and standardizes the communication functions of a [telecommunication](https://en.wikipedia.org/wiki/Telecommunication) or computing system without regard to its underlying internal structure and technology. Its goal is the interoperability of diverse communication systems with **standard protocols**. The model partitions a communication system into [abstraction layers](https://en.wikipedia.org/wiki/Abstraction_layer). The **original** version of the model defined seven layers.
 
@@ -26,7 +37,7 @@ The model is a product of the [Open Systems Interconnection](https://en.wikipedi
 
 Communication in the OSI-Model (example with layers 3 to 5)
 
-## OSI model **by layer**
+### OSI model **by layer**
 
 OSI model by [layer](https://en.wikipedia.org/wiki/Abstraction_layer)
 
@@ -42,11 +53,9 @@ OSI model by [layer](https://en.wikipedia.org/wiki/Abstraction_layer)
 
 
 
-> NOTE: 看了上面的OSI model，我所想到的是在使用socket进行programming的时候，我需要指定的内容包括  [Transport layer](https://en.wikipedia.org/wiki/Transport_layer) （使用哪种transport protocol，是TCP还是UDP，还是其他的）和  [Network layer](https://en.wikipedia.org/wiki/Network_layer) （使用的是IPV4还是IPV6），即socket是建立在  [Transport layer](https://en.wikipedia.org/wiki/Transport_layer)  的；按照OSI model，在  [Transport layer](https://en.wikipedia.org/wiki/Transport_layer) 之上还有layer5和layer6才能够到达 [Application layer](https://en.wikipedia.org/wiki/Application_layer) ，但是在[Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)中， [Transport layer](https://en.wikipedia.org/wiki/Transport_layer) 之上就是 [Application layer](https://en.wikipedia.org/wiki/Application_layer) ，并且在实际中，都是采用的[Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)，所以我也应该按照 [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite) 来进行思考；我们往往是在 [Application layer](https://en.wikipedia.org/wiki/Application_layer) 进行program，在application layer我们使用socket来实现application layer protocol，以满足application的要求；在我们实际进行program的时候，如果要开发一个network application，我们往往是从从顶向下来进行开发设计的，我们往往是首先开发application protocol，比如redis的[RESP](https://redis.io/topics/protocol) 。port是和application layer protocol相关的；
 
 
-
-# wikipedia [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)
+## wikipedia [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)
 
 The **Internet protocol suite** is the [conceptual model](https://en.wikipedia.org/wiki/Conceptual_model_(computer_science)) and set of [communications protocols](https://en.wikipedia.org/wiki/Communications_protocol) used in the [Internet](https://en.wikipedia.org/wiki/Internet) and similar [computer networks](https://en.wikipedia.org/wiki/Computer_network). It is commonly known as **TCP/IP** because the foundational protocols in the suite are the [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) (TCP) and the [Internet Protocol](https://en.wikipedia.org/wiki/Internet_Protocol) (IP). It is occasionally known as the **Department of Defense** (**DoD**) **model** because the development of the networking method was funded by the [United States Department of Defense](https://en.wikipedia.org/wiki/United_States_Department_of_Defense) through [DARPA](https://en.wikipedia.org/wiki/DARPA).
 
@@ -58,9 +67,9 @@ The **Internet protocol suite** is the [conceptual model](https://en.wikipedia.o
 
 The [technical standards](https://en.wikipedia.org/wiki/Technical_standard) underlying the Internet protocol suite and its constituent protocols are maintained by the [Internet Engineering Task Force](https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force) (IETF). The **Internet protocol suite** predates（早于） the [OSI model](https://en.wikipedia.org/wiki/OSI_model), a more comprehensive reference framework for general networking systems.
 
+### Internet protocol suite
 
-
-| Internet protocol suite                                      |                                                              |
+| layer                                                        | example                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Application layer](https://en.wikipedia.org/wiki/Application_layer) | [NNTP](https://en.wikipedia.org/wiki/Network_News_Transfer_Protocol) [SIP](https://en.wikipedia.org/wiki/Session_Initiation_Protocol) [SSI](https://en.wikipedia.org/wiki/Simple_Sensor_Interface_protocol) [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) [Gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) [NFS](https://en.wikipedia.org/wiki/Network_File_System_(protocol)) [NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol) [SMPP](https://en.wikipedia.org/wiki/Short_Message_Peer-to-Peer) [SMTP](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) [SNMP](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol) [Telnet](https://en.wikipedia.org/wiki/Telnet) [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) [Netconf](https://en.wikipedia.org/wiki/Netconf) *more....* |
 | [Transport layer](https://en.wikipedia.org/wiki/Transport_layer) | [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) [SCTP](https://en.wikipedia.org/wiki/Stream_Control_Transmission_Protocol) [DCCP](https://en.wikipedia.org/wiki/Datagram_Congestion_Control_Protocol) [SPX](https://en.wikipedia.org/wiki/IPX/SPX) |

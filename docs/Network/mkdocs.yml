@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
-    - Network-protocol-model: Network-protocol-model.md
-    - TCP: TCP
-    - MAC-address: MAC-address.md
-    - Reconnect: Reconnect.md
+    - Theory: Theory
+    - Programming: Programming
+    - Tools: Tools
