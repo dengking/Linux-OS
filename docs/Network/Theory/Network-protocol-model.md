@@ -121,6 +121,21 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 
 
+## Max length of PUD
+
+前面介绍了PUC，与它相关的另外一个问题是：它的最大长度；
+
+
+
+#### Example: PDU of layer of OSI model
+
+| layer | name                                                         | PDU                                                          | max length                                                   |
+| ----- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 4     | [transport layer](https://en.wikipedia.org/wiki/Transport_layer) | TCP [segment](https://en.wikipedia.org/wiki/Packet_segment) or UDP datagram | [Maximum segment size](https://en.wikipedia.org/wiki/Maximum_segment_size) |
+| 3     | [network layer](https://en.wikipedia.org/wiki/Network_layer) | [packet](https://en.wikipedia.org/wiki/Network_packet)       | [Maximum transmission unit](https://en.wikipedia.org/wiki/Maximum_transmission_unit) |
+| 2     | [data link layer](https://en.wikipedia.org/wiki/Data_link_layer) | [frame](https://en.wikipedia.org/wiki/Frame_(networking))    |                                                              |
+| 1     | [physical layer](https://en.wikipedia.org/wiki/Physical_layer) | [bit](https://en.wikipedia.org/wiki/Bit) or, more generally, [symbol](https://en.wikipedia.org/wiki/Symbol_(data)). |                                                              |
+
 
 
 ## TODO: Mechanism
@@ -132,9 +147,24 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 - 向下
 - 向上
 
+### Disassemble / Reassemble
+
+不同PUD的最大长度可能不同，这就导致了Disassemble / Reassemble问题，下面是一些与此相关的内容:
+
+- [IP fragmentation](https://en.wikipedia.org/wiki/IP_fragmentation)
+- TCP segment of a reassembled PDU（在`Network\Theory\TCPTCP-segment-of-a-reassembled-PDU.md`中，对这个问题进行了讨论）
 
 
-### Descend: Encapsulation of application data
+
+### Descend
+
+涉及到的操作有: 
+
+1) Encapsulation of application data
+
+2) Disassemble 
+
+
 
 [![img](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/UDP_encapsulation.svg/350px-UDP_encapsulation.svg.png)](https://en.wikipedia.org/wiki/File:UDP_encapsulation.svg)
 
@@ -144,4 +174,8 @@ Encapsulation of application data descending through the layers described in [RF
 
 ### Ascend: Unpack/Expose
 
-自底向上的过程和自顶向下的过程转换相反，它是解包的过程。
+自底向上的过程和自顶向下的过程转换相反，它是涉及到的操作有:
+
+1) Unpack/Expose
+
+2) Reassemble
