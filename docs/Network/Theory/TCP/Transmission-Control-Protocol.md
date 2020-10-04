@@ -117,7 +117,7 @@ If the `ACK` flag is set then the value of this field is the next sequence numbe
 
 
 
-> NOTE: 在”4.4 Data transfer“中介绍了TCP的特性: “Ordered data transfer” ，Sequence number 和 Acknowledgment number是TCP实现这个特性的关键。
+> NOTE: Sequence number 和 Acknowledgment number是TCP实现在”4.4 Data transfer“中介绍的“Reliable transmission” 特性的关键。
 >
 > 关于sequence number和acknowledgment number，在`Network\Theory\TCP\TCP-SEQ-number-and-ACK-number.md`中会进行专门介绍。
 
@@ -271,7 +271,7 @@ A TCP connection is managed by an **operating system** through a programming int
 
 
 
-## 4.1 Connection establishment
+### 4.1 Connection establishment
 
 To establish a connection, TCP uses a three-way [handshake](https://en.wikipedia.org/wiki/Handshaking). Before a client attempts to connect with a server, the server must first **bind** to and **listen** at a **port** to open it up for connections: this is called a **passive open**. Once the **passive open** is established, a client may initiate an **active open**. To establish a **connection**, the three-way (or 3-step) handshake occurs:
 
@@ -291,7 +291,7 @@ At this point, both the client and server have received an acknowledgment of the
 
 > NOTE: full-duplex，每个direction都有对应的connection parameter: sequence number。
 
-## 4.2 Connection termination
+### 4.2 Connection termination
 
 > NOTE: 在文章`Network\Theory\TCP\TCP-connection-termination.md`中对connection termination进行了补充，其中解释本段中很多没有说明清楚的问题:
 >
@@ -335,11 +335,11 @@ For a program flow like above, a TCP/IP stack like that described above does not
 
 Connection termination
 
-## 4.3 Resource usage
+### 4.3 Resource usage
 
 > NOTE: port是一种resource
 
-## 4.4 Data transfer
+## [4.4 Data transfer](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Data_transfer)
 
 > NOTE: TCP数据传输的核心特性
 
@@ -353,13 +353,32 @@ The Transmission Control Protocol differs in several key features from the [User
 | Flow control                   | 流控                                          |
 | Congestion control             | 拥塞控制                                      |
 
- 
+> NOTE: 下面将上述Ordered data transfer、Retransmission of lost packets、Error-free data transfer统称为Reliable transmission。
 
 
 
-### Reliable transmission
+### [Reliable transmission](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Reliable_transmission)
 
 > NOTE: TCP是否会等收到ACK后，才传下一个segment？
+
+
+
+**Reliability** is achieved by the **sender** detecting lost data and retransmitting it. TCP uses two primary techniques to identify loss:
+
+- Retransmission timeout (abbreviated as RTO) 
+- Duplicate cumulative acknowledgements (DupAcks).
+
+
+
+#### Dupack-based retransmission
+
+> NOTE: 
+
+#### Timeout-based retransmission
+
+### [Error detection](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Error_detection)
+
+
 
 ## 4.5 Maximum segment size
 
@@ -370,3 +389,8 @@ The Transmission Control Protocol differs in several key features from the [User
 
 
 ## 4.10 Forcing data delivery
+
+
+
+
+

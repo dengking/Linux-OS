@@ -75,12 +75,37 @@ The graceful close algorithm of TCP requires that the connection state remain de
 
 
 
+### serverfault [Use of TCP FIN and TCP RST](https://serverfault.com/questions/242302/use-of-tcp-fin-and-tcp-rst)
+
+
+
+[A](https://serverfault.com/a/991633)
+
+TCP is a reliable protocol. So in any case the message should not be lost in any direction, during the full life-cycle of a TCP connection. Connection termination is the last part. So TCP should make sure that all packets were delivered before closing the connection. `FIN` is used to close TCP connections gracefully in each direction, while TCP `RST` is used in a scenario where TCP connections cannot recover from errors and the connection needs to reset forcibly. As per this [tcp connection termination article](https://www.cspsprotocol.com/tcp-connection-termination/), `RSET` is used in abnormal conditions.
+
+
+
+### TODO
+
+stackoverflow [FIN vs RST in TCP connections](https://stackoverflow.com/questions/13049828/fin-vs-rst-in-tcp-connections)
+
+stackoverflow [What causes a TCP/IP reset (RST) flag to be sent?](https://stackoverflow.com/questions/251243/what-causes-a-tcp-ip-reset-rst-flag-to-be-sent)
+
+github moby [half-duplex TCP FIN not working with published ports #27539](https://github.com/moby/moby/issues/27539)
+
+cspsprotocol [Tcp Connection Termination](https://www.cspsprotocol.com/tcp-connection-termination/)
+
+
+
 ## 2MSL wait
 
 在下面文章中，都对此进行了深入说明:
 
-- miami [TCP in a nutshell](https://www.cs.miami.edu/home/burt/learning/Csc524.032/notes/tcp_nutshell.html)
-- freesoft [4.2.2.13 Closing a Connection: RFC-793 Section 3.5](https://www.freesoft.org/CIE/RFC/1122/99.htm)
+miami [TCP in a nutshell](https://www.cs.miami.edu/home/burt/learning/Csc524.032/notes/tcp_nutshell.html)
+
+freesoft [4.2.2.13 Closing a Connection: RFC-793 Section 3.5](https://www.freesoft.org/CIE/RFC/1122/99.htm)
+
+
 
 ### wikipedia [Maximum segment lifetime](https://en.wikipedia.org/wiki/Maximum_segment_lifetime)
 
