@@ -1,5 +1,7 @@
 # Transmission Control Protocol
 
+本文讨论TCP协议，以wikipedia [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)为主，另外补充了一些内容。
+
 ## wikipedia [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)
 
 The **Transmission Control Protocol** (**TCP**) is one of the main [protocols](https://en.wikipedia.org/wiki/Communications_protocol) of the [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite). It originated in the initial network implementation in which it complemented the [Internet Protocol](https://en.wikipedia.org/wiki/Internet_Protocol) (IP). Therefore, the entire suite is commonly referred to as *TCP/IP*. 
@@ -16,6 +18,8 @@ Major internet applications such as the [World Wide Web](https://en.wikipedia.or
 
 ### Network function
 
+> NOTE: 本节讨论的是TCP的功能
+
 **The Transmission Control Protocol** provides a communication service at an intermediate level between an application program and the **Internet Protocol**(即Internet Layer). It provides host-to-host **connectivity** at the [transport layer](https://en.wikipedia.org/wiki/Transport_layer) of the [Internet model](https://en.wikipedia.org/wiki/Internet_model). 
 
 > NOTE: 上面这段话需要结合`Network\Theory\Network-protocol-model.md`中的"Internet protocol suite by layer"章节的内容来进行理解
@@ -30,13 +34,13 @@ An application does not need to know the particular mechanisms for sending data 
 
 Transmission Control Protocol accepts data from a data stream, divides it into chunks, and adds a TCP header creating a **TCP segment**. The **TCP segment** is then [encapsulated](https://en.wikipedia.org/wiki/Encapsulation_(networking)) into an **Internet Protocol (IP) datagram**, and exchanged with peers.[[4\]](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#cite_note-4)
 
-
+> NOTE: 关于TCP segment、IP datagram，参见`Network\Theory\Network-protocol-model.md`的“Unit of layer”章节。
 
 A TCP segment consists of a segment *header* and a *data* section. The TCP header contains 10 mandatory fields, and an optional extension field (*Options*, pink background in table).
 
 The data section follows the header. Its contents are the payload data carried for the application. The length of the data section is **not** specified in the **TCP segment header**. It can be calculated by subtracting the combined length of the **TCP header** and the encapsulating **IP header** from the total IP datagram length (specified in the IP header).
 
-> NOTE: 在IP header中指定了IP datagram，所以:
+> NOTE: 在IP header中指定了Total IP datagram length，所以:
 >
 > Length of the TCP segment data section = Total IP datagram length - Length of the **TCP header** - Length of the **IP header** 
 
@@ -61,16 +65,27 @@ The data section follows the header. Its contents are the payload data carried f
 
 Has a dual role:
 
-- If the `SYN` flag is set (1), then this is the **initial sequence number**. The sequence number of the actual first data byte and the **acknowledged number** in the corresponding ACK are then this sequence number plus 1.
-- If the `SYN` flag is clear (0), then this is the **accumulated sequence number** of the first data byte of this segment for the current session.
+1) If the `SYN` flag is set (1), then this is the **initial sequence number**. The sequence number of the actual first data byte and the **acknowledged number** in the corresponding ACK are then this sequence number plus 1.
 
+> NOTE: 为什么是plus 1？
 
+2) If the `SYN` flag is clear (0), then this is the **accumulated sequence number** of the first data byte of this segment for the current session.
+
+> NOTE: `SYN` flag is clear (0)表示是在*data transfer phase* ？
+
+> NOTE: 有几个number:
+>
+> sequence number
+>
+> acknowledged number
+>
+> accumulated sequence number
 
 #### Row3
 
 **Acknowledgment number (32 bits)**
 
-If the `ACK` flag is set then the value of this field is the next sequence number that the sender of the ACK is expecting. This acknowledges receipt of all prior bytes (if any). The first ACK sent by each end acknowledges the other end's initial sequence number itself, but no data.
+If the `ACK` flag is set then the value of this field is the next sequence number that the sender of the ACK is expecting. This acknowledges receipt（收到） of all prior bytes (if any). The first ACK sent by each end acknowledges the other end's initial sequence number itself, but no data.
 
 
 
@@ -101,7 +116,7 @@ Contains 9 1-bit flags
 
 `URG`	indicates that the Urgent pointer field is significant
 
-`ACK`	indicates that the **Acknowledgment field** is significant. All packets after the initial SYN packet sent by the client should have this flag set.
+`ACK`	indicates that the **Acknowledgment field** is significant. All packets after the initial `SYN` packet sent by the client should have this flag set.
 
 `PSH`	Push function. Asks to push the buffered data to the receiving application.
 
@@ -114,6 +129,14 @@ Contains 9 1-bit flags
 `FIN`	Last packet from sender.
 
 > NOTE: 标识完成了传输
+
+
+
+> NOTE: 在packetlife [Understanding TCP Sequence and Acknowledgment Numbers](https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/) 中对重要字段的解释如下:
+>
+> - **SYN** - (Synchronize) Initiates a connection
+> - **FIN** - (Final) Cleanly terminates a connection
+> - **ACK** - Acknowledges received data
 
 
 
@@ -148,7 +171,7 @@ The TCP header padding is used to ensure that the TCP header ends, and data begi
 
 
 
-### Protocol operation
+### 4 Protocol operation
 
 **TCP protocol** operations may be divided into three phases. 
 
@@ -214,7 +237,7 @@ A TCP connection is managed by an **operating system** through a programming int
 
 
 
-#### Connection establishment
+## 4.1 Connection establishment
 
 To establish a connection, TCP uses a three-way [handshake](https://en.wikipedia.org/wiki/Handshaking). Before a client attempts to connect with a server, the server must first **bind** to and **listen** at a **port** to open it up for connections: this is called a **passive open**. Once the **passive open** is established, a client may initiate an **active open**. To establish a **connection**, the three-way (or 3-step) handshake occurs:
 
@@ -232,7 +255,7 @@ At this point, both the client and server have received an acknowledgment of the
 
 > NOTE: full-duplex，每个direction都有对应的connection parameter: sequence number。
 
-#### Connection termination
+## 4.2 Connection termination
 
 The **connection termination phase** uses a **four-way handshake**, with each side of the connection terminating independently. When an endpoint wishes to stop its half of the connection, it transmits a **FIN packet**, which the other end acknowledges with an `ACK`. Therefore, a typical tear-down requires a pair of `FIN` and `ACK` segments from each **TCP endpoint**( **four-way handshake**). After the side **that**(引导定语从句) sent the first `FIN` has responded with the final `ACK`, it waits for a **timeout** before finally closing the connection, during which time **the local port** is unavailable for new connections; this prevents confusion due to **delayed packets** being delivered during subsequent connections.
 
@@ -263,3 +286,41 @@ For a program flow like above, a TCP/IP stack like that described above does not
 
 
 Connection termination
+
+## 4.3 Resource usage
+
+> NOTE: port是一种resource
+
+## 4.4 Data transfer
+
+> NOTE: TCP数据传输的核心特性
+
+The Transmission Control Protocol differs in several key features from the [User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol):
+
+| features                       | 注解                                          |
+| ------------------------------ | --------------------------------------------- |
+| Ordered data transfer          | 在下面的“Reliable transmission”会进行详细介绍 |
+| Retransmission of lost packets | 简单来说就是“补漏”                            |
+| Error-free data transfer       |                                               |
+| Flow control                   | 流控                                          |
+| Congestion control             | 拥塞控制                                      |
+
+> NOTE: TCP的数据传输采用的是: **请求-响应** 模型；
+>
+> 
+
+
+
+### Reliable transmission
+
+> NOTE: TCP是否会等收到ACK后，才传下一个segment？
+
+## 4.5 Maximum segment size
+
+
+
+## 4.9 Out-of-band data
+
+
+
+## 4.10 Forcing data delivery
