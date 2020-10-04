@@ -88,20 +88,26 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 > NOTE: 摘录原文中的这一段，重要是为了强调 [RFC 1122](https://tools.ietf.org/html/rfc1122), 它是Internet protocol suit的formal description，所以很多关于Internet protocol suit的问题都可以在其中找到答案，并且可以看到原文中，有多处是引用RFC 1122的，我已经将RFC 1122下载了。
 
-## TODO: Mechanism
-
-> NOTE: 这是我在阅读wikipedia [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)的[Key architectural principles](https://en.wikipedia.org/wiki/Internet_protocol_suite#Key_architectural_principles)的插图"Encapsulation of application data descending through the layers described in [RFC 1122](https://tools.ietf.org/html/rfc1122)"时，有感而发。
-
-本文描述protocol stack的运行机制，其实它的运行机制相对是比较简单的，可以看做是两个方向:
-
-- 向下
-- 向上
 
 
+## Protocol data unit
 
-### Unit of layer
+一个非常重要的概念就是protocol data unit，PDU，即“协议数据单元”，它是描述下一节Mechanism的前提。它符合在文章《Unit》中提出的思想的。
 
-协议栈的每一层都定义了自己的packet，这是它们communicate的单位。
+### wikipedia [Protocol data unit](https://en.wikipedia.org/wiki/Protocol_data_unit)
+
+#### Example: PDU of layer of OSI model
+
+| layer | name                                                         | PDU                                                          |
+| ----- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 4     | [transport layer](https://en.wikipedia.org/wiki/Transport_layer) | TCP [segment](https://en.wikipedia.org/wiki/Packet_segment) or UDP datagram |
+| 3     | [network layer](https://en.wikipedia.org/wiki/Network_layer) | [packet](https://en.wikipedia.org/wiki/Network_packet)       |
+| 2     | [data link layer](https://en.wikipedia.org/wiki/Data_link_layer) | [frame](https://en.wikipedia.org/wiki/Frame_(networking))    |
+| 1     | [physical layer](https://en.wikipedia.org/wiki/Physical_layer) | [bit](https://en.wikipedia.org/wiki/Bit) or, more generally, [symbol](https://en.wikipedia.org/wiki/Symbol_(data)). |
+
+
+
+下面是[RFC 1122](https://tools.ietf.org/html/rfc1122)中给出的描述
 
 | terminology | explanation                                                  |
 | ----------- | ------------------------------------------------------------ |
@@ -112,6 +118,21 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 | Frame       | A frame is the unit of transmission in a link layer<br/>protocol, and consists of a link-layer header followed by<br/>a packet. |
 
 ![](./Unit-of-layer.png)
+
+
+
+
+
+## TODO: Mechanism
+
+> NOTE: 这是我在阅读wikipedia [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)的[Key architectural principles](https://en.wikipedia.org/wiki/Internet_protocol_suite#Key_architectural_principles)的插图"Encapsulation of application data descending through the layers described in [RFC 1122](https://tools.ietf.org/html/rfc1122)"时，有感而发。
+
+本文描述protocol stack的运行机制，其实它的运行机制相对是比较简单的，可以看做是两个方向:
+
+- 向下
+- 向上
+
+
 
 ### Descend: Encapsulation of application data
 

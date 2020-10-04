@@ -8,7 +8,11 @@
 
 1) TCP采用的是: **请求-响应** 模型
 
-原文中并没有说明此，这是我自己添加的
+> 原文中并没有说明此，这是我自己添加的
+
+每个request，都会收到一个response，这个response是用于acknowledge的，即接收方告诉发送方: 收到了request，我们往往将其称之为ACK response，这样才算是完成了这个请求；
+
+对于ACK，是不需要再ACK的，否则就会导致无限的递归下去；
 
 2) TCP是全双工通信模式:
 
@@ -285,11 +289,13 @@ To establish a connection, TCP uses a three-way [handshake](https://en.wikipedia
 
 > NOTE: 为什么是plus 1？在`Network\Theory\TCP\TCP-SEQ-number-and-ACK-number.md`的cnblogs [TCP 中的Sequence Number](https://www.cnblogs.com/JenningsMao/p/9487252.html)中对这个问题进行解释
 
-> NOTE : 显然TCP协议要求所有的通信都是request-response的，即每个request，都会收到一个response，当这个response是用于acknowledge的，我们往往将其称之为`ACK`，那该协议是如何实现response A是request A的response而不是request B的response呢？是使用sequence number和received sequence number吗？对一个endpoint而言，它的sequence number是单调递增的吗？
+
 
 At this point, both the client and server have received an acknowledgment of the connection. The steps 1, 2 establish the connection parameter (**sequence number**) for one direction and it is acknowledged. The steps 2, 3 establish the connection parameter (**sequence number**) for the other direction and it is acknowledged. With these, a **full-duplex communication** is established.
 
 > NOTE: full-duplex，每个direction都有对应的connection parameter: sequence number。
+
+> NOTE: 在文章packetlife [Understanding TCP Sequence and Acknowledgment Numbers](https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/) 中展示了如何使用wireshark来观察connection establishment的过程，这篇文章收录在`Network\Theory\TCP\TCP-SEQ-number-and-ACK-number.md`中。
 
 ### 4.2 Connection termination
 
