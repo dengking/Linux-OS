@@ -26,6 +26,14 @@ As we'll see, a packet can have multiple flags set.
 
 Select `packet #1` in Wireshark and expand the TCP layer analysis in the middle pane, and further expand the "Flags" field within the TCP header. Here we can see all of the TCP flags broken down. Note that the `SYN` flag is on (set to 1).
 
+![tcp_syn.png](https://packetlife.net/media/blog/attachments/426/tcp_syn.png)
+
+Now do the same for `packet #2`. Notice that it has two flags set: ACK to acknowledge the receipt of the client's SYN packet, and SYN to indicate that the server also wishes to establish a TCP connection.
+
+![tcp_synack.png](https://packetlife.net/media/blog/attachments/427/tcp_synack.png)
+
+Packet #3, from the client, has only the ACK flag set. These three packets complete the initial TCP three-way handshake.
+
 
 
 ## cnblogs [TCP 中的Sequence Number](https://www.cnblogs.com/JenningsMao/p/9487252.html)
@@ -33,3 +41,13 @@ Select `packet #1` in Wireshark and expand the TCP layer analysis in the middle 
 
 
 ## voidcn [TCP序列号的最大值](http://www.voidcn.com/article/p-gccvxxfz-byo.html)
+
+
+
+
+
+## See also
+
+stackoverflow [TCP: How are the seq / ack numbers generated?](https://stackoverflow.com/questions/692880/tcp-how-are-the-seq-ack-numbers-generated)
+
+stackoverflow [TCP Sequence Number](https://stackoverflow.com/questions/10452855/tcp-sequence-number)

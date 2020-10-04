@@ -2,6 +2,44 @@
 
 本文讨论TCP协议，以wikipedia [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)为主，另外补充了一些内容。
 
+## Guide
+
+在阅读前，需要建立起如下概念/观念，便于理解: 
+
+1) TCP采用的是: **请求-响应** 模型
+
+原文中并没有说明此，这是我自己添加的
+
+2) TCP是全双工通信模式:
+
+参见 "4.1 Connection establishment"节
+
+“全双工”意味着一个TCP session有两个部分组成，意味着存在着half的问题（half close、half open）。
+
+3) 构建TCP的**活动图**(活动图是借用的软件工程中的概念): 
+
+可以采用如下收录来进行构建:
+
+TCP的三个阶段: 这是对TCP的lifetime的划分，参见 "4 Protocol operation";
+
+TCP的操作: 每个阶段的会执行相应的操作，参见 "4 Protocol operation";
+
+TCP的状态: TCP是有一定状态的，TCP操作会触发状态的转换，因此我们可以构建状态转换图，参见"4 Protocol operation";
+
+4) TCP的核心特性以及对应的实现方式
+
+
+
+### 入门阅读推荐: miami [TCP in a nutshell](https://www.cs.miami.edu/home/burt/learning/Csc524.032/notes/tcp_nutshell.html)
+
+非常的简练。
+
+### Terminology
+
+endpoint: 一个TCP有两个endpoint
+
+session: 一个TCP session
+
 ## wikipedia [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)
 
 The **Transmission Control Protocol** (**TCP**) is one of the main [protocols](https://en.wikipedia.org/wiki/Communications_protocol) of the [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite). It originated in the initial network implementation in which it complemented the [Internet Protocol](https://en.wikipedia.org/wiki/Internet_Protocol) (IP). Therefore, the entire suite is commonly referred to as *TCP/IP*. 
@@ -67,19 +105,9 @@ Has a dual role:
 
 1) If the `SYN` flag is set (1), then this is the **initial sequence number**. The sequence number of the actual first data byte and the **acknowledged number** in the corresponding ACK are then this sequence number plus 1.
 
-> NOTE: 为什么是plus 1？
-
 2) If the `SYN` flag is clear (0), then this is the **accumulated sequence number** of the first data byte of this segment for the current session.
 
 > NOTE: `SYN` flag is clear (0)表示是在*data transfer phase* ？
-
-> NOTE: 有几个number:
->
-> sequence number
->
-> acknowledged number
->
-> accumulated sequence number
 
 #### Row3
 
@@ -88,6 +116,10 @@ Has a dual role:
 If the `ACK` flag is set then the value of this field is the next sequence number that the sender of the ACK is expecting. This acknowledges receipt（收到） of all prior bytes (if any). The first ACK sent by each end acknowledges the other end's initial sequence number itself, but no data.
 
 
+
+> NOTE: 在”4.4 Data transfer“中介绍了TCP的特性: “Ordered data transfer” ，Sequence number 和 Acknowledgment number是TCP实现这个特性的关键。
+>
+> 关于sequence number和acknowledgment number，在`Network\Theory\TCP\TCP-SEQ-number-and-ACK-number.md`中会进行专门介绍。
 
 #### Row4
 
@@ -230,6 +262,8 @@ A TCP connection is managed by an **operating system** through a programming int
 (either server or client) represents waiting for enough time to pass to be sure the remote TCP received **the acknowledgment of its connection termination request**. [According to [RFC 793](https://tools.ietf.org/html/rfc793) a connection can stay in `TIME-WAIT` for a maximum of four minutes known as two [MSL](https://en.wikipedia.org/wiki/Maximum_Segment_Lifetime) (maximum segment lifetime).]
 
 > NOTE: 第一句话的含义是：**本端**等待足够的时间以确保remote TCP(即通信的**对端**)接收到了由**本端**发送给对端的acknowledgment（这个acknowledgment是对对端发送过来的connection termination request的`ACK`)
+>
+> 在文章`Network\Theory\TCP\TCP-connection-termination.md` 的 “2MSL wait” 段中对[MSL](https://en.wikipedia.org/wiki/Maximum_Segment_Lifetime)、TIME-WAIT进行了说明。
 
 #### CLOSED
 
@@ -249,13 +283,21 @@ To establish a connection, TCP uses a three-way [handshake](https://en.wikipedia
 
 3) **ACK**: Finally, the client sends an ACK back to the server. The **sequence number** is set to the **received acknowledgement value** i.e. `A+1`, and the **acknowledgement number** is set to one more than the received sequence number i.e. `B+1`.
 
-> NOTE : 显然TCP协议要求所有的通信都是request-response的，即每个request，都会收到一个response，当这个response是由于acknowledge的时候，我们往往将其称之为`ACK`，那该协议是如何实现response A是request A的response而不是request B的response呢？是使用sequence number和received sequence number吗？对一个endpoint而言，它的sequence number是单调递增的吗？
+> NOTE: 为什么是plus 1？在`Network\Theory\TCP\TCP-SEQ-number-and-ACK-number.md`的cnblogs [TCP 中的Sequence Number](https://www.cnblogs.com/JenningsMao/p/9487252.html)中对这个问题进行解释
+
+> NOTE : 显然TCP协议要求所有的通信都是request-response的，即每个request，都会收到一个response，当这个response是用于acknowledge的，我们往往将其称之为`ACK`，那该协议是如何实现response A是request A的response而不是request B的response呢？是使用sequence number和received sequence number吗？对一个endpoint而言，它的sequence number是单调递增的吗？
 
 At this point, both the client and server have received an acknowledgment of the connection. The steps 1, 2 establish the connection parameter (**sequence number**) for one direction and it is acknowledged. The steps 2, 3 establish the connection parameter (**sequence number**) for the other direction and it is acknowledged. With these, a **full-duplex communication** is established.
 
 > NOTE: full-duplex，每个direction都有对应的connection parameter: sequence number。
 
 ## 4.2 Connection termination
+
+> NOTE: 在文章`Network\Theory\TCP\TCP-connection-termination.md`中对connection termination进行了补充，其中解释本段中很多没有说明清楚的问题:
+>
+> - `RST`、**half-duplex close sequence**
+> - half-open、half-close
+> -  **2MSL wait**
 
 The **connection termination phase** uses a **four-way handshake**, with each side of the connection terminating independently. When an endpoint wishes to stop its half of the connection, it transmits a **FIN packet**, which the other end acknowledges with an `ACK`. Therefore, a typical tear-down requires a pair of `FIN` and `ACK` segments from each **TCP endpoint**( **four-way handshake**). After the side **that**(引导定语从句) sent the first `FIN` has responded with the final `ACK`, it waits for a **timeout** before finally closing the connection, during which time **the local port** is unavailable for new connections; this prevents confusion due to **delayed packets** being delivered during subsequent connections.
 
@@ -265,9 +307,15 @@ The **connection termination phase** uses a **four-way handshake**, with each si
 
 A connection can be ["half-open"](https://en.wikipedia.org/wiki/TCP_half-open), in which case one side has terminated its end, but the other has not. The side that has terminated can no longer send any data into the connection, but the other side can. The terminating side should continue reading the data until the other side terminates as well.
 
+
+
 It is also possible to terminate the connection by a 3-way handshake, when host A sends a `FIN` and host B replies with a `FIN` & `ACK` (merely combines 2 steps into one) and host A replies with an `ACK`.[[14\]](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#cite_note-14)
 
-Some host TCP stacks may implement a half-duplex close sequence, as [Linux](https://en.wikipedia.org/wiki/Linux) or [HP-UX](https://en.wikipedia.org/wiki/HP-UX) do. If such a host actively closes a connection but still has not read all the incoming data the stack already received from the link, this host sends a `RST` instead of a `FIN` (Section 4.2.2.13 in [RFC 1122](https://tools.ietf.org/html/rfc1122)). This allows a TCP application to be sure the remote application has read all the data the former sent—waiting the `FIN` from the remote side, when it actively closes the connection. But the remote TCP stack cannot distinguish between a *Connection Aborting RST* and *Data Loss RST*. Both cause the remote stack to lose all the data received.
+
+
+Some host TCP stacks may implement a **half-duplex close sequence**, as [Linux](https://en.wikipedia.org/wiki/Linux) or [HP-UX](https://en.wikipedia.org/wiki/HP-UX) do. If such a host actively closes a connection but still has not read all the incoming data the stack already received from the link, this host sends a `RST` instead of a `FIN` (Section 4.2.2.13 in [RFC 1122](https://tools.ietf.org/html/rfc1122)). This allows a TCP application to be sure the remote application has read all the data the former sent—waiting the `FIN` from the remote side, when it actively closes the connection. But the remote TCP stack cannot distinguish between a *Connection Aborting RST* and *Data Loss RST*. Both cause the remote stack to lose all the data received.
+
+
 
 Some application protocols using the TCP open/close handshaking for the application protocol open/close handshaking may find the RST problem on active close. As an example:
 
@@ -305,9 +353,7 @@ The Transmission Control Protocol differs in several key features from the [User
 | Flow control                   | 流控                                          |
 | Congestion control             | 拥塞控制                                      |
 
-> NOTE: TCP的数据传输采用的是: **请求-响应** 模型；
->
-> 
+ 
 
 
 

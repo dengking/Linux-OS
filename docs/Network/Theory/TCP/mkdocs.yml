@@ -1,4 +1,5 @@
 nav:
     - Transmission-Control-Protocol: Transmission-Control-Protocol.md
-    - Transmission-Control-Protocol-2: Transmission-Control-Protocol-2.md
+    - TCP-SEQ-number-and-ACK-number: TCP-SEQ-number-and-ACK-number.md
+    - TCP-connection-termination: TCP-connection-termination.md
     - man-7-TCP: man-7-TCP.md
