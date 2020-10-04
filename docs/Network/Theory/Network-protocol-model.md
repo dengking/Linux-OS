@@ -149,6 +149,12 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 ### Disassemble / Reassemble
 
+Disassemble 拆开
+
+Reassemble 重新装配、重新集合
+
+显然两者描述的是相反的过程。
+
 不同PUD的最大长度可能不同，这就导致了Disassemble / Reassemble问题，下面是一些与此相关的内容:
 
 - [IP fragmentation](https://en.wikipedia.org/wiki/IP_fragmentation)
