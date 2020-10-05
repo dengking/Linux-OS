@@ -62,7 +62,7 @@ The operating system must fulfill two main objectives:
 
 在[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的chapter 1.6.1. The Process/Kernel Model中所描述Process/Kernel Model与上面所描述的architecture相同，这个名称更加精简，便于表达。对于一个linux OS programmer，心中应该牢记这个model。
 
-
+TODO: 应该从
 
 ## 总结
 

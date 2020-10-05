@@ -1,6 +1,6 @@
 nav:
     - Home: index.md
-    - Operating-system-概述: Operating-system.md
+    - Operating-system: Operating-system.md
 ########## 描述linux OS的标准与实现##########     
     - Unix-standardization-and-implementation: Unix-standardization-and-implementation
 ##############################     

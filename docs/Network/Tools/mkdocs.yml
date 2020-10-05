@@ -1,5 +1,10 @@
 nav:
+    - Introduction: index.md
     - Packet-analyzer: Packet-analyzer
+    - ss: ss.md
+    - Port-in-use: Port-in-use.md
+    - netstat: netstat.md
     - TODO-Troubleshoot-local-network: TODO-Troubleshoot-local-network.md
     - TODO-Troubleshoot-remote-network: TODO-Troubleshoot-remote-network.md
     - TODO-Troubleshoot-packet-loss: TODO-Troubleshoot-packet-loss.md
+    

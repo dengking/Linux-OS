@@ -1,8 +1,8 @@
-# Operating system概述
+# Operating system
 
 Operating system（简称OS）是一个非常宏大的主题，涉及的内容非常多。作为一名software engineer，掌握operating system的基础知识是必须的。本节是对OS的概述，参考的是维基百科[Operating system](https://en.wikipedia.org/wiki/Operating_system)。
 
-
+## 维基百科[Operating system](https://en.wikipedia.org/wiki/Operating_system)
 
 An **operating system** (**OS**) is [system software](https://en.wikipedia.org/wiki/System_software) that manages [computer hardware](https://en.wikipedia.org/wiki/Computer_hardware) and [software](https://en.wikipedia.org/wiki/Computer_software) resources and provides common [services](https://en.wikipedia.org/wiki/Daemon_(computing)) for [computer programs](https://en.wikipedia.org/wiki/Computer_program).
 
@@ -12,41 +12,41 @@ An **operating system** (**OS**) is [system software](https://en.wikipedia.org/w
 
 
 
-## [Types of operating systems](https://en.wikipedia.org/wiki/Operating_system#Types_of_operating_systems)
+### [Types of operating systems](https://en.wikipedia.org/wiki/Operating_system#Types_of_operating_systems)
 
-> NOTE: 下面罗列了多种分类方法，每种分类方法其实可以看做是一种特性。显然有很多的operating system可以兼具多种特性，比如linux，它具备multi-tasking、 multi-user等特性
+> NOTE: 下面罗列了多种分类方法，每种分类方法其实可以看做是一种**特性**。显然有很多的operating system可以兼具多种特性，比如linux，它具备multi-tasking、 multi-user等特性
 
-### Single-tasking and multi-tasking
+#### Single-tasking and multi-tasking
 
 - single-tasking operating system
 - [multi-tasking](https://en.wikipedia.org/wiki/Multi-tasking) operating system
 
-### Single- and multi-user
+#### Single- and multi-user
 
 - single-user operating system
 - [multi-user](https://en.wikipedia.org/wiki/Multi-user) operating system 
 
-### Distributed
+#### Distributed
 
 [distributed operating system](https://en.wikipedia.org/wiki/Distributed_operating_system)
 
-### Templated
+#### Templated
 
 [templating](https://en.wikipedia.org/wiki/Glossary_of_operating_systems_terms) 
 
-### Embedded
+#### Embedded
 
 [embedded operating systems](https://en.wikipedia.org/wiki/Embedded_operating_system)
 
-### Real-time
+#### Real-time
 
 [real-time operating system](https://en.wikipedia.org/wiki/Real-time_operating_system) 
 
 
 
-## Examples
+### Examples
 
-### Unix and Unix-like operating systems
+#### Unix and Unix-like operating systems
 
 *Main article:* [Unix](https://en.wikipedia.org/wiki/Unix)
 
@@ -84,7 +84,7 @@ The Linux kernel is used in some popular distributions, such as [Red Hat](https:
 
 
 
-### Microsoft Windows
+#### Microsoft Windows
 
 *Main article:* [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows)
 
@@ -92,11 +92,11 @@ The Linux kernel is used in some popular distributions, such as [Red Hat](https:
 
 
 
-## Components
+### Components
 
 The components of an **operating system** all exist in order to make the different parts of a computer work together. All user software needs to go through the **operating system** in order to use any of the hardware, whether it be as simple as a mouse or keyboard or as complex as an Internet component.
 
-### Kernel
+#### Kernel
 
 ![Kernel_Layout.svg](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/220px-Kernel_Layout.svg.png)
 
@@ -108,61 +108,40 @@ The components of an **operating system** all exist in order to make the differe
 
 *Main article:* [Kernel (computing)](https://en.wikipedia.org/wiki/Kernel_(computing))
 
-#### Program execution
+|                              | Main article                                                 |
+| ---------------------------- | ------------------------------------------------------------ |
+| Program execution            | [Process (computing)](https://en.wikipedia.org/wiki/Process_(computing)) |
+| Interrupts                   | [Interrupt](https://en.wikipedia.org/wiki/Interrupt)         |
+| Modes                        | [User mode](https://en.wikipedia.org/wiki/User_mode) *and* [Supervisor mode](https://en.wikipedia.org/wiki/Supervisor_mode) |
+| Memory management            | [Memory management](https://en.wikipedia.org/wiki/Memory_management) |
+| Virtual memory               | [Virtual memory](https://en.wikipedia.org/wiki/Virtual_memory) <br>[Page fault](https://en.wikipedia.org/wiki/Page_fault) |
+| Multitasking                 | [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking) <br>[Process management (computing)](https://en.wikipedia.org/wiki/Process_management_(computing)) <br>[Context switch](https://en.wikipedia.org/wiki/Context_switch)<br>[Preemptive multitasking](https://en.wikipedia.org/wiki/Preemptive_multitasking) <br>[Cooperative multitasking](https://en.wikipedia.org/wiki/Cooperative_multitasking) |
+| Disk access and file systems | [Virtual file system](https://en.wikipedia.org/wiki/Virtual_file_system) |
+| Device drivers               | [Device driver](https://en.wikipedia.org/wiki/Device_driver) |
 
-*Main article:* [Process (computing)](https://en.wikipedia.org/wiki/Process_(computing))
 
-#### Interrupts
 
-*Main article:* [Interrupt](https://en.wikipedia.org/wiki/Interrupt)
-
-#### Modes
-
-*Main articles:* [User mode](https://en.wikipedia.org/wiki/User_mode) *and* [Supervisor mode](https://en.wikipedia.org/wiki/Supervisor_mode)
-
-#### Memory management
-
-*Main article:* [Memory management](https://en.wikipedia.org/wiki/Memory_management)
-
-#### Virtual memory
-
-Main article: [Virtual memory](https://en.wikipedia.org/wiki/Virtual_memory)
-
-Further information: [Page fault](https://en.wikipedia.org/wiki/Page_fault)
-
-#### Multitasking
-
-Main articles: [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking) and [Process management (computing)](https://en.wikipedia.org/wiki/Process_management_(computing))
-
-Further information: [Context switch](https://en.wikipedia.org/wiki/Context_switch), [Preemptive multitasking](https://en.wikipedia.org/wiki/Preemptive_multitasking), and [Cooperative multitasking](https://en.wikipedia.org/wiki/Cooperative_multitasking)
-
-#### Disk access and file systems
-
-*Main article:* [Virtual file system](https://en.wikipedia.org/wiki/Virtual_file_system)
-
-#### Device drivers
-
-Main article: [Device driver](https://en.wikipedia.org/wiki/Device_driver)
-
-### Networking
+#### Networking
 
 *Main article:* [Computer network](https://en.wikipedia.org/wiki/Computer_network)
 
-### Security
+#### Security
 
 *Main article:* [Computer security](https://en.wikipedia.org/wiki/Computer_security)
 
-### User interface
+#### User interface
 
 *Main article:* [Operating system user interface](https://en.wikipedia.org/wiki/Shell_(computing))
 
 
 
-## [Diversity of operating systems and portability](https://en.wikipedia.org/wiki/Operating_system#Diversity_of_operating_systems_and_portability)
+## wikipedia [Diversity of operating systems and portability](https://en.wikipedia.org/wiki/Operating_system#Diversity_of_operating_systems_and_portability)
 
 
 
-## [Market share](https://en.wikipedia.org/wiki/Operating_system#Market_share)
+## wikipedia [Market share](https://en.wikipedia.org/wiki/Operating_system#Market_share)
+
+> NOTE: OS的市场份额
 
 *Further information:* [Usage share of operating systems](https://en.wikipedia.org/wiki/Usage_share_of_operating_systems)
 
