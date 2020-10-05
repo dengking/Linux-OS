@@ -1,4 +1,4 @@
-# Kernel (operating system)概述
+# Kernel (operating system)
 
 本节讨论OS的kernel，本节是对Kernel的概述，参考的是
 

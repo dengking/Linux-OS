@@ -98,6 +98,8 @@ The components of an **operating system** all exist in order to make the differe
 
 #### Kernel
 
+> NOTE: 最核心的部分
+
 ![Kernel_Layout.svg](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/220px-Kernel_Layout.svg.png)
 
 

@@ -1,22 +1,17 @@
 nav:
     - Home: index.md
+    - Architecture-of-computing-system: Architecture-of-computing-system
     - Operating-system: Operating-system.md
-########## 描述linux OS的标准与实现##########     
-    - Unix-standardization-and-implementation: Unix-standardization-and-implementation
-##############################     
-##############################         
-    - Architecture: Architecture
-########## 描述内核的相关知识##########             
+    ########## 描述linux OS的标准与实现##########     
+    - Unix-standardization-and-implementation: Unix-standardization-and-implementation      
+    ########## 描述内核的相关知识##########             
     - Kernel: Kernel
-##############################  
-##########Linux-Foundation定义了linux OS的方方面面##########               
+    ##########Linux-Foundation定义了linux OS的方方面面##########               
     - Linux-Foundation: Linux-Foundation
-##############################  
-########## 描述linux OS中进行programming时的知识##########            
+    ########## 描述linux OS中进行programming时的知识##########            
     - Programming: Programming
-##############################     
-########## 描述在linux OS中进行programming时，需要使用的一些工具####################                     
-    - Shell-and-tools: Shell-and-tools
-##############################        
-########## 描述网络的知识##########                 
+    ########## 描述网络的知识##########                 
     - Network: Network
+    ########## 描述在linux OS中进行programming时，需要使用的一些工具####################                     
+    - Shell-and-tools: Shell-and-tools
+
