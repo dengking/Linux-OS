@@ -1,11 +1,14 @@
 nav:
-    - Linux-OS's-interaction-with-the-hardware: Linux-OS's-interaction-with-the-hardware
-    - Linux-OS's-multitasking: Linux-OS's-multitasking
-    - Linux-OS's-user-system: Linux-OS's-user-system
+    - Introduction: index.md
+    - Interaction-with-the-hardware: Interaction-with-the-hardware
+    - Multitasking: Multitasking
+    - User-system: User-system
     - Memory-management: Memory-management
     - How-to-understand-linux-kernel-source-code: How-to-understand-linux-kernel-source-code.md
+    - Entry-point-of-kernel: Entry-point-of-kernel.md
     - Kernel-data-structure: Kernel-data-structure.md
     - Debug: Debug
+    - Limit: Limit
 backup:
     - How-OS-run-01-OS-kernel-is-event-driven: How-OS-run-01-OS-kernel-is-event-driven.md
     - How-OS-run-02-kernel-control-path-and-reentrant-kernel: How-OS-run-02-kernel-control-path-and-reentrant-kernel.md
