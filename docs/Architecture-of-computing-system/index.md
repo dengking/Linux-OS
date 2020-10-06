@@ -44,6 +44,7 @@
 上述表格，在后面会进行不断地丰富，在下面章节中会包含对它的扩充: 
 
 - `Kernel\Architecture.md`
+- `Operating-system\index.md`
 
 ## 通过architecture来分析OS的作用
 

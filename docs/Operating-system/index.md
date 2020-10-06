@@ -2,11 +2,11 @@
 
 Operating system（简称OS）是一个非常宏大的主题，涉及的内容非常多。作为一名software engineer，掌握operating system的基础知识是必须的。本节是对OS的概述，参考的是维基百科[Operating system](https://en.wikipedia.org/wiki/Operating_system)。
 
-## 维基百科[Operating system](https://en.wikipedia.org/wiki/Operating_system)
+## 维基百科 [Operating system](https://en.wikipedia.org/wiki/Operating_system)
 
 An **operating system** (**OS**) is [system software](https://en.wikipedia.org/wiki/System_software) that manages [computer hardware](https://en.wikipedia.org/wiki/Computer_hardware) and [software](https://en.wikipedia.org/wiki/Computer_software) resources and provides common [services](https://en.wikipedia.org/wiki/Daemon_(computing)) for [computer programs](https://en.wikipedia.org/wiki/Computer_program).
 
-![Operating system placement.svg](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Operating_system_placement.svg/165px-Operating_system_placement.svg.png)
+![Operating system placement.svg](./pic/165px-Operating_system_placement.svg.png)
 
 
 
@@ -100,7 +100,7 @@ The components of an **operating system** all exist in order to make the differe
 
 > NOTE: 最核心的部分
 
-![Kernel_Layout.svg](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/220px-Kernel_Layout.svg.png)
+![Kernel_Layout.svg](./pic/220px-Kernel_Layout.svg.png)
 
 
 
@@ -134,6 +134,16 @@ The components of an **operating system** all exist in order to make the differe
 #### User interface
 
 *Main article:* [Operating system user interface](https://en.wikipedia.org/wiki/Shell_(computing))
+
+
+
+## Concrete OS structure
+
+本节的标题是“具体的OS的结构": 
+
+![](./pic/operating-system-structure.png)
+
+上面是维基百科 [Operating system](https://en.wikipedia.org/wiki/Operating_system) 所总结的OS的内容。
 
 
 

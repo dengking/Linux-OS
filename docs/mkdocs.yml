@@ -1,7 +1,7 @@
 nav:
     - Home: index.md
     - Architecture-of-computing-system: Architecture-of-computing-system
-    - Operating-system: Operating-system.md
+    - Operating-system: Operating-system
     ########## 描述linux OS的标准与实现##########     
     - Unix-standardization-and-implementation: Unix-standardization-and-implementation      
     ########## 描述内核的相关知识##########             
