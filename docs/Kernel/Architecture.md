@@ -1,16 +1,20 @@
 # Architecture
 
-
+本章以“结构化思维”对Linux OS进行总结。
 
 ## The Process/Kernel Model
 
 在[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的chapter 1.6.1. The Process/Kernel Model中所描述Process/Kernel Model与上面所描述的architecture相同，这个名称更加精简，便于表达。对于一个linux OS programmer，心中应该牢记这个model。
 
-Linux采用的是monolithic kernel，这就使得Linux OS的”Process/Kernel Model“更加地简化。
+### Interface: system call
+
+Linux采用的是monolithic kernel，这就使得Linux OS的”Process/Kernel Model“更加地简化: process的所有请求都是通过system call来向kernel发起的。
 
 关于monolithic kernel，参见`Kernel\Kernel.md`章节。
 
+### Control
 
+从**控制论**的角度来看，process的执行收scheduler（位于kernel中）的控制，即process受控于kernel。
 
 
 
@@ -50,7 +54,7 @@ Programs can also request [shared memory](https://en.wikipedia.org/wiki/Shared_m
 
 ![](E:/github/dengking/Unix-like-operating-system/docs/Kernel/pic/userland-and-kernel-space.png)
 
-> NOTE: 原文的这张图总结的非常好，值得总结，设置比前面的对OS的总结要好，显然，图是更加直观的。
+> NOTE: 原文的这张图总结的非常好；它是对`Architecture-of-computing-system`中的图的扩充。
 
 > NOTE: 需要注意的是，systemd是运行在user mode，而不是kernel mode；
 

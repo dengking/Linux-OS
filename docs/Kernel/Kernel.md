@@ -78,6 +78,8 @@ Structure of monolithic kernel,microkernel and hybrid kernel-based operating sys
 
 ### Loadable modules
 
+> NOTE: 这是一种Plugin architecture。
+
 Modular operating systems such as [OS-9](https://en.wikipedia.org/wiki/OS-9) and most modern monolithic operating systems such as [OpenVMS](https://en.wikipedia.org/wiki/OpenVMS), [Linux](https://en.wikipedia.org/wiki/Linux_kernel), [BSD](https://en.wikipedia.org/wiki/BSD), [SunOS](https://en.wikipedia.org/wiki/SunOS), [AIX](https://en.wikipedia.org/wiki/AIX), and [MULTICS](https://en.wikipedia.org/wiki/MULTICS) can dynamically load (and unload) executable modules at runtime.
 
 This modularity of the operating system is at the binary (image) level and not at the architecture level. **Modular monolithic operating systems** are not to be confused with the architectural level of modularity inherent in [server-client](https://en.wikipedia.org/wiki/Microkernel) operating systems (and its derivatives sometimes marketed as [hybrid kernel](https://en.wikipedia.org/wiki/Hybrid_kernel)) which use microkernels and servers (not to be mistaken for modules or daemons).

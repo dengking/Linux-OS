@@ -41,7 +41,9 @@
 |             | [Instruction set](https://en.wikipedia.org/wiki/Instruction_set_architecture) | interface |
 | hardware    | [hardware](https://en.wikipedia.org/wiki/Computer_hardware)  |           |
 
+上述表格，在后面会进行不断地丰富，在下面章节中会包含对它的扩充: 
 
+- `Kernel\Architecture.md`
 
 ## 通过architecture来分析OS的作用
 
