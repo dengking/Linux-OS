@@ -20,7 +20,7 @@ Linux采用的是monolithic kernel，这就使得Linux OS的”Process/Kernel Mo
 
 从**控制论**的角度来看，process的执行收scheduler（位于kernel中）的控制，即process受控于kernel。
 
-
+关于控制论，参见工程software-engineering的`Software-design\Control-theory`章节。
 
 ## Kernel space and user space
 
