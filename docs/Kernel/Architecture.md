@@ -71,13 +71,3 @@ The most common way of implementing a **user mode** separate from [kernel mode](
 > NOTE: 后面会讲解Linux kernel的实现
 
 
-
-## Interface
-
-Linux OS在各个层次都提供了丰富的interface，甚至有些层次的interface的名称完全相同，这增加了用户使用的便利。对interface的学习是掌握Linux OS的关键。
-
-| interface              | 说明               |
-| ---------------------- | ------------------ |
-| system call            |                    |
-| library function       |                    |
-| command line interface | Linux的CLI非常强大 |

@@ -1,6 +1,6 @@
 # 关于本章
 
-本章描述与process相关的主题。
+multitasking是Linux OS的核心特性，在`Kernel\Guide\Linux-OS's-multitasking`中，我们已经描述了它的理论知识，本章将对它与它相关的programming进行描述。
 
 
 
