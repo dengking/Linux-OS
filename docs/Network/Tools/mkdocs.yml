@@ -3,8 +3,8 @@ nav:
     - Packet-analyzer: Packet-analyzer
     - Port-in-use: Port-in-use.md
     - netstat: netstat.md
-    - ss: ss.md
-    
+    - iproute2: iproute2
+    - nmap: nmap.md
     
     - TODO-Troubleshoot-local-network: TODO-Troubleshoot-local-network.md
     - TODO-Troubleshoot-remote-network: TODO-Troubleshoot-remote-network.md
