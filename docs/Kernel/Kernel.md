@@ -14,7 +14,7 @@ The kernel's [interface](https://en.wikipedia.org/wiki/Application_programming_i
 
 
 
-![img](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/220px-Kernel_Layout.svg.png)
+![img](./pic/220px-Kernel_Layout.svg.png)
 
 > A kernel connects the **application software** to the **hardware** of a computer.
 
@@ -42,7 +42,7 @@ Main article: [Monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kerne
 
 > NOTE: 由于Linux 采用的是 monolithic kernel，所以需要对它进行详细分析，后面补充了“Monolithic kernel”章节。
 
-![img](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Kernel-simple.svg/170px-Kernel-simple.svg.png)
+![img](./pic/170px-Kernel-simple.svg.png)
 
 
 
@@ -68,7 +68,7 @@ Microkernel (also abbreviated μK or uK) is the term describing an approach to o
 
 A **monolithic kernel** is an operating system architecture where the entire operating system is working in [kernel space](https://en.wikipedia.org/wiki/Kernel_space). The monolithic model differs from other operating system architectures (such as the [microkernel](https://en.wikipedia.org/wiki/Microkernel) architecture)[[1\]](https://en.wikipedia.org/wiki/Monolithic_kernel#cite_note-1)[[2\]](https://en.wikipedia.org/wiki/Monolithic_kernel#cite_note-2) in that it alone defines a high-level virtual interface over computer hardware. A set of primitives or [system calls](https://en.wikipedia.org/wiki/System_call) implement all operating system services such as [process](https://en.wikipedia.org/wiki/Process_(computing)) management, [concurrency](https://en.wikipedia.org/wiki/Concurrency_(computer_science)), and [memory management](https://en.wikipedia.org/wiki/Memory_management). Device drivers can be added to the kernel as [modules](https://en.wikipedia.org/wiki/Module_(programming)).
 
-![img](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/OS-structure2.svg/800px-OS-structure2.svg.png)
+![img](./pic/800px-OS-structure2.svg.png)
 
 
 

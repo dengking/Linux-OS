@@ -8,9 +8,13 @@
 
 ### Interface: system call
 
-Linux采用的是monolithic kernel，这就使得Linux OS的”Process/Kernel Model“更加地简化: process的所有请求都是通过system call来向kernel发起的。
+本节标题的含义是: system call是process和kernel之间的interface。
 
-关于monolithic kernel，参见`Kernel\Kernel.md`章节。
+Linux采用的是monolithic kernel，这就使得Linux OS的”Process/Kernel Model“更加地简化: 
+
+> process的所有请求都是通过system call来向kernel发起的
+
+
 
 ### Control
 

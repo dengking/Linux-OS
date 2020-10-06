@@ -41,10 +41,12 @@
 |             | [Instruction set](https://en.wikipedia.org/wiki/Instruction_set_architecture) | interface |
 | hardware    | [hardware](https://en.wikipedia.org/wiki/Computer_hardware)  |           |
 
-上述表格，在后面会进行不断地丰富，在下面章节中会包含对它的扩充: 
+上述表格，在后面会进行不断地丰富和扩充，在下面章节中会包含对它的扩充和对应的图形展示: 
 
-- `Kernel\Architecture.md`
-- `Operating-system\index.md`
+- `Kernel\Kernel.md#Monolithic kernel`章节
+
+- `Kernel\Architecture.md#Kernel space and user space`章节
+- `Operating-system\index.md#Concrete OS structure`章节
 
 ## 通过architecture来分析OS的作用
 
@@ -52,8 +54,9 @@
 
 The operating system must fulfill two main objectives:
 
-- Interact with the **hardware** components, servicing all low-level programmable elements included in the hardware platform.
-- Provide an **execution environment** to the applications that run on the computer system (the so-called user programs).
+1) Interact with the **hardware** components, servicing all low-level programmable elements included in the hardware platform.
+
+2) Provide an **execution environment** to the applications that run on the computer system (the so-called user programs).
 
 这两个objective（其实就是OS的作用、使命）相当于两条线，后面我们将沿着这两条线深入对linux OS的学习。
 
