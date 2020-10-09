@@ -41,12 +41,15 @@ tcpdump --interface any
 
 
 
-
-
-
-
-
 ## wikipedia [tcpdump](https://en.wikipedia.org/wiki/Tcpdump)
+
+
+
+## [man 1 tcpdump](https://www.tcpdump.org/manpages/tcpdump.1.html)
+
+
+
+
 
 
 

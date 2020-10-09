@@ -43,3 +43,8 @@ join api
 | process | [WAIT(2)](http://man7.org/linux/man-pages/man2/waitpid.2.html)、[WAIT4(2)](http://man7.org/linux/man-pages/man2/wait4.2.html) |
 | thread  | [PTHREAD_JOIN(3)](http://man7.org/linux/man-pages/man3/pthread_join.3.html)、[pthread_barrier_wait(3)](https://linux.die.net/man/3/pthread_barrier_wait) |
 
+
+
+## `clone`
+
+之前已经谈论了Linux OS中process、thread的实现，我们已经知道: 它们都依赖于`clone` system call，这是Linux OS中，非常重要的一个system call，我们将它单独放到一个章节中进行描述。

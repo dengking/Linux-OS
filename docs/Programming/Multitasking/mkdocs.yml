@@ -1,14 +1,12 @@
 nav:
     - Introduction: index.md
-    - Credential: Credential
-    - Organization-of-process: Organization-of-process
-    - Capabilities: Capabilities
-    - Sched: Sched
-    - IPC: IPC
+    - Process: Process
     - Thread: Thread
-    - Exit: Exit
-    - Daemon: Daemon
-    - Proc-filesystem: Proc-filesystem
+    # 对它进行专门的描述
+    - Implementation-Clone: Implementation-Clone
+    - Sched: Sched
+    - Capabilities: Capabilities
+    - Credential: Credential    
     - Tools: Tools
     
     
