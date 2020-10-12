@@ -109,6 +109,50 @@ rsync -vzacu  /home/wwwroot   root@198.***.***.***:/home/   --exclude  "wwwroot/
 
 
 
+
+
+
+
+### [Copy only folders not files?](https://askubuntu.com/questions/365877/copy-only-folders-not-files)
+
+- FYI use `rsync` to copy the directory structure AND retain the permissions and attributes]([stackoverflow.com/a/9242883/52074](https://stackoverflow.com/a/9242883/52074)). Using plain `mkdir -p` **does not preserve permissions and attributes**. – [Trevor Boyd Smith](https://askubuntu.com/users/78103/trevor-boyd-smith) [Jun 1 '17 at 20:24](https://askubuntu.com/questions/365877/copy-only-folders-not-files#comment1454869_365877)
+
+
+
+### [Rsync how to include directories but not files?](https://stackoverflow.com/questions/3546001/rsync-how-to-include-directories-but-not-files)
+
+#### [A1](https://stackoverflow.com/a/9242883)
+
+```shell
+rsync -a -f"+ */" -f"- *" source/ destination/
+```
+
+
+
+```shell
+rsync -a --include='*/' --exclude='*' source/ destination/
+```
+
+
+
+此处使用了rsync，看来是需要学习一下的，已经创建了rsync目录。
+
+
+
+#### 拓展
+
+copy directory和`*.h`文件:
+
+```shell
+rsync -av -f"+ */" -f"+ *.h" -f"- *" $bazel_tensorflow/tensorflow $base_dir
+```
+
+
+
+
+
+
+
 ## 官网[rsync](https://rsync.samba.org/)
 
 rsync is an [open source](http://www.opensource.org/) utility that provides fast incremental file transfer. rsync is freely available under the [GNU General Public License](https://rsync.samba.org/GPL.html) and is currently being maintained by [Wayne Davison](http://opencoder.net/).

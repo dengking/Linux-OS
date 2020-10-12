@@ -92,6 +92,20 @@ $ find $HOME -type f -printf '%s %p\n' | sort -nr | head -10
 
 
 
+
+
+### [How do I get the size of a directory on the command line?](https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line)
+
+[A1](https://unix.stackexchange.com/a/185765)
+
+`du -sh file_path`
+
+
+
+
+
+
+
 ## `df`
 
 ### [df(1) - Linux man page](https://linux.die.net/man/1/df)

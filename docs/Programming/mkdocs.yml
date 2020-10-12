@@ -1,15 +1,21 @@
 nav:
     - Introduction: index.md
+    
     ########## 一些杂项、公共问题##########                  
     - Common: Common
+    
     ########## lib描述linux OS的重要的库等##########     
     - Lib: Lib
+    
     ########## 在Linux OS中进行programming的哲学##########       
     - Philosophy: philosophy
+    
     ########## process是这些内容的核心##########
     - Multitasking: Multitasking
+    
     ########## process的一个主要活动就是IO##########
     - IO: IO
+    
     ########## 时间是一个非常重要的话题##########
     - Time: Time
 

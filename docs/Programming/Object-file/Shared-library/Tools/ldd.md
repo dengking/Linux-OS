@@ -10,11 +10,9 @@ https://en.wikipedia.org/wiki/Ldd_(Unix)
 
 https://linux.die.net/man/1/ldd
 
-https://linux.die.net/man/8/ld.so
 
 
-
-## [How to find out the dynamic libraries executables loads when run?](https://unix.stackexchange.com/questions/120015/how-to-find-out-the-dynamic-libraries-executables-loads-when-run)
+## stackexchange [How to find out the dynamic libraries executables loads when run?](https://unix.stackexchange.com/questions/120015/how-to-find-out-the-dynamic-libraries-executables-loads-when-run)
 
 ### [A1](https://unix.stackexchange.com/a/120017)
 
@@ -122,59 +120,4 @@ See also: [How to see the currently loaded shared objects in Linux? | Super User
 
 
 
-
-
-
-
-
-# [How do I get the size of a directory on the command line?](https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line)
-
-## [A1](https://unix.stackexchange.com/a/185765)
-
-`du -sh file_path`
-
-
-
-
-
-# [How to copy some, but not all files?](https://unix.stackexchange.com/questions/41693/how-to-copy-some-but-not-all-files)
-
-
-
-
-
-# [Copy only folders not files?](https://askubuntu.com/questions/365877/copy-only-folders-not-files)
-
-- 
-  FYI use `rsync` to copy the directory structure AND retain the permissions and attributes]([stackoverflow.com/a/9242883/52074](https://stackoverflow.com/a/9242883/52074)). Using plain `mkdir -p` **does not preserve permissions and attributes**. – [Trevor Boyd Smith](https://askubuntu.com/users/78103/trevor-boyd-smith) [Jun 1 '17 at 20:24](https://askubuntu.com/questions/365877/copy-only-folders-not-files#comment1454869_365877)
-
-
-
-# [Rsync how to include directories but not files?](https://stackoverflow.com/questions/3546001/rsync-how-to-include-directories-but-not-files)
-
-## [A1](https://stackoverflow.com/a/9242883)
-
-```shell
-rsync -a -f"+ */" -f"- *" source/ destination/
-```
-
-
-
-```shell
-rsync -a --include='*/' --exclude='*' source/ destination/
-```
-
-
-
-此处使用了rsync，看来是需要学习一下的，已经创建了rsync目录。
-
-
-
-### 拓展
-
-copy directory和`*.h`文件:
-
-```shell
-rsync -av -f"+ */" -f"+ *.h" -f"- *" $bazel_tensorflow/tensorflow $base_dir
-```
 
