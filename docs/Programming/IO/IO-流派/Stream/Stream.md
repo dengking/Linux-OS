@@ -59,7 +59,7 @@ Streams can be used as the underlying data type for [channels](https://en.wikipe
 
 
 
-## [What is the difference between a stream and a file?](https://stackoverflow.com/questions/20937616/what-is-the-difference-between-a-stream-and-a-file)
+## stackoverflow [What is the difference between a stream and a file?](https://stackoverflow.com/questions/20937616/what-is-the-difference-between-a-stream-and-a-file)
 
 
 
