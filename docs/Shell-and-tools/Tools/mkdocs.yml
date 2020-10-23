@@ -12,3 +12,4 @@ nav:
     # 如何构建应用
     - Build: Build
     - Hardware: Hardware
+    - Cron: Cron
