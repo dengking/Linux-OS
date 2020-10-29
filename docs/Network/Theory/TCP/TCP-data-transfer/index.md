@@ -51,7 +51,11 @@ The Transmission Control Protocol differs in several key features from the [User
 
 TODO: 需要添加对stream的说明:  stream是一种非常强大的抽象。
 
-这是TCP的核心特性，它决定了TCP中的很多问题。
+Stream-oriented是TCP的核心特性，它决定了TCP的通信是无**消息保护边界**的(面向流的通信是无**消息保护边界**的)，这样，**接收端**必须提供科学的拆包机制。
+
+> NOTE: 上述"面向流的通信是无**消息保护边界**的"是我在阅读csdn [Socket TCP粘包、多包和少包, 断包](https://blog.csdn.net/pi9nc/article/details/17165171)时，其中的论述。
+>
+> 关于**消息边界**，参见`Network\Theory\Message-boundary`。
 
 
 
