@@ -50,33 +50,3 @@ If it is correct, then **application layers** has the burden of dividing the str
 
 
 
-## stackoverflow [can one call of recv() receive data from 2 consecutive send() calls?](https://stackoverflow.com/questions/6089855/can-one-call-of-recv-receive-data-from-2-consecutive-send-calls)
-
-
-
-[A](https://stackoverflow.com/a/6089932)
-
-`TCP` is a **stream oriented** protocol. Not message / record / chunk oriented. That is, all that is guaranteed is that if you send a stream, the bytes will get to the other side in the order you sent them. There is no provision(规定) made by RFC 793 or any other document about the number of segments / packets involved.
-
-This is in stark(完全) contrast with `UDP`. As @R.. correctly said, in `UDP` an entire message is sent in one operation (notice the change in terminology: `message`). Try to send a giant message (several times larger than the MTU) with TCP ? It's okay, it will split it for you.
-
-> NOTE: MTU即[Maximum Transmission Unit](http://en.wikipedia.org/wiki/Maximum_transmission_unit)，
-
-When running on local networks or on localhost you will certainly notice that (generally) `one send == one recv`. Don't assume that. There are factors that change it dramatically. Among these
-
-- Nagle
-- Underlying MTU
-- Memory usage (possibly)
-- Timers
-- Many others
-
-Of course, not having a correspondence between an a `send` and a `recv` is a nuisance and you can't rely on `UDP`. That is one of the reasons for `SCTP`. `SCTP` is a really really interesting protocol and it is **message-oriented**.
-
-Back to `TCP`, this is a common nuisance. An equally common solution is this:
-
-- Establish that all packets begin with a fixed-length sequence (say 32 bytes)
-- These 32 **bytes** contain (possibly among other things) the size of the **message** that follows
-- When you read any amount of data from the socket, add the data to a buffer specific for that connection. When 32 **bytes** are reached, read the length you still need to read until you get the message.
-
-It is really important to notice how there are really no messages on the wire, only bytes. Once you understand it you will have made a giant leap towards writing network applications.
-

@@ -51,7 +51,7 @@ The Transmission Control Protocol differs in several key features from the [User
 
 TODO: 需要添加对stream的说明:  stream是一种非常强大的抽象。
 
-
+这是TCP的核心特性，它决定了TCP中的很多问题。
 
 
 
@@ -116,3 +116,58 @@ TCP提供一种面向连接的、可靠的字节流服务。
 
 
 
+## TCP send and recv
+
+### zhidao [tcp每一次send动作，其发送的字节都是按顺序到达receive端的吗?](https://zhidao.baidu.com/question/542313216.html): 
+
+因为TCP连接为可靠、有序的流式通道，bai故传输的数据不会丢失或乱序。
+
+但是，如果发送比较大的数据块（例如65535字节），接收端可能分几次收到数据，即每次recv()收到一部分数据。产生这一特性的原因是：TCP协议栈通常使用收发窗口协商机制高效传递数据，每次实际发送的数据量受窗口大小控制（窗口大小与网络状况、协议栈接收空间等因素有关）。
+
+同样，如果连续多次发送几组小数据（比如每次几个字节），接收端可能一次性收到所有数据。这是TCP协议栈另外一个特性，即对上层数据进行拼接（**粘包**）以减少网络交换数据报文的频率，以减少双方交互等待次数，提高网络吞吐效率。虽然这个特性可通过socket选项控制，但在比较复杂的网络环境下，发送方分多次送出的小报文仍可能被中间路由设备拼接后一次性发出。
+
+鉴于以上特性，成熟的TCP通讯设计通常还要引入另外的数据封装机制，在应用层给数据增加包头，接收端根据**包头**对数据进行组装（可使用环形队列等算法），以保证通讯数据的逻辑连贯性。
+
+其实除了TCP协议，还有其他的可靠通讯协议。这些协议有些基于数据流（类似TCP），也有的基于数据包式（类似UDP）。这类协议有时作为系统级组件提供，但更多是以应用层扩展库形式存在，通常是在UDP协议或裸IP层面进行封装，有需要的话可自行搜索这方面资源。
+
+
+
+
+
+### stackoverflow [can one call of recv() receive data from 2 consecutive send() calls?](https://stackoverflow.com/questions/6089855/can-one-call-of-recv-receive-data-from-2-consecutive-send-calls)
+
+
+
+[A](https://stackoverflow.com/a/6089932)
+
+`TCP` is a **stream oriented** protocol. Not message / record / chunk oriented. That is, all that is guaranteed is that if you send a stream, the bytes will get to the other side in the order you sent them. There is no provision(规定) made by RFC 793 or any other document about the number of segments / packets involved.
+
+This is in stark(完全) contrast with `UDP`. As @R.. correctly said, in `UDP` an entire message is sent in one operation (notice the change in terminology: `message`). Try to send a giant message (several times larger than the MTU) with TCP ? It's okay, it will split it for you.
+
+> NOTE: MTU即[Maximum Transmission Unit](http://en.wikipedia.org/wiki/Maximum_transmission_unit)，
+
+When running on local networks or on localhost you will certainly notice that (generally) `one send == one recv`. Don't assume that. There are factors that change it dramatically. Among these
+
+- Nagle
+- Underlying MTU
+- Memory usage (possibly)
+- Timers
+- Many others
+
+Of course, not having a correspondence between an a `send` and a `recv` is a nuisance and you can't rely on `UDP`. That is one of the reasons for `SCTP`. `SCTP` is a really really interesting protocol and it is **message-oriented**.
+
+Back to `TCP`, this is a common nuisance. An equally common solution is this:
+
+- Establish that all packets begin with a fixed-length sequence (say 32 bytes)
+- These 32 **bytes** contain (possibly among other things) the size of the **message** that follows
+- When you read any amount of data from the socket, add the data to a buffer specific for that connection. When 32 **bytes** are reached, read the length you still need to read until you get the message.
+
+It is really important to notice how there are really no messages on the wire, only bytes. Once you understand it you will have made a giant leap towards writing network applications.
+
+
+
+### csdn [Socket TCP粘包、多包和少包, 断包](https://blog.csdn.net/pi9nc/article/details/17165171)
+
+
+
+### csdn [socket连接---多线程 线程池---TCP/IP半包、粘包、分包](https://blog.csdn.net/wenbingoon/article/details/8915082)
