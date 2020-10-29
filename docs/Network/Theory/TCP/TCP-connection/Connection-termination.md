@@ -2,6 +2,52 @@
 
 
 
+## wikipedia [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) # 4.2 Connection termination
+
+> NOTE: 在文章`Network\Theory\TCP\TCP-connection-termination.md`中对connection termination进行了补充，其中解释本段中很多没有说明清楚的问题:
+>
+> - `RST`、**half-duplex close sequence**
+> - half-open、half-close
+> - **2MSL wait**
+
+The **connection termination phase** uses a **four-way handshake**, with each side of the connection terminating independently. When an endpoint wishes to stop its half of the connection, it transmits a **FIN packet**, which the other end acknowledges with an `ACK`. Therefore, a typical tear-down requires a pair of `FIN` and `ACK` segments from each **TCP endpoint**( **four-way handshake**). After the side **that**(引导定语从句) sent the first `FIN` has responded with the final `ACK`, it waits for a **timeout** before finally closing the connection, during which time **the local port** is unavailable for new connections; this prevents confusion due to **delayed packets** being delivered during subsequent connections.
+
+> NOTE: 最后一段话的意思是：在这段时间内，这个port是不能够用于新的connection的，这样做的原因是：如果允许，可能导致delayed packet被后续在这个port上的connection进行传输；
+
+> NOTE: why connection establishment使用three-way handshake，而connection termination使用four-wary handshake？我想这其中的差别在于传输buffer中的数据；
+
+A connection can be ["half-open"](https://en.wikipedia.org/wiki/TCP_half-open), in which case one side has terminated its end, but the other has not. The side that has terminated can no longer send any data into the connection, but the other side can. The terminating side should continue reading the data until the other side terminates as well.
+
+
+
+It is also possible to terminate the connection by a 3-way handshake, when host A sends a `FIN` and host B replies with a `FIN` & `ACK` (merely combines 2 steps into one) and host A replies with an `ACK`.[[14\]](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#cite_note-14)
+
+
+
+Some host TCP stacks may implement a **half-duplex close sequence**, as [Linux](https://en.wikipedia.org/wiki/Linux) or [HP-UX](https://en.wikipedia.org/wiki/HP-UX) do. If such a host actively closes a connection but still has not read all the incoming data the stack already received from the link, this host sends a `RST` instead of a `FIN` (Section 4.2.2.13 in [RFC 1122](https://tools.ietf.org/html/rfc1122)). This allows a TCP application to be sure the remote application has read all the data the former sent—waiting the `FIN` from the remote side, when it actively closes the connection. But the remote TCP stack cannot distinguish between a *Connection Aborting RST* and *Data Loss RST*. Both cause the remote stack to lose all the data received.
+
+
+
+Some application protocols using the TCP open/close handshaking for the application protocol open/close handshaking may find the RST problem on active close. As an example:
+
+```
+s = connect(remote);
+send(s, data);
+close(s);
+```
+
+For a program flow like above, a TCP/IP stack like that described above does not guarantee that all the data arrives to the other application if unread data has arrived at this end.
+
+![img](https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/TCP_CLOSE.svg/260px-TCP_CLOSE.svg.png)
+
+
+
+
+
+Connection termination
+
+
+
 ## TCP的connection termination方式
 
 总的来说，有两种termination方式:

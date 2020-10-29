@@ -1,7 +1,7 @@
 nav:
     - Transmission-Control-Protocol: Transmission-Control-Protocol.md
-    - TCP-SEQ-number-and-ACK-number: TCP-SEQ-number-and-ACK-number.md
-    - TCP-connection-termination: TCP-connection-termination.md
-    - TCP-segment-of-a-reassembled-PDU: TCP-segment-of-a-reassembled-PDU.md
+    - SEQand-ACK: SEQ-and-ACK
+    - TCP-connection: TCP-connection
+    - TCP-data-transfer: TCP-data-transfer
     - man-7-TCP: man-7-TCP.md
     - TODO: TODO.md

@@ -107,6 +107,10 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 
 
+### [RFC 1122](https://tools.ietf.org/html/rfc1122)
+
+
+
 下面是[RFC 1122](https://tools.ietf.org/html/rfc1122)中给出的描述
 
 | terminology | explanation                                                  |
@@ -121,7 +125,7 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 
 
-## Max length of PUD
+### Max length of PUD
 
 前面介绍了PUC，与它相关的另外一个问题是：它的最大长度；
 
@@ -138,14 +142,14 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 
 
-## TODO: Mechanism
+## Mechanism
 
-> NOTE: 这是我在阅读wikipedia [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)的[Key architectural principles](https://en.wikipedia.org/wiki/Internet_protocol_suite#Key_architectural_principles)的插图"Encapsulation of application data descending through the layers described in [RFC 1122](https://tools.ietf.org/html/rfc1122)"时，有感而发。
+> NOTE: 这是我在阅读wikipedia [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)的[Key architectural principles](https://en.wikipedia.org/wiki/Internet_protocol_suite#Key_architectural_principles)的插图"Encapsulation of application data descending through the layers described in [RFC 1122](https://tools.ietf.org/html/rfc1122)"时，有感而发，本节标题的含义是: 机制，network protocol model的运行机制。
 
 本文描述protocol stack的运行机制，其实它的运行机制相对是比较简单的，可以看做是两个方向:
 
-- 向下
-- 向上
+- Descend(向下)
+- Ascend(向上)
 
 ### Disassemble / Reassemble
 
@@ -168,7 +172,7 @@ Reassemble 重新装配、重新集合
 
 1) Encapsulation of application data
 
-2) Disassemble 
+2) Disassemble: 将上层的数据，按照本层的PDU进行disassemble，生成多个多个本层的PDU
 
 
 
@@ -184,4 +188,4 @@ Encapsulation of application data descending through the layers described in [RF
 
 1) Unpack/Expose
 
-2) Reassemble
+2) Reassemble: 将多个本层的PDU，组装为上层的PDU
