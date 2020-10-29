@@ -4,4 +4,5 @@ nav:
     - TCP: TCP
     - UDP: UDP
     - MAC-address: MAC-address.md
-    - Reconnect: Reconnect.md
+    - TCP-VS-UDP: TCP-VS-UDP
+    - Message-boundary: Message-boundary.md

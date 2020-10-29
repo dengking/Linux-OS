@@ -1,7 +1,7 @@
 nav:
     - Transmission-Control-Protocol: Transmission-Control-Protocol.md
-    - SEQand-ACK: SEQ-and-ACK
+    - SEQ-and-ACK: SEQ-and-ACK
     - TCP-connection: TCP-connection
     - TCP-data-transfer: TCP-data-transfer
     - man-7-TCP: man-7-TCP.md
-    - TODO: TODO.md
+    - TCP-troubleshoot: TCP-troubleshoot.md
