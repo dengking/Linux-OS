@@ -1,67 +1,29 @@
-# Stream
+# Stream-based IO
 
-维基百科 [C file input/output](https://en.wikipedia.org/wiki/C_file_input/output)
+关于stream，参见工程discrete的`Relation-structure-computation\Model\Stream`章节。
 
-stackoverflow [What is the difference between a stream and a file?](https://stackoverflow.com/questions/20937616/what-is-the-difference-between-a-stream-and-a-file)
+Stream抽象了数据的流动（流出、流入），stream模型可以抽象 input/output device，它能够抽象file、network device、custom adaptor device，所以使用stream模型构建的程序，允许我们实现使用抽象的stream来完成对多种device的IO。这个思想就是[abstraction](https://dengking.github.io/Post/Abstraction/Abstraction/)思想。
 
+stream模型基本上统治了IO领域：
 
+- 在[Everything-is-a-file](../../../Philosophy/Everything-is-a-file/Everything-is-a-file.md)中，我们其实已经探讨了linux的file descriptor其实代表的就是一个stream，它使用的就是stream模型，并且维基百科[Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file)描述的思想和上一段中的思想一致。
+- C++的[Input/output library](Input/output library)就是基于stream模型创建的。
 
-## stackoverflow [What is the difference between a stream and a file?](https://stackoverflow.com/questions/20937616/what-is-the-difference-between-a-stream-and-a-file)
+IO即输入、输出，就是典型的可以使用stream来进行描述的。
 
+## wikipedia [Stream (computing)](https://en.wikipedia.org/wiki/Stream_(computing)) # Examples
 
+2) On [Unix](https://en.wikipedia.org/wiki/Unix) and related systems based on the [C language](https://en.wikipedia.org/wiki/C_(programming_language)), a stream is a source or [sink](https://en.wikipedia.org/wiki/Sink_(computing)) of data, usually individual bytes or [characters](https://en.wikipedia.org/wiki/Character_(computing)). Streams are an **abstraction** used when reading or writing files, or communicating over [network sockets](https://en.wikipedia.org/wiki/Network_socket). The **standard streams** are three streams made available to all programs.
 
-### [A](https://stackoverflow.com/a/20937904)
+3) I/O devices can be interpreted as **streams**, as they produce or consume potentially unlimited data over time.
 
-In the context of the C Standard Library a stream is a generic interface for performing certain I/O operations. You can read from streams, write to streams, some streams are seekable. Opening a file as a stream is only one way to get a stream as an I/O interface for an application.
-
-[Let me quote:](https://www.gnu.org/software/libc/manual/html_mono/libc.html#Streams-and-File-Descriptors)
-
-> **11.1.1 Streams and File Descriptors**
->
-> When you want to do input or output to a file, you have a choice of two basic mechanisms for representing the connection between your program and the file: file descriptors and streams. File descriptors are represented as objects of type `int`, while streams are represented as `FILE *` objects.
->
-> File descriptors provide a primitive, low-level interface to input and output operations. Both file descriptors and streams can represent a connection to a device (such as a terminal), or a pipe or socket for communicating with another process, as well as a normal file. [...]
-
-[... and further:](https://www.gnu.org/software/libc/manual/html_mono/libc.html#Streams)
-
-> **12.1 Streams**
->
-> For historical reasons, the type of the C data structure that represents a stream is called `FILE` rather than “stream”. Since most of the library functions deal with objects of type `FILE *`, sometimes the term *file pointer* is also used to mean “stream”. This leads to unfortunate confusion over terminology in many books on C.
-
-Examples for I/O streams in C:
-
-- **Standard Streams:** https://linux.die.net/man/3/stdin
-- **File Streams:** https://linux.die.net/man/3/fopen
-- **Pipes:** https://linux.die.net/man/3/popen
-- **Stream Sockets:** https://linux.die.net/man/2/socket
-
-For further reading, also have a look at these links:
-
-- https://www.gnu.org/software/libc/manual/html_mono/libc.html#I_002fO-Overview
-- https://www.gnu.org/software/libc/manual/html_mono/libc.html#I_002fO-on-Streams
-
-The stream-based API is built on top of the low-level *file descriptor* API and provides additional functionality. Some low-level features are however only available via the lower level API, e.g., *memory-mapped I/O*, *non-blocking I/O* or "event-driven" I/O:
-
-- https://www.gnu.org/software/libc/manual/html_node/Memory_002dmapped-I_002fO.html
-- https://linux.die.net/man/2/poll
-- https://linux.die.net/man/4/epoll
+## wikipedia [C file input/output](https://en.wikipedia.org/wiki/C_file_input/output)
 
 
 
-## Stream VS file descriptor
+## C++ IO library
+
+参见工程programming-language的`C-family-language\C++\Library\Standard-library\IO-library`章节。
 
 
 
-## C++ Files and Streams
-
-https://www.tutorialspoint.com/cplusplus/cpp_files_streams.htm
-
-http://www.cplusplus.com/doc/tutorial/files/	
-
-## [C file input/output](https://en.wikipedia.org/wiki/C_file_input/output)
-
-## TODO
-
-[Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)
-
-基于流的方式
