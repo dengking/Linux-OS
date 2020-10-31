@@ -3,4 +3,5 @@ nav:
     - man-7-file-hierarchy: man-7-file-hierarchy.md
     - Inode: Inode.md
     - man-2-stat: man-2-stat.md
+    - File-type: File-type.md
     - Tools: Tools

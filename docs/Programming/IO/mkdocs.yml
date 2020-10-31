@@ -8,5 +8,4 @@ nav:
     - File-IO: File-IO
     - Network-IO: Network-IO
     - Protocol: Protocol.md
-    - Notify-via-fd: Notify-via-fd.md
     - Tools: Tools
