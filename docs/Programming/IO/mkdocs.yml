@@ -1,14 +1,12 @@
 nav:
     - Introduction: index.md
     - IO: Input-output.md
-########## IO 模型##########    
+    ########## IO 模型##########    
     - IO-model: IO-model
-###################    
     - IO-流派: IO-流派
-    - Stream: Stream.md
-    - Bitstream: Bitstream.md 
-    - VS-stream-VS-fd: VS-stream-VS-fd.md
-    - File: File
-    - Network: Network
+    - IO-multiplexing: IO-multiplexing
+    - File-IO: File-IO
+    - Network-IO: Network-IO
+    - Protocol: Protocol.md
     - Notify-via-fd: Notify-via-fd.md
     - Tools: Tools

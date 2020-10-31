@@ -1,11 +1,11 @@
 # Protocol
 
-在进行IO的时候，非常重要的一个环节是约定protocol，这是IO的前提，本文描述的protocol，有时候也被称format，比如在[protobuf](https://github.com/protocolbuffers/protobuf)中，称为 "data interchange format"。
+在进行IO之前，必须首先约定protocol，这是IO的前提，本文描述的protocol，有时候也被称format，比如在[protobuf](https://github.com/protocolbuffers/protobuf)中，称为 "data interchange format"。
 
-| IO         |          | 章节                        |
-| ---------- | -------- | --------------------------- |
-| File IO    | format   |                             |
-| Network IO | protocol | 工程Linux-OS的`Network`章节 |
+| IO         | convention | 章节                        |
+| ---------- | ---------- | --------------------------- |
+| File IO    | format     |                             |
+| Network IO | protocol   | 工程Linux-OS的`Network`章节 |
 
 
 
@@ -39,10 +39,12 @@ This document describes and defines the on-disk database file format used by all
 
 
 
-
-
-
-
 ### MessagePack 
 
 > NOTE: 这是我在阅读cnblogs [软件开发中的几种数据交换协议](https://www.cnblogs.com/winner-0715/p/7693400.html)时，其中提及的一种
+
+
+
+### Redis
+
+[Redis RDB Dump File Format](https://github.com/sripathikrishnan/redis-rdb-tools/wiki/Redis-RDB-Dump-File-Format)

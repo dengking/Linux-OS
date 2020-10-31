@@ -1,10 +1,10 @@
-# Data exchange protocol
+# Application protocol design
 
-进行通信，一个非常重要的内容是设计protocol，本文对这个内容进行总结。
+双方在进行通信之前，需要首先约定protocol，本文对application protocol design(应用层协议的设计)进行总结。protocol 有时候也被称为data exchange protocol、data exchange format。
 
 ## How to design
 
-使用TCP，一个非常重要的内容就是设计application protocol，即应用层协议，在设计application protocol的时候，需要考虑的问题有: 
+在设计application protocol的时候，需要考虑的问题有: 
 
 ### Message boundary
 

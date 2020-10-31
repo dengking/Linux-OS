@@ -26,3 +26,14 @@ Higher-level [operating system](https://en.wikipedia.org/wiki/Operating_system) 
 
 An alternative to special primitive functions is the [I/O monad](https://en.wikipedia.org/wiki/I/O_monad), which permits programs to just describe I/O, and the actions are carried out outside the program. This is notable because the I/O functions would introduce [side-effects](https://en.wikipedia.org/wiki/Side-effect_(computer_science)) to any programming language, but this allows [purely functional programming](https://en.wikipedia.org/wiki/Purely_functional_programming) to be practical.
 
+
+
+## IO可以看做是data exchange
+
+本节标题的含义是IO可以看做是一种data exchange，即双方**交换数据**，关于data exchange，参见:
+
+wikipedia [Data exchange](https://en.wikipedia.org/wiki/Data_exchange)
+
+## IO可以看做是一种通信
+
+IO也可以看做是一种通信，因此，双方需要约定好协议。
