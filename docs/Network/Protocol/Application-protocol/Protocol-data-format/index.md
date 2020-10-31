@@ -63,8 +63,6 @@ Protocol data format(有时候也被称为data exchange format)的设计是appli
 
 
 
-
-
 ## Protocol data format is the interface of network service
 
 本节标题的含义是: 将protocol data format 看做是 network service 的interface。**Network service**可以看做是一个function。
@@ -80,12 +78,6 @@ Protocol data format(有时候也被称为data exchange format)的设计是appli
 ## How to descript protocol data format?
 
 下面描述如何来描述protocol data format。
-
-### williamqliu [Data Exchange Formats (Avro, Thrift, Protocol Buffers)](https://williamqliu.github.io/2020/01/02/data-exchange-avro-thrift-protocolbuffers.html)
-
-
-
-
 
 ### cnblogs [软件开发中的几种数据交换协议](https://www.cnblogs.com/winner-0715/p/7693400.html) # 如何选择数据交换协议
 
@@ -122,11 +114,15 @@ const CRequestStruct * Req = reinterpret_cast<const CRequestStruct *>(Request); 
 
 ### IDL
 
-IDL的含义是: interface description language。使用IDL的方式，我们能够实现以language-neutral的方式来描述protocol data format，通过IDL compiler来实现将IDL描述的protocol data format编译为具体programming language implementation，从而实现了抽象，实现了cross-language、cross-plateform，在cloud computing、distributed-computing、microservice大行其道的今天，这种方式是极具价值。
+IDL的含义是: interface description language。
 
 目前实现这种方式的有:
 
-1) Protobuf
+1) [Protobuf](https://github.com/protocolbuffers/protobuf)
 
-2) Thrift
+2) [Thrift](https://thrift.apache.org/)
+
+3) [Apache Avro](http://avro.apache.org/)
+
+在`./IDL`对它们进行描述。
 

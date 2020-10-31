@@ -8,7 +8,7 @@ wikipedia [Binary protocol](https://en.wikipedia.org/wiki/Binary_protocol)
 
 2) Textual protocol
 
-
+上述两种是我们经常遇到的两种说法，其实准确地来说，它们所描述的是根据protocol的protocol data format来进行分类的。
 
 下面是对它们的区分，从它们的区分中，能够充分理解它们各自的含义，优势。
 
@@ -128,7 +128,9 @@ This becomes a problem when dealing with large numbers. An example of numbers la
 
 > NOTE: 需要由application来定义每一行的含义
 
-3) Textual formats take more space than **binary** encoding. For example, as JSON and XML are schema-less, they need to contain field names as well.
+3) Textual formats take more space than **binary** encoding. For example, as JSON and XML are **schema-less**, they need to contain field names as well.
+
+> NOTE: 由于json、XML都是schema-less的，所以需要将field带上
 
 ```json
 {
@@ -142,6 +144,8 @@ Its JSON encoding after removing all the white spaces consumes 82 bytes.
 
 ### **Binary** Encoding
 
+> NOTE: 下面以Thrift、**Protocol** Buffers、Avro为例来论述binary protocol的优势。
+
 For data that is used only internally within your organization, you could choose a format that is more compact or faster to parse. Although JSON is less verbose than XML, they both still use a lot of space compared to **binary** formats. We will be discussing three different **binary** encoding formats in this article:
 
 1) Thrift
@@ -150,7 +154,11 @@ For data that is used only internally within your organization, you could choose
 
 3) Avro
 
-All three provide efficient, cross-language serialization of data using a **schema** and have **code generation tools**. All three support **schema evolution** by ensuring both backward and forward compatibility.
+All three provide efficient, cross-language serialization of data using a **schema** and have **code generation tools**. All three support **schema evolution** by ensuring both **backward** and **forward** compatibility.
+
+> NOTE: 由于使用schema，所以不需要为数据带上field；
+>
+> 支持**schema evolution**的特性是非常有价值的，如果支持，将是一种优势。
 
 ### Thrift and **Protocol** Buffers
 
@@ -226,3 +234,13 @@ In this article, we looked into textual and **binary** encoding formats, how the
 ### Resources
 
 To know more about encoding and designing data-intensive applications, I highly recommend reading Martin Kleppmann’s book *Designing Data-Intensive Applications*.
+
+
+
+## TODO
+
+在下面这些文章中，也说明了binary protocol VS textual protocol:
+
+1) williamqliu.github [Data Exchange Formats (Avro, Thrift, Protocol Buffers)](https://williamqliu.github.io/2020/01/02/data-exchange-avro-thrift-protocolbuffers.html)
+
+2) eprosima [Apache Thrift vs Protocol Buffers vs Fast Buffers](https://www.eprosima.com/index.php/resources-all/performance/apache-thrift-vs-protocol-buffers-vs-fast-buffers)
