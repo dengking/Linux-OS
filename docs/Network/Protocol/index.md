@@ -44,8 +44,10 @@ A **format** describes the **structure** of some data, whereas a **protocol** de
 
 protocol的优点与缺点，以[Redis Protocol specification](https://redis.io/topics/protocol)为例进行说明。
 
+
+
 ## Network protocol
 
 Network protocol是一种communication protocol，它将是本章探讨的主要内容。
 
-我们除了需要学习目前network中，被广泛采用的、标准化的protocol(比如TCP/IP协议族)，还需要学习如何来设计application protocol(应用层协议)。
+我们除了需要学习目前network中，被广泛采用的、标准化的protocol(比如TCP/IP协议族)，还需要学习如何来设计application protocol(应用层协议)，这将在`./Application-protocol`章节中讨论。

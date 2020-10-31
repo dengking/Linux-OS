@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    - Thrift: Thrift
+    - Design: Design
+    - Protocol-data-format: Protocol-data-format
