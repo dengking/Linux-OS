@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Input-output: Input-output.md
+    - IO: Input-output.md
 ########## IO 模型##########    
     - IO-model: IO-model
 ###################    
