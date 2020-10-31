@@ -1,15 +1,10 @@
-# Protocol
+# File format
 
-在进行IO之前，必须首先约定protocol，这是IO的前提，本文描述的protocol，有时候也被称format，比如在[protobuf](https://github.com/protocolbuffers/protobuf)中，称为 "data interchange format"。
-
-| IO         | convention | 章节                        |
-| ---------- | ---------- | --------------------------- |
-| File IO    | format     |                             |
-| Network IO | protocol   | 工程Linux-OS的`Network`章节 |
+在进行IO之前，必须首先定义file format，这是IO的前提，file format是一种schema。
 
 
 
-## File format
+## Examples
 
 ### [protobuf](https://github.com/protocolbuffers/protobuf)
 
