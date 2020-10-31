@@ -1,6 +1,12 @@
 # File format
 
-在进行IO之前，必须首先定义file format，这是IO的前提，file format是一种schema。
+在进行IO之前，必须首先定义file format，这是IO的前提。
+
+## What is file format?
+
+file format是一种schema，它描述了data的structure。在superuser [What are the general differences between a format and a protocol](https://superuser.com/questions/736401/what-are-the-general-differences-between-a-format-and-a-protocol) 中，有这样的描述:
+
+> A format describes the structure of some data
 
 
 
