@@ -6,3 +6,4 @@ nav:
     - MAC-address: MAC-address.md
     - TCP-VS-UDP: TCP-VS-UDP
     - Message-boundary: Message-boundary.md
+    - Application-protocol-design: Application-protocol-design
