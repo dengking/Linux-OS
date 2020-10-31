@@ -39,3 +39,7 @@ Scenario: No change in fields - producer (client) sends a message to a consumer 
 Scenario: Added field - producer (old client) sends an old message to a consumer (new server); new server recognizes that the field is not set, and implements default behavior for out-of-date requests - all good e.g. MyMsg MyMsg user_id: 123 user_id: 123 amount: 1000 amount: 1000 time: 15
 
 Scenario: Added field - producer (new client) sends a new message to a consumer (old server); old server simply ignores it and processes as normal - all good e.g. MyMsg MyMsg user_id: 123 user_id: 123 amount: 1000 amount: 1000 time: 15
+
+
+
+## medium [Supercharge your REST APIs with Protobuf](https://medium.com/swlh/supercharge-your-rest-apis-with-protobuf-b38d3d7a28d3)
