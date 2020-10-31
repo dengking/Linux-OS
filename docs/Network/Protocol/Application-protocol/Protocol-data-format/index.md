@@ -120,5 +120,13 @@ const CRequestStruct * Req = reinterpret_cast<const CRequestStruct *>(Request); 
 
 
 
+### IDL
 
+IDL的含义是: interface description language。使用IDL的方式，我们能够实现以language-neutral的方式来描述protocol data format，通过IDL compiler来实现将IDL描述的protocol data format编译为具体programming language implementation。
+
+目前支持这种方式的有:
+
+1) Protobuf
+
+2) Thrift
 
