@@ -67,7 +67,13 @@ Protocol data format(有时候也被称为data exchange format)的设计是appli
 
 ## Protocol data format is the interface of network service
 
-如何抽象protocol data format？让所有的programming language都能够使用它进行通信？为每种programming language都实现一个library。或者采用protobuf、thrift这样的框架。
+本节标题的含义是: 将protocol data format 看做是 network service 的interface。**Network service**可以看做是一个function。
+
+参见: 
+
+1) [Remote Function Call](http://en.wikipedia.org/wiki/Remote_Function_Call)
+
+2) [Service-oriented Architecture](http://en.wikipedia.org/wiki/Service-oriented_architecture)
 
 
 
