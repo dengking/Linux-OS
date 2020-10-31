@@ -118,13 +118,13 @@ const CRequestStruct * Req = reinterpret_cast<const CRequestStruct *>(Request); 
 
 这种方式能够保证避免多次的copy，但是需要为每个服务都指定一个struct，或者说，需要为每个服务制定具体的protocol，这带来的一个问题就是: 维护的成本。
 
-
+这种方式的一个缺点是: 无法cross-language。
 
 ### IDL
 
-IDL的含义是: interface description language。使用IDL的方式，我们能够实现以language-neutral的方式来描述protocol data format，通过IDL compiler来实现将IDL描述的protocol data format编译为具体programming language implementation。
+IDL的含义是: interface description language。使用IDL的方式，我们能够实现以language-neutral的方式来描述protocol data format，通过IDL compiler来实现将IDL描述的protocol data format编译为具体programming language implementation，从而实现了抽象，实现了cross-language、cross-plateform，在cloud computing、distributed-computing、microservice大行其道的今天，这种方式是极具价值。
 
-目前支持这种方式的有:
+目前实现这种方式的有:
 
 1) Protobuf
 
