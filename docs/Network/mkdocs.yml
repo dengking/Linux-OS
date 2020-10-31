@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - Theory: Theory
+    - Protocol: Protocol
     - Programming: Programming
     - Tools: Tools
