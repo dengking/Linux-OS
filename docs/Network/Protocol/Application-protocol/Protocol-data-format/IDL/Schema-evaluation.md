@@ -29,9 +29,17 @@ If/When you change a **schema**, you’ll have producers and consumers with diff
 Scenarios for forward and backward compatibility are:
 
 - No change in fields
+
 - Added field, old client (producer), new server (consumer)
+
+  > NOTE: server使用了新的schema，client使用的是旧的schema
+
 - Removed field, old client (producer), new server (consumer)
+
+  > NOTE: server使用了新的schema，client使用的是旧的schema
+
 - Added field, new client (producer), old server (consumer)
+
 - Removed field, new client (producer), old server (consumer)
 
 Scenario: No change in fields - producer (client) sends a message to a consumer (server) - all good e.g. MyMsg MyMsg user_id: 123 user_id: 123 amount: 1000 amount: 1000
