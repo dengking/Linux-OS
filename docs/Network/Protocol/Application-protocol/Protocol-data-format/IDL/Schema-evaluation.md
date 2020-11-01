@@ -2,6 +2,12 @@
 
 支持Schema evaluation是本章所描述的几种库的优势，本文对这个主题进行展开。
 
+## What is schema evaluation?
+
+wikipedia [Schema Evolution](http://en.wikipedia.org/wiki/Schema_evolution)。
+
+askinglot [What is schema evolution in hive?](https://askinglot.com/what-is-schema-evolution-in-hive)。
+
 ## williamqliu [Data Exchange Formats (Avro, Thrift, Protocol Buffers)](https://williamqliu.github.io/2020/01/02/data-exchange-avro-thrift-protocolbuffers.html)
 
 There are a lot of Data Exchange formats, each with its own use-case. Some include:
