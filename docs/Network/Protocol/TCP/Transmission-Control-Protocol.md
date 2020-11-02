@@ -66,9 +66,25 @@ Major internet applications such as the [World Wide Web](https://en.wikipedia.or
 
 > NOTE: 上面这段话需要结合`Network\Theory\Network-protocol-model.md`中的"Internet protocol suite by layer"章节的内容来进行理解
 
-An application does not need to know the particular mechanisms for sending data via a link to another host, such as the required [IP fragmentation](https://en.wikipedia.org/wiki/IP_fragmentation) to accommodate the [maximum transmission unit](https://en.wikipedia.org/wiki/Maximum_transmission_unit) of the transmission medium. At the transport layer, TCP handles all **handshaking** and **transmission** details and presents an **abstraction** of the **network connection** to the application typically through a [network socket](https://en.wikipedia.org/wiki/Network_socket) interface.
+#### Abstraction
 
-> NOTE: 核心在于“abstraction”，可以认为TCP is an abstraction。
+> NOTE: 本节标题的Abstraction有如下两个含义:
+>
+> 1) 底层对传输细节进行了封装，提供给上层abstraction
+>
+> 2) TCP network connection is an abstraction
+
+An application does not need to know the particular mechanisms for sending data via a link to another host, such as the required [IP fragmentation](https://en.wikipedia.org/wiki/IP_fragmentation)(分片) to accommodate the [maximum transmission unit](https://en.wikipedia.org/wiki/Maximum_transmission_unit) of the transmission medium. At the transport layer, TCP handles all **handshaking** and **transmission** details and presents an **abstraction** of the **network connection** to the application typically through a [network socket](https://en.wikipedia.org/wiki/Network_socket) interface.
+
+> NOTE: 上面这段话的最后一句描述了TCP connecting的本质，可以认为TCP network connection is an abstraction，关于TCP network connecting的本质，在`./TCP-connection`章节会进行说明。
+
+At the lower levels of the protocol stack, due to [network congestion](https://en.wikipedia.org/wiki/Network_congestion), traffic [load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing)), or unpredictable network behaviour, IP packets may be [lost](https://en.wikipedia.org/wiki/Packet_loss), duplicated, or [delivered out of order](https://en.wikipedia.org/wiki/Out-of-order_delivery). TCP detects these problems, requests [re-transmission](https://en.wikipedia.org/wiki/Retransmission_(data_networks)) of lost data, rearranges out-of-order data and even helps minimize network congestion to reduce the occurrence of the other problems. If the data still remains undelivered, the source is notified of this failure. Once the TCP receiver has reassembled the sequence of octets originally transmitted, it passes them to the receiving application. Thus, TCP [abstracts](https://en.wikipedia.org/wiki/Abstraction_(computer_science)) the application's communication from the underlying networking details.
+
+#### Positive acknowledgement with re-transmission
+
+> NOTE: TCP采用的"The sender re-transmits a packet if the timer expires before receiving the acknowledgement"。
+
+TCP is a reliable stream delivery service which guarantees that all bytes received will be identical and in the same order as those sent. Since packet transfer by many networks is not reliable, TCP achieves this using a technique known as ***positive acknowledgement with re-transmission***. This requires the **receiver** to respond with an **acknowledgement message** as it receives the data. The sender keeps a record of each packet it sends and maintains a timer from when the packet was sent. **The sender re-transmits a packet if the timer expires before receiving the acknowledgement.** The timer is needed in case a packet gets lost or corrupted.[[6\]](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#cite_note-comer-6)
 
 
 
