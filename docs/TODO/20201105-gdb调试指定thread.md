@@ -1,0 +1,2 @@
+对于多线程application，gdb会为每个thread都指定一个thread ID，如果进行automate debug，用户无法提前获知thread ID，那如何来查询得到指定thread的thread ID呢？
+
