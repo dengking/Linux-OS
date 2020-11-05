@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - organization-gnu: organization-gnu
+    - GNU-toolchain: GNU-toolchain
     # 如果程序不知不觉地退出了执行，如何进行分析
     - Dmesg: Dmesg
     # 同步
