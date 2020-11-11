@@ -1,3 +1,6 @@
 nav:
     - Introduction: index.md
     - Socket: Socket.md
+    - man-7-socket: man-7-socket.md
+    - Reconnect: Reconnect.md
+    - Send-file: Send-file
