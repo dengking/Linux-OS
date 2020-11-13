@@ -4,8 +4,7 @@ nav:
     ########## IO 模型##########    
     - IO-model: IO-model
     - IO-流派: IO-流派
-    - IO-multiplexing: IO-multiplexing
     - File-IO: File-IO
     - Network-IO: Network-IO
-    - Protocol: Protocol.md
     - Tools: Tools
+    - Blocking-and-non-blocking-VS-sync-and-async: Blocking-and-non-blocking-VS-sync-and-async.md

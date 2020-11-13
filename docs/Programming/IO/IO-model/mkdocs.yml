@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
     - IO-models: IO-models.md
+    - Asynchronous-IO: Asynchronous-IO
+    - IO-multiplexing: IO-multiplexing
