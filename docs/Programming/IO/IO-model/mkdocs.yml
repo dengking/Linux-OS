@@ -3,3 +3,6 @@ nav:
     - IO-models: IO-models.md
     - Asynchronous-IO: Asynchronous-IO
     - IO-multiplexing: IO-multiplexing
+    - Blocking-and-non-blocking-VS-sync-and-async: Blocking-and-non-blocking-VS-sync-and-async.md
+    - Blocking-IO-VS-Nonblocking-IO: Blocking-IO-VS-Nonblocking-IO.md
+    
