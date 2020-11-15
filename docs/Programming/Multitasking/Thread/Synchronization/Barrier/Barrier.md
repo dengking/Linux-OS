@@ -1,6 +1,12 @@
 # Barrier
 
+## APUE-11.6.8-barrier
 
+barrier是用户协调多个thread并行工作的同步机制。
+
+barrier允许每个thread等待，直到所有的合作thread都到达某一点，然后从改点继续进行工作。
+
+***Summary***:显然barrier的这种特性非常适合于类似于heap-sort这种先分后合的工作方式。
 
 ## 维基百科[Barrier (computer science)](https://en.wikipedia.org/wiki/Barrier_(computer_science))
 
