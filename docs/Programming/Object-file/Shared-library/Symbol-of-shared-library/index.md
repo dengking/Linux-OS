@@ -44,3 +44,9 @@ Do you have a "shared object" (usually a shared library on AIX), a UNIX shared l
 - For an ELF shared library, use `readelf -Ws /path/to/libfoo.so`, or (if you have GNU nm) `nm -D /path/to/libfoo.so`.
 - For a non-ELF UNIX shared library, please state *which* UNIX you are interested in.
 - For a Windows DLL, use `dumpbin /EXPORTS foo.dll`.
+
+
+
+## TODO: Find where a shared library symbol defined on a live system
+
+### stackexchange [Find where is a shared library symbol defined on a live system / list all symbols exported on a system](https://unix.stackexchange.com/questions/103744/find-where-is-a-shared-library-symbol-defined-on-a-live-system-list-all-symbol)
