@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
     - Dynamic-loading: Dynamic-loading.md
-    - Linker-and-loader: Linker-and-loader
     - Symbol-of-shared-library: Symbol-of-shared-library
+    - Tools: Tools
     
