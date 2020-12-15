@@ -6,7 +6,7 @@
 
 我们常常以多种形式来提供我们的程序文件，Linux OS支持的Object file:
 
-1)
+1) object file
 
 2) executable file(可执行程序文件)
 

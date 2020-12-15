@@ -1,5 +1,7 @@
 nav:
-    - Virtual-address-space: Virtual-address-space.md
-    - Virtual-memory-address-space-thinking: Virtual-memory-address-space-thinking.md
-    - Virtual-address-space-size: Virtual-address-space-size
-    - Layout-of-process: Layout-of-process
+    - Introduction: index.md
+    - Linux-implementation: Linux-implementation.md
+    - Output-virtual-memory-space: Output-virtual-memory-space.md
+    - Thinking: Thinking.md
+    - Size: Size
+    - Segment: Segment

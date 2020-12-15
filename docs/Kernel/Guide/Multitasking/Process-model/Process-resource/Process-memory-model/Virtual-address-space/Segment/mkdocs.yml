@@ -1,0 +1,4 @@
+nav:
+    - bss-segment: bss-segment.md
+    - Data-segment: Data-segment.md
+    - Code-segment: Code-segment.md
