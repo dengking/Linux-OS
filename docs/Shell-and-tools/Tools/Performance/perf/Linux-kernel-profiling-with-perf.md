@@ -1,0 +1,1 @@
+perf.wiki.kernel [Linux kernel profiling with `perf`](https://perf.wiki.kernel.org/index.php/Tutorial)
