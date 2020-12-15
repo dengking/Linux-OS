@@ -2,6 +2,7 @@ nav:
     - Introduction: index.md
     - ELF: ELF
     - Shared-library: Shared-library
+    - Symbol: Symbol
 
     
     
