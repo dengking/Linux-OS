@@ -1,5 +1,4 @@
 nav:
     - Introduction: index.md
-    - Classification-of-object-file: Classification-of-object-file
     - man-5-elf: man-5-elf
     - Tools: Tools
