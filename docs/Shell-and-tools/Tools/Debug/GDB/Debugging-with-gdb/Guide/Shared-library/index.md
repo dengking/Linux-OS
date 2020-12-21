@@ -2,6 +2,58 @@
 
 本文描述gdb调试shared library的内容。
 
+## Set breakpoint in shared library
+
+Linux OS是支持多种使用shared library的方式的，无论是哪种方式，调试shared library的一个原则是:
+
+> 只有当shared library被加载后，才能够读取其中的symbol，然后才能够对其进行调试。
+
+stackoverflow [how to set breakpoint on function in a shared library which has not been loaded in gdb](https://stackoverflow.com/questions/2642983/how-to-set-breakpoint-on-function-in-a-shared-library-which-has-not-been-loaded): 
+
+> Actually gdb should tell you that it's able to resolve the symbol in the future, when new libraries are loaded
+
+
+
+## visualgdb [Shared library commands](https://visualgdb.com/gdbreference/commands/shared_library_commands)
+
+> NOTE: 对shared library相关的command进行了较好的总结
+
+| command                                                      | 简介                                 |
+| ------------------------------------------------------------ | ------------------------------------ |
+| [info sharedlibrary](https://visualgdb.com/gdbreference/commands/info_sharedlibrary) | 查看已经加载的shared library         |
+| [set auto-solib-add](https://visualgdb.com/gdbreference/commands/set_auto-solib-add) | gdb break when a shared library load |
+| [set solib-search-path](https://visualgdb.com/gdbreference/commands/set_solib-search-path) |                                      |
+| [set stop-on-solib-events](https://visualgdb.com/gdbreference/commands/set_stop-on-solib-events) |                                      |
+| [set sysroot](https://visualgdb.com/gdbreference/commands/set_sysroot) |                                      |
+| [sharedlibrary](https://visualgdb.com/gdbreference/commands/sharedlibrary) |                                      |
+
+
+
+## `set stop-on-solib-events` command
+
+
+
+### visualgdb [set stop-on-solib-events](https://visualgdb.com/gdbreference/commands/set_stop-on-solib-events)
+
+#### Syntax
+
+```
+set stop-on-solib-events 0
+set stop-on-solib-events 1
+show stop-on-solib-events
+```
+
+> NOTE: `set stop-on-solib-events 1` 对于通过`dlopen`来加载的shared library非常有用。
+
+### codeyarns [How to set regex breakpoint for shared library in GDB](https://codeyarns.com/2017/08/22/how-to-set-regex-breakpoint-for-shared-library-in-gdb/)
+
+- I find it useful to configure GDB to stop whenever a shared library is loaded. This can be done by setting this option: `set stop-on-solib-events 1`
+- Now GDB stops every time at the point where one or more shared libraries need to be loaded. If I realize that the shared library I am interested in has now loaded, I run the regex breakpoint command at that point to set the breakpoints. Voila!
+
+
+
+
+
 ## Run-time load
 
 本节标题的函数是“运行时加载”。dynamic library是run-time才会继续加载的，所以在程序运行之前，无法获取dynamic library的信息，这是因为此时gdb还没有加载dynamic library，所以没有读取其symbol table，所以无法获得dynamic library的实现的信息。
@@ -35,34 +87,6 @@ From                To                  Syms Read   Shared Object Library
 
 
 
-## visualgdb [Shared library commands](https://visualgdb.com/gdbreference/commands/shared_library_commands)
-
-| command                                                      | 简介                                 |
-| ------------------------------------------------------------ | ------------------------------------ |
-| [info sharedlibrary](https://visualgdb.com/gdbreference/commands/info_sharedlibrary) | 查看已经加载的shared library         |
-| [set auto-solib-add](https://visualgdb.com/gdbreference/commands/set_auto-solib-add) | gdb break when a shared library load |
-| [set solib-search-path](https://visualgdb.com/gdbreference/commands/set_solib-search-path) |                                      |
-| [set stop-on-solib-events](https://visualgdb.com/gdbreference/commands/set_stop-on-solib-events) |                                      |
-| [set sysroot](https://visualgdb.com/gdbreference/commands/set_sysroot) |                                      |
-| [sharedlibrary](https://visualgdb.com/gdbreference/commands/sharedlibrary) |                                      |
-
-
-
-## `set stop-on-solib-events` command
-
-
-
-### visualgdb [set stop-on-solib-events](https://visualgdb.com/gdbreference/commands/set_stop-on-solib-events)
-
-
-
-### codeyarns [How to set regex breakpoint for shared library in GDB](https://codeyarns.com/2017/08/22/how-to-set-regex-breakpoint-for-shared-library-in-gdb/)
-
-- I find it useful to configure GDB to stop whenever a shared library is loaded. This can be done by setting this option: `set stop-on-solib-events 1`
-- Now GDB stops every time at the point where one or more shared libraries need to be loaded. If I realize that the shared library I am interested in has now loaded, I run the regex breakpoint command at that point to set the breakpoints. Voila!
-
-
-
 ## Load, unload and reload shared library 
 
 ### aixxe [Loading, unloading & reloading shared libraries](https://aixxe.net/2016/09/shared-library-injection)
@@ -76,12 +100,6 @@ Using dynamic linker functions to load, unload and reload our code into a proces
 ### Directly load shared library
 
 gdb能够直接load shared library，即使没有可执行程序，这个特性是有一定价值的，我们可以可以直接读取shared library中的一些信息。
-
-## Set breakpoint in shared library
-
-stackoverflow [how to set breakpoint on function in a shared library which has not been loaded in gdb](https://stackoverflow.com/questions/2642983/how-to-set-breakpoint-on-function-in-a-shared-library-which-has-not-been-loaded): 
-
-> Actually gdb should tell you that it's able to resolve the symbol in the future, when new libraries are loaded
 
 
 

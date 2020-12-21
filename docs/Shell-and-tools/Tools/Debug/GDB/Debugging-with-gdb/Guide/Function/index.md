@@ -23,3 +23,15 @@
 
 - stackoverflow [How to evaluate functions in GDB?](https://stackoverflow.com/questions/1354731/how-to-evaluate-functions-in-gdb)
 - aixxe [Loading, unloading & reloading shared libraries.](https://aixxe.net/2016/09/shared-library-injection) Using dynamic linker functions to load, unload and reload our code into a process.
+
+
+
+## stackoverflow [Step out of current function with GDB](https://stackoverflow.com/questions/24712690/step-out-of-current-function-with-gdb)
+
+[A](https://stackoverflow.com/a/24712736)
+
+You can use the `finish` command.
+
+> `finish`: Continue running until just after function in the selected stack frame returns. Print the returned value (if any). This command can be abbreviated as `fin`.
+
+(see https://sourceware.org/gdb/current/onlinedocs/gdb/Continuing-and-Stepping.html#Continuing-and-Stepping)
