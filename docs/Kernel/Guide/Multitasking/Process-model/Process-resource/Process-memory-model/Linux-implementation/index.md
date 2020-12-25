@@ -8,7 +8,7 @@
 
 虚拟内存空间（virtual memory area,VMA），也称作线性区。虚拟存储器是一个抽象概念，它为每一个进程提供了一个假象，好像每个进程都在独占的使用主存。每个进程看到的存储器都是一致的，称之为虚拟地址空间。
 
-## [Linux进程虚拟地址空间布局](http://www.cnblogs.com/fellow1988/p/6220710.html)
+## cnblogs [Linux进程虚拟地址空间布局](http://www.cnblogs.com/fellow1988/p/6220710.html)
 
 在32 bit系统中，内核分配1GB，而各个用户空间进程可用的部分为3GB。
 
@@ -92,6 +92,18 @@ VMA链表组织形式如下图：
  VMA红黑树组织形式如下：
 
 ![img](https://images2015.cnblogs.com/blog/709240/201612/709240-20161226185622632-1727321718.png)
+
+
+
+
+
+## gnu libc [3.1 Process Memory Concepts](https://www.gnu.org/software/libc/manual/html_node/Memory-Concepts.html)
+
+A process’ virtual address space is divided into segments. A segment is a contiguous range of virtual addresses. Three important segments are:
+
+- The *text segment* contains a program’s instructions and literals and static constants. It is allocated by exec and stays the same size for the life of the virtual address space.
+- The *data segment* is working storage for the program. It can be preallocated and preloaded by exec and the process can extend or shrink it by calling functions as described in See [Resizing the Data Segment](https://www.gnu.org/software/libc/manual/html_node/Resizing-the-Data-Segment.html). Its lower end is fixed.
+- The *stack segment* contains a program stack. It grows as the stack grows, but doesn’t shrink when the stack shrinks.
 
 
 

@@ -1,14 +1,21 @@
 nav:
     - Introduction: index.md
-    - Interaction-with-the-hardware: Interaction-with-the-hardware
+#{{ 这是kernel的两个主要任务   
+    - Interaction-with-hardware: Interaction-with-hardware
     - Multitasking: Multitasking
+# 这是kernel的两个主要任务 }}
+    - Kernel-Task-model: Kernel-Task-model 
     - User-system: User-system
     - Memory-management: Memory-management
-    - How-to-understand-linux-kernel-source-code: How-to-understand-linux-kernel-source-code.md
-    - Entry-point-of-kernel: Entry-point-of-kernel.md
+    - Read-code: Read-code
+    - Kernel-lifetime: Kernel-lifetime
     - Kernel-data-structure: Kernel-data-structure.md
     - Debug: Debug
     - Limit: Limit
+
+    
+    
+    
 backup:
     - How-OS-run-01-OS-kernel-is-event-driven: How-OS-run-01-OS-kernel-is-event-driven.md
     - How-OS-run-02-kernel-control-path-and-reentrant-kernel: How-OS-run-02-kernel-control-path-and-reentrant-kernel.md

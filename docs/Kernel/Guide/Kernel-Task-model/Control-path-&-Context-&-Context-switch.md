@@ -1,5 +1,7 @@
 # Control path
 
+> NOTE: 使用task model来进行描述
+
 Control path这个概念是我由kernel control path启发而创建的，Control path表示OS中所有可能的活动/执行流程，之所以创建这个概念，是因为它可以方便我们来统一地、概括地描述一些问题（一个抽象过程）。与它比较接近的一个概念是[Control flow](https://en.wikipedia.org/wiki/Control_flow)。
 
 Linux OS中有如下control path：

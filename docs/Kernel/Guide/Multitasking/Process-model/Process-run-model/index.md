@@ -2,7 +2,7 @@
 
 本文的内容基于：
 
-- [上一篇](../Process-model.md)
+- `../Process`
 
 - 龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)
 - 维基百科ABI
@@ -31,7 +31,7 @@
 
 > Languages that use procedures, functions, or methods as **units of user-defined actions** manage at least part of their **run-time memory** as a **stack**. Each time a procedure is called, space for its local variables is pushed onto a stack, and when the procedure terminates, that space is popped off the stack. As we shall see, this arrangement not only allows space to be shared by procedure calls whose durations do not overlap in time, but it allows us to compile code for a procedure in such a way that the relative addresses of its nonlocal variables are always the same, regardless of the sequence of procedure calls.
 
-上面这段话中的stack，所指为call stack（在后面会对此进行展开）。
+上面这段话中的**stack**，所指为**call stack**（在后面会对此进行展开）。
 
 让我们站在OS kernel的设计者的角色来思考如何实现这种设计？显然，OS kernel需要为每个thread都提供一套“**基础设施**”和一种“**调度机制**”来实现这种设计，下面对此进行分析：
 
@@ -64,11 +64,11 @@ OS中的所有的thread共享CPU，“**调度机制**”是由OS kernel schedul
 
 ### Subroutine（函数）
 
-参见[Subroutine](./Subroutine/Subroutine.md)。
+参见工程[programming-language](https://dengking.github.io/programming-language/) 的 `Theory\Programming-language-construct\Subroutine` 章节。
 
 ### Call stack
 
-参见[Call-stack](./Subroutine/Call-subroutine/Call-stack.md)。
+参见工程[programming-language](https://dengking.github.io/programming-language/) 的 `Theory\Programming-language-construct\Subroutine` 章节。
 
 ### Call convention
 
@@ -78,7 +78,9 @@ OS中的所有的thread共享CPU，“**调度机制**”是由OS kernel schedul
 
 ## Process run model
 
-有了前面的thread run model，那么process的run model就相对比较好分析了。显然一个process有多个process组成，多个thread独立进行运行，共享process的resource。
+有了前面的thread run model，那么process的run model就相对比较好分析了, 显然:
+
+> 一个process有多个thread组成，thread独立进行运行，共享process的resource
 
 
 

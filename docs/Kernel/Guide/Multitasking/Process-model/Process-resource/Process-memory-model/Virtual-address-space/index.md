@@ -1,5 +1,38 @@
 # Virtual address space
 
+本文所描述的是理论的、逻辑的，在`./Linux-implementation`章节描述了如何来进行实现。
+
+
+
+## wikipedia [Memory address # Contents of each memory location](https://en.wikipedia.org/wiki/Memory_address#Contents_of_each_memory_location)
+
+See also: [binary data](https://en.wikipedia.org/wiki/Binary_data)
+
+Each memory location in a [stored-program computer](https://en.wikipedia.org/wiki/Stored-program_computer) holds a [binary number](https://en.wikipedia.org/wiki/Binary_number) or [decimal number](https://en.wikipedia.org/wiki/Decimal_number) *of some sort*. Its interpretation, as data of some [data type](https://en.wikipedia.org/wiki/Data_type) or as an instruction, and use are determined by the [instructions](https://en.wikipedia.org/wiki/Instruction_(computer_science)) which retrieve and manipulate it.
+
+> NOTE: 上面这段话，对interpretation model的总结是非常好的。
+
+### Address space in application programming
+
+In modern [multitasking](https://en.wikipedia.org/wiki/Computer_multitasking) environment, an [application](https://en.wikipedia.org/wiki/Application_program) [process](https://en.wikipedia.org/wiki/Process_(computing)) usually has in its address space (or spaces) chunks of memory of following types:
+
+1) [Machine code](https://en.wikipedia.org/wiki/Machine_code), including:
+
+- program's own code (historically known as *[code segment](https://en.wikipedia.org/wiki/Code_segment)* or *text segment*);
+- [shared libraries](https://en.wikipedia.org/wiki/Shared_libraries).
+
+2) [Data](https://en.wikipedia.org/wiki/Data_(computing)), including:
+
+- initialized data ([data segment](https://en.wikipedia.org/wiki/Data_segment));
+- [uninitialized (but allocated)](https://en.wikipedia.org/wiki/.bss) variables;
+- [run-time stack](https://en.wikipedia.org/wiki/Run-time_stack);
+- [heap](https://en.wikipedia.org/wiki/Heap_(programming));
+- [shared memory](https://en.wikipedia.org/wiki/Shared_memory_(interprocess_communication)) and [memory mapped files](https://en.wikipedia.org/wiki/Memory_mapped_file).
+
+Some parts of address space may be not mapped at all.
+
+> NOTE: 上述的对VMA的分类是更加清晰的，它是符合"function and data model"的，它让我们从一个更高的角度来审视VMA。
+
 ## wikipedia [Virtual address space](https://en.wikipedia.org/wiki/Virtual_address_space)
 
 In [computing](https://en.wikipedia.org/wiki/Computing), a **virtual address space** (**VAS**) or **address space** is the set of ranges of virtual addresses that an [operating system](https://en.wikipedia.org/wiki/Operating_system) makes available to a process. The range of virtual addresses usually starts at a low address and can extend to the highest address allowed by the computer's [instruction set architecture](https://en.wikipedia.org/wiki/Instruction_set) and supported by the [operating system](https://en.wikipedia.org/wiki/Operating_system)'s pointer size implementation, which can be 4 [bytes](https://en.wikipedia.org/wiki/Bytes) for [32-bit](https://en.wikipedia.org/wiki/32-bit) or 8 [bytes](https://en.wikipedia.org/wiki/Bytes) for [64-bit](https://en.wikipedia.org/wiki/64-bit) OS versions. This provides several benefits, one of which is security through [process isolation](https://en.wikipedia.org/wiki/Process_isolation) assuming each process is given a separate [address space](https://en.wikipedia.org/wiki/Address_space).
@@ -14,7 +47,7 @@ In [computing](https://en.wikipedia.org/wiki/Computing), a **virtual address spa
 
 When a new application on a [32-bit](https://en.wikipedia.org/wiki/32-bit) OS is executed, the process has a 4 [GiB](https://en.wikipedia.org/wiki/Gibibyte) VAS: each one of the [memory addresses](https://en.wikipedia.org/wiki/Memory_address) (from 0 to $2^{32} − 1$) in that space can have a single byte as a value. Initially, none of them have values ('-' represents no value). Using or setting values in such a VAS would cause a [memory exception](https://en.wikipedia.org/wiki/Page_fault).
 
-***SUMMARY*** : 上述32-bit指的是OS的Word size
+> NOTE : 上述32-bit指的是OS的Word size
 
 ```
            0                                           4 GiB
@@ -71,7 +104,31 @@ For [x86](https://en.wikipedia.org/wiki/X86) CPUs, [Linux](https://en.wikipedia.
 
 
 
+## wikipedia [Data segment # Program memory](https://en.wikipedia.org/wiki/Data_segment#Program_memory)
 
+A computer program memory can be largely categorized into two sections: read-only and read/write. This distinction grew from early systems holding their main program in [read-only memory](https://en.wikipedia.org/wiki/Read-only_memory) such as [Mask ROM](https://en.wikipedia.org/wiki/Mask_ROM), [PROM](https://en.wikipedia.org/wiki/Programmable_read-only_memory) or [EEPROM](https://en.wikipedia.org/wiki/EEPROM). As systems became more complex and programs were loaded from other media into RAM instead of executing from ROM, the idea that some portions of the program's memory should not be modified was retained. These became the *.text* and *.rodata* segments of the program, and the remainder which could be written to divided into a number of other segments for specific tasks.
+
+[![img](https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Program_memory_layout.pdf/page1-149px-Program_memory_layout.pdf.jpg)](https://en.wikipedia.org/wiki/File:Program_memory_layout.pdf)
+
+This shows the typical layout of a simple computer's program memory with the text, various data, and stack and heap sections.
+
+### Text
+
+
+
+### Data
+
+
+
+### BSS
+
+
+
+### Heap
+
+
+
+### Stack
 
 
 
@@ -145,3 +202,4 @@ which shows what I already suspected: the stacks are allocated with a relative d
 The stacks have a relative distance of 8 MiB (this is the default value; it is possible to set it otherwise), and one page at the top is protected in order to detect a stack overflow.
 
 The one at the bottom is the "main" stack; it can - in this example - grow until the next one is reached.
+

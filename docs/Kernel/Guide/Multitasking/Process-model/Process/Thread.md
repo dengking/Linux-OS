@@ -1,6 +1,6 @@
 # Thread
 
-## 维基百科的[Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))
+## wikipedia [Thread (computing)](https://en.wikipedia.org/wiki/Thread_(computing))
 
 
 
