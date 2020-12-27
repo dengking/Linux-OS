@@ -1,6 +1,6 @@
 # .bss
 
-
+其实就是**Uninitialized data segment** 。
 
 ## wikipedia [.bss](https://en.wikipedia.org/wiki/.bss)
 

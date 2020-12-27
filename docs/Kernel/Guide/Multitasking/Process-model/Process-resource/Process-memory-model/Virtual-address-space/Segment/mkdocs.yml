@@ -3,3 +3,5 @@ nav:
     - Data-segment: Data-segment
     - Code-segment: Code-segment.md
     - Heap: Heap
+    - Stack-VS-heap: Stack-VS-heap
+    - Memory-mapped-file: Memory-mapped-file
