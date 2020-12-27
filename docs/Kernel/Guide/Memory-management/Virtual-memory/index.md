@@ -14,13 +14,23 @@ process在运行的时候使用virtual memory address，由OS根据page table将
 
 那"解耦"带来了什么价值呢？
 
-总的来说: hide细节，让很多hardware、OS kernel层的optimization称为可能，hardware、OS kernel层的optimization对process层是透明(transparency)的。
+总的来说是transparency: hide细节，让很多hardware、OS kernel层的optimization称为可能，hardware、OS kernel层的optimization对process层是透明(transparency)的。
 
-1) polymorphism
+hardware、OS kernel层的optimization包括: 
 
 1) wikipedia [Virtual memory](https://en.wikipedia.org/wiki/Virtual_memory) # Primary benefit 中描述的一些价值就是它所带来的
 
 2) wikipedia [Virtual memory](https://en.wikipedia.org/wiki/Virtual_memory) # Properties 
+
+### Virtual memory and fragmentation
+
+在 `Kernel\Guide\Memory-management\Fragmentation` 中讨论了fragmentation，在`Kernel\Guide\Memory-management\Fragmentation\Heap-fragmentation` 中收录了cpp4arduino [What is Heap Fragmentation?](https://cpp4arduino.com/2018/11/06/what-is-heap-fragmentation.html) 中讨论了virtual memory 和fragmentation之间的内容:
+
+> The programs running on our computers use Virtual Memory. The value of the pointer is not the physical location in the RAM; instead, the CPU translates the address on the fly. This decoupling allows defragmenting the RAM without moving anything but requires dedicated hardware that we do not have on our microcontrollers.
+
+
+
+
 
 ## wikipedia [Virtual memory](https://en.wikipedia.org/wiki/Virtual_memory)
 
@@ -67,7 +77,17 @@ The primary benefits of **virtual memory** include
 
 ### Properties
 
-Virtual memory makes application programming easier by hiding [fragmentation](https://en.wikipedia.org/wiki/Fragmentation_(computer)) (碎片） of physical memory; by delegating to the kernel the burden（责任） of managing the [memory hierarchy](https://en.wikipedia.org/wiki/Computer_data_storage#Hierarchy_of_storage) (eliminating the need for the program to handle [overlays](https://en.wikipedia.org/wiki/Overlay_(programming)) explicitly); and, when each process is run in its own dedicated address space, by obviating（消除） the need [to relocate](https://en.wikipedia.org/wiki/Relocation_(computer_science)) program code or to access memory with [relative addressing](https://en.wikipedia.org/wiki/Addressing_mode#PC-relative).
+Virtual memory makes application programming easier 
+
+1) by hiding [fragmentation](https://en.wikipedia.org/wiki/Fragmentation_(computer)) (碎片） of physical memory; 
+
+> NOTE: 关于virtual memory和fragmentation，在前面的"Why use virtual memory?"中进行了专门的介绍。
+
+2) by delegating to the kernel the burden（责任） of managing the [memory hierarchy](https://en.wikipedia.org/wiki/Computer_data_storage#Hierarchy_of_storage) (eliminating the need for the program to handle [overlays](https://en.wikipedia.org/wiki/Overlay_(programming)) explicitly); and, when each process is run in its own dedicated address space, 
+
+3) by obviating（消除） the need [to relocate](https://en.wikipedia.org/wiki/Relocation_(computer_science)) program code or to access memory with [relative addressing](https://en.wikipedia.org/wiki/Addressing_mode#PC-relative).
+
+> NOTE: 核心观点是: makes application programming easier 
 
 [Memory virtualization](https://en.wikipedia.org/wiki/Memory_virtualization) can be considered a generalization of the concept of virtual memory.
 
