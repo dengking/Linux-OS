@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - Heap-fragmentation: Heap-fragmentation
+    - Defragmentation: Defragmentation
