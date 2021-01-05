@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
-    - Scheduling(computing): Scheduling(computing).md
     - Preemptive-multitasking: Preemptive-multitasking
     - Cooperative-multitasking: Cooperative-multitasking
     - man-7-sched: man-7-sched.md
