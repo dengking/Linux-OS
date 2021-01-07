@@ -35,11 +35,11 @@
 
 让我们站在OS kernel的设计者的角色来思考如何实现这种设计？显然，OS kernel需要为每个thread都提供一套“**基础设施**”和一种“**调度机制**”来实现这种设计，下面对此进行分析：
 
-### “thread的unit of user-defined **action**是function”
+### “thread的unit of user-defined action是subroutine/function”
 
-要求OS至少要为thread配备function的执行所需要的"**基础设施**"，诸如：
+要求OS至少要为thread配备subroutine/function的执行所需要的"**基础设施**"，诸如：
 
-- [Call stack](./Subroutine/Call-subroutine/Call-stack.md)
+1、[Call stack](./Subroutine/Call-subroutine/Call-stack.md)
 
 每个thread都有一个自己独立的call stack，function的运行都是发生在call stack上，每次调用function，则入栈， 函数运行结束，则出栈，这就是thread的**运行模型**。
 
@@ -74,7 +74,9 @@ OS中的所有的thread共享CPU，“**调度机制**”是由OS kernel schedul
 
 前面我们已经分析了，每个thread都配备了自己的call stack来作为subroutine运行场所，由此就引出了一些列的问题：函数传参如何实现、在进入函数之前，如何得知要申请多少栈空间？应该不是提前一次性申请该函数所需要的所有的栈空间，而是运行到该指令的时候，才在栈上分配空间。这些内容都将在工程[programming-language](https://dengking.github.io/programming-language/)的[ABI](https://dengking.github.io/programming-language/ABI)章节的Call-convention中进行讲解。
 
+### Stack unwinding
 
+在function termination的时候，会执行stack unwinding，很多programming language借用这个机制建立起了一些非常便利的feature。
 
 ## Process run model
 
