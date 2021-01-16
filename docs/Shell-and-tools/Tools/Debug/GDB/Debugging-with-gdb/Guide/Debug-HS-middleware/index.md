@@ -11,3 +11,16 @@ gdb --args
 set follow-fork-mode child
 set stop-on-shard-lib 1
 ```
+
+
+
+## catch throw
+
+```shell
+gdb --args xxx -s 0 start local_mode
+set follow-fork-mode child
+b main
+r
+catch throw
+```
+
