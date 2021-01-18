@@ -1,3 +1,4 @@
 nav:
     - perf: perf.md
     - Linux-kernel-profiling-with-perf: Linux-kernel-profiling-with-perf.md
+    - expert-Brendan-D-Gregg: expert-Brendan-D-Gregg
