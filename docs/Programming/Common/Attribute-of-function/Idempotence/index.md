@@ -52,3 +52,46 @@ my_set.discard(x)
 Idempotent operations are often used in the design of network protocols, where a request to perform an operation is guaranteed to happen at least once, but might also happen more than once. If the operation is idempotent, then there is no harm in performing the operation two or more times.
 
 See the Wikipedia article on [idempotence](http://en.wikipedia.org/wiki/Idempotence) for more information.
+
+
+
+## wikipedia [Idempotence](https://en.wikipedia.org/wiki/Idempotence)
+
+
+
+## Example
+
+
+
+### [celery tasks](http://docs.celeryproject.org/en/latest/userguide/tasks.html)
+
+
+### [hiredis `redisAsyncContext`](https://github.com/redis/hiredis/blob/master/async.h)
+
+hiredis的`async.h`中的`struct redisAsyncContext`就有如下定义：
+```C
+/* Context for an async connection to Redis */
+typedef struct redisAsyncContext {
+    /* Hold the regular context, so it can be realloc'ed. */
+    redisContext c;
+
+    /* Setup error flags so they can be used directly. */
+    int err;
+    char *errstr;
+
+    /* Not used by hiredis */
+    void *data;
+
+    /* Event library data and hooks */
+    struct {
+        void *data;
+
+        /* Hooks that are called when the library expects to start
+         * reading/writing. These functions should be 	idempotent. */
+        void (*addRead)(void *privdata);
+        void (*delRead)(void *privdata);
+        void (*addWrite)(void *privdata);
+        void (*delWrite)(void *privdata);
+        void (*cleanup)(void *privdata);
+    } ev;
+```
