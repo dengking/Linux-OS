@@ -1,18 +1,32 @@
-# [Reentrancy (computing)](https://en.wikipedia.org/wiki/Reentrancy_(computing))
+# wikipedia [Reentrancy (computing)](https://en.wikipedia.org/wiki/Reentrancy_(computing))
+
+> NOTE: "Reentrancy"即"可重入"
 
 In [computing](https://en.wikipedia.org/wiki/Computing), a [computer program](https://en.wikipedia.org/wiki/Computer_program) or [subroutine](https://en.wikipedia.org/wiki/Subroutine) is called **reentrant** if it can be interrupted in the middle of its execution and then safely be called again ("re-entered") before its previous invocations complete execution. The **interruption** could be caused by an **internal action** such as a jump or call, or by an **external action** such as an [interrupt](https://en.wikipedia.org/wiki/Interrupt) or [signal](https://en.wikipedia.org/wiki/Signal_(computing)). Once the **reentered invocation** completes, the previous invocations will resume correct execution.
 
-This definition originates from single-threaded programming environments where the **flow of control** could be interrupted by an [interrupt](https://en.wikipedia.org/wiki/Interrupt) and transferred to an [interrupt service routine](https://en.wikipedia.org/wiki/Interrupt_service_routine) (ISR). Any subroutine used by the ISR that could potentially have been executing when the interrupt was triggered should be **reentrant**. Often, subroutines accessible via the operating system [kernel](https://en.wikipedia.org/wiki/Kernel_(computing)) are not **reentrant**. Hence, **interrupt service routines** are limited in the actions they can perform; for instance, they are usually restricted from accessing the file system and sometimes even from allocating memory(通常，通过操作系统内核可访问的子例程不可重入。 因此，中断服务程序在它们可以执行的操作中受到限制; 例如，他们通常被限制访问文件系统，有时甚至无法分配内存。).
+This definition originates from single-threaded programming environments where the **flow of control** could be interrupted by an [interrupt](https://en.wikipedia.org/wiki/Interrupt) and transferred to an [interrupt service routine](https://en.wikipedia.org/wiki/Interrupt_service_routine) (ISR). Any subroutine used by the ISR that could potentially have been executing when the interrupt was triggered should be **reentrant**. Often, subroutines accessible via the operating system [kernel](https://en.wikipedia.org/wiki/Kernel_(computing)) are not **reentrant**. Hence, **interrupt service routines** are limited in the actions they can perform; for instance, they are usually restricted from accessing the file system and sometimes even from allocating memory.
 
-**SUMMARY**:The description of this paragraph is compatible with APUE.
+
+
+> NOTE: 意思是:当中断被触发时，ISR使用的任何可能正在执行的subroutine都应该是可重入的。通常，通过操作系统内核访问的子例程是不可重入的。因此，中断服务程序所能执行的操作是有限的; 例如，它们通常不能访问文件系统，有时甚至不能分配内存。
+>
+> 上面这段话中"subroutines accessible via the operating system [kernel](https://en.wikipedia.org/wiki/Kernel_(computing)) are not **reentrant**"是什么意思？
+>
+> 在"APUE 10.6 Reentrant Functions"章节中介绍了Reentrant Function的内容，上面这段话中描述的思想与APUE中的是一致的。
+
+## Thread-safety and reentrancy
 
 This definition of **reentrancy** differs from that of [thread-safety](https://en.wikipedia.org/wiki/Thread-safety) in multi-threaded environments. A **reentrant subroutine** can achieve **thread-safety**,[[1\]](https://en.wikipedia.org/wiki/Reentrancy_(computing)#cite_note-FOOTNOTEKerrisk2010[httpsbooksgooglecombooksid2SAQAQAAQBAJpgPA657_657]-1) but being **reentrant** alone might not be sufficient to be thread-safe in all situations. Conversely, thread-safe code does not necessarily have to be **reentrant** (see below for examples).
 
 Other terms used for reentrant programs include "pure procedure" or "sharable code".[[2\]](https://en.wikipedia.org/wiki/Reentrancy_(computing)#cite_note-FOOTNOTERalston20001514%E2%80%931515-2)
 
+> NOTE: 上面这段话中的pure  procedure，让我想到了functional programming中的pure function
+
+---
+
 **Reentrancy** of a subroutine that operates on **operating-system resources** or **non-local data** depends on the [atomicity](https://en.wikipedia.org/wiki/Atomicity_(programming)) of the respective operations. For example, if the subroutine modifies a 64-bit global variable on a 32-bit machine, the operation may be split into two 32-bit operations, and thus, if the subroutine is interrupted while executing, and called again from the **interrupt handler**, the **global variable** may be in a state where only 32 bits have been updated. The programming language might provide **atomicity** guarantees for interruption caused by an **internal action** such as a jump or call. Then the function `f` in an expression like `(global:=1) + (f())`, where the order of evaluation of the subexpressions might be arbitrary in a programming language, would see the global variable either set to 1 or to its previous value, but not in an intermediate state where only part has been updated. (The latter can happen in [C](https://en.wikipedia.org/wiki/C_programming_language), because the expression has no [sequence point](https://en.wikipedia.org/wiki/Sequence_point).) The operating system might provide **atomicity guarantees** for [signals](https://en.wikipedia.org/wiki/Signal_(computing)), such as a system call interrupted by a signal not having a partial effect. The processor hardware might provide atomicity guarantees for [interrupts](https://en.wikipedia.org/wiki/Interrupt), such as interrupted processor instructions not having **partial effects**.
 
-对操作系统资源或非本地数据进行操作的子例程的重入取决于相应操作的原子性。例如，如果子例程在32位机器上修改64位全局变量，则操作可能会分为两个32位操作，因此，如果子例程在执行时被中断，并从中断处理程序再次调用，全局变量可能处于仅更新32位的状态。编程语言可以为内部操作（例如跳转或调用）引起的中断提供原子性保证。那么函数f在一个像（global：= 1）+（f（））这样的表达式中，其中子表达式的评估顺序在编程语言中可能是任意的，会看到全局变量设置为1或者之前的变量值，但不是在只有部分已更新的中间状态。 （后者可以在C中发生，因为表达式没有序列点。）操作系统可能为信号提供原子性保证，例如系统调用被没有部分影响的信号中断。处理器硬件可以为中断提供原子性保证，例如中断的处理器指令没有部分影响。
+> NOTE: 上面这段话，从atomicity的角度分析了reentrancy。
 
 ## Examples
 
@@ -39,7 +53,7 @@ void isr()
 }
 ```
 
-这个例子说明的正是介绍中的情况，`tmp`就是**global variable**，如果在32为OS中，则`*y = tmp`就被编译为两条指令，也就是说它这条语句并不是原子的；
+> NOTE: 这个例子说明的正是介绍中的情况，`tmp`就是**global variable**，如果在32为OS中，则`*y = tmp`就被编译为两条指令，也就是说它这条语句并不是原子的；
 
 ### Thread-safe but not reentrant
 
