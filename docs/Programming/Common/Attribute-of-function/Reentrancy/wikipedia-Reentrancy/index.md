@@ -14,6 +14,8 @@ This definition originates from single-threaded programming environments where t
 >
 > 在"APUE 10.6 Reentrant Functions"章节中介绍了Reentrant Function的内容，上面这段话中描述的思想与APUE中的是一致的。
 
+
+
 ## Thread-safety and reentrancy
 
 This definition of **reentrancy** differs from that of [thread-safety](https://en.wikipedia.org/wiki/Thread-safety) in multi-threaded environments. A **reentrant subroutine** can achieve **thread-safety**,[[1\]](https://en.wikipedia.org/wiki/Reentrancy_(computing)#cite_note-FOOTNOTEKerrisk2010[httpsbooksgooglecombooksid2SAQAQAAQBAJpgPA657_657]-1) but being **reentrant** alone might not be sufficient to be thread-safe in all situations. Conversely, thread-safe code does not necessarily have to be **reentrant** (see below for examples).
@@ -24,17 +26,57 @@ Other terms used for reentrant programs include "pure procedure" or "sharable co
 
 ---
 
+
+
+## 从atomicity的角度来分析
+
 **Reentrancy** of a subroutine that operates on **operating-system resources** or **non-local data** depends on the [atomicity](https://en.wikipedia.org/wiki/Atomicity_(programming)) of the respective operations. For example, if the subroutine modifies a 64-bit global variable on a 32-bit machine, the operation may be split into two 32-bit operations, and thus, if the subroutine is interrupted while executing, and called again from the **interrupt handler**, the **global variable** may be in a state where only 32 bits have been updated. The programming language might provide **atomicity** guarantees for interruption caused by an **internal action** such as a jump or call. Then the function `f` in an expression like `(global:=1) + (f())`, where the order of evaluation of the subexpressions might be arbitrary in a programming language, would see the global variable either set to 1 or to its previous value, but not in an intermediate state where only part has been updated. (The latter can happen in [C](https://en.wikipedia.org/wiki/C_programming_language), because the expression has no [sequence point](https://en.wikipedia.org/wiki/Sequence_point).) The operating system might provide **atomicity guarantees** for [signals](https://en.wikipedia.org/wiki/Signal_(computing)), such as a system call interrupted by a signal not having a partial effect. The processor hardware might provide atomicity guarantees for [interrupts](https://en.wikipedia.org/wiki/Interrupt), such as interrupted processor instructions not having **partial effects**.
 
 > NOTE: 上面这段话，从atomicity的角度分析了reentrancy。
+
+
+
+## Background
+
+
+
+### Reentrancy VS thread-safety
+
+Reentrancy is distinct from, but closely related to, [thread-safety](https://en.wikipedia.org/wiki/Thread-safety). A function can be [thread-safe](https://en.wikipedia.org/wiki/Thread-safe) and still not reentrant. For example, a function could be wrapped all around with a [mutex](https://en.wikipedia.org/wiki/Mutex) (which avoids problems in multithreading environments), but, if that function were used in an interrupt service routine, it could starve waiting for the first execution to release the mutex. The key for avoiding confusion is that reentrant refers to only *one* thread executing. It is a concept from the time when no multitasking operating systems existed.
+
+> NOTE: 最后一段话是从时间发展的角度的总结: 
+>
+> Reentrancy 是在无 multitasking 时代发展出的概念，因此它只能够由一个thread执行
+>
+> Thread-safety 是在 multitasking  时代发展出的概念
+
+
+
+## Rules for reentrancy
+
+> NOTE: 原文的这一段是不容易理解的，比较晦涩，相比之下，APUE 10.6 Reentrant Functions 容易理解地多，具体可以参考其中的总结
+
+**Reentrant code may not hold any static or global non-constant data.**
+
+> NOTE: 需要注意的是: `static local` 也是不允许的，它同样会触发 many to one
+
+**Reentrant code may not** [modify itself](https://en.wikipedia.org/wiki/Self-modifying_code)**.**
+
+> NOTE: 没有读懂这一段
+
+**Reentrant code may not call non-reentrant** [computer programs](https://en.wikipedia.org/wiki/Computer_program) **or** [routines](https://en.wikipedia.org/wiki/Subroutine)**.**
+
+
 
 ## Examples
 
 To illustrate reentrancy, this article uses as an example a [C](https://en.wikipedia.org/wiki/C_(programming_language)) utility function, `swap()`, that takes two pointers and transposes their values, and an interrupt-handling routine that also calls the swap function.
 
+
+
 ### Neither reentrant nor thread-safe
 
-This is an example swap function that fails to be reentrant or thread-safe. As such, it should not have been used in the interrupt service routine `isr()`:
+This is an example `swap` function that fails to be **reentrant** or **thread-safe**. As such, it should not have been used in the interrupt service routine `isr()`:
 
 ```c
 int tmp;
@@ -53,11 +95,21 @@ void isr()
 }
 ```
 
-> NOTE: 这个例子说明的正是介绍中的情况，`tmp`就是**global variable**，如果在32为OS中，则`*y = tmp`就被编译为两条指令，也就是说它这条语句并不是原子的；
+> NOTE: 
+>
+> 1、`tmp`是**global variable**，如果在32为OS中，则`*y = tmp`就被编译为两条指令，也就是说它这条语句并不是原子的
+>
+> 2、第一次执行的时候，保存在**global variable** `tmp` 中的值，可能会被第二次执行的时候overwrite
+
+
 
 ### Thread-safe but not reentrant
 
 The function `swap()` in the preceding example can be made thread-safe by making `tmp` [thread-local](https://en.wikipedia.org/wiki/Thread-local_storage). It still fails to be reentrant, and this will continue to cause problems if `isr()` is called in the same context as a thread already executing `swap()`:
+
+> NOTE: 
+>
+> 1、reentrancy的function的执行，可能是同一个thread的data，因此 `_Thread_local` 无法保证reentrancy
 
 ```c
 _Thread_local int tmp;
@@ -76,39 +128,115 @@ void isr()
 }
 ```
 
+### Reentrant but not thread-safe
 
+The following (somewhat contrived(人为的)) modification of the `swap` function, which is careful to leave the global data in a consistent state at the time it exits, is reentrant; however, it is not thread-safe, since there are no locks employed, it can be interrupted at any time:
 
+> NOTE: 
+>
+> 1、这个例子，让我想到了context switch
+>
+> 2、仔细看了这个例子，发现它能够保证Reentrant:
+>
+> a、第一个 invokation 执行到 `s = tmp;` 的时候，它可能是partial read
+>
+> b、第二个 Invokation 执行了之后，它是会恢复`tmp`的，因此第一个invokation能够接着上次的地方继续运行
 
+```C++
+int tmp;
 
+void swap(int* x, int* y)
+{
+    /* Save global variable. */
+    int s;
+    s = tmp;
 
+    tmp = *x;
+    *x = *y;
+    *y = tmp;     /* Hardware interrupt might invoke isr() here. */
 
-## Rules for reentrancy
+    /* Restore global variable. */
+    tmp = s;
+}
 
-### Reentrant code may not hold any static or global non-constant data.
+void isr()
+{
+    int x = 1, y = 2;
+    swap(&x, &y);
+}
+```
 
-Reentrant functions can work with global data. For example, a reentrant interrupt service routine could grab a piece of hardware status to work with (e.g., serial port read buffer) which is not only global, but volatile. Still, typical use of static variables and global data is not advised, in the sense that only [atomic](https://en.wikipedia.org/wiki/Atomic_(computer_science)) [read-modify-write](https://en.wikipedia.org/wiki/Read-modify-write) instructions should be used in these variables (it should not be possible for an interrupt or signal to come during the execution of such an instruction). Note that in C, even a read or write is not guaranteed to be atomic; it may be split into several reads or writes.[[3\]](https://en.wikipedia.org/wiki/Reentrancy_(computing)#cite_note-Preshing_(2013)-3) The C standard and SUSv3 provide `sig_atomic_t` for this purpose, although with guarantees only for simple reads and writes, not for incrementing or decrementing.[[4\]](https://en.wikipedia.org/wiki/Reentrancy_(computing)#cite_note-FOOTNOTEKerrisk2010[httpsbooksgooglecombooksid2SAQAQAAQBAJpgPA428_428]-4) More complex atomic operations are available in [C11](https://en.wikipedia.org/wiki/C11_(C_standard_revision)), which provides `stdatomic.h`.
+### Reentrant and thread-safe
 
+An implementation of `swap()` that allocates `tmp` on the [stack](https://en.wikipedia.org/wiki/Call_stack) instead of globally and that is called only with unshared variables as parameters is both thread-safe and reentrant. Thread-safe because the stack is local to a thread and a function acting just on local data will always produce the expected result. There is no access to shared data therefore no data race.
 
+```c
+void swap(int* x, int* y)
+{
+    int tmp;
+    tmp = *x;
+    *x = *y;
+    *y = tmp;    /* Hardware interrupt might invoke isr() here. */
+}
 
-### Reentrant code may not [modify itself](https://en.wikipedia.org/wiki/Self-modifying_code).
+void isr()
+{
+    int x = 1, y = 2;
+    swap(&x, &y);
+}
+```
 
+## Further examples
 
+In the following code, neither `f` nor `g` functions are reentrant.
 
-The operating system might allow a process to modify its code. There are various reasons for this (e.g., [blitting](https://en.wikipedia.org/wiki/Blitting) graphics quickly) but this would cause a problem with reentrancy, since the code might not be the same next time.
+```c
+int v = 1;
 
-It may, however, modify itself if it resides in its own unique memory. That is, if each new invocation uses a different physical machine code location where a copy of the original code is made, it will not affect other invocations even if it modifies itself during execution of that particular invocation (thread).
+int f()
+{
+    v += 2;
+    return v;
+}
 
-### Reentrant code may not call non-reentrant [computer programs](https://en.wikipedia.org/wiki/Computer_program) or [routines](https://en.wikipedia.org/wiki/Subroutine).
+int g()
+{
+    return f() + 2;
+}
+```
 
-Multiple levels of user, object, or process [priority](https://en.wikipedia.org/wiki/Priority_queue) or [multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing) usually complicate the control of reentrant code. It is important to keep track of any access or side effects that are done inside a routine designed to be reentrant.
+In the above, `f()` depends on a non-constant global variable `v`; thus, if `f()` is interrupted during execution by an ISR which modifies `v`, then reentry into `f()` will return the wrong value of `v`. The value of `v` and, therefore, the return value of `f`, cannot be predicted with confidence: they will vary depending on whether an interrupt modified `v` during `f`'s execution. Hence, `f` is not reentrant. Neither is `g`, because it calls `f`, which is not reentrant.
 
+These slightly altered versions *are* reentrant:
 
+```c
+int f(int i)
+{
+    return i + 2;
+}
 
+int g(int i)
+{
+    return f(i) + 2;
+}
+```
 
+### Thread-safe, but not reentrant: mutex
 
-# [Sharing global variables with multiple Interrupt Service Routines](https://www.microchip.com/forums/m921817.aspx)
+In the following, the function is thread-safe, but not reentrant:
 
+```c
+int function()
+{
+    mutex_lock();
 
+    // ...
+    // function body
+    // ...
 
+    mutex_unlock();
+}
+```
 
+In the above, `function()` can be called by different threads without any problem. But, if the function is used in a reentrant interrupt handler and a second interrupt arises inside the function, the second routine will hang forever. As interrupt servicing can disable other interrupts, the whole system could suffer.
 

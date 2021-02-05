@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
+    - 10-Signals: 10-Signals
     - Race-condition: Race-condition
+    - Reentrant-and-async-signal-safety-and-thread-safety: Reentrant-and-async-signal-safety-and-thread-safety
