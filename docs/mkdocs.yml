@@ -12,6 +12,8 @@ nav:
     - Programming: Programming
     ########## 描述网络的知识##########                 
     - Network: Network
+    # 安全
+    - Security: Security
     ########## 描述在linux OS中进行programming时，需要使用的一些工具####################                     
     - Shell-and-tools: Shell-and-tools
     - TODO: TODO
