@@ -1,7 +1,7 @@
 nav:
     - Guide: Guide
     - 2-Getting-In-and-Out-of-gdb: 2-Getting-In-and-Out-of-gdb
-    - 3-gdb-Commands: 3-gdb-Commands
+  
     - 4-Running-Programs-Under-gdb: 4-Running-Programs-Under-gdb
     - 5-Stopping-and-Continuing: 5-Stopping-and-Continuing
     - 6-Running-programs-backward: 6-Running-programs-backward

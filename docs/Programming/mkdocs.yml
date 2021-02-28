@@ -34,7 +34,7 @@ nav:
     ########## 那些经常会碰到的错误##########
     - Computer-errors: Computer-errors
   
-    - Kernel-module: Linux-Kernel-module
+    - Kernel-module: Kernel-module
     
     - Object-file: Object-file
 

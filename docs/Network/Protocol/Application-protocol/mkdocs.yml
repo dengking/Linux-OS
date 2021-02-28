@@ -1,4 +1,4 @@
 nav:
     - Introduction: index.md
-    - Design: Design
+    - Design: Design.md
     - Protocol-data-format: Protocol-data-format

@@ -4,8 +4,8 @@ nav:
     - Network-protocol-model: Network-protocol-model.md
     - RCF: RCF.md
     - TCP: TCP
-    - UDP: UDP
+    - TODO-UDP: TODO-UDP
     - MAC-address: MAC-address.md
     - TCP-VS-UDP: TCP-VS-UDP
     - Message-boundary: Message-boundary.md
-    - Application-protocol-design: Application-protocol-design
+    - Application-protocol: Application-protocol

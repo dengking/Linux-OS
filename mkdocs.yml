@@ -9,64 +9,89 @@ markdown_extensions:
     permalink: '#'
 nav:
 - Home: index.md
-- "Operating-system-\u6982\u8FF0": Operating-system.md
-- Unix-standardization-and-implementation: Unix-standardization-and-implementation.md
-- Unix-&-Unix-like-&-Linux: Unix-&-Unix-like-&-Linux.md
-- Architecture:
-  - Architecture-of-computing-system: Architecture/Architecture-of-computing-system.md
+- Architecture-of-computing-system:
+  - Introduction: Architecture-of-computing-system/index.md
+- Operating-system:
+  - Introduction: Operating-system/index.md
+- Unix-standardization-and-implementation:
+  - Unix-standardization-and-implementation: Unix-standardization-and-implementation/Unix-standardization-and-implementation.md
+  - The-open-group: Unix-standardization-and-implementation/The-open-group.md
+  - Unix-&-Unix-like-&-Linux: Unix-standardization-and-implementation/Unix-&-Unix-like-&-Linux.md
 - Kernel:
   - Introduction: Kernel/index.md
-  - Kernel: Kernel/Kernel(operating-system).md
+  - Kernel: Kernel/Kernel.md
+  - Architecture: Kernel/Architecture.md
   - Guide:
-    - Linux-OS's-interaction-with-the-hardware:
-      - Linux-OS-kernel-is-event-driven: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven.md
-      - Kernel-control-path-and-reentrant-kernel: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Kernel-control-path-and-reentrant-kernel.md
-      - Linux-OS-interrupt-and-interrupte-handler: Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-interrupt-and-interrupte-handler.md
-    - Linux-OS's-multitasking:
-      - Multitask: Kernel/Guide/Linux-OS's-multitasking/00-Multitask.md
+    - Introduction: Kernel/Guide/index.md
+    - Interaction-with-hardware:
+      - Linux-OS-kernel-is-event-driven: Kernel/Guide/Interaction-with-hardware/Linux-OS-kernel-is-event-driven.md
+      - Kernel-control-path-and-reentrant-kernel: Kernel/Guide/Interaction-with-hardware/Kernel-control-path-and-reentrant-kernel.md
+      - Linux-OS-interrupt-and-interrupte-handler: Kernel/Guide/Interaction-with-hardware/Linux-OS-interrupt-and-interrupte-handler.md
+    - Multitasking:
+      - Multitask: Kernel/Guide/Multitasking/Multitask.md
       - Process-model:
-        - Process-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-model.md
-        - Process-run-model:
-          - Process-run-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Process-run-model.md
-          - Subroutine:
-            - Introduction: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/index.md
-            - Subroutine: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Subroutine.md
-            - Call-subroutine:
-              - Introduction: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/index.md
-              - Call-stack: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/Call-stack.md
-              - Call-convention: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Call-subroutine/Call-convention.md
-            - Activation-tree: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Activation-tree.md
-            - Evaluation-strategy:
-              - Evaluation-strategy: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Evaluation-strategy/Evaluation-strategy.md
-              - Lazy-evaluation: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-run-model/Subroutine/Evaluation-strategy/Lazy-evaluation.md
-        - Linux-OS-implementation-of-process-model:
-          - Linux-OS-implementation-of-process-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Linux-OS-implementation-of-process-model/Linux-OS-implementation-of-process-model.md
+        - Introduction: Kernel/Guide/Multitasking/Process-model/index.md
+        - Process:
+          - Process: Kernel/Guide/Multitasking/Process-model/Process/Process.md
+          - Thread: Kernel/Guide/Multitasking/Process-model/Process/Thread.md
+        - Process-execution-model:
+          - Introduction: Kernel/Guide/Multitasking/Process-model/Process-execution-model/index.md
         - Process-resource:
-          - System-resource: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/System-resource.md
-          - Process-resource-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/Process-resource-model.md
-          - Process-memory-model: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-resource/Process-memory-model.md
-        - Process-life-cycle: Kernel/Guide/Linux-OS's-multitasking/Process-model/Process-life-cycle.md
-        - Thread: Kernel/Guide/Linux-OS's-multitasking/Process-model/Thread.md
+          - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/index.md
+          - System-resource: Kernel/Guide/Multitasking/Process-model/Process-resource/System-resource.md
+          - Process-memory-model: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model.md
+        - Process-lifetime:
+          - Introduction: Kernel/Guide/Multitasking/Process-model/Process-lifetime/index.md
+        - Linux-implementation:
+          - Linux-OS-implementation-of-process-model: Kernel/Guide/Multitasking/Process-model/Linux-implementation/Linux-OS-implementation-of-process-model.md
       - Sched:
-        - Introduction: Kernel/Guide/Linux-OS's-multitasking/Sched/index.md
-        - Scheduling(computing): Kernel/Guide/Linux-OS's-multitasking/Sched/Scheduling(computing).md
-        - Preemption(computing): Kernel/Guide/Linux-OS's-multitasking/Sched/Preemption(computing).md
-        - Kernel-preemption: Kernel/Guide/Linux-OS's-multitasking/Sched/Kernel-preemption.md
-        - man-7-sched: Kernel/Guide/Linux-OS's-multitasking/Sched/man-7-sched.md
-        - Context-switch: Kernel/Guide/Linux-OS's-multitasking/Sched/Context-switch.md
-        - Unix-Scheduler-and-Dispatcher: Kernel/Guide/Linux-OS's-multitasking/Sched/Unix-Scheduler-and-Dispatcher.md
+        - Introduction: Kernel/Guide/Multitasking/Sched/index.md
+        - Preemptive-multitasking:
+          - Introduction: Kernel/Guide/Multitasking/Sched/Preemptive-multitasking/index.md
+          - Kernel-preemption: Kernel/Guide/Multitasking/Sched/Preemptive-multitasking/Kernel-preemption.md
+        - Cooperative-multitasking:
+          - Introduction: Kernel/Guide/Multitasking/Sched/Cooperative-multitasking/index.md
+        - man-7-sched: Kernel/Guide/Multitasking/Sched/man-7-sched.md
+        - Context-switch: Kernel/Guide/Multitasking/Sched/Context-switch.md
+        - Unix-Scheduler-and-Dispatcher: Kernel/Guide/Multitasking/Sched/Unix-Scheduler-and-Dispatcher.md
         - Processor-affinity:
-          - Introduction: Kernel/Guide/Linux-OS's-multitasking/Sched/Processor-affinity/index.md
+          - Introduction: Kernel/Guide/Multitasking/Sched/Processor-affinity/index.md
+    - Kernel-Task-model:
+      - Control-path-&-Context-&-Context-switch: Kernel/Guide/Kernel-Task-model/Control-path-&-Context-&-Context-switch.md
+    - User-system:
+      - Introduction: Kernel/Guide/User-system/index.md
     - Memory-management:
-      - Memory-management: Kernel/Guide/Memory-management/Memory-management.md
-      - Memory-protection: Kernel/Guide/Memory-management/Memory-protection.md
+      - Introduction: Kernel/Guide/Memory-management/index.md
+      - Memory-protection:
+        - Introduction: Kernel/Guide/Memory-management/Memory-protection/index.md
       - Virtual-memory:
-        - Virtual-memory: Kernel/Guide/Memory-management/Virtual-memory/Virtual-memory.md
-        - Paging: Kernel/Guide/Memory-management/Virtual-memory/Paging.md
-        - Unix-system-page-size: Kernel/Guide/Memory-management/Virtual-memory/Unix-system-page-size.md
+        - Introduction: Kernel/Guide/Memory-management/Virtual-memory/index.md
+        - Paging:
+          - Introduction: Kernel/Guide/Memory-management/Virtual-memory/Paging/index.md
+          - Unix-system-page-size: Kernel/Guide/Memory-management/Virtual-memory/Paging/Unix-system-page-size.md
       - Difference-Between-Paging-and-Segmentation-in-OS: Kernel/Guide/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS.md
-    - How-to-understand-linux-kernel-source-code: Kernel/Guide/How-to-understand-linux-kernel-source-code.md
+      - Fragmentation:
+        - Introduction: Kernel/Guide/Memory-management/Fragmentation/index.md
+        - Heap-fragmentation:
+          - Introduction: Kernel/Guide/Memory-management/Fragmentation/Heap-fragmentation/index.md
+        - Defragmentation:
+          - Introduction: Kernel/Guide/Memory-management/Fragmentation/Defragmentation/index.md
+    - Read-code:
+      - Introduction: Kernel/Guide/Read-code/index.md
+    - Kernel-lifetime:
+      - Entry-point-of-kernel: Kernel/Guide/Kernel-lifetime/Entry-point-of-kernel.md
     - Kernel-data-structure: Kernel/Guide/Kernel-data-structure.md
+    - Debug:
+      - Introduction: Kernel/Guide/Debug/index.md
+      - System.map:
+        - Introduction: Kernel/Guide/Debug/System.map/index.md
+      - oops: Kernel/Guide/Debug/oops.md
+    - Limit:
+      - Introduction: Kernel/Guide/Limit/index.md
+      - Limit-via-configuration: Kernel/Guide/Limit/Limit-via-configuration.md
+      - Limit-via-system-call: Kernel/Guide/Limit/Limit-via-system-call.md
+      - Ulimit: Kernel/Guide/Limit/Ulimit.md
+      - Process-resource-limits-under-the-hood: Kernel/Guide/Limit/Process-resource-limits-under-the-hood.md
   - Book-Understanding-the-Linux-Kernel:
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
@@ -120,6 +145,8 @@ nav:
     - Chapter-6-Timing-Measurements:
       - Chapter-6-Timing-Measurements: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements.md
       - 6.1-Clock-and-Timer-Circuits: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.1-Clock-and-Timer-Circuits.md
+      - 6.2-The-Linux-Timekeeping-Architecture: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.2-The-Linux-Timekeeping-Architecture.md
+      - 6.4-Updating-System-Statistics: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.4-Updating-System-Statistics.md
     - Chapter-7-Process-Scheduling:
       - Chapter-7-Process-Scheduling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling.md
     - Chapter-8-Memory-Management:
@@ -129,109 +156,301 @@ nav:
       - Chapter-9-Process-Address-Space: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space.md
       - 9.1-The-Process's-Address-Space.: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space.md
       - 9.2-The-Memory-Descriptor: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor.md
-- Network:
-  - Introduction: Network/index.md
-  - MAC-address: Network/MAC-address.md
-  - Reconnect: Network/Reconnect.md
+- Linux-Foundation:
+  - Introduction: Linux-Foundation/index.md
+  - Linux-Foundation-Referenced-Specifications: Linux-Foundation/Linux-Foundation-Referenced-Specifications.md
+  - LSB-Core:
+    - LSB-Core: Linux-Foundation/LSB-Core/LSB-Core.md
+    - librt: Linux-Foundation/LSB-Core/librt.md
 - Programming:
   - Introduction: Programming/index.md
-  - Convention:
-    - Conventions: Programming/01-01-Convention/Conventions.md
-  - Lib:
-    - POSIX:
-      - Introduction: Programming/01-02-Lib/organiztion-posix/index.md
   - Common:
-    - Time-and-space: Programming/01-03-Common/Unix-programming-time-and-space.md
-    - System-call: Programming/01-03-Common/Unix-system-call.md
-    - Safety: Programming/01-03-Common/safety.md
-    - Capabilities: Programming/01-03-Common/Capabilities.md
-    - Path-resolution: Programming/01-03-Common/Path-resolution.md
+    - Time-and-space: Programming/Common/Time-and-space.md
+    - Classification-of-system-call:
+      - Classification-of-system-call: Programming/Common/Classification-of-system-call/Classification-of-system-call.md
+      - Polling-(computer-science): Programming/Common/Classification-of-system-call/Polling-(computer-science).md
+    - Attribute-of-function:
+      - Introduction: Programming/Common/Attribute-of-function/index.md
+      - Reentrancy:
+        - Introduction: Programming/Common/Attribute-of-function/Reentrancy/index.md
+        - wikipedia-Reentrancy:
+          - Introduction: Programming/Common/Attribute-of-function/Reentrancy/wikipedia-Reentrancy/index.md
+        - Reentrancy-VS-thread-safety: Programming/Common/Attribute-of-function/Reentrancy/Reentrancy-VS-thread-safety.md
+      - Idempotence:
+        - Introduction: Programming/Common/Attribute-of-function/Idempotence/index.md
+    - Safety: Programming/Common/Safety.md
+    - Path-resolution: Programming/Common/Path-resolution.md
+  - Lib:
+    - Introduction: Programming/Lib/index.md
+    - Glibc: Programming/Lib/Glibc.md
   - Philosophy:
-    - Introduction: Programming/01-philosophy/index.md
-    - Everything-is-a-file: Programming/01-philosophy/Everything-is-a-file.md
-    - File-descriptor: Programming/01-philosophy/File-descriptor.md
-    - Unix-philosophy: Programming/01-philosophy/Unix-philosophy.md
-  - File-system:
-    - Unix-filesystem: Programming/01-04-File-system/Unix-filesystem.md
-    - man-7-file-hierarchy: Programming/01-04-File-system/man-7-file-hierarchy.md
-    - Inode: Programming/01-04-File-system/Inode.md
-    - man-2-stat: Programming/01-04-File-system/man-2-stat.md
-  - Process:
-    - Introduction: Programming/02-Process/index.md
-    - Credential:
-      - man-7-credentials: Programming/02-Process/Credential/man-7-credentials.md
-    - IPC:
-      - System-V-IPC:
-        - man-7-SVIPC: Programming/02-Process/IPC/System-V-IPC/man-7-SVIPC.md
-      - POSIX-semaphores: Programming/02-Process/IPC/POSIX-semaphores.md
-      - POSIX-message-queues: Programming/02-Process/IPC/POSIX-message-queues.md
+    - Introduction: Programming/philosophy/index.md
+    - Unix-philosophy: Programming/philosophy/Unix-philosophy.md
+    - Everything-is-a-file:
+      - Everything-is-a-file: Programming/philosophy/Everything-is-a-file/Everything-is-a-file.md
+      - File-descriptor: Programming/philosophy/Everything-is-a-file/File-descriptor.md
+  - Multitasking:
+    - Introduction: Programming/Multitasking/index.md
+    - Process:
+      - Organization-of-process:
+        - Introduction: Programming/Multitasking/Process/Organization-of-process/index.md
+        - Organization-of-process: Programming/Multitasking/Process/Organization-of-process/Organization-of-process.md
+        - man-7-cgroups: Programming/Multitasking/Process/Organization-of-process/man-7-cgroups.md
+      - Process-state:
+        - Introduction: Programming/Multitasking/Process/Process-state/index.md
+      - Exit:
+        - Process-exit: Programming/Multitasking/Process/Exit/Process-exit.md
+      - Daemon:
+        - man-7-daemon: Programming/Multitasking/Process/Daemon/man-7-daemon.md
+        - man-3-daemon: Programming/Multitasking/Process/Daemon/man-3-daemon.md
+        - python-run-script-as-daemon: Programming/Multitasking/Process/Daemon/python-run-script-as-daemon.md
+      - Proc-filesystem:
+        - man-5-proc: Programming/Multitasking/Process/Proc-filesystem/man-5-proc.md
+      - IPC:
+        - Introduction: Programming/Multitasking/Process/IPC/index.md
+        - System-V-IPC:
+          - man-7-SVIPC: Programming/Multitasking/Process/IPC/System-V-IPC/man-7-SVIPC.md
+        - POSIX-semaphores: Programming/Multitasking/Process/IPC/POSIX-semaphores.md
+        - POSIX-message-queues: Programming/Multitasking/Process/IPC/POSIX-message-queues.md
+        - Unix:
+          - man-7-unix: Programming/Multitasking/Process/IPC/Unix/man-7-unix.md
+        - Tools:
+          - ipcs: Programming/Multitasking/Process/IPC/Tools/ipcs.md
+          - ipcrm: Programming/Multitasking/Process/IPC/Tools/ipcrm.md
     - Thread:
-      - pthreads: Programming/02-Process/Thread/pthreads.md
+      - man-7-pthreads: Programming/Multitasking/Thread/man-7-pthreads.md
+      - man-7-attributes: Programming/Multitasking/Thread/man-7-attributes.md
+      - Thread-model: Programming/Multitasking/Thread/Thread-model.md
+      - Synchronization:
+        - Barrier:
+          - Introduction: Programming/Multitasking/Thread/Synchronization/Barrier/index.md
+        - Condition-variables: Programming/Multitasking/Thread/Synchronization/Condition-variables.md
+        - TODO-futex:
+          - Introduction: Programming/Multitasking/Thread/Synchronization/TODO-futex/TODO-index.md
+    - Implementation-Clone:
+      - TODO-index: Programming/Multitasking/Implementation-Clone/TODO-index.md
+    - Sched:
+      - Sched: Programming/Multitasking/Sched/Sched.md
+      - Tool:
+        - taskset: Programming/Multitasking/Sched/Tool/taskset.md
+    - Capabilities:
+      - Capabilities: Programming/Multitasking/Capabilities/Capabilities.md
+    - Credential:
+      - man-7-credentials: Programming/Multitasking/Credential/man-7-credentials.md
+    - Tools:
+      - Introduction: Programming/Multitasking/Tools/index.md
+      - procps:
+        - Introduction: Programming/Multitasking/Tools/procps/index.md
+        - ps:
+          - man-1-ps: Programming/Multitasking/Tools/procps/ps/man-1-ps.md
+          - Wait-channel: Programming/Multitasking/Tools/procps/ps/Wait-channel.md
+        - top:
+          - top: Programming/Multitasking/Tools/procps/top/top.md
+          - htop: Programming/Multitasking/Tools/procps/top/htop.md
+        - pgrep: Programming/Multitasking/Tools/procps/pgrep.md
+        - pstree: Programming/Multitasking/Tools/procps/pstree.md
   - IO:
-    - Introduction: Programming/03-IO/index.md
-    - Input-output: Programming/03-IO/Input-output.md
+    - Introduction: Programming/IO/index.md
+    - IO: Programming/IO/Input-output.md
     - IO-model:
-      - Introduction: Programming/03-IO/IO-model/index.md
-      - IO-models: Programming/03-IO/IO-model/IO-models.md
-    - Stream: Programming/03-IO/Stream.md
-    - Bitstream: Programming/03-IO/Bitstream.md
-    - VS-stream-VS-fd: Programming/03-IO/VS-stream-VS-fd.md
-    - File:
-      - Introduction: Programming/03-IO/File/index.md
-      - Notify:
-        - Inotify:
-          - man-7-inotify: Programming/03-IO/File/Notify/Inotify/man-7-inotify.md
-        - Fanotify:
-          - man-7-fanotify: Programming/03-IO/File/Notify/Fanotify/man-7-fanotify.md
-    - Network:
-      - Introduction: Programming/03-IO/Network/index.md
-    - Notify-via-fd: Programming/03-IO/Notify-via-fd.md
+      - Introduction: Programming/IO/IO-model/index.md
+      - IO-models: Programming/IO/IO-model/IO-models.md
+      - Asynchronous-IO:
+        - Introduction: Programming/IO/IO-model/Asynchronous-IO/index.md
+      - IO-multiplexing:
+        - Epoll:
+          - man-7-epoll: Programming/IO/IO-model/IO-multiplexing/Epoll/man-7-epoll.md
+      - Blocking-and-non-blocking-VS-sync-and-async: Programming/IO/IO-model/Blocking-and-non-blocking-VS-sync-and-async.md
+      - Blocking-IO-VS-Nonblocking-IO: Programming/IO/IO-model/Blocking-IO-VS-Nonblocking-IO.md
+    - "IO-\u6D41\u6D3E":
+      - Introduction: "Programming/IO/IO-\u6D41\u6D3E/index.md"
+      - Stream:
+        - Stream: "Programming/IO/IO-\u6D41\u6D3E/Stream/index.md"
+        - Standard-streams: "Programming/IO/IO-\u6D41\u6D3E/Stream/Standard-streams.md"
+      - VS-stream-VS-fd: "Programming/IO/IO-\u6D41\u6D3E/VS-stream-VS-fd.md"
+    - File-IO:
+      - Introduction: Programming/IO/File-IO/index.md
+      - File-system:
+        - Unix-filesystem: Programming/IO/File-IO/File-system/Unix-filesystem.md
+        - man-7-file-hierarchy: Programming/IO/File-IO/File-system/man-7-file-hierarchy.md
+        - Inode: Programming/IO/File-IO/File-system/Inode.md
+        - man-2-stat: Programming/IO/File-IO/File-system/man-2-stat.md
+        - File-type: Programming/IO/File-IO/File-system/File-type.md
+        - Tools:
+          - Introduction: Programming/IO/File-IO/File-system/Tools/index.md
+      - Interface:
+        - Introduction: Programming/IO/File-IO/Interface/index.md
+        - Open: Programming/IO/File-IO/Interface/Open.md
+        - Read: Programming/IO/File-IO/Interface/Read.md
+        - Fcntl: Programming/IO/File-IO/Interface/Fcntl.md
+        - Lock:
+          - File-locking: Programming/IO/File-IO/Interface/Lock/File-locking.md
+          - man-2-flock: Programming/IO/File-IO/Interface/Lock/man-2-flock.md
+          - File-Locking(Advisory-Mandatory-Lock-Examples): Programming/IO/File-IO/Interface/Lock/File-Locking(Advisory-Mandatory-Lock-Examples).md
+        - Notify:
+          - Inotify:
+            - man-7-inotify: Programming/IO/File-IO/Interface/Notify/Inotify/man-7-inotify.md
+          - Fanotify:
+            - man-7-fanotify: Programming/IO/File-IO/Interface/Notify/Fanotify/man-7-fanotify.md
+          - Notify-via-fd:
+            - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/index.md
+            - Eventfd:
+              - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Eventfd/index.md
+            - Timefd:
+              - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Timefd/index.md
+      - File-format: Programming/IO/File-IO/File-format.md
+    - Network-IO:
+      - Introduction: Programming/IO/Network-IO/index.md
+    - Tools:
+      - lsof: Programming/IO/Tools/lsof.md
+      - fuser: Programming/IO/Tools/fuser.md
+    - Blocking-and-non-blocking-VS-sync-and-async: Programming/IO/Blocking-and-non-blocking-VS-sync-and-async.md
   - Time:
-    - Introduction: Programming/03-Time/index.md
+    - Introduction: Programming/Time/index.md
+    - Date-and-Time: Programming/Time/Date-and-Time.md
+    - man-clock_gettime: Programming/Time/man-clock_gettime.md
   - Signal:
-    - Introduction: Programming/04-Signal/index.md
-    - Signal-note: Programming/04-Signal/Signal-note.md
+    - Introduction: Programming/Signal/index.md
+    - Signal-note: Programming/Signal/Signal-note.md
   - Virtualization:
-    - Introduction: Programming/05-Linux-Virtualization/index.md
-    - Virtualization: Programming/05-Linux-Virtualization/Virtualization.md
-    - Linux-containers: Programming/05-Linux-Virtualization/Linux-containers.md
+    - Introduction: Programming/Virtualization/index.md
+    - Virtualization: Programming/Virtualization/Virtualization.md
+    - Linux-containers: Programming/Virtualization/Linux-containers.md
     - Linux-namespaces:
-      - Introduction: Programming/05-Linux-Virtualization/Linux-namespaces/index.md
-      - Linux-Namespaces: Programming/05-Linux-Virtualization/Linux-namespaces/Linux-Namespaces.md
-      - man-7-namespaces: Programming/05-Linux-Virtualization/Linux-namespaces/man-7-namespaces.md
+      - Introduction: Programming/Virtualization/Linux-namespaces/index.md
+      - Linux-Namespaces: Programming/Virtualization/Linux-namespaces/Linux-Namespaces.md
+      - man-7-namespaces: Programming/Virtualization/Linux-namespaces/man-7-namespaces.md
     - Linux-control-groups:
-      - Introduction: Programming/05-Linux-Virtualization/Linux-control-groups/Control-groups.md
+      - Introduction: Programming/Virtualization/Linux-control-groups/Control-groups.md
   - Util:
-    - Introduction: Programming/06-Util/index.md
+    - Introduction: Programming/Util/index.md
     - Log:
-      - Linux-log-files: Programming/06-Util/Log/Linux-log-files.md
+      - Linux-log-files: Programming/Util/Log/Linux-log-files.md
       - Syslog:
-        - Syslog: Programming/06-Util/Log/Syslog/Syslog.md
+        - Syslog: Programming/Util/Log/Syslog/Syslog.md
   - Terminal:
     - Introduction: Programming/Terminal/index.md
   - Computer-errors:
+    - Introduction: Programming/Computer-errors/index.md
+    - CWE:
+      - CWE: Programming/Computer-errors/CWE/CWE.md
     - Memory-access-error:
       - Introduction: Programming/Computer-errors/Memory-access-error/index.md
-      - Double-free:
-        - Double-free: Programming/Computer-errors/Memory-access-error/Double-free/Double-free.md
-      - Segment-fault:
-        - Segmentation-fault: Programming/Computer-errors/Memory-access-error/Segment-fault/Segmentation-fault.md
-        - Misalignment:
-          - __strcpy_sse2_unaligned:
-            - __strcpy_sse2_unaligned: Programming/Computer-errors/Memory-access-error/Segment-fault/Misalignment/__strcpy_sse2_unaligned/__strcpy_sse2_unaligned.md
-      - Out-of-bound:
-        - Introduction: Programming/Computer-errors/Memory-access-error/Out-of-bound/index.md
   - Kernel-module:
-    - Loadable-kernel-module: Programming/07-Linux-Kernel-module/Loadable-kernel-module.md
+    - Loadable-kernel-module: Programming/Kernel-module/Loadable-kernel-module.md
+    - Tool:
+      - Introduction: Programming/Kernel-module/Tool/index.md
+  - Object-file:
+    - Introduction: Programming/Object-file/index.md
+    - ELF:
+      - Introduction: Programming/Object-file/ELF/index.md
+      - Classification-of-object-file:
+        - Introduction: Programming/Object-file/ELF/Classification-of-object-file/index.md
+      - man-5-elf:
+        - Introduction: Programming/Object-file/ELF/man-5-elf/index.md
+      - Tools:
+        - man-1-nm: Programming/Object-file/ELF/Tools/man-1-nm.md
+        - man-1-strip: Programming/Object-file/ELF/Tools/man-1-strip.md
+        - man-1-readelf: Programming/Object-file/ELF/Tools/man-1-readelf.md
+        - man-1-objdump: Programming/Object-file/ELF/Tools/man-1-objdump.md
+        - man-1-addr2line: Programming/Object-file/ELF/Tools/man-1-addr2line.md
+    - Shared-library:
+      - Introduction: Programming/Object-file/Shared-library/index.md
+      - Symbol-of-shared-library:
+        - Introduction: Programming/Object-file/Shared-library/Symbol-of-shared-library/index.md
+      - Tools:
+        - ldd: Programming/Object-file/Shared-library/Tools/ldd.md
+    - Symbol:
+      - Introduction: Programming/Object-file/Symbol/index.md
+      - nm:
+        - Introduction: Programming/Object-file/Symbol/nm/index.md
+  - Book-APUE:
+    - Introduction: Programming/Book-APUE/index.md
+    - 10-Signals:
+      - 10.6-Reentrant-Functions: Programming/Book-APUE/10-Signals/10.6-Reentrant-Functions.md
+    - Race-condition:
+      - Introduction: Programming/Book-APUE/Race-condition/index.md
+    - Reentrant-and-async-signal-safety-and-thread-safety:
+      - Introduction: Programming/Book-APUE/Reentrant-and-async-signal-safety-and-thread-safety/index.md
+- Network:
+  - Introduction: Network/index.md
+  - Protocol:
+    - Introduction: Network/Protocol/index.md
+    - Binary-VS-textual-protocol: Network/Protocol/Binary-VS-textual-protocol.md
+    - Network-protocol-model: Network/Protocol/Network-protocol-model.md
+    - RCF: Network/Protocol/RCF.md
+    - TCP:
+      - Transmission-Control-Protocol: Network/Protocol/TCP/Transmission-Control-Protocol.md
+      - SEQ-and-ACK:
+        - Introduction: Network/Protocol/TCP/SEQ-and-ACK/index.md
+      - TCP-connection:
+        - Introduction: Network/Protocol/TCP/TCP-connection/index.md
+        - Connection-establishment: Network/Protocol/TCP/TCP-connection/Connection-establishment.md
+        - Connection-termination: Network/Protocol/TCP/TCP-connection/Connection-termination.md
+      - TCP-data-transfer:
+        - Introduction: Network/Protocol/TCP/TCP-data-transfer/index.md
+        - TCP-application-protocol: Network/Protocol/TCP/TCP-data-transfer/TCP-application-protocol.md
+        - Nagle's-algorithm: Network/Protocol/TCP/TCP-data-transfer/Nagle's-algorithm.md
+        - TCP-segment-of-a-reassembled-PDU: Network/Protocol/TCP/TCP-data-transfer/TCP-segment-of-a-reassembled-PDU.md
+      - man-7-TCP: Network/Protocol/TCP/man-7-TCP.md
+      - TCP-troubleshoot: Network/Protocol/TCP/TCP-troubleshoot.md
+    - TODO-UDP:
+      - Introduction: Network/Protocol/TODO-UDP/index.md
+    - MAC-address: Network/Protocol/MAC-address.md
+    - TCP-VS-UDP:
+      - Introduction: Network/Protocol/TCP-VS-UDP/index.md
+    - Message-boundary: Network/Protocol/Message-boundary.md
+    - Application-protocol:
+      - Introduction: Network/Protocol/Application-protocol/index.md
+      - Design: Network/Protocol/Application-protocol/Design.md
+      - Protocol-data-format:
+        - Introduction: Network/Protocol/Application-protocol/Protocol-data-format/index.md
+        - Binary-VS-textual: Network/Protocol/Application-protocol/Protocol-data-format/Binary-VS-textual.md
+        - IDL:
+          - Introduction: Network/Protocol/Application-protocol/Protocol-data-format/IDL/index.md
+          - Schema-evaluation: Network/Protocol/Application-protocol/Protocol-data-format/IDL/Schema-evaluation.md
+          - Thrift:
+            - Introduction: Network/Protocol/Application-protocol/Protocol-data-format/IDL/Thrift/index.md
+            - Thrift-Scalable-Cross-Language-Services-Implementation: Network/Protocol/Application-protocol/Protocol-data-format/IDL/Thrift/Thrift-Scalable-Cross-Language-Services-Implementation.md
+          - Protobuf:
+            - Introduction: Network/Protocol/Application-protocol/Protocol-data-format/IDL/Protobuf/index.md
+  - Programming:
+    - Introduction: Network/Programming/index.md
+    - Socket: Network/Programming/Socket.md
+    - man-7-socket: Network/Programming/man-7-socket.md
+    - Reconnect: Network/Programming/Reconnect.md
+    - Send-file:
+      - Introduction: Network/Programming/Send-file/index.md
+  - Tools:
+    - Introduction: Network/Tools/index.md
+    - Packet-analyzer:
+      - Packet-analyzer: Network/Tools/Packet-analyzer/Packet-analyzer.md
+      - tcpdump:
+        - tcpdump: Network/Tools/Packet-analyzer/tcpdump/tcpdump.md
+      - Wireshark:
+        - Introduction: Network/Tools/Packet-analyzer/Wireshark/index.md
+      - TODO-ngrep: Network/Tools/Packet-analyzer/TODO-ngrep.md
+    - netstat: Network/Tools/netstat.md
+    - iproute2:
+      - Introduction: Network/Tools/iproute2/index.md
+    - nmap: Network/Tools/nmap.md
+    - Port-in-use: Network/Tools/Port-in-use.md
+    - Port-opened-by-process: Network/Tools/Port-opened-by-process.md
+    - TODO-Troubleshoot-local-network: Network/Tools/TODO-Troubleshoot-local-network.md
+    - TODO-Troubleshoot-remote-network: Network/Tools/TODO-Troubleshoot-remote-network.md
+    - TODO-Troubleshoot-packet-loss: Network/Tools/TODO-Troubleshoot-packet-loss.md
+- Security:
+  - Introduction: Security/index.md
+  - Capability-based-security:
+    - Introduction: Security/Capability-based-security/index.md
 - Shell-and-tools:
   - Shell:
-    - Sched:
-      - taskset: Shell-and-tools/08-Shell/Sched/taskset.md
-    - Linux-Kernel-module:
-      - Introduction: Shell-and-tools/08-Shell/Linux-Kernel-module/index.md
+    - Introduction: Shell-and-tools/Shell/index.md
+    - Run-command: Shell-and-tools/Shell/Run-command.md
   - Tools:
-    - organization-gnu:
-      - Introduction: Shell-and-tools/Tools/organization-gnu/index.md
+    - Introduction: Shell-and-tools/Tools/index.md
+    - GNU-toolchain:
+      - Introduction: Shell-and-tools/Tools/GNU-toolchain/index.md
     - Dmesg:
       - Dmesg: Shell-and-tools/Tools/Dmesg/Dmesg.md
       - Dmesg-format: Shell-and-tools/Tools/Dmesg/Dmesg-format.md
@@ -243,8 +462,128 @@ nav:
       - Debugger: Shell-and-tools/Tools/Debug/Debugger.md
       - Trap: Shell-and-tools/Tools/Debug/Trap.md
       - Trace: Shell-and-tools/Tools/Debug/Trace.md
+      - GDB:
+        - Introduction: Shell-and-tools/Tools/Debug/GDB/index.md
+        - Debugging-with-gdb:
+          - Guide:
+            - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/index.md
+            - Design-of-gdb:
+              - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/index.md
+              - Abstraction-in-GDB: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/Abstraction-in-GDB.md
+              - Structure-in-GDB: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/Structure-in-GDB.md
+            - Guide-to-controlling-process: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Guide-to-controlling-process.md
+            - Guide-to-examining-data: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Guide-to-examining-data.md
+            - Point-in-GDB: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Point-in-GDB.md
+            - Shared-library:
+              - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Shared-library/index.md
+            - Function:
+              - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Function/index.md
+            - Automate:
+              - Gdb-automate-debug: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Automate/Gdb-automate-debug.md
+            - Debug-assembly: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-assembly.md
+            - gdb-primer:
+              - gdb-primer: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/gdb-primer/gdb-primer.md
+            - Args:
+              - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Args/index.md
+            - Debug-HS-middleware:
+              - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-HS-middleware/index.md
+          - 2-Getting-In-and-Out-of-gdb:
+            - 2-Getting-In-and-Out-of-gdb: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/2-Getting-In-and-Out-of-gdb/2-Getting-In-and-Out-of-gdb.md
+          - 4-Running-Programs-Under-gdb:
+            - 4-Running-Programs-Under-gdb: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/4-Running-Programs-Under-gdb.md
+            - Debug-multithreaded-application:
+              - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/index.md
+              - Show-thread-start-rtn: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/Show-thread-start-rtn.md
+              - Race-condition: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/Race-condition.md
+          - 5-Stopping-and-Continuing:
+            - 5-Stopping-and-Continuing: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5-Stopping-and-Continuing.md
+            - 5.5-Stopping-and-Starting-Multi-thread-Programs: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5.5-Stopping-and-Starting-Multi-thread-Programs.md
+            - Breakpoint-conditional-expressions: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/Breakpoint-conditional-expressions.md
+          - 6-Running-programs-backward:
+            - 6-Running-programs-backward: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/6-Running-programs-backward/6-Running-programs-backward.md
+          - 7-Recording-Inferior's-Execution-and-Replaying-It:
+            - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/7-Recording-Inferior's-Execution-and-Replaying-It/index.md
+          - 8-Examining-the-Stack:
+            - 8-Examining-the-Stack: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/8-Examining-the-Stack/8-Examining-the-Stack.md
+          - 9-Examining-Source-Files:
+            - 9-Examining-Source-Files: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/9-Examining-Source-Files/9-Examining-Source-Files.md
+          - 10-Examining-Data:
+            - 10.11-Convenience-Variables: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.11-Convenience-Variables.md
+            - 10.13-Registers: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.13-Registers.md
+            - 10.19-Produce-a-Core-File-from-Your-Program: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.19-Produce-a-Core-File-from-Your-Program.md
+          - 11-Debugging-Optimized-Code:
+            - 11-Debugging-Optimized-Code: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/11-Debugging-Optimized-Code/11-Debugging-Optimized-Code.md
+          - 13-Tracepoints:
+            - Tracepoints: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/13-Tracepoints/Tracepoints.md
+          - 15-Using-GDB-with-Different-Languages:
+            - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/15-Using-GDB-with-Different-Languages/index.md
+            - 15.4-Supported-Languages:
+              - C-family-language: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/15-Using-GDB-with-Different-Languages/15.4-Supported-Languages/C-family-language.md
+          - 16-Examining-the-Symbol-Table:
+            - Symbol-table: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/16-Examining-the-Symbol-Table/Symbol-table.md
+          - 18-gdb-Files:
+            - 18-gdb-Files: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/18-gdb-Files/18-gdb-Files.md
+          - 19-Specifying-a-Debugging-Target:
+            - Specifying-a-Debugging-Target: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/19-Specifying-a-Debugging-Target/19-Specifying-a-Debugging-Target.md
+          - 23-Extending-GDB:
+            - Introduction: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/23-Extending-GDB/index.md
+          - 25-gdb-Text-User-Interface:
+            - 25-gdb-Text-User-Interface: Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/25-gdb-Text-User-Interface/25-gdb-Text-User-Interface.md
+      - Stack-trace:
+        - Stack-trace: Shell-and-tools/Tools/Debug/Stack-trace/Stack-trace.md
+        - pstack:
+          - pstack: Shell-and-tools/Tools/Debug/Stack-trace/pstack/pstack.md
+      - System-call-trace:
+        - ptrace: Shell-and-tools/Tools/Debug/System-call-trace/ptrace.md
+        - strace:
+          - strace: Shell-and-tools/Tools/Debug/System-call-trace/strace/strace.md
+      - Library-call-tracer:
+        - ltrace: Shell-and-tools/Tools/Debug/Library-call-tracer/ltrace.md
+      - Application:
+        - Stuck-process: Shell-and-tools/Tools/Debug/Application/Stuck-process.md
+        - Dead-lock: Shell-and-tools/Tools/Debug/Application/Dead-lock.md
     - Performance:
       - Introduction: Shell-and-tools/Tools/Performance/index.md
+      - System-load:
+        - System-Load: Shell-and-tools/Tools/Performance/System-load/System-Load.md
+        - uptime: Shell-and-tools/Tools/Performance/System-load/uptime.md
+        - Troubleshoot-disk-IO-bottleneck: Shell-and-tools/Tools/Performance/System-load/Troubleshoot-disk-IO-bottleneck.md
+        - Troubleshoot-CPU-bound-bottleneck: Shell-and-tools/Tools/Performance/System-load/Troubleshoot-CPU-bound-bottleneck.md
+      - perf:
+        - perf: Shell-and-tools/Tools/Performance/perf/perf.md
+        - Linux-kernel-profiling-with-perf: Shell-and-tools/Tools/Performance/perf/Linux-kernel-profiling-with-perf.md
+        - expert-Brendan-D-Gregg:
+          - Introduction: Shell-and-tools/Tools/Performance/perf/expert-Brendan-D-Gregg/index.md
+      - sysstat:
+        - Introduction: Shell-and-tools/Tools/Performance/sysstat/index.md
+        - iostat:
+          - Introduction: Shell-and-tools/Tools/Performance/sysstat/iostat/index.md
+    - Build:
+      - Introduction: Shell-and-tools/Tools/Build/index.md
+      - Autoconf:
+        - Autoconf: Shell-and-tools/Tools/Build/Autoconf/Autoconf.md
+      - Automake:
+        - Automake: Shell-and-tools/Tools/Build/Automake/Automake.md
+      - Autotools-Mythbuster:
+        - Introduction: Shell-and-tools/Tools/Build/Autotools-Mythbuster/index.md
+      - Make:
+        - Make-and-makefile: Shell-and-tools/Tools/Build/Make/Make-and-makefile.md
+        - Makefile:
+          - Makefile: Shell-and-tools/Tools/Build/Make/Makefile/Makefile.md
+          - Code:
+            - Introduction: Shell-and-tools/Tools/Build/Make/Makefile/Code/index.md
+            - Code1:
+              - Introduction: Shell-and-tools/Tools/Build/Make/Makefile/Code/Code1/index.md
+            - Code2:
+              - Introduction: Shell-and-tools/Tools/Build/Make/Makefile/Code/Code2/index.md
+    - Hardware:
+      - lshw: Shell-and-tools/Tools/Hardware/lshw.md
+      - CPU:
+        - lscpu: Shell-and-tools/Tools/Hardware/CPU/lscpu.md
+    - Cron:
+      - Introduction: Shell-and-tools/Tools/Cron/index.md
+- TODO:
+  - Process-model: TODO/Process-model.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Linux-OS
