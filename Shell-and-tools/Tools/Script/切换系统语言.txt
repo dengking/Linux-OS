@@ -1,0 +1,43 @@
+一、修改/etc/sysconfig/i18n文件，如LANG="en_US"，xwindow会显示英文界面，LANG="zh_CN.GB18030"，xwindow会显示中文界面。 
+ 
+二、还有一种方法cp/etc/sysconfig/i18n$HOME/.i18n修改$HOME/.i18n文件，如LANG="en_US"，xwindow会显示英文界面，LANG="zh_CN.GB18030"，xwindow会显示中文界面。
+这样就可以改变个人的界面语言，而不影响别的用户/*/Redhat as4在安装是选择英文/中文/韩文/日文在X Window下一切正常
+1)切换到文本模式下时，出现乱码。
+2)修改/etc/sysconfig/i18n文档LANG="en_US"
+3)重起后,所在信息显示为问号.证明没有修改成功.4)切换到X Window将默认语言改为英文.5)重起后,所有信息显示正常,查看/etc/sysconfig/i18n文档,LANG="en_US.UTF-8"
+ 
+查看当前语言
+英文：
+1.[liuqz@localhost share]$ locale
+2.LANG=en_US.UTF-8
+3.LC_CTYPE="en_US.UTF-8"
+4.LC_NUMERIC="en_US.UTF-8"
+5.LC_TIME="en_US.UTF-8"
+6.LC_COLLATE="en_US.UTF-8"
+7.LC_MONETARY="en_US.UTF-8"
+8.LC_MESSAGES="en_US.UTF-8"
+9.LC_PAPER="en_US.UTF-8"
+10.LC_NAME="en_US.UTF-8"
+11.LC_ADDRESS="en_US.UTF-8"
+12.LC_TELEPHONE="en_US.UTF-8"
+13.LC_MEASUREMENT="en_US.UTF-8"
+14.LC_IDENTIFICATION="en_US.UTF-8"
+15.LC_ALL=
+中文：
+1.[root@localhost share]# locale
+2.LANG=zh_CN.UTF-8
+3.LC_CTYPE="zh_CN.UTF-8"
+4.LC_NUMERIC="zh_CN.UTF-8"
+5.LC_TIME="zh_CN.UTF-8"
+6.LC_COLLATE="zh_CN.UTF-8"
+7.LC_MONETARY="zh_CN.UTF-8"
+8.LC_MESSAGES="zh_CN.UTF-8"
+9.LC_PAPER="zh_CN.UTF-8"
+10.LC_NAME="zh_CN.UTF-8"
+11.LC_ADDRESS="zh_CN.UTF-8"
+12.LC_TELEPHONE="zh_CN.UTF-8"
+13.LC_MEASUREMENT="zh_CN.UTF-8"
+14.LC_IDENTIFICATION="zh_CN.UTF-8"
+15.LC_ALL=
+
+

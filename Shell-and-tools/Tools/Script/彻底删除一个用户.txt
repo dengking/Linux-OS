@@ -1,0 +1,4 @@
+创建一个用户：
+/etc/passwd、/etc/shadow、/etc/group/、/etc/gshadow，会创建一个家目录和一个用户邮箱（在/var/spool/mail目录以用户名命名）
+
+userdel -r 用户名 //彻底删除一个用户。

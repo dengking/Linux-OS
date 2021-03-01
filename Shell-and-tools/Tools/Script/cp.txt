@@ -1,0 +1,25 @@
+发现在Fedora 10 /ubutun 里面用cp -fr src dest，即使加了-f也是不能强行覆盖的，这时怎么回事的呢？一两个文件还好说，就输几个yes吧，但是要是n多文件怎么办，那还不输死人呢？下面提供三种解决办法。
+方法一
+我们输入alias命令，看看系统给cp起了一个什么别名。
+[root@localhost ~]# alias
+alias cp=’cp -i’
+alias l.=’ls -d .* –color=auto’
+alias ll=’ls -l –color=auto’
+alias ls=’ls –color=auto’
+alias mv=’mv -i’
+alias rm=’rm -i’
+alias which=’alias | /usr/bin/which –tty-only –read-alias –show-dot –show-tilde’
+然后[root@localhost ~]# man cp
+看看-i什么意思
+-i, –interactive   prompt before overwrite
+原来在覆盖之前会提示，那我们的解决办法也出来了，用unalias cp来解除cp的别名，还原纯净的cp。
+[root@localhost ~]#unaslias cp   （这只是临时取消cp的别名，不是永久的）
+[root@localhost ~]#cp -fr src dest       这下就行了，就不会提示覆盖了。
+方法二
+输入\cp命令，作用也是取消cp的别名。
+[root@localhost ~]#\cp -fr src dest
+方法三
+输入yes|cp -fr src dest，使用管道自动输入yes。
+[root@localhost ~]#yes | cp cp -fr src dest   让管道自动输入一大堆得yes，就可以完成了强行复制了。
+那有人会问dos的copy命令怎么实现强行复制的呢？答案是
+用来 xcopy /y src dest 来实现强行复制。

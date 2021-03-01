@@ -1,0 +1,1 @@
+rpm -ivh --force --nodeps libstdc++-3.4.6-3.1.i386.rpm 

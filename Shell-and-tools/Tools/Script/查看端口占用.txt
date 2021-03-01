@@ -1,0 +1,12 @@
+netstat -tunlp 会显示所有端口和所有对应的程序,用grep管道可以过滤出想要的关键字段.
+netstat -tunlp |grep 22
+
+查看某一端口的占用情况： lsof -i:端口号
+[root@www ~]# lsof -i:21
+COMMAND PID USER FD TYPE DEVICE SIZE NODE NAME
+pure-ftpd 2651 root 4u IPv4 7047 TCP *:ftp (LISTEN)
+pure-ftpd 2651 root 5u IPv6 7048 TCP *:ftp (LISTEN)
+这里显示出21号端口正在被pure-ftpd使用，状态是listen。
+
+
+netstat -anp 显示系统端口使用情况	

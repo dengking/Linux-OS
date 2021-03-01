@@ -1,0 +1,3 @@
+vim中光标如何回到上一次位置
+ctrl+o ctrl + i
+

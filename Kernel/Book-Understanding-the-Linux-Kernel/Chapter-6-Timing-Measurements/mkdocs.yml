@@ -1,3 +1,5 @@
 nav:
     - Chapter-6-Timing-Measurements: Chapter-6-Timing-Measurements.md
     - 6.1-Clock-and-Timer-Circuits: 6.1-Clock-and-Timer-Circuits.md
+    - 6.2-The-Linux-Timekeeping-Architecture: 6.2-The-Linux-Timekeeping-Architecture.md
+    - 6.4-Updating-System-Statistics: 6.4-Updating-System-Statistics.md

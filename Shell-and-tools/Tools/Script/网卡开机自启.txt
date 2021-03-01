@@ -1,0 +1,23 @@
+第一步：激活网卡
+
+　　Linux系统装好后默认的网卡是eth0，用下面的命令将这块网卡激活。
+
+# ifconfig eth0 up
+
+第二步：设置网卡进入系统时启动 
+    想要每次开机就可以自动获取IP地址上网，就要设置网络服务在系统启动时也启动。Linux有一点与windows不同的是很多服务默认是停止的，而且你 在某次使用该服务时启动这个服务，但是没设置它为默认启动，则下次进入系统这个服务依然是停止的。下面是设置网络服务在系统启动时也启动的方法。
+
+　　使用chkconfig命令让网络服务在系统启动级别是0123456时默认启动。
+
+# chkconfig --level 0123456 network on
+
+第三步：修改网卡文件ifcfg-eth0 
+    修改ifcfg-eth0文件，设置ONBOOT的值为yes，让网络服务启动时使用该网卡。设置BOOTPROTO的值为dhcp，让网卡从DHCP服务器自动获取IP地址。
+
+# vi /etc/sysconfig/network-scripts/ifcfg-eth0
+
+ONBOOT=yes
+BOOTPROTO=dhcp
+
+eth0，eth1，eth2……代表网卡一，网卡二，网卡三……
+lo代表127.0.0.1，即localhost

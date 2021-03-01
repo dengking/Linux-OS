@@ -1,0 +1,6 @@
+nav:
+
+    - man-1-strip: man-1-strip.md
+    - man-1-readelf: man-1-readelf.md
+    - man-1-objdump: man-1-objdump.md
+    - man-1-addr2line: man-1-addr2line.md

@@ -1,4 +1,4 @@
 nav:
-    - Virtual-memory: Virtual-memory.md
-    - Paging: Paging.md
-    - Unix-system-page-size: Unix-system-page-size.md
+    - Introduction: index.md
+    - Paging: Paging
+    

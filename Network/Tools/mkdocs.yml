@@ -1,0 +1,12 @@
+nav:
+    - Introduction: index.md
+    - Packet-analyzer: Packet-analyzer
+    - netstat: netstat.md
+    - iproute2: iproute2
+    - nmap: nmap.md
+    - Port-in-use: Port-in-use.md
+    - Port-opened-by-process: Port-opened-by-process.md
+    - TODO-Troubleshoot-local-network: TODO-Troubleshoot-local-network.md
+    - TODO-Troubleshoot-remote-network: TODO-Troubleshoot-remote-network.md
+    - TODO-Troubleshoot-packet-loss: TODO-Troubleshoot-packet-loss.md
+    

@@ -1,6 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Virtualization: Virtualization.md
-    - Linux-containers: Linux-containers.md
-    - Linux-namespaces: Linux-namespaces
-    - Linux-control-groups: Linux-control-groups
