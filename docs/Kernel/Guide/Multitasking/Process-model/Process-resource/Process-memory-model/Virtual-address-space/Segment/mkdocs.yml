@@ -1,7 +1,7 @@
 nav:
     - BSS: BSS
     - Data-segment: Data-segment
-    - Code-segment: Code-segment.md
+    - Code-segment: Code-segment
     - Heap: Heap
     - Stack-VS-heap: Stack-VS-heap
     - Memory-mapped-file: Memory-mapped-file

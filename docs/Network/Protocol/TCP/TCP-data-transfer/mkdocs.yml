@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - TCP-application-protocol: TCP-application-protocol.md
+
     - Nagle's-algorithm: Nagle's-algorithm.md
     - TCP-segment-of-a-reassembled-PDU: TCP-segment-of-a-reassembled-PDU.md

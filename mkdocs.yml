@@ -1,12 +1,33 @@
 edit_uri: ''
 extra_css:
 - css/extra.css
+extra_javascript:
+- https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 google_analytics:
 - UA-27795084-5
 - mkdocs.org
 markdown_extensions:
 - toc:
-    permalink: '#'
+    separator: '#'
+- admonition
+- def_list
+- mdx_gh_links:
+    repo: mkdocs
+    user: mkdocs
+- pymdownx.arithmatex
+- pymdownx.betterem:
+    smart_enable: all
+- pymdownx.caret
+- pymdownx.critic
+- pymdownx.details
+- pymdownx.inlinehilite
+- pymdownx.magiclink
+- pymdownx.mark
+- pymdownx.smartsymbols
+- pymdownx.superfences
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
 nav:
 - Home: index.md
 - Architecture-of-computing-system:
@@ -39,7 +60,51 @@ nav:
         - Process-resource:
           - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/index.md
           - System-resource: Kernel/Guide/Multitasking/Process-model/Process-resource/System-resource.md
-          - Process-memory-model: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model.md
+          - Process-memory-model:
+            - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/index.md
+            - Virtual-address-space:
+              - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/index.md
+              - Thinking: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Thinking.md
+              - Segment:
+                - BSS:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/BSS/index.md
+                - Data-segment:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Data-segment/index.md
+                - Code-segment:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Code-segment/index.md
+                - Heap:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Heap/index.md
+                - Stack-VS-heap:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Stack-VS-heap/index.md
+                  - Operation-on-stack-VS-on-heap:
+                    - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Stack-VS-heap/Operation-on-stack-VS-on-heap/index.md
+                - Memory-mapped-file:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Memory-mapped-file/index.md
+            - Linux-implementation:
+              - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/index.md
+              - Program-break:
+                - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Program-break/index.md
+              - Verification:
+                - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/index.md
+                - Holberton-Hack-the-virtual-memory:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/index.md
+                  - The-stack-registers-and-assembly-code:
+                    - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/The-stack-registers-and-assembly-code/index.md
+                  - Chapter-0-C-strings&proc-filesystem:
+                    - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/Chapter-0-C-strings&proc-filesystem/index.md
+                  - Chapter-2-Drawing-the-VM-diagram:
+                    - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/Chapter-2-Drawing-the-VM-diagram/index.md
+                  - Chapter-3-malloc-the-heap&the-program-break:
+                    - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/Chapter-3-malloc-the-heap&the-program-break/index.md
+                - Output-virtual-memory-space: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Output-virtual-memory-space.md
+              - System-call:
+                - sbrk:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/System-call/sbrk/index.md
+                - mmap:
+                  - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/System-call/mmap/index.md
+              - Size:
+                - Unix-virtual-address-space: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Size/Unix-virtual-address-space.md
+                - Virtual-address-space-size-reading-list: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Size/Virtual-address-space-size-reading-list.md
         - Process-lifetime:
           - Introduction: Kernel/Guide/Multitasking/Process-model/Process-lifetime/index.md
         - Linux-implementation:
@@ -80,7 +145,8 @@ nav:
       - Introduction: Kernel/Guide/Read-code/index.md
     - Kernel-lifetime:
       - Entry-point-of-kernel: Kernel/Guide/Kernel-lifetime/Entry-point-of-kernel.md
-    - Kernel-data-structure: Kernel/Guide/Kernel-data-structure.md
+    - Kernel-data-structure:
+      - Introduction: Kernel/Guide/Kernel-data-structure/index.md
     - Debug:
       - Introduction: Kernel/Guide/Debug/index.md
       - System.map:
@@ -182,7 +248,10 @@ nav:
     - Path-resolution: Programming/Common/Path-resolution.md
   - Lib:
     - Introduction: Programming/Lib/index.md
-    - Glibc: Programming/Lib/Glibc.md
+    - Glibc:
+      - Introduction: Programming/Lib/Glibc/index.md
+      - Glibc: Programming/Lib/Glibc/Glibc.md
+      - The-GNU-C-Library: Programming/Lib/Glibc/The-GNU-C-Library.md
   - Philosophy:
     - Introduction: Programming/philosophy/index.md
     - Unix-philosophy: Programming/philosophy/Unix-philosophy.md
@@ -304,7 +373,6 @@ nav:
     - Tools:
       - lsof: Programming/IO/Tools/lsof.md
       - fuser: Programming/IO/Tools/fuser.md
-    - Blocking-and-non-blocking-VS-sync-and-async: Programming/IO/Blocking-and-non-blocking-VS-sync-and-async.md
   - Time:
     - Introduction: Programming/Time/index.md
     - Date-and-Time: Programming/Time/Date-and-Time.md
@@ -314,7 +382,10 @@ nav:
     - Signal-note: Programming/Signal/Signal-note.md
   - Virtualization:
     - Introduction: Programming/Virtualization/index.md
-    - Virtualization: Programming/Virtualization/Virtualization.md
+    - Virtualization:
+      - Introduction: Programming/Virtualization/Virtualization/index.md
+      - Memory-virtualization:
+        - Introduction: Programming/Virtualization/Virtualization/Memory-virtualization/index.md
     - Linux-containers: Programming/Virtualization/Linux-containers.md
     - Linux-namespaces:
       - Introduction: Programming/Virtualization/Linux-namespaces/index.md
@@ -349,7 +420,6 @@ nav:
       - man-5-elf:
         - Introduction: Programming/Object-file/ELF/man-5-elf/index.md
       - Tools:
-        - man-1-nm: Programming/Object-file/ELF/Tools/man-1-nm.md
         - man-1-strip: Programming/Object-file/ELF/Tools/man-1-strip.md
         - man-1-readelf: Programming/Object-file/ELF/Tools/man-1-readelf.md
         - man-1-objdump: Programming/Object-file/ELF/Tools/man-1-objdump.md
@@ -376,7 +446,6 @@ nav:
   - Introduction: Network/index.md
   - Protocol:
     - Introduction: Network/Protocol/index.md
-    - Binary-VS-textual-protocol: Network/Protocol/Binary-VS-textual-protocol.md
     - Network-protocol-model: Network/Protocol/Network-protocol-model.md
     - RCF: Network/Protocol/RCF.md
     - TCP:
@@ -389,7 +458,6 @@ nav:
         - Connection-termination: Network/Protocol/TCP/TCP-connection/Connection-termination.md
       - TCP-data-transfer:
         - Introduction: Network/Protocol/TCP/TCP-data-transfer/index.md
-        - TCP-application-protocol: Network/Protocol/TCP/TCP-data-transfer/TCP-application-protocol.md
         - Nagle's-algorithm: Network/Protocol/TCP/TCP-data-transfer/Nagle's-algorithm.md
         - TCP-segment-of-a-reassembled-PDU: Network/Protocol/TCP/TCP-data-transfer/TCP-segment-of-a-reassembled-PDU.md
       - man-7-TCP: Network/Protocol/TCP/man-7-TCP.md
@@ -559,7 +627,6 @@ nav:
         - iostat:
           - Introduction: Shell-and-tools/Tools/Performance/sysstat/iostat/index.md
     - Build:
-      - Introduction: Shell-and-tools/Tools/Build/index.md
       - Autoconf:
         - Autoconf: Shell-and-tools/Tools/Build/Autoconf/Autoconf.md
       - Automake:
@@ -582,8 +649,6 @@ nav:
         - lscpu: Shell-and-tools/Tools/Hardware/CPU/lscpu.md
     - Cron:
       - Introduction: Shell-and-tools/Tools/Cron/index.md
-- TODO:
-  - Process-model: TODO/Process-model.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Linux-OS

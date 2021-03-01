@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
-    - Linux-implementation: Linux-implementation
-    - Output-virtual-memory-space: Output-virtual-memory-space.md
+
     - Thinking: Thinking.md
-    - Size: Size
+
     - Segment: Segment

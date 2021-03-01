@@ -1,5 +1,3 @@
 nav:
     - Introduction: index.md
-    - Chapter-0-C-strings&proc-filesystem: Chapter-0-C-strings&proc-filesystem
-    - Chapter-2-Drawing-the-VM-diagram: Chapter-2-Drawing-the-VM-diagram
-    - Chapter-3-malloc-the-heap&the-program-break: Chapter-3-malloc-the-heap&the-program-break
+  

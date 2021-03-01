@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Binary-VS-textual-protocol: Binary-VS-textual-protocol.md
+
     - Network-protocol-model: Network-protocol-model.md
     - RCF: RCF.md
     - TCP: TCP

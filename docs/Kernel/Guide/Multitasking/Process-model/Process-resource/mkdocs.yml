@@ -2,5 +2,5 @@ nav:
 
     - Introduction: index.md
     - System-resource: System-resource.md    
-    - Process-memory-model: Process-memory-model.md
+    - Process-memory-model: Process-memory-model
     
