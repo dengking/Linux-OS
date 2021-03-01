@@ -1,6 +1,6 @@
-## GNU/LinuxÖÇÄÜMakefileÄ£°å£¨¶àÄ¿Â¼£¬¶àÎÄ¼ş£©
+# GNU/Linuxæ™ºèƒ½Makefileæ¨¡æ¿ï¼ˆå¤šç›®å½•ï¼Œå¤šæ–‡ä»¶ï¼‰
 
-²Î¿¼£º
+å‚è€ƒï¼š
 
 http://www.voidcn.com/article/p-rkpadnqa-bkn.html
 
@@ -32,24 +32,24 @@ https://gist.github.com/mauriciopoppe/de8908f67923091982c8c8136a063ea6
 ###############################################################################
 
 CROSS_COMPILE =
-OPTIMIZE := -O2 #ÆäËûÑ¡Ïî:µ÷ÊÔ: -g
-WARNINGS := -Wall -Wno-unused -Wno-format #ÆäËûÑ¡Ôñ: -Wno-deprecated -Wno-write-strings
+OPTIMIZE := -O2 #å…¶ä»–é€‰é¡¹:è°ƒè¯•: -g
+WARNINGS := -Wall -Wno-unused -Wno-format #å…¶ä»–é€‰æ‹©: -Wno-deprecated -Wno-write-strings
 #macro define
 DEFS     := -DOS_COMMON_EXT -DNDEBUG -D_FILE_OFFSET_BITS=64
 EXTRA_CFLAGS := -c -fvisibility=hidden -std=c++11
-# Êä³öÂ·¾¶
+# è¾“å‡ºè·¯å¾„
 OUT_DIR	  = ../lib/linux.x64
-# ¶à¸öÂ·¾¶£¬Ê¹ÓÃ ¿Õ¸ñ ¸ô¿ª
+# å¤šä¸ªè·¯å¾„ï¼Œä½¿ç”¨ ç©ºæ ¼ éš”å¼€
 INC_DIR   = . ../include ../../..
-# ¶à¸öÂ·¾¶£¬Ê¹ÓÃ ¿Õ¸ñ ¸ô¿ª
+# å¤šä¸ªè·¯å¾„ï¼Œä½¿ç”¨ ç©ºæ ¼ éš”å¼€
 SRC_DIR   = ./src1 . ./src2 ./src3
-# ĞèÒªÁ´½ÓµÄ¶¯Ì¬¿âµÄÂ·¾¶
+# éœ€è¦é“¾æ¥çš„åŠ¨æ€åº“çš„è·¯å¾„
 LIB_DIR   = -L../lib/linux.x64 -L../../../../lib/linux.x64
-# ´æ·Åobject fileµÄÂ·¾¶
+# å­˜æ”¾object fileçš„è·¯å¾„
 OBJ_DIR   = build
 EXTRA_SRC =
 EXCLUDE_FILES =
-# ĞèÒªÁ´½ÓµÄ¶¯Ì¬¿â
+# éœ€è¦é“¾æ¥çš„åŠ¨æ€åº“
 EXTRA_LIBS	:= -llib1 -llib2 -Wl,--whole-archive -lssl -lcrypto -Wl,--no-whole-archive
 SUFFIX       = c cpp cc cxx
 TARGET       = $(OUT_DIR)/libTest.so
