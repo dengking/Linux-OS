@@ -179,6 +179,8 @@ nav:
     - Chapter-2-Memory-Addressing:
       - Chapter-2-Memory-Addressing: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Chapter-2-Memory-Addressing.md
       - 2.1-Memory-Addresses: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.1-Memory-Addresses.md
+      - 2.2-Segmentation-in-Hardware: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.2-Segmentation-in-Hardware.md
+      - 2.3-Segmentation-in-Linux: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.3-Segmentation-in-Linux.md
       - 2.4-Paging-in-Hardware: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware.md
       - 2.5-Paging-in-Linux: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.5-Paging-in-Linux.md
     - Chapter-3-Processes:
