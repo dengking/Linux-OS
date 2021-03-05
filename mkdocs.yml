@@ -158,6 +158,12 @@ nav:
       - Limit-via-system-call: Kernel/Guide/Limit/Limit-via-system-call.md
       - Ulimit: Kernel/Guide/Limit/Ulimit.md
       - Process-resource-limits-under-the-hood: Kernel/Guide/Limit/Process-resource-limits-under-the-hood.md
+    - Linux-startup-process:
+      - Introduction: Kernel/Guide/Linux-startup-process/index.md
+      - init-process:
+        - Introduction: Kernel/Guide/Linux-startup-process/init-process/index.md
+      - Operating-system-service-management:
+        - Introduction: Kernel/Guide/Linux-startup-process/Operating-system-service-management/index.md
   - Book-Understanding-the-Linux-Kernel:
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
