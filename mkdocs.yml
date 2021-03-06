@@ -49,7 +49,7 @@ nav:
       - Kernel-control-path-and-reentrant-kernel: Kernel/Guide/Interaction-with-hardware/Kernel-control-path-and-reentrant-kernel.md
       - Linux-OS-interrupt-and-interrupte-handler: Kernel/Guide/Interaction-with-hardware/Linux-OS-interrupt-and-interrupte-handler.md
     - Multitasking:
-      - Multitask: Kernel/Guide/Multitasking/Multitask.md
+      - Introduction: Kernel/Guide/Multitasking/index.md
       - Process-model:
         - Introduction: Kernel/Guide/Multitasking/Process-model/index.md
         - Process:
@@ -143,8 +143,6 @@ nav:
           - Introduction: Kernel/Guide/Memory-management/Fragmentation/Defragmentation/index.md
     - Read-code:
       - Introduction: Kernel/Guide/Read-code/index.md
-    - Kernel-lifetime:
-      - Entry-point-of-kernel: Kernel/Guide/Kernel-lifetime/Entry-point-of-kernel.md
     - Kernel-data-structure:
       - Introduction: Kernel/Guide/Kernel-data-structure/index.md
     - Debug:
@@ -160,6 +158,8 @@ nav:
       - Process-resource-limits-under-the-hood: Kernel/Guide/Limit/Process-resource-limits-under-the-hood.md
     - Linux-startup-process:
       - Introduction: Kernel/Guide/Linux-startup-process/index.md
+      - Entry-point-of-kernel:
+        - Introduction: Kernel/Guide/Linux-startup-process/Entry-point-of-kernel/index.md
       - init-process:
         - Introduction: Kernel/Guide/Linux-startup-process/init-process/index.md
       - Operating-system-service-management:
@@ -230,12 +230,6 @@ nav:
       - Chapter-9-Process-Address-Space: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space.md
       - 9.1-The-Process's-Address-Space.: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space.md
       - 9.2-The-Memory-Descriptor: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor.md
-- Linux-Foundation:
-  - Introduction: Linux-Foundation/index.md
-  - Linux-Foundation-Referenced-Specifications: Linux-Foundation/Linux-Foundation-Referenced-Specifications.md
-  - LSB-Core:
-    - LSB-Core: Linux-Foundation/LSB-Core/LSB-Core.md
-    - librt: Linux-Foundation/LSB-Core/librt.md
 - Programming:
   - Introduction: Programming/index.md
   - Common:
@@ -335,6 +329,15 @@ nav:
       - Asynchronous-IO:
         - Introduction: Programming/IO/IO-model/Asynchronous-IO/index.md
       - IO-multiplexing:
+        - Introduction: Programming/IO/IO-model/IO-multiplexing/index.md
+        - What-is-multiplexing:
+          - Introduction: Programming/IO/IO-model/IO-multiplexing/What-is-multiplexing/index.md
+        - What-is-IO-multiplexing:
+          - Introduction: Programming/IO/IO-model/IO-multiplexing/What-is-IO-multiplexing/index.md
+          - zhihu-What-is-IO-multiplexing:
+            - Introduction: Programming/IO/IO-model/IO-multiplexing/What-is-IO-multiplexing/zhihu-What-is-IO-multiplexing/index.md
+        - Implementation-in-OS: Programming/IO/IO-model/IO-multiplexing/Implementation-in-OS.md
+        - Multiplex-on-file-and-time-event: Programming/IO/IO-model/IO-multiplexing/Multiplex-on-file-and-time-event.md
         - Epoll:
           - man-7-epoll: Programming/IO/IO-model/IO-multiplexing/Epoll/man-7-epoll.md
       - Blocking-and-non-blocking-VS-sync-and-async: Programming/IO/IO-model/Blocking-and-non-blocking-VS-sync-and-async.md
@@ -657,6 +660,12 @@ nav:
         - lscpu: Shell-and-tools/Tools/Hardware/CPU/lscpu.md
     - Cron:
       - Introduction: Shell-and-tools/Tools/Cron/index.md
+- Linux-Foundation:
+  - Introduction: Linux-Foundation/index.md
+  - Linux-Foundation-Referenced-Specifications: Linux-Foundation/Linux-Foundation-Referenced-Specifications.md
+  - LSB-Core:
+    - LSB-Core: Linux-Foundation/LSB-Core/LSB-Core.md
+    - librt: Linux-Foundation/LSB-Core/librt.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Linux-OS
