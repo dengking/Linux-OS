@@ -114,7 +114,13 @@ Regardless of how we handle the signal, the advantage to this model is that we a
 
 *Asynchronous I/O* is defined by the **POSIX specification**, and various differences in the real-time functions that appeared in the various standards which came together to form the current POSIX specification have been reconciled(和解了）. In general, these functions work by telling the kernel to start the operation and to **notify** us when the entire operation (including the copy of the data from the kernel to our buffer) is complete. The main difference between this model and the **signal-driven I/O model** in the previous section is that with **signal-driven I/O**, the kernel tells us when an I/O operation can be initiated(开始), but with synchronous I/O, the kernel tells us when an I/O operation is **complete**. We show an example in Figure 6.5.
 
-> NOTE: OS kernel所通知的是IO completion；
+> NOTE: 
+>
+> 1、OS kernel所通知的是IO completion；
+>
+> 2、Proactor pattern就是典型的Asynchronous I/O Model，关于此，参见zhihu [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938) # [A](https://www.zhihu.com/question/26943938/answer/68773398)
+>
+> 
 
 Figure 6.5. Asynchronous I/O model.
 

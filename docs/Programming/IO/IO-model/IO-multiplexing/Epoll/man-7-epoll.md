@@ -1,10 +1,10 @@
-# [EPOLL(7)](http://man7.org/linux/man-pages/man7/epoll.7.html) 
+# man7 [EPOLL(7)](http://man7.org/linux/man-pages/man7/epoll.7.html) 
 
 ## NAME         
 
 `epoll` - I/O event notification facility
 
-***SUMMARY*** : 显然`epoll`的本质是**event notifier**
+> NOTE: 显然`epoll`的本质是**event notifier**
 
 
 
@@ -22,21 +22,21 @@ The **epoll** API performs a similar task to [**poll**(2)](https://linux.die.net
 
 The central concept of the `epoll` API is the **`epoll` instance**, an **in-kernel data structure** which, from a user-space perspective, can be considered as a container for two lists:
 
-*   The ***interest list*** (sometimes also called the ***`epoll` set***): the set of file descriptors that the process has registered an interest in monitoring.
+1、The ***interest list*** (sometimes also called the ***`epoll` set***): the set of file descriptors that the process has registered an interest in monitoring.
 
-*   The ***ready list***: the set of file descriptors that are "ready" for I/O.  The ready list is a subset of (or, more precisely, a set of references to) the file descriptors in the interest list that is dynamically populated by the kernel as a result of I/O activity on those file descriptors.
+2、The ***ready list***: the set of file descriptors that are "ready" for I/O.  The ready list is a subset of (or, more precisely, a set of references to) the file descriptors in the interest list that is dynamically populated by the kernel as a result of I/O activity on those file descriptors.
 
 
 
  The following system calls are provided to create and manage an **epoll** instance:
 
-- [**epoll_create**(2)](https://linux.die.net/man/2/epoll_create) creates an **epoll** instance and returns a file descriptor referring to that instance. (The more recent [**epoll_create1**(2)](https://linux.die.net/man/2/epoll_create1) extends the functionality of **epoll_create**(2).)
+1、[**epoll_create**(2)](https://linux.die.net/man/2/epoll_create) creates an **epoll** instance and returns a file descriptor referring to that instance. (The more recent [**epoll_create1**(2)](https://linux.die.net/man/2/epoll_create1) extends the functionality of **epoll_create**(2).)
 
-- Interest in particular file descriptors is then registered via [**epoll_ctl**(2)](https://linux.die.net/man/2/epoll_ctl). The set of **file descriptors** currently registered on an **epoll** instance is sometimes called an ***epoll* set**.
+2、Interest in particular file descriptors is then registered via [**epoll_ctl**(2)](https://linux.die.net/man/2/epoll_ctl). The set of **file descriptors** currently registered on an **epoll** instance is sometimes called an ***epoll* set**.
 
-- [**epoll_wait**(2)](https://linux.die.net/man/2/epoll_wait) waits for I/O events, **blocking** the calling thread if no events are currently available.
+3、[**epoll_wait**(2)](https://linux.die.net/man/2/epoll_wait) waits for I/O events, **blocking** the calling thread if no events are currently available.
 
-  如果有event已经available了，则立即返回这个event对应的`fd`。
+> 如果有event已经available了，则立即返回这个event对应的`fd`。
 
 
 
@@ -58,7 +58,7 @@ The `epoll` event distribution interface is able to behave both as edge-triggere
 
 If the `rfd` file descriptor has been added to the **epoll interface** using the `EPOLLET` (edge-triggered) flag, the call to `epoll_wait(2)` done in step 5 will probably hang despite the available data still present in the **file input buffer**; meanwhile the remote peer might be expecting a response based on the data it already sent.  The reason for this is that edge-triggered mode delivers events only when changes occur on the monitored file descriptor.  So, in step 5 the caller might end up waiting for some data that is already present inside the input buffer.  In the above example, an event on `rfd` will be generated because of the write done in 2 and the event is consumed in 3.  Since the read operation done in 4 does not consume the whole buffer data, the call to `epoll_wait(2)` done in step 5 might block indefinitely.
 
-如果已使用EPOLLET（边缘触发）标志将rfd文件描述符添加到epoll接口，则尽管文件输入缓冲区中仍存在可用数据，但在步骤5中完成的对epoll_wait（2）的调用可能会挂起; 同时，远程对等体可能期望基于其已发送的数据进行响应。 原因是边缘触发模式仅在受监视文件描述符发生更改时才传递事件。 因此，在步骤5中，调用者可能最终等待输入缓冲区内已存在的某些数据。 在上面的示例中，将生成rfd上的事件，因为写入在2中完成并且事件在3中消耗。由于在4中完成的读取操作不消耗整个缓冲区数据，因此对epoll_wait（2）的调用已完成 在步骤5中可能会无限期地阻止。
+> 如果已使用EPOLLET（边缘触发）标志将rfd文件描述符添加到epoll接口，则尽管文件输入缓冲区中仍存在可用数据，但在步骤5中完成的对epoll_wait（2）的调用可能会挂起; 同时，远程对等体可能期望基于其已发送的数据进行响应。 原因是边缘触发模式仅在受监视文件描述符发生更改时才传递事件。 因此，在步骤5中，调用者可能最终等待输入缓冲区内已存在的某些数据。 在上面的示例中，将生成rfd上的事件，因为写入在2中完成并且事件在3中消耗。由于在4中完成的读取操作不消耗整个缓冲区数据，因此对epoll_wait（2）的调用已完成 在步骤5中可能会无限期地阻止。
 
 An application that employs the `EPOLLET` flag should use nonblocking file descriptors to avoid having a blocking read or write starve a task that is handling multiple file descriptors.  The suggested way to use `epoll` as an edge-triggered (`EPOLLET`) interface is as follows:
 
@@ -66,10 +66,11 @@ i   with nonblocking file descriptors; and
 
 ii  by waiting for an event only after read(2) or write(2) return [`EAGAIN`](https://stackoverflow.com/questions/4058368/what-does-eagain-mean).
 
-***SUMMARY*** : 要理解上面这段话的含义，就需要搞清楚blocking IO和nonblocking IO，以及它们和`epoll`之间的关系，参考下面的两篇文章：
-
-- [Why having to use non-blocking fd in a edge triggered epoll function?](https://stackoverflow.com/questions/14643249/why-having-to-use-non-blocking-fd-in-a-edge-triggered-epoll-function)
-- [Blocking I/O, Nonblocking I/O, And Epoll](https://eklitzke.org/blocking-io-nonblocking-io-and-epoll)
+> NOTE : 要理解上面这段话的含义，就需要搞清楚blocking IO和nonblocking IO，以及它们和`epoll`之间的关系，参考下面的两篇文章：
+>
+> 1、[Why having to use non-blocking fd in a edge triggered epoll function?](https://stackoverflow.com/questions/14643249/why-having-to-use-non-blocking-fd-in-a-edge-triggered-epoll-function)
+>
+> 2、[Blocking I/O, Nonblocking I/O, And Epoll](https://eklitzke.org/blocking-io-nonblocking-io-and-epoll)
 
 By contrast, when used as a **level-triggered** interface (the default, when `EPOLLET` is not specified), `epoll` is simply a faster poll(2), and can be used wherever the latter is used since it shares the same semantics.
 
@@ -157,98 +158,3 @@ While the usage of `epoll` when employed as a **level-triggered** interface does
 
 When used as an edge-triggered interface, for performance reasons, it is possible to add the file descriptor inside the `epoll` interface (`EPOLL_CTL_ADD`) once by specifying (`EPOLLIN|EPOLLOUT`).  This allows you to avoid continuously switching between `EPOLLIN` and `EPOLLOUT` calling `epoll_ctl(2)` with `EPOLL_CTL_MOD`.
 
-### Questions and answers
-
-
-0.  What is the **key** used to distinguish the file descriptors registered in an interest list?
-
-The key is the combination of the **file descriptor number** and the **open file description** (also known as an "open file handle", the kernel's internal representation of an open file).
-
-1.  What happens if you register the same file descriptor on an **`epoll` instance** twice?
-
-You will probably get `EEXIST`.  However, it is possible to add a duplicate (`dup(2)`, `dup2(2)`, `fcntl(2)` `F_DUPFD`) file descriptor to the same **epoll instance**.  This can be a useful technique for filtering events, if the duplicate file descriptors are registered with different events masks.
-
-2.  Can two epoll instances wait for the same file descriptor?  If
-so, are events reported to both epoll file descriptors?
-
-Yes, and events would be reported to both.  However, careful pro‐
-gramming may be needed to do this correctly.
-
-3.  Is the epoll file descriptor itself poll/epoll/selectable?
-
-Yes.  If an epoll file descriptor has events waiting, then it
-will indicate as being readable.
-
-4.  What happens if one attempts to put an epoll file descriptor into
-its own file descriptor set?
-
-The epoll_ctl(2) call fails (EINVAL).  However, you can add an
-epoll file descriptor inside another epoll file descriptor set.
-
-5.  Can I send an epoll file descriptor over a UNIX domain socket to
-another process?
-
-Yes, but it does not make sense to do this, since the receiving
-process would not have copies of the file descriptors in the
-interest list.
-
-6.  Will closing a file descriptor cause it to be removed from all
-epoll interest lists?
-
-Yes, but be aware of the following point.  A file descriptor is a
-reference to an open file description (see open(2)).  Whenever a
-file descriptor is duplicated via dup(2), dup2(2), fcntl(2)
-F_DUPFD, or fork(2), a new file descriptor referring to the same
-open file description is created.  An open file description con‐
-tinues to exist until all file descriptors referring to it have
-been closed.
-
-A file descriptor is removed from an interest list only after all
-the file descriptors referring to the underlying open file
-description have been closed.  This means that even after a file
-descriptor that is part of an interest list has been closed,
-events may be reported for that file descriptor if other file
-descriptors referring to the same underlying file description
-remain open.  To prevent this happening, the file descriptor must
-be explicitly removed from the interest list (using epoll_ctl(2)
-EPOLL_CTL_DEL) before it is duplicated.  Alternatively, the
-application must ensure that all file descriptors are closed
-(which may be difficult if file descriptors were duplicated
-behind the scenes by library functions that used dup(2) or
-fork(2)).
-
-7.  If more than one event occurs between epoll_wait(2) calls, are
-they combined or reported separately?
-
-They will be combined.
-
-8.  Does an operation on a file descriptor affect the already col‐
-lected but not yet reported events?
-
-You can do two operations on an existing file descriptor.  Remove
-would be meaningless for this case.  Modify will reread available
-I/O.
-
-9.  Do I need to continuously read/write a file descriptor until
-EAGAIN when using the EPOLLET flag (edge-triggered behavior)?
-
-Receiving an event from epoll_wait(2) should suggest to you that
-such file descriptor is ready for the requested I/O operation.
-You must consider it ready until the next (nonblocking)
-read/write yields EAGAIN.  When and how you will use the file
-descriptor is entirely up to you.
-
-For packet/token-oriented files (e.g., datagram socket, terminal
-in canonical mode), the only way to detect the end of the
-read/write I/O space is to continue to read/write until EAGAIN.
-
-For stream-oriented files (e.g., pipe, FIFO, stream socket), the
-condition that the read/write I/O space is exhausted can also be
-detected by checking the amount of data read from / written to
-the target file descriptor.  For example, if you call read(2) by
-asking to read a certain amount of data and read(2) returns a
-lower number of bytes, you can be sure of having exhausted the
-read I/O space for the file descriptor.  The same is true when
-writing using write(2).  (Avoid this latter technique if you can‐
-not guarantee that the monitored file descriptor always refers to
-a stream-oriented file.)

@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
+    - Entry-point-of-kernel: Entry-point-of-kernel
     - init-process: init-process
     - Operating-system-service-management: Operating-system-service-management
