@@ -1,12 +1,7 @@
-[TOC]
-
-
-
 # Multilevel Paging in Operating System
 
-
-
 Prerequisite – [Paging](https://www.geeksforgeeks.org/operating-system-paging/)
+
 **Multilevel Paging** is a paging scheme which consist of two or more levels of page tables in a hierarchical manner. It is also known as hierarchical paging. The entries of the level 1 page table are pointers to a level 2 page table and entries of the level 2 page tables are pointers to a level 3 page table and so on. The entries of the last level page table are stores actual frame information. Level 1 contain single page table and address of that table is stored in PTBR (Page Table Base Register).
 
 Virtual address:
@@ -52,6 +47,7 @@ Size of page table:
 If page table size > desired size then create 1 more level.
 
 **Disadvantage:**
+
 Extra memory references to access **address translation tables** can slow programs down by a factor of two or more. Use translation look aside buffer (TLB) to speed up address translation by storing page table entries.
 
 **Example:**

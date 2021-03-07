@@ -147,6 +147,8 @@ nav:
         - Introduction: Kernel/Guide/Memory-management/Fragmentation/index.md
         - Heap-fragmentation:
           - Introduction: Kernel/Guide/Memory-management/Fragmentation/Heap-fragmentation/index.md
+          - TODO-design-reuse-Dynamic-Memory-Allocation-and-Fragmentation:
+            - Introduction: Kernel/Guide/Memory-management/Fragmentation/Heap-fragmentation/TODO-design-reuse-Dynamic-Memory-Allocation-and-Fragmentation/index.md
         - Defragmentation:
           - Introduction: Kernel/Guide/Memory-management/Fragmentation/Defragmentation/index.md
     - Read-code:
@@ -207,6 +209,7 @@ nav:
       - 2.3-Segmentation-in-Linux: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.3-Segmentation-in-Linux.md
       - 2.4-Paging-in-Hardware: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware.md
       - 2.5-Paging-in-Linux: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.5-Paging-in-Linux.md
+      - Multilevel-Paging-in-Operating-System: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Multilevel-Paging-in-Operating-System.md
     - Chapter-3-Processes:
       - Chapter-3-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/Chapter-3-Processes.md
       - 3.1-Processes-and-Lightweight-Processes-and-Threads: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads.md
@@ -251,6 +254,7 @@ nav:
 - Programming:
   - Introduction: Programming/index.md
   - Common:
+    - Conventions: Programming/Common/Conventions.md
     - Time-and-space: Programming/Common/Time-and-space.md
     - Classification-of-system-call:
       - Classification-of-system-call: Programming/Common/Classification-of-system-call/Classification-of-system-call.md
@@ -266,21 +270,26 @@ nav:
         - Introduction: Programming/Common/Attribute-of-function/Idempotence/index.md
     - Safety: Programming/Common/Safety.md
     - Path-resolution: Programming/Common/Path-resolution.md
+    - Errorno:
+      - man-3-errorno: Programming/Common/Errorno/man-3-errorno.md
+      - EAGAIN: Programming/Common/Errorno/EAGAIN.md
+      - EEXIST: Programming/Common/Errorno/EEXIST.md
+  - Philosophy:
+    - Introduction: Programming/Philosophy/index.md
+    - Unix-philosophy: Programming/Philosophy/Unix-philosophy.md
+    - Everything-is-a-file:
+      - Everything-is-a-file: Programming/Philosophy/Everything-is-a-file/Everything-is-a-file.md
+      - File-descriptor:
+        - Introduction: Programming/Philosophy/Everything-is-a-file/File-descriptor/index.md
+        - TODO-Pass-file-descriptor:
+          - Introduction: Programming/Philosophy/Everything-is-a-file/File-descriptor/TODO-Pass-file-descriptor/index.md
   - Lib:
     - Introduction: Programming/Lib/index.md
     - Glibc:
       - Introduction: Programming/Lib/Glibc/index.md
       - Glibc: Programming/Lib/Glibc/Glibc.md
       - The-GNU-C-Library: Programming/Lib/Glibc/The-GNU-C-Library.md
-  - Philosophy:
-    - Introduction: Programming/philosophy/index.md
-    - Unix-philosophy: Programming/philosophy/Unix-philosophy.md
-    - Everything-is-a-file:
-      - Everything-is-a-file: Programming/philosophy/Everything-is-a-file/Everything-is-a-file.md
-      - File-descriptor:
-        - Introduction: Programming/philosophy/Everything-is-a-file/File-descriptor/index.md
-        - TODO-Pass-file-descriptor:
-          - Introduction: Programming/philosophy/Everything-is-a-file/File-descriptor/TODO-Pass-file-descriptor/index.md
+  - Philosophy: philosophy
   - Multitasking:
     - Introduction: Programming/Multitasking/index.md
     - Process:
@@ -302,6 +311,8 @@ nav:
         - Introduction: Programming/Multitasking/Process/IPC/index.md
         - System-V-IPC:
           - man-7-SVIPC: Programming/Multitasking/Process/IPC/System-V-IPC/man-7-SVIPC.md
+          - Semaphore:
+            - Introduction: Programming/Multitasking/Process/IPC/System-V-IPC/Semaphore/index.md
         - POSIX-semaphores: Programming/Multitasking/Process/IPC/POSIX-semaphores.md
         - POSIX-message-queues: Programming/Multitasking/Process/IPC/POSIX-message-queues.md
         - Unix:
@@ -322,6 +333,7 @@ nav:
     - Implementation-Clone:
       - TODO-index: Programming/Multitasking/Implementation-Clone/TODO-index.md
     - Sched:
+      - Introduction: Programming/Multitasking/Sched/index.md
       - Sched: Programming/Multitasking/Sched/Sched.md
       - Tool:
         - taskset: Programming/Multitasking/Sched/Tool/taskset.md
@@ -336,6 +348,7 @@ nav:
         - ps:
           - man-1-ps: Programming/Multitasking/Tools/procps/ps/man-1-ps.md
           - Wait-channel: Programming/Multitasking/Tools/procps/ps/Wait-channel.md
+          - wikipedia-ps(Unix): Programming/Multitasking/Tools/procps/ps/wikipedia-ps(Unix).md
         - top:
           - top: Programming/Multitasking/Tools/procps/top/top.md
           - htop: Programming/Multitasking/Tools/procps/top/htop.md
@@ -466,6 +479,7 @@ nav:
       - Introduction: Programming/Object-file/Symbol/index.md
       - nm:
         - Introduction: Programming/Object-file/Symbol/nm/index.md
+  - Terminal: Terminal
   - Book-APUE:
     - Introduction: Programming/Book-APUE/index.md
     - 10-Signals:
@@ -689,6 +703,14 @@ nav:
         - lscpu: Shell-and-tools/Tools/Hardware/CPU/lscpu.md
     - Cron:
       - Introduction: Shell-and-tools/Tools/Cron/index.md
+    - Misc:
+      - Introduction: Shell-and-tools/Tools/Misc/index.md
+      - Valgrind:
+        - Introduction: Shell-and-tools/Tools/Misc/Valgrind/index.md
+      - gperftools:
+        - Introduction: Shell-and-tools/Tools/Misc/gperftools/index.md
+        - Heap-checker:
+          - Introduction: Shell-and-tools/Tools/Misc/gperftools/Heap-checker/index.md
 - Linux-Foundation:
   - Introduction: Linux-Foundation/index.md
   - Linux-Foundation-Referenced-Specifications: Linux-Foundation/Linux-Foundation-Referenced-Specifications.md
