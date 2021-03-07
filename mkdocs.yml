@@ -54,6 +54,10 @@ nav:
         - Introduction: Kernel/Guide/Multitasking/Process-model/index.md
         - Process:
           - Process: Kernel/Guide/Multitasking/Process-model/Process/Process.md
+          - Process-table:
+            - Introduction: Kernel/Guide/Multitasking/Process-model/Process/Process-table/index.md
+          - Process-control-block:
+            - Introduction: Kernel/Guide/Multitasking/Process-model/Process/Process-control-block/index.md
           - Thread: Kernel/Guide/Multitasking/Process-model/Process/Thread.md
         - Process-execution-model:
           - Introduction: Kernel/Guide/Multitasking/Process-model/Process-execution-model/index.md
@@ -105,10 +109,14 @@ nav:
               - Size:
                 - Unix-virtual-address-space: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Size/Unix-virtual-address-space.md
                 - Virtual-address-space-size-reading-list: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Size/Virtual-address-space-size-reading-list.md
+          - Process-file-resource:
+            - Introduction: Kernel/Guide/Multitasking/Process-model/Process-resource/Process-file-resource/index.md
         - Process-lifetime:
           - Introduction: Kernel/Guide/Multitasking/Process-model/Process-lifetime/index.md
+          - opensourceforu-The-Life-of-a-Process:
+            - Introduction: Kernel/Guide/Multitasking/Process-model/Process-lifetime/opensourceforu-The-Life-of-a-Process/index.md
         - Linux-implementation:
-          - Linux-OS-implementation-of-process-model: Kernel/Guide/Multitasking/Process-model/Linux-implementation/Linux-OS-implementation-of-process-model.md
+          - Introduction: Kernel/Guide/Multitasking/Process-model/Linux-implementation/index.md
       - Sched:
         - Introduction: Kernel/Guide/Multitasking/Sched/index.md
         - Preemptive-multitasking:
@@ -162,8 +170,18 @@ nav:
         - Introduction: Kernel/Guide/Linux-startup-process/Entry-point-of-kernel/index.md
       - init-process:
         - Introduction: Kernel/Guide/Linux-startup-process/init-process/index.md
-      - Operating-system-service-management:
-        - Introduction: Kernel/Guide/Linux-startup-process/Operating-system-service-management/index.md
+        - SysVinit:
+          - Introduction: Kernel/Guide/Linux-startup-process/init-process/SysVinit/index.md
+        - TODO-Upstart: Kernel/Guide/Linux-startup-process/init-process/TODO-Upstart.md
+      - Service-management:
+        - Introduction: Kernel/Guide/Linux-startup-process/Service-management/index.md
+        - TODO-Service-run-level: Kernel/Guide/Linux-startup-process/Service-management/TODO-Service-run-level.md
+        - init.d-service-management:
+          - Introduction: Kernel/Guide/Linux-startup-process/Service-management/init.d-service-management/index.md
+        - systemd:
+          - Introduction: Kernel/Guide/Linux-startup-process/Service-management/systemd/index.md
+          - systemd-service:
+            - Introduction: Kernel/Guide/Linux-startup-process/Service-management/systemd/systemd-service/index.md
   - Book-Understanding-the-Linux-Kernel:
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
@@ -259,7 +277,10 @@ nav:
     - Unix-philosophy: Programming/philosophy/Unix-philosophy.md
     - Everything-is-a-file:
       - Everything-is-a-file: Programming/philosophy/Everything-is-a-file/Everything-is-a-file.md
-      - File-descriptor: Programming/philosophy/Everything-is-a-file/File-descriptor.md
+      - File-descriptor:
+        - Introduction: Programming/philosophy/Everything-is-a-file/File-descriptor/index.md
+        - TODO-Pass-file-descriptor:
+          - Introduction: Programming/philosophy/Everything-is-a-file/File-descriptor/TODO-Pass-file-descriptor/index.md
   - Multitasking:
     - Introduction: Programming/Multitasking/index.md
     - Process:
@@ -403,7 +424,7 @@ nav:
       - Linux-Namespaces: Programming/Virtualization/Linux-namespaces/Linux-Namespaces.md
       - man-7-namespaces: Programming/Virtualization/Linux-namespaces/man-7-namespaces.md
     - Linux-control-groups:
-      - Introduction: Programming/Virtualization/Linux-control-groups/Control-groups.md
+      - Introduction: Programming/Virtualization/Linux-control-groups/index.md
   - Util:
     - Introduction: Programming/Util/index.md
     - Log:
@@ -518,6 +539,14 @@ nav:
     - TODO-Troubleshoot-local-network: Network/Tools/TODO-Troubleshoot-local-network.md
     - TODO-Troubleshoot-remote-network: Network/Tools/TODO-Troubleshoot-remote-network.md
     - TODO-Troubleshoot-packet-loss: Network/Tools/TODO-Troubleshoot-packet-loss.md
+  - Centos-network:
+    - Introduction: Network/Centos-network/index.md
+    - Set-NetworkManager-start-onboot:
+      - Introduction: Network/Centos-network/Set-NetworkManager-start-onboot/index.md
+    - CentOS-8-ifconfig-ens33-not-exist:
+      - Introduction: Network/Centos-network/CentOS-8-ifconfig-ens33-not-exist/index.md
+    - Restart-network-service:
+      - Introduction: Network/Centos-network/Restart-network-service/index.md
 - Security:
   - Introduction: Security/index.md
   - Capability-based-security:
