@@ -1,0 +1,195 @@
+# stackoverflow [Is there a way for multiple processes to share a listening socket?](https://stackoverflow.com/questions/670891/is-there-a-way-for-multiple-processes-to-share-a-listening-socket)
+
+
+
+In socket programming, you create a **listening socket** and then for each client that connects, you get a normal stream socket that you can use to handle the client's request. The OS manages the queue of incoming connections behind the scenes.
+
+Two processes cannot bind to the same port at the same time - by default, anyway.
+
+I'm wondering if there's a way (on any well-known OS, especially Windows) to launch multiple instances of a process, such that they all bind to the socket, and so they effectively share the queue. Each process instance could then be single threaded; it would just block when accepting a new connection. When a client connected, one of the idle process instances would accept that client.
+
+This would allow each process to have a very simple, single-threaded implementation, sharing nothing unless through explicit shared memory, and the user would be able to adjust the processing bandwidth by starting more instances.
+
+Does such a feature exist?
+
+**Edit:** For those asking "Why not use threads?" Obviously threads are an option. But with multiple threads in a single process, all objects are shareable and great care has to be taken to ensure that objects are either not shared, or are only visible to one thread at a time, or are absolutely immutable, and most popular languages and runtimes lack built-in support for managing this complexity.
+
+By starting a handful of identical worker processes, you would get a concurrent system in which the *default* is no sharing, making it much easier to build a correct and scalable implementation.
+
+
+
+## [A](https://stackoverflow.com/a/670897)
+
+You can share a socket between two (or more) processes in Linux and even Windows.
+
+Under Linux (Or POSIX type OS), using `fork()` will cause the forked child to have copies of all the parent's file descriptors. Any that it does not close will continue to be shared, and (for example with a TCP listening socket) can be used to `accept()` new sockets for clients. This is how many servers, including Apache in most cases, work.
+
+On Windows the same thing is basically true, except there is no `fork()` system call so the parent process will need to use `CreateProcess` or something to create a child process (which can of course use the same executable) and needs to pass it an inheritable handle.
+
+Making a listening socket an inheritable handle is not a completely trivial activity but not too tricky either. `DuplicateHandle()` needs to be used to create a duplicate handle (still in the parent process however), which will have the inheritable flag set on it. Then you can give that handle in the `STARTUPINFO` structure to the child process in CreateProcess as a `STDIN`, `OUT` or `ERR` handle (assuming you didn't want to use it for anything else).
+
+EDIT:
+
+Reading the MDSN library , it appears that `WSADuplicateSocket` is a more robust or correct mechanism of doing this; it is still nontrivial because the parent/child processes need to work out which handle needs to be duplicated by some IPC mechanism (although this could be as simple as a file in the filesystem)
+
+CLARIFICATION:
+
+In answer to the OP's original question, no, multiple processes cannot `bind()`; just the original parent process would call `bind()`, `listen()` etc, the child processes would just process requests by `accept()`, `send()`, `recv()` etc.
+
+## [A](https://stackoverflow.com/a/19269473)
+
+Most others have provided the technical reasons why this works. Here's some python code you can run to demonstrate this for yourself:
+
+```python
+import socket
+import os
+
+def main():
+    serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    serversocket.bind(("127.0.0.1", 8888))
+    serversocket.listen(0)
+
+    # Child Process
+    if os.fork() == 0:
+        accept_conn("child", serversocket)
+
+    accept_conn("parent", serversocket)
+
+def accept_conn(message, s):
+    while True:
+        c, addr = s.accept()
+        print 'Got connection from in %s' % message
+        c.send('Thank you for your connecting to %s\n' % message)
+        c.close()
+
+if __name__ == "__main__":
+    main()
+```
+
+Note that there are indeed two process id's listening:
+
+```
+$ lsof -i :8888
+COMMAND   PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+Python  26972 avaitla    3u  IPv4 0xc26aa26de5a8fc6f      0t0  TCP localhost:ddi-tcp-1 (LISTEN)
+Python  26973 avaitla    3u  IPv4 0xc26aa26de5a8fc6f      0t0  TCP localhost:ddi-tcp-1 (LISTEN)
+```
+
+Here are the results from running telnet and the program:
+
+```
+$ telnet 127.0.0.1 8888
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Thank you for your connecting to parent
+Connection closed by foreign host.
+$ telnet 127.0.0.1 8888
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Thank you for your connecting to child
+Connection closed by foreign host.
+$ telnet 127.0.0.1 8888
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Thank you for your connecting to parent
+Connection closed by foreign host.
+
+$ python prefork.py 
+Got connection from in parent
+Got connection from in child
+Got connection from in parent
+```
+
+
+
+## [A](https://stackoverflow.com/a/7281594)
+
+Looks like this question has already been answered fully by MarkR and zackthehack but I would like to add that Nginx is an example of the listening socket inheritance model.
+
+Here is a good description:
+
+- http://zimbra.imladris.sk/download/src/GNR-601/ThirdParty/nginx/docs/IMPLEMENTATION
+
+> ```
+>          Implementation of HTTP Auth Server Round-Robin and
+>                 Memory Caching for NGINX Email Proxy
+> 
+>                             June 6, 2007
+>              Md. Mansoor Peerbhoy <mansoor@zimbra.com>
+> ```
+>
+> ...
+>
+> Flow of an NGINX worker process
+>
+> After the main NGINX process reads the configuration file and forks into the configured number of worker processes, each worker process enters into a loop where it waits for any events on its respective set of sockets.
+>
+> Each worker process starts off with just the listening sockets, since there are no connections available yet. Therefore, the event descriptor set for each worker process starts off with just the listening sockets.
+>
+> (NOTE) NGINX can be configured to use any one of several event polling mechanisms: aio/devpoll/epoll/eventpoll/kqueue/poll/rtsig/select
+>
+> When a connection arrives on any of the listening sockets (POP3/IMAP/SMTP), each worker process emerges from its event poll, since each NGINX worker process inherits the listening socket. Then, each NGINX worker process will attempt to acquire a global mutex. One of the worker processes will acquire the lock, whereas the others will go back to their respective event polling loops.
+>
+> Meanwhile, the worker process that acquired the global mutex will examine the triggered events, and will create necessary work queue requests for each event that was triggered. An event corresponds to a single socket descriptor from the set of descriptors that the worker was watching for events from.
+>
+> If the triggered event corresponds to a new incoming connection, NGINX accepts the connection from the listening socket. Then, it associates a context data structure with the file descriptor. This context holds information about the connection (whether POP3/IMAP/SMTP, whether the user is yet authenticated, etc). Then, this newly constructed socket is added into the event descriptor set for that worker process.
+>
+> The worker now relinquishes the mutex (which means that any events that arrived on other workers can proceeed), and starts processing each request that was earlier queued. Each request corresponds to an event that was signaled. From each socket descriptor that was signaled, the worker process retrieves the corresponding context data structure that was earlier associated with that descriptor, and then calls the corresponding call back functions that perform actions based on the state of that connection. For instance, in case of a newly established IMAP connection, the first thing that NGINX will do is to write the standard IMAP welcome message onto the
+> connected socket (* OK IMAP4 ready).
+>
+> By and by, each worker process completes processing the work queue entry for each outstanding event, and returns back to its event polling loop. Once any connection is established with a client, the events usually are more rapid, since whenever the connected socket is ready for reading, the read event is triggered, and the corresponding action must be taken.
+
+
+
+## [A](https://stackoverflow.com/a/1139425)
+
+I would like to add that the sockets can be shared on Unix/Linux via `AF__UNIX` sockets (inter-process sockets). What seems to happen is a new socket descriptor is created that is somewhat of an alias to the original one. This new socket descriptor is sent via the `AFUNIX` socket to the other process. This is especially useful in cases where a process cannot fork() to share it's file descriptors. For example, when using libraries that prevent against this due to threading issues. You should create a Unix domain socket and use [libancillary](http://www.normalesup.org/~george/comp/libancillary/) to send over the descriptor.
+
+See:
+
+- https://www.linuxquestions.org/questions/programming-9/how-to-share-socket-between-processes-289978/
+
+For creating AF_UNIX Sockets:
+
+- http://docs.sun.com/app/docs/doc/817-4415/portmapper-51908?a=view
+
+For example code:
+
+- http://lists.canonical.org/pipermail/kragen-hacks/2002-January/000292.html
+- http://cpansearch.perl.org/src/SAMPO/Socket-PassAccessRights-0.03/passfd.c
+
+
+
+## [A](https://stackoverflow.com/a/23452266)
+
+Not sure how relevant this to the original question, but in Linux kernel 3.9 there is a patch adding a TCP/UDP feature: TCP and UDP support for the SO_REUSEPORT socket option; The new socket option allows multiple sockets on the same host to bind to the same port, and is intended to improve the performance of multithreaded network server applications running on top of multicore systems. more information can be found in the LWN link [LWN SO_REUSEPORT in Linux Kernel 3.9](http://lwn.net/Articles/542629/) as mentioned in the reference link:
+
+the SO_REUSEPORT option is non-standard, but available in a similar form on a number of other UNIX systems (notably, the BSDs, where the idea originated). It seems to offer a useful alternative for squeezing the maximum performance out of network applications running on multicore systems, without having to use the fork pattern.
+
+## [A](https://stackoverflow.com/a/35527210)
+
+Starting with Linux 3.9, you can set the SO_REUSEPORT on a socket and then have multiple non-related processes share that socket. That's simpler than the prefork scheme, no more signal troubles, fd leak to child processes, etc.
+
+[Linux 3.9 introduced new way of writing socket servers](http://freeprogrammersblog.vhex.net/post/linux-39-introduced-new-way-of-writing-socket-servers/2)
+
+[The SO_REUSEPORT socket option](https://lwn.net/Articles/542629/)
+
+
+
+## [A](https://stackoverflow.com/a/671032)
+
+Have a single task whose sole job is to listen for incoming connections. When a connection is received, it accepts the connection - this creates a separate socket descriptor. The accepted socket is passed to one of your available worker tasks, and the main task goes back to listening.
+
+```C
+s = socket();
+bind(s);
+listen(s);
+while (1) {
+  s2 = accept(s);
+  send_to_worker(s2);
+}
+```
+

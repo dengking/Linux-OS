@@ -1,0 +1,115 @@
+
+# [Linux startup process](https://en.wikipedia.org/wiki/Linux_startup_process)
+
+**Linux startup process** is the multi-stage initialization process performed during [booting](https://en.wikipedia.org/wiki/Booting) a [Linux](https://en.wikipedia.org/wiki/Linux) installation. It is in many ways similar to the [BSD](https://en.wikipedia.org/wiki/BSD) and other [Unix](https://en.wikipedia.org/wiki/Unix)-style boot processes, from which it derives.
+
+Booting a Linux installation involves multiple stages and software components, including [firmware](https://en.wikipedia.org/wiki/Firmware) initialization, execution of a [boot loader](https://en.wikipedia.org/wiki/Boot_loader), loading and startup of a [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel) image, and execution of various [startup scripts](https://en.wikipedia.org/wiki/Startup_scripts) and [daemons](https://en.wikipedia.org/wiki/Daemon_(computing)). For each of these stages and components there are different variations and approaches; for example, [GRUB](https://en.wikipedia.org/wiki/GNU_GRUB), [LILO](https://en.wikipedia.org/wiki/LILO_(boot_loader)), [SYSLINUX](https://en.wikipedia.org/wiki/SYSLINUX) or [Loadlin](https://en.wikipedia.org/wiki/Loadlin) can be used as boot loaders, while the **startup scripts** can be either traditional [init](https://en.wikipedia.org/wiki/Init)-style, or the system configuration can be performed through modern alternatives such as [systemd](https://en.wikipedia.org/wiki/Systemd) or [Upstart](https://en.wikipedia.org/wiki/Upstart_(software)).
+
+
+
+## Overview
+
+Early stages of the **Linux startup process** depend very much on the computer architecture. IBM PC compatible hardware is one architecture Linux is commonly used on; on these systems, the [BIOS](https://en.wikipedia.org/wiki/BIOS) plays an important role, which might not have exact analogs on other systems. In the following example, IBM PC compatible hardware is assumed:
+
+1. The **BIOS** performs **startup tasks** specific to the actual [hardware](https://en.wikipedia.org/wiki/Computer_hardware) platform. Once the hardware is [enumerated](https://en.wikipedia.org/wiki/Enumeration) and the hardware which is necessary for boot is initialized correctly, the **BIOS** loads and executes the boot code from the configured **boot device**.
+2. The **boot loader** often presents the user with a menu of possible boot options and has a default option, which is selected after some time passes. Once the selection is made, the **boot loader** loads the **kernel** into **memory**, supplies it with some parameters and gives it control.
+3. The **kernel**, if compressed, will decompress itself. It then sets up **system functions** such as essential hardware and memory paging, and calls `start_kernel()`which performs the majority of **system setup** (interrupts, the rest of memory management, device and driver initialization, etc.). It then starts up, separately, the [idle process](https://en.wikipedia.org/wiki/Idle_process), scheduler, and the [init process](https://en.wikipedia.org/wiki/Init_process), which is executed in [user space](https://en.wikipedia.org/wiki/User_space).
+4. The init either consists of scripts that are executed by the shell (sysv, bsd, runit) or configuration files that are executed by the binary components (systemd, upstart). Init has specific levels (sysv, bsd) or targets (systemd), each of which consists of specific set of **services** (daemons). These provide various non-operating system services and structures and form the user environment. A typical server environment starts a web server, database services, and networking.
+5. The typical desktop environment begins with a daemon, called the display manager, that starts a graphic environment which consists of a graphical server that provides a basic underlying graphical stack and a login manager that provides the ability to enter credentials and select a session. After the user has entered the correct credentials, the session manager starts a session. A session is a set of programs such as UI elements (panels, desktops, applets, etc.) which, together, can form a complete desktop environment.
+
+On shutdown, init is called to close down all user space functionality in a controlled manner. Once all the other processes have terminated, init makes a system call to the kernel instructing it to shut the system down.
+
+## Boot loader phase
+
+The boot loader phase varies by computer architecture. Since the earlier phases are not specific to the operating system, the BIOS-based boot process for [x86](https://en.wikipedia.org/wiki/X86_architecture) and [x86-64](https://en.wikipedia.org/wiki/X86-64) architectures is considered to start when the [master boot record](https://en.wikipedia.org/wiki/Master_boot_record) (MBR) code is executed in [real mode](https://en.wikipedia.org/wiki/Real_mode) and the first-stage [boot loader](https://en.wikipedia.org/wiki/Boot_loader) is loaded. In [UEFI](https://en.wikipedia.org/wiki/UEFI) systems, a payload, such as the Linux kernel, can be executed directly. Thus no **boot loader** is necessary. Below is a summary of some popular boot loaders:
+
+- LILO does not understand or parse filesystem layout. Instead, a configuration file (`/etc/lilo.conf`) is created in a live system which maps raw offset information (mapper tool) about location of kernel and ram disks (initrd or initramfs). The configuration file, which includes data such as boot [partition](https://en.wikipedia.org/wiki/Disk_partitioning) and [kernel](https://en.wikipedia.org/wiki/Kernel_(computer_science)) pathname for each, as well as customized options if needed, is then written together with bootloader code into MBR bootsector. When this bootsector is read and given control by BIOS, LILO loads the menu code and draws it then uses stored values together with user input to calculate and load the Linux kernel or [chain-load](https://en.wikipedia.org/wiki/Chain_loading) any other [boot-loader](https://en.wikipedia.org/wiki/Booting#BOOT-LOADER).
+- GRUB 1 includes logic to read common file systems at run-time in order to access its configuration file.[[1\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-redhat_startup-1) This gives GRUB 1 ability to read its configuration file from the filesystem rather than have it embedded into the MBR, which allows it to change the configuration at run-time and specify disks and partitions in a human-readable format rather than relying on offsets. It also contains a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface), which makes it easier to fix or modify GRUB if it is misconfigured or corrupt.[[2\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-redhat_lilo-2)
+- GRUB 2 differs from GRUB 1 by having two (optionally three) stages and being capable of automatic detection of various operating systems and automatic configuration. The first-stage loader (stage1) is loaded and executed either by the [BIOS](https://en.wikipedia.org/wiki/BIOS) from the [Master boot record](https://en.wikipedia.org/wiki/Master_boot_record) (MBR) or by another boot loader from the partition boot sector. Its job is to discover and access various file systems that the configuration can be read from later. The optional, intermediate stage loader (stage1.5) is loaded and executed by the first-stage loader in case the second-stage loader is not contiguous or if the file-system or hardware requires special handling in order to access the second-stage loader. The second-stage loader (stage2) is loaded last and displays the GRUB startup menu that allows the user to choose an operating system or examine and edit startup parameters. After a menu entry is chosen and optional parameters are given, GRUB loads the kernel into memory and passes control to it. GRUB 2 is also capable of chain-loading of another boot loader.
+- SYSLINUX/ISOLINUX is a boot loader that specializes in booting full Linux installations from FAT filesystems. It is often used for boot or rescue floppy discs, [live USBs](https://en.wikipedia.org/wiki/Live_USB), and other lightweight boot systems. ISOLINUX is generally used by Linux [live CDs](https://en.wikipedia.org/wiki/Live_CD) and bootable install CDs.
+- [Loadlin](https://en.wikipedia.org/wiki/Loadlin) is a boot loader that can replace a running [DOS](https://en.wikipedia.org/wiki/DOS) or [Windows 9x](https://en.wikipedia.org/wiki/Windows_9x) kernel with the Linux kernel at run time. This can be useful in the case of hardware that needs to be switched on via software and for which such configuration programs are proprietary and only available for DOS. This booting method is less necessary nowadays, as Linux has drivers for a multitude of hardware devices, but it has seen some use in [mobile devices](https://en.wikipedia.org/wiki/Mobile_device). Another use case is when the Linux is located on a storage device which is not available to the BIOS for booting: DOS or Windows can load the appropriate drivers to make up for the BIOS limitation and boot Linux from there.
+
+
+
+## Kernel phase
+
+The [kernel](https://en.wikipedia.org/wiki/Linux_kernel) in Linux handles all operating system processes, such as [memory management](https://en.wikipedia.org/wiki/Memory_management), task [scheduling](https://en.wikipedia.org/wiki/Scheduling_(computing)), [I/O](https://en.wikipedia.org/wiki/I/O), [interprocess communication](https://en.wikipedia.org/wiki/Interprocess_communication), and overall system control. This is loaded in two stages – in the first stage, the kernel (as a compressed image file) is loaded into memory and decompressed, and a few fundamental functions such as basic memory management are set up. Control is then switched one final time to the main kernel start process. Once the kernel is fully operational – and as part of its startup, upon being loaded and executing – the kernel looks for an [init process](https://en.wikipedia.org/wiki/Init_process) to run, which (separately) sets up a **user space** and the processes needed for a user environment and ultimate login. The kernel itself is then allowed to go idle, subject to calls from other processes.
+
+For some platforms (like ARM 64-bit), kernel decompression has to be performed by the **boot loader** instead.
+
+### Kernel loading stage
+
+The kernel is typically loaded as an image file, compressed into either [zImage or bzImage](https://en.wikipedia.org/wiki/Vmlinux) formats with [zlib](https://en.wikipedia.org/wiki/Zlib). A routine at the head of it does a minimal amount of hardware setup, decompresses the image fully into [high memory](https://en.wikipedia.org/wiki/High_memory), and takes note of any [RAM disk](https://en.wikipedia.org/wiki/RAM_disk) if configured.[[3\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-ibm_description-3) It then executes **kernel startup** via `./arch/i386/boot/head` and the `startup_32 ()` (for x86 based processors) process.
+
+
+
+### Kernel startup stage
+
+The **startup function** for the kernel (also called the **swapper** or process 0) establishes [memory management](https://en.wikipedia.org/wiki/Memory_management) (paging tables and memory paging), detects the type of [CPU](https://en.wikipedia.org/wiki/Central_processing_unit) and any additional functionality such as [floating point](https://en.wikipedia.org/wiki/Floating_point) capabilities, and then switches to non-architecture specific Linux kernel functionality via a call to `start_kernel()`.[[4\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-4)
+
+`start_kernel` executes a wide range of initialization functions. It sets up [interrupt handling](https://en.wikipedia.org/wiki/Interrupt_handling) ([IRQs](https://en.wikipedia.org/wiki/Interrupt_request)), further configures memory, starts the Init process (the first user-space process), and then starts the idle task via `cpu_idle()`. Notably, the kernel startup process also mounts the [initial RAM disk](https://en.wikipedia.org/wiki/Initrd) ("initrd") that was loaded previously as the temporary root file system during the boot phase. The initrd allows driver modules to be loaded directly from memory, without reliance upon other devices (e.g. a hard disk) and the drivers that are needed to access them (e.g. a SATA driver). This split of some drivers statically compiled into the kernel and other drivers loaded from initrd allows for a smaller kernel. The root file system is later switched via a call to `pivot_root()` which unmounts the temporary root file system and replaces it with the use of the real one, once the latter is accessible. The memory used by the temporary root file system is then reclaimed.
+
+Thus, the kernel initializes devices, mounts the root filesystem specified by the boot loader as [read only](https://en.wikipedia.org/wiki/File_system_permissions), and runs [Init](https://en.wikipedia.org/wiki/Init_process) (`/sbin/init`) which is designated as the first process run by the system ([PID](https://en.wikipedia.org/wiki/Process_identifier) = 1).[[5\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-oldfield-5) A message is printed by the kernel upon mounting the file system, and by Init upon starting the Init process. It may also optionally run [Initrd](https://en.wikipedia.org/wiki/Initrd)[*clarification needed*] to allow setup and device related matters ([RAM disk](https://en.wikipedia.org/wiki/RAM_disk) or similar) to be handled before the root file system is mounted.[[5\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-oldfield-5)
+
+According to [Red Hat](https://en.wikipedia.org/wiki/Red_Hat), the detailed kernel process at this stage is therefore summarized as follows:[[1\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-redhat_startup-1)
+
+
+
+At this point, with interrupts enabled, the scheduler can take control of the overall management of the system, to provide pre-emptive multi-tasking, and the init process is left to continue booting the user environment in user space.
+
+## Early user space
+
+Main article: [initramfs](https://en.wikipedia.org/wiki/Initramfs)
+
+[initramfs](https://en.wikipedia.org/wiki/Initramfs), also known as *early user space*, has been available since version 2.5.46 of the Linux kernel,[[6\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-6) with the intent to replace as many functions as possible that previously the kernel would have performed during the start-up process. Typical uses of early user space are to detect what [device drivers](https://en.wikipedia.org/wiki/Device_driver) are needed to load the main user space file system and load them from a [temporary filesystem](https://en.wikipedia.org/wiki/Temporary_filesystem).
+
+## Init process
+
+Basically, these are grouped as [operating system service-management](https://en.wikipedia.org/wiki/Operating_System_service_management).
+
+### SysV init
+
+*Main article:* [Init](https://en.wikipedia.org/wiki/Init)
+
+init is the parent of all processes on the system, it is executed by the kernel and is responsible for starting all other processes; it is the parent of all processes whose natural parents have died and it is responsible for reaping those when they die. Processes managed by init are known as jobs and are defined by files in the /etc/init directory.
+
+— manual page for Init[[7\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-man_init-7)
+
+Init's job is "to get everything running the way it should be"[[8\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-p2b_6-8) once the kernel is fully running. Essentially it establishes and operates the entire [user space](https://en.wikipedia.org/wiki/User_space). This includes checking and mounting [file systems](https://en.wikipedia.org/wiki/File_system), starting up necessary user services, and ultimately switching to a user-environment when system startup is completed. It is similar to the [Unix](https://en.wikipedia.org/wiki/Unix) and [BSD](https://en.wikipedia.org/wiki/BSD) init processes, from which it derived, but in some cases has diverged or became customized. In a standard Linux system, Init is executed with a parameter, known as a [runlevel](https://en.wikipedia.org/wiki/Runlevel), that takes a value from 0 to 6, and that determines which subsystems are to be made operational. Each runlevel has its own [scripts](https://en.wikipedia.org/wiki/Script_(computing))which codify the various processes involved in setting up or leaving the given runlevel, and it is these scripts which are referenced as necessary in the boot process. Init scripts are typically held in directories with names such as `"/etc/rc..."`. The top level configuration file for init is at `/etc/inittab`.[[8\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-p2b_6-8)
+
+During system boot, it checks whether a default runlevel is specified in /etc/inittab, and requests the runlevel to enter via the [system console](https://en.wikipedia.org/wiki/System_console) if not. It then proceeds to run all the relevant boot scripts for the given runlevel, including loading [modules](https://en.wikipedia.org/wiki/Loadable_kernel_module), checking the integrity of the root file system (which was mounted read-only) and then remounting it for full read-write access, and sets up the [network](https://en.wikipedia.org/wiki/Computer_network).[[5\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-oldfield-5)
+
+After it has spawned all of the processes specified, init goes dormant, and waits for one of three events to happen: processes that started to end or die, a power failure signal,[*clarification needed*] or a request via `/sbin/telinit` to further change the runlevel.[[7\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-man_init-7)
+
+This applies to [SysV](https://en.wikipedia.org/wiki/UNIX_System_V)-style init.
+
+### systemd
+
+*Main article:* [systemd](https://en.wikipedia.org/wiki/Systemd)
+
+The developers of systemd aimed to replace the Linux init system inherited from UNIX System V and Berkeley Software Distribution (BSD) operating systems. Like init, systemd is a daemon that manages other daemons. All daemons, including systemd, are [background processes](https://en.wikipedia.org/wiki/Background_process). Systemd is the first daemon to start (during booting) and the last daemon to terminate (during [shutdown](https://en.wikipedia.org/wiki/Shutdown_(computing))).
+
+[Lennart Poettering](https://en.wikipedia.org/wiki/Lennart_Poettering) and [Kay Sievers](https://en.wikipedia.org/wiki/Kay_Sievers), software engineers that initially developed systemd,[[9\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-9) sought to surpass the efficiency of the init daemon in several ways. They wanted to improve the software framework for expressing dependencies, to allow more processing to be done in [parallel](https://en.wikipedia.org/wiki/Parallel_computing) during system booting, and to reduce the [computational overhead](https://en.wikipedia.org/wiki/Computational_overhead) of the [shell](https://en.wikipedia.org/wiki/Shell_(computing)).
+
+Systemd's initialization instructions for each daemon are recorded in a declarative configuration file rather than a shell script. For [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication), systemd makes [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket) and [D-Bus](https://en.wikipedia.org/wiki/D-Bus) available to the running daemons. Systemd is also capable of aggressive parallelization.
+
+### Upstart
+
+*Main article:* [Upstart (software)](https://en.wikipedia.org/wiki/Upstart_(software))
+
+The traditional init process was originally only responsible for bringing the computer into a normal running state after power-on, or gracefully shutting down services prior to shutdown. As a result, the design is strictly [synchronous](https://en.wikipedia.org/wiki/Synchronization_(computer_science)), [blocking](https://en.wikipedia.org/wiki/Blocking_(computing)) future tasks until the current one has completed. Its tasks must also be defined in advance, as they are limited to this prep or cleanup function. This leaves it unable to handle various non-startup-tasks on a modern [desktop computer](https://en.wikipedia.org/wiki/Desktop_computer).
+
+Upstart operates asynchronously; it handles starting of the tasks and services during boot and stopping them during shutdown, and also supervises the tasks and services while the system is running.
+
+Easy transition and perfect [backward compatibility](https://en.wikipedia.org/wiki/Backward_compatibility) with sysvinit were the explicit design goals;[[10\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-10) accordingly, Upstart can run unmodified sysvinit scripts. In this way it differs from most other init replacements (beside systemd and [OpenRC](https://en.wikipedia.org/wiki/OpenRC)), which usually assume and require complete transition to run properly, and do not support a mixed environment of traditional and new startup methods.[[11\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-11)
+
+Upstart allows for extensions to its event model through the use of initctl to input custom, single events, or event bridges to integrate many or more-complicated events.[[12\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-12) By default, Upstart includes bridges for socket, dbus, udev, file, and dconf events; additionally, more bridges (for example, a [Mach](https://en.wikipedia.org/wiki/Mach_(kernel)) ports bridge, or a devd (found on [FreeBSD](https://en.wikipedia.org/wiki/FreeBSD) systems) bridge) are possible.[[13\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-13)
+
+### runit
+
+*Main article:* [runit](https://en.wikipedia.org/wiki/Runit)
+
+Runit is an init scheme for Unix-like operating systems that initializes, [supervises](https://en.wikipedia.org/wiki/Process_supervision), and ends processes throughout the operating system. It is a reimplementation of the [daemontools](https://en.wikipedia.org/wiki/Daemontools)[[14\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-14) process supervision toolkit that runs on the Linux, Mac OS X, *BSD, and Solaris operating systems. Runit features parallelization of the start up of system services, which can speed up the boot time of the operating system.[[15\]](https://en.wikipedia.org/wiki/Linux_startup_process#cite_note-15)
+
+Runit is an init daemon, so it is the direct or indirect [ancestor](https://en.wikipedia.org/wiki/Child_process) of all other processes. It is the first process started during booting, and continues running until the system is shut down.
+

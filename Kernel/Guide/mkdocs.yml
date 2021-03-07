@@ -8,7 +8,7 @@ nav:
     - User-system: User-system
     - Memory-management: Memory-management
     - Read-code: Read-code
-    - Kernel-lifetime: Kernel-lifetime
+
     - Kernel-data-structure: Kernel-data-structure
     - Debug: Debug
     - Limit: Limit

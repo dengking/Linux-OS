@@ -4,6 +4,7 @@ nav:
     ########## 一些杂项、公共问题##########                  
     - Common: Common
     
+    - Philosophy: Philosophy
     ########## lib描述linux OS的重要的库等##########     
     - Lib: Lib
     
@@ -38,5 +39,6 @@ nav:
     
     - Object-file: Object-file
 
+    - Terminal: Terminal
     
     - Book-APUE: Book-APUE

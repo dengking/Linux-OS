@@ -6,3 +6,5 @@ nav:
     - 2.4-Paging-in-Hardware: 2.4-Paging-in-Hardware.md
     - 2.5-Paging-in-Linux: 2.5-Paging-in-Linux.md
     
+    - Multilevel-Paging-in-Operating-System: Multilevel-Paging-in-Operating-System.md
+    
