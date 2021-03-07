@@ -14,3 +14,6 @@ It is the direct or indirect [ancestor](https://en.wikipedia.org/wiki/Parent_pro
 > 1、它会收养"all [orphaned processes](https://en.wikipedia.org/wiki/Orphan_process)"，
 
 Init is started by the [kernel](https://en.wikipedia.org/wiki/Kernel_(computing)) during the [booting](https://en.wikipedia.org/wiki/Booting) process; a [kernel panic](https://en.wikipedia.org/wiki/Kernel_panic) will occur if the kernel is unable to start it. Init is typically assigned [process identifier](https://en.wikipedia.org/wiki/Process_identifier) 1.
+
+
+

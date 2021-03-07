@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - Set-NetworkManager-start-onboot: Set-NetworkManager-start-onboot
+    - CentOS-8-ifconfig-ens33-not-exist: CentOS-8-ifconfig-ens33-not-exist    
+    - Restart-network-service: Restart-network-service

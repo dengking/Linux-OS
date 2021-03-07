@@ -145,7 +145,7 @@ recv_fd(int fd, ssize_t (*userfunc)(int, const void *, size_t))
 
 stackoverflow [Portable way to pass file descriptor between different processes](https://stackoverflow.com/questions/909064/portable-way-to-pass-file-descriptor-between-different-processes)
 
-
+stackoverflow [Can I share a file descriptor to another process on linux or are they local to the process?](https://stackoverflow.com/questions/2358684/can-i-share-a-file-descriptor-to-another-process-on-linux-or-are-they-local-to-t)
 
 gist.github [linux file descriptors passing between processes](https://gist.github.com/2396992)
 
