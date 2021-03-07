@@ -40,7 +40,7 @@ Now suppose that the user program successfully executes the following statement:
 int fd = open("/etc/passwd", O_RDWR);
 ```
 
-The variable `fd` now contains the index of a file descriptor in the process's file descriptor table. This file descriptor *is* a capability. Its existence in the process's file descriptor table is sufficient to know that the process does indeed have legitimate(合法的) access to the object. A key feature of this arrangement is that the file descriptor table is in [kernel memory](https://en.wikipedia.org/wiki/Kernel_(computer_science)) and cannot be directly manipulated by the user program.
+The variable `fd` now contains the index of a file descriptor in the **process's file descriptor table**. This file descriptor *is* a capability. Its existence in the process's file descriptor table is sufficient to know that the process does indeed have legitimate(合法的) access to the object. A key feature of this arrangement is that the file descriptor table is in [kernel memory](https://en.wikipedia.org/wiki/Kernel_(computer_science)) and cannot be directly manipulated by the user program.
 
 ## POSIX capabilities
 

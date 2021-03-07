@@ -2,7 +2,10 @@
 
 
 
-## 维基百科[File descriptor](https://en.wikipedia.org/wiki/File_descriptor)
+## wikipedia [File descriptor](https://en.wikipedia.org/wiki/File_descriptor)
+
+> NOTE: 
+> 1、这篇文章总结的非常好
 
 In [Unix](https://en.wikipedia.org/wiki/Unix) and [related](https://en.wikipedia.org/wiki/Unix-like) computer operating systems, a **file descriptor** (**FD**, less frequently **fildes**) is an abstract indicator ([handle](https://en.wikipedia.org/wiki/Handle_(computing))) used to access a [file](https://en.wikipedia.org/wiki/File_(computing)) or other [input/output](https://en.wikipedia.org/wiki/Input/output) [resource](https://en.wikipedia.org/wiki/System_resource), such as a [pipe](https://en.wikipedia.org/wiki/Pipe_(Unix)) or [network socket](https://en.wikipedia.org/wiki/Network_socket). **File descriptors** form part of the [POSIX](https://en.wikipedia.org/wiki/POSIX) [application programming interface](https://en.wikipedia.org/wiki/Application_programming_interface). A file descriptor is a non-negative [integer](https://en.wikipedia.org/wiki/Integer), generally represented in the [C](https://en.wikipedia.org/wiki/C_(programming_language)) programming language as the type int (negative values being reserved to indicate "no value" or an error condition).
 
@@ -30,7 +33,7 @@ On [Linux](https://en.wikipedia.org/wiki/Linux), the set of file descriptors ope
 
 In [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems, file descriptors can refer to any [Unix file type](https://en.wikipedia.org/wiki/Unix_file_type) named in a file system. As well as regular files, this includes [directories](https://en.wikipedia.org/wiki/Directory_(file_systems)), [block](https://en.wikipedia.org/wiki/Block_device) and [character devices](https://en.wikipedia.org/wiki/Character_device) (also called "special files"), [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket), and [named pipes](https://en.wikipedia.org/wiki/Named_pipe). File descriptors can also refer to other objects that do not normally exist in the file system, such as [anonymous pipes](https://en.wikipedia.org/wiki/Anonymous_pipe) and [network sockets](https://en.wikipedia.org/wiki/Network_socket).
 
-***SUMMARY*** : [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file) ；从kernel实现的角度来看看待everything in Unix is file，Unix-like system是[monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel)，上面提到的这些device或者file都是由kernel来进行维护，它们都有对应的kernel structure；我们通过file descriptor来引用这些kernel structure，我们只能够通过system call来对这些kernel structure进行操作；
+> NOTE: [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file) ；从kernel实现的角度来看看待everything in Unix is file，Unix-like system是[monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel)，上面提到的这些device或者file都是由kernel来进行维护，它们都有对应的kernel structure；我们通过file descriptor来引用这些kernel structure，我们只能够通过system call来对这些kernel structure进行操作；
 
 The FILE data structure in the [C standard I/O library](https://en.wikipedia.org/wiki/Stdio) usually includes a low level file descriptor for the object in question on Unix-like systems. The overall data structure provides additional abstraction and is instead known as a *file handle.*
 
@@ -61,6 +64,10 @@ File descriptors for a single process, file table and [inode](https://en.wikiped
 
 
 ### Operations on file descriptors
+
+> NOTE: 
+>
+> 1、下面的总结非常好
 
 The following lists typical operations on file descriptors on modern [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems. Most of these functions are declared in the `<unistd.h>` header, but some are in the `<fcntl.h>` header instead.
 
@@ -195,7 +202,14 @@ A series of new operations on file descriptors has been added to many modern Uni
 
 ### File descriptors as capabilities
 
-Unix file descriptors behave in many ways as [capabilities](https://en.wikipedia.org/wiki/Capability-based_security). They can be passed between processes across [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket) using the `sendmsg()` system call. Note, however, that what is actually passed is a reference to an "open file description" that has mutable state (the file offset, and the file status and access flags). This complicates the secure use of file descriptors as capabilities, since when programs share access to the same open file description, they can interfere with each other's use of it by changing its offset or whether it is blocking or non-blocking, for example.[[6\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-6)[[7\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-7) In operating systems that are specifically designed as capability systems, there is very rarely any mutable state associated with a capability itself.
+> NOTE: 
+> 一、初次阅读下面这段话的时候，我是比较疑惑的: Linux中file descriptor的scope是process，也就是说file descriptor仅仅是在一个process内有效的，那"passed between processes"有什么意义呢？后来查阅了一些资料，发现:
+>
+> 1、是有意义的，Linux进行了特殊的实现，在`Pass-file-descriptor`章节对此进行了讨论。
+>
+> 2、由于Linux采用的是"File descriptors as capabilities"，那当passing一个file descriptor的时候，同时也就passing了"capabilities"。
+
+Unix file descriptors behave in many ways as [capabilities](https://en.wikipedia.org/wiki/Capability-based_security). They can be passed between processes across [Unix domain sockets](https://en.wikipedia.org/wiki/Unix_domain_socket) using the `sendmsg()` system call. Note, however, that what is actually passed is a reference to an "open file description" that has mutable state (the file offset, and the file status and access flags). This complicates the secure use of file descriptors as capabilities, since when programs share access to the same open file description, they can interfere(冲突、妨碍) with each other's use of it by changing its offset or whether it is blocking or non-blocking, for example.[[6\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-6)[[7\]](https://en.wikipedia.org/wiki/File_descriptor#cite_note-7) In operating systems that are specifically designed as capability systems, there is very rarely any mutable state associated with a capability itself.
 
 A Unix process' file descriptor table is an example of a [C-list](https://en.wikipedia.org/wiki/C-list_(computer_security)).
 

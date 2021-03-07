@@ -20,7 +20,7 @@ memory这种resource是非常典型的，参见[Process-memory-model](./Process-
 
 ## Process resource management
 
-process能够占有如此之多的resource，所以对resource的management是一个非常重要的内容，由于这部分内容和 programming language密切相关，且不同的programming language可能采取的方式是不同的，所以将这部分内容放到了工程[programming-language](https://dengking.github.io/programming-language/)中。
+process能够占有如此之多的resource，所以对resource的management是一个非常重要的内容，由于这部分内容和 programming language密切相关，且不同的programming language可能采取的方式是不同的，所以部分内容放到了工程[programming-language](https://dengking.github.io/programming-language/)中。
 
 
 
