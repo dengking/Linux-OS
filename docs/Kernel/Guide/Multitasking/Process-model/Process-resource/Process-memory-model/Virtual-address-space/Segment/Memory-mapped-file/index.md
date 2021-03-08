@@ -1,6 +1,10 @@
 # Memory-mapped file
 
+一、memory-mapped file的实现应该是和virtual memory的实现有些相关:
 
+1、都涉及random access memory 和 disk
+
+2、都涉及page、swap等等
 
 ## wikipedia [Memory-mapped file](https://en.wikipedia.org/wiki/Memory-mapped_file)
 
@@ -22,3 +26,53 @@ Some free portable implementations of memory-mapped files for Microsoft Windows 
 - Boost.Iostreams,[[16\]](https://en.wikipedia.org/wiki/Memory-mapped_file#cite_note-16) also in [Boost C++ Libraries](https://en.wikipedia.org/wiki/Boost_C%2B%2B_Libraries)
 - Fmstream[[17\]](https://en.wikipedia.org/wiki/Memory-mapped_file#cite_note-17)
 - Cpp-mmf[[18\]](https://en.wikipedia.org/wiki/Memory-mapped_file#cite_note-18)
+
+## stackoverflow [What are the advantages of memory-mapped files?](https://stackoverflow.com/questions/192527/what-are-the-advantages-of-memory-mapped-files)
+
+n particular, I am concerned about the following, in order of importance:
+
+- concurrency
+- random access
+- performance
+- ease of use
+- portability
+
+
+
+### [A](https://stackoverflow.com/a/192854)
+
+I think the advantage is really that you reduce the amount of data copying required over traditional methods of reading a file.
+
+> NOTE: 
+>
+> 1、这是典型的的"avoid-copy-optimization"
+
+If your application can use the data "in place" in a memory-mapped file, it can come in without being copied; if you use a system call (e.g. Linux's `pread()` ) then that typically involves the kernel copying the data from its own buffers into user space. This extra copying not only takes time, but decreases the effectiveness of the CPU's caches by accessing this extra copy of the data.
+
+If the data actually have to be read from the disc (as in physical I/O), then the OS still has to read them in, a page fault probably isn't any better performance-wise than a system call, but if they don't (i.e. already in the OS cache), performance should in theory be much better.
+
+On the downside, there's no asynchronous interface to memory-mapped files - if you attempt to access a page which isn't mapped in, it generates a page fault then makes the thread wait for the I/O.
+
+------
+
+The obvious disadvantage to memory mapped files is on a 32-bit OS - you can easily run out of address space.
+
+### [A](https://stackoverflow.com/a/192674)
+
+I have used a memory mapped file to implement an 'auto complete' feature while the user is typing. I have well over 1 million product part numbers stored in a single index file. The file has some typical header information but the bulk of the file is a giant array of fixed size records sorted on the key field.
+
+At runtime the file is memory mapped, cast to a `C`-style `struct` array, and we do a binary search to find matching part numbers as the user types. Only a few memory pages of the file are actually read from disk -- whichever pages are hit during the binary search.
+
+- Concurrency - I had an implementation problem where it would sometimes memory map the file multiple times in the same process space. This was a problem as I recall because sometimes the system couldn't find a large enough free block of virtual memory to map the file to. The solution was to only map the file once and thunk(形实转换程序) all calls to it. In retrospect using a full blown Windows service would of been cool.
+- Random Access - The binary search is certainly random access and lightning fast
+- Performance - The lookup is extremely fast. As users type a popup window displays a list of matching product part numbers, the list shrinks as they continue to type. There is no noticeable lag while typing.
+
+
+
+## How to use
+
+本节讨论如何使用memory mapped file，素材如下:
+
+1、bertvandenbroucke [Memory mapping files](https://bertvandenbroucke.netlify.app/2019/12/08/memory-mapping-files/)
+
+2、[**C++ Programming: Memory Mapped Files using RAII**](https://www.codeguru.com/cpp/article.php/c17975/C-Programming-Memory-Mapped-Files-using-RAII.htm)

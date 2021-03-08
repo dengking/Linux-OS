@@ -37,3 +37,13 @@ wikipedia [Data exchange](https://en.wikipedia.org/wiki/Data_exchange)
 ## IO可以看做是一种通信
 
 IO也可以看做是一种通信，因此，双方需要约定好协议。
+
+
+
+## IO mechanism 
+
+本节总结IO的原理，下面是一些素材:
+
+stackoverflow [What are the advantages of memory-mapped files?](https://stackoverflow.com/questions/192527/what-are-the-advantages-of-memory-mapped-files) # [A](https://stackoverflow.com/a/192854)
+
+> if you use a system call (e.g. Linux's `pread()` ) then that typically involves the kernel copying the data from its own buffers into user space. This extra copying not only takes time, but decreases the effectiveness of the CPU's caches by accessing this extra copy of the data.
