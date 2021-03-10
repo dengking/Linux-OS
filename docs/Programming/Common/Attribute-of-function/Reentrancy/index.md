@@ -14,7 +14,7 @@ microchip [Sharing global variables with multiple Interrupt Service Routines](ht
 
 1
 
-典型的例子是：函数在执行过程中，以不可预知的方式被interrupt，然后改函数又再次被执行。
+典型的例子是：函数在执行过程中，以不可预知的方式被interrupt，然后该函数又再次被执行，这样就可能发生race。
 
 2
 

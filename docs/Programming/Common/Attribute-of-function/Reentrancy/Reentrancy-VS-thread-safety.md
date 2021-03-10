@@ -35,3 +35,11 @@ c、两者都可以使用atomicity来保护"the one"
 
 
 在 wikipedia [Reentrancy (computing)](https://en.wikipedia.org/wiki/Reentrancy_(computing)) 中的几个example是非常好的。
+
+
+
+## 素材
+
+stackoverflow [Why are malloc() and printf() said as non-reentrant?](https://stackoverflow.com/questions/3941271/why-are-malloc-and-printf-said-as-non-reentrant)
+
+这篇文章 非常好
