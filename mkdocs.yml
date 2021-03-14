@@ -257,7 +257,7 @@ nav:
     - Conventions: Programming/Common/Conventions.md
     - Time-and-space: Programming/Common/Time-and-space.md
     - Classification-of-system-call:
-      - Classification-of-system-call: Programming/Common/Classification-of-system-call/Classification-of-system-call.md
+      - Introduction: Programming/Common/Classification-of-system-call/index.md
       - Polling-(computer-science): Programming/Common/Classification-of-system-call/Polling-(computer-science).md
     - Attribute-of-function:
       - Introduction: Programming/Common/Attribute-of-function/index.md
