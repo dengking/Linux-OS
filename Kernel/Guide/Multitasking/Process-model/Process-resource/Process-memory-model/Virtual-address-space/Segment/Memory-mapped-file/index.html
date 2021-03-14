@@ -1237,6 +1237,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stackoverflow#what#are#the#advantages#of#memory-mapped#files" class="md-nav__link">
+    stackoverflow What are the advantages of memory-mapped files?
+  </a>
+  
+    <nav class="md-nav" aria-label="stackoverflow What are the advantages of memory-mapped files?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    A
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a_1" class="md-nav__link">
+    A
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how#to#use" class="md-nav__link">
+    How to use
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4190,7 +4224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../../../../../Programming/Common/Classification-of-system-call/Classification-of-system-call/" class="md-nav__link">
+      <a href="../../../../../../../../../Programming/Common/Classification-of-system-call/Classification-of-system-call.md" class="md-nav__link">
         Classification-of-system-call
       </a>
     </li>
@@ -12486,6 +12520,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#stackoverflow#what#are#the#advantages#of#memory-mapped#files" class="md-nav__link">
+    stackoverflow What are the advantages of memory-mapped files?
+  </a>
+  
+    <nav class="md-nav" aria-label="stackoverflow What are the advantages of memory-mapped files?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    A
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a_1" class="md-nav__link">
+    A
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how#to#use" class="md-nav__link">
+    How to use
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -12500,6 +12568,9 @@
                 
                 
                 <h1 id="memory-mapped#file">Memory-mapped file</h1>
+<p>一、memory-mapped file的实现应该是和virtual memory的实现有些相关:</p>
+<p>1、都涉及random access memory 和 disk</p>
+<p>2、都涉及page、swap等等</p>
 <h2 id="wikipedia#memory-mapped#file">wikipedia <a href="https://en.wikipedia.org/wiki/Memory-mapped_file">Memory-mapped file</a></h2>
 <p>A <strong>memory-mapped file</strong> is a segment of <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual memory</a>[<a href="https://en.wikipedia.org/wiki/Memory-mapped_file#cite_note-:0-1">1]</a> that has been assigned a direct byte-for-byte correlation with some portion of a file or file-like resource. This resource is typically a file that is physically present on disk, but can also be a device, shared memory object, or other resource that the <a href="https://en.wikipedia.org/wiki/Operating_system">operating system</a> can reference through a <a href="https://en.wikipedia.org/wiki/File_descriptor">file descriptor</a>. Once present, this correlation between the file and the memory space permits applications to treat the mapped portion as if it were primary memory.</p>
 <h3 id="common#uses">Common uses</h3>
@@ -12516,6 +12587,38 @@
 <li>Fmstream[<a href="https://en.wikipedia.org/wiki/Memory-mapped_file#cite_note-17">17]</a></li>
 <li>Cpp-mmf[<a href="https://en.wikipedia.org/wiki/Memory-mapped_file#cite_note-18">18]</a></li>
 </ul>
+<h2 id="stackoverflow#what#are#the#advantages#of#memory-mapped#files">stackoverflow <a href="https://stackoverflow.com/questions/192527/what-are-the-advantages-of-memory-mapped-files">What are the advantages of memory-mapped files?</a></h2>
+<p>n particular, I am concerned about the following, in order of importance:</p>
+<ul>
+<li>concurrency</li>
+<li>random access</li>
+<li>performance</li>
+<li>ease of use</li>
+<li>portability</li>
+</ul>
+<h3 id="a"><a href="https://stackoverflow.com/a/192854">A</a></h3>
+<p>I think the advantage is really that you reduce the amount of data copying required over traditional methods of reading a file.</p>
+<blockquote>
+<p>NOTE: </p>
+<p>1、这是典型的的"avoid-copy-optimization"</p>
+</blockquote>
+<p>If your application can use the data "in place" in a memory-mapped file, it can come in without being copied; if you use a system call (e.g. Linux's <code>pread()</code> ) then that typically involves the kernel copying the data from its own buffers into user space. This extra copying not only takes time, but decreases the effectiveness of the CPU's caches by accessing this extra copy of the data.</p>
+<p>If the data actually have to be read from the disc (as in physical I/O), then the OS still has to read them in, a page fault probably isn't any better performance-wise than a system call, but if they don't (i.e. already in the OS cache), performance should in theory be much better.</p>
+<p>On the downside, there's no asynchronous interface to memory-mapped files - if you attempt to access a page which isn't mapped in, it generates a page fault then makes the thread wait for the I/O.</p>
+<hr />
+<p>The obvious disadvantage to memory mapped files is on a 32-bit OS - you can easily run out of address space.</p>
+<h3 id="a_1"><a href="https://stackoverflow.com/a/192674">A</a></h3>
+<p>I have used a memory mapped file to implement an 'auto complete' feature while the user is typing. I have well over 1 million product part numbers stored in a single index file. The file has some typical header information but the bulk of the file is a giant array of fixed size records sorted on the key field.</p>
+<p>At runtime the file is memory mapped, cast to a <code>C</code>-style <code>struct</code> array, and we do a binary search to find matching part numbers as the user types. Only a few memory pages of the file are actually read from disk -- whichever pages are hit during the binary search.</p>
+<ul>
+<li>Concurrency - I had an implementation problem where it would sometimes memory map the file multiple times in the same process space. This was a problem as I recall because sometimes the system couldn't find a large enough free block of virtual memory to map the file to. The solution was to only map the file once and thunk(形实转换程序) all calls to it. In retrospect using a full blown Windows service would of been cool.</li>
+<li>Random Access - The binary search is certainly random access and lightning fast</li>
+<li>Performance - The lookup is extremely fast. As users type a popup window displays a list of matching product part numbers, the list shrinks as they continue to type. There is no noticeable lag while typing.</li>
+</ul>
+<h2 id="how#to#use">How to use</h2>
+<p>本节讨论如何使用memory mapped file，素材如下:</p>
+<p>1、bertvandenbroucke <a href="https://bertvandenbroucke.netlify.app/2019/12/08/memory-mapping-files/">Memory mapping files</a></p>
+<p>2、<a href="https://www.codeguru.com/cpp/article.php/c17975/C-Programming-Memory-Mapped-Files-using-RAII.htm"><strong>C++ Programming: Memory Mapped Files using RAII</strong></a></p>
                 
               
               

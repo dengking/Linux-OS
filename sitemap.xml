@@ -1,1711 +1,1707 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://dengking.github.io/Linux-OS/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Architecture-of-computing-system/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Operating-system/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Unix-standardization-and-implementation/Unix-standardization-and-implementation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Unix-standardization-and-implementation/The-open-group/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Unix-standardization-and-implementation/Unix-%26-Unix-like-%26-Linux/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Kernel/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Architecture/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Interaction-with-hardware/Linux-OS-kernel-is-event-driven/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Interaction-with-hardware/Kernel-control-path-and-reentrant-kernel/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Interaction-with-hardware/Linux-OS-interrupt-and-interrupte-handler/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process/Process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process/Process-table/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process/Process-control-block/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process/Thread/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-execution-model/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/System-resource/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Thinking/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/BSS/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Data-segment/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Code-segment/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Heap/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Stack-VS-heap/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Stack-VS-heap/Operation-on-stack-VS-on-heap/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Virtual-address-space/Segment/Memory-mapped-file/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Program-break/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/The-stack-registers-and-assembly-code/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/Chapter-0-C-strings%26proc-filesystem/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/Chapter-2-Drawing-the-VM-diagram/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Holberton-Hack-the-virtual-memory/Chapter-3-malloc-the-heap%26the-program-break/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Verification/Output-virtual-memory-space/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/System-call/sbrk/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/System-call/mmap/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Size/Unix-virtual-address-space/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-memory-model/Linux-implementation/Size/Virtual-address-space-size-reading-list/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-resource/Process-file-resource/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-lifetime/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Process-lifetime/opensourceforu-The-Life-of-a-Process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Process-model/Linux-implementation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Sched/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Sched/Preemptive-multitasking/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Sched/Preemptive-multitasking/Kernel-preemption/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Sched/Cooperative-multitasking/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Sched/man-7-sched/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Sched/Context-switch/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Sched/Unix-Scheduler-and-Dispatcher/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Multitasking/Sched/Processor-affinity/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Kernel-Task-model/Control-path-%26-Context-%26-Context-switch/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/User-system/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Memory-protection/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Paging/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Virtual-memory/Paging/Unix-system-page-size/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Difference-Between-Paging-and-Segmentation-in-OS/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Fragmentation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Fragmentation/Heap-fragmentation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Fragmentation/Heap-fragmentation/TODO-design-reuse-Dynamic-Memory-Allocation-and-Fragmentation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Memory-management/Fragmentation/Defragmentation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Read-code/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Kernel-data-structure/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Debug/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Debug/System.map/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Debug/oops/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Limit/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Limit/Limit-via-configuration/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Limit/Limit-via-system-call/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Limit/Ulimit/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Limit/Process-resource-limits-under-the-hood/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/Entry-point-of-kernel/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/init-process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/init-process/SysVinit/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/init-process/TODO-Upstart/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/Service-management/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/Service-management/TODO-Service-run-level/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/Service-management/init.d-service-management/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/Service-management/systemd/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-startup-process/Service-management/systemd/systemd-service/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.2-Hardware-Dependency/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.4-Basic-Operating-System-Concepts/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6-An-Overview-of-Unix-Kernels/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.1-The-Process-Kernel-Model/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.2-Process-Implementation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.3-Reentrant-Kernels/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.4-Process-Address-Space/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.5-Synchronization-and-Critical-Regions/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.6-Signals-and-Interprocess-Communication/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.7-Process-Management/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.8-Memory-Management/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.9-Device-Drivers/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Giant-lock/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Chapter-2-Memory-Addressing/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.1-Memory-Addresses/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.2-Segmentation-in-Hardware/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.3-Segmentation-in-Linux/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.5-Paging-in-Linux/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Multilevel-Paging-in-Operating-System/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/Chapter-3-Processes/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2-Process-Descriptor/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.1-Process-State/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2-Identifying-a-Process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.1-Process-descriptors-handling/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.2-Identifying-the-current-process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.3-Doubly-linked-lists/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.4-The-process-list/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.5-The-lists-of-TASK_RUNNING-processes/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.3-Relationships-Among-Processes/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.4-How-Processes-Are-Organized/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.5-Process-Resource-Limits/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.3-Process-Switch/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4.2-Kernel-Threads/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/wikipedia-Copy-on-write/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.2-Interrupts-and-Exceptions/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.4-Initializing-the-Interrupt-Descriptor-Table/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.5-Exception-Handling/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.6-Interrupt-Handling/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Trap/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.1-Clock-and-Timer-Circuits/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.2-The-Linux-Timekeeping-Architecture/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.4-Updating-System-Statistics/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/Chapter-8-Memory-Management/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/8.1-Page-Frame-Management/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process%27s-Address-Space/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Conventions/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Time-and-space/</loc>
-     <lastmod>2021-03-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://dengking.github.io/Linux-OS/Programming/Common/Classification-of-system-call/Classification-of-system-call/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Classification-of-system-call/Polling-%28computer-science%29/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Attribute-of-function/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Attribute-of-function/Reentrancy/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Attribute-of-function/Reentrancy/wikipedia-Reentrancy/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Attribute-of-function/Reentrancy/Reentrancy-VS-thread-safety/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Attribute-of-function/Idempotence/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Path-resolution/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Errorno/man-3-errorno/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Errorno/EAGAIN/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Common/Errorno/EEXIST/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Philosophy/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Philosophy/Unix-philosophy/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Philosophy/Everything-is-a-file/Everything-is-a-file/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Philosophy/Everything-is-a-file/File-descriptor/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Philosophy/Everything-is-a-file/File-descriptor/TODO-Pass-file-descriptor/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Lib/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Lib/Glibc/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Lib/Glibc/Glibc/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Lib/Glibc/The-GNU-C-Library/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Organization-of-process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Organization-of-process/Organization-of-process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Organization-of-process/man-7-cgroups/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Process-state/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Exit/Process-exit/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Daemon/man-7-daemon/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Daemon/man-3-daemon/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Daemon/python-run-script-as-daemon/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/Proc-filesystem/man-5-proc/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/IPC/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/IPC/System-V-IPC/man-7-SVIPC/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/IPC/System-V-IPC/Semaphore/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/IPC/POSIX-semaphores/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/IPC/POSIX-message-queues/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/IPC/Unix/man-7-unix/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/IPC/Tools/ipcs/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Process/IPC/Tools/ipcrm/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Thread/man-7-pthreads/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Thread/man-7-attributes/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Thread/Thread-model/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Thread/Synchronization/Barrier/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Thread/Synchronization/Condition-variables/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Thread/Synchronization/TODO-futex/TODO-index/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Implementation-Clone/TODO-index/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Sched/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Sched/Sched/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Sched/Tool/taskset/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Capabilities/Capabilities/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Credential/man-7-credentials/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/procps/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/procps/ps/man-1-ps/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/procps/ps/Wait-channel/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/procps/ps/wikipedia-ps%28Unix%29/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/procps/top/top/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/procps/top/htop/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/procps/pgrep/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Multitasking/Tools/procps/pstree/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/Input-output/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/IO-models/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/Asynchronous-IO/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/IO-multiplexing/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/IO-multiplexing/What-is-multiplexing/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/IO-multiplexing/What-is-IO-multiplexing/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/IO-multiplexing/What-is-IO-multiplexing/zhihu-What-is-IO-multiplexing/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/IO-multiplexing/Implementation-in-OS/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/IO-multiplexing/Multiplex-on-file-and-time-event/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/IO-multiplexing/Epoll/man-7-epoll/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/Blocking-and-non-blocking-VS-sync-and-async/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-model/Blocking-IO-VS-Nonblocking-IO/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-%E6%B5%81%E6%B4%BE/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-%E6%B5%81%E6%B4%BE/Stream/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-%E6%B5%81%E6%B4%BE/Stream/Standard-streams/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/IO-%E6%B5%81%E6%B4%BE/VS-stream-VS-fd/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/File-system/Unix-filesystem/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/File-system/man-7-file-hierarchy/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/File-system/Inode/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/File-system/man-2-stat/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/File-system/File-type/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/File-system/Tools/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Open/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Read/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Fcntl/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Lock/File-locking/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Lock/man-2-flock/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Lock/File-Locking%28Advisory-Mandatory-Lock-Examples%29/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Notify/Inotify/man-7-inotify/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Notify/Fanotify/man-7-fanotify/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Notify/Notify-via-fd/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Eventfd/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Timefd/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/File-IO/File-format/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/Network-IO/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/Tools/lsof/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/IO/Tools/fuser/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Time/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Time/Date-and-Time/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Time/man-clock_gettime/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Signal/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Signal/Signal-note/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Virtualization/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Virtualization/Virtualization/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Virtualization/Virtualization/Memory-virtualization/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Virtualization/Linux-containers/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Virtualization/Linux-namespaces/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Virtualization/Linux-namespaces/Linux-Namespaces/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Virtualization/Linux-namespaces/man-7-namespaces/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Virtualization/Linux-control-groups/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Util/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Util/Log/Linux-log-files/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Util/Log/Syslog/Syslog/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Terminal/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Computer-errors/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Computer-errors/CWE/CWE/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Computer-errors/Memory-access-error/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Kernel-module/Loadable-kernel-module/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Kernel-module/Tool/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/ELF/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/ELF/Classification-of-object-file/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/ELF/man-5-elf/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/ELF/Tools/man-1-strip/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/ELF/Tools/man-1-readelf/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/ELF/Tools/man-1-objdump/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/ELF/Tools/man-1-addr2line/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/Shared-library/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/Shared-library/Symbol-of-shared-library/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/Shared-library/Tools/ldd/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/Symbol/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Object-file/Symbol/nm/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Book-APUE/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Book-APUE/10-Signals/10.6-Reentrant-Functions/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Book-APUE/Race-condition/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Programming/Book-APUE/Reentrant-and-async-signal-safety-and-thread-safety/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Network-protocol-model/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/RCF/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/Transmission-Control-Protocol/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/SEQ-and-ACK/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/TCP-connection/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/TCP-connection/Connection-establishment/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/TCP-connection/Connection-termination/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/TCP-data-transfer/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/TCP-data-transfer/Nagle%27s-algorithm/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/TCP-data-transfer/TCP-segment-of-a-reassembled-PDU/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/man-7-TCP/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP/TCP-troubleshoot/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TODO-UDP/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/MAC-address/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/TCP-VS-UDP/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Message-boundary/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/Design/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/Protocol-data-format/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/Protocol-data-format/Binary-VS-textual/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/Protocol-data-format/IDL/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/Protocol-data-format/IDL/Schema-evaluation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/Protocol-data-format/IDL/Thrift/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/Protocol-data-format/IDL/Thrift/Thrift-Scalable-Cross-Language-Services-Implementation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Protocol/Application-protocol/Protocol-data-format/IDL/Protobuf/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Programming/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Programming/Socket/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Programming/man-7-socket/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Programming/Reconnect/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Programming/Send-file/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/Packet-analyzer/Packet-analyzer/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/Packet-analyzer/tcpdump/tcpdump/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/Packet-analyzer/Wireshark/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/Packet-analyzer/TODO-ngrep/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/netstat/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/iproute2/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/nmap/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/Port-in-use/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/Port-opened-by-process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/TODO-Troubleshoot-local-network/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/TODO-Troubleshoot-remote-network/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Tools/TODO-Troubleshoot-packet-loss/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Centos-network/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Centos-network/Set-NetworkManager-start-onboot/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Centos-network/CentOS-8-ifconfig-ens33-not-exist/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Network/Centos-network/Restart-network-service/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Security/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Security/Capability-based-security/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Shell/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Shell/Run-command/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/GNU-toolchain/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Dmesg/Dmesg/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Dmesg/Dmesg-format/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Dmesg/Dmesg-segfaulting/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Rsync/Rsync/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/Debugger/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/Trap/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/Trace/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/Abstraction-in-GDB/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/Structure-in-GDB/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Guide-to-controlling-process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Guide-to-examining-data/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Point-in-GDB/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Shared-library/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Function/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Automate/Gdb-automate-debug/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-assembly/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/gdb-primer/gdb-primer/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Args/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-HS-middleware/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/2-Getting-In-and-Out-of-gdb/2-Getting-In-and-Out-of-gdb/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/4-Running-Programs-Under-gdb/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/Show-thread-start-rtn/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/Race-condition/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5-Stopping-and-Continuing/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5.5-Stopping-and-Starting-Multi-thread-Programs/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/Breakpoint-conditional-expressions/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/6-Running-programs-backward/6-Running-programs-backward/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/7-Recording-Inferior%27s-Execution-and-Replaying-It/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/8-Examining-the-Stack/8-Examining-the-Stack/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/9-Examining-Source-Files/9-Examining-Source-Files/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.11-Convenience-Variables/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.13-Registers/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.19-Produce-a-Core-File-from-Your-Program/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/11-Debugging-Optimized-Code/11-Debugging-Optimized-Code/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/13-Tracepoints/Tracepoints/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/15-Using-GDB-with-Different-Languages/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/15-Using-GDB-with-Different-Languages/15.4-Supported-Languages/C-family-language/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/16-Examining-the-Symbol-Table/Symbol-table/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/18-gdb-Files/18-gdb-Files/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/19-Specifying-a-Debugging-Target/19-Specifying-a-Debugging-Target/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/23-Extending-GDB/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/GDB/Debugging-with-gdb/25-gdb-Text-User-Interface/25-gdb-Text-User-Interface/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/Stack-trace/Stack-trace/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/Stack-trace/pstack/pstack/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/System-call-trace/ptrace/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/System-call-trace/strace/strace/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/Library-call-tracer/ltrace/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/Application/Stuck-process/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Debug/Application/Dead-lock/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/System-load/System-Load/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/System-load/uptime/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/System-load/Troubleshoot-disk-IO-bottleneck/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/System-load/Troubleshoot-CPU-bound-bottleneck/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/perf/perf/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/perf/Linux-kernel-profiling-with-perf/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/perf/expert-Brendan-D-Gregg/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/sysstat/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Performance/sysstat/iostat/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Build/Autoconf/Autoconf/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Build/Automake/Automake/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Build/Autotools-Mythbuster/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Build/Make/Make-and-makefile/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Build/Make/Makefile/Makefile/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Build/Make/Makefile/Code/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Build/Make/Makefile/Code/Code1/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Build/Make/Makefile/Code/Code2/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Hardware/lshw/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Hardware/CPU/lscpu/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Cron/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Misc/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Misc/Valgrind/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Misc/gperftools/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Shell-and-tools/Tools/Misc/gperftools/Heap-checker/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Linux-Foundation/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Linux-Foundation/Linux-Foundation-Referenced-Specifications/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Linux-Foundation/LSB-Core/LSB-Core/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Linux-OS/Linux-Foundation/LSB-Core/librt/</loc>
-     <lastmod>2021-03-07</lastmod>
+     <lastmod>2021-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

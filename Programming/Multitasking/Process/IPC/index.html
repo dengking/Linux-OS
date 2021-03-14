@@ -4116,7 +4116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Common/Classification-of-system-call/Classification-of-system-call/" class="md-nav__link">
+      <a href="../../../Common/Classification-of-system-call/Classification-of-system-call.md" class="md-nav__link">
         Classification-of-system-call
       </a>
     </li>
@@ -5047,6 +5047,19 @@
   <a href="#wikipedia#inter-process#communication" class="md-nav__link">
     wikipedia Inter-process communication
   </a>
+  
+    <nav class="md-nav" aria-label="wikipedia Inter-process communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approaches" class="md-nav__link">
+    Approaches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -12454,6 +12467,19 @@
     wikipedia Inter-process communication
   </a>
   
+    <nav class="md-nav" aria-label="wikipedia Inter-process communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#approaches" class="md-nav__link">
+    Approaches
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -12491,6 +12517,73 @@
                 
                 <h1 id="inter-process#communication">Inter-process communication</h1>
 <h2 id="wikipedia#inter-process#communication">wikipedia <a href="https://en.wikipedia.org/wiki/Inter-process_communication">Inter-process communication</a></h2>
+<h3 id="approaches">Approaches</h3>
+<table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="center">Short Description</th>
+<th align="center">Provided by (<a href="https://en.wikipedia.org/wiki/Operating_system">operating systems</a> or other environments)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Computer_file">File</a></td>
+<td align="center">A record stored on disk, or a record synthesized on demand by a file server, which can be accessed by multiple processes.</td>
+<td align="center">Most operating systems</td>
+</tr>
+<tr>
+<td align="center">Communications file</td>
+<td align="center">A unique form of IPC in the late-1960s that most closely resembles <a href="https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs">Plan 9</a>'s <a href="https://en.wikipedia.org/wiki/9P_(protocol)">9P protocol</a></td>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Dartmouth_Time-Sharing_System">Dartmouth Time-Sharing System</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Signal_(computing)">Signal</a>; also <a href="https://en.wikipedia.org/wiki/Asynchronous_System_Trap">Asynchronous System Trap</a></td>
+<td align="center">A system message sent from one process to another, not usually used to transfer data but instead used to remotely command the partnered process.</td>
+<td align="center">Most operating systems</td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Network_socket">Socket</a></td>
+<td align="center">Data sent over a network interface, either to a different process on the same computer or to another computer on the network. Stream-oriented (<a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>; data written through a socket requires formatting to preserve message boundaries) or more rarely message-oriented (<a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a>, <a href="https://en.wikipedia.org/wiki/SCTP">SCTP</a>).</td>
+<td align="center">Most operating systems</td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Unix_domain_socket">Unix domain socket</a></td>
+<td align="center">Similar to an internet socket, but all communication occurs within the kernel. Domain sockets use the file system as their address space. Processes reference a domain socket as an <a href="https://en.wikipedia.org/wiki/Inode">inode</a>, and multiple processes can communicate with one socket</td>
+<td align="center">All POSIX operating systems and Windows 10[<a href="https://en.wikipedia.org/wiki/Inter-process_communication#cite_note-3">3]</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Message_queue">Message queue</a></td>
+<td align="center">A data stream similar to a socket, but which usually preserves message boundaries. Typically implemented by the operating system, they allow multiple processes to read and write to the <a href="https://en.wikipedia.org/wiki/Message_queue">message queue</a> without being directly connected to each other.</td>
+<td align="center">Most operating systems</td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Anonymous_pipe">Anonymous pipe</a></td>
+<td align="center">A unidirectional data channel using <a href="https://en.wikipedia.org/wiki/Stdin">standard input and output</a>. Data written to the write-end of the pipe is buffered by the operating system until it is read from the read-end of the pipe. Two-way communication between processes can be achieved by using two pipes in opposite "directions".</td>
+<td align="center">All <a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> systems, Windows</td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Named_pipe">Named pipe</a></td>
+<td align="center">A pipe that is treated like a file. Instead of using standard input and output as with an anonymous pipe, processes write to and read from a named pipe, as if it were a regular file.</td>
+<td align="center">All POSIX systems, Windows, AmigaOS 2.0+</td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Shared_memory_(interprocess_communication)">Shared memory</a></td>
+<td align="center">Multiple processes are given access to the same block of <a href="https://en.wikipedia.org/wiki/Memory_(computing)">memory</a>, which creates a shared buffer for the processes to communicate with each other.</td>
+<td align="center">All POSIX systems, Windows</td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Message_passing">Message passing</a></td>
+<td align="center">Allows multiple programs to communicate using message queues and/or non-OS managed channels. Commonly used in concurrency models.</td>
+<td align="center">Used in <a href="https://en.wikipedia.org/wiki/Local_Inter-Process_Communication">LPC</a>, <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a>, <a href="https://en.wikipedia.org/wiki/Remote_method_invocation">RMI</a>, and <a href="https://en.wikipedia.org/wiki/Message_Passing_Interface">MPI</a> paradigms, <a href="https://en.wikipedia.org/wiki/Java_RMI">Java RMI</a>, <a href="https://en.wikipedia.org/wiki/CORBA">CORBA</a>, <a href="https://en.wikipedia.org/wiki/Component_Object_Model">COM</a>, <a href="https://en.wikipedia.org/wiki/Data_Distribution_Service">DDS</a>, <a href="https://en.wikipedia.org/wiki/Microsoft_Message_Queuing">MSMQ</a>, <a href="https://en.wikipedia.org/wiki/MailSlot">MailSlots</a>, <a href="https://en.wikipedia.org/wiki/QNX">QNX</a>, others</td>
+</tr>
+<tr>
+<td align="center"><a href="https://en.wikipedia.org/wiki/Memory-mapped_file">Memory-mapped file</a></td>
+<td align="center">A file mapped to <a href="https://en.wikipedia.org/wiki/RAM">RAM</a> and can be modified by changing memory addresses directly instead of outputting to a stream. This shares the same benefits as a standard <a href="https://en.wikipedia.org/wiki/File_(computing)">file</a>.</td>
+<td align="center">All POSIX systems, Windows</td>
+</tr>
+</tbody>
+</table>
 <h2 id="library">Library</h2>
 <h3 id="boostinterprocess">Boost.Interprocess</h3>
 <p><a href="https://www.boost.org/">https://www.boost.org/</a></p>
