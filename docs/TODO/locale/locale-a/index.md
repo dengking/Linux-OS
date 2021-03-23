@@ -1,0 +1,1 @@
+# man7 [locale(1) — Linux manual page](https://man7.org/linux/man-pages/man1/locale.1.html)
