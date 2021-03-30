@@ -1,4 +1,4 @@
 nav:
     - Introduction: index.md
-    - Stream: Stream
+    - Stream-based-IO: Stream-based-IO
     - VS-stream-VS-fd: VS-stream-VS-fd.md
