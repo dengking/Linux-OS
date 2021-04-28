@@ -57,6 +57,18 @@ TARGET       = $(OUT_DIR)/libTest.so
 #TARGET_TYPE  := app
 TARGET_TYPE  := so
 
+ifdef DEBUG
+DEFS           += -D_DEBUG
+else
+OPTIMIZE       += -O2
+endif
+
+#for gcov version flags
+ifdef GCOV 
+EXTRA_CFLAGS   += -fprofile-arcs -ftest-coverage
+EXTRA_LIBS     += -lgcov
+endif
+
 
 #####################################################################################
 #  Do not change any part of them unless you have understood this script very well  #
