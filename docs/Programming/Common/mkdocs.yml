@@ -1,6 +1,5 @@
 nav:
     - Conventions: Conventions.md
-    - Time-and-space: Time-and-space.md
     - Classification-of-system-call: Classification-of-system-call
     - Attribute-of-function: Attribute-of-function
     - Safety: Safety.md
