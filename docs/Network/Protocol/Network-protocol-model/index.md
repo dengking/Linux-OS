@@ -17,7 +17,7 @@ The **Open Systems Interconnection model** (**OSI model**) is a [conceptual mode
 
 > NOTE: 需要和[Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)对比着来看。
 
-A layer serves the layer above it and is served by the layer below it. For example, a layer that provides error-free communications across a network provides the **path** needed by applications above it, while it calls the next lower layer to send and receive packets that constitute（组成） the contents of that **path**. Two instances at the same layer are visualized as connected by a *horizontal* connection in that layer.
+A layer serves the layer above it and is served by the layer below it. For example, a layer that provides error-free communications across a network provides the **path** needed by applications **above** it, while it calls the next **lower** layer to send and receive packets that constitute（组成） the contents of that **path**. Two instances at the same layer are visualized as connected by a *horizontal* connection in that layer.
 
 > NOTE: 这段话从横向和纵向对OSI的各层之间的关系进行了描述。
 
@@ -31,9 +31,13 @@ The model is a product of the [Open Systems Interconnection](https://en.wikipedi
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/OSI-model-Communication.svg/400px-OSI-model-Communication.svg.png)
 
+![](OSI-model-seven-layer.png)
 
 
 
+> NOTE: 
+>
+> 上图截取自 csdn [【学习】计算机网络重点知识点面试突击（一）](https://blog.csdn.net/qq_21407523/article/details/114195378) 
 
 Communication in the OSI-Model (example with layers 3 to 5)
 
@@ -61,9 +65,29 @@ The **Internet protocol suite** is the [conceptual model](https://en.wikipedia.o
 
 > NOTE: 需要注意的是， **Internet protocol suite**才是真正用于Internet的，而不是[OSI model](https://en.wikipedia.org/wiki/OSI_model) 。
 
-**The Internet protocol suite** provides [end-to-end data communication](https://en.wikipedia.org/wiki/End-to-end_principle) specifying how data should be packetized, addressed, transmitted, [routed](https://en.wikipedia.org/wiki/Routing), and received. This functionality is organized into four [abstraction layers](https://en.wikipedia.org/wiki/Abstraction_layer), which classify all related protocols according to the **scope** of networking involved.[[1\]](https://en.wikipedia.org/wiki/Internet_protocol_suite#cite_note-1)[[2\]](https://en.wikipedia.org/wiki/Internet_protocol_suite#cite_note-2) From lowest to highest, the layers are the [link layer](https://en.wikipedia.org/wiki/Link_layer), containing communication methods for data that remains within a single **network segment** (link); the [internet layer](https://en.wikipedia.org/wiki/Internet_layer), providing [internetworking](https://en.wikipedia.org/wiki/Internetworking) between independent networks; the [transport layer](https://en.wikipedia.org/wiki/Transport_layer), handling **host-to-host communication**; and the [application layer](https://en.wikipedia.org/wiki/Application_layer), providing **process-to-process data exchange** for applications.
+**The Internet protocol suite** provides [end-to-end data communication](https://en.wikipedia.org/wiki/End-to-end_principle) specifying how data should be packetized(打包), addressed(编址), transmitted(传输), [routed](https://en.wikipedia.org/wiki/Routing), and received(接收). This functionality is organized into four [abstraction layers](https://en.wikipedia.org/wiki/Abstraction_layer)(共四层), which classify all related protocols according to the **scope** of networking involved.[[1\]](https://en.wikipedia.org/wiki/Internet_protocol_suite#cite_note-1)[[2\]](https://en.wikipedia.org/wiki/Internet_protocol_suite#cite_note-2) From lowest to highest, the layers are 
 
+1、the [link layer](https://en.wikipedia.org/wiki/Link_layer), containing communication methods for data that remains within a single **network segment** (link); 
 
+2、the [internet layer](https://en.wikipedia.org/wiki/Internet_layer), providing [internetworking](https://en.wikipedia.org/wiki/Internetworking) between independent networks; 
+
+> NOTE: 
+>
+> 网络层
+
+3、the [transport layer](https://en.wikipedia.org/wiki/Transport_layer), handling **host-to-host communication**; and 
+
+> NOTE: 
+>
+> 传输层
+
+4、the [application layer](https://en.wikipedia.org/wiki/Application_layer), providing **process-to-process data exchange** for applications.
+
+> NOTE: 
+>
+> " [end-to-end data communication](https://en.wikipedia.org/wiki/End-to-end_principle) "所链接的是 [End-to-end principle](https://en.wanweibaike.com/wiki-End-to-end%20principle)，它的核心思想是:
+>
+> The **end-to-end principle** is a design framework in [computer networking](https://en.wanweibaike.com/wiki-Computer_network). In [networks designed](https://en.wanweibaike.com/wiki-Network_planning_and_design) according to this principle, application-specific features reside in the communicating [end nodes](https://en.wanweibaike.com/wiki-End_node) of the network, rather than in intermediary nodes, such as [gateways](https://en.wanweibaike.com/wiki-Gateway_(telecommunications)) and [routers](https://en.wanweibaike.com/wiki-Router_(computing)), that exist to establish the network.
 
 The [technical standards](https://en.wikipedia.org/wiki/Technical_standard) underlying the Internet protocol suite and its constituent protocols are maintained by the [Internet Engineering Task Force](https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force) (IETF). The **Internet protocol suite** predates（早于） the [OSI model](https://en.wikipedia.org/wiki/OSI_model), a more comprehensive reference framework for general networking systems.
 
@@ -125,7 +149,7 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 
 
-### Max length of PUD
+### Max length of PDU
 
 前面介绍了PUC，与它相关的另外一个问题是：它的最大长度；
 
@@ -159,14 +183,15 @@ Reassemble 重新装配、重新集合
 
 显然两者描述的是相反的过程。
 
-不同PUD的最大长度可能不同，这就导致了Disassemble / Reassemble问题，下面是一些与此相关的内容:
+不同PDU的最大长度可能不同，这就导致了Disassemble / Reassemble问题，下面是一些与此相关的内容:
 
-- [IP fragmentation](https://en.wikipedia.org/wiki/IP_fragmentation)
-- TCP segment of a reassembled PDU（在`Network\Theory\TCPTCP-segment-of-a-reassembled-PDU.md`中，对这个问题进行了讨论）
+1、[IP fragmentation](https://en.wikipedia.org/wiki/IP_fragmentation)
+
+2、TCP segment of a reassembled PDU（在`Network\Theory\TCPTCP-segment-of-a-reassembled-PDU`中，对这个问题进行了讨论）
 
 
 
-### Descend
+### Descend(向下)
 
 涉及到的操作有: 
 
@@ -182,7 +207,7 @@ Encapsulation of application data descending through the layers described in [RF
 
 
 
-### Ascend: Unpack/Expose
+### Ascend(向上): Unpack/Expose
 
 自底向上的过程和自顶向下的过程转换相反，它是涉及到的操作有:
 

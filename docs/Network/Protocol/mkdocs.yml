@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
 
-    - Network-protocol-model: Network-protocol-model.md
+    - Network-protocol-model: Network-protocol-model
     - RCF: RCF.md
     - TCP: TCP
     - TODO-UDP: TODO-UDP
