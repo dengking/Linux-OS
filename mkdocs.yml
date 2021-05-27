@@ -190,8 +190,7 @@ nav:
   - Book-Understanding-the-Linux-Kernel:
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
-      - Chapter-1-Introduction:
-        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction/index.md
+      - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/index.md
       - 1.1-Linux-Versus-Other-Unix-Like-Kernels:
         - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/index.md
         - Giant-lock: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/Giant-lock.md
@@ -220,53 +219,83 @@ nav:
       - 1.6.9-Device-Drivers:
         - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.9-Device-Drivers/index.md
     - Chapter-2-Memory-Addressing:
-      - Chapter-2-Memory-Addressing: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Chapter-2-Memory-Addressing.md
-      - 2.1-Memory-Addresses: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.1-Memory-Addresses.md
-      - 2.2-Segmentation-in-Hardware: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.2-Segmentation-in-Hardware.md
-      - 2.3-Segmentation-in-Linux: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.3-Segmentation-in-Linux.md
-      - 2.4-Paging-in-Hardware: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware.md
-      - 2.5-Paging-in-Linux: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.5-Paging-in-Linux.md
-      - Multilevel-Paging-in-Operating-System: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Multilevel-Paging-in-Operating-System.md
+      - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/index.md
+      - 2.1-Memory-Addresses:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.1-Memory-Addresses/index.md
+      - 2.2-Segmentation-in-Hardware:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.2-Segmentation-in-Hardware/index.md
+      - 2.3-Segmentation-in-Linux:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.3-Segmentation-in-Linux/index.md
+      - 2.4-Paging-in-Hardware:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.4-Paging-in-Hardware/index.md
+      - 2.5-Paging-in-Linux:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.5-Paging-in-Linux/index.md
+      - TODO:
+        - Multilevel-Paging-in-Operating-System:
+          - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/TODO/Multilevel-Paging-in-Operating-System/index.md
+        - How-are-the-segment-registers-used-in-Linux: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/TODO/How-are-the-segment-registers-used-in-Linux.md
     - Chapter-3-Processes:
-      - Chapter-3-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/Chapter-3-Processes.md
-      - 3.1-Processes-and-Lightweight-Processes-and-Threads: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads.md
-      - 3.2-Process-Descriptor: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2-Process-Descriptor.md
-      - 3.2.1-Process-State: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.1-Process-State.md
-      - 3.2.2-Identifying-a-Process: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2-Identifying-a-Process.md
-      - 3.2.2.1-Process-descriptors-handling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.1-Process-descriptors-handling.md
-      - 3.2.2.2-Identifying-the-current-process: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.2-Identifying-the-current-process.md
-      - 3.2.2.3-Doubly-linked-lists: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.3-Doubly-linked-lists.md
-      - 3.2.2.4-The-process-list: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.4-The-process-list.md
-      - 3.2.2.5-The-lists-of-TASK_RUNNING-processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.5-The-lists-of-TASK_RUNNING-processes.md
-      - 3.2.3-Relationships-Among-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.3-Relationships-Among-Processes.md
-      - 3.2.4-How-Processes-Are-Organized: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.4-How-Processes-Are-Organized.md
-      - 3.2.5-Process-Resource-Limits: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.5-Process-Resource-Limits.md
-      - 3.3-Process-Switch: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.3-Process-Switch.md
-      - 3.4-Creating-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes.md
-      - 3.4.2-Kernel-Threads: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4.2-Kernel-Threads.md
+      - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/index.md
+      - 3.1-Processes-and-Lightweight-Processes-and-Threads:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.1-Processes-and-Lightweight-Processes-and-Threads/index.md
+      - 3.2-Process-Descriptor:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2-Process-Descriptor/index.md
+      - 3.2.1-Process-State:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.1-Process-State/index.md
+      - 3.2.2-Identifying-a-Process:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2-Identifying-a-Process/index.md
+      - 3.2.2.1-Process-descriptors-handling:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.1-Process-descriptors-handling/index.md
+      - 3.2.2.2-Identifying-the-current-process:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.2-Identifying-the-current-process/index.md
+      - 3.2.2.3-Doubly-linked-lists:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.3-Doubly-linked-lists/index.md
+      - 3.2.2.4-The-process-list:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.4-The-process-list/index.md
+      - 3.2.2.5-The-lists-of-TASK_RUNNING-processes:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.2.5-The-lists-of-TASK_RUNNING-processes/index.md
+      - 3.2.3-Relationships-Among-Processes:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.3-Relationships-Among-Processes/index.md
+      - 3.2.4-How-Processes-Are-Organized:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.4-How-Processes-Are-Organized/index.md
+      - 3.2.5-Process-Resource-Limits:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.2.5-Process-Resource-Limits/index.md
+      - 3.3-Process-Switch:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.3-Process-Switch/index.md
+      - 3.4-Creating-Processes:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes/index.md
+      - 3.4.2-Kernel-Threads:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4.2-Kernel-Threads/index.md
     - Chapter-4-Interrupts-and-Exceptions:
-      - Chapter-4-Interrupts-and-Exceptions: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions.md
-      - 4.1-The-Role-of-Interrupt-Signals: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals.md
-      - 4.2-Interrupts-and-Exceptions: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.2-Interrupts-and-Exceptions.md
-      - 4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers.md
-      - 4.4-Initializing-the-Interrupt-Descriptor-Table: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.4-Initializing-the-Interrupt-Descriptor-Table.md
-      - 4.5-Exception-Handling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.5-Exception-Handling.md
-      - 4.6-Interrupt-Handling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.6-Interrupt-Handling.md
-      - Trap: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Trap.md
+      - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/index.md
+      - 4.1-The-Role-of-Interrupt-Signals:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals/index.md
+      - 4.2-Interrupts-and-Exceptions:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.2-Interrupts-and-Exceptions/index.md
+      - 4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.3-Nested-Execution-of-Exception-and-Interrupt-Handlers/index.md
+      - 4.5-Exception-Handling:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.5-Exception-Handling/index.md
     - Chapter-6-Timing-Measurements:
-      - Chapter-6-Timing-Measurements: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements.md
-      - 6.1-Clock-and-Timer-Circuits: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.1-Clock-and-Timer-Circuits.md
-      - 6.2-The-Linux-Timekeeping-Architecture: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.2-The-Linux-Timekeeping-Architecture.md
-      - 6.4-Updating-System-Statistics: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.4-Updating-System-Statistics.md
+      - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/index.md
+      - 6.1-Clock-and-Timer-Circuits:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.1-Clock-and-Timer-Circuits/index.md
+      - 6.2-The-Linux-Timekeeping-Architecture:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.2-The-Linux-Timekeeping-Architecture/index.md
+      - 6.4-Updating-System-Statistics:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.4-Updating-System-Statistics/index.md
     - Chapter-7-Process-Scheduling:
-      - Chapter-7-Process-Scheduling: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling.md
+      - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-7-Process-Scheduling/index.md
     - Chapter-8-Memory-Management:
-      - Chapter-8-Memory-Management: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/Chapter-8-Memory-Management.md
-      - 8.1-Page-Frame-Management: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/8.1-Page-Frame-Management.md
+      - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/index.md
+      - 8.1-Page-Frame-Management:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-8-Memory-Management/8.1-Page-Frame-Management/index.md
     - Chapter-9-Process-Address-Space:
-      - Chapter-9-Process-Address-Space: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/Chapter-9-Process-Address-Space.md
-      - 9.1-The-Process's-Address-Space.: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space.md
-      - 9.2-The-Memory-Descriptor: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor.md
+      - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/index.md
+      - 9.1-The-Process's-Address-Space:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.1-The-Process's-Address-Space/index.md
+      - 9.2-The-Memory-Descriptor:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-9-Process-Address-Space/9.2-The-Memory-Descriptor/index.md
 - Programming:
   - Introduction: Programming/index.md
   - Common:
