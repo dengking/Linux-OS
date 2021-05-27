@@ -18,7 +18,8 @@ An **interrupt handler** may preempt both other **interrupt handlers** and **exc
 
 Linux interleaves **kernel control paths** for two major reasons:
 
-- To improve the throughput of **programmable interrupt controllers** and **device controllers**. Assume that a **device controller** issues a signal on an IRQ line: the PIC transforms it into an external interrupt, and then both the PIC and the device controller remain blocked until the PIC receives an acknowledgment from the CPU. Thanks to kernel control path interleaving, the kernel is able to send the acknowledgment even when it is handling a previous interrupt.
-- To implement an interrupt model without priority levels. Because each **interrupt handler** may be deferred by another one, there is no need to establish predefined priorities among hardware devices. This simplifies the kernel code and improves its portability.
+1、To improve the throughput of **programmable interrupt controllers** and **device controllers**. Assume that a **device controller** issues a signal on an IRQ line: the PIC transforms it into an external interrupt, and then both the PIC and the device controller remain blocked until the PIC receives an acknowledgment from the CPU. Thanks to kernel control path interleaving, the kernel is able to send the acknowledgment even when it is handling a previous interrupt.
+
+2、To implement an interrupt model without priority levels. Because each **interrupt handler** may be deferred by another one, there is no need to establish predefined priorities among hardware devices. This simplifies the kernel code and improves its portability.
 
 On multiprocessor systems, several kernel control paths may execute concurrently. Moreover, a kernel control path associated with an exception may start executing on a CPU and, due to a process switch, migrate to another CPU.

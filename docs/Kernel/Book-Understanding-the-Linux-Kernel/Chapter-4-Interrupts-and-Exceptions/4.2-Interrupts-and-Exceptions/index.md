@@ -205,7 +205,7 @@ After executing an instruction, the  `cs` and  `eip` pair of registers contain t
    - In the new stack, it saves the previous values of  `ss` and  `esp` , which define the logical address of the stack associated with the old privilege level、
 
 6、 If a fault has occurred, it loads  `cs` and  `eip` with the logical address of the instruction that caused the exception so that it can be executed again、
-  
+
 7、 Saves the contents of  `eflags` ,  `cs` , and  `eip` in the stack、 
 8、 If the exception carries a hardware error code, it saves it on the stack、 
 9、 Loads  `cs` and  `eip` , respectively, with the Segment Selector and the Offset fields of the Gate Descriptor stored in the i th entry of the IDT、 These values define the logical address of the first  instruction of the interrupt or exception handler、
