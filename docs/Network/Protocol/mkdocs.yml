@@ -2,7 +2,7 @@ nav:
     - Introduction: index.md
 
     - Network-protocol-model: Network-protocol-model
-    - RCF: RCF.md
+    - RCF: RCF
     - TCP: TCP
     - TODO-UDP: TODO-UDP
     - MAC-address: MAC-address.md

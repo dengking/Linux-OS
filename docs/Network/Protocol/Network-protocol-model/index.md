@@ -172,8 +172,9 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 本文描述protocol stack的运行机制，其实它的运行机制相对是比较简单的，可以看做是两个方向:
 
-- Descend(向下)
-- Ascend(向上)
+1、Descend(向下): 沿着协议栈自顶向下
+
+2、Ascend(向上): 沿着协议栈自底向上
 
 ### Disassemble / Reassemble
 
@@ -214,3 +215,8 @@ Encapsulation of application data descending through the layers described in [RF
 1) Unpack/Expose
 
 2) Reassemble: 将多个本层的PDU，组装为上层的PDU
+
+
+
+
+
