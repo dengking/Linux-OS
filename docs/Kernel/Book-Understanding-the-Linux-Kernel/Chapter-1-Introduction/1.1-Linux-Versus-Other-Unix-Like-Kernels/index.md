@@ -50,7 +50,7 @@ Most modern kernels can dynamically load and unload some portions of the kernel 
 >
 > See also
 >
-> - [Loadable kernel module](https://en.wikipedia.org/wiki/Loadable_kernel_module)
+> - wikipedia [Loadable kernel module](https://en.wikipedia.org/wiki/Loadable_kernel_module)
 
 ## *Kernel threading*
 
@@ -92,8 +92,8 @@ When compiled with the "Preemptible Kernel" option, Linux 2.6 can arbitrarily in
 
 > NOTE: See also
 >
-> - [Preemption (computing)](https://en.wikipedia.org/wiki/Preemption_(computing))
-> - [Kernel preemption](https://en.wikipedia.org/wiki/Kernel_preemption)
+> - wikipedia [Preemption (computing)](https://en.wikipedia.org/wiki/Preemption_(computing))
+> - wikipedia [Kernel preemption](https://en.wikipedia.org/wiki/Kernel_preemption)
 
 
 
@@ -103,7 +103,7 @@ Several Unix kernel variants take advantage of multiprocessor systems. Linux 2.6
 
 > NOTE: 
 >
-> [Giant-lock](./Giant-lock.md)
+> `Giant-lock`
 
 ## *Filesystem*
 

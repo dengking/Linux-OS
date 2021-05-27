@@ -13,7 +13,7 @@ Figure 1-4 illustrates how **device drivers** interface with the rest of the ker
 
 Figure 1-4. Device driver interface
 
-![](D:/github/dengking/Unix-like-operating-system/docs/Kernel/book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Figure-1-4-Device-driver-interface.jpg)
+![](../Figure-1-4-Device-driver-interface.jpg)
 
 Some user programs (P) wish to operate on hardware devices. They make requests to the kernel using the usual file-related system calls and the device files normally found in the `/dev` directory. Actually, the device files are the user-visible portion of the device driver interface. Each device file refers to a specific device driver, which is invoked by the kernel to perform the requested operation on the hardware component.
 

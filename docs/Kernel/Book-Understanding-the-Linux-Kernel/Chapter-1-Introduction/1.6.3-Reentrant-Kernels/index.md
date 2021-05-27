@@ -37,7 +37,7 @@
 >
 > 下面是一些补充内容：
 >
-> [Kernel Control Path Definition](http://www.linfo.org/kernel_control_path.html)
+> linfo [Kernel Control Path Definition](http://www.linfo.org/kernel_control_path.html)
 
 
 
@@ -52,19 +52,21 @@ Now let's look at **kernel reentrancy** and its impact on the organization of th
 In the simplest case, the CPU executes a **kernel control path** sequentially from the first instruction to
 the last. When one of the following events occurs, however, the CPU interleaves the **kernel control paths** :
 
-- A process executing in User Mode invokes a **system call**, and the corresponding **kernel control path** verifies that the request cannot be satisfied immediately; it then invokes the **scheduler** to select a new process to run. As a result, a **process switch** occurs. The first **kernel control path** is left unfinished, and the CPU resumes the execution of some other **kernel control path**. In this case, the two **control paths** are executed on behalf of two different processes.
+1、A process executing in User Mode invokes a **system call**, and the corresponding **kernel control path** verifies that the request cannot be satisfied immediately; it then invokes the **scheduler** to select a new process to run. As a result, a **process switch** occurs. The first **kernel control path** is left unfinished, and the CPU resumes the execution of some other **kernel control path**. In this case, the two **control paths** are executed on behalf of two different processes.
 
-- The CPU detects an exception for example, access to a page not present in RAM while running a **kernel control path**. The first control path is suspended, and the CPU starts the execution of a suitable procedure. In our example, this type of procedure can allocate a new page for the process and read its contents from disk. When the procedure terminates, the first control path can be resumed. In this case, the two control paths are executed on behalf of the same process.
+2、The CPU detects an exception for example, access to a page not present in RAM while running a **kernel control path**. The first control path is suspended, and the CPU starts the execution of a suitable procedure. In our example, this type of procedure can allocate a new page for the process and read its contents from disk. When the procedure terminates, the first control path can be resumed. In this case, the two control paths are executed on behalf of the same process.
 
-- A hardware interrupt occurs while the CPU is running a kernel control path with the interrupts enabled. The first kernel control path is left unfinished, and the CPU starts processing another kernel control path to handle the interrupt. The first kernel control path resumes when the interrupt handler terminates. In this case, the two kernel control paths run in the execution context of the same process, and the total system CPU time is accounted to it. However, the interrupt handler doesn't necessarily operate on behalf of the process.
+3、A hardware interrupt occurs while the CPU is running a kernel control path with the interrupts enabled. The first kernel control path is left unfinished, and the CPU starts processing another kernel control path to handle the interrupt. The first kernel control path resumes when the interrupt handler terminates. In this case, the two kernel control paths run in the execution context of the same process, and the total system CPU time is accounted to it. However, the interrupt handler doesn't necessarily operate on behalf of the process.
 
-- An interrupt occurs while the CPU is running with kernel preemption enabled, and a higher priority process is runnable. In this case, the first kernel control path is left unfinished, and the CPU resumes executing another kernel control path on behalf of the higher priority process. This occurs only if the kernel has been compiled with kernel preemption support.
+4、An interrupt occurs while the CPU is running with kernel preemption enabled, and a higher priority process is runnable. In this case, the first kernel control path is left unfinished, and the CPU resumes executing another kernel control path on behalf of the higher priority process. This occurs only if the kernel has been compiled with kernel preemption support.
 
 Figure 1-3 illustrates a few examples of noninterleaved and interleaved kernel control paths. Three different CPU states are considered:
 
-- Running a process in User Mode (`User`)
-- Running an exception or a system call handler (`Excp`)
-- Running an interrupt handler (`Intr`)
+1、Running a process in User Mode (`User`)
 
-![](D:/github/dengking/Unix-like-operating-system/docs/Kernel/book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Figure-1-3-Interleaving-of-kernel-control-paths.jpg)
+2、Running an exception or a system call handler (`Excp`)
+
+3、Running an interrupt handler (`Intr`)
+
+![](../Figure-1-3-Interleaving-of-kernel-control-paths.jpg)
 

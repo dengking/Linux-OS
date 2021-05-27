@@ -13,7 +13,7 @@ by default.
 
 How can a parent process inquire about termination of its children? The  [wait4( )](http://man7.org/linux/man-pages/man2/wait4.2.html) system call allows a process to wait until one of its children terminates; it returns the process ID (PID) of the terminated child.
 
-When executing this system call, the kernel checks whether a child has already terminated. A special zombie process state is introduced to represent terminated processes: a process remains in that state until its parent process executes a  `wait4( )` system call on it. The system call handler extracts data about resource usage from the **process descriptor** fields; the **process descriptor** may be released once the data is collected. If no child process has already terminated when the  `wait4( )` system call is executed, the kernel usually puts the process in a wait state until a child terminates.
+When executing this system call, the kernel checks whether a child has already terminated. A special zombie process state is introduced to represent terminated processes: a process remains in that state until its parent process executes a  `wait4( )` system call on it. The system call handler extracts(提取) data about resource usage from the **process descriptor** fields; the **process descriptor** may be released once the data is collected. If no child process has already terminated when the  `wait4( )` system call is executed, the kernel usually puts the process in a wait state until a child terminates.
 
 Many kernels also implement a  `waitpid( )` system call, which allows a process to wait for a specific child process. Other variants of  `wait4( )` system calls are also quite common.
 
@@ -27,10 +27,11 @@ The solution lies in a special system process called **init**, which is created 
 
 Modern Unix operating systems introduce the notion of process groups to represent a "job" abstraction. For example, in order to execute the command line:
 
-```
+```shell
 $ ls | sort | more
 ```
 
 a shell that supports **process groups**, such as  **bash** , creates a new group for the three processes corresponding to  `ls` ,  `sort` , and  `more` . In this way, the shell acts on the three processes as if they were a single entity (the **job**, to be precise). Each **process descriptor** includes a field containing the **process group ID** . Each group of processes may have a **group leader**, which is the process whose PID coincides with the **process group ID**. A newly created process is initially inserted into the process group of its parent.
 
 Modern Unix kernels also introduce **login sessions**. Informally, a **login session** contains all processes that are descendants of the process that has started a working session on a specific terminal usually, the first command shell process created for the user. All processes in a **process group** must be in the same **login session**. A login session may have several process groups active simultaneously; one of these process groups is always in the foreground, which means that it has access to the terminal. The other active process groups are in the background. When a background process tries to access the terminal, it receives a  `SIGTTIN` or  `SIGTTOUT` signal. In many command shells, the internal commands  [`bg`](http://man7.org/linux/man-pages/man1/bg.1p.html) and  [`fg`](http://man7.org/linux/man-pages/man1/fg.1p.html) can be used to put a process group in either the background or the foreground.
+

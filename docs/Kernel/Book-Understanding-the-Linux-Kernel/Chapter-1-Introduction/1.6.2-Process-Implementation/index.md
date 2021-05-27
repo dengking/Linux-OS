@@ -8,7 +8,7 @@ includes information about the current state of the process.
 > 本节中的process所指为lightweight process，而不是标准的[Process (computing)](https://en.wikipedia.org/wiki/Process_(computing))
 
 When the kernel stops the execution of a process, it saves the current contents of several processor
-registers in the process descriptor. These include:
+registers in the **process descriptor**. These include:
 
 - The program counter (PC) and stack pointer (SP) registers
 - The general purpose registers

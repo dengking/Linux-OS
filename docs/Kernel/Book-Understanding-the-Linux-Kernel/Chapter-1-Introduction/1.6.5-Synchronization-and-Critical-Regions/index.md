@@ -1,5 +1,3 @@
-
-
 # 1.6.5. Synchronization and Critical Regions
 
 > NOTE: 虽然本节所描述的是kernel的synchronization，但是其中所描述的方法、思路可以广泛应用于其他领域。
@@ -56,3 +54,4 @@ Processes or kernel control paths that synchronize with other control paths may 
 
 As far as kernel design is concerned, deadlocks become an issue when the number of kernel locks used is high. In this case, it may be quite difficult to ensure that no deadlock state will ever be reached for all possible ways to interleave kernel control paths. Several operating systems, including Linux, avoid this problem by requesting locks in a predefined order.
 
+> tag-Dijkstra-Resource-lock hierarchy-partial order-avoid deadlock-Linux kernel

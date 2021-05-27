@@ -15,3 +15,4 @@ If the same program, say an editor, is needed simultaneously by several users, t
 Processes also can share parts of their address space as a kind of **interprocess communication**, using the "shared memory" technique introduced in System V and supported by Linux.
 
 Finally, Linux supports the  [`mmap( )`](http://man7.org/linux/man-pages/man2/mmap.2.html) system call, which allows part of a file or the information stored on a block device to be mapped into a part of a process address space. Memory mapping can provide an alternative to normal reads and writes for transferring data. If the same file is shared by several processes, its memory mapping is included in the address space of each of the processes that share it.
+

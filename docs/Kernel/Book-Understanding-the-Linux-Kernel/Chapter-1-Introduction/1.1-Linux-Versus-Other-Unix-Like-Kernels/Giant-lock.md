@@ -1,8 +1,6 @@
-[TOC]
 
 
-
-# [Giant lock](https://en.wikipedia.org/wiki/Giant_lock)
+# wikipedia [Giant lock](https://en.wikipedia.org/wiki/Giant_lock)
 
 
 In [operating systems](https://en.wikipedia.org/wiki/Operating_systems), a **giant lock**, also known as a **big-lock** or **kernel-lock**, is a [lock](https://en.wikipedia.org/wiki/Lock_(computer_science)) that may be used in the [kernel](https://en.wikipedia.org/wiki/Kernel_(computing)) to provide [concurrency control](https://en.wikipedia.org/wiki/Concurrency_control) required by [symmetric multiprocessing](https://en.wikipedia.org/wiki/Symmetric_multiprocessing) (SMP) systems.
