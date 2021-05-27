@@ -195,26 +195,26 @@ We now describe how the CPU **control unit** handles interrupts and exceptions. 
 
 After executing an instruction, the  `cs` and  `eip` pair of registers contain the logical address of the next instruction to be executed. Before dealing with that instruction, the control unit checks whether an interrupt or an exception occurred while the **control unit** executed the previous instruction. If one occurred, the **control unit** does the following:
 
-1. Determines the vector i (0 <= i <= 255) associated with the interrupt or the exception. 
-2. Reads the `i` th entry of the IDT referred by the  `idtr` register (we assume in the following description that the entry contains an interrupt or a trap gate).
-3. Gets the base address of the GDT from the  `gdtr` register and looks in the GDT to read the Segment Descriptor identified by the selector in the IDT entry. This descriptor specifies the base address of the segment that includes the interrupt or exception handler.
-4. Makes sure the interrupt was issued by an authorized source. First, it compares the Current Privilege Level (CPL), which is stored in the two least significant bits of the  `cs` register, with the Descriptor Privilege Level (DPL ) of the Segment Descriptor included in the GDT. Raises a "General protection " exception if the CPL is lower than the DPL, because the **interrupt handler** cannot have a lower privilege than the program that caused the interrupt. For **programmed exceptions**, makes a further security check: compares the CPL with the DPL of the gate descriptor included in the IDT and raises a "General protection" exception if the DPL is lower than the CPL. This last check makes it possible to prevent access by user applications to specific trap or interrupt gates.
-5. Checks whether a change of privilege level is taking place that is, if CPL is different from the selected Segment Descriptor's DPL. If so, the control unit must start using the stack that is associated with the new privilege level. It does this by performing the following steps:
-   - Reads the  `tr` register to access the TSS segment of the running process. 
-   - Loads the  `ss` and  `esp` registers with the proper values for the **stack segment** and **stack pointer** associated with the new privilege level. These values are found in the TSS (see the section "Task State Segment" in Chapter 3).
-   - In the new stack, it saves the previous values of  `ss` and  `esp` , which define the logical address of the stack associated with the old privilege level.
+1、 Determines the vector i (0 <= i <= 255) associated with the interrupt or the exception、 
+2、 Reads the `i` th entry of the IDT referred by the  `idtr` register (we assume in the following description that the entry contains an interrupt or a trap gate)、
+3、 Gets the base address of the GDT from the  `gdtr` register and looks in the GDT to read the Segment Descriptor identified by the selector in the IDT entry、 This descriptor specifies the base address of the segment that includes the interrupt or exception handler、
+4、 Makes sure the interrupt was issued by an authorized source、 First, it compares the Current Privilege Level (CPL), which is stored in the two least significant bits of the  `cs` register, with the Descriptor Privilege Level (DPL ) of the Segment Descriptor included in the GDT、 Raises a "General protection " exception if the CPL is lower than the DPL, because the **interrupt handler** cannot have a lower privilege than the program that caused the interrupt、 For **programmed exceptions**, makes a further security check: compares the CPL with the DPL of the gate descriptor included in the IDT and raises a "General protection" exception if the DPL is lower than the CPL、 This last check makes it possible to prevent access by user applications to specific trap or interrupt gates、
+5、 Checks whether a change of privilege level is taking place that is, if CPL is different from the selected Segment Descriptor's DPL、 If so, the control unit must start using the stack that is associated with the new privilege level、 It does this by performing the following steps:
+   - Reads the  `tr` register to access the TSS segment of the running process、 
+   - Loads the  `ss` and  `esp` registers with the proper values for the **stack segment** and **stack pointer** associated with the new privilege level、 These values are found in the TSS (see the section "Task State Segment" in Chapter 3)、
+   - In the new stack, it saves the previous values of  `ss` and  `esp` , which define the logical address of the stack associated with the old privilege level、
 
-6. If a fault has occurred, it loads  `cs` and  `eip` with the logical address of the instruction that caused the exception so that it can be executed again.
+6、 If a fault has occurred, it loads  `cs` and  `eip` with the logical address of the instruction that caused the exception so that it can be executed again、
   
-7. Saves the contents of  `eflags` ,  `cs` , and  `eip` in the stack. 
-8. If the exception carries a hardware error code, it saves it on the stack. 
-9. Loads  `cs` and  `eip` , respectively, with the Segment Selector and the Offset fields of the Gate Descriptor stored in the i th entry of the IDT. These values define the logical address of the first  instruction of the interrupt or exception handler.
+7、 Saves the contents of  `eflags` ,  `cs` , and  `eip` in the stack、 
+8、 If the exception carries a hardware error code, it saves it on the stack、 
+9、 Loads  `cs` and  `eip` , respectively, with the Segment Selector and the Offset fields of the Gate Descriptor stored in the i th entry of the IDT、 These values define the logical address of the first  instruction of the interrupt or exception handler、
 
 The last step performed by the **control unit** is equivalent to a jump to the interrupt or exception handler. In other words, the instruction processed by the **control unit** after dealing with the interrupt signal is the first instruction of the selected handler.
 
 After the interrupt or exception is processed, the corresponding handler must relinquish control to the interrupted process by issuing the  `iret` instruction, which forces the control unit to:
 
-1. Load the  `cs` ,  `eip` , and  `eflags` registers with the values saved on the stack. If a hardware error code has been pushed in the stack on top of the  `eip` contents, it must be popped before executing  `iret` .    
-2. Check whether the CPL of the handler is equal to the value contained in the two least significant bits of  `cs` (this means the interrupted process was running at the same privilege level as the handler). If so,  `iret` concludes execution; otherwise, go to the next step.
-3. Load the  `ss` and  `esp` registers from the stack and return to the stack associated with the old privilege level.
-4. Examine the contents of the  `ds` ,  `es` ,  `fs` , and  `gs` segment registers; if any of them contains a selector that refers to a Segment Descriptor whose DPL value is lower than CPL, clear the corresponding segment register. The control unit does this to forbid User Mode programs that run with a CPL equal to 3 from using segment registers previously used by kernel routines (with a DPL equal to 0). If these registers were not cleared, malicious User Mode programs could exploit them in order to access the kernel address space.
+1、 Load the  `cs` ,  `eip` , and  `eflags` registers with the values saved on the stack、 If a hardware error code has been pushed in the stack on top of the  `eip` contents, it must be popped before executing  `iret` 、    
+2、 Check whether the CPL of the handler is equal to the value contained in the two least significant bits of  `cs` (this means the interrupted process was running at the same privilege level as the handler)、 If so,  `iret` concludes execution; otherwise, go to the next step、
+3、 Load the  `ss` and  `esp` registers from the stack and return to the stack associated with the old privilege level、
+4、 Examine the contents of the  `ds` ,  `es` ,  `fs` , and  `gs` segment registers; if any of them contains a selector that refers to a Segment Descriptor whose DPL value is lower than CPL, clear the corresponding segment register. The control unit does this to forbid User Mode programs that run with a CPL equal to 3 from using segment registers previously used by kernel routines (with a DPL equal to 0). If these registers were not cleared, malicious User Mode programs could exploit them in order to access the kernel address space.

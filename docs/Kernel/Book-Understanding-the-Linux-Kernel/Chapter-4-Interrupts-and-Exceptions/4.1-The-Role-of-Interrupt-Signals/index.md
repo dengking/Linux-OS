@@ -1,0 +1,16 @@
+# 4.1. The Role of Interrupt Signals
+
+As the name suggests, **interrupt signals** provide a way to divert（转换） the processor to code outside the normal flow of control. When an interrupt signal arrives, the CPU must stop what it's currently doing and switch to a new activity; it does this by saving the current value of the program counter (i.e., the content of the  `eip` and  `cs` registers) in the **Kernel Mode stack** and by placing an address related to the interrupt type into the **program counter**.
+
+> NOTE: context switch
+
+There are some things in this chapter that will remind you of the **context switch** described in the previous chapter, carried out when a kernel substitutes one **process** for another. But there is a key difference between **interrupt handling** and **process switching**: the code executed by an **interrupt** or by an **exception handler** is not a process. Rather, it is a **kernel control path** that runs at the expense of the same process that was running when the **interrupt** occurred (see the later section "Nested Execution of Exception and Interrupt Handlers"). As a **kernel control path**, the **interrupt handler** is lighter than a **process** (it has less context and requires less time to set up or tear down).
+
+Interrupt handling is one of the most **sensitive** tasks performed by the kernel, because it must satisfy the following constraints:
+
+1、**Interrupts** can come anytime, when the kernel may want to finish something else it was trying to do. The kernel's goal is therefore to get the interrupt out of the way as soon as possible and defer as much processing as it can. For instance, suppose a block of data has arrived on a **network line**. When the hardware **interrupts** the **kernel**, it could simply mark the presence of data, give the processor back to whatever was running before, and do the rest of the processing later (such as moving the data into a buffer where its recipient process can find it, and then restarting the process). The activities that the **kernel** needs to perform in response to an **interrupt** are thus divided into a critical urgent part that the kernel executes right away and a deferrable part that is left for later.
+
+2、Because interrupts can come anytime, the kernel might be handling one of them while another one (of a different type) occurs. This should be allowed as much as possible, because it keeps the I/O devices busy (see the later section "Nested Execution of Exception and Interrupt Handlers"). As a result, the **interrupt handlers** must be coded so that the corresponding **kernel control paths** can be executed in a nested manner. When the last **kernel control path** terminates, the kernel must be able to resume execution of the interrupted process or switch to another process if the interrupt signal has caused a rescheduling activity.
+
+3、Although the kernel may accept a new interrupt signal while handling a previous one, some critical regions exist inside the kernel code where interrupts must be disabled. Such critical regions must be limited as much as possible because, according to the previous requirement, the kernel, and particularly the interrupt handlers, should run most of the time with the interrupts enabled.
+
