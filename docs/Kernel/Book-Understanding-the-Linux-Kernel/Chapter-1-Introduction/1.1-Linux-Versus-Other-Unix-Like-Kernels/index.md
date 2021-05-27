@@ -1,16 +1,24 @@
 # 1.1. Linux Versus Other Unix-Like Kernels
 
+> NOTE: 
+>
+> 介绍Linux kernel的特性
+
 The various Unix-like systems on the market, some of which have a long history and show signs of archaic（古老的，陈旧的） practices, differ in many important respects. All commercial variants were derived from either SVR4 or 4.4BSD, and all tend to agree on some common standards like IEEE's Portable
 Operating Systems based on Unix (POSIX) and X/Open's Common Applications Environment (CAE).
 
 The current standards specify only an **application programming interface** (API)that is, a **well-defined** environment in which user programs should run. Therefore, the standards do not impose any
-restriction on internal design choices of a compliant **kernel**. `[*]`
+restriction on internal(内部的) design choices of a compliant **kernel**. `[*]`
 
 > `[*]` As a matter of fact, several non-Unix operating systems, such as Windows NT and its descendents, are POSIX-compliant.
 
 > NOTE: 关于Unix-like system的standard，演进历程，参见《`Unix-standardization-and-implementation.md`》
 
 To define a common user interface, Unix-like kernels often share **fundamental design ideas and features**. In this respect, Linux is comparable with the other Unix-like operating systems. Reading this book and studying the Linux kernel, therefore, may help you understand the other Unix variants, too.
+
+> NOTE: 
+>
+> "Unix-philosophy哲学"
 
 The 2.6 version of the **Linux kernel** aims to be compliant with the IEEE POSIX standard. This, of course, means that most existing Unix programs can be compiled and executed on a Linux system with very little effort or even without the need for patches to the source code. Moreover, Linux includes all the features of a modern Unix operating system, such as **virtual memory**, a **virtual** **filesystem**, **lightweight processes**, **Unix signals** , **SVR4 interprocess communications**, support for **Symmetric Multiprocessor (SMP) systems**, and so on.
 
@@ -24,7 +32,7 @@ It is a large, complex do-it-yourself program, composed of several logically dif
 
 > NOTE: See also
 >
-> - [Monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel)
+> - wikipedia [Monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel)
 
 ## *Compiled and statically linked traditional Unix kernels*
 
@@ -75,7 +83,6 @@ Most modern operating systems have some kind of support for multithreaded applic
 > - [Are kernel threads processes and daemons?](https://unix.stackexchange.com/questions/266434/are-kernel-threads-processes-and-daemons)
 > - [Difference between user-level and kernel-supported threads?](https://stackoverflow.com/questions/15983872/difference-between-user-level-and-kernel-supported-threads)
 > - [Kernel threads made easy](https://lwn.net/Articles/65178/)
->
 
 
 

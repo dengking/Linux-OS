@@ -232,9 +232,7 @@ APUE 4.4  Set-User-ID and Set-Group-ID
 
 https://en.wikipedia.org/wiki/User_identifier
 
-# Time of check to time of use
 
-https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use
 
 # User identifier
 
@@ -504,3 +502,4 @@ https://en.wikipedia.org/wiki/Scheduling_(computing)
 # wait
 
 https://linux.die.net/man/2/waitpid
+

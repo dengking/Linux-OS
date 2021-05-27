@@ -4,19 +4,32 @@ Each computer system includes a basic set of programs called the *operating syst
 
 > NOTE: See also
 >
-> - [Operating system](https://en.wikipedia.org/wiki/Operating_system)
-> - [Kernel (operating system)](https://en.wikipedia.org/wiki/Kernel_(operating_system))
+> - wikipedia [Operating system](https://en.wikipedia.org/wiki/Operating_system)
+> - wikipedia [Kernel (operating system)](https://en.wikipedia.org/wiki/Kernel_(operating_system))
 
 The operating system must fulfill two main objectives:
 
-- Interact with the hardware components, servicing all low-level programmable elements included in the hardware platform.
-- Provide an execution environment to the applications that run on the computer system (the so-called user programs).
+1、Interact with the hardware components, servicing all low-level programmable elements included in the hardware platform.
+
+2、Provide an execution environment to the applications that run on the computer system (the so-called user programs).
+
+> NOTE: 
+>
+> OS的两大作用
 
 Some operating systems allow all user programs to directly play with the hardware components (a typical example is MS-DOS ). In contrast, a Unix-like operating system hides all low-level details concerning the physical organization of the computer from applications run by the user. When a program wants to use a hardware resource, it must issue a request to the operating system. The kernel evaluates the request and, if it chooses to grant the resource, interacts with the proper hardware components on behalf of the user program.
 
-To enforce this mechanism, modern operating systems rely on the availability of specific hardware features that forbid user programs to directly interact with low-level hardware components or to access arbitrary memory locations. In particular, the hardware introduces at least two different **execution modes** for the CPU: a nonprivileged mode for user programs and a privileged mode for the kernel. Unix calls these **User Mode** and **Kernel Mode** , respectively.
+> NOTE: 
+>
+> 一、上面这一段讲的是Linux kernel的设计原则: "Linux kernel design-monolithic集成kernel-system call as request to hardware."
+>
+> 二、下面这一段讲的是Linux kernel是如何实现上述设计理念的
 
-> NOTE: See also
+To enforce this mechanism, modern operating systems rely on the availability of specific hardware features that forbid(禁止) user programs to directly interact with low-level hardware components or to access arbitrary memory locations. In particular, the hardware introduces at least two different **execution modes** for the CPU: a nonprivileged mode for user programs and a privileged mode for the kernel. Unix calls these **User Mode** and **Kernel Mode** , respectively.
+
+> NOTE: 
+>
+> See also
 >
 > - [User space](https://en.wikipedia.org/wiki/User_space)
 > - [CPU modes](https://en.wikipedia.org/wiki/CPU_modes)
@@ -79,8 +92,7 @@ Unix-like operating systems adopt a *process/kernel model* . Each process has th
 
 As stated before, most Unix kernels are monolithic: each **kernel layer** is integrated into the whole kernel program and runs in **Kernel Mode** on behalf of the **current process**. In contrast, microkernel operating systems demand a very small set of functions from the kernel, generally including a few **synchronization primitives**, a simple **scheduler**, and an **interprocess communication mechanism**. Several system processes that run on top of the **microkernel** implement other **operating system-layer functions**, like **memory allocators**, **device drivers**, and **system call handlers**.
 
-Although academic research on operating systems is oriented toward **microkernels** , such operating systems are generally slower than monolithic ones, because the explicit message passing between the different layers of the operating system has a cost. However, **microkernel** operating systems might have some theoretical advantages over **monolithic** ones. **Microkernels** force the system programmers to adopt a **modularized** approach, because each operating system layer is a relatively independent program that must interact with the other layers through well-defined and clean software interfaces. Moreover, an existing microkernel operating system can be easily ported to other architectures fairly easily, because all hardware-dependent components are generally encapsulated in the microkernel code. Finally, microkernel operating systems tend to make better use of random access memory (RAM) than monolithic ones,  because system processes that aren't implementing needed functionalities might be swapped out or destroyed. To achieve many of the theoretical advantages of microkernels without introducing performance
-penalties, the Linux kernel offers **modules** . A module is an object file whose code can be linked to (and unlinked from) the kernel at runtime. The object code usually consists of a set of functions that implements a filesystem, a device driver, or other features at the kernel's upper layer. The module, unlike the external layers of microkernel operating systems, does not run as a specific process. Instead, it is executed in **Kernel Mode** on behalf of the current process, like any other statically linked kernel function.
+Although academic research on operating systems is oriented toward **microkernels** , such operating systems are generally slower than monolithic ones, because the explicit message passing between the different layers of the operating system has a cost. However, **microkernel** operating systems might have some theoretical advantages over **monolithic** ones. **Microkernels** force the system programmers to adopt a **modularized** approach, because each operating system layer is a relatively independent program that must interact with the other layers through well-defined and clean software interfaces. Moreover, an existing microkernel operating system can be easily ported to other architectures fairly easily, because all hardware-dependent components are generally encapsulated in the microkernel code. Finally, microkernel operating systems tend to make better use of random access memory (RAM) than monolithic ones,  because system processes that aren't implementing needed functionalities might be swapped out or destroyed. To achieve many of the theoretical advantages of microkernels without introducing performance penalties, the Linux kernel offers **modules** . A module is an object file whose code can be linked to (and unlinked from) the kernel at runtime. The object code usually consists of a set of functions that implements a filesystem, a device driver, or other features at the kernel's upper layer. The module, unlike the external layers of microkernel operating systems, does not run as a specific process. Instead, it is executed in **Kernel Mode** on behalf of the current process, like any other statically linked kernel function.
 
 The main advantages of using modules include:
 

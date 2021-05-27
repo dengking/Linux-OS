@@ -10,10 +10,12 @@ nav:
     - Read-code: Read-code
 
     - Kernel-data-structure: Kernel-data-structure
+    - Kernel-thread: Kernel-thread
     - Debug: Debug
     - Limit: Limit
 
     - Linux-startup-process: Linux-startup-process
+    
 
     
     

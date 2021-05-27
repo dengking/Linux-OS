@@ -42,20 +42,23 @@ the following characteristics:
 
 On a uniprocessor system, only one process is running at a time, and it may run either in User or in Kernel Mode. If it runs in **Kernel Mode**, the processor is executing some **kernel routine**. Figure 1-2 illustrates examples of transitions between User and Kernel Mode. Process 1 in **User Mode** issues a **system call**, after which the process switches to **Kernel Mode**, and the **system call** is serviced. Process 1 then resumes execution in **User Mode** until a **timer interrupt** occurs, and the **scheduler** is activated in **Kernel Mode**. A **process switch** takes place, and Process 2 starts its execution in **User Mode** until a hardware device raises an interrupt. As a consequence of the interrupt, Process 2 switches to **Kernel Mode** and services the interrupt.
 
-![](D:/github/dengking/Unix-like-operating-system/docs/Kernel/book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Figure1-2Transitions-between-User-and-Kernel-Mode.JPG)
+![](../Figure1-2Transitions-between-User-and-Kernel-Mode.jpg)
 
 
 
 **Unix kernels** do much more than handle **system calls**; in fact, **kernel routines** can be activated in
 several ways:
 
-- A process invokes a **system call**.
-- The CPU executing the process signals an **exception**, which is an unusual condition such as an
-  invalid instruction. The kernel handles the exception on behalf of the process that caused it.
-- A peripheral device issues an **interrupt signal** to the CPU to notify it of an event such as a
-  request for attention, a status change, or the completion of an I/O operation. Each **interrupt
-  signal** is dealt by a kernel program called an **interrupt handler**. Because peripheral devices
-  operate asynchronously with respect to the CPU, interrupts occur at unpredictable times.
-- A **kernel thread** is executed. Because it runs in Kernel Mode, the corresponding program must
-  be considered part of the kernel.
+1、A process invokes a **system call**.
+
+2、The CPU executing the process signals an **exception**, which is an unusual condition such as an
+invalid instruction. The kernel handles the exception on behalf of the process that caused it.
+
+3、A peripheral device issues an **interrupt signal** to the CPU to notify it of an event such as a
+request for attention, a status change, or the completion of an I/O operation. Each **interrupt
+signal** is dealt by a kernel program called an **interrupt handler**. Because peripheral devices
+operate asynchronously with respect to the CPU, interrupts occur at unpredictable times.
+
+4、A **kernel thread** is executed. Because it runs in Kernel Mode, the corresponding program must
+be considered part of the kernel.
 

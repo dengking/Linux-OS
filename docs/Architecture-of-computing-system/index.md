@@ -64,8 +64,6 @@ The operating system must fulfill two main objectives:
 
 
 
-
-
 ## 总结
 
 上面我使用了**层次化的结构**来描述[computing system](https://en.wikipedia.org/wiki/Computing)的架构，至此，已经建立了operating system的整体architecture（model）。

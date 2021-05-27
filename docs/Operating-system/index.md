@@ -2,7 +2,7 @@
 
 Operating system（简称OS）是一个非常宏大的主题，涉及的内容非常多。作为一名software engineer，掌握operating system的基础知识是必须的。本节是对OS的概述，参考的是维基百科[Operating system](https://en.wikipedia.org/wiki/Operating_system)。
 
-## 维基百科 [Operating system](https://en.wikipedia.org/wiki/Operating_system)
+## wikipedia [Operating system](https://en.wikipedia.org/wiki/Operating_system)
 
 An **operating system** (**OS**) is [system software](https://en.wikipedia.org/wiki/System_software) that manages [computer hardware](https://en.wikipedia.org/wiki/Computer_hardware) and [software](https://en.wikipedia.org/wiki/Computer_software) resources and provides common [services](https://en.wikipedia.org/wiki/Daemon_(computing)) for [computer programs](https://en.wikipedia.org/wiki/Computer_program).
 
@@ -156,5 +156,4 @@ The components of an **operating system** all exist in order to make the differe
 > NOTE: OS的市场份额
 
 *Further information:* [Usage share of operating systems](https://en.wikipedia.org/wiki/Usage_share_of_operating_systems)
-
 
