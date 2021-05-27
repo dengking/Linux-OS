@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
-    - Kernel(operating system): Kernel(operating system)
-    - Architecture: Architecture.md
+    - Operating-system-kernel: Operating-system-kernel
+    - Book-Understanding-the-Linux-Kernel: Book-Understanding-the-Linux-Kernel    
+    - Kernel-architecture: Kernel-architecture
+    - 主要功能: 主要功能
     - Guide: Guide
-    - Book-Understanding-the-Linux-Kernel: Book-Understanding-the-Linux-Kernel

@@ -1,4 +1,4 @@
-# [Preemption (computing)](https://en.wikipedia.org/wiki/Preemption_(computing))
+# wikipedia [Preemption (computing)](https://en.wikipedia.org/wiki/Preemption_(computing))
 
 In [computing](https://en.wikipedia.org/wiki/Computing), **preemption** is the act of temporarily interrupting a [task](https://en.wikipedia.org/wiki/Task_(computing)) being carried out by a [computer system](https://en.wikipedia.org/wiki/Computer), without requiring its cooperation, and with the intention of resuming the task at a later time. Such changes of the executed task are known as [context switches](https://en.wikipedia.org/wiki/Context_switch). It is normally carried out by a [privileged](https://en.wikipedia.org/wiki/Protection_ring) task or part of the system known as a preemptive [scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing)), which has the power to **preempt**, or interrupt, and later resume, other tasks in the system.
 

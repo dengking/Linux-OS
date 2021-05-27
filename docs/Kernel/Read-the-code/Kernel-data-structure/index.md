@@ -49,10 +49,6 @@ kernel管理着OS的一切资源，因此，它一般使用table来进行管理�
 
 
 
-
-
-
-
 Task State Segment Descriptor 
 
 3.3. Process Switch

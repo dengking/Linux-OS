@@ -6,7 +6,7 @@ nav:
     - Unix-standardization-and-implementation: Unix-standardization-and-implementation      
     ########## 描述内核的相关知识##########             
     - Kernel: Kernel
-
+    - Linux-startup-process: Linux-startup-process
     ########## 描述linux OS中进行programming时的知识##########            
     - Programming: Programming
     ########## 描述网络的知识##########                 

@@ -56,7 +56,7 @@ Programs can also request [shared memory](https://en.wikipedia.org/wiki/Shared_m
 
 > NOTE: shared memory
 
-![](E:/github/dengking/Unix-like-operating-system/docs/Kernel/pic/userland-and-kernel-space.png)
+![](./userland-and-kernel-space.png)
 
 > NOTE: 原文的这张图总结的非常好；它是对`Architecture-of-computing-system`中的图的扩充。
 
@@ -69,5 +69,4 @@ Programs can also request [shared memory](https://en.wikipedia.org/wiki/Shared_m
 The most common way of implementing a **user mode** separate from [kernel mode](https://en.wikipedia.org/wiki/Supervisor_mode) involves operating system [protection rings](https://en.wikipedia.org/wiki/Protection_ring).
 
 > NOTE: 后面会讲解Linux kernel的实现
-
 
