@@ -298,7 +298,6 @@ A TCP connection is managed by an **operating system** through a programming int
 ### 4.2 Connection termination
 
 > NOTE: 参见`./TCP-connection/Connection-termination.md`。
->
 
 ### 4.3 Resource usage
 

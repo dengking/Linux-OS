@@ -192,7 +192,7 @@ Reassemble 重新装配、重新集合
 
 
 
-### Descend(向下)
+### Top-down(自顶向下)
 
 涉及到的操作有: 
 
@@ -208,7 +208,7 @@ Encapsulation of application data descending through the layers described in [RF
 
 
 
-### Ascend(向上): Unpack/Expose
+### Bottom-up(子底向上): Unpack/Expose
 
 自底向上的过程和自顶向下的过程转换相反，它是涉及到的操作有:
 

@@ -50,5 +50,5 @@ protocol的优点与缺点，以[Redis Protocol specification](https://redis.io/
 
 Network protocol是一种communication protocol，它将是本章探讨的主要内容。
 
-我们除了需要学习目前network中，被广泛采用的、标准化的protocol(比如TCP/IP协议族)，还需要学习如何来设计application protocol(应用层协议)，这将在`./Application-protocol`章节中讨论。
+本章内容主要是基于 [Internet protocol suite](https://en.wanweibaike.com/wiki-Internet_protocol_suite) 来组织的，我们需要学习目前network中，被广泛采用的、标准化的protocol(比如TCP/IP协议族)；除此之外，我们还需要学习如何来设计application protocol(应用层协议)，这将在`./Application-protocol`章节中讨论。
 
