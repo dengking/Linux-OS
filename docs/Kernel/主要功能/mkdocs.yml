@@ -1,19 +1,16 @@
 nav:
     - Introduction: index.md
-    - Control-path-and-context-switch: Control-path-and-context-switch    
+
 #{{ 这是kernel的两个主要任务   
     - Interaction-with-hardware: Interaction-with-hardware
-    - Multitasking: Multitasking
+    - Multitasking: Multitasking.md
 # 这是kernel的两个主要任务 }}
-    - Kernel-Task-model: Kernel-Task-model 
+
     - User-system: User-system
     - Memory-management: Memory-management
-    - Read-the-code: Read-the-code
+    
 
   
-    - Kernel-thread: Kernel-thread
-    - Debug: Debug
-    - Limit: Limit
 
 
     

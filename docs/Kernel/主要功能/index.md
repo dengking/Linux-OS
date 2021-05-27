@@ -2,7 +2,7 @@
 
 本章的内容是我基于阅读本书（部分章节）后所总结的，对一些专题进行了总结，梳理了脉络。
 
-在文章[Architecture-of-computing-system](../../Architecture/Architecture-of-computing-system.md)中，我们已经总结了OS的两个objective：
+在`Architecture-of-computing-system`中，我们已经总结了OS的两个objective：
 
 > The operating system must fulfill two main objectives:
 >
@@ -15,8 +15,5 @@
 
 本章会对Linux OS的[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)进行总结，这是和第二条线密切相关的。
 
-本章会给出阅读Linux OS kernel源码的指导，并对Linux OS kernel源码中的一些重要的data structure进行总结。
-
 阅读本书，需要一些hardware的基础知识，参见我的另外一个项目[Hardware](https://dengking.github.io/Hardware/)。
 
-总的来说，本章旨在帮助自己和读者更好地理解本书的内容。

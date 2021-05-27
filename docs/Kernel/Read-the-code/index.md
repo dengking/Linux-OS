@@ -18,7 +18,7 @@ Vice versa, if shown only code but not data structures, it's very hard to unders
 
 从structure入手，本书也是如此。
 
-
+本章会给出阅读Linux OS kernel源码的指导，并对Linux OS kernel源码中的一些重要的data structure进行总结。
 
 
 

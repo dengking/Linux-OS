@@ -1,7 +1,9 @@
 nav:
     - Introduction: index.md
     - Operating-system-kernel: Operating-system-kernel
+    - Guide: Guide    
     - Book-Understanding-the-Linux-Kernel: Book-Understanding-the-Linux-Kernel    
-    - Kernel-architecture: Kernel-architecture
+
     - 主要功能: 主要功能
-    - Guide: Guide
+    - Read-the-code: Read-the-code
+    - Debug-kernel: Debug-kernel
