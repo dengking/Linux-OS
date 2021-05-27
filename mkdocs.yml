@@ -40,7 +40,8 @@ nav:
   - Unix-&-Unix-like-&-Linux: Unix-standardization-and-implementation/Unix-&-Unix-like-&-Linux.md
 - Kernel:
   - Introduction: Kernel/index.md
-  - Kernel: Kernel/Kernel.md
+  - Kernel(operating system):
+    - Introduction: Kernel/Kernel(operating system)/index.md
   - Architecture: Kernel/Architecture.md
   - Guide:
     - Introduction: Kernel/Guide/index.md
@@ -155,6 +156,8 @@ nav:
       - Introduction: Kernel/Guide/Read-code/index.md
     - Kernel-data-structure:
       - Introduction: Kernel/Guide/Kernel-data-structure/index.md
+    - Kernel-thread:
+      - Introduction: Kernel/Guide/Kernel-thread/index.md
     - Debug:
       - Introduction: Kernel/Guide/Debug/index.md
       - System.map:
@@ -187,21 +190,35 @@ nav:
   - Book-Understanding-the-Linux-Kernel:
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
-      - Chapter-1-Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction.md
-      - 1.1-Linux-Versus-Other-Unix-Like-Kernels: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels.md
-      - 1.2-Hardware-Dependency: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.2-Hardware-Dependency.md
-      - 1.4-Basic-Operating-System-Concepts: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.4-Basic-Operating-System-Concepts.md
-      - 1.6-An-Overview-of-Unix-Kernels: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6-An-Overview-of-Unix-Kernels.md
-      - 1.6.1-The-Process-Kernel-Model: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.1-The-Process-Kernel-Model.md
-      - 1.6.2-Process-Implementation: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.2-Process-Implementation.md
-      - 1.6.3-Reentrant-Kernels: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.3-Reentrant-Kernels.md
-      - 1.6.4-Process-Address-Space: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.4-Process-Address-Space.md
-      - 1.6.5-Synchronization-and-Critical-Regions: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.5-Synchronization-and-Critical-Regions.md
-      - 1.6.6-Signals-and-Interprocess-Communication: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.6-Signals-and-Interprocess-Communication.md
-      - 1.6.7-Process-Management: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.7-Process-Management.md
-      - 1.6.8-Memory-Management: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.8-Memory-Management.md
-      - 1.6.9-Device-Drivers: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.9-Device-Drivers.md
-      - Giant-lock: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Giant-lock.md
+      - Chapter-1-Introduction:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/Chapter-1-Introduction/index.md
+      - 1.1-Linux-Versus-Other-Unix-Like-Kernels:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/index.md
+        - Giant-lock: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.1-Linux-Versus-Other-Unix-Like-Kernels/Giant-lock.md
+      - 1.2-Hardware-Dependency:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.2-Hardware-Dependency/index.md
+      - 1.4-Basic-Operating-System-Concepts:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.4-Basic-Operating-System-Concepts/index.md
+      - 1.6-An-Overview-of-Unix-Kernels:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6-An-Overview-of-Unix-Kernels/index.md
+      - 1.6.1-The-Process-Kernel-Model:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.1-The-Process-Kernel-Model/index.md
+      - 1.6.2-Process-Implementation:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.2-Process-Implementation/index.md
+      - 1.6.3-Reentrant-Kernels:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.3-Reentrant-Kernels/index.md
+      - 1.6.4-Process-Address-Space:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.4-Process-Address-Space/index.md
+      - 1.6.5-Synchronization-and-Critical-Regions:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.5-Synchronization-and-Critical-Regions/index.md
+      - 1.6.6-Signals-and-Interprocess-Communication:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.6-Signals-and-Interprocess-Communication/index.md
+      - 1.6.7-Process-Management:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.7-Process-Management/index.md
+      - 1.6.8-Memory-Management:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.8-Memory-Management/index.md
+      - 1.6.9-Device-Drivers:
+        - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-1-Introduction/1.6.9-Device-Drivers/index.md
     - Chapter-2-Memory-Addressing:
       - Chapter-2-Memory-Addressing: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/Chapter-2-Memory-Addressing.md
       - 2.1-Memory-Addresses: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-2-Memory-Addressing/2.1-Memory-Addresses.md
@@ -227,7 +244,6 @@ nav:
       - 3.3-Process-Switch: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.3-Process-Switch.md
       - 3.4-Creating-Processes: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4-Creating-Processes.md
       - 3.4.2-Kernel-Threads: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/3.4.2-Kernel-Threads.md
-      - Copy-on-write: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-3-Processes/wikipedia-Copy-on-write.md
     - Chapter-4-Interrupts-and-Exceptions:
       - Chapter-4-Interrupts-and-Exceptions: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions.md
       - 4.1-The-Role-of-Interrupt-Signals: Kernel/Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/4.1-The-Role-of-Interrupt-Signals.md
@@ -255,7 +271,6 @@ nav:
   - Introduction: Programming/index.md
   - Common:
     - Conventions: Programming/Common/Conventions.md
-    - Time-and-space: Programming/Common/Time-and-space.md
     - Classification-of-system-call:
       - Introduction: Programming/Common/Classification-of-system-call/index.md
       - Polling-(computer-science): Programming/Common/Classification-of-system-call/Polling-(computer-science).md
@@ -276,7 +291,8 @@ nav:
       - EEXIST: Programming/Common/Errorno/EEXIST.md
   - Philosophy:
     - Introduction: Programming/Philosophy/index.md
-    - Unix-philosophy: Programming/Philosophy/Unix-philosophy.md
+    - Unix-philosophy:
+      - Introduction: Programming/Philosophy/Unix-philosophy/index.md
     - Everything-is-a-file:
       - Everything-is-a-file: Programming/Philosophy/Everything-is-a-file/Everything-is-a-file.md
       - File-descriptor:
@@ -323,13 +339,12 @@ nav:
     - Thread:
       - man-7-pthreads: Programming/Multitasking/Thread/man-7-pthreads.md
       - man-7-attributes: Programming/Multitasking/Thread/man-7-attributes.md
-      - Thread-model: Programming/Multitasking/Thread/Thread-model.md
       - Synchronization:
         - Barrier:
           - Introduction: Programming/Multitasking/Thread/Synchronization/Barrier/index.md
         - Condition-variables: Programming/Multitasking/Thread/Synchronization/Condition-variables.md
         - TODO-futex:
-          - Introduction: Programming/Multitasking/Thread/Synchronization/TODO-futex/TODO-index.md
+          - Introduction: Programming/Multitasking/Thread/Synchronization/TODO-futex/index.md
     - Implementation-Clone:
       - TODO-index: Programming/Multitasking/Implementation-Clone/TODO-index.md
     - Sched:
@@ -378,9 +393,9 @@ nav:
       - Blocking-IO-VS-Nonblocking-IO: Programming/IO/IO-model/Blocking-IO-VS-Nonblocking-IO.md
     - "IO-\u6D41\u6D3E":
       - Introduction: "Programming/IO/IO-\u6D41\u6D3E/index.md"
-      - Stream:
-        - Stream: "Programming/IO/IO-\u6D41\u6D3E/Stream/index.md"
-        - Standard-streams: "Programming/IO/IO-\u6D41\u6D3E/Stream/Standard-streams.md"
+      - Stream-based-IO:
+        - Stream: "Programming/IO/IO-\u6D41\u6D3E/Stream-based-IO/index.md"
+        - Standard-streams: "Programming/IO/IO-\u6D41\u6D3E/Stream-based-IO/Standard-streams.md"
       - VS-stream-VS-fd: "Programming/IO/IO-\u6D41\u6D3E/VS-stream-VS-fd.md"
     - File-IO:
       - Introduction: Programming/IO/File-IO/index.md
@@ -492,42 +507,50 @@ nav:
   - Introduction: Network/index.md
   - Protocol:
     - Introduction: Network/Protocol/index.md
-    - Network-protocol-model: Network/Protocol/Network-protocol-model.md
-    - RCF: Network/Protocol/RCF.md
-    - TCP:
-      - Transmission-Control-Protocol: Network/Protocol/TCP/Transmission-Control-Protocol.md
-      - SEQ-and-ACK:
-        - Introduction: Network/Protocol/TCP/SEQ-and-ACK/index.md
-      - TCP-connection:
-        - Introduction: Network/Protocol/TCP/TCP-connection/index.md
-        - Connection-establishment: Network/Protocol/TCP/TCP-connection/Connection-establishment.md
-        - Connection-termination: Network/Protocol/TCP/TCP-connection/Connection-termination.md
-      - TCP-data-transfer:
-        - Introduction: Network/Protocol/TCP/TCP-data-transfer/index.md
-        - Nagle's-algorithm: Network/Protocol/TCP/TCP-data-transfer/Nagle's-algorithm.md
-        - TCP-segment-of-a-reassembled-PDU: Network/Protocol/TCP/TCP-data-transfer/TCP-segment-of-a-reassembled-PDU.md
-      - man-7-TCP: Network/Protocol/TCP/man-7-TCP.md
-      - TCP-troubleshoot: Network/Protocol/TCP/TCP-troubleshoot.md
-    - TODO-UDP:
-      - Introduction: Network/Protocol/TODO-UDP/index.md
-    - MAC-address: Network/Protocol/MAC-address.md
-    - TCP-VS-UDP:
-      - Introduction: Network/Protocol/TCP-VS-UDP/index.md
-    - Message-boundary: Network/Protocol/Message-boundary.md
-    - Application-protocol:
-      - Introduction: Network/Protocol/Application-protocol/index.md
-      - Design: Network/Protocol/Application-protocol/Design.md
+    - Network-protocol-model:
+      - Introduction: Network/Protocol/Network-protocol-model/index.md
+    - RCF:
+      - Introduction: Network/Protocol/RCF/index.md
+    - Transport-layer:
+      - TCP:
+        - Transmission-Control-Protocol: Network/Protocol/Transport-layer/TCP/Transmission-Control-Protocol.md
+        - SEQ-and-ACK:
+          - Introduction: Network/Protocol/Transport-layer/TCP/SEQ-and-ACK/index.md
+        - TCP-connection:
+          - Introduction: Network/Protocol/Transport-layer/TCP/TCP-connection/index.md
+          - Connection-establishment: Network/Protocol/Transport-layer/TCP/TCP-connection/Connection-establishment.md
+          - Connection-termination: Network/Protocol/Transport-layer/TCP/TCP-connection/Connection-termination.md
+        - TCP-data-transfer:
+          - Introduction: Network/Protocol/Transport-layer/TCP/TCP-data-transfer/index.md
+          - Nagle's-algorithm: Network/Protocol/Transport-layer/TCP/TCP-data-transfer/Nagle's-algorithm.md
+          - TCP-segment-of-a-reassembled-PDU: Network/Protocol/Transport-layer/TCP/TCP-data-transfer/TCP-segment-of-a-reassembled-PDU.md
+        - man-7-TCP: Network/Protocol/Transport-layer/TCP/man-7-TCP.md
+        - TCP-troubleshoot: Network/Protocol/Transport-layer/TCP/TCP-troubleshoot.md
+      - TODO-UDP:
+        - Introduction: Network/Protocol/Transport-layer/TODO-UDP/index.md
+      - TCP-VS-UDP:
+        - Introduction: Network/Protocol/Transport-layer/TCP-VS-UDP/index.md
+    - Application-layer:
+      - Introduction: Network/Protocol/Application-layer/index.md
+      - Design: Network/Protocol/Application-layer/Design.md
       - Protocol-data-format:
-        - Introduction: Network/Protocol/Application-protocol/Protocol-data-format/index.md
-        - Binary-VS-textual: Network/Protocol/Application-protocol/Protocol-data-format/Binary-VS-textual.md
+        - Introduction: Network/Protocol/Application-layer/Protocol-data-format/index.md
+        - Binary-VS-textual: Network/Protocol/Application-layer/Protocol-data-format/Binary-VS-textual.md
         - IDL:
-          - Introduction: Network/Protocol/Application-protocol/Protocol-data-format/IDL/index.md
-          - Schema-evaluation: Network/Protocol/Application-protocol/Protocol-data-format/IDL/Schema-evaluation.md
+          - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/index.md
+          - Schema-evaluation: Network/Protocol/Application-layer/Protocol-data-format/IDL/Schema-evaluation.md
           - Thrift:
-            - Introduction: Network/Protocol/Application-protocol/Protocol-data-format/IDL/Thrift/index.md
-            - Thrift-Scalable-Cross-Language-Services-Implementation: Network/Protocol/Application-protocol/Protocol-data-format/IDL/Thrift/Thrift-Scalable-Cross-Language-Services-Implementation.md
+            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Thrift/index.md
+            - Thrift-Scalable-Cross-Language-Services-Implementation: Network/Protocol/Application-layer/Protocol-data-format/IDL/Thrift/Thrift-Scalable-Cross-Language-Services-Implementation.md
           - Protobuf:
-            - Introduction: Network/Protocol/Application-protocol/Protocol-data-format/IDL/Protobuf/index.md
+            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Protobuf/index.md
+      - Domain-Name-System:
+        - Introduction: Network/Protocol/Application-layer/Domain-Name-System/index.md
+        - "TODO-\u6839\u57DF\u540D\u670D\u52A1\u5668\u662F\u5426\u53EA\u670913\u53F0":
+          - Introduction: "Network/Protocol/Application-layer/Domain-Name-System/TODO-\u6839\
+              \u57DF\u540D\u670D\u52A1\u5668\u662F\u5426\u53EA\u670913\u53F0/index.md"
+    - MAC-address: Network/Protocol/MAC-address.md
+    - Message-boundary: Network/Protocol/Message-boundary.md
   - Programming:
     - Introduction: Network/Programming/index.md
     - Socket: Network/Programming/Socket.md
@@ -682,11 +705,15 @@ nav:
           - Introduction: Shell-and-tools/Tools/Performance/sysstat/iostat/index.md
     - Build:
       - Autoconf:
-        - Autoconf: Shell-and-tools/Tools/Build/Autoconf/Autoconf.md
+        - Introduction: Shell-and-tools/Tools/Build/Autoconf/index.md
+        - Configure-script:
+          - Introduction: Shell-and-tools/Tools/Build/Autoconf/Configure-script/index.md
       - Automake:
         - Automake: Shell-and-tools/Tools/Build/Automake/Automake.md
       - Autotools-Mythbuster:
         - Introduction: Shell-and-tools/Tools/Build/Autotools-Mythbuster/index.md
+      - pkg-config:
+        - Introduction: Shell-and-tools/Tools/Build/pkg-config/index.md
       - Make:
         - Make-and-makefile: Shell-and-tools/Tools/Build/Make/Make-and-makefile.md
         - Makefile:
@@ -715,8 +742,10 @@ nav:
   - Introduction: Linux-Foundation/index.md
   - Linux-Foundation-Referenced-Specifications: Linux-Foundation/Linux-Foundation-Referenced-Specifications.md
   - LSB-Core:
-    - LSB-Core: Linux-Foundation/LSB-Core/LSB-Core.md
+    - Introduction: Linux-Foundation/LSB-Core/index.md
     - librt: Linux-Foundation/LSB-Core/librt.md
+- Core-dump:
+  - Introduction: Core-dump/index.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Linux-OS
