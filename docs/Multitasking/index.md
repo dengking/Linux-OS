@@ -42,8 +42,9 @@ OS为了支持[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking
 
 [scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的实现是一个非常宏大的主题，在此我们仅仅讨论[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的调度策略，根据[scheduler](https://en.wikipedia.org/wiki/Scheduling_(computing))的调度策略，可以将[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)分为如下两种：
 
-- [pre-emptive multitasking](https://en.wikipedia.org/wiki/Pre-emptive_multitasking)
-- [cooperative multitasking](https://en.wikipedia.org/wiki/Cooperative_multitasking)
+1、[pre-emptive multitasking](https://en.wikipedia.org/wiki/Pre-emptive_multitasking)
+
+2、[cooperative multitasking](https://en.wikipedia.org/wiki/Cooperative_multitasking)
 
 需要注意的是，这两种方式是普遍存在的，两者各有千秋，OS的实现可以根据需求选择其中任意一种。
 

@@ -2,8 +2,8 @@ nav:
     - Home: index.md
     - Architecture-of-computing-system: Architecture-of-computing-system
     - Operating-system: Operating-system
-    ########## 描述linux OS的标准与实现##########     
-    - Unix-standardization-and-implementation: Unix-standardization-and-implementation      
+    ########## 描述linux OS的标准与实现##########
+    - Unix-standardization-and-implementation: Unix-standardization-and-implementation
     ########## 描述内核的相关知识##########             
     - Kernel: Kernel
     - Linux-startup-process: Linux-startup-process
@@ -18,4 +18,3 @@ nav:
 
     ##########Linux-Foundation定义了linux OS的方方面面##########               
     - Linux-Foundation: Linux-Foundation
-    - Core-dump: Core-dump
