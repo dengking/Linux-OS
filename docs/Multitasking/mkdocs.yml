@@ -6,7 +6,7 @@ nav:
     # Sched
     - Scheduler: Scheduler
 
-    
+    - System-call-summary: System-call-summary
     - Process: Process
     - Thread: Thread
     # 对它进行专门的描述

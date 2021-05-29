@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - Reentrancy: Reentrancy
+    - man-7-signal-safety: man-7-signal-safety
