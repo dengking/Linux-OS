@@ -1,10 +1,10 @@
 # Data segment
 
-
+"data segment段=bss段+initialized data segment段"
 
 ## wikipedia [Data segment](https://en.wikipedia.org/wiki/Data_segment)
 
-In [computing](https://en.wikipedia.org/wiki/Computing), a **data segment** (often denoted **.data**) is a portion of an [object file](https://en.wikipedia.org/wiki/Object_file) or the corresponding [address space](https://en.wikipedia.org/wiki/Address_space) of a program that contains initialized [static variables](https://en.wikipedia.org/wiki/Static_variable), that is, [global variables](https://en.wikipedia.org/wiki/Global_variable) and [static local variables](https://en.wikipedia.org/wiki/Static_local_variable). The size of this segment is determined by the size of the values in the program's source code, and does not change at [run time](https://en.wikipedia.org/wiki/Run_time_(program_lifecycle_phase)).
+In [computing](https://en.wikipedia.org/wiki/Computing), a **data segment** (often denoted **.data**) is a portion of an [object file](https://en.wikipedia.org/wiki/Object_file) or the corresponding [address space](https://en.wikipedia.org/wiki/Address_space) of a program that contains **initialized** [static variables](https://en.wikipedia.org/wiki/Static_variable), that is, [global variables](https://en.wikipedia.org/wiki/Global_variable) and [static local variables](https://en.wikipedia.org/wiki/Static_local_variable). The size of this segment is determined by the size of the values in the program's source code, and does not change at [run time](https://en.wikipedia.org/wiki/Run_time_(program_lifecycle_phase)).
 
 > NOTE: 在一些其他的文章中，也使用了 [data segment](https://en.wikipedia.org/wiki/Data_segment) 这个词，在其中的一些内容初读起来是会和上面的最后一句话 "and does not change at [run time](https://en.wikipedia.org/wiki/Run_time_(program_lifecycle_phase)) " 相矛盾的，在下面章节中，罗列了这些文章，这些文章主要是Linux OS相关的，其实它们是并不矛盾的，这些文章的内容涉及到了底层的实现细节，当深入这些实现细节后，会发现它们其实是并不矛盾的。
 

@@ -8,7 +8,7 @@
 
 下图展示了一个32位系统的进程虚拟地址空间的布局：
 
-![](https://images2015.cnblogs.com/blog/709240/201612/709240-20161226184059898-719651798.png)
+![](./709240-20161226184059898-719651798.png)
 
 进程虚拟地址空间由若干个区域组成：
 
@@ -81,11 +81,25 @@ struct vm_area_struct {
 
 VMA链表组织形式如下图：
 
-![img](https://images2015.cnblogs.com/blog/709240/201612/709240-20161225223640698-63997329.png)
+![img](./709240-20161225223640698-63997329.png)
 
  VMA红黑树组织形式如下：
 
-![img](https://images2015.cnblogs.com/blog/709240/201612/709240-20161226185622632-1727321718.png)
+![img](./709240-20161226185622632-1727321718.png)
+
+
+
+## geeksforgeeks [Memory Layout of C Programs](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
+
+A typical memory representation of C program consists of following sections.
+
+\1. Text segment
+\2. Initialized data segment (usually called simply the **Data Segment**)
+\3. Uninitialized data segment (often called the “**bss**” segment)
+\4. Stack
+\5. Heap
+
+[![Memory-Layout](https://media.geeksforgeeks.org/wp-content/uploads/memoryLayoutC.jpg)](https://media.geeksforgeeks.org/wp-content/uploads/memoryLayoutC.jpg)
 
 
 
@@ -95,9 +109,13 @@ VMA链表组织形式如下图：
 
 A process’ virtual address space is divided into segments. A segment is a contiguous range of virtual addresses. Three important segments are:
 
-- The *text segment* contains a program’s instructions and literals and static constants. It is allocated by exec and stays the same size for the life of the virtual address space.
-- The *data segment* is working storage for the program. It can be preallocated and preloaded by exec and the process can extend or shrink it by calling functions as described in See [Resizing the Data Segment](https://www.gnu.org/software/libc/manual/html_node/Resizing-the-Data-Segment.html). Its lower end is fixed.
-- The *stack segment* contains a program stack. It grows as the stack grows, but doesn’t shrink when the stack shrinks.
+1、The *text segment* contains a program’s instructions and literals and static constants. It is allocated by exec and stays the same size for the life of the virtual address space.
+
+2、The *data segment* is working storage for the program. It can be preallocated and preloaded by exec and the process can extend or shrink it by calling functions as described in See [Resizing the Data Segment](https://www.gnu.org/software/libc/manual/html_node/Resizing-the-Data-Segment.html). Its lower end is fixed.
+
+3、The *stack segment* contains a program stack. It grows as the stack grows, but doesn’t shrink when the stack shrinks.
+
+
 
 
 
@@ -105,6 +123,16 @@ A process’ virtual address space is divided into segments. A segment is a cont
 
 https://blog.csdn.net/feilengcui008/article/details/44141495
 
-
-
 https://www.cnblogs.com/dyllove98/archive/2013/07/05/3174341.html
+
+
+https://inst.eecs.berkeley.edu/~cs161/sp15/slides/lec3-sw-vulns.pdf
+
+https://inst.eecs.berkeley.edu/
+
+https://cpp.tech-academy.co.uk/memory-layout/
+
+https://cpp.tech-academy.co.uk/
+
+https://stackoverflow.com/questions/3080375/how-is-the-memory-layout-of-a-c-c-program
+

@@ -63,9 +63,11 @@ I have used a memory mapped file to implement an 'auto complete' feature while t
 
 At runtime the file is memory mapped, cast to a `C`-style `struct` array, and we do a binary search to find matching part numbers as the user types. Only a few memory pages of the file are actually read from disk -- whichever pages are hit during the binary search.
 
-- Concurrency - I had an implementation problem where it would sometimes memory map the file multiple times in the same process space. This was a problem as I recall because sometimes the system couldn't find a large enough free block of virtual memory to map the file to. The solution was to only map the file once and thunk(形实转换程序) all calls to it. In retrospect using a full blown Windows service would of been cool.
-- Random Access - The binary search is certainly random access and lightning fast
-- Performance - The lookup is extremely fast. As users type a popup window displays a list of matching product part numbers, the list shrinks as they continue to type. There is no noticeable lag while typing.
+1、Concurrency - I had an implementation problem where it would sometimes memory map the file multiple times in the same process space. This was a problem as I recall because sometimes the system couldn't find a large enough free block of virtual memory to map the file to. The solution was to only map the file once and thunk(形实转换程序) all calls to it. In retrospect using a full blown Windows service would of been cool.
+
+2、Random Access - The binary search is certainly random access and lightning fast
+
+3、Performance - The lookup is extremely fast. As users type a popup window displays a list of matching product part numbers, the list shrinks as they continue to type. There is no noticeable lag while typing.
 
 
 

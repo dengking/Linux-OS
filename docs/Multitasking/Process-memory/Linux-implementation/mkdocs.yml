@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Program-break: Program-break
+    - dynamic-allocation-system-call: dynamic-allocation-system-call
     - Verification: Verification
     - System-call: System-call
     - Size: Size

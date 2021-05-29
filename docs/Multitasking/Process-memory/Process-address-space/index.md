@@ -140,33 +140,6 @@ This shows the typical layout of a simple computer's program memory with the tex
 
 
 
-## geeksforgeeks [Memory Layout of C Programs](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
-
-A typical memory representation of C program consists of following sections.
-
-\1. Text segment
-\2. Initialized data segment (usually called simply the **Data Segment**)
-\3. Uninitialized data segment (often called the “**bss**” segment)
-\4. Stack
-\5. Heap
-
-[![Memory-Layout](https://media.geeksforgeeks.org/wp-content/uploads/memoryLayoutC.jpg)](https://media.geeksforgeeks.org/wp-content/uploads/memoryLayoutC.jpg)
-
-
-
-## TODO: Memory layout of a process in linux 
-
-
-https://inst.eecs.berkeley.edu/~cs161/sp15/slides/lec3-sw-vulns.pdf
-
-https://inst.eecs.berkeley.edu/
-
-https://cpp.tech-academy.co.uk/memory-layout/
-
-https://cpp.tech-academy.co.uk/
-
-https://stackoverflow.com/questions/3080375/how-is-the-memory-layout-of-a-c-c-program
-
 
 
 ## Memory layout of process with thread
@@ -191,7 +164,7 @@ Then I pressed `^Z` and looked at the appropriate `/proc/.../maps` file for this
 
 It showed me
 
-```
+```shell
 00048000-00049000 ---p 00000000 00:00 0
 00049000-00848000 rw-p 00000000 00:00 0          [stack:28625]
 00848000-00849000 ---p 00000000 00:00 0
