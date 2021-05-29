@@ -5,3 +5,18 @@
 本章参考内容有：
 
 - APUE 
+
+
+
+
+
+## Organization of process
+
+kernel组织process的hierarchy：
+
+
+- session
+- process group
+- process
+- thread
+

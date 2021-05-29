@@ -1,10 +1,13 @@
 nav:
     - Organization-of-process: Organization-of-process
     - Process-state: Process-state
-    - Create-process: Create-process    
-    - Wait-child-process: Wait-child-process
+    - Create-process: Create-process 
+    - Process-termination: Process-termination
+
     - Block-process: Block-process
-    - Exit: Exit
+
     - Daemon: Daemon
+    
     - IPC: IPC
+    
     - Linux-implementation: Linux-implementation

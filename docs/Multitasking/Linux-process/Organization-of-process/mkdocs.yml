@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - Organization-of-process: Organization-of-process.md
-    - man-7-cgroups: man-7-cgroups.md
+    - Process-group: Process-group
+    - man-7-cgroups: man-7-cgroups
+    - TODO-How-kernel-organize-process: TODO-How-kernel-organize-process
