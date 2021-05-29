@@ -17,3 +17,18 @@ APUE 12.5 Reentrancy给出的definition如下：
 APUE 10.6 Reentrant Functions给出的definition如下：
 
 > The Single UNIX Specification specifies the functions that are guaranteed to be safe to call from within a signal handler. These functions are reentrant and are called ***async-signal safe*** by the Single UNIX Specification. Besides being reentrant, they block any signals during operation if delivery of a signal might cause inconsistencies.
+
+
+
+
+
+## draft
+
+### 不使用async-signal unsafe function
+
+当然有些情况下的race condition是通过OS提供的各种方法是无法avoid，比如在APUE 的10.6 Reentrant Functions章节介绍的情况，这种情况下，就只有不使用这些async-signal unsafe function才能够彻底规避；
+
+> 思考:原子操作有哪些优良性质
+
+
+
