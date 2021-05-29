@@ -1,5 +1,2 @@
 nav:
-    - Process: Process.md
-    - Process-table: Process-table
-    - Process-control-block: Process-control-block
-    
+    - Introduction: index.md

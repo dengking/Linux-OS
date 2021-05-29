@@ -1,5 +1,7 @@
 # 关于Virtual address space的思考
 
+
+
 ## 一个process的virtual address space的上限？
 
 我之前出现out-of-memory的情况是：process非常高频地执行一个存在memory leakage的function，最终导致out-of-memory（这个function使用的是`malloc`式的，所以它所获得的memory是位于heap的，那位于heap上的memory没有上限吗？它如何能够导致out-of-memory？）。一个process如何能够将一台机器的memory耗尽？这个问题转换一下就是难道一个process的address space没有上限吗?

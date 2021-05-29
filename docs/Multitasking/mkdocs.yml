@@ -1,8 +1,9 @@
 nav:
     # multitask是OS的关键特性，本章就是沿着它来进行展开
     - Introduction: index.md
-    # 综述process model 
+    # 综述process model，这是理论上的
     - Process-model: Process-model
+    # 
     - Process-memory: Process-memory
     - Process-file: Process-file
     # Sched
