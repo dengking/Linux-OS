@@ -3,6 +3,8 @@ nav:
     - Introduction: index.md
     # 综述process model 
     - Process-model: Process-model
+    - Process-memory: Process-memory
+    - Process-file: Process-file
     # Sched
     - Scheduler: Scheduler
 

@@ -1,10 +1,8 @@
 nav:
     - Organization-of-process: Organization-of-process
     - Process-state: Process-state
+    - Create-process: Create-process    
+    - Wait-child-process: Wait-child-process
     - Exit: Exit
     - Daemon: Daemon
-    - Proc-filesystem: Proc-filesystem
     - IPC: IPC
-    
-    
-    
