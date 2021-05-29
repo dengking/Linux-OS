@@ -1,4 +1,12 @@
-# Sched
+# 关于本章
+
+
+
+## wikipedia [Processor affinity](https://en.wikipedia.org/wiki/Processor_affinity)
+
+
+
+
 
 ## `sched_setaffinity`
 
@@ -157,3 +165,4 @@ main(int argc, char *argv[])
 
 
 ### man 3 [pthread_setaffinity_np](https://www.man7.org/linux/man-pages/man3/pthread_setaffinity_np.3.html)
+

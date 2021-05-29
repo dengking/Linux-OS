@@ -3,6 +3,7 @@ nav:
     - Process-state: Process-state
     - Create-process: Create-process    
     - Wait-child-process: Wait-child-process
+    - Block-process: Block-process
     - Exit: Exit
     - Daemon: Daemon
     - IPC: IPC

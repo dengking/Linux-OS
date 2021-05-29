@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - man-7-sched: man-7-sched
+    - Processor-affinity: Processor-affinity
