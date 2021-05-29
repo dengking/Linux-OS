@@ -1,0 +1,4 @@
+nav:
+    - man-3-pthread_cancel: man-3-pthread_cancel
+    - man-3-pthread_setcancel: man-3-pthread_setcancel
+    

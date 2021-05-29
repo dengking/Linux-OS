@@ -1,0 +1,1 @@
+# [pthread_equal(3)](https://man7.org/linux/man-pages/man3/pthread_equal.3.html)

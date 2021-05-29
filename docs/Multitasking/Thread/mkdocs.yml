@@ -4,5 +4,9 @@ nav:
     - man-7-pthreads: man-7-pthreads
     - man-7-attributes: man-7-attributes
     
-    - Synchronization: Synchronization
+
+    - Create-thread: Create-thread
     - Cancel-thread: Cancel-thread
+    - Join-thread: Join-thread
+    - Detach-thread: Detach-thread
+    - Synchronization: Synchronization    
