@@ -6,3 +6,4 @@ nav:
     - Exit: Exit
     - Daemon: Daemon
     - IPC: IPC
+    - Linux-implementation: Linux-implementation

@@ -10,8 +10,8 @@ nav:
     - Scheduler: Scheduler
 
     - System-call-summary: System-call-summary
-    - Process: Process
-    - Thread: Thread
+    - Linux-process: Linux-process
+    - Linux-thread: Linux-thread
     # 对它进行专门的描述
 
 
