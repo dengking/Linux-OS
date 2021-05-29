@@ -62,6 +62,8 @@ nav:
       - Introduction: Kernel/Guide/Control-path-and-context-switch/index.md
     - Kernel-thread:
       - Introduction: Kernel/Guide/Kernel-thread/index.md
+    - System-resource:
+      - Introduction: Kernel/Guide/System-resource/index.md
   - Book-Understanding-the-Linux-Kernel:
     - Introduction: Kernel/Book-Understanding-the-Linux-Kernel/index.md
     - Chapter-1-Introduction:
@@ -244,7 +246,6 @@ nav:
       - Introduction: Multitasking/Process-model/Process-run-model/index.md
     - Process-resource:
       - Introduction: Multitasking/Process-model/Process-resource/index.md
-      - System-resource: Multitasking/Process-model/Process-resource/System-resource.md
     - Process-lifetime:
       - Introduction: Multitasking/Process-model/Process-lifetime/index.md
   - Process-memory:
@@ -329,8 +330,12 @@ nav:
   - Linux-process:
     - Organization-of-process:
       - Introduction: Multitasking/Linux-process/Organization-of-process/index.md
-      - Organization-of-process: Multitasking/Linux-process/Organization-of-process/Organization-of-process.md
-      - man-7-cgroups: Multitasking/Linux-process/Organization-of-process/man-7-cgroups.md
+      - Process-group:
+        - Introduction: Multitasking/Linux-process/Organization-of-process/Process-group/index.md
+      - man-7-cgroups:
+        - Introduction: Multitasking/Linux-process/Organization-of-process/man-7-cgroups/index.md
+      - TODO-How-kernel-organize-process:
+        - Introduction: Multitasking/Linux-process/Organization-of-process/TODO-How-kernel-organize-process/index.md
     - Process-state:
       - Introduction: Multitasking/Linux-process/Process-state/index.md
       - wikipedia-Process-state:
@@ -338,13 +343,13 @@ nav:
     - Create-process:
       - man-2-fork:
         - Introduction: Multitasking/Linux-process/Create-process/man-2-fork/index.md
-    - Wait-child-process:
-      - Child-process-exit-status:
-        - Introduction: Multitasking/Linux-process/Wait-child-process/Child-process-exit-status/index.md
+      - Wait-child-process:
+        - Child-process-exit-status:
+          - Introduction: Multitasking/Linux-process/Create-process/Wait-child-process/Child-process-exit-status/index.md
+    - Process-termination:
+      - Introduction: Multitasking/Linux-process/Process-termination/index.md
     - Block-process:
       - Introduction: Multitasking/Linux-process/Block-process/index.md
-    - Exit:
-      - Process-exit: Multitasking/Linux-process/Exit/Process-exit.md
     - Daemon:
       - man-7-daemon: Multitasking/Linux-process/Daemon/man-7-daemon.md
       - man-3-daemon: Multitasking/Linux-process/Daemon/man-3-daemon.md
