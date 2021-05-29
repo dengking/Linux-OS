@@ -1,4 +1,4 @@
-# 前言
+# 关于本章
 
 本章主要介绍[virtualization](https://en.wikipedia.org/wiki/Virtualization)技术，重点关注linux [OS-level virtualization](https://en.wikipedia.org/wiki/OS-level_virtualization)。
 

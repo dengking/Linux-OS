@@ -1,4 +1,4 @@
 nav:
     - Introduction: index.md
-    - Linux-Namespaces: Linux-Namespaces.md
-    - man-7-namespaces: man-7-namespaces.md
+    - toptal-Separation-Anxiety-Tutorial-for-Isolating-Your-System-with-Linux-Namespaces: toptal-Separation-Anxiety-Tutorial-for-Isolating-Your-System-with-Linux-Namespaces
+    - man-7-namespaces: man-7-namespaces

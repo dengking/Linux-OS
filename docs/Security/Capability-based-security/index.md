@@ -1,14 +1,24 @@
 # wikipedia [Capability-based security](https://en.wikipedia.org/wiki/Capability-based_security)
 
-**Capability-based security** is a concept in the design of [secure computing](https://en.wikipedia.org/wiki/Computer_security) systems, one of the existing [security models](https://en.wikipedia.org/wiki/Computer_security_model). A **capability** (known in some systems as a **key**) is a communicable(可传达的), unforgeable(不可篡改的) [token](https://en.wikipedia.org/wiki/Access_token) of authority. It refers to a value that [references](https://en.wikipedia.org/wiki/Reference_(computer_science)) an [object](https://en.wikipedia.org/wiki/Object_(computer_science)) along with an associated set of [access rights](https://en.wikipedia.org/wiki/Access_control).
+**Capability-based security** is a concept in the design of [secure computing](https://en.wikipedia.org/wiki/Computer_security) systems, one of the existing [security models](https://en.wikipedia.org/wiki/Computer_security_model). A **capability** (known in some systems as a **key**) is a communicable(可传达的), unforgeable(不可伪造的) [token](https://en.wikipedia.org/wiki/Access_token) of authority. It refers to a value that [references](https://en.wikipedia.org/wiki/Reference_(computer_science)) an [object](https://en.wikipedia.org/wiki/Object_(computer_science)) along with an associated set of [access rights](https://en.wikipedia.org/wiki/Access_control).
 
 > NOTE: 
 >
 > 1、显然Linux OS file descriptor是典型的capability-based security。
+>
+> 2、"It refers to a value that [references](https://en.wikipedia.org/wiki/Reference_(computer_science)) an [object](https://en.wikipedia.org/wiki/Object_(computer_science)) along with an associated set of [access rights](https://en.wikipedia.org/wiki/Access_control)"
+>
+> 它所指的是一个value，这个value引用一个object同时关联"access rights"
 
 ## Introduction
 
-Capabilities achieve their objective of improving system security by being used in place of forgeable [references](https://en.wikipedia.org/wiki/Reference_(computer_science)). A forgeable reference (for example, a [path name](https://en.wikipedia.org/wiki/Path_(computing))) identifies an object, but does not specify which access rights are appropriate for that object and the user program which holds that reference. Consequently, any attempt to access the referenced object must be validated by the operating system, based on the [ambient authority](https://en.wikipedia.org/wiki/Ambient_authority) of the requesting program, typically via the use of an [access control list](https://en.wikipedia.org/wiki/Access_control_list) (ACL). 
+Capabilities achieve their objective of improving system security by being used in place of forgeable(可以伪造的) [references](https://en.wikipedia.org/wiki/Reference_(computer_science)). A forgeable reference (for example, a [path name](https://en.wikipedia.org/wiki/Path_(computing))) identifies an object, but does not specify which access rights are appropriate for that object and the user program which holds that reference. Consequently, any attempt to access the referenced object must be validated by the operating system, based on the [ambient authority](https://en.wikipedia.org/wiki/Ambient_authority) of the requesting program, typically via the use of an [access control list](https://en.wikipedia.org/wiki/Access_control_list) (ACL). 
+
+> NOTE: 
+>
+> 理解这段话的一个关键是理解"forgeable(可以伪造的) [references](https://en.wikipedia.org/wiki/Reference_(computer_science))"的含义，上面给出了一个例子，即path name，path name 能够 "identifies an object"，但是并没有"specify which access rights are appropriate for that object and the user program which holds that reference"
+>
+> 
 
 Instead, in a system with capabilities, the mere fact that a user program possesses(拥有) that capability entitles(使有资格，使有权) it to use the referenced object **in accordance with**(按照) the rights that are specified by that capability. In theory, a system with capabilities removes the need for any **access control list** or similar mechanism by giving all entities(实体) all and only the capabilities they will actually need.
 
