@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
     - dynamic-allocation-system-call: dynamic-allocation-system-call
-    - Verification: Verification
+    - 输出内存布局: 输出内存布局
     - System-call: System-call
     - Size: Size
