@@ -5,5 +5,5 @@ nav:
     - Context-switch: Context-switch
 
     - Linux-implementation: Linux-implementation
-    
+    - Multicore-scheduler-process: Multicore-scheduler-process
     

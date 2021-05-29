@@ -234,6 +234,8 @@ nav:
     - Introduction: Multitasking/Process-model/index.md
     - Process:
       - Introduction: Multitasking/Process-model/Process/index.md
+      - wikipedia-Process(computing):
+        - Introduction: Multitasking/Process-model/Process/wikipedia-Process(computing)/index.md
     - Process-control-block:
       - Introduction: Multitasking/Process-model/Process-control-block/index.md
     - Process-table:
@@ -320,6 +322,8 @@ nav:
         - Introduction: Multitasking/Scheduler/Linux-implementation/Processor-affinity/index.md
         - man-1-taskset:
           - Introduction: Multitasking/Scheduler/Linux-implementation/Processor-affinity/man-1-taskset/index.md
+    - Multicore-scheduler-process:
+      - Introduction: Multitasking/Scheduler/Multicore-scheduler-process/index.md
   - System-call-summary:
     - Introduction: Multitasking/System-call-summary/index.md
   - Linux-process:
@@ -404,6 +408,9 @@ nav:
   - Credential:
     - man-7-credentials:
       - Introduction: Multitasking/Credential/man-7-credentials/index.md
+  - proc-filesystem:
+    - man-5-proc:
+      - Introduction: Multitasking/proc-filesystem/man-5-proc/index.md
   - Tools:
     - Introduction: Multitasking/Tools/index.md
     - procps:
@@ -417,9 +424,6 @@ nav:
         - htop: Multitasking/Tools/procps/top/htop.md
       - pgrep: Multitasking/Tools/procps/pgrep.md
       - pstree: Multitasking/Tools/procps/pstree.md
-  - proc-filesystem:
-    - man-5-proc:
-      - Introduction: Multitasking/proc-filesystem/man-5-proc/index.md
 - Programming:
   - Introduction: Programming/index.md
   - Book-APUE:
