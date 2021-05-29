@@ -1,4 +1,3 @@
 nav:
     - Introduction: index.md
     - wikipedia-Reentrancy: wikipedia-Reentrancy
-    - Reentrancy-VS-thread-safety: Reentrancy-VS-thread-safety.md

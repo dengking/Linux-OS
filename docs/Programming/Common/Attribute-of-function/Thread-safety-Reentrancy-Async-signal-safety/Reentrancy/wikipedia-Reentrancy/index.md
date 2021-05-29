@@ -1,6 +1,16 @@
 # wikipedia [Reentrancy (computing)](https://en.wikipedia.org/wiki/Reentrancy_(computing))
 
-> NOTE: "Reentrancy"即"可重入"
+> NOTE: 
+>
+> 一、"Reentrancy"即"可重入"
+>
+> 二、"tag-reentrancy is a form of concurrency-race condition"
+>
+> 参见: 
+>
+> 1、`Parallel-computing\docs\Concurrent-computing\Multithread\Thread-safety\What-cause-unsafety\Race`
+>
+> 2、drdobbs [Use Lock Hierarchies to Avoid Deadlock](https://www.drdobbs.com/parallel/use-lock-hierarchies-to-avoid-deadlock/204801163)  
 
 In [computing](https://en.wikipedia.org/wiki/Computing), a [computer program](https://en.wikipedia.org/wiki/Computer_program) or [subroutine](https://en.wikipedia.org/wiki/Subroutine) is called **reentrant** if it can be interrupted in the middle of its execution and then safely be called again ("re-entered") before its previous invocations complete execution. The **interruption** could be caused by an **internal action** such as a jump or call, or by an **external action** such as an [interrupt](https://en.wikipedia.org/wiki/Interrupt) or [signal](https://en.wikipedia.org/wiki/Signal_(computing)). Once the **reentered invocation** completes, the previous invocations will resume correct execution.
 
