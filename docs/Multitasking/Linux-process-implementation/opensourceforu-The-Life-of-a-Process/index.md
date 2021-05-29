@@ -19,7 +19,11 @@ If the purpose of creating a process is not to clone the parent process, then a 
 
 Before kernel 2.6, `task_struct` was created statically and the kernel stack had a pointer to this structure. Now `task_struct` is created by the slab allocator and the kernel stack has a pointer to the `thread_info` structure, which points to the `task_struct` structure.
 
-[![Figure 1](https://i0.wp.com/opensourceforu.com/wp-content/uploads/2016/02/Figure-116-350x239.jpg?resize=350%2C239)](https://i1.wp.com/opensourceforu.com/wp-content/uploads/2016/02/Figure-116.jpg)Figure 1: Virtual memory
+![](./Figure-116.jpg)
+
+
+
+Figure 1: Virtual memory
 
 
 
@@ -56,7 +60,7 @@ clone(CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND, 0);
 
 For the process, it will be:
 
-```
+```c++
 clone(SICHLD,0);
 ```
 
@@ -65,7 +69,7 @@ clone(SICHLD,0);
 Linux also has kernel threads that are used for kernel related background operations because normal threads are switched between the kernel space and user space, and this is not safe for kernel tasks like flush tasks, *ksoftirqd* tasks, etc. Kernel threads dont have address space, which means the `mm` pointer points to NULL.
 Kernel threads are created by the *kthread_create* API and declared in *<linux/kthread.h>-*
 
-```
+```c++
 `struct task_struct *kthread_create(int (*threadfn)(void *data), void *data, const char namefmt[], );`
 ```
 
@@ -73,10 +77,12 @@ Kernel threads are created by the *kthread_create* API and declared in *<linux/k
 
 Processes go through some states based on scheduling.
 
-- *Running state:* In this state, the process is in a runnable state or in a run queue, waiting to run. The TASK_RUNNING flag is used for this state.
-- *Interruptible state:* Here, the process is in sleep mode and waiting for some task to finish, but it can also be invoked prematurely by a signal. The TASK_INTERRUPTIBLE flag is used for this state.
-- *Uninterruptible state:* The process is in sleep mode and waiting for some task to finish but it cannot be invoked prematurely by a signal. The TASK_UNINTERRUPTIBLE flag is used for this state.
-  So processes can be in the running, waiting or stopped state. There is one more state  the zombie state – which will be described later.
+1、*Running state:* In this state, the process is in a runnable state or in a run queue, waiting to run. The TASK_RUNNING flag is used for this state.
+
+2、*Interruptible state:* Here, the process is in sleep mode and waiting for some task to finish, but it can also be invoked prematurely by a signal. The TASK_INTERRUPTIBLE flag is used for this state.
+
+3、*Uninterruptible state:* The process is in sleep mode and waiting for some task to finish but it cannot be invoked prematurely by a signal. The TASK_UNINTERRUPTIBLE flag is used for this state.
+So processes can be in the running, waiting or stopped state. There is one more state  the zombie state – which will be described later.
 
 ## **Death of a process**
 

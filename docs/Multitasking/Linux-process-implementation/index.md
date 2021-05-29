@@ -8,13 +8,13 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 结合前面章节关于process model的描述和上面这段关于linux OS中process model实现概述，可以总结：
 
-- Linux OS的kernel scheduling entity是**lightweight processes**
+1、Linux OS的kernel scheduling entity是**lightweight processes**
 
-- linux OS通过它的**lightweight processes**来实现process model的；linux OS中，light weight process对应的是标准的thread，linux OS中，一个process由n（n>=1）个light weight process组成（显然，当n为1时，一个process只有一个lightweight process，这就是我们通常所说的single-thread process）。
+2、Linux OS通过它的**lightweight processes**来实现process model的；linux OS中，light weight process对应的是标准的thread，linux OS中，一个process由n（n>=1）个light weight process组成（显然，当n为1时，一个process只有一个lightweight process，这就是我们通常所说的single-thread process）。
 
-  在本书chapter 3.1. Processes, Lightweight Processes, and Threads中定义了*thread group*的概念，*thread group*相当于process。
+在本书chapter 3.1. Processes, Lightweight Processes, and Threads中定义了*thread group*的概念，*thread group*相当于process。
 
-  在本书chapter 3.1. Processes, Lightweight Processes, and Threads中提出：对于面向process的system call，thread group要“act as a whole”即表示为一个整体，这些system call包括：[getpid](http://man7.org/linux/man-pages/man2/getpid.2.html)、[kill](http://man7.org/linux/man-pages/man2/kill.2.html)。
+在本书chapter 3.1. Processes, Lightweight Processes, and Threads中提出：对于面向process的system call，thread group要“act as a whole”即表示为一个整体，这些system call包括：[getpid](http://man7.org/linux/man-pages/man2/getpid.2.html)、[kill](http://man7.org/linux/man-pages/man2/kill.2.html)。
 
 
 
@@ -63,7 +63,7 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 
 
-## linux kernel如何实现process与thread
+## Linux kernel如何实现process与thread
 
 参见3.1. Processes, Lightweight Processes, and Threads
 
@@ -75,9 +75,9 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 在3.4. Creating Processes中提出了这个说法，它让我想起了两件事情：
 
-- process作为system resource分配单位，它有哪些resource呢？显然，它的所有的resource都需要使用一个 kernel data structures来进行描述。有必要总结per-process的resource以及对应的kernel data structures。与此相关的一个问题就是，这些resource哪些是child process可以继承的，哪些是无法继承的。
+1、process作为system resource分配单位，它有哪些resource呢？显然，它的所有的resource都需要使用一个 kernel data structures来进行描述。有必要总结per-process的resource以及对应的kernel data structures。与此相关的一个问题就是，这些resource哪些是child process可以继承的，哪些是无法继承的。
 
-- 显然，多个lightweight process是可以共享per-process kernel data structure的（这是标准规定的），这种共享，我觉得实现上应该也是非常简单的，无非就是传入一个指针。
+2、显然，多个lightweight process是可以共享per-process kernel data structure的（这是标准规定的），这种共享，我觉得实现上应该也是非常简单的，无非就是传入一个指针。
 
 
 
@@ -109,10 +109,6 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 1.6.2. Process Implementation
 1.6.4. Process Address Space
-
-
-
-
 
 
 
