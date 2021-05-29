@@ -1,4 +1,8 @@
 nav:
-    - man-7-pthreads: man-7-pthreads.md
+    - Introduction: index.md
+    - Thread-control-block: Thread-control-block
+    - man-7-pthreads: man-7-pthreads
     - man-7-attributes: man-7-attributes
+    
     - Synchronization: Synchronization
+    - Cancel-thread: Cancel-thread

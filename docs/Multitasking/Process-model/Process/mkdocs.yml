@@ -3,5 +3,3 @@ nav:
     - Process-table: Process-table
     - Process-control-block: Process-control-block
     
-    # 线程
-    - Thread: Thread.md

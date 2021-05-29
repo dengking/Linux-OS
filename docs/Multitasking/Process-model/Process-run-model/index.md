@@ -2,22 +2,25 @@
 
 本文的内容基于：
 
-- `../Process`
+1、`../Process`
 
-- 龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)
-- 维基百科ABI
+2、龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)
+
+3、wikipedia ABI
 
 本文将对process的run-time进行分析，以对process model进行更加深入的分析。
 
-本文的标题是参考自龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)，本文的内容主要是基于龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)的内容，在它的基础上进行了扩充。龙书正如其名（原文原名），它所述的是原理，它所讲述的是[概念模型](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)（是一个简化的模型，没有考虑multi-thread等），实际的实现肯定是基于该概念模型的，需要考虑的很多其他元素，如：
+本文的标题是参考自龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/)，本文的内容主要是基于龙书 [Chapter 7 Run-Time Environments](https://dengking.github.io/compiler-principle/Chapter-7-Run-Time-Environments/) 的内容，在它的基础上进行了扩充。龙书正如其名（原文原名），它所述的是原理，它所讲述的是[概念模型](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/)（是一个简化的模型，没有考虑multi-thread等），实际的实现肯定是基于该概念模型的，需要考虑的很多其他元素，如：
 
-- multi-thread
-- ......（TODO:还要一些其他的因素）
+1、multi-thread
+
+2、......（TODO:还要一些其他的因素）
 
 本文所扩充的是：
 
-- 一些实现相关的细节，如ABI等
-- 添加multi-thread相关的内容
+1、一些实现相关的细节，如ABI等
+
+2、添加multi-thread相关的内容
 
 总的来说，本文的目标是对process的runtime进行分析，构建起更加完整的process model。
 
