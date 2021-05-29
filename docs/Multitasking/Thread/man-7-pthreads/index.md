@@ -143,11 +143,11 @@ An implementation may also mark other functions not specified in the standard as
 
 Over time, two threading implementations have been provided by the GNU C library on Linux:
 
-LinuxThreads
+### LinuxThreads
 
 This is the original Pthreads implementation.  Since glibc 2.4, this implementation is no longer supported.
 
-NPTL (Native POSIX Threads Library)
+### NPTL (Native POSIX Threads Library)
 
 This is the modern Pthreads implementation.  By comparison with LinuxThreads, NPTL provides closer conformance to the requirements of the POSIX.1 specification and better performance when creating large numbers of threads.  NPTL is available since glibc 2.3.2, and requires features that are present in the Linux 2.6 kernel.
 
