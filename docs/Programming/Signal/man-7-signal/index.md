@@ -4,7 +4,7 @@
 
 Linux supports both POSIX reliable signals (hereinafter "standard signals") and POSIX real-time signals.
 
-### Signal dispositions
+## Signal dispositions
 
 > NOTE: "disposition"是"处置、处理"的意思
 
@@ -42,7 +42,12 @@ The signal disposition is a **per-process attribute**: in a multithreaded applic
 
 A child created via [fork(2)](http://man7.org/linux/man-pages/man2/fork.2.html) inherits a copy of its parent's signal dispositions.  During an [execve(2)](http://man7.org/linux/man-pages/man2/execve.2.html), the **dispositions of handled signals** are reset to the default; the **dispositions of ignored signals** are left unchanged.
 
-### Sending a signal
+## Sending a signal
+
+> NOTE: 
+>
+> 如何发送一个signal
+
 The following system calls and library functions allow the caller to send a signal:
 
 |                                                              |                                                              |
@@ -55,7 +60,7 @@ The following system calls and library functions allow the caller to send a sign
 | [sigqueue(3)](http://man7.org/linux/man-pages/man3/sigqueue.3.html) | Sends a real-time signal with accompanying data to a specified process. |
 |                                                              |                                                              |
 
-### Waiting for a signal to be caught
+## Waiting for a signal to be caught
 The following system calls suspend execution of the calling thread until a signal is caught (or an unhandled signal terminates the process):
 
 |                                                              |                                                              |
@@ -63,7 +68,7 @@ The following system calls suspend execution of the calling thread until a signa
 | [pause(2)](http://man7.org/linux/man-pages/man2/pause.2.html) | Suspends execution until **any** signal is caught.           |
 | [sigsuspend(2)](http://man7.org/linux/man-pages/man2/sigsuspend.2.html) | Temporarily changes the signal mask (see below) and suspends execution until one of the unmasked signals is caught. |
 
-### Synchronously accepting a signal
+## Synchronously accepting a signal
 
 > tag-Async to sync-blocking-等待-synchronously accepting a signal
 
@@ -75,7 +80,7 @@ Rather than **asynchronously** catching a signal via a **signal handler**, it is
 
 > tag-notify via fd通过文件来通知-Self-Pipe Trick-signalfd
 
-### Signal mask and pending signals
+## Signal mask and pending signals
 
 A signal may be ***blocked***, which means that it will not be delivered until it is later unblocked.  Between the time when it is generated and when it is delivered a signal is said to be ***pending***.
 
@@ -101,7 +106,11 @@ A thread can obtain the set of signals that it currently has pending using [sigp
 
 A child created via [fork(2)](http://man7.org/linux/man-pages/man2/fork.2.html) initially has an empty pending signal set; the pending signal set is preserved across an [execve(2)](http://man7.org/linux/man-pages/man2/execve.2.html).
 
+## Execution of signal handlers
 
+> NOTE: 
+>
+> 未读
 
 
 
