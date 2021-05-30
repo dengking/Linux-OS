@@ -14,18 +14,6 @@
 
 
 
-
-
-上述描述的是在Unix system中的情况，那么linux中的情况是怎样的呢？参见[man SIGNAL(7)](http://man7.org/linux/man-pages/man7/signal.7.html)，其中对linux中的情况进行了非常详细的说明；
-
-
-
-### [man SIGNAL(7)](http://man7.org/linux/man-pages/man7/signal.7.html)
-
-
-
-
-
 ### [Difference between slow system calls and fast system calls](https://unix.stackexchange.com/questions/14293/difference-between-slow-system-calls-and-fast-system-calls)
 
 
@@ -89,13 +77,7 @@
 
 维基百科[Busy waiting](https://en.wikipedia.org/wiki/Busy_waiting)
 
-https://practice.geeksforgeeks.org/problems/what-is-busy-wait
 
-https://dev.to/rinsama77/process-synchronization-with-busy-waiting-4gho
-
-https://stackoverflow.com/questions/1107593/what-are-trade-offs-for-busy-wait-vs-sleep
-
-https://www.auto.tuwien.ac.at/~blieb/papers/busywait.pdf
 
 #### Examples
 
@@ -112,3 +94,4 @@ blocking、waiting、sleep
 ### TO READ
 
 [what's different between the Blocked and Busy Waiting?](https://stackoverflow.com/questions/26541119/whats-different-between-the-blocked-and-busy-waiting)
+

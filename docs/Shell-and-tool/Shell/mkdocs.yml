@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
     - Run-command: Run-command.md
-    
+    - bash: bash
     
