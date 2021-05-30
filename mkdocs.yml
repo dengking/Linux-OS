@@ -537,12 +537,6 @@ nav:
           - man-2-flock:
             - Introduction: Programming/IO/File-IO/System-call/File-lock/man-2-flock/index.md
         - Notify:
-          - inotify:
-            - man-7-inotify:
-              - Introduction: Programming/IO/File-IO/System-call/Notify/inotify/man-7-inotify/index.md
-          - fanotify:
-            - man-7-fanotify:
-              - Introduction: Programming/IO/File-IO/System-call/Notify/fanotify/man-7-fanotify/index.md
           - Notify-via-fd:
             - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/index.md
             - Eventfd:
@@ -551,6 +545,12 @@ nav:
                 - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/Eventfd/yangyang-Worker-Pool-With-Eventfd/index.md
             - Timefd:
               - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/Timefd/index.md
+          - inotify:
+            - man-7-inotify:
+              - Introduction: Programming/IO/File-IO/System-call/Notify/inotify/man-7-inotify/index.md
+          - fanotify:
+            - man-7-fanotify:
+              - Introduction: Programming/IO/File-IO/System-call/Notify/fanotify/man-7-fanotify/index.md
     - Network-IO:
       - Introduction: Programming/IO/Network-IO/index.md
     - Tools:
