@@ -28,6 +28,7 @@ nav:
     # 安全
     - Security: Security
     
+    - 运维管理: 运维管理
     ########## 描述在linux OS中进行programming时，需要使用的一些工具####################                     
     - Shell-and-tool: Shell-and-tool
 
