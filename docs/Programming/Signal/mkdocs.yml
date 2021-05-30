@@ -3,5 +3,6 @@ nav:
     - wikipedia-Signal(IPC): wikipedia-Signal(IPC)
     - man-7-signal: man-7-signal
     - Unix-Termination-Signals: Unix-Termination-Signals
-    - Signal-handler: Signal-handler.md
-    
+    - Signal-handler: Signal-handler
+    - Scheduler-signal: Scheduler-signal
+    - Ctrl-z-and-Ctrl-c: Ctrl-z-and-Ctrl-c    

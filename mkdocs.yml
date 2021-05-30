@@ -222,6 +222,8 @@ nav:
     - Introduction: System-call/Why-system-call-slow/index.md
   - System-call-classification:
     - Introduction: System-call/System-call-classification/index.md
+  - Interrupted-system-call:
+    - Introduction: System-call/Interrupted-system-call/index.md
 - Multitasking:
   - Introduction: Multitasking/index.md
   - Process-model:
@@ -457,11 +459,7 @@ nav:
     - Unix-philosophy:
       - Introduction: Programming/philosophy/Unix-philosophy/index.md
     - Everything-is-a-file:
-      - Everything-is-a-file: Programming/philosophy/Everything-is-a-file/Everything-is-a-file.md
-      - File-descriptor:
-        - Introduction: Programming/philosophy/Everything-is-a-file/File-descriptor/index.md
-        - TODO-Pass-file-descriptor:
-          - Introduction: Programming/philosophy/Everything-is-a-file/File-descriptor/TODO-Pass-file-descriptor/index.md
+      - Introduction: Programming/philosophy/Everything-is-a-file/index.md
   - Lib:
     - Introduction: Programming/Lib/index.md
     - Glibc:
@@ -532,6 +530,10 @@ nav:
       - File-format: Programming/IO/File-IO/File-format.md
     - Network-IO:
       - Introduction: Programming/IO/Network-IO/index.md
+    - File-descriptor:
+      - Introduction: Programming/IO/File-descriptor/index.md
+      - TODO-Pass-file-descriptor:
+        - Introduction: Programming/IO/File-descriptor/TODO-Pass-file-descriptor/index.md
     - Tools:
       - lsof: Programming/IO/Tools/lsof.md
       - fuser: Programming/IO/Tools/fuser.md
@@ -549,7 +551,12 @@ nav:
       - Introduction: Programming/Signal/man-7-signal/index.md
     - Unix-Termination-Signals:
       - Introduction: Programming/Signal/Unix-Termination-Signals/index.md
-    - Signal-handler: Programming/Signal/Signal-handler.md
+    - Signal-handler:
+      - Introduction: Programming/Signal/Signal-handler/index.md
+    - Scheduler-signal:
+      - Introduction: Programming/Signal/Scheduler-signal/index.md
+    - Ctrl-z-and-Ctrl-c:
+      - Introduction: Programming/Signal/Ctrl-z-and-Ctrl-c/index.md
   - Virtualization:
     - Introduction: Programming/Virtualization/index.md
     - Virtualization:
@@ -728,15 +735,14 @@ nav:
 - Shell-and-tool:
   - Shell:
     - Introduction: Shell-and-tool/Shell/index.md
-    - Run-command: Shell-and-tool/Shell/Run-command.md
     - bash:
       - Introduction: Shell-and-tool/Shell/bash/index.md
       - Manual:
         - Introduction: Shell-and-tool/Shell/bash/Manual/index.md
         - 7-Job-Control:
           - Introduction: Shell-and-tool/Shell/bash/Manual/7-Job-Control/index.md
-          - Ctrl-z-and-Ctrl-c:
-            - Introduction: Shell-and-tool/Shell/bash/Manual/7-Job-Control/Ctrl-z-and-Ctrl-c/index.md
+    - Run-command:
+      - Introduction: Shell-and-tool/Shell/Run-command/index.md
   - Tools:
     - Introduction: Shell-and-tool/Tools/index.md
     - GNU-toolchain:

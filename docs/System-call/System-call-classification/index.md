@@ -1,14 +1,12 @@
 # Classification of system call
 
-总结system call的分类法。
+1、总结system call的分类法。
 
-
+2、本文内容还没有整理好
 
 ## 从blocking的角度来对system call进行分类
 
 在APUE的10.5 Interrupted System Calls中介绍了slow system call，这提示有必要对linux的system call进行一下总结；
-
-
 
 
 
@@ -21,13 +19,15 @@
 - [`epoll_wait`](http://man7.org/linux/man-pages/man2/epoll_wait.2.html)
 
 
+
 ## 和阻塞相关问题
+
 - 如何取消阻塞的系统调用（可以使用信号）
 - `sleep`是否是阻塞，如果不是，它和阻塞有什么异同？
 
     
 
-## 非阻塞I与异步IO
+## 非阻塞与异步IO
 
 非阻塞IO参见APUE 14.2
 
@@ -43,21 +43,21 @@
 
 ## Polling and non-polling
 
-### Polling
+### Polling and Busy-waiting 
 
-维基百科[Polling (computer science)](https://en.wikipedia.org/wiki/Polling_(computer_science))
+参见: 
 
-#### Busy-waiting
+1、维基百科[Polling (computer science)](https://en.wikipedia.org/wiki/Polling_(computer_science))
 
-维基百科[Busy waiting](https://en.wikipedia.org/wiki/Busy_waiting)
+2、维基百科[Busy waiting](https://en.wikipedia.org/wiki/Busy_waiting)
 
 
 
-#### Examples
+Examples
 
-维基百科[Spinlock](https://en.wikipedia.org/wiki/Spinlock)
+1、维基百科[Spinlock](https://en.wikipedia.org/wiki/Spinlock)
 
-polling sleep
+2、polling sleep
 
 ### Non-polling
 
