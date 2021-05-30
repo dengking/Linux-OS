@@ -342,6 +342,8 @@ nav:
           - Introduction: Multitasking/Linux-process/Create-process/Wait-child-process/Child-process-exit-status/index.md
     - Process-termination:
       - Introduction: Multitasking/Linux-process/Process-termination/index.md
+      - man-3-abort:
+        - Introduction: Multitasking/Linux-process/Process-termination/man-3-abort/index.md
     - Block-process:
       - Introduction: Multitasking/Linux-process/Block-process/index.md
     - Daemon:
