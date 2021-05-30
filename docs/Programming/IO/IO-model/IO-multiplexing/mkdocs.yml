@@ -4,4 +4,4 @@ nav:
     - What-is-IO-multiplexing: What-is-IO-multiplexing
     - Implementation-in-OS: Implementation-in-OS.md
     - Multiplex-on-file-and-time-event: Multiplex-on-file-and-time-event.md
-    - Epoll: Epoll
+    - epoll: epoll
