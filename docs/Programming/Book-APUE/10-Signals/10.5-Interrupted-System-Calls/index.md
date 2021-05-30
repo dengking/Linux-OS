@@ -27,3 +27,20 @@ To prevent applications from having to handle interrupted system calls, 4.2BSD i
 > 在 [man SIGNAL(7)](http://man7.org/linux/man-pages/man7/signal.7.html) 中，对slow device有着更加详细的说明。
 >
 > 
+
+
+
+## Restart
+
+The problem with interrupted system calls is that we now have to handle the error return explicitly. The typical code sequence (assuming a read operation and assuming that we want to restart the read even if it’s interrupted) would be
+
+```C++
+again:
+    if ((n = read(fd, buf, BUFFSIZE)) < 0) {
+        if (errno == EINTR)
+            goto again; /* just an interrupted system call */
+        /* handle other errors */
+    }
+
+```
+

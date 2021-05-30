@@ -112,6 +112,22 @@ A child created via [fork(2)](http://man7.org/linux/man-pages/man2/fork.2.html) 
 >
 > 未读
 
+## Standard signals
+
+> NOTE: 
+>
+> 未读
+
+## Queueing and delivery semantics for standard signals
+
+
+
+## Signal numbering for standard signals
+
+
+
+## Real-time signals
+
 
 
 ## Interruption of system calls and library functions by signal handlers
@@ -134,6 +150,18 @@ Which of these two behaviors occurs depends on the interface and whether or not 
 
 If a **blocked call** to one of the following interfaces is interrupted by a **signal handler**, then the call is automatically restarted after the **signal handler** returns if the `SA_RESTART` flag was used; otherwise  the call fails with the error `EINTR`:
 
+> NOTE:
+>
+> 重点在于 "may block for an indefinite time(无限时间)"，前提条件之一是: 
+>
+> "blocked call"，因此system call必须是blocked。
+>
+> 下面是回避"may block for an indefinite time(无限时间)"的方式:
+>
+> 1、non-blocking IO
+>
+> 需要注意的是，设置timeout，并不能够阻止
+
 1、[read(2)](http://man7.org/linux/man-pages/man2/read.2.html), [readv(2)](http://man7.org/linux/man-pages/man2/readv.2.html), [write(2)](http://man7.org/linux/man-pages/man2/write.2.html), [writev(2)](http://man7.org/linux/man-pages/man2/writev.2.html), and [ioctl(2)](http://man7.org/linux/man-pages/man2/writev.2.html) calls on "slow" devices.  
 
 A "**slow**" device is one where the I/O call may block for an indefinite time(无限时间), for example, a **terminal**, **pipe**, or **socket**.  If an I/O call on a **slow device** has already transferred some data by the time it is interrupted by a **signal handler**, then the call will return a **success status** (normally, the number of bytes transferred).  Note that a (local) **disk** is not a slow device according to this definition; I/O operations on disk devices are not interrupted by signals.
@@ -144,9 +172,21 @@ A "**slow**" device is one where the I/O call may block for an indefinite time(�
 
 2、[open(2)](http://man7.org/linux/man-pages/man2/open.2.html), if it can block (e.g., when opening a FIFO; see [fifo(7)](http://man7.org/linux/man-pages/man2/open.2.html)).
 
+> NOTE: 
+>
+> 
+
 3、[wait(2)](http://man7.org/linux/man-pages/man2/open.2.html), [wait3(2)](http://man7.org/linux/man-pages/man2/wait3.2.html), [wait4(2)](http://man7.org/linux/man-pages/man2/wait4.2.html), [waitid(2)](http://man7.org/linux/man-pages/man2/waitid.2.html), and [waitpid(2)](http://man7.org/linux/man-pages/man2/waitpid.2.html).
 
+> NOTE: 
+>
+> 这是肯定会block
+
 4、Socket interfaces: [accept(2)](http://man7.org/linux/man-pages/man2/accept.2.html), [connect(2)](http://man7.org/linux/man-pages/man2/connect.2.html), [recv(2)](http://man7.org/linux/man-pages/man2/connect.2.html), [recvfrom(2)](http://man7.org/linux/man-pages/man2/recvfrom.2.html), [recvmmsg(2)](http://man7.org/linux/man-pages/man2/recvmmsg.2.html), [recvmsg(2)](http://man7.org/linux/man-pages/man2/recvmsg.2.html), [send(2)](http://man7.org/linux/man-pages/man2/send.2.html), [sendto(2)](http://man7.org/linux/man-pages/man2/sendto.2.html), and [sendmsg(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html), unless a timeout has been set on the socket (see below).
+
+> NOTE: 
+>
+> 这段话的意思是: 如果设置了"timeout"，则
 
 5、File locking interfaces: [flock(2)](http://man7.org/linux/man-pages/man2/flock.2.html) and the `F_SETLKW` and `F_OFD_SETLKW` operations of [fcntl(2)](http://man7.org/linux/man-pages/man2/fcntl.2.html)
 
@@ -164,22 +204,32 @@ A "**slow**" device is one where the I/O call may block for an indefinite time(�
 
 12、[read(2)](http://man7.org/linux/man-pages/man2/read.2.html) from an [inotify(7)](http://man7.org/linux/man-pages/man2/read.2.html) file descriptor (since Linux 3.8; beforehand, always failed with `EINTR`).
 
+
+
 The following interfaces are never restarted after being interrupted by a **signal handler**, regardless of the use of `SA_RESTART`; they always fail with the error `EINTR` when interrupted by a signal handler:
 
-* "Input" socket interfaces, when a timeout (`SO_RCVTIMEO`) has been set on the socket using [setsockopt(2)](http://man7.org/linux/man-pages/man2/setsockopt.2.html): [accept(2)](http://man7.org/linux/man-pages/man2/accept.2.html), [recv(2)](http://man7.org/linux/man-pages/man2/recv.2.html), [recvfrom(2)](http://man7.org/linux/man-pages/man2/recvfrom.2.html), [recvmmsg(2)](http://man7.org/linux/man-pages/man2/recvmmsg.2.html) (also with a non-NULL timeout argument),
+> NOTE: 
+>
+> 下面的这些system call总是"fail with the error `EINTR` when interrupted by a signal handler"
+
+1、"Input" socket interfaces, when a timeout (`SO_RCVTIMEO`) has been set on the socket using [setsockopt(2)](http://man7.org/linux/man-pages/man2/setsockopt.2.html): [accept(2)](http://man7.org/linux/man-pages/man2/accept.2.html), [recv(2)](http://man7.org/linux/man-pages/man2/recv.2.html), [recvfrom(2)](http://man7.org/linux/man-pages/man2/recvfrom.2.html), [recvmmsg(2)](http://man7.org/linux/man-pages/man2/recvmmsg.2.html) (also with a non-NULL timeout argument),
 and [recvmsg(2)](http://man7.org/linux/man-pages/man2/recvmsg.2.html).
 
-* "Output" socket interfaces, when a timeout (`SO_RCVTIMEO`) has been set on the socket using [setsockopt(2)](http://man7.org/linux/man-pages/man2/setsockopt.2.html): [connect(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html), [send(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html), [sendto(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html), and [sendmsg(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html).
+> NOTE: 
+>
+> 前提是设置了timeout
 
-* Interfaces used to wait for signals: [pause(2)](http://man7.org/linux/man-pages/man2/pause.2.html), [sigsuspend(2)](http://man7.org/linux/man-pages/man2/sigsuspend.2.html), [sigtimedwait(2)](http://man7.org/linux/man-pages/man2/sigtimedwait.2.html), and [sigwaitinfo(2)](http://man7.org/linux/man-pages/man2/sigwaitinfo.2.html).
+2、"Output" socket interfaces, when a timeout (`SO_RCVTIMEO`) has been set on the socket using [setsockopt(2)](http://man7.org/linux/man-pages/man2/setsockopt.2.html): [connect(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html), [send(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html), [sendto(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html), and [sendmsg(2)](http://man7.org/linux/man-pages/man2/sendmsg.2.html).
 
-* File descriptor multiplexing interfaces: [epoll_wait(2)](http://man7.org/linux/man-pages/man2/epoll_wait.2.html), [epoll_pwait(2)](http://man7.org/linux/man-pages/man2/epoll_pwait.2.html), [poll(2)](http://man7.org/linux/man-pages/man2/epoll_pwait.2.html), [ppoll(2)](http://man7.org/linux/man-pages/man2/ppoll.2.html), [select(2)](http://man7.org/linux/man-pages/man2/ppoll.2.html), and [pselect(2)](http://man7.org/linux/man-pages/man2/pselect.2.html).
+3、Interfaces used to wait for signals: [pause(2)](http://man7.org/linux/man-pages/man2/pause.2.html), [sigsuspend(2)](http://man7.org/linux/man-pages/man2/sigsuspend.2.html), [sigtimedwait(2)](http://man7.org/linux/man-pages/man2/sigtimedwait.2.html), and [sigwaitinfo(2)](http://man7.org/linux/man-pages/man2/sigwaitinfo.2.html).
 
-* System V IPC interfaces: [msgrcv(2)](http://man7.org/linux/man-pages/man2/msgrcv.2.html), [msgsnd(2)](http://man7.org/linux/man-pages/man2/msgsnd.2.html), [semop(2)](http://man7.org/linux/man-pages/man2/semop.2.html), and [semtimedop(2)](http://man7.org/linux/man-pages/man2/semtimedop.2.html).
+4、File descriptor multiplexing interfaces: [epoll_wait(2)](http://man7.org/linux/man-pages/man2/epoll_wait.2.html), [epoll_pwait(2)](http://man7.org/linux/man-pages/man2/epoll_pwait.2.html), [poll(2)](http://man7.org/linux/man-pages/man2/epoll_pwait.2.html), [ppoll(2)](http://man7.org/linux/man-pages/man2/ppoll.2.html), [select(2)](http://man7.org/linux/man-pages/man2/ppoll.2.html), and [pselect(2)](http://man7.org/linux/man-pages/man2/pselect.2.html).
 
-* Sleep interfaces: [clock_nanosleep(2)](http://man7.org/linux/man-pages/man2/clock_nanosleep.2.html), [nanosleep(2)](http://man7.org/linux/man-pages/man2/nanosleep.2.html), and [usleep(3)](http://man7.org/linux/man-pages/man3/usleep.3.html).
+5、System V IPC interfaces: [msgrcv(2)](http://man7.org/linux/man-pages/man2/msgrcv.2.html), [msgsnd(2)](http://man7.org/linux/man-pages/man2/msgsnd.2.html), [semop(2)](http://man7.org/linux/man-pages/man2/semop.2.html), and [semtimedop(2)](http://man7.org/linux/man-pages/man2/semtimedop.2.html).
 
-* [io_getevents(2)](http://man7.org/linux/man-pages/man2/io_getevents.2.html).
+6、Sleep interfaces: [clock_nanosleep(2)](http://man7.org/linux/man-pages/man2/clock_nanosleep.2.html), [nanosleep(2)](http://man7.org/linux/man-pages/man2/nanosleep.2.html), and [usleep(3)](http://man7.org/linux/man-pages/man3/usleep.3.html).
+
+7、[io_getevents(2)](http://man7.org/linux/man-pages/man2/io_getevents.2.html).
 
 The [sleep(3)](http://man7.org/linux/man-pages/man3/sleep.3.html) function is also never restarted if interrupted by a handler, but gives a success return: the number of seconds remaining to sleep.
 
@@ -187,3 +237,4 @@ The [sleep(3)](http://man7.org/linux/man-pages/man3/sleep.3.html) function is al
 
 ## Interruption of system calls and library functions by stop signals
 
+On Linux, even in the absence of signal handlers, certain  blocking interfaces can fail with the error `EINTR` after the process is stopped by one of the stop signals and then resumed  via `SIGCONT`.  This behavior is not sanctioned(制裁) by POSIX.1, and  doesn't occur on other systems.
