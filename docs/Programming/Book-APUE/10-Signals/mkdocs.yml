@@ -1,3 +1,4 @@
 nav:
+    - Introduction: index.md
     - 10.6-Reentrant-Functions: 10.6-Reentrant-Functions
     - 10.5-Interrupted-System-Calls: 10.5-Interrupted-System-Calls

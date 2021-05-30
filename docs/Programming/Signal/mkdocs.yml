@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    - Signal-note: Signal-note.md
+
+    - Ctrl-z-and-Ctrl-c: Ctrl-z-and-Ctrl-c

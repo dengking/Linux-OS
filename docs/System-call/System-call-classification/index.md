@@ -10,7 +10,7 @@
 
 ### APUE 10.5 Interrupted System Calls
 
-
+参见 `10.5-Interrupted-System-Calls` 章节。
 
 
 
