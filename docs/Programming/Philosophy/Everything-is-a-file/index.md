@@ -2,7 +2,7 @@
 
 “Everything is a file”是Unix-like OS的一个philosophy，它对于在linux OS中进行programming大有裨益。
 
-## 维基百科[Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file)
+## wikipedia [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file)
 
 ***"Everything is a file"*** describes one of the defining(最典型的) features of [Unix](https://en.wikipedia.org/wiki/Unix), and its derivatives — that a wide range of input/output [resources](https://en.wikipedia.org/wiki/System_resource) such as documents, directories, hard-drives, modems, keyboards, printers and even some inter-process and network communications are simple **streams of bytes** exposed through the [filesystem name space](https://en.wikipedia.org/wiki/Unix_directory_structure). 
 
@@ -20,7 +20,7 @@ All of these "files" have standard Unix file attributes such as [an owner](https
 
 Unix's successor [Plan 9](https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs) took this concept into [distributed computing](https://en.wikipedia.org/wiki/Distributed_operating_system) with the [9P](https://en.wikipedia.org/wiki/9P_(protocol)) protocol.
 
-## [Why is “Everything is a file” unique to the Unix operating systems?](https://superuser.com/questions/364152/why-is-everything-is-a-file-unique-to-the-unix-operating-systems)
+## superuser [Why is “Everything is a file” unique to the Unix operating systems?](https://superuser.com/questions/364152/why-is-everything-is-a-file-unique-to-the-unix-operating-systems)
 
 ### [A](https://superuser.com/a/364157)
 
@@ -38,13 +38,13 @@ Of course all modern OSes support various filesystems and can "operate on files"
 
 Not really any more. Linux has the same feature. Of course, if an OS adopts I/O redirection, then it tends to use other Unix features and ends up Unix-like in the end.
 
-## 维基百科[Event loop](https://en.wikipedia.org/wiki/Event_loop)
+## wikipedia [Event loop](https://en.wikipedia.org/wiki/Event_loop)
 
 在这篇文章的[File_interface](https://en.wikipedia.org/wiki/Event_loop#File_interface)章节对every thing is a file进行阐释；
 
 
 
-## 维基百科[Device file](https://en.wikipedia.org/wiki/Device_file)
+## wikipedia [Device file](https://en.wikipedia.org/wiki/Device_file)
 
 将device抽象为file，这就是everything is a file最好的体现；
 
@@ -73,8 +73,6 @@ everything in Unix is a file，所以和我应该采用看待普通文件的方�
 
 
 ## Why everything in Unix is a file
-
-
 
 Unix是典型的[Monolithic kernel](https://en.wikipedia.org/wiki/Monolithic_kernel)，所以它需要将很多东西封装好而只提供一个descriptor来供用户使用，这个descriptor从用户的角度来看就是file descriptor。显然，everything in Unix is a file是一种简化的抽象，它让用户更加容易理解。
 
@@ -115,3 +113,4 @@ NOTE: [Everything is a file](https://en.wikipedia.org/wiki/Everything_is_a_file)
 ## 《Understanding.The.Linux.kernel.3rd.Edition》chapter 1.6.9. Device Drivers的
 
 关于everything is a file，《Understanding.The.Linux.kernel.3rd.Edition》chapter 1.6.9. Device Drivers的内容与此有关。
+

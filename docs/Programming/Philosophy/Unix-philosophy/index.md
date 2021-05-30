@@ -26,6 +26,10 @@ The UNIX philosophy is documented by [Doug McIlroy](https://en.wikipedia.org/wik
 
 2、Expect the output of every program to become the input to another, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently（严格的） columnar or binary input formats. Don't insist on interactive input.
 
+> NOTE: 
+>
+> IO direction重定向来实现pipeline，这是在Unix-like system中，经常使用的一种模式
+
 3、Design and build software, even（甚至是） operating systems, to be tried early, ideally within weeks. Don't hesitate to throw away the clumsy parts and rebuild them.
 
 > NOTE: 
