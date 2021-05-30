@@ -470,72 +470,89 @@ nav:
       - The-GNU-C-Library: Programming/Lib/Glibc/The-GNU-C-Library.md
   - IO:
     - Introduction: Programming/IO/index.md
-    - IO: Programming/IO/Input-output.md
+    - What-is-IO:
+      - Introduction: Programming/IO/What-is-IO/index.md
     - IO-model:
       - Introduction: Programming/IO/IO-model/index.md
-      - IO-models: Programming/IO/IO-model/IO-models.md
-      - Asynchronous-IO:
-        - Introduction: Programming/IO/IO-model/Asynchronous-IO/index.md
-      - IO-multiplexing:
-        - Introduction: Programming/IO/IO-model/IO-multiplexing/index.md
-        - What-is-multiplexing:
-          - Introduction: Programming/IO/IO-model/IO-multiplexing/What-is-multiplexing/index.md
-        - What-is-IO-multiplexing:
-          - Introduction: Programming/IO/IO-model/IO-multiplexing/What-is-IO-multiplexing/index.md
-          - zhihu-What-is-IO-multiplexing:
-            - Introduction: Programming/IO/IO-model/IO-multiplexing/What-is-IO-multiplexing/zhihu-What-is-IO-multiplexing/index.md
-        - Implementation-in-OS: Programming/IO/IO-model/IO-multiplexing/Implementation-in-OS.md
-        - Multiplex-on-file-and-time-event: Programming/IO/IO-model/IO-multiplexing/Multiplex-on-file-and-time-event.md
-        - epoll:
-          - man-7-epoll:
-            - Introduction: Programming/IO/IO-model/IO-multiplexing/epoll/man-7-epoll/index.md
+      - UNP-6.1-IO-Multiplexing:
+        - Introduction: Programming/IO/IO-model/UNP-6.1-IO-Multiplexing/index.md
       - Blocking-and-non-blocking-VS-sync-and-async: Programming/IO/IO-model/Blocking-and-non-blocking-VS-sync-and-async.md
       - Blocking-IO-VS-Nonblocking-IO: Programming/IO/IO-model/Blocking-IO-VS-Nonblocking-IO.md
     - "IO-\u6D41\u6D3E":
       - Introduction: "Programming/IO/IO-\u6D41\u6D3E/index.md"
+      - File-descriptor:
+        - Introduction: "Programming/IO/IO-\u6D41\u6D3E/File-descriptor/index.md"
+        - TODO-Pass-file-descriptor:
+          - Introduction: "Programming/IO/IO-\u6D41\u6D3E/File-descriptor/TODO-Pass-file-descriptor/index.md"
       - Stream-based-IO:
         - Stream: "Programming/IO/IO-\u6D41\u6D3E/Stream-based-IO/index.md"
         - Standard-streams: "Programming/IO/IO-\u6D41\u6D3E/Stream-based-IO/Standard-streams.md"
-      - VS-stream-VS-fd: "Programming/IO/IO-\u6D41\u6D3E/VS-stream-VS-fd.md"
+      - Stream-VS-fd:
+        - Introduction: "Programming/IO/IO-\u6D41\u6D3E/Stream-VS-fd/index.md"
+    - Asynchronous-IO:
+      - Introduction: Programming/IO/Asynchronous-IO/index.md
+      - ibm-Boost-application-performance-using-asynchronous-IO:
+        - Introduction: Programming/IO/Asynchronous-IO/ibm-Boost-application-performance-using-asynchronous-IO/index.md
+    - IO-multiplexing:
+      - Introduction: Programming/IO/IO-multiplexing/index.md
+      - What-is-multiplexing:
+        - Introduction: Programming/IO/IO-multiplexing/What-is-multiplexing/index.md
+      - What-is-IO-multiplexing:
+        - Introduction: Programming/IO/IO-multiplexing/What-is-IO-multiplexing/index.md
+        - zhihu-What-is-IO-multiplexing:
+          - Introduction: Programming/IO/IO-multiplexing/What-is-IO-multiplexing/zhihu-What-is-IO-multiplexing/index.md
+      - Implementation-in-OS: Programming/IO/IO-multiplexing/Implementation-in-OS.md
+      - Multiplex-on-file-and-time-event: Programming/IO/IO-multiplexing/Multiplex-on-file-and-time-event.md
+      - epoll:
+        - man-7-epoll:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/man-7-epoll/index.md
     - File-IO:
       - Introduction: Programming/IO/File-IO/index.md
       - File-system:
-        - Unix-filesystem: Programming/IO/File-IO/File-system/Unix-filesystem.md
-        - man-7-file-hierarchy: Programming/IO/File-IO/File-system/man-7-file-hierarchy.md
-        - Inode: Programming/IO/File-IO/File-system/Inode.md
-        - man-2-stat: Programming/IO/File-IO/File-system/man-2-stat.md
-        - File-type: Programming/IO/File-IO/File-system/File-type.md
+        - Unix-filesystem:
+          - Introduction: Programming/IO/File-IO/File-system/Unix-filesystem/index.md
+        - man-7-file-hierarchy:
+          - Introduction: Programming/IO/File-IO/File-system/man-7-file-hierarchy/index.md
+        - Inode:
+          - Introduction: Programming/IO/File-IO/File-system/Inode/index.md
+        - man-2-stat:
+          - Introduction: Programming/IO/File-IO/File-system/man-2-stat/index.md
+        - File-type:
+          - Introduction: Programming/IO/File-IO/File-system/File-type/index.md
         - Tools:
           - Introduction: Programming/IO/File-IO/File-system/Tools/index.md
-      - Interface:
-        - Introduction: Programming/IO/File-IO/Interface/index.md
-        - Open: Programming/IO/File-IO/Interface/Open.md
-        - Read: Programming/IO/File-IO/Interface/Read.md
-        - Fcntl: Programming/IO/File-IO/Interface/Fcntl.md
-        - Lock:
-          - File-locking: Programming/IO/File-IO/Interface/Lock/File-locking.md
-          - man-2-flock: Programming/IO/File-IO/Interface/Lock/man-2-flock.md
-          - File-Locking(Advisory-Mandatory-Lock-Examples): Programming/IO/File-IO/Interface/Lock/File-Locking(Advisory-Mandatory-Lock-Examples).md
+      - File-format:
+        - Introduction: Programming/IO/File-IO/File-format/index.md
+      - System-call:
+        - Introduction: Programming/IO/File-IO/System-call/index.md
+        - man-2-open:
+          - Introduction: Programming/IO/File-IO/System-call/man-2-open/index.md
+        - man-2-read:
+          - Introduction: Programming/IO/File-IO/System-call/man-2-read/index.md
+        - man-2-fcntl:
+          - Introduction: Programming/IO/File-IO/System-call/man-2-fcntl/index.md
+        - File-lock:
+          - wikipedia-File-locking:
+            - Introduction: Programming/IO/File-IO/System-call/File-lock/wikipedia-File-locking/index.md
+          - man-2-flock:
+            - Introduction: Programming/IO/File-IO/System-call/File-lock/man-2-flock/index.md
         - Notify:
-          - Inotify:
-            - man-7-inotify: Programming/IO/File-IO/Interface/Notify/Inotify/man-7-inotify.md
-          - Fanotify:
-            - man-7-fanotify: Programming/IO/File-IO/Interface/Notify/Fanotify/man-7-fanotify.md
+          - inotify:
+            - man-7-inotify:
+              - Introduction: Programming/IO/File-IO/System-call/Notify/inotify/man-7-inotify/index.md
+          - fanotify:
+            - man-7-fanotify:
+              - Introduction: Programming/IO/File-IO/System-call/Notify/fanotify/man-7-fanotify/index.md
           - Notify-via-fd:
-            - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/index.md
+            - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/index.md
             - Eventfd:
-              - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Eventfd/index.md
+              - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/Eventfd/index.md
               - yangyang-Worker-Pool-With-Eventfd:
-                - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Eventfd/yangyang-Worker-Pool-With-Eventfd/index.md
+                - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/Eventfd/yangyang-Worker-Pool-With-Eventfd/index.md
             - Timefd:
-              - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Timefd/index.md
-      - File-format: Programming/IO/File-IO/File-format.md
+              - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/Timefd/index.md
     - Network-IO:
       - Introduction: Programming/IO/Network-IO/index.md
-    - File-descriptor:
-      - Introduction: Programming/IO/File-descriptor/index.md
-      - TODO-Pass-file-descriptor:
-        - Introduction: Programming/IO/File-descriptor/TODO-Pass-file-descriptor/index.md
     - Tools:
       - lsof: Programming/IO/Tools/lsof.md
       - fuser: Programming/IO/Tools/fuser.md
