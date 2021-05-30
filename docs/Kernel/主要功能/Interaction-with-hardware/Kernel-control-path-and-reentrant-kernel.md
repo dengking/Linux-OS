@@ -10,8 +10,9 @@
 
 为了便于描述reentrant kernel的实现思路，在chapter 1.6.3. Reentrant Kernels中作者提出了*kernel control path*的概念，它表示了kernel所有的可能的activity，在[Linux-OS-kernel-is-event-driven](./Linux-OS-kernel-is-event-driven.md)中我们已经总结了，kernel的activity可能有如下几种情况触发：
 
-- system call
-- interrupt and exception(在Chapter 4. Interrupts and Exceptions区分这两者)
+1、system call
+
+2、interrupt and exception(在Chapter 4. Interrupts and Exceptions区分这两者)
 
 也就是说：
 

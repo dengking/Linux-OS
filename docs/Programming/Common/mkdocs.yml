@@ -1,7 +1,6 @@
 nav:
     - Conventions: Conventions.md
-    - Classification-of-system-call: Classification-of-system-call
     - Attribute-of-function: Attribute-of-function
-    - Safety: Safety.md
+
     - Path-resolution: Path-resolution.md
     - Errorno: Errorno

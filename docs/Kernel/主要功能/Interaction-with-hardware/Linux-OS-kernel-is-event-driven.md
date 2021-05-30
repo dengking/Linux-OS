@@ -12,15 +12,15 @@
 
 显然，OS kernel直接和hardware打交道，那有哪些hardware呢？如下：
 
-- [I/O devices](https://en.wikipedia.org/wiki/Input/output)
+1、[I/O devices](https://en.wikipedia.org/wiki/Input/output)
 
-  Chapter 13. I/O Architecture and Device Drivers
+Chapter 13. I/O Architecture and Device Drivers
 
-  补充：[Operating System - I/O Hardware](https://www.tutorialspoint.com/operating_system/os_io_hardware.htm)
+补充：[Operating System - I/O Hardware](https://www.tutorialspoint.com/operating_system/os_io_hardware.htm)
 
-- Clock and Timer Circuits
+2、Clock and Timer Circuits
 
-  [Chapter 6. Timing Measurements](../../Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements.md)
+[Chapter 6. Timing Measurements](../../Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements.md)
 
 目前，基本上所有的hardware都是通过[interrupt](https://en.wikipedia.org/wiki/Interrupt)来通知OS kernel的，然后其对应的[Interrupt handler](https://en.wikipedia.org/wiki/Interrupt_handler)会被触发执行，也就是OS kernel是[interrupt-driven](https://en.wikipedia.org/wiki/Interrupt)的。拥有这样的认知对于完整地掌握本书的内容十分重要，因为它描述了OS kernel运行的概况。
 
@@ -34,23 +34,23 @@ TODO: 此处添加一些例子
 
 OS kernel的众多核心activity是driven by timing measurements，正如[6.2. The Linux Timekeeping Architecture](../../Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.2-The-Linux-Timekeeping-Architecture.md)中所总结的：
 
-- Updates the time elapsed since system startup
+1、Updates the time elapsed since system startup
 
-- Updates the time and date
+2、Updates the time and date
 
-- Determines, for every CPU, how long the current process has been running, and preempts it if it has exceeded the time allocated to it. The allocation of time slots (also called "quanta") is discussed in Chapter 7.
+3、Determines, for every CPU, how long the current process has been running, and preempts it if it has exceeded the time allocated to it. The allocation of time slots (also called "quanta") is discussed in Chapter 7.
 
-  > NOTE: 这个活动非常重要，它是OS实现[Time-sharing](https://en.wikipedia.org/wiki/Time-sharing)，进而实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的关键所在。在linux kernel的实现中，它的入口函数是 [`scheduler_tick`](https://elixir.bootlin.com/linux/latest/ident/scheduler_tick)，搜索这个函数，可以查询到非常多关于它的分析。
-  >
-  > 本书中关于这个函数的章节：
-  >
-  > - 6.4. Updating System Statistics
-  >
-  > - 7.4. Functions Used by the Scheduler
+> NOTE: 这个活动非常重要，它是OS实现[Time-sharing](https://en.wikipedia.org/wiki/Time-sharing)，进而实现[multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的关键所在。在linux kernel的实现中，它的入口函数是 [`scheduler_tick`](https://elixir.bootlin.com/linux/latest/ident/scheduler_tick)，搜索这个函数，可以查询到非常多关于它的分析。
+>
+> 本书中关于这个函数的章节：
+>
+> - 6.4. Updating System Statistics
+>
+> - 7.4. Functions Used by the Scheduler
 
-- Updates resource usage statistics.
+4、Updates resource usage statistics.
 
-- Checks whether the interval of time associated with each software timer (see the later section "Software Timers and Delay Functions") has elapsed.
+5、Checks whether the interval of time associated with each software timer (see the later section "Software Timers and Delay Functions") has elapsed.
 
 
 
@@ -60,24 +60,11 @@ OS kernel的众多核心activity是driven by timing measurements，正如[6.2. T
 
 ## System call也相当于interrupt
 
-上面使用的是“相当于”，而不是“是”，这是因为随着技术的更新迭代，实现system call的assembly instruction也在进行更新迭代，可能原来使用的中断指令（`int` assembly instruction）会替换为更加高效的assembly instruction。在10.3. Entering and Exiting a System Call中对此进行了详细的说明，如下：
+参见 `System-call` 章节。
 
-Applications can invoke a system call in two different ways:
 
-- By executing the  `int $0x80` assembly language instruction; in older versions of the Linux kernel, this was the only way to switch from User Mode to Kernel Mode.
-- By executing the  `sysenter` assembly language instruction, introduced in the Intel Pentium II microprocessors; this instruction is now supported by the Linux 2.6 kernel.
 
-使用`int $0x80`的方式是interrupt，使用`sysenter` 的方式则不是interrupt，但是它的作用其实和interrupt非常类似，我们可以将它看做是interrupt。
 
-关于`sysenter`，参加：
-
-- https://wiki.osdev.org/Sysenter
-
-上面描述的interrupt主要来自于hardware，其实system call的实现也是依赖于interrupt。
-
-在chapter 4.2. Interrupts and Exceptions的“Programmed exceptions”有这样的描述：
-
-> Such exceptions have two common uses: to implement **system calls** and to notify a debugger of a specific event (see Chapter 10).
 
 ## 总结
 
@@ -96,5 +83,4 @@ Applications can invoke a system call in two different ways:
 | [Interrupt handler](https://en.wikipedia.org/wiki/Interrupt_handler)/[Interrupt service routine](https://en.wikipedia.org/wiki/Interrupt_handler) | [Event handler](https://en.wikipedia.org/wiki/Event_(computing)#Event_handler)/[Callback function](https://en.wikipedia.org/wiki/Callback_(computer_programming)) |
 
 各种interrupt就是所谓的event。
-
 

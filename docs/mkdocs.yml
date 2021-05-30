@@ -14,7 +14,8 @@ nav:
 
     ########## 启动过程 ##########
     - Linux-startup-process: Linux-startup-process
-    
+    # 系统调用
+    - System-call: System-call
     ########## 多任务 ###########
     - Multitasking: Multitasking
     

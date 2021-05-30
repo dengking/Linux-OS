@@ -5,5 +5,6 @@ nav:
     - Book-Understanding-the-Linux-Kernel: Book-Understanding-the-Linux-Kernel    
 
     - 主要功能: 主要功能
+    - System-call: System-call
     - Read-the-code: Read-the-code
     - Debug-kernel: Debug-kernel
