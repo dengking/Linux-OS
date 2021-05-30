@@ -222,7 +222,6 @@ nav:
     - Introduction: System-call/Why-system-call-slow/index.md
   - System-call-classification:
     - Introduction: System-call/System-call-classification/index.md
-    - Polling-(computer-science): System-call/System-call-classification/Polling-(computer-science).md
 - Multitasking:
   - Introduction: Multitasking/index.md
   - Process-model:
@@ -487,8 +486,9 @@ nav:
             - Introduction: Programming/IO/IO-model/IO-multiplexing/What-is-IO-multiplexing/zhihu-What-is-IO-multiplexing/index.md
         - Implementation-in-OS: Programming/IO/IO-model/IO-multiplexing/Implementation-in-OS.md
         - Multiplex-on-file-and-time-event: Programming/IO/IO-model/IO-multiplexing/Multiplex-on-file-and-time-event.md
-        - Epoll:
-          - man-7-epoll: Programming/IO/IO-model/IO-multiplexing/Epoll/man-7-epoll.md
+        - epoll:
+          - man-7-epoll:
+            - Introduction: Programming/IO/IO-model/IO-multiplexing/epoll/man-7-epoll/index.md
       - Blocking-and-non-blocking-VS-sync-and-async: Programming/IO/IO-model/Blocking-and-non-blocking-VS-sync-and-async.md
       - Blocking-IO-VS-Nonblocking-IO: Programming/IO/IO-model/Blocking-IO-VS-Nonblocking-IO.md
     - "IO-\u6D41\u6D3E":
@@ -525,6 +525,8 @@ nav:
             - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/index.md
             - Eventfd:
               - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Eventfd/index.md
+              - yangyang-Worker-Pool-With-Eventfd:
+                - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Eventfd/yangyang-Worker-Pool-With-Eventfd/index.md
             - Timefd:
               - Introduction: Programming/IO/File-IO/Interface/Notify/Notify-via-fd/Timefd/index.md
       - File-format: Programming/IO/File-IO/File-format.md
@@ -541,8 +543,13 @@ nav:
       - Introduction: Programming/Date-and-time/localtime/index.md
   - Signal:
     - Introduction: Programming/Signal/index.md
-    - Ctrl-z-and-Ctrl-c:
-      - Introduction: Programming/Signal/Ctrl-z-and-Ctrl-c/index.md
+    - wikipedia-Signal(IPC):
+      - Introduction: Programming/Signal/wikipedia-Signal(IPC)/index.md
+    - man-7-signal:
+      - Introduction: Programming/Signal/man-7-signal/index.md
+    - Unix-Termination-Signals:
+      - Introduction: Programming/Signal/Unix-Termination-Signals/index.md
+    - Signal-handler: Programming/Signal/Signal-handler.md
   - Virtualization:
     - Introduction: Programming/Virtualization/index.md
     - Virtualization:
@@ -653,11 +660,15 @@ nav:
     - Message-boundary: Network/Protocol/Message-boundary.md
   - Programming:
     - Introduction: Network/Programming/index.md
-    - Socket: Network/Programming/Socket.md
-    - man-7-socket: Network/Programming/man-7-socket.md
+    - Socket:
+      - Introduction: Network/Programming/Socket/index.md
+      - man-7-socket:
+        - Introduction: Network/Programming/Socket/man-7-socket/index.md
     - Reconnect: Network/Programming/Reconnect.md
     - Send-file:
       - Introduction: Network/Programming/Send-file/index.md
+    - TCP-Wrappers:
+      - Introduction: Network/Programming/TCP-Wrappers/index.md
   - Tools:
     - Introduction: Network/Tools/index.md
     - Packet-analyzer:
@@ -676,14 +687,6 @@ nav:
     - TODO-Troubleshoot-local-network: Network/Tools/TODO-Troubleshoot-local-network.md
     - TODO-Troubleshoot-remote-network: Network/Tools/TODO-Troubleshoot-remote-network.md
     - TODO-Troubleshoot-packet-loss: Network/Tools/TODO-Troubleshoot-packet-loss.md
-  - Centos-network:
-    - Introduction: Network/Centos-network/index.md
-    - Set-NetworkManager-start-onboot:
-      - Introduction: Network/Centos-network/Set-NetworkManager-start-onboot/index.md
-    - CentOS-8-ifconfig-ens33-not-exist:
-      - Introduction: Network/Centos-network/CentOS-8-ifconfig-ens33-not-exist/index.md
-    - Restart-network-service:
-      - Introduction: Network/Centos-network/Restart-network-service/index.md
 - Security:
   - Introduction: Security/index.md
   - Capability-based-security:
@@ -714,10 +717,26 @@ nav:
       - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Super-server-daemon/inetd/index.md"
     - xinetd:
       - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Super-server-daemon/xinetd/index.md"
+  - Centos-network:
+    - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Centos-network/index.md"
+    - Set-NetworkManager-start-onboot:
+      - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Centos-network/Set-NetworkManager-start-onboot/index.md"
+    - CentOS-8-ifconfig-ens33-not-exist:
+      - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Centos-network/CentOS-8-ifconfig-ens33-not-exist/index.md"
+    - Restart-network-service:
+      - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Centos-network/Restart-network-service/index.md"
 - Shell-and-tool:
   - Shell:
     - Introduction: Shell-and-tool/Shell/index.md
     - Run-command: Shell-and-tool/Shell/Run-command.md
+    - bash:
+      - Introduction: Shell-and-tool/Shell/bash/index.md
+      - Manual:
+        - Introduction: Shell-and-tool/Shell/bash/Manual/index.md
+        - 7-Job-Control:
+          - Introduction: Shell-and-tool/Shell/bash/Manual/7-Job-Control/index.md
+          - Ctrl-z-and-Ctrl-c:
+            - Introduction: Shell-and-tool/Shell/bash/Manual/7-Job-Control/Ctrl-z-and-Ctrl-c/index.md
   - Tools:
     - Introduction: Shell-and-tool/Tools/index.md
     - GNU-toolchain:
