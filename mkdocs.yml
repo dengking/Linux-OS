@@ -216,20 +216,13 @@ nav:
   - Introduction: Linux-startup-process/index.md
   - Entry-point-of-kernel:
     - Introduction: Linux-startup-process/Entry-point-of-kernel/index.md
-  - init-process:
-    - Introduction: Linux-startup-process/init-process/index.md
-    - SysVinit:
-      - Introduction: Linux-startup-process/init-process/SysVinit/index.md
-    - TODO-Upstart: Linux-startup-process/init-process/TODO-Upstart.md
-  - Service-management:
-    - Introduction: Linux-startup-process/Service-management/index.md
-    - TODO-Service-run-level: Linux-startup-process/Service-management/TODO-Service-run-level.md
-    - init.d-service-management:
-      - Introduction: Linux-startup-process/Service-management/init.d-service-management/index.md
-    - systemd:
-      - Introduction: Linux-startup-process/Service-management/systemd/index.md
-      - systemd-service:
-        - Introduction: Linux-startup-process/Service-management/systemd/systemd-service/index.md
+- System-call:
+  - Introduction: System-call/index.md
+  - Why-system-call-slow:
+    - Introduction: System-call/Why-system-call-slow/index.md
+  - System-call-classification:
+    - Introduction: System-call/System-call-classification/index.md
+    - Polling-(computer-science): System-call/System-call-classification/Polling-(computer-science).md
 - Multitasking:
   - Introduction: Multitasking/index.md
   - Process-model:
@@ -434,14 +427,15 @@ nav:
   - Book-APUE:
     - Introduction: Programming/Book-APUE/index.md
     - 10-Signals:
-      - 10.6-Reentrant-Functions: Programming/Book-APUE/10-Signals/10.6-Reentrant-Functions.md
+      - Introduction: Programming/Book-APUE/10-Signals/index.md
+      - 10.6-Reentrant-Functions:
+        - Introduction: Programming/Book-APUE/10-Signals/10.6-Reentrant-Functions/index.md
+      - 10.5-Interrupted-System-Calls:
+        - Introduction: Programming/Book-APUE/10-Signals/10.5-Interrupted-System-Calls/index.md
     - Race-condition:
       - Introduction: Programming/Book-APUE/Race-condition/index.md
   - Common:
     - Conventions: Programming/Common/Conventions.md
-    - Classification-of-system-call:
-      - Introduction: Programming/Common/Classification-of-system-call/index.md
-      - Polling-(computer-science): Programming/Common/Classification-of-system-call/Polling-(computer-science).md
     - Attribute-of-function:
       - Introduction: Programming/Common/Attribute-of-function/index.md
       - Idempotence:
@@ -454,7 +448,6 @@ nav:
             - Introduction: Programming/Common/Attribute-of-function/Thread-safety-Reentrancy-Async-signal-safety/Reentrancy/wikipedia-Reentrancy/index.md
         - man-7-signal-safety:
           - Introduction: Programming/Common/Attribute-of-function/Thread-safety-Reentrancy-Async-signal-safety/man-7-signal-safety/index.md
-    - Safety: Programming/Common/Safety.md
     - Path-resolution: Programming/Common/Path-resolution.md
     - Errorno:
       - man-3-errorno: Programming/Common/Errorno/man-3-errorno.md
@@ -548,7 +541,8 @@ nav:
       - Introduction: Programming/Date-and-time/localtime/index.md
   - Signal:
     - Introduction: Programming/Signal/index.md
-    - Signal-note: Programming/Signal/Signal-note.md
+    - Ctrl-z-and-Ctrl-c:
+      - Introduction: Programming/Signal/Ctrl-z-and-Ctrl-c/index.md
   - Virtualization:
     - Introduction: Programming/Virtualization/index.md
     - Virtualization:
@@ -698,6 +692,28 @@ nav:
     - Introduction: Security/Capabilities/index.md
     - man-7-Capabilities:
       - Introduction: Security/Capabilities/man-7-Capabilities/index.md
+- "\u8FD0\u7EF4\u7BA1\u7406":
+  - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/index.md"
+  - init-process:
+    - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/init-process/index.md"
+    - SysVinit:
+      - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/init-process/SysVinit/index.md"
+    - TODO-Upstart: "\u8FD0\u7EF4\u7BA1\u7406/init-process/TODO-Upstart.md"
+  - Service-management:
+    - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Service-management/index.md"
+    - TODO-Service-run-level: "\u8FD0\u7EF4\u7BA1\u7406/Service-management/TODO-Service-run-level.md"
+    - init.d-service-management:
+      - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Service-management/init.d-service-management/index.md"
+    - systemd:
+      - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Service-management/systemd/index.md"
+      - systemd-service:
+        - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Service-management/systemd/systemd-service/index.md"
+  - Super-server-daemon:
+    - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Super-server-daemon/index.md"
+    - inetd:
+      - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Super-server-daemon/inetd/index.md"
+    - xinetd:
+      - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Super-server-daemon/xinetd/index.md"
 - Shell-and-tool:
   - Shell:
     - Introduction: Shell-and-tool/Shell/index.md

@@ -18,6 +18,8 @@ The permissions of the core file (assuming that the file doesn’t already exist
 
 > NOTE: 上面这段话中的the process was set-user-ID是什么意思？是否是在图4-8中的例子；
 
+
+
 ## SIGKILL 和 SIGTERM的异同
 
 `SIGKILL` ,This signal is one of the two that can’t be caught or ignored. It provides the system administrator with a sure way to kill any process.
