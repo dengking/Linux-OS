@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
     - UNP-6.1-IO-Multiplexing: UNP-6.1-IO-Multiplexing
-    - Blocking-and-non-blocking-VS-sync-and-async: Blocking-and-non-blocking-VS-sync-and-async.md
-    - Blocking-IO-VS-Nonblocking-IO: Blocking-IO-VS-Nonblocking-IO.md
+    
     

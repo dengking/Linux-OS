@@ -1,6 +1,10 @@
 # UNP 6.1 I/O Multiplexing: The `select` and `poll` Functions[¶](https://notes.shichao.io/unp/ch6/#chapter-6-io-multiplexing-the-select-and-poll-functions)
 
-> NOTE: 本节以UNP的chapter 6.2 I/O Models基准来描述Unix-like OS中的**I/O models**。网络资源链接：https://notes.shichao.io/unp/ch6/#io-models 。正文如下：
+> NOTE: 
+>
+> 一、本节以UNP的chapter 6.2 I/O Models基准来描述Unix-like OS中的**I/O models**。网络资源链接：https://notes.shichao.io/unp/ch6/#io-models 。正文如下。
+>
+> 二、在 zhihu [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938) # [小林coding的回答](https://www.zhihu.com/question/26943938/answer/1856426252) 中，也有非常好的解答
 
 In Section 5.12, we saw our TCP client handling two inputs at the same time: **standard input** and a **TCP  socket**. We encountered a problem when the client was blocked in a call to `fgets` (on standard input) and the server process was killed. The server TCP correctly sent a `FIN` to the client TCP, but since the client process was blocked reading from **standard input**, it never saw the `EOF` until it read from the socket (possibly much later). What we need is the capability to tell the kernel  that we want to be notified if one or more I/O conditions are ready (i.e., input is ready to be read, or the descriptor is capable of taking more output). This capability is called **I/O multiplexing** and is provided by the `select` and `poll` functions. We will also cover a newer POSIX variation of the former, called `pselect`.
 
@@ -40,9 +44,31 @@ You may want to skim this section on your first reading and  then refer back to 
 
 As we show in all the examples in this section, there are normally two distinct phases for an input operation:
 
-- Waiting for the data to be ready
+1、Waiting for the data to be ready
 
-- Copying the data from the kernel to the process
+> NOTE: 
+>
+> 等待数据就绪
+
+2、Copying the data from the kernel to the process
+
+> NOTE: 将数据从kernel拷贝到用户态
+
+> NOTE: 
+>
+> 在下面文章中，对上述两个操作进行了解释:
+>
+> zhihu [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938) # [小林coding的回答](https://www.zhihu.com/question/26943938/answer/1856426252) : 
+>
+> 注意，**阻塞等待的是「内核数据准备好」和「数据从内核态拷贝到用户态」这两个过程**。过程如下图：
+>
+> ![img](https://pic3.zhimg.com/50/v2-7f73fdcaca316aa0f12d77b6873785e5_hd.jpg?source=1940ef5c)
+>
+> 
+>
+> 
+>
+> 
 
 For an input operation on a **socket**, the first step normally  involves waiting for data to arrive on the network. When the packet arrives, it is copied into a **buffer** within the **kernel**. The second step is copying this data from the kernel's buffer into our application buffer.
 
@@ -54,7 +80,9 @@ The most prevalent(流行) model for I/O is the **blocking I/O model**, which we
 
 Figure 6.1. Blocking I/O model.
 
-![Figure 6.1. Blocking I/O model.](E:\github\Linux-OS\docs\Programming\IO\IO-model\Figure-6.1-Blocking-IO-model.jpg)
+![Figure 6.1. Blocking I/O model](./Figure-6.1-Blocking-IO-model.jpg)
+
+
 
 We use `UDP` for this example instead of TCP because with `UDP`, the concept of data being "ready" to read is simple: either an entire datagram(数据报) has been received or it has not. With TCP it gets more complicated, as additional variables such as the socket's low-water mark **come into play**（产生作用）.
 
@@ -68,7 +96,7 @@ When we set a **socket** to be **nonblocking**, we are telling the kernel "when 
 
 Figure 6.2. Nonblocking I/O model.
 
-![Figure 6.2. Nonblocking I/O model.](E:\github\Linux-OS\docs\Programming\IO\IO-model\Figure-6.2-Nonblocking-I-O-model.jpg)
+![Figure 6.2. Nonblocking I/O model.](./Figure-6.2-Nonblocking-I-O-model.jpg)
 
 The first three times that we call `recvfrom`, there is no data to return, so the kernel immediately returns an error of `EWOULDBLOCK` instead. The fourth time we call `recvfrom`, a datagram is ready, it is copied into our application buffer, and `recvfrom` returns successfully. We then process the data.
 
@@ -84,7 +112,7 @@ With **I/O multiplexing**, we call `select` or `poll` and block(阻塞) in one o
 
 Figure 6.3. I/O multiplexing model.
 
-![Figure 6.3. I/O multiplexing model.](E:\github\Linux-OS\docs\Programming\IO\IO-model\Figure-6.3-I-O-multiplexing-model.jpg)
+![Figure 6.3. I/O multiplexing model.](./Figure-6.3-I-O-multiplexing-model.jpg)
 
 We block in a call to `select`, waiting for the **datagram socket** to be readable. When `select` returns that the socket is readable, we then call `recvfrom` to copy the datagram into our application buffer.
 
@@ -100,7 +128,7 @@ We can also use **signals**, telling the kernel to notify us with the `SIGIO` si
 
 Figure 6.4. Signal-Driven I/O model.
 
-![Figure 6.4. Signal-Driven I/O model.](E:\github\Linux-OS\docs\Programming\IO\IO-model\Figure-6.4-Signal-Driven-I-O-model.jpg)
+![Figure 6.4. Signal-Driven I/O model.](./Figure-6.4-Signal-Driven-I-O-model.jpg)
 
 
 
@@ -122,7 +150,7 @@ Regardless of how we handle the signal, the advantage to this model is that we a
 
 Figure 6.5. Asynchronous I/O model.
 
-![Figure 6.5. Asynchronous I/O model.](E:\github\Linux-OS\docs\Programming\IO\IO-model\Figure-6.5-Asynchronous-I-O-model.jpg)
+![Figure 6.5. Asynchronous I/O model.](./Figure-6.5-Asynchronous-I-O-model.jpg)
 
 We call `aio_read` (the POSIX asynchronous I/O functions begin with `aio_` or `lio_`) and pass the kernel the descriptor, buffer pointer, buffer size (the same three arguments for `read`), file offset (similar to `lseek`), and how to notify us when the entire operation is complete. This **system call** returns immediately and our process is not blocked while waiting for the I/O to complete. We assume in this example that we ask the kernel to generate some signal when the operation is complete. This signal is not generated until the data has been copied into our application buffer, which is different from the signal-driven I/O model.
 
@@ -134,7 +162,7 @@ As of this writing, few systems support POSIX asynchronous I/O. We are not certa
 
 Figure 6.6. Comparison of the five I/O models.
 
-![Figure 6.6. Comparison of the five I/O models.](E:\github\Linux-OS\docs\Programming\IO\IO-model\Figure-6.6-Comparison-of-the-five-I-O-models.jpg)
+![Figure 6.6. Comparison of the five I/O models.](./Figure-6.6-Comparison-of-the-five-I-O-models.jpg)
 
 
 

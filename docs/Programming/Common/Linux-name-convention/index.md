@@ -1,4 +1,4 @@
-# Unix handler and `start_rtn`
+# Linux handler and `start_rtn`
 
 ## 前言
 
