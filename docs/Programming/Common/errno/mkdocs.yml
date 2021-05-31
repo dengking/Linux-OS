@@ -1,4 +1,5 @@
 nav:
     - man-3-errno: man-3-errno
+    - Is-errno-thread-local: Is-errno-thread-local    
     - errno-EAGAIN-EWOULDBLOCK: errno-EAGAIN-EWOULDBLOCK
     - errno-EEXIST: errno-EEXIST
