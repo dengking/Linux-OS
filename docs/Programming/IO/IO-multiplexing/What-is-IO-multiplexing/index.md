@@ -2,17 +2,15 @@
 
 本章讨论"What is IO multiplexing"，重要参考的内容有:
 
-zhihu [I/O多路复用技术（multiplexing）是什么？](https://www.zhihu.com/question/28594409)
+一、zhihu [I/O多路复用技术（multiplexing）是什么？](https://www.zhihu.com/question/28594409)
 
 收录在 `zhihu-What-is-IO-multiplexing` 章节中，通过这篇文章，基本上了解了Linux IO multiplexing。需要注意的是，这篇文章所讲述的是Linux的implementation，它并不能够代表IO multiplexing的全部。
 
-APUE `14.4 I/O Multiplexing`
+二、APUE `14.4 I/O Multiplexing`
 
+三、unp [Chapter 6. I/O Multiplexing: The select and poll Functions](https://notes.shichao.io/unp/ch6/)
 
-
-unp [Chapter 6. I/O Multiplexing: The select and poll Functions](https://notes.shichao.io/unp/ch6/)
-
-wiki [Io Multiplexing](http://c2.com/cgi/fullSearch?search=IoMultiplexing)
+四、wiki [Io Multiplexing](http://c2.com/cgi/fullSearch?search=IoMultiplexing)
 
 **I/O multiplexing** means what it says - allowing the programmer to examine and block on multiple I/O streams (or other "synchronizing" events), being notified whenever any one of the streams is active so that it can process data on that stream.
 

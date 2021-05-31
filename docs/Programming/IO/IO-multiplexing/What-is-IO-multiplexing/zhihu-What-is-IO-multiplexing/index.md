@@ -36,7 +36,7 @@ redis源码地址：[antirez/redis · GitHub](https://link.zhihu.com/?target=htt
 
 4 socket上有未处理的错误，此时可以用`getsockopt`来读取和清除该错误。
 
-所谓可写事件，则是指：
+所谓**可写事件**，则是指：
 
 1 socket的内核发送缓冲区的可用字节数大于或等于其低水位`SO_SNDLOWAIT`；
 
@@ -61,7 +61,7 @@ redis事件驱动整体流程：redis服务器main函数位于文件`redis/src/r
 aeMain(server.el); /* 实现代码位于ae.c */
 ```
 
-这个函数调用aeProcessEvent进入事件循环，aeProcessEvent函数源码(同样位于ae.c源文件)：
+这个函数调用`aeProcessEvent`进入事件循环，`aeProcessEvent`函数源码(同样位于`ae.c`源文件)：
 
 ```c
 /* Process every pending time event, then every pending file event
@@ -186,9 +186,7 @@ int aeProcessEvents(aeEventLoop *eventLoop, int flags)
 
 你站在讲台上等，谁解答完谁举手。这时C、D举手，表示他们解答问题完毕，你下去依次检查C、D的答案，然后继续回到讲台上等。此时E、A又举手，然后去处理E和A。。。 
 
-这种就是IO复用模型，Linux下的`select`、`poll`和`epoll`就是干这个的。将用户socket对应的`fd`注册进`epoll`，然后`epoll`帮你监听哪些socket上有消息到达，这样就避免了大量的无用操作。此时的socket应该采用
+这种就是IO复用模型，Linux下的`select`、`poll`和`epoll`就是干这个的。将用户socket对应的`fd`注册进`epoll`，然后`epoll`帮你监听哪些socket上有消息到达，这样就避免了大量的无用操作。此时的socket应该采用非阻塞模式。
 
-非阻塞模式。
-
-这样，整个过程只在调用select、poll、epoll这些调用的时候才会阻塞，收发客户消息是不会阻塞的，整个进程或者线程就被充分利用起来，这就是事件驱动，所谓的**reactor模式**。
+这样，整个过程只在调用`select`、`poll`、`epoll`这些调用的时候才会阻塞，收发客户消息是不会阻塞的，整个进程或者线程就被充分利用起来，这就是事件驱动，所谓的**reactor模式**。
 
