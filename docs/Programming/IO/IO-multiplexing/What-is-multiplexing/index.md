@@ -1,6 +1,6 @@
 # Multiplexing
 
-本文讨论"Multiplexing"的含义。
+本文讨论"Multiplexing"的含义，它是由: "multi+plexing" 组成
 
 ## wikipedia [Multiplexing](https://en.wikipedia.org/wiki/Multiplexing) 
 
@@ -16,7 +16,7 @@
 
 
 
-In [telecommunications](https://en.wikipedia.org/wiki/Telecommunications) and [computer networks](https://en.wikipedia.org/wiki/Computer_networks), **multiplexing** (sometimes contracted to **muxing**) is a method by which multiple analog or digital signals are combined into one signal over a [shared medium](https://en.wikipedia.org/wiki/Shared_medium)（将多个模拟信号或电子信号合并为一个）. The aim is to share a scarce resource（稀缺资源）. For example, in telecommunications, several [telephone calls](https://en.wikipedia.org/wiki/Telephone_call) may be carried using one wire. Multiplexing originated in [telegraphy](https://en.wikipedia.org/wiki/Multiplexing#Telegraphy) in the 1870s, and is now widely applied in communications. In [telephony](https://en.wikipedia.org/wiki/Multiplexing#Telephony), [George Owen Squier](https://en.wikipedia.org/wiki/George_Owen_Squier) is credited with the development of **telephone carrier multiplexing**（电话运营商多路复用） in 1910.
+In [telecommunications](https://en.wikipedia.org/wiki/Telecommunications) and [computer networks](https://en.wikipedia.org/wiki/Computer_networks), **multiplexing** (sometimes contracted to **muxing**) is a method by which multiple analog or digital signals are combined into one signal over a [shared medium](https://en.wikipedia.org/wiki/Shared_medium)（将多个模拟信号或电子信号合并为一个，通过一个共享的媒介进行发送）. The aim is to share a scarce resource（稀缺资源）. For example, in telecommunications, several [telephone calls](https://en.wikipedia.org/wiki/Telephone_call) may be carried using one wire. Multiplexing originated in [telegraphy](https://en.wikipedia.org/wiki/Multiplexing#Telegraphy) in the 1870s, and is now widely applied in communications. In [telephony](https://en.wikipedia.org/wiki/Multiplexing#Telephony), [George Owen Squier](https://en.wikipedia.org/wiki/George_Owen_Squier) is credited with the development of **telephone carrier multiplexing**（电话运营商多路复用） in 1910.
 
 ### Multiplexing  and demultiplexing
 
@@ -44,11 +44,11 @@ In [computing](https://en.wikipedia.org/wiki/Computing), **I/O multiplexing** ca
 
 > NOTE: 如何来理解multiplexing？multiplexing的关键在于many和one，下面是一些例子: 
 >
-> 1、在[telecommunications](https://en.wikipedia.org/wiki/Telecommunications)中many 是multiple analog or digital signals ，one是 combined into one signal over a [shared medium](https://en.wikipedia.org/wiki/Shared_medium) 。
+> 1、在[telecommunications](https://en.wikipedia.org/wiki/Telecommunications)中multiple是multiple analog or digital signals ，one是 combined into one signal over a [shared medium](https://en.wikipedia.org/wiki/Shared_medium) 。
 >
 > many logical and one physical ；
 >
-> 2、在 [computing](https://en.wikipedia.org/wiki/Computing)的 **I/O multiplexing**中，many是multiple [input/output](https://en.wikipedia.org/wiki/Input/output) [events](https://en.wikipedia.org/wiki/Event_(computing)) 而one则是a single [event loop](https://en.wikipedia.org/wiki/Event_loop) object；
+> 2、在 [computing](https://en.wikipedia.org/wiki/Computing)的 **I/O multiplexing**中multiple是multiple [input/output](https://en.wikipedia.org/wiki/Input/output) [events](https://en.wikipedia.org/wiki/Event_(computing)) 而one则是a single [event loop](https://en.wikipedia.org/wiki/Event_loop) object；
 >
 > many IO event and one event loop object；
 >
