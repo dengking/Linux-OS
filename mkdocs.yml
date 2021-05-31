@@ -437,25 +437,33 @@ nav:
         - Introduction: Programming/Book-APUE/10-Signals/10.5-Interrupted-System-Calls/index.md
     - Race-condition:
       - Introduction: Programming/Book-APUE/Race-condition/index.md
+  - Book-TLPL:
+    - Introduction: Programming/Book-TLPL/index.md
+  - Book-UNP:
+    - Introduction: Programming/Book-UNP/index.md
   - Common:
-    - Conventions: Programming/Common/Conventions.md
-    - Attribute-of-function:
-      - Introduction: Programming/Common/Attribute-of-function/index.md
+    - Linux-name-convention:
+      - Introduction: Programming/Common/Linux-name-convention/index.md
+    - Function-attribute:
+      - Introduction: Programming/Common/Function-attribute/index.md
       - Idempotence:
-        - Introduction: Programming/Common/Attribute-of-function/Idempotence/index.md
+        - Introduction: Programming/Common/Function-attribute/Idempotence/index.md
       - Thread-safety-Reentrancy-Async-signal-safety:
-        - Introduction: Programming/Common/Attribute-of-function/Thread-safety-Reentrancy-Async-signal-safety/index.md
+        - Introduction: Programming/Common/Function-attribute/Thread-safety-Reentrancy-Async-signal-safety/index.md
         - Reentrancy:
-          - Introduction: Programming/Common/Attribute-of-function/Thread-safety-Reentrancy-Async-signal-safety/Reentrancy/index.md
+          - Introduction: Programming/Common/Function-attribute/Thread-safety-Reentrancy-Async-signal-safety/Reentrancy/index.md
           - wikipedia-Reentrancy:
-            - Introduction: Programming/Common/Attribute-of-function/Thread-safety-Reentrancy-Async-signal-safety/Reentrancy/wikipedia-Reentrancy/index.md
+            - Introduction: Programming/Common/Function-attribute/Thread-safety-Reentrancy-Async-signal-safety/Reentrancy/wikipedia-Reentrancy/index.md
         - man-7-signal-safety:
-          - Introduction: Programming/Common/Attribute-of-function/Thread-safety-Reentrancy-Async-signal-safety/man-7-signal-safety/index.md
+          - Introduction: Programming/Common/Function-attribute/Thread-safety-Reentrancy-Async-signal-safety/man-7-signal-safety/index.md
     - Path-resolution: Programming/Common/Path-resolution.md
-    - Errorno:
-      - man-3-errorno: Programming/Common/Errorno/man-3-errorno.md
-      - EAGAIN: Programming/Common/Errorno/EAGAIN.md
-      - EEXIST: Programming/Common/Errorno/EEXIST.md
+    - errorno:
+      - man-3-errorno:
+        - Introduction: Programming/Common/errorno/man-3-errorno/index.md
+      - errorno-EAGAIN-EWOULDBLOCK:
+        - Introduction: Programming/Common/errorno/errorno-EAGAIN-EWOULDBLOCK/index.md
+      - errorno-EEXIST:
+        - Introduction: Programming/Common/errorno/errorno-EEXIST/index.md
   - Philosophy:
     - Introduction: Programming/philosophy/index.md
     - Unix-philosophy:
@@ -476,8 +484,6 @@ nav:
       - Introduction: Programming/IO/IO-model/index.md
       - UNP-6.1-IO-Multiplexing:
         - Introduction: Programming/IO/IO-model/UNP-6.1-IO-Multiplexing/index.md
-      - Blocking-and-non-blocking-VS-sync-and-async: Programming/IO/IO-model/Blocking-and-non-blocking-VS-sync-and-async.md
-      - Blocking-IO-VS-Nonblocking-IO: Programming/IO/IO-model/Blocking-IO-VS-Nonblocking-IO.md
     - "IO-\u6D41\u6D3E":
       - Introduction: "Programming/IO/IO-\u6D41\u6D3E/index.md"
       - File-descriptor:
@@ -554,8 +560,10 @@ nav:
     - Network-IO:
       - Introduction: Programming/IO/Network-IO/index.md
     - Tools:
-      - lsof: Programming/IO/Tools/lsof.md
-      - fuser: Programming/IO/Tools/fuser.md
+      - man-1-fuser:
+        - Introduction: Programming/IO/Tools/man-1-fuser/index.md
+      - man-1-lsof:
+        - Introduction: Programming/IO/Tools/man-1-lsof/index.md
   - Date-and-time:
     - Introduction: Programming/Date-and-time/index.md
     - Date-and-Time: Programming/Date-and-time/Date-and-Time.md
