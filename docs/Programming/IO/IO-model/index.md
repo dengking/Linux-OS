@@ -27,18 +27,11 @@
 
 
 
+## Linux中基于signal的asynchronous IO
+
+在[pipe(7) - Linux man page](https://linux.die.net/man/7/pipe)的I/O on pipes and FIFOs章节，介绍了pipe和FIFO的blocking 和nonblocking IO，以及asynchronous IO，从其中可以看到，pipe的asynchronous IO是基于signal的；
 
 
-
-## APUE 14.2 非阻塞IO
-
-阻塞的函数往往是和进程的阻塞状态有关的，一旦阻塞，则表示进程将暂停执行。
-
-这一节最后一段引起了我的思考:前面它说，执行低速的系统调用是可能会使进程永远阻塞的一类系统调用。对于这段话我的想法是当进程被阻塞的时候，此时进程的状态是blocking。
-
-在最后一段中，作者又介绍，可以使用多线程，让其中一个线程来执行低速的io操作，其他线程则无需阻塞，可以继续执行。
-
-显然，此时进程的一个线程被阻塞了，但是进程中的其他线程仍然继续运行，那么此时进程的状态是什么呢？
 
 
 
@@ -51,15 +44,6 @@
 除了本节所描述的这两种形式的IO，还存在IO multiplex
 
 在APUE的第14章，对这些内容进行了整体地介绍。
-
-
-
-
-## Linux中基于signal的asynchronous IO
-
-在[pipe(7) - Linux man page](https://linux.die.net/man/7/pipe)的I/O on pipes and FIFOs章节，介绍了pipe和FIFO的blocking 和nonblocking IO，以及asynchronous IO，从其中可以看到，pipe的asynchronous IO是基于signal的；
-
-
 
 
 
