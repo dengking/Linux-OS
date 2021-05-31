@@ -15,3 +15,13 @@ It [might](http://www.opengroup.org/onlinepubs/000095399/basedefs/errno.h.html) 
 
 
 ## [errno(3)](https://www.man7.org/linux/man-pages/man3/errno.3.html)
+
+### Error numbers and names
+
+All the error names specified by POSIX.1 must have distinct values, with the exception of `EAGAIN` and `EWOULDBLOCK`, which may be the same.  On Linux, these two have the same value on all architectures.
+
+### List of error names
+
+#### EAGAIN 
+
+Resource temporarily unavailable (may be the same value as `EWOULDBLOCK`) (POSIX.1-2001).

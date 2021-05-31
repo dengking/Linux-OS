@@ -47,13 +47,13 @@ In this section we shall work through using **fuser** to [kill and send signals 
 
 In order to kill a processes accessing a file or socket, employ the `-k` or `--kill` option like so:
 
-```
+```shell
 $ sudo fuser -k .
 ```
 
 To interactively kill a process, where you are that asked to confirm your intention to kill the processes accessing a file or socket, make use of `-i` or `--interactive` option:
 
-```
+```shell
 $ sudo fuser -ki .
 ```
 
@@ -63,7 +63,7 @@ The two previous commands will **kill** all processes accessing your current dir
 
 You can list all the signals using the `-l` or `--list-signals` options as below:
 
-```
+```shell
 $ sudo fuser --list-signals 
 ```
 
@@ -71,13 +71,13 @@ $ sudo fuser --list-signals
 
 Therefore, you can send a signal to processes as in the next command, where **SIGNAL** is any of the signals listed in the output above.
 
-```
+```shell
 $ sudo fuser -k -SIGNAL
 ```
 
 For example, this command below sends the **HUP** signal to all processes that have your `/boot` directory open.
 
-```
+```shell
 $ sudo fuser -k -HUP /boot 
 ```
 
@@ -91,7 +91,7 @@ That is it for now, you can reach us by means of the feedback section below for 
 
 Using fuser we can also check the processes using TCP/UDP sockets. Since the above stated socket_serv sample C program executable is running on TCP port 5000, lets use fuser utility on this socket.
 
-```
+```shell
 $ fuser -v -n tcp 5000
                        USER        PID ACCESS COMMAND
 5000/tcp:            himanshu   4334   F....  socket_serv
