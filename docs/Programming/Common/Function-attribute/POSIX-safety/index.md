@@ -1,8 +1,18 @@
-# Reentrant and async-signal safe and thread-safe
+# POSIX Safety Concepts
+
+这是按照 gun libc [1.2.2.1 POSIX Safety Concepts](https://www.gnu.org/software/libc/manual/html_node/POSIX-Safety-Concepts.html#POSIX-Safety-Concepts) 中的方式总结的，本节给出各种概念的解释。
+
+包括:
+
+一、Thread-safety
+
+二、Async-signal-safety and reentrancy
+
+三、Async-cancel-safety
 
 
 
-## 三者相同点
+## Thread-safety 和 Async-signal-safety 相同点
 
 Thread-safety、Reentrancy、Async-signal-safety，都是基于一个相同的场景: 
 
@@ -91,6 +101,18 @@ c、两者都可以使用atomicity来保护"the one"
 这篇文章 非常好
 
 
+
+
+
+## Thread-safety 和 Async-cancel-safety
+
+它们两个都和thread相关，在 `man-7-pthreads` 对它们都进行了介绍
+
+### [pthreads(7)](http://man7.org/linux/man-pages/man7/pthreads.7.html) # Async-cancel-safe functions
+
+
+
+### [pthreads(7)](http://man7.org/linux/man-pages/man7/pthreads.7.html) # Thread-safe functions
 
 
 

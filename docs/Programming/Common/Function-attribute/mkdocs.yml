@@ -1,4 +1,4 @@
 nav:
     - Introduction: index.md
     - Idempotence: Idempotence
-    - Thread-safety-Reentrancy-Async-signal-safety: Thread-safety-Reentrancy-Async-signal-safety
+    - POSIX-safety: POSIX-safety

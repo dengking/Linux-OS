@@ -1,4 +1,4 @@
-# Stream VS fd
+# Stream-based IO VS file descriptor-based IO
 
 OS层的system call都是使用的fd。
 
@@ -6,13 +6,11 @@ Stream一种抽象，他是对fd的封装，基于它，实现了很多非常简
 
 
 
-## Stream-based IO VS file descriptor-based IO
-
-### stackoverflow [What is the difference between a stream and a file?](https://stackoverflow.com/questions/20937616/what-is-the-difference-between-a-stream-and-a-file)
+## stackoverflow [What is the difference between a stream and a file?](https://stackoverflow.com/questions/20937616/what-is-the-difference-between-a-stream-and-a-file)
 
 
 
-#### [A](https://stackoverflow.com/a/20937904)
+### [A](https://stackoverflow.com/a/20937904)
 
 In the context of the C Standard Library a stream is a generic interface for performing certain I/O operations. You can read from streams, write to streams, some streams are seekable. Opening a file as a stream is only one way to get a stream as an I/O interface for an application.
 

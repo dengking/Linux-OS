@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - File-descriptor: File-descriptor
+
     - Stream-based-IO: Stream-based-IO
     - Stream-VS-fd: Stream-VS-fd
