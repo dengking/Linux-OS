@@ -6,10 +6,10 @@ nav:
     ########## 一些杂项、公共问题##########                  
     - Common: Common
     ########## 在Linux OS中进行programming的哲学##########       
-    - Philosophy: philosophy
+    - Philosophy: Philosophy
     
     ########## lib描述linux OS的重要的库等##########     
-    - Lib: Lib
+    - library: library
     
     ########## process的一个主要活动就是IO##########
     - IO: IO
@@ -35,7 +35,9 @@ nav:
     - Kernel-module: Kernel-module
     
     - Object-file: Object-file
+    
     - Core-dump: Core-dump
+    
     - Terminal: Terminal
     
     

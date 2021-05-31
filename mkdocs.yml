@@ -448,34 +448,56 @@ nav:
       - Introduction: Programming/Common/Function-attribute/index.md
       - Idempotence:
         - Introduction: Programming/Common/Function-attribute/Idempotence/index.md
-      - Thread-safety-Reentrancy-Async-signal-safety:
-        - Introduction: Programming/Common/Function-attribute/Thread-safety-Reentrancy-Async-signal-safety/index.md
+      - POSIX-safety:
+        - Introduction: Programming/Common/Function-attribute/POSIX-safety/index.md
         - Reentrancy:
-          - Introduction: Programming/Common/Function-attribute/Thread-safety-Reentrancy-Async-signal-safety/Reentrancy/index.md
+          - Introduction: Programming/Common/Function-attribute/POSIX-safety/Reentrancy/index.md
           - wikipedia-Reentrancy:
-            - Introduction: Programming/Common/Function-attribute/Thread-safety-Reentrancy-Async-signal-safety/Reentrancy/wikipedia-Reentrancy/index.md
+            - Introduction: Programming/Common/Function-attribute/POSIX-safety/Reentrancy/wikipedia-Reentrancy/index.md
         - man-7-signal-safety:
-          - Introduction: Programming/Common/Function-attribute/Thread-safety-Reentrancy-Async-signal-safety/man-7-signal-safety/index.md
+          - Introduction: Programming/Common/Function-attribute/POSIX-safety/man-7-signal-safety/index.md
+        - Async-cancel-safety:
+          - Introduction: Programming/Common/Function-attribute/POSIX-safety/Async-cancel-safety/index.md
     - Path-resolution: Programming/Common/Path-resolution.md
-    - errorno:
-      - man-3-errorno:
-        - Introduction: Programming/Common/errorno/man-3-errorno/index.md
-      - errorno-EAGAIN-EWOULDBLOCK:
-        - Introduction: Programming/Common/errorno/errorno-EAGAIN-EWOULDBLOCK/index.md
-      - errorno-EEXIST:
-        - Introduction: Programming/Common/errorno/errorno-EEXIST/index.md
+    - errno:
+      - man-3-errno:
+        - Introduction: Programming/Common/errno/man-3-errno/index.md
+      - Is-errno-thread-local:
+        - Introduction: Programming/Common/errno/Is-errno-thread-local/index.md
+      - errno-EAGAIN-EWOULDBLOCK:
+        - Introduction: Programming/Common/errno/errno-EAGAIN-EWOULDBLOCK/index.md
+      - errno-EEXIST:
+        - Introduction: Programming/Common/errno/errno-EEXIST/index.md
   - Philosophy:
-    - Introduction: Programming/philosophy/index.md
+    - Introduction: Programming/Philosophy/index.md
     - Unix-philosophy:
-      - Introduction: Programming/philosophy/Unix-philosophy/index.md
+      - Introduction: Programming/Philosophy/Unix-philosophy/index.md
     - Everything-is-a-file:
-      - Introduction: Programming/philosophy/Everything-is-a-file/index.md
-  - Lib:
-    - Introduction: Programming/Lib/index.md
-    - Glibc:
-      - Introduction: Programming/Lib/Glibc/index.md
-      - Glibc: Programming/Lib/Glibc/Glibc.md
-      - The-GNU-C-Library: Programming/Lib/Glibc/The-GNU-C-Library.md
+      - Introduction: Programming/Philosophy/Everything-is-a-file/index.md
+  - library:
+    - Introduction: Programming/library/index.md
+    - library-glibc:
+      - Introduction: Programming/library/library-glibc/index.md
+      - doc:
+        - Introduction: Programming/library/library-glibc/doc/index.md
+        - 1.2-Standards-and-Portability:
+          - Introduction: Programming/library/library-glibc/doc/1.2-Standards-and-Portability/index.md
+        - 11-Input-Output-Overview:
+          - Introduction: Programming/library/library-glibc/doc/11-Input-Output-Overview/index.md
+        - 12-Input-Output-on-Streams:
+          - Introduction: Programming/library/library-glibc/doc/12-Input-Output-on-Streams/index.md
+        - 13-Low-Level-Input-Output:
+          - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/index.md
+          - 13.14-File-Descriptor-Flags:
+            - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/13.14-File-Descriptor-Flags/index.md
+          - 13.15-File-Status-Flags:
+            - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/13.15-File-Status-Flags/index.md
+            - 13.15.1-File-Access-Modes:
+              - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/13.15-File-Status-Flags/13.15.1-File-Access-Modes/index.md
+            - 13.15.2-Open-time-Flags:
+              - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/13.15-File-Status-Flags/13.15.2-Open-time-Flags/index.md
+            - 13.15.3-IO-Operating-Modes:
+              - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/13.15-File-Status-Flags/13.15.3-IO-Operating-Modes/index.md
   - IO:
     - Introduction: Programming/IO/index.md
     - What-is-IO:
@@ -484,12 +506,16 @@ nav:
       - Introduction: Programming/IO/IO-model/index.md
       - UNP-6.1-IO-Multiplexing:
         - Introduction: Programming/IO/IO-model/UNP-6.1-IO-Multiplexing/index.md
+    - IO-data-structure:
+      - Introduction: Programming/IO/IO-data-structure/index.md
+      - File-descriptor:
+        - Introduction: Programming/IO/IO-data-structure/File-descriptor/index.md
+        - wikipedia-File-descriptor:
+          - Introduction: Programming/IO/IO-data-structure/File-descriptor/wikipedia-File-descriptor/index.md
+        - TODO-Pass-file-descriptor:
+          - Introduction: Programming/IO/IO-data-structure/File-descriptor/TODO-Pass-file-descriptor/index.md
     - "IO-\u6D41\u6D3E":
       - Introduction: "Programming/IO/IO-\u6D41\u6D3E/index.md"
-      - File-descriptor:
-        - Introduction: "Programming/IO/IO-\u6D41\u6D3E/File-descriptor/index.md"
-        - TODO-Pass-file-descriptor:
-          - Introduction: "Programming/IO/IO-\u6D41\u6D3E/File-descriptor/TODO-Pass-file-descriptor/index.md"
       - Stream-based-IO:
         - Stream: "Programming/IO/IO-\u6D41\u6D3E/Stream-based-IO/index.md"
         - Standard-streams: "Programming/IO/IO-\u6D41\u6D3E/Stream-based-IO/Standard-streams.md"
@@ -533,6 +559,10 @@ nav:
         - Introduction: Programming/IO/File-IO/System-call/index.md
         - man-2-open:
           - Introduction: Programming/IO/File-IO/System-call/man-2-open/index.md
+        - man-2-openat:
+          - Introduction: Programming/IO/File-IO/System-call/man-2-openat/index.md
+        - man-2-close:
+          - Introduction: Programming/IO/File-IO/System-call/man-2-close/index.md
         - man-2-read:
           - Introduction: Programming/IO/File-IO/System-call/man-2-read/index.md
         - man-2-fcntl:
