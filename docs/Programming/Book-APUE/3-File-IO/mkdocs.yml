@@ -2,4 +2,5 @@ nav:
     - Introduction: index.md
     - 3.2-File-Descriptors: 3.2-File-Descriptors
     - 3.3-open-and-openat-Functions: 3.3-open-and-openat-Functions
+    - 3.4-creat-Function: 3.4-creat-Function
     - 3.5-close-Function: 3.5-close-Function

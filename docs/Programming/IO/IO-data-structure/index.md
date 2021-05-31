@@ -4,9 +4,11 @@
 
 
 
+file descriptor attribute: 
+
 File Descriptor Flags
 
-
+file table entry: 
 
 File Status Flags
 

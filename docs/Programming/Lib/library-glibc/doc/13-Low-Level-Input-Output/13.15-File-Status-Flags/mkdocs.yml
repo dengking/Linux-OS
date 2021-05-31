@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - 13.15.1-File-Access-Modes: 13.15.1-File-Access-Modes
+    - 13.15.2-Open-time-Flags: 13.15.2-Open-time-Flags
+    - 13.15.3-IO-Operating-Modes: 13.15.3-IO-Operating-Modes
