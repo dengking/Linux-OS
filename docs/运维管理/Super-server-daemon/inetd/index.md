@@ -10,7 +10,7 @@
 
 二、concurrent server multiple process
 
-
+三、"将套接字描述符`dup`到描述符0、1和2，然后close原套接字"对应的source code，参见 `Book-APUE\3-File-IO\3.12-dup-and-dup2-Functions`，它的目的是IO重定向。
 
 
 
