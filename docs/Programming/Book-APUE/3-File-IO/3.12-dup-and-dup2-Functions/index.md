@@ -1,4 +1,34 @@
-# 3.12 dup and dup2 Functions
+# 3.12 `dup` and `dup2` Functions
+
+An existing file descriptor is duplicated by either of the following functions:
+
+```C++
+#include <unistd.h>
+int dup(int fd);
+int dup2(int fd, int fd2);
+```
+
+Both return: new file descriptor if OK, `−1` on error.
+
+> NOTE: 
+>
+> `dup` 和 `dup2` 所copy的是file descriptor，并不file table entry。这是它和open的差异。
+
+
+
+The new file descriptor that is returned as the value of the functions shares the same **file table entry** as the fd argument. We show this in Figure 3.9.
+
+![](./APUE-3.12-Figure-3.9-Kernel-data-structures-after-dup(1).png)
+
+In this figure, we assume that when it’s started, the process executes
+
+```c
+newfd = dup(1);
+```
+
+
+
+
 
 需要搞清楚 [`dup`](http://pubs.opengroup.org/onlinepubs/007904975/functions/dup.html) 和 [`dup2`](https://pubs.opengroup.org/onlinepubs/9699919799/functions/dup.html) 的使用场景
 
