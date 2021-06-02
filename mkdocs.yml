@@ -262,12 +262,6 @@ nav:
             - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Stack-VS-heap/Operation-on-stack-VS-on-heap/index.md
         - Memory-mapped-file:
           - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Memory-mapped-file/index.md
-          - man-2-mmap:
-            - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Memory-mapped-file/man-2-mmap/index.md
-            - man-2-mmap:
-              - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Memory-mapped-file/man-2-mmap/man-2-mmap/index.md
-            - linuxhint-How-to-use-mmap-function-in-C-language:
-              - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Memory-mapped-file/man-2-mmap/linuxhint-How-to-use-mmap-function-in-C-language/index.md
     - Linux-implementation:
       - Introduction: Multitasking/Process-memory/Linux-implementation/index.md
       - dynamic-allocation-system-call:
@@ -370,6 +364,15 @@ nav:
         - POSIX-semaphores:
           - man-7-sem_overview:
             - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-semaphores/man-7-sem_overview/index.md
+        - POSIX-shared-memory:
+          - man-7-shm_overview:
+            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-shared-memory/man-7-shm_overview/index.md
+          - man-2-mmap:
+            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-shared-memory/man-2-mmap/index.md
+            - man-2-mmap:
+              - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-shared-memory/man-2-mmap/man-2-mmap/index.md
+            - linuxhint-How-to-use-mmap-function-in-C-language:
+              - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-shared-memory/man-2-mmap/linuxhint-How-to-use-mmap-function-in-C-language/index.md
       - Unix-domain-socket:
         - man-7-unix:
           - Introduction: Multitasking/Linux-process/IPC/Unix-domain-socket/man-7-unix/index.md
@@ -576,6 +579,8 @@ nav:
           - Introduction: Programming/library/library-glibc/doc/12-Input-Output-on-Streams/index.md
         - 13-Low-Level-Input-Output:
           - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/index.md
+          - 13.8-Memory-mapped-IO:
+            - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/13.8-Memory-mapped-IO/index.md
           - 13.14-File-Descriptor-Flags:
             - Introduction: Programming/library/library-glibc/doc/13-Low-Level-Input-Output/13.14-File-Descriptor-Flags/index.md
           - 13.15-File-Status-Flags:
