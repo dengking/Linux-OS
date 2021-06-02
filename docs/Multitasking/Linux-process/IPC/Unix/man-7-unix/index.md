@@ -9,3 +9,8 @@ unix - sockets for local interprocess communication
 unix_socket = socket(AF_UNIX, type, 0);
 error = socketpair(AF_UNIX, type, 0, int *sv);
 ```
+
+
+
+## EXAMPLES
+

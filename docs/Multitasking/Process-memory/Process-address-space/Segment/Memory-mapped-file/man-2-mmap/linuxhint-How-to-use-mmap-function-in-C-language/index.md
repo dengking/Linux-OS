@@ -274,4 +274,4 @@ int main()
 
 ```
 
-In Example4.c first the array is initialized with some values, then the child process updates the values. The parent process reads the values updated by the child because the mapped memory is shared by both processes.
+In `Example4.c` first the array is initialized with some values, then the child process updates the values. The parent process reads the values updated by the child because the mapped memory is shared by both processes.
