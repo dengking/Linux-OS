@@ -1,3 +1,5 @@
 nav:
-    - ipcs: ipcs.md
-    - ipcrm: ipcrm.md
+    - man-1-ipcmk: man-1-ipcmk
+    - man-1-ipcrm: man-1-ipcrm
+    - man-1-ipcs: man-1-ipcs
+    - man-1-lsipc: man-1-lsipc

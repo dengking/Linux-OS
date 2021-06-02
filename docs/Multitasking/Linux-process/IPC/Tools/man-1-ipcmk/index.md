@@ -1,0 +1,1 @@
+# [ipcmk(1)](https://man7.org/linux/man-pages/man1/ipcmk.1.html) 

@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - System-V-IPC: System-V-IPC
-    - POSIX-semaphores: POSIX-semaphores.md
-    - POSIX-message-queues: POSIX-message-queues.md
+    - POSIX-IPC: POSIX-IPC
     - Unix: Unix
     - Tools: Tools
+    - man-7-ipc_namespaces: man-7-ipc_namespaces
