@@ -2,7 +2,7 @@
 
 ## Name
 
-close - close a file descriptor
+`close` - close a file descriptor
 
 
 

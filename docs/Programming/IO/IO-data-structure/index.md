@@ -1,5 +1,7 @@
 # Linux IO data structure
 
+
+
 ## Linux IO data structure: three tables
 
 它非常重要，它是理解Linux IO的重要基础。
@@ -27,6 +29,8 @@ Scope:
 1、OS wide
 
 #### File table entry
+
+在 [open(2)](http://man7.org/linux/man-pages/man2/open.2.html)  中，将此称为  "**open file description**" 。
 
 Attribute: 
 
@@ -66,7 +70,33 @@ In the traditional implementation of Unix, **file descriptors** index into a per
 
 #### wikipedia [Process control block](https://en.wikipedia.org/wiki/Process_control_block)
 
+## File descriptor is a reference to an **open file description**
 
+一、这是在 [open(2)](http://man7.org/linux/man-pages/man2/open.2.html)  中提出的，我觉得它概括地非常好，它是理解后面的"System call 和 IO data structure"的基础。
+
+三、在 [close(2)](https://linux.die.net/man/2/close) 中，描述了Linux OS kernel何时释放 "**the underlying open file description**" 的内容，提示了我: Linux OS kernel对IO data structure的memory management 使用了类似于 reference counting的technique:
+
+1、File descriptor is a reference to an **open file description**
+
+2、当open file description的所有file descriptor被`close(2)`后，即它的reference count为0了，此时OS kernel就可以释放 " **the underlying open file description** " 了。
+
+## System call 和 IO data structure
+
+system call 和 IO data structure之间的关联，需要进行总结。
+
+### [open(2)](http://man7.org/linux/man-pages/man2/open.2.html)
+
+
+
+### [dup(2)](https://man7.org/linux/man-pages/man2/dup.2.html) 
+
+
+
+### [close(2)](https://linux.die.net/man/2/close)
+
+`close()` closes a **file descriptor**, so that it no longer refers to any file and may be reused. 
+
+If *fd* is the last file descriptor referring to **the underlying open file description** (see [**open**(2)](https://linux.die.net/man/2/open) ), the resources associated with the **open file description** are freed; if the descriptor was the last reference to a file which has been removed using [**unlink**(2)](https://linux.die.net/man/2/unlink) the file is deleted.
 
 ## 可能的组合情况
 
@@ -130,11 +160,11 @@ file descriptor 1 和 file descriptor 2分别对应不同的file
 
 ## Race condition
 
-
-
-在下面章节中，对race condition进行了讨论:
+Race condition 和 file sharing密切相关，在下面章节中，对race condition进行了讨论:
 
 一、`Book-APUE/3-File-IO/3.10-File-Sharing`
+
+二、[open(2)](http://man7.org/linux/man-pages/man2/open.2.html)
 
 ### 总结
 
@@ -167,7 +197,3 @@ A **file descriptor** is mostly just a reference to a **kernel file structure**,
 > 
 
 
-
-## TODO
-
-system call 和 IO data structure之间的关联，需要进行总结。
