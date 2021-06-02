@@ -10,6 +10,12 @@ unix_socket = socket(AF_UNIX, type, 0);
 error = socketpair(AF_UNIX, type, 0, int *sv);
 ```
 
+## DESCRIPTION     
+
+
+
+### Valid socket types in the UNIX domain 
+
 Valid socket types in the UNIX domain are: 
 
 1、`SOCK_STREAM`, for a stream-oriented socket; 
@@ -20,7 +26,7 @@ Valid socket types in the UNIX domain are:
 
 
 
-
+### Passing file descriptors or process credentials 
 
 UNIX domain sockets support passing file descriptors or process credentials to other processes using ancillary data.
 

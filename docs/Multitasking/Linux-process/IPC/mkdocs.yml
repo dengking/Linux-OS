@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - pipe: pipe
     - System-V-IPC: System-V-IPC
     - POSIX-IPC: POSIX-IPC
     - Unix: Unix
