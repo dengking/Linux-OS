@@ -1,6 +1,6 @@
 # Linux IO data structure
 
-
+它非常重要，它是理解Linux IO的重要基础。
 
 APUE3.10 File Sharing
 
@@ -151,3 +151,31 @@ Process Control Block
 ```
 
 上述是执行了`dup2(1,4)`后的结构；可以看到，其实`dup`系列函数类似于浅拷贝；
+
+
+
+## stackoverflow [two file descriptors to same file](https://stackoverflow.com/questions/5284062/two-file-descriptors-to-same-file)
+
+
+
+**A**
+
+It depends on where you got the two **file descriptors**. If they come from a `dup(2)` call, then they share **file offset** and **status**, so doing a `write(2)` on one will affect the position on the other. If, on the other hand, they come from two separate `open(2)` calls, each will have their own file offset and status.
+
+> NOTE: 
+>
+> 上面描述的第二种情况，就会产生race condition
+
+A **file descriptor** is mostly just a reference to a **kernel file structure**, and it is that kernel structure that contains most of the state. When you `open(2)` a file, you get a new **kernel file structure** and a new **file descriptor** that refers to it. When you `dup(2)` a file descriptor (or pass a file descriptor through `sendmsg`), you get a new reference to the same kernel file struct.
+
+> NOTE: 
+>
+> 关于 "pass a file descriptor"，参见 `Pass-file-descriptor` 章节
+>
+> 
+
+
+
+## TODO
+
+system call 和 IO data structure之间的关联，需要进行总结。
