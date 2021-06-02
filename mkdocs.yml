@@ -629,8 +629,28 @@ nav:
       - Implementation-in-OS: Programming/IO/IO-multiplexing/Implementation-in-OS.md
       - Multiplex-on-file-and-time-event: Programming/IO/IO-multiplexing/Multiplex-on-file-and-time-event.md
       - epoll:
+        - wikipedia-epoll:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/wikipedia-epoll/index.md
         - man-7-epoll:
           - Introduction: Programming/IO/IO-multiplexing/epoll/man-7-epoll/index.md
+        - man-2-epoll_create:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/man-2-epoll_create/index.md
+        - man-2-epoll_wait:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/man-2-epoll_wait/index.md
+        - man-2-epoll_ctl:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/man-2-epoll_ctl/index.md
+          - EPOLLHUP:
+            - Introduction: Programming/IO/IO-multiplexing/epoll/man-2-epoll_ctl/EPOLLHUP/index.md
+          - EPOLLRDHUP:
+            - Introduction: Programming/IO/IO-multiplexing/epoll/man-2-epoll_ctl/EPOLLRDHUP/index.md
+          - EPOLLRDHUP-VS-EPOLLHUP:
+            - Introduction: Programming/IO/IO-multiplexing/epoll/man-2-epoll_ctl/EPOLLRDHUP-VS-EPOLLHUP/index.md
+        - Edge-trigger-VS-level-trigger:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/Edge-trigger-VS-level-trigger/index.md
+        - epoll-nonblocking-IO:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/epoll-nonblocking-IO/index.md
+        - kovyrin-Using-epoll-For-Asynchronous-Network-Programming:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/kovyrin-Using-epoll-For-Asynchronous-Network-Programming/index.md
     - File-IO:
       - Introduction: Programming/IO/File-IO/index.md
       - File-system:
