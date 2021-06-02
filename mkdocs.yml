@@ -264,6 +264,10 @@ nav:
           - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Memory-mapped-file/index.md
           - man-2-mmap:
             - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Memory-mapped-file/man-2-mmap/index.md
+            - man-2-mmap:
+              - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Memory-mapped-file/man-2-mmap/man-2-mmap/index.md
+            - linuxhint-How-to-use-mmap-function-in-C-language:
+              - Introduction: Multitasking/Process-memory/Process-address-space/Segment/Memory-mapped-file/man-2-mmap/linuxhint-How-to-use-mmap-function-in-C-language/index.md
     - Linux-implementation:
       - Introduction: Multitasking/Process-memory/Linux-implementation/index.md
       - dynamic-allocation-system-call:
@@ -337,9 +341,9 @@ nav:
     - Create-process:
       - man-2-fork:
         - Introduction: Multitasking/Linux-process/Create-process/man-2-fork/index.md
-      - Wait-child-process:
-        - Child-process-exit-status:
-          - Introduction: Multitasking/Linux-process/Create-process/Wait-child-process/Child-process-exit-status/index.md
+    - Wait-child-process:
+      - Child-process-exit-status:
+        - Introduction: Multitasking/Linux-process/Wait-child-process/Child-process-exit-status/index.md
     - Process-termination:
       - Introduction: Multitasking/Linux-process/Process-termination/index.md
       - man-3-abort:
@@ -351,17 +355,35 @@ nav:
       - man-3-daemon: Multitasking/Linux-process/Daemon/man-3-daemon.md
     - IPC:
       - Introduction: Multitasking/Linux-process/IPC/index.md
+      - pipe:
+        - man-7-pipe:
+          - Introduction: Multitasking/Linux-process/IPC/pipe/man-7-pipe/index.md
+          - Unix-PIPE_BUF: Multitasking/Linux-process/IPC/pipe/man-7-pipe/Unix-PIPE_BUF.md
       - System-V-IPC:
-        - man-7-SVIPC: Multitasking/Linux-process/IPC/System-V-IPC/man-7-SVIPC.md
-        - Semaphore:
-          - Introduction: Multitasking/Linux-process/IPC/System-V-IPC/Semaphore/index.md
-      - POSIX-semaphores: Multitasking/Linux-process/IPC/POSIX-semaphores.md
-      - POSIX-message-queues: Multitasking/Linux-process/IPC/POSIX-message-queues.md
-      - Unix:
-        - man-7-unix: Multitasking/Linux-process/IPC/Unix/man-7-unix.md
+        - man-7-SVIPC:
+          - Introduction: Multitasking/Linux-process/IPC/System-V-IPC/man-7-SVIPC/index.md
+      - POSIX-IPC:
+        - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/index.md
+        - POSIX-message-queues:
+          - man-7-mq_overview:
+            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-message-queues/man-7-mq_overview/index.md
+        - POSIX-semaphores:
+          - man-7-sem_overview:
+            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-semaphores/man-7-sem_overview/index.md
+      - Unix-domain-socket:
+        - man-7-unix:
+          - Introduction: Multitasking/Linux-process/IPC/Unix-domain-socket/man-7-unix/index.md
       - Tools:
-        - ipcs: Multitasking/Linux-process/IPC/Tools/ipcs.md
-        - ipcrm: Multitasking/Linux-process/IPC/Tools/ipcrm.md
+        - man-1-ipcmk:
+          - Introduction: Multitasking/Linux-process/IPC/Tools/man-1-ipcmk/index.md
+        - man-1-ipcrm:
+          - Introduction: Multitasking/Linux-process/IPC/Tools/man-1-ipcrm/index.md
+        - man-1-ipcs:
+          - Introduction: Multitasking/Linux-process/IPC/Tools/man-1-ipcs/index.md
+        - man-1-lsipc:
+          - Introduction: Multitasking/Linux-process/IPC/Tools/man-1-lsipc/index.md
+      - man-7-ipc_namespaces:
+        - Introduction: Multitasking/Linux-process/IPC/man-7-ipc_namespaces/index.md
     - Linux-implementation:
       - Introduction: Multitasking/Linux-process/Linux-implementation/index.md
       - man-2-clone:
@@ -429,12 +451,78 @@ nav:
   - Introduction: Programming/index.md
   - Book-APUE:
     - Introduction: Programming/Book-APUE/index.md
+    - 1-UNIX-System-Overview:
+      - Introduction: Programming/Book-APUE/1-UNIX-System-Overview/index.md
+      - 1.7-Error-Handling:
+        - Introduction: Programming/Book-APUE/1-UNIX-System-Overview/1.7-Error-Handling/index.md
+    - 2-UNIX-Standardization-and-Implementations:
+      - Introduction: Programming/Book-APUE/2-UNIX-Standardization-and-Implementations/index.md
+    - 3-File-IO:
+      - Introduction: Programming/Book-APUE/3-File-IO/index.md
+      - 3.2-File-Descriptors:
+        - Introduction: Programming/Book-APUE/3-File-IO/3.2-File-Descriptors/index.md
+      - 3.3-open-and-openat-Functions:
+        - Introduction: Programming/Book-APUE/3-File-IO/3.3-open-and-openat-Functions/index.md
+      - 3.4-creat-Function:
+        - Introduction: Programming/Book-APUE/3-File-IO/3.4-creat-Function/index.md
+      - 3.5-close-Function:
+        - Introduction: Programming/Book-APUE/3-File-IO/3.5-close-Function/index.md
+      - 3.10-File-Sharing:
+        - Introduction: Programming/Book-APUE/3-File-IO/3.10-File-Sharing/index.md
+      - 3.11-Atomic-Operations:
+        - Introduction: Programming/Book-APUE/3-File-IO/3.11-Atomic-Operations/index.md
+      - 3.12-dup-and-dup2-Functions:
+        - Introduction: Programming/Book-APUE/3-File-IO/3.12-dup-and-dup2-Functions/index.md
+      - 3.13-sync-fsync-and-fdatasync-Functions:
+        - Introduction: Programming/Book-APUE/3-File-IO/3.13-sync-fsync-and-fdatasync-Functions/index.md
+    - 4-Files-and-Directories:
+      - Introduction: Programming/Book-APUE/4-Files-and-Directories/index.md
+    - 5-Standard-IO-Library:
+      - Introduction: Programming/Book-APUE/5-Standard-IO-Library/index.md
+    - 6-System-Data-Files-and-Information:
+      - Introduction: Programming/Book-APUE/6-System-Data-Files-and-Information/index.md
+    - 7-Process-Environment:
+      - Introduction: Programming/Book-APUE/7-Process-Environment/index.md
+    - 8-Process-Control:
+      - Introduction: Programming/Book-APUE/8-Process-Control/index.md
+      - 8.3-fork-Function:
+        - Introduction: Programming/Book-APUE/8-Process-Control/8.3-fork-Function/index.md
+      - 8.9-Race-Conditions:
+        - Introduction: Programming/Book-APUE/8-Process-Control/8.9-Race-Conditions/index.md
+    - 9-Process-Relationships:
+      - Introduction: Programming/Book-APUE/9-Process-Relationships/index.md
     - 10-Signals:
       - Introduction: Programming/Book-APUE/10-Signals/index.md
       - 10.6-Reentrant-Functions:
         - Introduction: Programming/Book-APUE/10-Signals/10.6-Reentrant-Functions/index.md
       - 10.5-Interrupted-System-Calls:
         - Introduction: Programming/Book-APUE/10-Signals/10.5-Interrupted-System-Calls/index.md
+    - 11-Threads:
+      - Introduction: Programming/Book-APUE/11-Threads/index.md
+    - 12-Thread-Control:
+      - Introduction: Programming/Book-APUE/12-Thread-Control/index.md
+    - 13-Daemon-Processes:
+      - Introduction: Programming/Book-APUE/13-Daemon-Processes/index.md
+    - 14-Advanced-IO:
+      - Introduction: Programming/Book-APUE/14-Advanced-IO/index.md
+      - 14.2-Nonblocking-IO:
+        - Introduction: Programming/Book-APUE/14-Advanced-IO/14.2-Nonblocking-IO/index.md
+    - 15-Interprocess-Communication:
+      - Introduction: Programming/Book-APUE/15-Interprocess-Communication/index.md
+    - 16-Network-IPC-Sockets:
+      - Introduction: Programming/Book-APUE/16-Network-IPC-Sockets/index.md
+    - 17-Advanced-IPC:
+      - Introduction: Programming/Book-APUE/17-Advanced-IPC/index.md
+      - 17.4-Passing-File-Descriptors:
+        - Introduction: Programming/Book-APUE/17-Advanced-IPC/17.4-Passing-File-Descriptors/index.md
+    - 18-Terminal-IO:
+      - Introduction: Programming/Book-APUE/18-Terminal-IO/index.md
+    - 19-Pseudo-Terminals:
+      - Introduction: Programming/Book-APUE/19-Pseudo-Terminals/index.md
+    - 20-A-Database-Library:
+      - Introduction: Programming/Book-APUE/20-A-Database-Library/index.md
+    - 21-Communicating-with-a-Network-Printer:
+      - Introduction: Programming/Book-APUE/21-Communicating-with-a-Network-Printer/index.md
     - Race-condition:
       - Introduction: Programming/Book-APUE/Race-condition/index.md
   - Book-TLPL:
@@ -512,8 +600,8 @@ nav:
         - Introduction: Programming/IO/IO-data-structure/File-descriptor/index.md
         - wikipedia-File-descriptor:
           - Introduction: Programming/IO/IO-data-structure/File-descriptor/wikipedia-File-descriptor/index.md
-        - TODO-Pass-file-descriptor:
-          - Introduction: Programming/IO/IO-data-structure/File-descriptor/TODO-Pass-file-descriptor/index.md
+        - Pass-file-descriptor:
+          - Introduction: Programming/IO/IO-data-structure/File-descriptor/Pass-file-descriptor/index.md
     - "IO-\u6D41\u6D3E":
       - Introduction: "Programming/IO/IO-\u6D41\u6D3E/index.md"
       - Stream-based-IO:
@@ -589,6 +677,10 @@ nav:
               - Introduction: Programming/IO/File-IO/System-call/Notify/fanotify/man-7-fanotify/index.md
     - Network-IO:
       - Introduction: Programming/IO/Network-IO/index.md
+    - IO-redirection:
+      - Introduction: Programming/IO/IO-redirection/index.md
+      - opengroup-dup-and-dup2:
+        - Introduction: Programming/IO/IO-redirection/opengroup-dup-and-dup2/index.md
     - Tools:
       - man-1-fuser:
         - Introduction: Programming/IO/Tools/man-1-fuser/index.md
