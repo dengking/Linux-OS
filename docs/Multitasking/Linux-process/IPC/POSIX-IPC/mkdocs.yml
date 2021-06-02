@@ -2,3 +2,4 @@ nav:
     - Introduction: index.md
     - POSIX-message-queues: POSIX-message-queues
     - POSIX-semaphores: POSIX-semaphores
+    - POSIX-shared-memory: POSIX-shared-memory
