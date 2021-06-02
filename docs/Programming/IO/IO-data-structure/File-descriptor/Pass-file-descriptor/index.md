@@ -2,6 +2,12 @@
 
 在阅读"wikipedia [File descriptor](https://en.wikipedia.org/wiki/File_descriptor) # File descriptors as capabilities"时，其中提及了passing file descriptor，我觉得有必要对这个topic进行总结。
 
+在下面章节中，对这个topic进行了探讨:
+
+一、`Book-APUE\17-Advanced-IPC\17.4-Passing-File-Descriptors`
+
+二、`IPC\Unix-domain-socket\man-7-unix`
+
 ## cnblogs [高级进程间通信之传送文件描述符](https://www.cnblogs.com/nufangrensheng/p/3571370.html)
 
 > NOTE: 
@@ -149,19 +155,11 @@ stackoverflow [Can I share a file descriptor to another process on linux or are 
 
 gist.github [linux file descriptors passing between processes](https://gist.github.com/2396992)
 
-
-
 stackexchange [Sharing file descriptors](https://unix.stackexchange.com/questions/429009/sharing-file-descriptors)
-
-
 
 stackexchange [How can same fd in different processes point to the same file?](https://unix.stackexchange.com/questions/28384/how-can-same-fd-in-different-processes-point-to-the-same-file)
 
-
-
 stackoverflow [Sending file descriptor by Linux socket](https://stackoverflow.com/questions/28003921/sending-file-descriptor-by-linux-socket)
-
-
 
 csdn [如何在进程之间传递文件描述符（file discriptor）](https://blog.csdn.net/win_lin/article/details/7760951)
 

@@ -32,9 +32,13 @@ UNIX domain sockets support passing file descriptors or process credentials to o
 
 > NOTE: 
 >
-> 后面会对"ancillary data"进行专门的介绍
+> 后面会对"Ancillary messages"章节进行了专门的介绍
 
 ## Ancillary messages
+
+> NOTE: 
+>
+> 重要描述的"passing file descriptors"
 
 Ancillary data is sent and received using [sendmsg(2)](https://man7.org/linux/man-pages/man2/sendmsg.2.html) and [recvmsg(2)](https://man7.org/linux/man-pages/man2/recvmsg.2.html).  
 
