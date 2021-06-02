@@ -2,10 +2,6 @@
 
 
 
-
-
-
-
 需要搞清楚 [`dup`](http://pubs.opengroup.org/onlinepubs/007904975/functions/dup.html) 和 [`dup2`](https://pubs.opengroup.org/onlinepubs/9699919799/functions/dup.html) 的使用场景
 
 可以发现`dup`系列函数与IO Redirection有关，通过Google，我在[这篇文章](http://cau.ac.kr/~bongbong/linux09/linux09-additional.ppt)中找到了一段代码，它就是使用的`dup`系列函数来实现IO Redirection。
@@ -18,66 +14,72 @@
 
 
 
+## stackoverflow [Re-opening stdout and stdin file descriptors after closing them](https://stackoverflow.com/questions/9084099/re-opening-stdout-and-stdin-file-descriptors-after-closing-them)
 
+I'm writing a function, which, given an argument, will either redirect the **`stdout`** to a file or read the `stdin` from a file. To do this I close the **file descriptor** associated with the **`stdout`** or **`stdin`**, so that when I open the file it opens under the descriptor that I just closed. This works, but the problem is that once this is done, I need to restore the `stdout` and `stdin` to what they should really be.
 
+What I can do for stdout is `open("/dev/tty",O_WRONLY);` But I'm not sure why this works, and more importantly I don't know of an equivalent statement for `stdin`.
 
+So I have, for `stdout`
 
-## opengroup [`dup` and `dup2`](https://pubs.opengroup.org/onlinepubs/9699919799/functions/dup.html)
-
-### NAME
-
-`dup`, `dup2` - duplicate an open file descriptor
-
-### SYNOPSIS
-
-```C++
-#include <unistd.h>
-int dup(int fildes);
-int dup2(int fildes, int fildes2);
-```
-
-### EXAMPLES
-
-#### Redirecting Standard Output to a File
-
-The following example closes **standard output** for the current processes, re-assigns **standard output** to go to the file referenced by *pfd*, and closes the original file descriptor to **clean up**.
-
-```
-#include <unistd.h>
-...
-int pfd;
-...
+```c++
 close(1);
-dup(pfd);
-close(pfd);
-...
+if (creat(filePath, O_RDWR) == -1)
+{
+    exit(1);
+}
 ```
 
-***SUMMARY\*** : 由于file descriptor的scope是process，所以file descriptor不存在进程间的race condition；并且`dup`函数能够在当前可用文件描述符中的最小值上对`pfd`进行赋值，所以在执行完成`close(1)`后，则当前可用文件描述符中的最小值就是`1`，所以上述能够保证`dup(pfd)`在`1`上进行dup；
+and for stdin
 
-##### Redirecting Error Messages
-
-The following example redirects messages from *stderr* to *stdout*.
-
-```
-#include <unistd.h>
-...
-dup2(1, 2);
-...
+```c++
+close(0);
+if (open(filePath, O_RDONLY) == -1)
+{
+    exit(1);
+}
 ```
 
-#### APPLICATION USAGE
+## [A](https://stackoverflow.com/a/9084222)
 
-Implementations may use **file descriptors** that must be inherited into child processes for the child process to remain conforming(一致性), such as for message catalog or tracing purposes. Therefore, an application that calls *dup2*() with an arbitrary integer for *fildes2* risks non-conforming behavior, and *dup2*() can only portably be used to overwrite file descriptor values that the application has obtained through explicit actions, or for the three file descriptors corresponding to the standard file streams. In order to avoid a **race condition** of leaking an unintended file descriptor into a child process, an application should consider opening all file descriptors with the `FD_CLOEXEC` bit set unless the file descriptor is intended to be inherited across [*exec*](https://pubs.opengroup.org/onlinepubs/9699919799/functions/exec.html).
+You should use `dup()` and `dup2()` to clone a file descriptor.
 
-***TRANSLATION\*** : 实现可以使用必须继承到子进程的文件描述符，以使子进程保持一致，例如用于消息目录或跟踪目的。 因此，为fildes2调用带有任意整数的dup2（）的应用程序存在不符合行为的风险，而dup2（）只能用于覆盖应用程序通过显式操作获取的文件描述符值，或者用于三个文件描述符 对应于标准文件流。 为了避免将非预期文件描述符泄漏到子进程中的竞争条件，应用程序应考虑打开所有文件描述符并设置FD_CLOEXEC位，除非文件描述符是要跨exec继承的。
+```
+int stdin_copy = dup(0);
+int stdout_copy = dup(1);
+close(0);
+close(1);
 
-#### RATIONALE
+int file1 = open(...);
+int file2 = open(...);
 
-The *dup*() function is redundant. Its services are also provided by the [*fcntl*()](https://pubs.opengroup.org/onlinepubs/9699919799/functions/fcntl.html) function. It has been included in this volume of POSIX.1-2017 primarily for historical reasons, since many existing applications use it. On the other hand, the *dup2*() function provides unique services, as no other interface is able to atomically replace an existing file descriptor.
+< do your work. file1 and file2 must be 0 and 1, because open always returns lowest unused fd >
 
-The *dup2*() function is not marked obsolescent because it presents a type-safe version of functionality provided in a type-unsafe version by [*fcntl*()](https://pubs.opengroup.org/onlinepubs/9699919799/functions/fcntl.html). It is used in the POSIX Ada binding.
+close(file1);
+close(file2);
+dup2(stdin_copy, 0);
+dup2(stdout_copy, 1);
+close(stdin_copy);
+close(stdout_copy);
+```
 
-The *dup2*() function is not intended for use in critical regions as a synchronization mechanism.
+However, there's a minor detail you might want to be careful with (from man dup):
 
-In the description of [EBADF], the case of *fildes* being out of range is covered by the given case of *fildes* not being valid. The descriptions for *fildes* and *fildes2* are different because the only kind of invalidity that is relevant for *fildes2* is whether it is out of range; that is, it does not matter whether *fildes2* refers to an open file when the *dup2*() call is made.
+> The two descriptors do not share file descriptor flags (the close-on-execflag). The close-on-exec flag (FD_CLOEXEC; see fcntl(2)) for the duplicate descriptor is off.
+
+If this is a problem, you might have to restore the close-on-exec flag, possibly using dup3() instead of dup2() to avoid race conditions.
+
+Also, be aware that if your program is multi-threaded, other threads may accidentally write/read to your remapped stdin/stdout.
+
+# [two file descriptors to same file](https://stackoverflow.com/questions/5284062/two-file-descriptors-to-same-file)
+
+Using the posix `read()` `write()` linux calls, is it guaranteed that if I write through one file descriptor and read through another file descriptor, in a serial fashion such that the two actions are mutually exclusive of each other... that my read file descriptor will always see what was written last by the write file descriptor?
+
+I believe this is the case, but I want to make sure and the man page isn't very helpful on this
+
+## [A](https://stackoverflow.com/a/5284108)
+
+It depends on where you got the two file descriptors. If they come from a `dup(2)` call, then they share file offset and status, so doing a `write(2)` on one will affect the position on the other. If, on the other hand, they come from two separate `open(2)` calls, each will have their own **file offset** and **status**.
+
+A **file descriptor** is mostly just a **reference** to a kernel file structure, and it is that kernel structure that contains most of the state. When you `open(2)` a file, you get a new kernel file structure and a new file descriptor that refers to it. When you `dup(2)` a file descriptor (or pass a file descriptor through sendmsg), you get a new reference to the same kernel file struct.
+

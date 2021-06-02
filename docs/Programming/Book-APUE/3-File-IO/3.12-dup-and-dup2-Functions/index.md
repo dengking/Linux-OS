@@ -25,6 +25,12 @@ With `dup2`, we specify the value of the new descriptor with the `fd2` argument.
 二、Otherwise, the `FD_CLOEXEC` file descriptor flag is cleared for `fd2`, so that `fd2` is left open if the process calls `exec`.
 
 > NOTE: 在下面的"File descriptor flag"节中会对"the `FD_CLOEXEC` file descriptor flag "进行介绍，结合其中的内容可知这段话的意思是:  `fd2` file descriptor的"`FD_CLOEXEC` file descriptor flag"的默认值是 "cleared" 的，因此"`fd2` is left open if the process calls `exec`"。
+>
+> 在 stackoverflow [Re-opening stdout and stdin file descriptors after closing them](https://stackoverflow.com/questions/9084099/re-opening-stdout-and-stdin-file-descriptors-after-closing-them) 的第一个回答中，有着各加直接的说明:
+>
+> > The two descriptors do not share file descriptor flags (the close-on-exec flag). The close-on-exec flag (`FD_CLOEXEC`; see `fcntl(2)`) for the duplicate descriptor is off.
+>
+> 也就是说，`dup`系列函数是不copy "file descriptor flags"的。
 
 The new file descriptor that is returned as the value of the functions shares the same **file table entry** as the fd argument. We show this in Figure 3.9.
 
