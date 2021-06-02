@@ -1,6 +1,4 @@
-
-
-# opengroup [`dup` and `dup2`](https://pubs.opengroup.org/onlinepubs/9699919799/functions/dup.html)
+# opengroup [`dup` and `dup2`](https://pubs.opengroup.org/onlinepubs/9699919799/functions/dup.html) 
 
 ## NAME
 

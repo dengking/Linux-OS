@@ -73,6 +73,16 @@ In this last case, the `dup2` is not exactly the same as a `close` followed by a
 
 
 
+## 使用场景
+
+需要搞清楚 [`dup`](http://pubs.opengroup.org/onlinepubs/007904975/functions/dup.html) 和 [`dup2`](https://pubs.opengroup.org/onlinepubs/9699919799/functions/dup.html) 的使用场景: 
+
+1、`dup`系列函数可以用于实现IO Redirection，通过Google，我在[这篇文章](http://cau.ac.kr/~bongbong/linux09/linux09-additional.ppt)中找到了一段代码，它就是使用的`dup`系列函数来实现IO Redirection。
+
+
+
+
+
 ## chapter 3的exercise 3.4
 
 许多程序都包含下面一段代码:
@@ -89,13 +99,15 @@ if (fd > 2)
 
 ### 解答
 
+If `fd` is 1, then the `dup2(fd, 1)` returns `1` without closing file descriptor `1`. (Remember our discussion of this in Section 3.12.) After the three calls to `dup2`, all three descriptors point to the same file table entry. Nothing needs to be closed.
 
+If `fd` is `3`, however, after the three calls to `dup2`, four descriptors are pointing to the same **file table entry**. In this case, we need to `close` descriptor `3`.
 
-受chapter 3的exercise 3.4的下面这段代码的启发：
+### opengroup [`dup` and `dup2`](https://pubs.opengroup.org/onlinepubs/9699919799/functions/dup.html) 中的说明
 
+在第一次阅读上述代码的时候，我没有搞清楚为什么作者会添加`if (fd > 2)	close(fd);`，看来opengroup [`dup` and `dup2`](https://pubs.opengroup.org/onlinepubs/9699919799/functions/dup.html) 中的解释后才知其中缘由：
 
+1、上述代码作者的目的在于将`STDIN_FILENO` ,`STDOUT_FILENO` ,`STDERR_FILENO` 全部都重定向到`fd`上，添加上`if (fd > 2)	close(fd);`的目的在于clean up，即将无用的file descriptor全部都关闭掉，这样可以有很多好处，如防止leak to child process；
 
-在第一次阅读上述代码的时候，我没有搞清楚为什么作者会添加`if (fd > 2)	close(fd);`，看来"APPLICATION USAGE"后才知其中缘由：上述代码作者的目的在于将`STDIN_FILENO` ,`STDOUT_FILENO` ,`STDERR_FILENO` 全部都重定向到`fd`上，添加上`if (fd > 2)	close(fd);`的目的在于clean up，即将无用的file descriptor全部都关闭掉，这样可以有很多好处，如防止leak to child process；
-
-
+> tag-not leak泄露resource into child process-unintended file descriptor
 
