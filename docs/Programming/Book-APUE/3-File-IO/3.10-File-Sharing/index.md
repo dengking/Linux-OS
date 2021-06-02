@@ -42,7 +42,7 @@ We’re ignoring some implementation details that don’t affect our discussion.
 
 Figure 3.7 shows a pictorial arrangement of these three tables for a single process that has two different files open: one file is open on standard input (file descriptor 0), and the other is open on standard output (file descriptor 1).
 
-![](./APUE-3.10-File-Sharing-Figure-3.7-Kernel-data-structures-for-open-files.png)
+![](./APUE-Figure-3.7-Kernel-data-structures-for-open-files.png)
 
 > NOTE: 
 >
@@ -56,7 +56,7 @@ The arrangement of these three tables has existed since the early versions of th
 
 If two independent processes have the same file open, we could have the arrangement shown in Figure 3.8.
 
-![](./APUE-3.10-File-Sharing-Figure-3.8-Two-independent-processes-with-the-same-file-open.png)
+![](./APUE-Figure-3.8-Two-independent-processes-with-the-same-file-open.png)
 
 We assume here that the first process has the file open on descriptor 3 and that the second process has that same file open on descriptor 4. Each process that opens the file gets its own file table entry, but only a single **v-node table entry** is required for a given file. One reason each process gets its own **file table entry** is so that each process has its own **current offset for the file**.
 
