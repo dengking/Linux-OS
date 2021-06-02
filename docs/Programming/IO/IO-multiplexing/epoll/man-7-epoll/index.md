@@ -16,7 +16,9 @@
 
 ## DESCRIPTION         
 
-The **epoll** API performs a similar task to [**poll**(2)](https://linux.die.net/man/2/poll): monitoring multiple file descriptors to see if I/O is possible on any of them. The **epoll** API can be used either as an edge-triggered or a level-triggered interface and scales well to large numbers of watched file descriptors.
+The **epoll** API performs a similar task to [**poll**(2)](https://linux.die.net/man/2/poll): monitoring multiple file descriptors to see if I/O is possible on any of them. 
+
+The **epoll** API can be used either as an edge-triggered or a level-triggered interface and scales well to large numbers of watched file descriptors.
 
 
 
@@ -44,15 +46,15 @@ The central concept of the `epoll` API is the **`epoll` instance**, an **in-kern
 
 The `epoll` event distribution interface is able to behave both as edge-triggered (ET) and as level-triggered (LT).  The difference between the two mechanisms can be described as follows.  Suppose that this scenario happens:
 
-1. The file descriptor that represents the read side of a pipe (`rfd`) is registered on the `epoll` instance.
+1、The file descriptor that represents the read side of a pipe (`rfd`) is registered on the `epoll` instance.
 
-2. A pipe writer writes 2 kB of data on the write side of the pipe.
+2、A pipe writer writes 2 kB of data on the write side of the pipe.
 
-3. A call to `epoll_wait(2)` is done that will return `rfd` as a **ready file descriptor**.
+3、A call to `epoll_wait(2)` is done that will return `rfd` as a **ready file descriptor**.
 
-4. The pipe reader reads 1 kB of data from `rfd`.
+4、The pipe reader reads 1 kB of data from `rfd`.
 
-5. A call to `epoll_wait(2)` is done.
+5、A call to `epoll_wait(2)` is done.
 
 
 
@@ -158,3 +160,12 @@ While the usage of `epoll` when employed as a **level-triggered** interface does
 
 When used as an edge-triggered interface, for performance reasons, it is possible to add the file descriptor inside the `epoll` interface (`EPOLL_CTL_ADD`) once by specifying (`EPOLLIN|EPOLLOUT`).  This allows you to avoid continuously switching between `EPOLLIN` and `EPOLLOUT` calling `epoll_ctl(2)` with `EPOLL_CTL_MOD`.
 
+
+
+## Questions and answers
+
+
+
+
+
+## Possible pitfalls and ways to avoid them o Starvation (edge-triggered)
