@@ -3,6 +3,6 @@ nav:
     - pipe: pipe
     - System-V-IPC: System-V-IPC
     - POSIX-IPC: POSIX-IPC
-    - Unix: Unix
+    - Unix-domain-socket: Unix-domain-socket
     - Tools: Tools
     - man-7-ipc_namespaces: man-7-ipc_namespaces
