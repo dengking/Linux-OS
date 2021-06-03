@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - man-7-socket: man-7-socket
-    
+    - man-2-socket: man-2-socket
+    - man-7-address_families: man-7-address_families

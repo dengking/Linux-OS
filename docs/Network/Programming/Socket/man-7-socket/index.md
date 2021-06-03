@@ -15,7 +15,9 @@ sockfd = socket(int socket_family, int socket_type, int protocol);
 
 This  manual  page  describes  the Linux networking **socket layer** user interface.  The BSD compatible sockets are the uniform interface  between the **user process** and the **network protocol stacks** in the kernel.  The protocol modules are grouped into **protocol families**  like  `AF_INET`, `AF_IPX`, `AF_PACKET` and **socket types** like `SOCK_STREAM` or `SOCK_DGRAM`.  See `socket(2)` for more information on **families** and **types**.
 
-> NOTE:  : 在APUE的16.2 Socket Descriptors中将 `socket(2)` 称之为`domain`，并且`man 2 socket`中，也叫做`domain`，我觉得`domain`更好理解；
+> NOTE: 
+>
+> 在APUE的16.2 Socket Descriptors中将 `socket(2)` 称之为`domain`，并且`man 2 socket`中，也叫做`domain`，我觉得`domain`更好理解；
 
 ### Socket-layer functions
 
@@ -23,7 +25,9 @@ These  functions  are used by the user process to send or receive packets and to
 
 [`socket(2)`](http://man7.org/linux/man-pages/man2/socket.2.html) creates a socket, [`connect(2)`](http://man7.org/linux/man-pages/man2/connect.2.html) connects a socket to a remote socket address, the [`bind(2)`](http://man7.org/linux/man-pages/man2/bind.2.html) function binds a socket to a **local socket  address**,  [`listen(2)`](http://man7.org/linux/man-pages/man2/listen.2.html)  tells the socket that new connections shall be accepted, and [`accept(2)`](http://man7.org/linux/man-pages/man2/accept.2.html) is used to get a new socket with a  new incoming connection.  [`socketpair(2)`](http://man7.org/linux/man-pages/man2/socketpair.2.html) returns two connected anonymous sockets (implemented  only  for  a  few  local  families  like `AF_UNIX`)
 
-> NOTE:  : 通过[getaddrinfo(3)](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)将address和port进行结合，得到[struct addrinfo](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)，然后根据[struct addrinfo](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)来创建socket，bind等，具体实例参见 http://man7.org/linux/man-pages/man3/getaddrinfo.3.html；
+> NOTE: 
+>
+> 通过[getaddrinfo(3)](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)将address和port进行结合，得到[struct addrinfo](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)，然后根据[struct addrinfo](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)来创建socket，bind等，具体实例参见 http://man7.org/linux/man-pages/man3/getaddrinfo.3.html；
 
 `send(2)`,  `sendto(2)`, and `sendmsg(2)` send data over a socket, and `recv(2)`, `recvfrom(2)`, `recvmsg(2)` receive data from a socket.  `poll(2)` and `select(2)` wait for arriving data or a readiness to send data.  In addition, the standard I/O operations like `write(2)`,  `writev(2)`,  `sendfile(2)`, `read(2)`, and `readv(2)` can be used to read and write data.
     
