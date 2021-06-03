@@ -1,4 +1,7 @@
 nav:
     - Introduction: index.md
     - 1-Intro: 1-Intro
-    - 2. What-is-a-socket: 2. What-is-a-socket
+    - 2-What-is-a-socket: 2-What-is-a-socket
+    - 3-IP-Addresses-structs-and-Data-Munging: 3-IP-Addresses-structs-and-Data-Munging
+    - 5-System-Calls-or-Bust: 5-System-Calls-or-Bust
+    - 6-Client-Server-Background: 6-Client-Server-Background

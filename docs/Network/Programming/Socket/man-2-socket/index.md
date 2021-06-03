@@ -112,4 +112,4 @@ An `fcntl(2)` `F_SETOWN` operation can be used to specify a process or process g
 
 ## Operation of sockets 
 
-The operation of sockets is controlled by socket level options. These options are defined in <sys/socket.h>.  The functions setsockopt(2) and getsockopt(2) are used to set and get options.
+The operation of sockets is controlled by socket level options. These options are defined in <sys/socket.h>.  The functions `setsockopt(2)` and `getsockopt(2)` are used to set and get options.

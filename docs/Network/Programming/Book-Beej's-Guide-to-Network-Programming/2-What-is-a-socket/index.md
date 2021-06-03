@@ -1,4 +1,4 @@
-# beej [2. What is a socket?](https://beej.us/guide/bgnet/html/multi/theory.html)
+# beej [2. What is a socket?](https://beej.us/guide/bgnet/html/#what-is-a-socket)
 
 You hear talk of "sockets" all the time, and perhaps you are wondering just what they are exactly. Well, they're this: a way to speak to other programs using standard **Unix file descriptors**.
 
@@ -12,13 +12,9 @@ Ok—you may have heard some Unix hacker state, **"Jeez, *everything* in Unix is
 
 "Where do I get this file descriptor for network communication, Mr. Smarty-Pants?" is probably the last question on your mind right now, but I'm going to answer it anyway: You make a call to the **socket()** system routine. It returns the **socket descriptor**, and you communicate through it using the specialized **send()** and **recv()** (**man send**, **man recv**) socket calls.
 
-> NOTE: 
->
-> 
+
 
 "But, hey!" you might be exclaiming right about now. "If it's a file descriptor, why in the name of Neptune can't I just use the normal **read()** and **write()** calls to communicate through the socket?" The short answer is, "You can!" The longer answer is, "You can, but **send()** and **recv()** offer much greater control over your data transmission."
-
-> 
 
 What next? How about this: there are all kinds of sockets. There are DARPA Internet addresses (**Internet Sockets**), path names on a local node (**Unix Sockets**), CCITT X.25 addresses (X.25 Sockets that you can safely ignore), and probably many others depending on which Unix flavor you run. This document deals only with the first: Internet Sockets.
 
@@ -32,11 +28,15 @@ All right, already. What are the two types? One is "**Stream Sockets**"; the oth
 >
 > **Stream Sockets**使用的应该是TCP协议，而**Datagram Sockets**使用的应该是UDP协议
 
+### **Stream sockets** 
+
 **Stream sockets** are reliable two-way connected communication streams. If you output two items into the socket in the order "1, 2", they will arrive in the order "1, 2" at the opposite end. They will also be error-free. I'm so certain, in fact, they will be **error-free**, that I'm just going to put my fingers in my ears and chant *la la la la* if anyone tries to claim otherwise.
 
 What uses **stream sockets**? Well, you may have heard of the **telnet** application, yes? It uses stream sockets. All the characters you type need to arrive in the same order you type them, right? Also, web browsers use the **HTTP protocol** which uses **stream sockets** to get pages. Indeed, if you telnet to a web site on port 80, and type "`GET / HTTP/1.0`" and hit RETURN twice, it'll dump the HTML back at you!
 
 How do stream sockets achieve this high level of data transmission quality? They use a protocol called "The Transmission Control Protocol", otherwise known as "TCP" (see [RFC 793](http://tools.ietf.org/html/rfc793) for extremely detailed info on TCP.) TCP makes sure your data arrives sequentially and error-free. You may have heard "TCP" before as the better half of "TCP/IP" where "IP" stands for "Internet Protocol" (see [RFC 791](http://tools.ietf.org/html/rfc791).) **IP** deals primarily with **Internet routing** and is not generally responsible for [**data integrity**](https://en.wikipedia.org/wiki/Data_integrity) .
+
+### **Datagram sockets** 
 
 Cool. What about **Datagram sockets**? Why are they called connectionless? What is the deal, here, anyway? Why are they unreliable? Well, here are some facts: if you send a datagram, it may arrive. It may arrive out of order. If it arrives, the data within the packet will be error-free.
 
@@ -58,13 +58,15 @@ Why would you use an unreliable underlying protocol? Two reasons: speed and spee
 
 Since I just mentioned layering of protocols, it's time to talk about how networks really work, and to show some examples of how `SOCK_DGRAM` packets are built. Practically, you can probably skip this section. It's good background, however.
 
-![[Encapsulated Protocols Diagram]](https://beej.us/guide/bgnet/html/multi/dataencap-120-4.736.png)
+
+
+![](./beej-bgnet-network-data-encapsulation.png)
 
 **Data Encapsulation.**
 
 Hey, kids, it's time to learn about [*Data Encapsulation*!](https://beej.us/guide/bgnet/html/multi/theory.html#figure1) This is very very important. It's so important that you might just learn about it if you take the networks course here at Chico State `;-)`. Basically, it says this: a packet is born, the packet is wrapped ("encapsulated") in a header (and rarely a footer) by the first protocol (say, the TFTP protocol), then the whole thing (TFTP header included) is encapsulated again by the next protocol (say, UDP), then again by the next (IP), then again by the final protocol on the hardware (physical) layer (say, Ethernet).
 
-When another computer receives the packet, the hardware strips the Ethernet header, the kernel strips the IP and UDP headers, the TFTP program strips the TFTP header, and it finally has the data.
+When another computer receives the packet, the **hardware** strips the **Ethernet header**, the **kernel** strips the IP and UDP headers, the TFTP program strips the TFTP header, and it finally has the data.
 
 Now I can finally talk about the infamous *Layered Network Model* (aka "ISO/OSI"). This Network Model describes a system of network functionality that has many advantages over other models. For instance, you can write sockets programs that are exactly the same without caring how the data is physically transmitted (serial, thin Ethernet, AUI, whatever) because programs on lower levels deal with it for you. The actual network hardware and topology is transparent to the **socket programmer**.
 
