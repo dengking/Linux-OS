@@ -1,7 +1,17 @@
 nav:
     - Introduction: index.md
+    
     - Socket: Socket
-
+    - Internet-protocol: Internet-protocol
+    
+    - man-2-bind: man-2-bind
+    
+    - man-2-listen: man-2-listen
+    
+    - man-3-getaddrinfo: man-3-getaddrinfo
+    
+    - man-2-shutdown: man-2-shutdown
+    
     - Reconnect: Reconnect.md
     - Send-file: Send-file
     - TCP-Wrappers: TCP-Wrappers
