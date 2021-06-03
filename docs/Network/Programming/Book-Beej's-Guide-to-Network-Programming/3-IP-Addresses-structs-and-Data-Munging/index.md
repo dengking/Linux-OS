@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-# [3. IP Addresses, **struct**s, and Data Munging](https://beej.us/guide/bgnet/html/multi/ipstructsdata.html)
+# [3. IP Addresses, **struct**s, and Data Munging](https://beej.us/guide/bgnet/html/#ip-addresses-structs-and-data-munging)
 
 Here's the part of the game where we get to talk code for a change.
 
@@ -10,7 +6,7 @@ But first, let's discuss more non-code! Yay! First I want to talk about **IP add
 
 
 
-### 3.1. IP Addresses, versions 4 and 6
+## 3.1. IP Addresses, versions 4 and 6
 
 In the good old days back when Ben Kenobi was still called Obi Wan Kenobi, there was a wonderful network routing system called The Internet Protocol Version 4, also called IPv4. It had addresses made up of four bytes (A.K.A. four "octets"), and was commonly written in "dots and numbers" form, like so: `192.0.2.111`.
 
@@ -34,7 +30,7 @@ But now we're living in an era where we're talking about every human having an I
 
 And so, IPv6 was born. Since Vint Cerf is probably immortal (even if his physical form should pass on, heaven forbid, he is probably already existing as some kind of hyper-intelligent [ELIZA](http://en.wikipedia.org/wiki/ELIZA) program out in the depths of the Internet2), no one wants to have to hear him say again "I told you so" if we don't have enough addresses in the next version of the Internet Protocol.
 
-因此，IPv6诞生了。 由于Vint Cerf可能是不朽的（即使他的身体状态应该传递，天堂禁止，他可能已经存在于互联网深处的某种超智能ELIZA程序），没有人想听他说 如果我们在下一版本的互联网协议中没有足够的地址，请再说一次“我告诉过你”。
+> 因此，IPv6诞生了。 由于Vint Cerf可能是不朽的（即使他的身体状态应该传递，天堂禁止，他可能已经存在于互联网深处的某种超智能ELIZA程序），没有人想听他说 如果我们在下一版本的互联网协议中没有足够的地址，请再说一次“我告诉过你”。
 
 You're saying, "Beej, is that true? I have every reason to disbelieve large numbers." Well, the difference between 32 bits and 128 bits might not sound like a lot; it's only 96 more bits, right? But remember, we're talking powers here: 32 bits represents some 4 billion numbers (232), while 128 bits represents about 340 trillion trillion trillion numbers (for real, 2128). That's like a million IPv4 Internets for *every single star in the Universe*.
 
@@ -65,11 +61,11 @@ In fact, it's such serious fun, that the Creators of IPv6 have quite cavalierly 
 
 
 
-#### 3.1.1. Subnets
+### 3.1.1. Subnets
 
 For organizational reasons, it's sometimes convenient to declare that "this first part of this IP address up through this bit is the ***network portion*** of the IP address, and the remainder is the ***host portion***.
 
-出于组织原因，有时可以方便地声明“此IP地址的第一部分通过此位是IP地址的网络部分，其余部分是主机部分。
+> 出于组织原因，有时可以方便地声明“此IP地址的第一部分通过此位是IP地址的网络部分，其余部分是主机部分。
 
 For instance, with IPv4, you might have `192.0.2.12`, and we could say that the first three bytes are the network and the last byte was the host. Or, put another way, we're talking about host `12` on network `192.0.2.0` (see how we zero out the byte that was the host.)
 
@@ -87,11 +83,11 @@ Or, for IPv6, something like this: `2001:db8::/32` or `2001:db8:5413:4028::9db9/
 
 
 
-#### 3.1.2. Port Numbers
+### 3.1.2. Port Numbers
 
 If you'll kindly remember, I presented you earlier with the [Layered Network Model](https://beej.us/guide/bgnet/html/multi/theory.html#lowlevel) which had the **Internet Layer** (IP) split off from the Host-to-Host Transport Layer (TCP and UDP). Get up to speed on that before the next paragraph.
 
-***SUMMARY*** : 参见[2.2. Low level Nonsense and Network Theory](<https://beej.us/guide/bgnet/html/multi/theory.html#lowlevel>)
+> NOTE: 参见[2.2. Low level Nonsense and Network Theory](<https://beej.us/guide/bgnet/html/multi/theory.html#lowlevel>)
 
 Turns out that besides an IP address (used by the IP layer), there is another address that is used by TCP (stream sockets) and, coincidentally, by UDP (datagram sockets). It is the *port number*. It's a 16-bit number that's like the local address for the connection.
 
@@ -103,27 +99,27 @@ Well, different services on the Internet have different well-known port numbers.
 
 
 
-### 3.2. Byte Order
+## 3.2. Byte Order
 
 By Order of the Realm! There shall be two byte orderings, hereafter to be known as Lame and Magnificent!
 
-应该有两个字节的顺序，此后称为Lame和Magnificent！
+> 应该有两个字节的顺序，此后称为Lame和Magnificent！
 
 I joke, but one really is better than the other. `:-)`
 
 There really is no easy way to say this, so I'll just blurt it out: your computer might have been storing bytes in reverse order behind your back. I know! No one wanted to have to tell you.
 
-真的没有简单的方法可以这么说，所以我只是脱口而出：你的计算机可能在你的背后以相反的顺序存储字节。 我知道！ 没有人想告诉你。
+> 真的没有简单的方法可以这么说，所以我只是脱口而出：你的计算机可能在你的背后以相反的顺序存储字节。 我知道！ 没有人想告诉你。
 
 The thing is, everyone in the Internet world has generally agreed that if you want to represent the two-byte hex number, say `b34f`, you'll store it in two sequential bytes `b3` followed by `4f`. Makes sense, and, as [Wilford Brimley](http://en.wikipedia.org/wiki/Wilford_Brimley) would tell you, it's the Right Thing To Do. This number, stored with the big end first, is called *Big-Endian*.
 
 Unfortunately, a few computers scattered here and there throughout the world, namely anything with an Intel or Intel-compatible processor, store the bytes reversed, so `b34f` would be stored in memory as the sequential bytes `4f` followed by `b3`. This storage method is called *Little-Endian*.
 
-***SUMMARY*** : 参见 [Endianness](https://en.wikipedia.org/wiki/Endianness)
+> NOTE: 参见 [Endianness](https://en.wikipedia.org/wiki/Endianness)
 
 But wait, I'm not done with terminology yet! The more-sane *Big-Endian* is also called *Network Byte Order* because that's the order us network types like.
 
-但是等等，我还没有完成术语！ 更加理智的Big-Endian也被称为网络字节顺序，因为这是我们网络类型的顺序。
+> 但是等等，我还没有完成术语！ 更加理智的Big-Endian也被称为网络字节顺序，因为这是我们网络类型的顺序。
 
 Your computer stores numbers in *Host Byte Order*. If it's an Intel 80x86, **Host Byte Order** is **Little-Endian**. If it's a Motorola 68k, Host Byte Order is **Big-Endian**. If it's a PowerPC, Host Byte Order is... well, it depends!
 
@@ -131,7 +127,7 @@ A lot of times when you're building packets or filling out data structures you'l
 
 Good news! You just get to assume the **Host Byte Order** isn't right, and you always run the value through a function to set it to **Network Byte Order**. The function will do the magic conversion if it has to, and this way your code is portable to machines of differing endianness.
 
-好消息！ 您只需假设Host Byte Order不正确，并且您始终通过函数运行该值以将其设置为Network Byte Order。 如果必须，该函数将进行魔术转换，这样您的代码就可以移植到具有不同字节顺序的机器上。
+> 好消息！ 您只需假设Host Byte Order不正确，并且您始终通过函数运行该值以将其设置为Network Byte Order。 如果必须，该函数将进行魔术转换，这样您的代码就可以移植到具有不同字节顺序的机器上。
 
 All righty. There are two types of numbers that you can convert: `short` (two bytes) and `long` (four bytes). These functions work for the `unsigned` variations as well. Say you want to convert a `short` from **Host Byte Order** to **Network Byte Order**. Start with "h" for "host", follow it with "to", then "n" for "network", and "s" for "short": h-to-n-s, or **htons()** (read: "Host to Network Short").
 
@@ -141,8 +137,9 @@ You can use every combination of "n", "h", "s", and "l" you want, not counting t
 
 
 
-| **htons()** | **h**ost **to** **n**etwork **s**hort |
+|             |                                       |
 | ----------- | ------------------------------------- |
+| **htons()** | **h**ost **to** **n**etwork **s**hort |
 | **htonl()** | **h**ost **to** **n**etwork **l**ong  |
 | **ntohs()** | **n**etwork **to** **h**ost **s**hort |
 | **ntohl()** | **n**etwork **to** **h**ost **l**ong  |
@@ -155,7 +152,7 @@ I don't know of a 64-bit variant, sorry. And if you want to do floating point, c
 
 Assume the numbers in this document are in **Host Byte Order** unless I say otherwise.
 
-### 3.3. **struct**s
+## 3.3. **struct**s
 
 Well, we're finally here. It's time to talk about programming. In this section, I'll cover various data types used by the sockets interface, since some of them are a real bear to figure out.
 
@@ -193,13 +190,13 @@ Note that this is a linked list: *`ai_next`* points at the next element—there 
 
 You'll see that the *`ai_addr`* field in the `struct addrinfo` is a pointer to a `struct sockaddr`. This is where we start getting into the nitty-gritty details of what's inside an IP address structure.
 
-您将看到struct addrinfo中的ai_addr字段是指向struct sockaddr的指针。 这是我们开始深入了解IP地址结构内部细节的细节。
+> 您将看到struct addrinfo中的ai_addr字段是指向struct sockaddr的指针。 这是我们开始深入了解IP地址结构内部细节的细节。
 
 You might not usually need to write to these structures; oftentimes, a call to **`getaddrinfo()`** to fill out your `struct addrinfo` for you is all you'll need. You *will*, however, have to peer inside these `struct`s to get the values out, so I'm presenting them here.
 
 (Also, all the code written before `struct addrinfo` was invented we packed all this stuff by hand, so you'll see a lot of IPv4 code out in the wild that does exactly that. You know, in old versions of this guide and so on.)
 
-另外，在发明struct addrinfo之前编写的所有代码都是手工打包所有这些东西，所以你会看到很多IPv4代码完全出现。你知道，在本指南的旧版本中也是如此 上。
+> 另外，在发明struct addrinfo之前编写的所有代码都是手工打包所有这些东西，所以你会看到很多IPv4代码完全出现。你知道，在本指南的旧版本中也是如此 上。
 
 Some `struct`s are IPv4, some are IPv6, and some are both. I'll make notes of which are what.
 
@@ -233,7 +230,7 @@ This structure makes it easy to reference elements of the **socket address**. No
 
 Let's dig deeper! You see the *`sin_addr`* field is a `struct in_addr`. What is that thing? Well, not to be overly dramatic, but it's one of the scariest unions of all time:
 
-让我们深入挖掘！ 你看到`sin_addr`字段是一个结构`in_addr`。 那是什么东西？ 好吧，不要过于戏剧化，但它是有史以来最可怕的工会之一：
+> 让我们深入挖掘！ 你看到`sin_addr`字段是一个结构`in_addr`。 那是什么东西？ 好吧，不要过于戏剧化，但它是有史以来最可怕的工会之一：
 
 ```c
 // (IPv4 only--see struct in6_addr for IPv6)
@@ -285,7 +282,7 @@ What's important is that you can see the address family in the *`ss_family`* fie
 
 
 
-### 3.4. IP Addresses, Part Deux
+## 3.4. IP Addresses, Part Deux
 
 Fortunately for you, there are a bunch of functions that allow you to manipulate IP addresses. No need to figure them out by hand and stuff them in a `long` with the `<<` operator.
 
@@ -332,7 +329,7 @@ When you call it, you'll pass the address type (IPv4 or IPv6), the address, a po
 
 Lastly, these functions only work with numeric IP addresses—they won't do any nameserver DNS lookup on a hostname, like "www.example.com". You will use **getaddrinfo()** to do that, as you'll see later on.
 
-#### 3.4.1. Private (Or Disconnected) Networks
+### 3.4.1. Private (Or Disconnected) Networks
 
 Lots of places have a firewall that hides the network from the rest of the world for their own protection. And often times, the firewall translates "internal" IP addresses to "external" (that everyone else in the world knows) IP addresses using a process called *Network Address Translation*, or **NAT**.
 
@@ -342,17 +339,17 @@ Well, relax and buy yourself a non-alcoholic (or alcoholic) drink, because as a 
 
 For instance, I have a firewall at home. I have two static IPv4 addresses allocated to me by the DSL company, and yet I have seven computers on the network. How is this possible? Two computers can't share the same IP address, or else the data wouldn't know which one to go to!
 
-例如，我家里有防火墙。我有两个由DSL公司分配给我的静态IPv4地址，但我在网络上有七台计算机。这怎么可能？两台计算机不能共享同一个IP地址，否则数据就不知道要去哪一个！
+> 例如，我家里有防火墙。我有两个由DSL公司分配给我的静态IPv4地址，但我在网络上有七台计算机。这怎么可能？两台计算机不能共享同一个IP地址，否则数据就不知道要去哪一个！
 
 The answer is: they don't share the same IP addresses. They are on a private network with 24 million IP addresses allocated to it. They are all just for me. Well, all for me as far as anyone else is concerned. Here's what's happening:
 
-答案是：它们不共享相同的IP地址。它们位于专用网络上，分配了2400万个IP地址。它们都适合我。好吧，对我来说，就其他任何人而言都是如此。这是发生了什么：
+> 答案是：它们不共享相同的IP地址。它们位于专用网络上，分配了2400万个IP地址。它们都适合我。好吧，对我来说，就其他任何人而言都是如此。这是发生了什么：
 
 If I log into a remote computer, it tells me I'm logged in from 192.0.2.33 which is the public IP address my ISP has provided to me. But if I ask my local computer what its IP address is, it says 10.0.0.5. Who is translating the IP address from one to the other? That's right, the firewall! It's doing **NAT**!
 
 10.*x*.*x*.*x* is one of a few reserved networks that are only to be used either on fully disconnected networks, or on networks that are behind firewalls. The details of which **private network numbers** are available for you to use are outlined in [RFC 1918](http://tools.ietf.org/html/rfc1918), but some common ones you'll see are 10.*x*.*x*.*x* and 192.168.*x*.*x*, where *x* is 0-255, generally. Less common is 172.*y*.*x*.*x*, where *y* goes between 16 and 31.
 
-10.x.x.x是少数几个仅在完全断开的网络上或在防火墙后面的网络上使用的保留网络之一。 RFC 1918中概述了可供您使用的专用网络号的详细信息，但您将看到的一些常见的是10.x.x.x和192.168.x.x，其中x通常为0-255。不太常见的是172.y.x.x，其中y介于16和31之间。
+> 10.x.x.x是少数几个仅在完全断开的网络上或在防火墙后面的网络上使用的保留网络之一。 RFC 1918中概述了可供您使用的专用网络号的详细信息，但您将看到的一些常见的是10.x.x.x和192.168.x.x，其中x通常为0-255。不太常见的是172.y.x.x，其中y介于16和31之间。
 
 Networks behind a NATing firewall don't *need* to be on one of these reserved networks, but they commonly are.
 

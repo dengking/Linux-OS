@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-## [5. System Calls or Bust](https://beej.us/guide/bgnet/html/multi/syscalls.html)
+# [5. System Calls or Bust](https://beej.us/guide/bgnet/html/multi/syscalls.html)
 
 
 
@@ -12,11 +8,11 @@ The place most people get stuck around here is what order to call these things i
 
 That, coupled with a few pieces of sample code here and there, some milk and cookies (which I fear you will have to supply yourself), and some raw guts and courage, and you'll be beaming data around the Internet like the Son of Jon Postel!
 
-再加上一些到处都有的示例代码、一些牛奶和饼干(我担心您必须自己准备)、一些原始的勇气和胆量，您将像Jon Postel的儿子一样在互联网上传输数据!
+> 再加上一些到处都有的示例代码、一些牛奶和饼干(我担心您必须自己准备)、一些原始的勇气和胆量，您将像Jon Postel的儿子一样在互联网上传输数据!
 
 *(Please note that for brevity, many code snippets below do not include necessary error checking. And they very commonly assume that the result from calls to **getaddrinfo()** succeed and return a valid entry in the linked list. Both of these situations are properly addressed in the stand-alone programs, though, so use those as a model.)*
 
-### 5.1. **getaddrinfo()**—Prepare to launch!
+## 5.1. **getaddrinfo()**—Prepare to launch!
 
 This is a real workhorse of a function with a lot of options, but usage is actually pretty simple. It helps set up the `struct`s you need later on.
 
@@ -69,7 +65,7 @@ if ((status = getaddrinfo(NULL, "3490", &hints, &servinfo)) != 0) {
 freeaddrinfo(servinfo); // free the linked-list
 ```
 
-***SUMMARY*** : 关于`AI_PASSIVE`，APUE的解释是`AI_PASSIVE` Socket address is intended to be bound for listening。显然在network programming中，获得自身的地址往往是为了侦听；
+> : 关于`AI_PASSIVE`，APUE的解释是`AI_PASSIVE` Socket address is intended to be bound for listening。显然在network programming中，获得自身的地址往往是为了侦听；
 
 Notice that I set the *`ai_family`* to `AF_UNSPEC`, thereby saying that I don't care if we use IPv4 or IPv6. You can set it to `AF_INET` or `AF_INET6` if you want one or the other specifically.
 
@@ -183,7 +179,7 @@ IP addresses for ipv6.example.com:
 
 Now that we have that under control, we'll use the results we get from **`getaddrinfo()`** to pass to other socket functions and, at long last, get our network connection established! Keep reading!
 
-### 5.2. **socket()**—Get the File Descriptor!
+## 5.2. **socket()**—Get the File Descriptor!
 
 I guess I can put it off no longer—I have to talk about the **`socket()`** system call. Here's the breakdown:
 
@@ -222,7 +218,7 @@ s = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
 
 Fine, fine, fine, but what good is this socket? The answer is that it's really no good by itself, and you need to read on and make more system calls for it to make any sense.
 
-### 5.3. **bind()**—What port am I on?
+## 5.3. **bind()**—What port am I on?
 
 Once you have a **socket**, you might have to associate that **socket** with a **port** on your local machine. (This is commonly done if you're going to **listen()** for incoming connections on a specific port—multiplayer network games do this when they tell you to "connect to 192.168.5.10 port 3490".) The **port number** is used by the kernel to match an incoming packet to a certain process's **socket descriptor**. If you're going to only be doing a **connect()** (because you're the client, not the server), this is probably be unnecessary. Read it anyway, just for kicks.
 
@@ -307,7 +303,7 @@ if (setsockopt(listener,SOL_SOCKET,SO_REUSEADDR,&yes,sizeof yes) == -1) {
 
 One small extra final note about **bind()**: there are times when you won't absolutely have to call it. If you are **connect()**ing to a remote machine and you don't care what your local port is (as is the case with **telnet** where you only care about the remote port), you can simply call **connect()**, it'll check to see if the socket is unbound, and will **bind()** it to an unused local port if necessary.
 
-### 5.4. **connect()**—Hey, you!
+## 5.4. **connect()**—Hey, you!
 
 Let's just pretend for a few minutes that you're a telnet application. Your user commands you (just like in the movie *TRON*) to get a socket file descriptor. You comply and call **socket()**. Next, the user tells you to connect to "`10.12.110.57`" on port "`23`" (the standard telnet port.) Yow! What do you do now?
 
@@ -355,7 +351,7 @@ Be sure to check the return value from **connect()**—it'll return `-1` on erro
 
 Also, notice that we didn't call **bind()**. Basically, we don't care about our local port number; we only care where we're going (the remote port). The kernel will choose a local port for us, and the site we connect to will automatically get this information from us. No worries.
 
-### 5.5. **listen()**—Will somebody please call me?
+## 5.5. **listen()**—Will somebody please call me?
 
 Ok, time for a change of pace. What if you don't want to connect to a remote host. Say, just for kicks, that you want to wait for incoming connections and handle them in some way. The process is two step: first you **listen()**, then you **accept()** (see below.)
 
@@ -385,7 +381,7 @@ I'll just leave that in the place of sample code, since it's fairly self-explana
 
 
 
-### 5.6. **accept()**—"Thank you for calling port 3490."
+## 5.6. **accept()**—"Thank you for calling port 3490."
 
 Get ready—the **accept()** call is kinda weird! What's going to happen is this: someone far far away will try to **connect()** to your machine on a port that you are **listen()**ing on. Their connection will be queued up waiting to be **accept()**ed. You call **accept()** and you tell it to get the pending connection. It'll return to you a *brand new socket file descriptor* to use for this single connection! That's right, suddenly you have *two socket file descriptors* for the price of one! The original one is still listening for more new connections, and the newly created one is finally ready to **send()** and **recv()**. We're there!
 
@@ -450,7 +446,7 @@ int main(void)
 
 Again, note that we will use the socket descriptor *new_fd* for all **send()** and **recv()** calls. If you're only getting one single connection ever, you can **close()** the listening *sockfd* in order to prevent more incoming connections on the same port, if you so desire.
 
-### 5.7. **send()** and **recv()**—Talk to me, baby!
+## 5.7. **send()** and **recv()**—Talk to me, baby!
 
 These two functions are for communicating over stream sockets or connected datagram sockets. If you want to use regular unconnected datagram sockets, you'll need to see the section on [**sendto()** and **recvfrom()**](https://beej.us/guide/bgnet/html/multi/syscalls.html#sendtorecv), below.
 
@@ -493,7 +489,7 @@ Wait! **recv()** can return `0`. This can mean only one thing: the remote side h
 
 There, that was easy, wasn't it? You can now pass data back and forth on stream sockets! Whee! You're a Unix Network Programmer!
 
-### 5.8. **sendto()** and **recvfrom()**—Talk to me, DGRAM-style
+## 5.8. **sendto()** and **recvfrom()**—Talk to me, DGRAM-style
 
 "This is all fine and dandy," I hear you saying, "but where does this leave me with unconnected datagram sockets?" No problemo, amigo. We have just the thing.
 
@@ -527,7 +523,7 @@ So, here's a question: why do we use `struct sockaddr_storage` as the socket typ
 
 Remember, if you **connect()** a datagram socket, you can then simply use **send()** and **recv()** for all your transactions. The socket itself is still a datagram socket and the packets still use UDP, but the socket interface will automatically add the destination and source information for you.
 
-### 5.9. **close()** and **shutdown()**—Get outta my face!
+## 5.9. **close()** and **shutdown()**—Get outta my face!
 
 Whew! You've been **send()**ing and **recv()**ing data all day long, and you've had it. You're ready to close the connection on your socket descriptor. This is easy. You can just use the regular Unix file descriptor **close()** function:
 
@@ -564,7 +560,7 @@ Nothing to it.
 
 (Except to remember that if you're using Windows and Winsock that you should call **closesocket()** instead of **close()**.)
 
-### 5.10. **getpeername()**—Who are you?
+## 5.10. **getpeername()**—Who are you?
 
 This function is so easy.
 
@@ -584,7 +580,7 @@ The function returns `-1` on error and sets *errno* accordingly.
 
 Once you have their address, you can use **inet_ntop()**, **getnameinfo()**, or **gethostbyaddr()** to print or get more information. No, you can't get their login name. (Ok, ok. If the other computer is running an ident daemon, this is possible. This, however, is beyond the scope of this document. Check out [RFC 1413](http://tools.ietf.org/html/rfc1413) for more info.)
 
-### 5.11. **gethostname()**—Who am I?
+## 5.11. **gethostname()**—Who am I?
 
 Even easier than **getpeername()** is the function **gethostname()**. It returns the name of the computer that your program is running on. The name can then be used by **gethostbyname()**, below, to determine the IP address of your local machine.
 

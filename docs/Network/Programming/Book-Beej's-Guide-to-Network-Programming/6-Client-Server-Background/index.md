@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-## [6. Client-Server Background](https://beej.us/guide/bgnet/html/multi/clientserver.html)
+# [6. Client-Server Background](https://beej.us/guide/bgnet/html/multi/clientserver.html)
 
 It's a client-server world, baby. Just about everything on the network deals with client processes talking to server processes and vice-versa. Take **telnet**, for instance. When you connect to a remote host on port 23 with telnet (the client), a program on that host (called **telnetd**, the server) springs to life. It handles the incoming telnet connection, sets you up with a login prompt, etc.
 
@@ -16,7 +12,7 @@ Note that the client-server pair can speak `SOCK_STREAM`, `SOCK_DGRAM`, or anyth
 
 Often, there will only be one server on a machine, and that server will handle multiple clients using **fork()**. The basic routine is: server will wait for a connection, **accept()** it, and **fork()** a child process to handle it. This is what our sample server does in the next section.
 
-### 6.1. A Simple Stream Server
+## 6.1. A Simple Stream Server
 
 All this server does is send the string "`Hello, world!`" out over a stream connection. All you need to do to test this server is run it in one window, and telnet to it from another with:
 
@@ -170,7 +166,7 @@ In case you're curious, I have the code in one big **main()** function for (I fe
 
 You can get the data from this server by using the client listed in the next section.
 
-### 6.2. A Simple Stream Client
+## 6.2. A Simple Stream Client
 
 This guy's even easier than the server. All this client does is connect to the host you specify on the command line, port 3490. It gets the string that the server sends.
 
@@ -274,7 +270,7 @@ int main(int argc, char *argv[])
 
 Notice that if you don't run the server before you run the client, **connect()** returns "Connection refused". Very useful.
 
-### 6.3. Datagram Sockets
+## 6.3. Datagram Sockets
 
 We've already covered the basics of UDP datagram sockets with our discussion of **sendto()** and **recvfrom()**, above, so I'll just present a couple of sample programs: *talker.c* and *listener.c*.
 
