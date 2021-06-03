@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
-    
+    - course-dartmouth-CS60-Computer-Networks: course-dartmouth-CS60-Computer-Networks
+    - Book-Beej's-Guide-to-Network-Programming: Book-Beej's-Guide-to-Network-Programming
     - Socket: Socket
     - Internet-protocol: Internet-protocol
     
@@ -15,3 +16,4 @@ nav:
     - Reconnect: Reconnect.md
     - Send-file: Send-file
     - TCP-Wrappers: TCP-Wrappers
+    - Relationship-between-process-and-port: Relationship-between-process-and-port
