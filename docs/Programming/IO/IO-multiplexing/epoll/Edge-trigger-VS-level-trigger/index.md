@@ -8,8 +8,6 @@
 
 
 
-
-
 ## stackoverflow [What is the purpose of epoll's edge triggered option?](https://stackoverflow.com/questions/9162712/what-is-the-purpose-of-epolls-edge-triggered-option)
 
 

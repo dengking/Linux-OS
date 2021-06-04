@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
-    - Date-and-Time: Date-and-Time.md
-    - man-clock_gettime: man-clock_gettime.md
+
+    - man-2-clock_gettime: man-2-clock_gettime
     - localtime: localtime
+    - codeofmatt-List-of-2020-Leap-Day-Bugs: codeofmatt-List-of-2020-Leap-Day-Bugs
