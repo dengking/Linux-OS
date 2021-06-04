@@ -10,11 +10,15 @@
 
 ### [A](https://stackoverflow.com/a/14643400)
 
-The idea is to try to completely drain the file descriptor when you have an edge-triggered notification that there is data to be had. So, once `epoll()` returns, you loop over the `read()` or `write()` until it returns `-EAGAIN` when there is no more data to be had.
+> NOTE: 
+>
+> 解释得非常到位
+
+The idea is to try to completely drain(喝光、耗尽) the file descriptor when you have an edge-triggered notification that there is data to be had. So, once `epoll()` returns, you loop over the `read()` or `write()` until it returns `-EAGAIN` when there is no more data to be had.
 
 If the `fd` was opened blocking, then this last `read()` or `write()` would also block, and you wouldn't have the chance to go back to the `epoll()` call to wait on the entire set of `fds`. When opened nonblocking, the last `read()`/`write()` does return, and you do have the chance to go back to polling.
 
-***SUMMARY*** : 上面这段话中所描述的情况其实就是在[man EPOLL(7)](http://man7.org/linux/man-pages/man7/epoll.7.html) 中所说的：
+> NOTE: 上面这段话中所描述的情况其实就是在[man EPOLL(7)](http://man7.org/linux/man-pages/man7/epoll.7.html) 中所说的：
 
 > An application that employs the `EPOLLET` flag should use nonblocking file descriptors to avoid having a blocking read or write **starve** a task that is handling multiple file descriptors. 
 
