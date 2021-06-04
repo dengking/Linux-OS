@@ -54,7 +54,7 @@ Seeking, or calling [`pread(2)`](http://man7.org/linux/man-pages/man2/pread.2.ht
 
 It is possible to do **nonblocking I/O** on sockets by setting the `O_NONBLOCK` flag on a **socket file descriptor** using [`fcntl(2)`](http://man7.org/linux/man-pages/man2/fcntl.2.html).   Then  all  operations  that would block will (usually) return with `EAGAIN` (operation should be retried later); [`connect(2)`](http://man7.org/linux/man-pages/man2/connect.2.html) will return `EINPROGRESS`  error.  
 
-## IO multiplexing
+## I/O events and IO multiplexing
 
 The user can then wait for various events via [`poll(2)`](http://man7.org/linux/man-pages/man2/poll.2.html) or [`select(2)`](http://man7.org/linux/man-pages/man2/select.2.html).
 
@@ -313,7 +313,7 @@ These two values are initialized to 1.
 Before Linux 2.6.28,  the `select(2)`  and  `poll(2)`  system  calls  currently do not respect the `SO_RCVLOWAT` setting on Linux, and mark a socket readable(可读) when even a single byte of data is available.  A subsequent read from the socket will block until `SO_RCVLOWAT` bytes are available.
 > NOTE:  
 >
-> [I/O多路复用技术（multiplexing）是什么？](I/O多路复用技术（multiplexing）是什么？ ) # [A](https://www.zhihu.com/question/28594409/answer/52763082) : 
+> 一、[I/O多路复用技术（multiplexing）是什么？](I/O多路复用技术（multiplexing）是什么？ ) # [A](https://www.zhihu.com/question/28594409/answer/52763082) : 
 >
 > > 以`select`和tcp socket为例，所谓可读事件，具体的说是指以下事件：
 > >

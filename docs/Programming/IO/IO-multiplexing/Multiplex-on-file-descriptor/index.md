@@ -1,6 +1,20 @@
+# Multiplex on file descriptor
 
+一、Unix philosophy-everything is a file descriptor-is a good abstraction
 
-# Multiplex on file and time event
+Linux-OS支持:
+
+1、single to file descriptor
+
+2、eventfd
+
+3、time to fd
+
+4、network IO
+
+5、file IO
+
+二、Linux-OS的IO multiplexing其实是一种监控机制，用于监控event
 
 1、利用"支持设置timeout(system call with timeout)"的特性，可以同时实现Multiplex on file and time event
 

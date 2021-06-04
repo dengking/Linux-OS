@@ -1,12 +1,10 @@
-
-
 # Implementation(System call/API)
 
 1、下面是 [libevent – an event notification library](https://libevent.org/) 总结的当前各种OS 中，IO multiplexing的implementation: 
 
 > *[/dev/poll](http://download.oracle.com/docs/cd/E19253-01/816-5177/6mbbc4g9n/index.html)*, *[kqueue(2)](http://www.freebsd.org/cgi/man.cgi?query=kqueue&apropos=0&sektion=0&format=html)*, *[event ports](http://developers.sun.com/solaris/articles/event_completion.html)*, [POSIX *select(2)*](http://manpages.debian.net/cgi-bin/man.cgi?query=select), [Windows *select()*](http://msdn.microsoft.com/en-us/library/ms740141(v=vs.85).aspx), [*poll(2)*](http://manpages.debian.net/cgi-bin/man.cgi?query=poll), and *[epoll(4)](http://www.xmailserver.org/linux-patches/epoll.txt)*.
 
-2、下面是 [libuv](https://libuv.org/) Design overview[¶](http://docs.libuv.org/en/v1.x/design.html#design-overview) # The I/O loop[¶](http://docs.libuv.org/en/v1.x/design.html#the-i-o-loop) 总结的: 
+2、下面是 "[libuv](https://libuv.org/) Design overview[¶](http://docs.libuv.org/en/v1.x/design.html#design-overview) # The I/O loop[¶](http://docs.libuv.org/en/v1.x/design.html#the-i-o-loop) "总结的: 
 
 > The event loop follows the rather usual single threaded asynchronous I/O approach: all (network) I/O is performed on non-blocking sockets which are polled using the best mechanism available on the given platform: 
 >
