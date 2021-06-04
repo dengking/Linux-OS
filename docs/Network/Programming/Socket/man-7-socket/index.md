@@ -2,7 +2,7 @@
 
 ## NAME
 
-​       socket - Linux socket interface
+`socket` - Linux socket interface
 
 ## SYNOPSIS
 
@@ -19,7 +19,11 @@ This  manual  page  describes  the Linux networking **socket layer** user interf
 >
 > 在APUE的16.2 Socket Descriptors中将 `socket(2)` 称之为`domain`，并且`man 2 socket`中，也叫做`domain`，我觉得`domain`更好理解；
 
-### Socket-layer functions
+## Socket-layer functions
+
+> NOTE: 
+>
+> 一、下面对Linux-OS的socket-layer function的总结非常好，基本上囊括了socket相关的system call了
 
 These  functions  are used by the user process to send or receive packets and to do other socket operations.  For more information see their respective manual pages.
 
@@ -29,7 +33,13 @@ These  functions  are used by the user process to send or receive packets and to
 >
 > 通过[getaddrinfo(3)](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)将address和port进行结合，得到[struct addrinfo](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)，然后根据[struct addrinfo](http://man7.org/linux/man-pages/man3/getaddrinfo.3.html)来创建socket，bind等，具体实例参见 http://man7.org/linux/man-pages/man3/getaddrinfo.3.html；
 
-`send(2)`,  `sendto(2)`, and `sendmsg(2)` send data over a socket, and `recv(2)`, `recvfrom(2)`, `recvmsg(2)` receive data from a socket.  `poll(2)` and `select(2)` wait for arriving data or a readiness to send data.  In addition, the standard I/O operations like `write(2)`,  `writev(2)`,  `sendfile(2)`, `read(2)`, and `readv(2)` can be used to read and write data.
+`send(2)`,  `sendto(2)`, and `sendmsg(2)` send data over a socket, and 
+
+`recv(2)`, `recvfrom(2)`, `recvmsg(2)` receive data from a socket.  
+
+`poll(2)` and `select(2)` wait for arriving data or a readiness to send data.  In addition, the standard I/O operations like 
+
+`write(2)`,  `writev(2)`,  `sendfile(2)`, `read(2)`, and `readv(2)` can be used to read and write data.
     
 
 `getsockname(2)` returns the **local socket address** and `getpeername(2)` returns the **remote socket address**.  `getsockopt(2)` and `setsockopt(2)`  are used to set or get socket layer or protocol options.  `ioctl(2)` can be used to set or read some other options.
@@ -39,10 +49,18 @@ These  functions  are used by the user process to send or receive packets and to
     
 
 Seeking, or calling [`pread(2)`](http://man7.org/linux/man-pages/man2/pread.2.html) or [`pwrite(2)`](http://man7.org/linux/man-pages/man2/pwrite.2.html) with a nonzero position is not supported on sockets.
-    
 
-It is possible to do **nonblocking I/O** on sockets by setting the `O_NONBLOCK` flag on a **socket file descriptor** using [`fcntl(2)`](http://man7.org/linux/man-pages/man2/fcntl.2.html).   Then  all  operations  that would block will (usually) return with `EAGAIN` (operation should be retried later); [`connect(2)`](http://man7.org/linux/man-pages/man2/connect.2.html) will return `EINPROGRESS`  error.  The user can then wait for various events via [`poll(2)`](http://man7.org/linux/man-pages/man2/poll.2.html) or [`select(2)`](http://man7.org/linux/man-pages/man2/select.2.html).
-    
+## **nonblocking I/O** on sockets 
+
+It is possible to do **nonblocking I/O** on sockets by setting the `O_NONBLOCK` flag on a **socket file descriptor** using [`fcntl(2)`](http://man7.org/linux/man-pages/man2/fcntl.2.html).   Then  all  operations  that would block will (usually) return with `EAGAIN` (operation should be retried later); [`connect(2)`](http://man7.org/linux/man-pages/man2/connect.2.html) will return `EINPROGRESS`  error.  
+
+## IO multiplexing
+
+The user can then wait for various events via [`poll(2)`](http://man7.org/linux/man-pages/man2/poll.2.html) or [`select(2)`](http://man7.org/linux/man-pages/man2/select.2.html).
+
+> NOTE: 
+>
+> 下面表格总结的是 [`poll(2)`](http://man7.org/linux/man-pages/man2/poll.2.html) 、[`select(2)`](http://man7.org/linux/man-pages/man2/select.2.html) 的IO event，关于 [epoll(7)](https://man7.org/linux/man-pages/man7/epoll.7.html) 的IO event，参见 [epoll_ctl(2)](https://man7.org/linux/man-pages/man2/epoll_ctl.2.html) 。
 
 ```
        ┌────────────────────────────────────────────────────────────────────┐
@@ -58,7 +76,7 @@ It is possible to do **nonblocking I/O** on sockets by setting the `O_NONBLOCK` 
        │Read       │ POLLHUP   │ A disconnection request has been initiated │
        │           │           │ by the other end.                          │
        ├───────────┼───────────┼────────────────────────────────────────────┤
-       │Read       │ POLLHUP   │ A connection is broken (only for  connec‐ │
+       │Read       │ POLLHUP   │ A connection is broken (only for  connec‐  │
        │           │           │ tion-oriented protocols).  When the socket │
        │           │           │ is written SIGPIPE is also sent.           │
        ├───────────┼───────────┼────────────────────────────────────────────┤
@@ -76,9 +94,11 @@ It is possible to do **nonblocking I/O** on sockets by setting the `O_NONBLOCK` 
        └───────────┴───────────┴────────────────────────────────────────────┘
 ```
 
+## Async IO
+
 An  alternative  to  `poll(2)`  and `select(2)` is to let the kernel inform the application about events via a `SIGIO` signal.  For that the  `O_ASYNC` flag must be set on a **socket file descriptor** via `fcntl(2)` and a valid **signal handler** for `SIGIO` must be installed  via  [`sigaction(2)`](http://man7.org/linux/man-pages/man2/sigaction.2.html).  See the Signals discussion below.
 
-###  Socket address structures
+##  Socket address structures
 
 Each **socket domain** has its own format for socket addresses, with a **domain-specific address structure**.  Each of these structures begins  with an integer "family" field (typed as `sa_family_t`) that indicates the type of the address structure.  This allows the various system  calls (e.g., `connect(2)`, `bind(2)`, `accept(2)`, `getsockname(2)`, `getpeername(2)`), which are generic to all **socket domains**, to determine the domain of a particular socket address.
 
@@ -92,11 +112,11 @@ sa_family_t ss_family;
 ```
 The `sockaddr_storage` structure is useful in programs that must handle socket addresses in a generic way (e.g., programs that must deal with both IPv4 and IPv6 socket addresses).
 
-### Socket options
+## Socket options
 
 The **socket options** listed below can be set by using `setsockopt(2)` and read with `getsockopt(2)` with the socket level set to  `SOL_SOCKET`  for all sockets.  Unless otherwise noted, `optval` is a pointer to an `int`.
 
-#### `SO_ACCEPTCONN`
+### `SO_ACCEPTCONN`
 
 Returns a value indicating whether or not this socket has been marked to accept connections with `listen(2)`.  The value 0 indicates that this is not a **listening socket**, the value 1 indicates that this is a **listening socket**.  This socket option is  read-only.
     
@@ -104,9 +124,7 @@ Returns a value indicating whether or not this socket has been marked to accept 
 ### `SO_BINDTODEVICE`
 
 Bind  this  socket  to  a  particular device like `eth0` as specified in the passed interface name.  If the name is an empty  string or the option length is zero, the **socket device binding** is removed.  The passed option is a variable-length null-terminated  interface  name  string  with the maximum size of `IFNAMSIZ`.  If a socket is bound to an interface, only packets received  from that particular interface are processed by the socket.  Note that this works only  for  some  socket  types,  particularly  `AF_INET` sockets.  It is not supported for **packet sockets** (use normal `bind(2)` there).
-    
 
-Before  Linux  3.8, this socket option could be set, but could not retrieved with getsockopt(2).  Since Linux 3.8, it is readable.  The `optlen` argument should contain the buffer size available to receive the device name and is recommended to be `IFNAMSZ` bytes.  The real device name length is reported back in the `optlen` argument.
 
 ### `SO_BROADCAST`
 
@@ -117,12 +135,11 @@ Set or get the **broadcast flag**.  When enabled, **datagram sockets** are allow
 
 Enable BSD bug-to-bug compatibility.  This is used by the UDP protocol module in Linux 2.0 and 2.2.   If  enabled  ICMP  errors received  for  a **UDP socket** will not be passed to the user program.  In later kernel versions, support for this option has been phased out: Linux 2.4 silently ignores it, and Linux 2.6 generates a kernel warning (`printk()`) if a program uses  this  option.
 
-Linux  2.0  also  enabled BSD bug-to-bug compatibility options (random header changing, skipping of the broadcast flag) for raw sockets with this option, but that was removed in Linux 2.2.
-    
+
 
 ### `SO_DEBUG`
 
-Enable socket debugging.  Only allowed for processes with the CAP_NET_ADMIN capability or an effective user ID of 0.
+Enable socket debugging.  Only allowed for processes with the `CAP_NET_ADMIN` capability or an effective user ID of 0.
     
 
 ### `SO_DOMAIN` (since Linux 2.6.32)
@@ -318,10 +335,17 @@ Under  some  circumstances  (e.g., multiple processes accessing a single socket)
        optmem_max
               Maximum length of ancillary data and user control data like the iovecs per socket.
 
-   Ioctls
-       These operations can be accessed using ioctl(2):
+## Ioctls
 
-           error = ioctl(ip_socket, ioctl_type, &value_result);
+These operations can be accessed using ioctl(2):
+
+```C
+error = ioctl(ip_socket, ioctl_type, &value_result);
+```
+
+
+
+           
     
        SIOCGSTAMP
               Return  a  struct  timeval with the receive timestamp of the last packet passed to the user.  This is useful for accurate round
@@ -368,17 +392,3 @@ NOTES
        only  the  later  program  needs to set the SO_REUSEADDR option.  Typically this difference is invisible, since, for example, a server
        program is designed to always set this option.
 
-BUGS
-       The CONFIG_FILTER socket options SO_ATTACH_FILTER and SO_DETACH_FILTER are not documented.  The suggested interface to use them is via
-       the libpcap library.
-
-SEE ALSO
-       getsockopt(2), connect(2), setsockopt(2), socket(2), capabilities(7), ddp(7), ip(7), packet(7), tcp(7), udp(7), unix(7)
-
-COLOPHON
-       This page is part of release 3.53 of the Linux man-pages project.  A description of the project, and information about reporting bugs,
-       can be found at http://www.kernel.org/doc/man-pages/.
-
-
-
-Linux                                                             2013-06-21                                                        SOCKET(7)
