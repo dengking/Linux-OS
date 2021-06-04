@@ -713,6 +713,8 @@ nav:
         - Introduction: Programming/IO/Tools/man-1-fuser/index.md
       - man-1-lsof:
         - Introduction: Programming/IO/Tools/man-1-lsof/index.md
+    - Buffered-queued-IO:
+      - Introduction: Programming/IO/Buffered-queued-IO/index.md
   - Date-and-time:
     - Introduction: Programming/Date-and-time/index.md
     - Date-and-Time: Programming/Date-and-time/Date-and-Time.md
@@ -874,8 +876,21 @@ nav:
         - Introduction: Network/Programming/Socket/man-2-socket/index.md
       - man-7-address_families:
         - Introduction: Network/Programming/Socket/man-7-address_families/index.md
-      - man-2-setsockopt:
-        - Introduction: Network/Programming/Socket/man-2-setsockopt/index.md
+      - Socket-operation:
+        - Introduction: Network/Programming/Socket/Socket-operation/index.md
+        - man-2-setsockopt:
+          - Introduction: Network/Programming/Socket/Socket-operation/man-2-setsockopt/index.md
+        - Mark-socket:
+          - Introduction: Network/Programming/Socket/Socket-operation/Mark-socket/index.md
+          - "CSDN-Linux socket\u8BBE\u7F6Emark\u7684\u5FC5\u8981\u6027":
+            - Introduction: "Network/Programming/Socket/Socket-operation/Mark-socket/CSDN-Linux\
+                \ socket\u8BBE\u7F6Emark\u7684\u5FC5\u8981\u6027/index.md"
+      - Control-message:
+        - Introduction: Network/Programming/Socket/Control-message/index.md
+        - man-3-cmsg:
+          - Introduction: Network/Programming/Socket/Control-message/man-3-cmsg/index.md
+      - Out-of-band:
+        - Introduction: Network/Programming/Socket/Out-of-band/index.md
     - Internet-protocol:
       - man-7-ip:
         - Introduction: Network/Programming/Internet-protocol/man-7-ip/index.md
@@ -899,21 +914,29 @@ nav:
   - Tools:
     - Introduction: Network/Tools/index.md
     - Packet-analyzer:
-      - Packet-analyzer: Network/Tools/Packet-analyzer/Packet-analyzer.md
+      - Introduction: Network/Tools/Packet-analyzer/index.md
       - tcpdump:
-        - tcpdump: Network/Tools/Packet-analyzer/tcpdump/tcpdump.md
+        - Introduction: Network/Tools/Packet-analyzer/tcpdump/index.md
       - Wireshark:
         - Introduction: Network/Tools/Packet-analyzer/Wireshark/index.md
       - TODO-ngrep: Network/Tools/Packet-analyzer/TODO-ngrep.md
-    - netstat: Network/Tools/netstat.md
+    - netstat(obsolete):
+      - Introduction: Network/Tools/netstat(obsolete)/index.md
     - iproute2:
       - Introduction: Network/Tools/iproute2/index.md
-    - nmap: Network/Tools/nmap.md
+    - software-Nmap:
+      - Introduction: Network/Tools/software-Nmap/index.md
+    - software-netfilter:
+      - Introduction: Network/Tools/software-netfilter/index.md
     - Port-in-use: Network/Tools/Port-in-use.md
     - Port-opened-by-process: Network/Tools/Port-opened-by-process.md
-    - TODO-Troubleshoot-local-network: Network/Tools/TODO-Troubleshoot-local-network.md
-    - TODO-Troubleshoot-remote-network: Network/Tools/TODO-Troubleshoot-remote-network.md
-    - TODO-Troubleshoot-packet-loss: Network/Tools/TODO-Troubleshoot-packet-loss.md
+    - TODO:
+      - Troubleshoot-local-network:
+        - Introduction: Network/Tools/TODO/Troubleshoot-local-network/index.md
+      - Troubleshoot-remote-network:
+        - Introduction: Network/Tools/TODO/Troubleshoot-remote-network/index.md
+      - Troubleshoot-packet-loss:
+        - Introduction: Network/Tools/TODO/Troubleshoot-packet-loss/index.md
 - Security:
   - Introduction: Security/index.md
   - Capability-based-security:
