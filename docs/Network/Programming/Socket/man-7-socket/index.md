@@ -406,7 +406,7 @@ Maximum number of packets in the global input queue.
 
 ### `optmem_max`
 
-Maximum length of ancillary data and user control data like the iovecs per socket.
+Maximum length of ancillary(辅助) data and user control data like the iovecs per socket.
 
 
 

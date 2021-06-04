@@ -1,4 +1,4 @@
-# Control message/ancillary data
+# Control message/ancillary(辅助) data
 
 在下面章节中，涉及了control message/ancillary data
 
