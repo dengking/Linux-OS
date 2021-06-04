@@ -1,4 +1,4 @@
-# [SOCKET(7) Linux Programmer's Manual](http://man7.org/linux/man-pages/man7/socket.7.html)  
+# [socket(7) Linux Programmer's Manual](http://man7.org/linux/man-pages/man7/socket.7.html)  
 
 ## NAME
 
@@ -124,6 +124,8 @@ The **socket options** listed below can be set by using `setsockopt(2)` and read
 
 ### `SO_ACCEPTCONN`
 
+> NOTE: 用于判断是否是一个listening socket
+
 Returns a value indicating whether or not this socket has been marked to accept connections with `listen(2)`.  The value 0 indicates that this is not a **listening socket**, the value 1 indicates that this is a **listening socket**.  This socket option is  read-only.
     
 
@@ -131,8 +133,11 @@ Returns a value indicating whether or not this socket has been marked to accept 
 
 Bind  this  socket  to  a  particular device like `eth0` as specified in the passed interface name.  If the name is an empty  string or the option length is zero, the **socket device binding** is removed.  The passed option is a variable-length null-terminated  interface  name  string  with the maximum size of `IFNAMSIZ`.  If a socket is bound to an interface, only packets received  from that particular interface are processed by the socket.  Note that this works only  for  some  socket  types,  particularly  `AF_INET` sockets.  It is not supported for **packet sockets** (use normal `bind(2)` there).
 
-
 ### `SO_BROADCAST`
+
+> NOTE
+>
+> 广播
 
 Set or get the **broadcast flag**.  When enabled, **datagram sockets** are allowed to send packets to a **broadcast address**.  This option has no effect on **stream-oriented sockets**.
     
@@ -187,10 +192,23 @@ When enabled, a [`close(2)`](https://man7.org/linux/man-pages/man2/close.2.html)
 
 ### `SO_MARK` (since Linux 2.6.25)
 
-Set the mark for each packet sent through this socket (similar to the netfilter MARK target but  socket-based).   Changing  the mark  can  be  used  for  mark-based  routing  without  netfilter  or  for  packet filtering.  Setting this option requires the CAP_NET_ADMIN capability.
-    
+Set the mark for each packet sent through this socket (similar to the netfilter MARK target but  socket-based).   Changing  the mark  can  be  used  for  mark-based  routing  without  netfilter  or  for  packet filtering.  Setting this option requires the `CAP_NET_ADMIN` capability.
+
+> NOTE: 
+>
+> "Changing  the mark  can  be  used:
+>
+> 1、for  mark-based  routing  without  netfilter  or  
+>
+> 2、for  packet filtering."
+>
+> `SO_MARK` 在 `Mark-socket` 章节中进行了专门介绍
 
 ### `SO_OOBINLINE`
+
+> NOTE: 
+>
+> 这个名称取得非常直观: OOB + inline
 
 If this option is enabled, **out-of-band data** is directly placed into the receive data stream.   Otherwise  out-of-band  data  is passed only when the `MSG_OOB` flag is set during receiving.
 
@@ -199,6 +217,14 @@ If this option is enabled, **out-of-band data** is directly placed into the rece
 Enable or disable the receiving of the `SCM_CREDENTIALS` control message.  For more information see unix(7).
 
 ### `SO_PEEK_OFF` (since Linux 3.4)
+
+> NOTE: 
+>
+> 其实功能非常简单: 
+>
+> 就是对stream进行操作、设置peek；
+>
+> 结合后面的例子，是非常容易理解
 
 This  option, which is currently supported only for unix(7) sockets, sets the value of the "peek offset" for the recv(2) system call when used with `MSG_PEEK` flag.
 
@@ -210,7 +236,7 @@ If  data is removed from the front of the queue via a call to recv(2) (or simila
 
 For datagram sockets, if the "peek offset" points to the middle of a  packet,  the  data  returned  will  be  marked  with  the `MSG_TRUNC` flag.
 
-The  following  example  serves  to  illustrate the use of SO_PEEK_OFF. Suppose a stream socket has the following queued input data:
+The  following  example  serves  to  illustrate the use of `SO_PEEK_OFF`. Suppose a stream socket has the following queued input data:
 
 ```
               aabbccddeeff
@@ -234,17 +260,23 @@ The following sequence of `recv(2)` calls would have the effect noted in the com
 
 ### `SO_PEERCRED`
 
-Return the credentials of the foreign process connected to this socket.  This is possible only  for  connected  AF_UNIX  stream sockets  and  AF_UNIX  stream and datagram socket pairs created using socketpair(2); see unix(7).  The returned credentials are those that were in effect at the time of the call to connect(2) or socketpair(2).  The argument is a  ucred  structure;  define the  GNU_SOURCE feature test macro to obtain the definition of that structure from <sys/socket.h>.  This socket option is read-only.
+> NOTE: 
+>
+> peer credentials
+>
+> 获得对端的信息
+
+Return the credentials of the foreign process connected to this socket.  This is possible only  for  connected  `AF_UNIX`  stream sockets  and  AF_UNIX  stream and datagram socket pairs created using socketpair(2); see unix(7).  The returned credentials are those that were in effect at the time of the call to connect(2) or socketpair(2).  The argument is a  ucred  structure;  define the  GNU_SOURCE feature test macro to obtain the definition of that structure from `<sys/socket.h>`.  This socket option is read-only.
 ​    
 
 ### `SO_PRIORITY`
 
-Set the protocol-defined priority for all packets to be sent on this socket.  Linux uses this value  to  order  the  networking queues: packets with a higher priority may be processed first depending on the selected device queueing discipline.  For ip(7), this also sets the IP type-of-service (TOS) field for outgoing packets.  Setting a priority outside the range 0 to  6  requires the CAP_NET_ADMIN capability.
+Set the protocol-defined priority for all packets to be sent on this socket.  Linux uses this value  to  order  the  networking queues: packets with a higher priority may be processed first depending on the selected device queueing discipline.  For ip(7), this also sets the IP type-of-service (TOS) field for outgoing packets.  Setting a priority outside the range 0 to  6  requires the `CAP_NET_ADMIN` capability.
 ​    
 
 ### `SO_PROTOCOL` (since Linux 2.6.32)
 
-Retrieves  the  socket protocol as an integer, returning a value such as IPPROTO_SCTP.  See socket(2) for details.  This socket option is read-only.
+Retrieves  the  socket protocol as an integer, returning a value such as `IPPROTO_SCTP`.  See socket(2) for details.  This socket option is read-only.
     
 
 ### `SO_RCVBUF`
@@ -258,13 +290,36 @@ Using  this  socket option, a privileged (`CAP_NET_ADMIN`) process can perform t
 
 
 
-
 ### `SO_RCVLOWAT` and `SO_SNDLOWAT`
 
-Specify the minimum number of bytes in the **buffer** until the **socket layer** will pass the data to the  **protocol**  (`SO_SNDLOWAT`)  or the user on receiving (`SO_RCVLOWAT`).  These two values are initialized to 1.  `SO_SNDLOWAT` is not changeable on Linux (`setsockopt(2)` fails with the error `ENOPROTOOPT`).  `SO_RCVLOWAT` is changeable only since Linux 2.4. 
+> NOTE: 
+>
+> `SO_RCVLOWAT`: receive low at
+>
+> `SO_SNDLOWAT`: send low at
 
-Before Linux 2.6.28,  the `select(2)`  and  `poll(2)`  system  calls  currently do not respect the `SO_RCVLOWAT` setting on Linux, and mark a socket readable when even a single byte of data is           available.  A subsequent read from the socket will block until `SO_RCVLOWAT` bytes are available.
-> NOTE:  : 上面这一段描述是非常不清楚的，可以参见[A](https://www.zhihu.com/question/28594409/answer/52763082)
+Specify the minimum number of bytes in the **buffer** until the **socket layer** will pass the data to the **protocol**  (`SO_SNDLOWAT`)  or the user on receiving (`SO_RCVLOWAT`).  
+
+These two values are initialized to 1.
+
+`SO_SNDLOWAT` is not changeable on Linux (`setsockopt(2)` fails with the error `ENOPROTOOPT`).  
+
+`SO_RCVLOWAT` is changeable only since Linux 2.4. 
+
+Before Linux 2.6.28,  the `select(2)`  and  `poll(2)`  system  calls  currently do not respect the `SO_RCVLOWAT` setting on Linux, and mark a socket readable(可读) when even a single byte of data is available.  A subsequent read from the socket will block until `SO_RCVLOWAT` bytes are available.
+> NOTE:  
+>
+> [I/O多路复用技术（multiplexing）是什么？](I/O多路复用技术（multiplexing）是什么？ ) # [A](https://www.zhihu.com/question/28594409/answer/52763082) : 
+>
+> > 以`select`和tcp socket为例，所谓可读事件，具体的说是指以下事件：
+> >
+> > 1 socket内核接收缓冲区中的可用字节数大于或等于其低水位`SO_RCVLOWAT`;
+> >
+> > 所谓可写事件，则是指：
+> >
+> > 1 socket的内核发送缓冲区的可用字节数大于或等于其低水位`SO_SNDLOWAIT`；
+>
+> 
 
 
 
