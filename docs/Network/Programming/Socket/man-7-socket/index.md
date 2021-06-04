@@ -165,7 +165,7 @@ Enable sending of keep-alive messages on connection-oriented sockets.  Expects a
 ### `SO_LINGER`
 
 Sets or gets the `SO_LINGER` option.  The argument is a linger structure.
-    
+
 ```c
 struct linger {
     int l_onoff;    /* linger active */
@@ -173,7 +173,7 @@ struct linger {
 };
 ```
 
-When enabled, a `close(2)` or `shutdown(2)` will not return until all queued messages for the socket have been successfully sent or the  linger timeout has been reached.  Otherwise, the call returns immediately and the closing is done in the background.  When  the socket is closed as part of exit(2), it always lingers in the background.
+When enabled, a [`close(2)`](https://man7.org/linux/man-pages/man2/close.2.html) or [`shutdown(2)`](https://man7.org/linux/man-pages/man2/shutdown.2.html) will not return until all queued messages for the socket have been successfully sent or the  linger timeout has been reached.  Otherwise, the call returns immediately and the closing is done in the background.  When  the socket is closed as part of [exit(2)](https://man7.org/linux/man-pages/man2/exit.2.html), it always lingers in the background.
     
 
 ### `SO_MARK` (since Linux 2.6.25)
@@ -300,7 +300,7 @@ Indicates that the rules used in validating addresses supplied in a `bind(2)` ca
 
 ### `SO_TYPE`
 
-​              Gets the socket type as an integer (e.g., SOCK_STREAM).  This socket option is read-only.
+Gets the socket type as an integer (e.g., `SOCK_STREAM`).  This socket option is read-only.
 
 ## Signals
 
