@@ -1,8 +1,20 @@
-# [What is the purpose of epoll's edge triggered option?](https://stackoverflow.com/questions/9162712/what-is-the-purpose-of-epolls-edge-triggered-option)
+# Edge-trigger VS level-trigger
+
+在下面文章中，讨论了"edge-trigger VS level-trigger":
+
+1、wikipedia [epoll](https://en.wikipedia.org/wiki/Epoll) 
+
+2、[epoll(7) — Linux manual page](http://man7.org/linux/man-pages/man7/epoll.7.html) 
 
 
 
-## [A](https://stackoverflow.com/a/9162805)
+
+
+## stackoverflow [What is the purpose of epoll's edge triggered option?](https://stackoverflow.com/questions/9162712/what-is-the-purpose-of-epolls-edge-triggered-option)
+
+
+
+### [A](https://stackoverflow.com/a/9162805)
 
 
 
@@ -18,4 +30,4 @@ The same applies for reading, because you might not want to pull all the data in
 
 
 
-# [Epoll水平触发（Level Triggered）工作模式和边缘触发（Edge Triggered）工作模式区别](https://blog.csdn.net/q623702748/article/details/52514392)
+## csdn [Epoll水平触发（Level Triggered）工作模式和边缘触发（Edge Triggered）工作模式区别](https://blog.csdn.net/q623702748/article/details/52514392)

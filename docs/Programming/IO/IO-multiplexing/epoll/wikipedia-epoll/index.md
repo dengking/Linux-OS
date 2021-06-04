@@ -1,4 +1,4 @@
-# wikipedia [epoll](https://en.wikipedia.org/wiki/Epoll)
+# wikipedia [epoll](https://en.wikipedia.org/wiki/Epoll) 
 
 **epoll** is a [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel) [system call](https://en.wikipedia.org/wiki/System_call) for a scalable I/O event notification mechanism, first introduced in version 2.5.44 of the [Linux kernel mainline](https://en.wikipedia.org/wiki/Linux_kernel_mainline).[[1\]](https://en.wikipedia.org/wiki/Epoll#cite_note-1) Its function is to monitor multiple file descriptors to see whether I/O is possible on any of them. It is meant to replace the older [POSIX](https://en.wikipedia.org/wiki/POSIX) [`select(2)`](https://en.wikipedia.org/wiki/Select_(Unix)) and `poll(2)` [system calls](https://en.wikipedia.org/wiki/System_call), to achieve better performance in more demanding applications, where the number of watched [file descriptors](https://en.wikipedia.org/wiki/File_descriptor) is large (unlike the older system calls, which operate in [*O*](https://en.wikipedia.org/wiki/Big_O_notation)(*n*) time, `epoll` operates in *O*(1) time[[2\]](https://en.wikipedia.org/wiki/Epoll#cite_note-2)).
 

@@ -1,16 +1,18 @@
-# man7 [EPOLL(7)](http://man7.org/linux/man-pages/man7/epoll.7.html) 
+# [epoll(7) — Linux manual page](http://man7.org/linux/man-pages/man7/epoll.7.html) 
 
-## NAME         
+
 
 `epoll` - I/O event notification facility
 
-> NOTE: 显然`epoll`的本质是**event notifier**
+> NOTE: 
+>
+> 显然`epoll`的本质是**event notifier**
 
 
 
 ## SYNOPSIS         
 
-```C
+```C++
 #include <sys/epoll.h>
 ```
 
@@ -20,15 +22,15 @@ The **epoll** API performs a similar task to [**poll**(2)](https://linux.die.net
 
 The **epoll** API can be used either as an edge-triggered or a level-triggered interface and scales well to large numbers of watched file descriptors.
 
+## `epoll` instance
 
-
-The central concept of the `epoll` API is the **`epoll` instance**, an **in-kernel data structure** which, from a user-space perspective, can be considered as a container for two lists:
+The central concept of the `epoll` API is the `epoll` instance, an **in-kernel data structure** which, from a user-space perspective, can be considered as a container for two lists:
 
 1、The ***interest list*** (sometimes also called the ***`epoll` set***): the set of file descriptors that the process has registered an interest in monitoring.
 
 2、The ***ready list***: the set of file descriptors that are "ready" for I/O.  The ready list is a subset of (or, more precisely, a set of references to) the file descriptors in the interest list that is dynamically populated by the kernel as a result of I/O activity on those file descriptors.
 
-
+## System calls
 
  The following system calls are provided to create and manage an **epoll** instance:
 
@@ -38,11 +40,13 @@ The central concept of the `epoll` API is the **`epoll` instance**, an **in-kern
 
 3、[**epoll_wait**(2)](https://linux.die.net/man/2/epoll_wait) waits for I/O events, **blocking** the calling thread if no events are currently available.
 
+> NOTE: 
+>
 > 如果有event已经available了，则立即返回这个event对应的`fd`。
 
 
 
-###  Level-triggered and edge-triggered
+##  Level-triggered and edge-triggered
 
 The `epoll` event distribution interface is able to behave both as edge-triggered (ET) and as level-triggered (LT).  The difference between the two mechanisms can be described as follows.  Suppose that this scenario happens:
 
@@ -80,7 +84,11 @@ Since even with edge-triggered `epoll`, multiple events can be generated upon re
 
 If multiple threads (or processes, if child processes have inherited the `epoll` file descriptor across `fork(2)`) are blocked in `epoll_wait(2)` waiting on the same the same `epoll` file descriptor and a file descriptor in the interest list that is marked for edge-triggered (`EPOLLET`) notification becomes ready, just one of the threads (or processes) is awoken from `epoll_wait(2)`.  This provides a useful optimization for avoiding "thundering herd" wake-ups in some scenarios.
 
-
+> NOTE: 
+>
+> "thundering herd" 是 "惊群效应"，参见: 
+>
+> 
 
 ### Interaction with autosleep
 
