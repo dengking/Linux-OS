@@ -368,13 +368,15 @@ Gets the socket type as an integer (e.g., `SOCK_STREAM`).  This socket option is
 
  When writing onto a connection-oriented socket that has been shut down (by the local or the remote end) `SIGPIPE` is sent to the writing process and `EPIPE` is returned.  The signal is not sent when the write call specified the `MSG_NOSIGNAL` flag.
 
+> NOTE: 
+>
 > tag-POLLHUP-SIGPIPE-errno EPIPE-process send or receive on a broken stream读写一个关闭的stream
 
 When requested with the `FIOSETOWN` `fcntl(2)` or `SIOCSPGRP` `ioctl(2)`, `SIGIO` is sent when an I/O event  occurs.   It  is  possible  to  use `poll(2)`  or `select(2)` in the signal handler to find out which socket the event occurred on.  An alternative (in Linux 2.2) is to set a real-time signal using the `F_SETSIG` `fcntl(2)`; the handler of the real time signal will be called with the file descriptor in the `si_fd` field of its `siginfo_t`.  See `fcntl(2)` for more information.
 
 Under  some  circumstances  (e.g., multiple processes accessing a single socket), the condition that caused the `SIGIO` may have already disappeared when the process reacts to the signal.  If this happens, the process should wait again because Linux will resend the signal later.
 
-##    /proc interfaces
+##    `/proc` interfaces
 
 The core socket networking parameters can be accessed via files in the directory `/proc/sys/net/core/`.
 
@@ -405,6 +407,8 @@ Maximum number of packets in the global input queue.
 ### `optmem_max`
 
 Maximum length of ancillary data and user control data like the iovecs per socket.
+
+
 
 ## Ioctls
 
