@@ -106,3 +106,4 @@ Host 2. Alter the default policy of `INPUT` to `DROP` and accept packets only fr
 ```
 
 This was already explained [here](https://stackoverflow.com/q/36856897/2231796). Again, it will be better used for routing decisions debugging(if you have more than one path between 2 hosts), since a `tcpdump -nevvv -i <interface> src host <source_host>` will be more than enough to just probe "icmp packet arrival".
+
