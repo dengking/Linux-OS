@@ -212,9 +212,13 @@ Set the mark for each packet sent through this socket (similar to the netfilter 
 
 If this option is enabled, **out-of-band data** is directly placed into the receive data stream.   Otherwise  out-of-band  data  is passed only when the `MSG_OOB` flag is set during receiving.
 
+
+
 ### `SO_PASSCRED`
 
 Enable or disable the receiving of the `SCM_CREDENTIALS` control message.  For more information see unix(7).
+
+
 
 ### `SO_PEEK_OFF` (since Linux 3.4)
 
@@ -325,6 +329,10 @@ Before Linux 2.6.28,  the `select(2)`  and  `poll(2)`  system  calls  currently 
 
 ### `SO_RCVTIMEO` and `SO_SNDTIMEO`
 
+> NOTE: 
+>
+> system call with timeout
+
 Specify the receiving or sending timeouts until reporting an error.  The argument is a `struct timeval`.  If an input  or  output function  blocks  for  this  period  of time, and data has been sent or received, the return value of that function will be the  amount of data transferred; if no data has been transferred and the timeout has been reached then -1 is returned with `errno` set to `EAGAIN` or `EWOULDBLOCK`, or `EINPROGRESS` (for `connect(2)`)  just as if the socket was specified to be **nonblocking**.  If the timeout is set to zero (the default) then the operation will never timeout.  Timeouts only have effect for system calls that  perform  socket  I/O  (e.g.,  `read(2)`,  `recvmsg(2)`,  `send(2)`,  `sendmsg(2)`);  timeouts  have  no  effect  for  `select(2)`,  `poll(2)`,  `epoll_wait(2)`, and so on.
 
 
@@ -359,6 +367,8 @@ Gets the socket type as an integer (e.g., `SOCK_STREAM`).  This socket option is
 ## Signals
 
  When writing onto a connection-oriented socket that has been shut down (by the local or the remote end) `SIGPIPE` is sent to the writing process and `EPIPE` is returned.  The signal is not sent when the write call specified the `MSG_NOSIGNAL` flag.
+
+> tag-POLLHUP-SIGPIPE-errno EPIPE-process send or receive on a broken stream读写一个关闭的stream
 
 When requested with the `FIOSETOWN` `fcntl(2)` or `SIOCSPGRP` `ioctl(2)`, `SIGIO` is sent when an I/O event  occurs.   It  is  possible  to  use `poll(2)`  or `select(2)` in the signal handler to find out which socket the event occurred on.  An alternative (in Linux 2.2) is to set a real-time signal using the `F_SETSIG` `fcntl(2)`; the handler of the real time signal will be called with the file descriptor in the `si_fd` field of its `siginfo_t`.  See `fcntl(2)` for more information.
 
