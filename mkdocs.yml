@@ -626,8 +626,12 @@ nav:
         - Introduction: Programming/IO/IO-multiplexing/What-is-IO-multiplexing/index.md
         - zhihu-What-is-IO-multiplexing:
           - Introduction: Programming/IO/IO-multiplexing/What-is-IO-multiplexing/zhihu-What-is-IO-multiplexing/index.md
-      - Implementation-in-OS: Programming/IO/IO-multiplexing/Implementation-in-OS.md
-      - Multiplex-on-file-and-time-event: Programming/IO/IO-multiplexing/Multiplex-on-file-and-time-event.md
+      - IO-events-and-IO-multiplexing:
+        - Introduction: Programming/IO/IO-multiplexing/IO-events-and-IO-multiplexing/index.md
+      - Multiplex-on-file-descriptor:
+        - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/index.md
+      - Implementation-in-OS:
+        - Introduction: Programming/IO/IO-multiplexing/Implementation-in-OS/index.md
       - epoll:
         - wikipedia-epoll:
           - Introduction: Programming/IO/IO-multiplexing/epoll/wikipedia-epoll/index.md
@@ -717,10 +721,12 @@ nav:
       - Introduction: Programming/IO/Buffered-queued-IO/index.md
   - Date-and-time:
     - Introduction: Programming/Date-and-time/index.md
-    - Date-and-Time: Programming/Date-and-time/Date-and-Time.md
-    - man-clock_gettime: Programming/Date-and-time/man-clock_gettime.md
+    - man-2-clock_gettime:
+      - Introduction: Programming/Date-and-time/man-2-clock_gettime/index.md
     - localtime:
       - Introduction: Programming/Date-and-time/localtime/index.md
+    - codeofmatt-List-of-2020-Leap-Day-Bugs:
+      - Introduction: Programming/Date-and-time/codeofmatt-List-of-2020-Leap-Day-Bugs/index.md
   - Signal:
     - Introduction: Programming/Signal/index.md
     - wikipedia-Signal(IPC):
