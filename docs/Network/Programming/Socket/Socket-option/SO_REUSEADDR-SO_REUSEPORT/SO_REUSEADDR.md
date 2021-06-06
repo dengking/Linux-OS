@@ -1,3 +1,6 @@
+# `SO_REUSEADDR`
+
+
 
 ## stackoverflow [What are the use cases of SO_REUSEADDR?](https://stackoverflow.com/questions/577885/what-are-the-use-cases-of-so-reuseaddr)
 
@@ -36,16 +39,16 @@ For **UDP**, `SO_REUSEADDR` is used for multicast.
 
 ([Source](http://www.kohala.com/start/mcast.api.txt))
 
-# [What is the purpose of SO_REUSEADDR? [duplicate\]](https://stackoverflow.com/questions/40576517/what-is-the-purpose-of-so-reuseaddr)
+
+
+## stackoverflow [What is the purpose of SO_REUSEADDR? [duplicate]](https://stackoverflow.com/questions/40576517/what-is-the-purpose-of-so-reuseaddr)
 
 
 
-## [A](https://stackoverflow.com/a/40577134)
+### [A](https://stackoverflow.com/a/40577134)
 
 For UDP sockets, setting the `SO_REUSEADDR` option allows multiple sockets to be open on the same port.
 
 If those sockets are also joined to a multicast group, any multicast packet coming in to that group and port will be delivered to all sockets open on that port.
 
 
-
-# [Using SO_REUSEADDR and SO_EXCLUSIVEADDRUSE](https://docs.microsoft.com/en-us/windows/win32/winsock/using-so-reuseaddr-and-so-exclusiveaddruse)

@@ -1,6 +1,4 @@
-[TOC]
-
-# [Socket options SO_REUSEADDR and SO_REUSEPORT, how do they differ? Do they mean the same across all major operating systems?](https://stackoverflow.com/questions/14388706/socket-options-so-reuseaddr-and-so-reuseport-how-do-they-differ-do-they-mean-t)
+# stackoverflow [How do SO_REUSEADDR and SO_REUSEPORT differ?](https://stackoverflow.com/questions/14388706/how-do-so-reuseaddr-and-so-reuseport-differ)
 
 The `man pages` and programmer documentations for the socket options `SO_REUSEADDR` and `SO_REUSEPORT` are different for different operating systems and often highly confusing. Some operating systems don't even have the option `SO_REUSEPORT`. The WEB is full of contradicting(自相矛盾的) information regarding this subject and often you can find information that is only true for one socket implementation of a specific operating system, which may not even be explicitly mentioned in the text.
 
@@ -14,15 +12,23 @@ And what exactly is the expected behavior if I use either one on different opera
 
 ## [A](https://stackoverflow.com/a/14388707)
 
-
-
 Welcome to the wonderful world of portability... or rather the lack of it. Before we start analyzing these two options in detail and take a deeper look how different operating systems handle them, it should be noted that the BSD socket implementation is the **mother** of all socket implementations. Basically all other systems copied the BSD socket implementation at some point in time (or at least its interfaces) and then started evolving it on their own. Of course the BSD socket implementation was evolved as well at the same time and thus systems that copied it later got features that were lacking in systems that copied it earlier. Understanding the BSD socket implementation is the key to understanding all other socket implementations, so you should read about it even if you don't care to ever write code for a BSD system.
+
+> NOTE: 
+>
+> 一、"BSD socket implementation is the **mother** of all socket implementations" 
+>
+> 这是历史的演进
 
 There are a couple of basics you should know before we look at these two options. A TCP/UDP **connection** is identified by a tuple of five values:
 
-```
+```shell
 {<protocol>, <src addr>, <src port>, <dest addr>, <dest port>}
 ```
+
+> NOTE: 
+>
+> TCP connection的五要素
 
 Any unique combination of these values identifies a **connection**. As a result, no two connections can have the same five values, otherwise the system would not be able to distinguish these connections any longer.
 
