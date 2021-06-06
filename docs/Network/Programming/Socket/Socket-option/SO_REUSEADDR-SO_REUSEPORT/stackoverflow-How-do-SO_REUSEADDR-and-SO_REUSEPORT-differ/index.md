@@ -34,13 +34,13 @@ Any unique combination of these values identifies a **connection**. As a result,
 
 The **protocol** of a socket is set when a socket is created with the `socket()` function. The **source address** and **port** are set with the `bind()` function. The **destination address** and **port** are set with the `connect()` function. Since `UDP` is a connectionless protocol, `UDP` sockets can be used without connecting them. Yet it is allowed to connect them and in some cases very advantageous for your code and general application design. In connectionless mode, `UDP` sockets that were not explicitly bound when data is sent over them for the first time are usually automatically bound by the system, as an **unbound UDP socket** cannot receive any (reply) data. Same is true for an **unbound TCP socket**, it is automatically bound before it will be connected.
 
-***SUMMARY*** : 参见APUE 16.3.4 Associating Addresses with Sockets
+> NOTE : 参见APUE 16.3.4 Associating Addresses with Sockets
 
 If you explicitly bind a socket, it is possible to bind it to port `0`, which means "any port". Since a socket cannot really be bound to all existing ports, the system will have to choose a specific port itself in that case (usually from a predefined, OS specific range of source ports). A similar wildcard exists for the **source address**, which can be "any address" (`0.0.0.0` in case of IPv4 and `::` in case of IPv6). Unlike in case of **ports**, a socket can really be bound to "any address" which means **"all source IP addresses of all local interfaces"**. If the socket is connected later on, the system has to choose a specific **source IP address**, since a socket cannot be connected and at the same time be bound to any local IP address. Depending on the **destination address** and the content of the **routing table**, the system will pick an appropriate **source address** and replace the "any" binding with a binding to the chosen source IP address.
 
 By default, no two sockets can be bound to the same combination of **source address** and **source port**. As long as the **source port** is different, the source address is actually irrelevant. Binding `socketA` to `A:X` and `socketB` to `B:Y`, where `A` and `B` are addresses and `X` and `Y` are ports, is always possible as long as `X != Y` holds true. However, even if `X == Y`, the binding is still possible as long as `A != B` holds true. E.g. `socketA` belongs to a FTP server program and is bound to `192.168.0.1:21` and `socketB` belongs to another FTP server program and is bound to `10.0.0.1:21`, both bindings will succeed. Keep in mind, though, that a socket may be locally bound to "any address". If a socket is bound to `0.0.0.0:21`, it is bound to all existing local addresses at the same time and in that case no other socket can be bound to port `21`, regardless which specific IP address it tries to bind to, as `0.0.0.0` conflicts with all existing local IP addresses.
 
-***SUMMARY*** : 最后一段话比较难以理解：它的意思是，如果一个socket绑定到了`0.0.0.0:21`，那么这就表示 it is bound to all existing local addresses at the same time，在这种情况下，它就占用了端口`21`，没有其他的socket能够bind到端口`21`；因为`0.0.0.0`和所有的存在的local IP address冲突；
+> NOTE : 最后一段话比较难以理解：它的意思是，如果一个socket绑定到了`0.0.0.0:21`，那么这就表示 it is bound to all existing local addresses at the same time，在这种情况下，它就占用了端口`21`，没有其他的socket能够bind到端口`21`；因为`0.0.0.0`和所有的存在的local IP address冲突；
 
 Anything said so far is pretty much equal for all major operating system. Things start to get OS specific when **address reuse** comes into play. We start with BSD, since as I said above, it is the mother of all socket implementations.
 
@@ -48,15 +48,15 @@ Anything said so far is pretty much equal for all major operating system. Things
 
 
 
-# BSD
+## BSD
 
-## `SO_REUSEADDR`
+### `SO_REUSEADDR`
 
 If `SO_REUSEADDR` is enabled on a socket prior to binding it, the socket can be successfully bound unless there is a conflict with another socket bound to **exactly** the same combination of **source address** and **port**. Now you may wonder how is that any different than before? The keyword is "**exactly**". `SO_REUSEADDR` mainly changes the way how **wildcard addresses** ("any IP address") are treated when searching for conflicts.
 
 Without `SO_REUSEADDR`, binding `socketA` to `0.0.0.0:21` and then binding `socketB` to `192.168.0.1:21` will fail (with error `EADDRINUSE`), since `0.0.0.0` means "any local IP address", thus all **local IP addresses** are considered in use by this socket and this includes `192.168.0.1`, too. With `SO_REUSEADDR` it will succeed, since `0.0.0.0` and `192.168.0.1` are **not exactly** the same address, one is a wildcard for all local addresses and the other one is a very specific local address. Note that the statement above is true regardless in which order `socketA` and `socketB` are bound; without `SO_REUSEADDR` it will always fail, with `SO_REUSEADDR` it will always succeed.
 
-***SUMMARY*** : 理解上一节中的***SUMMARY***是连接这段话的关键；
+> NOTE : 理解上一节中的> NOTE是连接这段话的关键；
 
 To give you a better overview, let's make a table here and list all possible combinations:
 
@@ -79,7 +79,7 @@ Okay, `SO_REUSEADDR` has an effect on **wildcard addresses**, good to know. Yet 
 
 A socket has a **send buffer** and if a call to the `send()` function succeeds, it does not mean that the requested data has actually really been sent out, it only means the data has been added to the **send buffer**. For **UDP sockets**, the data is usually sent pretty soon, if not immediately, but for **TCP sockets**, there can be a relatively long delay between adding data to the **send buffer** and having the TCP implementation really send that data. As a result, when you close a **TCP socket**, there may still be **pending data** in the **send buffer**, which has not been sent yet but your code considers it as sent, since the `send()` call succeeded. If the TCP implementation was closing the socket immediately on your request, all of this data would be lost and your code wouldn't even know about that. TCP is said to be a reliable protocol and losing data just like that is not very reliable. That's why a socket that still has data to send will go into a state called `TIME_WAIT` when you close it. In that state it will **wait** until all pending data has been successfully sent or until a **timeout** is hit, in which case the socket is closed forcefully.
 
-***SUMMARY*** : `send buffer`在man 7 socket中也有介绍；
+> NOTE : `send buffer`在man 7 socket中也有介绍；
 
 The amount of time the kernel will **wait** before it closes the socket, regardless if it still has data in flight or not, is called the *Linger Time*（磨蹭时间）. The *Linger Time* is globally configurable on most systems and by default rather long (two minutes is a common value you will find on many systems). It is also configurable per socket using the socket option `SO_LINGER` which can be used to make the timeout shorter or longer, and even to disable it completely. Disabling it completely is a very bad idea, though, since closing a TCP socket **gracefully** is a slightly complex process and involves sending forth and back a couple of packets (as well as resending those packets in case they got lost) and this whole close process is also limited by the *Linger Time*. If you disable lingering, your socket may not only lose data in flight, it is also always closed **forcefully** instead of **gracefully**, which is usually not recommended. The details about how a **TCP connection** is closed gracefully are beyond the scope of this answer, if you want to learn more about, I recommend you have a look at [this page](http://www.freesoft.org/CIE/Course/Section4/11.htm). And even if you disabled lingering with `SO_LINGER`, if your process dies without explicitly **closing** the socket, BSD (and possibly other systems) will linger nonetheless, ignoring what you have configured. This will happen for example if your code just calls `exit()` (pretty common for tiny, simple server programs) or the process is killed by a signal (which includes the possibility that it simply crashes because of an illegal memory access). So there is nothing you can do to make sure a socket will never linger under all circumstances.
 
@@ -87,7 +87,7 @@ The question is, how does the system treat a socket in state `TIME_WAIT`? If `SO
 
 There is one final thing you should know about `SO_REUSEADDR`. Everything written above will work as long as the socket you want to bind to has address reuse enabled. It is not necessary that the other socket, the one which is already bound or is in a `TIME_WAIT` state, also had this flag set when it was bound. The code that decides if the bind will succeed or fail only inspects the `SO_REUSEADDR` flag of the socket fed into the `bind()` call, for all other sockets inspected, this flag is not even looked at.
 
-## SO_REUSEPORT
+### SO_REUSEPORT
 
 `SO_REUSEPORT` is what most people would expect `SO_REUSEADDR` to be. Basically, `SO_REUSEPORT`allows you to bind an arbitrary number of sockets to **exactly** the same source address and port as long as **all** prior bound sockets also had `SO_REUSEPORT` set before they were bound. If the first socket that is bound to an address and port does not have `SO_REUSEPORT` set, no other socket can be bound to exactly the same address and port, regardless if this other socket has `SO_REUSEPORT`set or not, until the first socket releases its binding again. Unlike in case of `SO_REUESADDR` the code handling `SO_REUSEPORT` will not only verify that the currently bound socket has `SO_REUSEPORT` set but it will also verify that the socket with a conflicting address and port had `SO_REUSEPORT` set when it was bound.
 
@@ -95,7 +95,7 @@ There is one final thing you should know about `SO_REUSEADDR`. Everything writte
 
 There is not much more to say about `SO_REUSEPORT` other than that it was added later than `SO_REUSEADDR`, that's why you will not find it in many socket implementations of other systems, which "forked" the BSD code before this option was added, and that there was no way to bind two sockets to exactly the same socket address in BSD prior to this option.
 
-## Connect() Returning EADDRINUSE?
+### Connect() Returning EADDRINUSE?
 
 Most people know that `bind()` may fail with the error `EADDRINUSE`, however, when you start playing around with address reuse, you may run into the strange situation that `connect()` fails with that error as well. How can this be? How can a remote address, after all that's what connect adds to a socket, be already in use? Connecting multiple sockets to exactly the same remote address has never been a problem before, so what's going wrong here?
 
@@ -103,34 +103,34 @@ As I said on the very top of my reply, a connection is defined by a tuple of fiv
 
 So if you bind two sockets of the same protocol to the same source address and port and try to connect them both to the same destination address and port, `connect()` will actually fail with the error `EADDRINUSE` for the second socket you try to connect, which means that a socket with an identical tuple of five values is already connected.
 
-## Multicast Addresses
+### Multicast Addresses
 
 Most people ignore the fact that multicast addresses exist, but they do exist. While unicast addresses are used for one-to-one communication, multicast addresses are used for one-to-many communication. Most people got aware of multicast addresses when they learned about IPv6 but multicast addresses also existed in IPv4, even though this feature was never widely used on the public Internet.
 
 The meaning of `SO_REUSEADDR` changes for multicast addresses as it allows multiple sockets to be bound to exactly the same combination of source multicast address and port. In other words, for multicast addresses `SO_REUSEADDR` behaves exactly as `SO_REUSEPORT` for unicast addresses. Actually, the code treats `SO_REUSEADDR` and `SO_REUSEPORT` identically for multicast addresses, that means you could say that `SO_REUSEADDR` implies `SO_REUSEPORT` for all multicast addresses and the other way round.
 
-#  FreeBSD/OpenBSD/NetBSD
+##  FreeBSD/OpenBSD/NetBSD
 
 All these are rather late forks of the original BSD code, that's why they all three offer the same options as BSD and they also behave the same way as in BSD.
 
-#  macOS (MacOS X)
+##  macOS (MacOS X)
 
 At its core, macOS is simply a BSD-style UNIX named "*Darwin*", based on a rather late fork of the BSD code (BSD 4.3), which was then later on even re-synchronized with the (at that time current) FreeBSD 5 code base for the Mac OS 10.3 release, so that Apple could gain full POSIX compliance (macOS is POSIX certified). Despite having a microkernel at its core ("*Mach*"), the rest of the kernel ("*XNU*") is basically just a BSD kernel, and that's why macOS offers the same options as BSD and they also behave the same way as in BSD.
 
-## iOS / watchOS / tvOS
+### iOS / watchOS / tvOS
 
 iOS is just a macOS fork with a slightly modified and trimmed kernel, somewhat stripped down user space toolset and a slightly different default framework set. watchOS and tvOS are iOS forks, that are stripped down even further (especially watchOS). To my best knowledge they all behave exactly as macOS does.
 
-#  Linux
+##  Linux
 
-## Linux < 3.9
+### Linux < 3.9
 
 Prior to Linux 3.9, only the option `SO_REUSEADDR` existed. This option behaves generally the same as in BSD with two important exceptions:
 
 1. As long as a listening (server) TCP socket is bound to a specific port, the `SO_REUSEADDR` option is entirely ignored for all sockets targeting that port. Binding a second socket to the same port is only possible if it was also possible in BSD without having `SO_REUSEADDR` set. E.g. you cannot bind to a wildcard address and then to a more specific one or the other way round, both is possible in BSD if you set `SO_REUSEADDR`. What you can do is you can bind to the same port and two different non-wildcard addresses, as that's always allowed. In this aspect Linux is more restrictive than BSD.
 2. The second exception is that for client sockets, this option behaves exactly like `SO_REUSEPORT`in BSD, as long as both had this flag set before they were bound. The reason for allowing that was simply that it is important to be able to bind multiple sockets to exactly to the same UDP socket address for various protocols and as there used to be no `SO_REUSEPORT` prior to 3.9, the behavior of `SO_REUSEADDR` was altered accordingly to fill that gap. In that aspect Linux is less restrictive than BSD.
 
-## Linux >= 3.9
+### Linux >= 3.9
 
 Linux 3.9 added the option `SO_REUSEPORT` to Linux as well. This option behaves exactly like the option in BSD and allows binding to exactly the same address and port number as long as all sockets have this option set prior to binding them.
 
@@ -139,23 +139,23 @@ Yet, there are still two differences to `SO_REUSEPORT` on other systems:
 1. To prevent "port hijacking", there is one special limitation: **All sockets that want to share the same address and port combination must belong to processes that share the same effective user ID!** So one user cannot "steal" ports of another user. This is some special magic to somewhat compensate for the missing `SO_EXCLBIND`/`SO_EXCLUSIVEADDRUSE` flags.
 2. Additionally the kernel performs some "special magic" for `SO_REUSEPORT` sockets that isn't found in other operating systems: For UDP sockets, it tries to distribute datagrams evenly, for TCP listening sockets, it tries to distribute incoming connect requests (those accepted by calling `accept()`) evenly across all the sockets that share the same address and port combination. Thus an application can easily open the same port in multiple child processes and then use `SO_REUSEPORT` to get a very inexpensive load balancing.
 
-##  Android
+###  Android
 
 Even though the whole Android system is somewhat different from most Linux distributions, at its core works a slightly modified Linux kernel, thus everything that applies to Linux should apply to Android as well.
 
-#  Windows
+##  Windows
 
 Windows only knows the `SO_REUSEADDR` option, there is no `SO_REUSEPORT`. Setting `SO_REUSEADDR` on a socket in Windows behaves like setting `SO_REUSEPORT` and `SO_REUSEADDR` on a socket in BSD, with one exception: A socket with `SO_REUSEADDR` can always bind to exactly the same source address and port as an already bound socket, **even if the other socket did not have this option set when it was bound**. This behavior is somewhat dangerous because it allows an application "to steal" the connected port of another application. Needless to say, this can have major security implications. Microsoft realized that this might be a problem and thus added another socket option `SO_EXCLUSIVEADDRUSE`. Setting `SO_EXCLUSIVEADDRUSE` on a socket makes sure that if the binding succeeds, the combination of source address and port is owned exclusively by this socket and no other socket can bind to them, not even if it has `SO_REUSEADDR` set.
 
 For even more details on how the flags `SO_REUSEADDR` and `SO_EXCLUSIVEADDRUSE` work on Windows, how they influence binding/re-binding, Microsoft kindly provided a table similar to my table near the top of that reply. [Just visit this page](https://msdn.microsoft.com/en-us/library/windows/desktop/ms740621(v=vs.85).aspx) and scroll down a bit. Actually there are three tables, the first one shows the old behavior (prior Windows 2003), the second one the behavior (Windows 2003 and up) and the third one shows how the behavior changes in Windows 2003 and later if the `bind()`calls are made by different users.
 
-#  Solaris
+##  Solaris
 
 Solaris is the successor of SunOS. SunOS was originally based on a fork of BSD, SunOS 5 and later was based on a fork of SVR4, however SVR4 is a merge of BSD, System V, and Xenix, so up to some degree Solaris is also a BSD fork, and a rather early one. As a result Solaris only knows `SO_REUSEADDR`, there is no `SO_REUSEPORT`. The `SO_REUSEADDR` behaves pretty much the same as it does in BSD. As far as I know there is no way to get the same behavior as `SO_REUSEPORT` in Solaris, that means it is not possible to bind two sockets to exactly the same address and port.
 
 Similar to Windows, Solaris has an option to give a socket an exclusive binding. This option is named `SO_EXCLBIND`. If this option is set on a socket prior to binding it, setting `SO_REUSEADDR` on another socket has no effect if the two sockets are tested for an address conflict. E.g. if `socketA` is bound to a wildcard address and `socketB` has `SO_REUSEADDR` enabled and is bound to a non-wildcard address and the same port as `socketA`, this bind will normally succeed, unless `socketA`had `SO_EXCLBIND` enabled, in which case it will fail regardless the `SO_REUSEADDR` flag of `socketB`.
 
-#  Other Systems
+##  Other Systems
 
 In case your system is not listed above, I wrote a little test program that you can use to find out how your system handles these two options. **Also if you think my results are wrong**, please first run that program before posting any comments and possibly making false claims.
 
