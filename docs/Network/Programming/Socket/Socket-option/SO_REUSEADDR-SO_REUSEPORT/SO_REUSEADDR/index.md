@@ -51,4 +51,3 @@ For UDP sockets, setting the `SO_REUSEADDR` option allows multiple sockets to be
 
 If those sockets are also joined to a multicast group, any multicast packet coming in to that group and port will be delivered to all sockets open on that port.
 
-
