@@ -1,5 +1,7 @@
 # Send file
 
+一、典型的zero copy
+
 ## developer.51cto [高性能开发的“十大武器”，爱了爱了！# I/O优化：零拷贝技术](https://developer.51cto.com/art/202011/630654.htm) 
 
 > 在阅读 developer.51cto [高性能开发的“十大武器”，爱了爱了！# I/O优化：零拷贝技术](https://developer.51cto.com/art/202011/630654.htm) 时，其中介绍了 [man 2 sendfile](https://man7.org/linux/man-pages/man2/sendfile.2.html) :
