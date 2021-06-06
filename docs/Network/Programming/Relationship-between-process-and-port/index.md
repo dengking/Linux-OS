@@ -68,6 +68,8 @@ Unix提供了一个接口`setsockopt()`可以在bind之前设置套接字选项�
 
 ## Bind one process to multiple port
 
+这是天然就支持的。
+
 ### stackexchange [Bind one process to multiple ports?](https://unix.stackexchange.com/questions/128677/bind-one-process-to-multiple-ports)
 
 
@@ -91,3 +93,22 @@ Unix提供了一个接口`setsockopt()`可以在bind之前设置套接字选项�
 
 
 ### stackoverflow [Can two applications listen to the same port?](https://stackoverflow.com/questions/1694144/can-two-applications-listen-to-the-same-port)
+
+#### [A](https://stackoverflow.com/a/1694148)
+
+The answer differs depending on what OS is being considered. In general though:
+
+> NOTE: 
+>
+> 通常情况是这样的，即不需要进行特殊的处理
+
+For TCP, no. You can only have one application listening on the same port at one time. Now if you had 2 network cards, you could have one application listen on the first IP and the second one on the second IP using the same port number.
+
+For UDP (Multicasts), multiple applications can subscribe to the same port.
+
+> NOTE: 
+>
+> 上面这段话是没有解释清楚的，在 stackoverflow [What are the use cases of SO_REUSEADDR?](https://stackoverflow.com/questions/577885/what-are-the-use-cases-of-so-reuseaddr) # [A](https://stackoverflow.com/a/577905) 中，有着更加清楚的说明
+
+Edit: Since Linux Kernel 3.9 and later, support for multiple applications listening to the same port was added using the `SO_REUSEPORT` option. More information is available at [this lwn.net article.](https://lwn.net/Articles/542629/)
+

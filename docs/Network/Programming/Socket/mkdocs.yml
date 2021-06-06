@@ -3,6 +3,6 @@ nav:
     - man-7-socket: man-7-socket
     - man-2-socket: man-2-socket
     - man-7-address_families: man-7-address_families
-    - Socket-operation: Socket-operation
+    - Socket-option: Socket-option
     - Control-message: Control-message
     - Out-of-band: Out-of-band
