@@ -1,4 +1,5 @@
 nav:
+    - Introduction: index.md
     - Troubleshoot-local-network: Troubleshoot-local-network
     - Troubleshoot-remote-network: Troubleshoot-remote-network
     - Troubleshoot-packet-loss: Troubleshoot-packet-loss

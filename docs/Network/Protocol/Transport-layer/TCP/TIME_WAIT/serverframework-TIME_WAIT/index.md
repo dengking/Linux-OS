@@ -1,6 +1,4 @@
-[TOC]
-
-# `TIME_WAIT` and its design implications for protocols and scalable client server systems
+# serverframework [`TIME_WAIT` and its design implications for protocols and scalable client server systems](http://www.serverframework.com/asynchronousevents/2011/01/time-wait-and-its-design-implications-for-protocols-and-scalable-servers.html)
 
 When building TCP client server systems it's easy to make simple mistakes which can severely limit scalability. One of these mistakes is failing to take into account the `TIME_WAIT` state. In this blog post I'll explain why `TIME_WAIT` exists, the problems that it can cause, how you can work around it, and when you shouldn't.
 
@@ -24,7 +22,7 @@ Now that we know how a socket ends up in `TIME_WAIT` it's useful to understand w
 
 `TIME_WAIT` is often also known as the 2MSL wait state. This is because the socket that transitions to `TIME_WAIT` stays there for a period that is *2 x Maximum Segment Lifetime* in duration. The MSL is the maximum amount of time that any segment, for all intents and purposes a datagram that forms part of the TCP protocol, can remain valid on the network before being discarded. This time limit is ultimately bounded by the TTL field in the **IP datagram** that is used to transmit the **TCP segment**. Different implementations select different values for MSL and common values are **30 seconds**, 1 minute or 2 minutes. RFC 793 specifies MSL as 2 minutes and Windows systems default to this value but [can be tuned using the **TcpTimedWaitDelay** registry setting](http://technet.microsoft.com/en-us/library/cc938217.aspx).
 
-***SUMMARY*** : 参见[Wikipedia Maximum segment lifetime](https://en.wikipedia.org/wiki/Maximum_segment_lifetime)
+> NOTE: 参见[Wikipedia Maximum segment lifetime](https://en.wikipedia.org/wiki/Maximum_segment_lifetime)
 
 The reason that `TIME_WAIT` can affect system scalability is that one socket in a TCP connection that is shut down cleanly will stay in the `TIME_WAIT` state for around 4 minutes. If many connections are being opened and closed quickly then socket's in `TIME_WAIT` may begin to accumulate on a system; you can view sockets in `TIME_WAIT` using **netstat**. There are a finite number of socket connections that can be established at one time and one of the things that limits this number is the number of available **local ports**. If too many sockets are in `TIME_WAIT` you will find it difficult to establish new outbound connections due to there being a lack of local ports that can be used for the new connections. But why does `TIME_WAIT` exist at all?
 

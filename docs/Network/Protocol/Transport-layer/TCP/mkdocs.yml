@@ -1,7 +1,8 @@
 nav:
-    - Transmission-Control-Protocol: Transmission-Control-Protocol.md
+    - wikipedia-Transmission-Control-Protocol: wikipedia-Transmission-Control-Protocol
+    - man-7-TCP: man-7-TCP    
     - SEQ-and-ACK: SEQ-and-ACK
     - TCP-connection: TCP-connection
     - TCP-data-transfer: TCP-data-transfer
-    - man-7-TCP: man-7-TCP.md
-    - TCP-troubleshoot: TCP-troubleshoot.md
+
+    - TIME_WAIT: TIME_WAIT
