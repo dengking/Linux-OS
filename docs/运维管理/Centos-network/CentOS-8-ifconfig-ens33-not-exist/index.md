@@ -33,6 +33,10 @@ nmcli n on
 systemctl restart NetworkManager
 ```
 
+> NOTE: 
+>
+> 上述方式可行
+
 可喜可贺，ens33重见天日。
 
 在此鸣谢这位作者大大，文章指路👉：[我是链接](https://www.codenong.com/cs106977483/)
