@@ -32,13 +32,13 @@ SSO is the **Short / Small String Optimization**. A `std::string` typically stor
 
 ### 2) stackoverflow [What and where are the stack and heap?](https://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap) # [A](https://stackoverflow.com/a/80113)
 
-The stack is faster because the access pattern makes it trivial to allocate and deallocate memory from it (a pointer/integer is simply incremented or decremented), while the heap has much more complex bookkeeping involved in an allocation or deallocation. Also, each byte in the stack tends to be reused very frequently which means it tends to be mapped to the processor's cache, making it very fast. Another performance hit for the heap is that the heap, being mostly a global resource, typically has to be **multi-threading safe**, i.e. each allocation and deallocation needs to be - typically - synchronized with "all" other heap accesses in the program.
+The stack is faster because the access pattern makes it trivial to allocate and deallocate memory from it (a pointer/integer is simply incremented or decremented), while the heap has much more complex bookkeeping involved in an allocation or deallocation. Also, each byte in the stack tends to be reused very frequently which means it tends to be mapped to the **processor's cache**, making it very fast. Another performance hit for the heap is that the heap, being mostly a global resource, typically has to be **multi-threading safe**, i.e. each allocation and deallocation needs to be - typically - synchronized with "all" other heap accesses in the program.
 
 ## Benchmark
 
 前面给出了理论的分析，那么我们要如何来进行验证呢? 下面是以C++ `std::string`来进行说明的例子，关于C++ `std::string`的实现，参见 工程programming language的 `C-and-C++\String\C++string` 章节，它是非常能够体现Operation on the stack VS operation on the heap: 
 
-#### stackoverflow [Meaning of acronym SSO in the context of std::string](https://stackoverflow.com/questions/10315041/meaning-of-acronym-sso-in-the-context-of-stdstring) # [A](https://stackoverflow.com/a/51796541) # Benchmarks
+### stackoverflow [Meaning of acronym SSO in the context of std::string](https://stackoverflow.com/questions/10315041/meaning-of-acronym-sso-in-the-context-of-stdstring) # [A](https://stackoverflow.com/a/51796541) # Benchmarks
 
 As already explained by the other answers, SSO means **Small / Short String Optimization**. The motivation behind this optimization is the undeniable(不可否认的) evidence that applications in general handle much more shorter strings than longer strings.
 
