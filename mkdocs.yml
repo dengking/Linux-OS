@@ -224,6 +224,18 @@ nav:
     - Introduction: System-call/System-call-classification/index.md
   - Interrupted-system-call:
     - Introduction: System-call/Interrupted-system-call/index.md
+  - Zero-copy:
+    - Introduction: System-call/Zero-copy/index.md
+    - linuxjournal-Zero-Copy-I-User-Mode-Perspective:
+      - Introduction: System-call/Zero-copy/linuxjournal-Zero-Copy-I-User-Mode-Perspective/index.md
+    - developpaper-Analysis-of-zero-copy-technology-in-Linux:
+      - Introduction: System-call/Zero-copy/developpaper-Analysis-of-zero-copy-technology-in-Linux/index.md
+    - joshbialkowski-Linux-Zero-Copy:
+      - Introduction: System-call/Zero-copy/joshbialkowski-Linux-Zero-Copy/index.md
+    - "splice\u7CFB\u5217-zero-copy-system-call":
+      - Introduction: "System-call/Zero-copy/splice\u7CFB\u5217-zero-copy-system-call/index.md"
+    - Zero-copy-VS-COW-copy-on-write:
+      - Introduction: System-call/Zero-copy/Zero-copy-VS-COW-copy-on-write/index.md
 - Multitasking:
   - Introduction: Multitasking/index.md
   - Process-model:
@@ -721,6 +733,10 @@ nav:
         - Introduction: Programming/IO/Tools/man-1-lsof/index.md
     - Buffered-queued-IO:
       - Introduction: Programming/IO/Buffered-queued-IO/index.md
+    - Vectored-IO:
+      - Introduction: Programming/IO/Vectored-IO/index.md
+      - man-2-readv-writev:
+        - Introduction: Programming/IO/Vectored-IO/man-2-readv-writev/index.md
   - Date-and-time:
     - Introduction: Programming/Date-and-time/index.md
     - man-2-clock_gettime:
@@ -795,7 +811,8 @@ nav:
       - Symbol-of-shared-library:
         - Introduction: Programming/Object-file/Shared-library/Symbol-of-shared-library/index.md
       - Tools:
-        - ldd: Programming/Object-file/Shared-library/Tools/ldd.md
+        - man-1-ldd:
+          - Introduction: Programming/Object-file/Shared-library/Tools/man-1-ldd/index.md
     - Symbol:
       - Introduction: Programming/Object-file/Symbol/index.md
       - nm:
@@ -1140,14 +1157,6 @@ nav:
         - lscpu: Shell-and-tool/Tools/Hardware/CPU/lscpu.md
     - Cron:
       - Introduction: Shell-and-tool/Tools/Cron/index.md
-    - Misc:
-      - Introduction: Shell-and-tool/Tools/Misc/index.md
-      - Valgrind:
-        - Introduction: Shell-and-tool/Tools/Misc/Valgrind/index.md
-      - gperftools:
-        - Introduction: Shell-and-tool/Tools/Misc/gperftools/index.md
-        - Heap-checker:
-          - Introduction: Shell-and-tool/Tools/Misc/gperftools/Heap-checker/index.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Linux-OS
