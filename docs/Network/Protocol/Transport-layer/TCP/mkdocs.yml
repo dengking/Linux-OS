@@ -1,5 +1,7 @@
 nav:
+    - Course-miami-TCP-in-a-nutshell: Course-miami-TCP-in-a-nutshell
     - wikipedia-Transmission-Control-Protocol: wikipedia-Transmission-Control-Protocol
+    - TCP-connection-tuple: TCP-connection-tuple
     - man-7-TCP: man-7-TCP    
     - SEQ-and-ACK: SEQ-and-ACK
     - TCP-connection: TCP-connection

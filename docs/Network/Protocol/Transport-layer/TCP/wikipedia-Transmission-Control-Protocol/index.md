@@ -10,7 +10,7 @@
 
 > 原文中并没有说明此，这是我自己添加的
 
-每个request，都会收到一个response，这个response是用于acknowledge的，即接收方告诉发送方: 收到了request，我们往往将其称之为ACK response，这样才算是完成了这个请求；
+每个request，都会收到一个response，这个response是用于acknowledge的，即接收方告诉发送方: 收到了request，我们往往将其称之为**ACK response**，这样才算是完成了这个请求；
 
 对于ACK，是不需要再ACK的，否则就会导致无限的递归下去；
 
