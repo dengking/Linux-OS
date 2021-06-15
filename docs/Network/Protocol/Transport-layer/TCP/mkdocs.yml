@@ -6,5 +6,4 @@ nav:
     - SEQ-and-ACK: SEQ-and-ACK
     - TCP-connection: TCP-connection
     - TCP-data-transfer: TCP-data-transfer
-
     - TIME_WAIT: TIME_WAIT

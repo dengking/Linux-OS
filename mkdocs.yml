@@ -835,8 +835,12 @@ nav:
         - Introduction: Network/Protocol/Network-layer/man-7-ipv6/index.md
     - Transport-layer:
       - TCP:
+        - Course-miami-TCP-in-a-nutshell:
+          - Introduction: Network/Protocol/Transport-layer/TCP/Course-miami-TCP-in-a-nutshell/index.md
         - wikipedia-Transmission-Control-Protocol:
           - Introduction: Network/Protocol/Transport-layer/TCP/wikipedia-Transmission-Control-Protocol/index.md
+        - TCP-connection-tuple:
+          - Introduction: Network/Protocol/Transport-layer/TCP/TCP-connection-tuple/index.md
         - man-7-TCP:
           - Introduction: Network/Protocol/Transport-layer/TCP/man-7-TCP/index.md
         - SEQ-and-ACK:
@@ -941,6 +945,10 @@ nav:
       - Introduction: Network/Programming/TCP-Wrappers/index.md
     - Relationship-between-process-and-port:
       - Introduction: Network/Programming/Relationship-between-process-and-port/index.md
+  - Expert-packetlife:
+    - Introduction: Network/Expert-packetlife/index.md
+    - packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers:
+      - Introduction: Network/Expert-packetlife/packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers/index.md
   - Tools:
     - Introduction: Network/Tools/index.md
     - Packet-analyzer:
@@ -968,6 +976,14 @@ nav:
         - Introduction: Network/Tools/Troubleshoot/Troubleshoot-remote-network/index.md
       - Troubleshoot-packet-loss:
         - Introduction: Network/Tools/Troubleshoot/Troubleshoot-packet-loss/index.md
+  - Glossary:
+    - Introduction: Network/Glossary/index.md
+    - Wire-protocol:
+      - Introduction: Network/Glossary/Wire-protocol/index.md
+    - Host(network):
+      - Introduction: Network/Glossary/Host(network)/index.md
+    - Hostname:
+      - Introduction: Network/Glossary/Hostname/index.md
 - Security:
   - Introduction: Security/index.md
   - Capability-based-security:

@@ -38,7 +38,7 @@ TCP的状态: TCP是有一定状态的，TCP操作会触发状态的转换，因
 
 非常的简练。
 
-### Terminology
+## Terminology
 
 endpoint: 一个TCP有两个endpoint
 
