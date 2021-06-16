@@ -6,16 +6,16 @@
 
 ### Purpose
 
-在`Network\Theory\TCP\Transmission-Control-Protocol.md`的“Row3”节，有这样的说明: 
+在`wikipedia-Transmission-Control-Protocol`的“Row3”节，有这样的说明: 
 
 > Sequence number 和 Acknowledgment number是TCP实现在”4.4 Data transfer“中介绍的“Reliable transmission” 特性的关键。
 
-在`Network\Theory\TCP\Transmission-Control-Protocol.md`的Guide中，我们已经知道TCP协议要求所有的通信都是request-response的，即
+在`wikipedia-Transmission-Control-Protocol`的Guide中，我们已经知道TCP协议要求所有的通信都是request-response的，即
 
 > 每个request，都会收到一个response，这个response是用于acknowledge的，即对方告诉发送方: 收到了request，我们往往将其称之为ACK response，这样才算是完成了这个请求；
 
 
-一个完整的请求才会导致SEQ number的增长，也就是说**发送方**是在收到ACK response的时候，才会更新它的SEQ number，或者说SEQ number的计算是基于完整的请求的，而不是基于它所发送的TCP segment( 其中也包括了ACK response)，这就是说ACK TCP segment是不会导致SEQ number的变动的，下面是简单的规则: 
+一个完整的请求才会导致SEQ number的增长，也就是说**发送方**是在收到ACK response的时候，才会更新它的SEQ number，或者说SEQ number的计算是基于完整的请求的，而不是基于它所发送的TCP segment( 其中也包括了ACK response)，这就是说TCP ACK segment是不会导致SEQ number的变动的，下面是简单的规则: 
 
 1、对于SYN、FIN 请求，SEQ number增长1（这是比较特殊的，后面会解释这样做的原因）
 
@@ -45,7 +45,7 @@ The sequence number is always valid. The acknowledgement number is only valid wh
 >
 > 例如：如果 FIN 信号不占用一个字节，回复 FIN 的 ack 包就可能被误认为是回复之前的数据包被重新发送了一次，第二次挥手无法完成，连接也就无法正常关闭了。
 
-## 思考: 为什么SYN和ACK的初始值（ISN initialization sequence number）是一个随机值?
+## 思考: 为什么SYN sequence number的初始值（ISN initialization sequence number）是一个随机值?
 
 在cnblogs [TCP 中的Sequence Number](https://www.cnblogs.com/JenningsMao/p/9487252.html)中对这个问题进行了回答:
 

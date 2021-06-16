@@ -54,8 +54,15 @@ After full closure, a TCP connection is required to wait for twice the maximum s
 
 > NOTE: 
 >
-> 上面这段话中的"re-FIN"是指什么？
+> "It also aids in completing the close. The sender of the last ACK does not know if the ACK was recieved. The last ACK is not ACK'ed, by definition of being last. If a re-FIN is not received in 2MSL, it can be assumed that the last ACK was heard and accepted."
+>
+> 关于这段话的理解，参见 "coolshell [TCP 的那些事儿（上）](https://coolshell.cn/articles/11564.html) # **关于 MSL 和 TIME_WAIT**"，其中对此进行了非常好的解释。
+>
+> 上面这段话中的"re-FIN"是指什么？指的是重新发送FIN。
+>
+> 
 
 ## Connection reset
 
 A packet with RST flag set aborts (resets) the connection. A SYN to a non-listening port will be ack'ed, but the ACK packet will have the RST flag set. The initiating party will immediately abort. A packet with RST set can be sent during a communication, for example, if an invalid sequence number is received. The connection is immediately aborted by both parties. A RST is not ACK'ed.
+
