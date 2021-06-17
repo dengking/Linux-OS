@@ -6,7 +6,7 @@ TCP（transport control protocol，传输控制协议）是面向连接的，面
 
 
 
-## 维基百科[Nagle's algorithm](https://en.wikipedia.org/wiki/Nagle's_algorithm)
+## wikipedia [Nagle's algorithm](https://en.wikipedia.org/wiki/Nagle's_algorithm)
 
 
 

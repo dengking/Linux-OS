@@ -8,45 +8,6 @@
 
 
 
-> NOTE: TCP数据传输的核心特性
-
-The Transmission Control Protocol differs in several key features from the [User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protocol):
-
-| features                       | 注解                                          |
-| ------------------------------ | --------------------------------------------- |
-| Ordered data transfer          | 在下面的“Reliable transmission”会进行详细介绍 |
-| Retransmission of lost packets | 简单来说就是“补漏”                            |
-| Error-free data transfer       | 无错传输                                      |
-| Flow control                   | 流控                                          |
-| Congestion control             | 拥塞控制                                      |
-
-> NOTE: 下面将上述Ordered data transfer、Retransmission of lost packets、Error-free data transfer统称为Reliable transmission。
-
-
-
-### [Reliable transmission](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Reliable_transmission)
-
-> NOTE: TCP是否会等收到ACK后，才传下一个segment？
-
-
-
-**Reliability** is achieved by the **sender** detecting lost data and retransmitting it. TCP uses two primary techniques to identify loss:
-
-- Retransmission timeout (abbreviated as RTO) 
-- Duplicate cumulative acknowledgements (DupAcks).
-
-
-
-#### Dupack-based retransmission
-
-> NOTE: 
-
-#### Timeout-based retransmission
-
-### [Error detection](https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Error_detection)
-
-
-
 ## Implementation综述
 
 参考:

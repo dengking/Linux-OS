@@ -66,3 +66,28 @@ After full closure, a TCP connection is required to wait for twice the maximum s
 
 A packet with RST flag set aborts (resets) the connection. A SYN to a non-listening port will be ack'ed, but the ACK packet will have the RST flag set. The initiating party will immediately abort. A packet with RST set can be sent during a communication, for example, if an invalid sequence number is received. The connection is immediately aborted by both parties. A RST is not ACK'ed.
 
+## Window
+
+Each side of a TCP connection advertises a window size. A connection is allowed to have that number of bytes sent but unacknowledged. Each packet gives an ack, a sequence number ack'ed, and a window. If the ack is x, and the window size is w, bytes up to x+w can be sent. (Yes, one byte beyound end of window is allowed, see window probe.) The purpose of this is to flow control based on the applications consumption of data. It is not a network flow control device, that is, a congestion control device.
+
+### Interactive data flow: delayed acks
+
+Hold off ack for return trip data, piggy-back ack. (200 ms timer)
+
+### Interactive data flow: Nagel
+
+Only one outstanding tiny-gram. Turn off for mouse movements, unrequited important tiny-grams.
+
+### Bulk data flow: slow start
+
+Congestion window. Can have cwnd segments (not bytes) un-acked. After all segements are ack'ed, double cwnd. Once packets get dropped, doubling will stop. Send the min of cwnd segments and windows size bytes.
+
+## Resend: round-trip timer
+
+
+
+## Persist timer, silly window
+
+If window is zero, the window will be opened by an ACK with previous ISN but non-zero window. What if this packet is dropped? Since ACK's are not ack'ed, the round-trip timer does not help. So under these conditions a window probe is done at each persist time expiration. A window probe is one byte of data beyond the end of window. The ACK will not change ISN and still have window 0 if window is still closed. Else a new ACK ISN and a new window will be advertised and the byte beyond the end of window is accepted (?)
+
+## Keep-alive and its timer
