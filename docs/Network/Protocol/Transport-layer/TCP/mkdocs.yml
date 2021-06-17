@@ -3,7 +3,7 @@ nav:
     #####下面三篇是入门guide#####
     - Course-miami-TCP-in-a-nutshell: Course-miami-TCP-in-a-nutshell # guide1
     
-    - TCP的那些事儿: TCP的那些事儿 # guide2
+    - coolshell-TCP的那些事儿: coolshell-TCP的那些事儿 # guide2
     
     - wikipedia-Transmission-Control-Protocol: wikipedia-Transmission-Control-Protocol # guide3
     

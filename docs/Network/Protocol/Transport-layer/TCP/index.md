@@ -46,3 +46,40 @@ TCP的状态: TCP是有一定状态的，TCP操作会触发状态的转换，因
 endpoint: 一个TCP有两个endpoint
 
 session: 一个TCP session
+
+
+
+## 内容概述
+
+TCP是一个复杂的协议，涉及非常多的内容，本章的目录结构是参考 wikipedia [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) 的目录结构 
+
+首先是介绍TCP非常好的文章:
+
+| 章节                                      | 内容                                                         |
+| ----------------------------------------- | ------------------------------------------------------------ |
+| `Course-miami-TCP-in-a-nutshell`          | miami [TCP in a nutshell](https://www.cs.miami.edu/home/burt/learning/Csc524.032/notes/tcp_nutshell.html) |
+| `coolshell-TCP的那些事儿`                 | coolshell [TCP 的那些事儿（上）](https://coolshell.cn/articles/11564.html)、[TCP 的那些事儿（下）](https://coolshell.cn/articles/11609.html) |
+| `wikipedia-Transmission-Control-Protocol` | wikipedia [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) |
+
+然后介绍TCP中的一些概念:
+
+| 章节                           | 内容                         |
+| ------------------------------ | ---------------------------- |
+| `TCP-connection`               | 解释TCP链接                  |
+| `MSL-Maximum-segment-lifetime` | 解释Maximum-segment-lifetime |
+
+如何介绍一个TCP session的lifetime，主要分为三个阶段:
+
+| 章节                         | 内容               |
+| ---------------------------- | ------------------ |
+| `Connection-synchronization` | 建立TCP connection |
+| `Data-transfer`              | 传输数据           |
+| `Connection-termination`     | 断开TCP连接        |
+
+其他:
+
+| 章节        | 内容 |
+| ----------- | ---- |
+| `man-7-TCP` |      |
+|             |      |
+
