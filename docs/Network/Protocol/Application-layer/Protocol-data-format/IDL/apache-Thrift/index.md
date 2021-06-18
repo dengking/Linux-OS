@@ -10,3 +10,5 @@ Thrift is an **interface definition language** and **binary communication protoc
 
 ## [Apache Thrift](https://thrift.apache.org/) 
 
+
+

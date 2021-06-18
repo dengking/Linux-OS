@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
-    - Thrift-Scalable-Cross-Language-Services-Implementation: Thrift-Scalable-Cross-Language-Services-Implementation.md
+    - paper-Thrift-Scalable-Cross-Language-Services-Implementation: paper-Thrift-Scalable-Cross-Language-Services-Implementation
+    - cnblogs-thrift的原理和使用: cnblogs-thrift的原理和使用
+    - zhihu-Thrift的那些服务模型: zhihu-Thrift的那些服务模型
