@@ -898,11 +898,22 @@ nav:
         - IDL:
           - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/index.md
           - Schema-evaluation: Network/Protocol/Application-layer/Protocol-data-format/IDL/Schema-evaluation.md
-          - apache-Thrift:
-            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/apache-Thrift/index.md
-            - Thrift-Scalable-Cross-Language-Services-Implementation: Network/Protocol/Application-layer/Protocol-data-format/IDL/apache-Thrift/Thrift-Scalable-Cross-Language-Services-Implementation.md
-          - Protobuf:
-            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Protobuf/index.md
+          - Apache-Thrift:
+            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Apache-Thrift/index.md
+            - paper-Thrift-Scalable-Cross-Language-Services-Implementation:
+              - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Apache-Thrift/paper-Thrift-Scalable-Cross-Language-Services-Implementation/index.md
+            - "cnblogs-thrift\u7684\u539F\u7406\u548C\u4F7F\u7528":
+              - Introduction: "Network/Protocol/Application-layer/Protocol-data-format/IDL/Apache-Thrift/cnblogs-thrift\u7684\
+                  \u539F\u7406\u548C\u4F7F\u7528/index.md"
+            - "zhihu-Thrift\u7684\u90A3\u4E9B\u670D\u52A1\u6A21\u578B":
+              - Introduction: "Network/Protocol/Application-layer/Protocol-data-format/IDL/Apache-Thrift/zhihu-Thrift\u7684\
+                  \u90A3\u4E9B\u670D\u52A1\u6A21\u578B/index.md"
+          - Google-Protobuf:
+            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Google-Protobuf/index.md
+          - POCO:
+            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/POCO/index.md
+            - POCO-PRO-C++framework:
+              - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/POCO/POCO-PRO-C++framework/index.md
       - Domain-Name-System:
         - Introduction: Network/Protocol/Application-layer/Domain-Name-System/index.md
         - "TODO-\u6839\u57DF\u540D\u670D\u52A1\u5668\u662F\u5426\u53EA\u670913\u53F0":
