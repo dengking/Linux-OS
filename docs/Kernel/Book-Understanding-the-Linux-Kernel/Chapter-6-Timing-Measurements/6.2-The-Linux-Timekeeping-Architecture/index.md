@@ -4,7 +4,7 @@ Linux must carry on several time-related activities. For instance, the kernel pe
 
 - Updates the time elapsed since system startup.
 - Updates the time and date.
-- Determines, for every CPU, how long the current process has been running, and **preempts** it if it has exceeded the time allocated to it. The allocation of time slots (also called "quanta") is discussed in [Chapter 7](../Chapter-7-Process-Scheduling/Chapter-7-Process-Scheduling.md).
+- Determines, for every CPU, how long the current process has been running, and **preempts** it if it has exceeded the time allocated to it. The allocation of time slots (also called "quanta") is discussed in Chapter 7.
 - Updates resource usage statistics.
 - Checks whether the **interval** of time associated with each **software timer** (see the later section "Software Timers and Delay Functions") has elapsed.
 

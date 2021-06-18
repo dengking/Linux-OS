@@ -10,7 +10,7 @@ Linux OS中有如下control path：
 
 2、kernel thread
 
-3、task（process/thread，现代OS需要支持[multitasking](./00-Multitask.md)）
+3、task（process/thread，现代OS需要支持"multitasking"）
 
 在本书的有些章节会使用“execution context”、“execution flow”等词语，其实它们和本文所定义的control path表示的是相同的意思。
 

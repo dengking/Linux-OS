@@ -1,6 +1,3 @@
 nav:
     - Introduction: index.md
     - Schema-evaluation: Schema-evaluation.md
-    - Apache-Thrift: Apache-Thrift
-    - Google-Protobuf: Google-Protobuf
-    - POCO: POCO

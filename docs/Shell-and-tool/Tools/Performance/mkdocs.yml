@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
     - System-load: System-load
-    - perf: perf
+    - man-1-perf: man-1-perf
     - sysstat: sysstat

@@ -5,6 +5,6 @@ nav:
     - Trace: Trace.md
     - GDB: GDB
     - Stack-trace: Stack-trace
-    - System-call-trace: System-call-trace
+    - trace-system-call: trace-system-call
     - Library-call-tracer: Library-call-tracer
     - Application: Application

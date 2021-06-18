@@ -445,6 +445,17 @@ nav:
           - Introduction: Multitasking/Linux-thread/Synchronization/Condition-variables/man-3-pthread_cond_timedwait/index.md
       - man-2-futex:
         - Introduction: Multitasking/Linux-thread/Synchronization/man-2-futex/index.md
+  - Limit:
+    - Introduction: Multitasking/Limit/index.md
+    - Limit-via-configuration: Multitasking/Limit/Limit-via-configuration.md
+    - Limit-via-system-call: Multitasking/Limit/Limit-via-system-call.md
+    - man-ulimit:
+      - Introduction: Multitasking/Limit/man-ulimit/index.md
+    - Process-resource-limits-under-the-hood: Multitasking/Limit/Process-resource-limits-under-the-hood.md
+    - man-5-limits.conf:
+      - Introduction: Multitasking/Limit/man-5-limits.conf/index.md
+    - man-5-sysctl.conf:
+      - Introduction: Multitasking/Limit/man-5-sysctl.conf/index.md
   - Credential:
     - man-7-credentials:
       - Introduction: Multitasking/Credential/man-7-credentials/index.md
@@ -510,6 +521,8 @@ nav:
       - Introduction: Programming/Book-APUE/9-Process-Relationships/index.md
     - 10-Signals:
       - Introduction: Programming/Book-APUE/10-Signals/index.md
+      - 10.2-Signal-Concepts:
+        - Introduction: Programming/Book-APUE/10-Signals/10.2-Signal-Concepts/index.md
       - 10.6-Reentrant-Functions:
         - Introduction: Programming/Book-APUE/10-Signals/10.6-Reentrant-Functions/index.md
       - 10.5-Interrupted-System-Calls:
@@ -544,8 +557,12 @@ nav:
       - Introduction: Programming/Book-APUE/Race-condition/index.md
   - Book-TLPL:
     - Introduction: Programming/Book-TLPL/index.md
+    - TLPI-Self-pipe-trick:
+      - Introduction: Programming/Book-TLPL/TLPI-Self-pipe-trick/index.md
   - Book-UNP:
     - Introduction: Programming/Book-UNP/index.md
+    - Chapter-6-IO-Multiplexing-The-select-and-poll-Functions:
+      - 6.1-Introduction: Programming/Book-UNP/Chapter-6-IO-Multiplexing-The-select-and-poll-Functions/6.1-Introduction.md
   - Common:
     - Linux-name-convention:
       - Introduction: Programming/Common/Linux-name-convention/index.md
@@ -783,8 +800,6 @@ nav:
       - Linux-log-files: Programming/Util/Log/Linux-log-files.md
       - Syslog:
         - Syslog: Programming/Util/Log/Syslog/Syslog.md
-  - Terminal:
-    - Introduction: Programming/Terminal/index.md
   - Computer-errors:
     - Introduction: Programming/Computer-errors/index.md
     - CWE:
@@ -821,7 +836,12 @@ nav:
         - Introduction: Programming/Object-file/Symbol/nm/index.md
   - Core-dump:
     - Introduction: Programming/Core-dump/index.md
-  - Terminal: Terminal
+  - Terminal:
+    - Introduction: Programming/Terminal/index.md
+    - linusakesson-The-TTY-demystified:
+      - Introduction: Programming/Terminal/linusakesson-The-TTY-demystified/index.md
+    - tty-pty:
+      - Introduction: Programming/Terminal/tty-pty/index.md
 - Network:
   - Introduction: Network/index.md
   - Protocol:
@@ -887,6 +907,10 @@ nav:
           - Introduction: Network/Protocol/Transport-layer/TCP/man-7-TCP/index.md
       - UDP:
         - Introduction: Network/Protocol/Transport-layer/UDP/index.md
+        - "tencent-\u544A\u77E5\u4F60\u4E0D\u4E3A\u4EBA\u77E5\u7684UDP\u7591\u96BE\u6742\u75C7\u548C\u4F7F\u7528":
+          - Introduction: "Network/Protocol/Transport-layer/UDP/tencent-\u544A\u77E5\
+              \u4F60\u4E0D\u4E3A\u4EBA\u77E5\u7684UDP\u7591\u96BE\u6742\u75C7\u548C\
+              \u4F7F\u7528/index.md"
       - TCP-VS-UDP:
         - Introduction: Network/Protocol/Transport-layer/TCP-VS-UDP/index.md
     - Application-layer:
@@ -898,22 +922,6 @@ nav:
         - IDL:
           - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/index.md
           - Schema-evaluation: Network/Protocol/Application-layer/Protocol-data-format/IDL/Schema-evaluation.md
-          - Apache-Thrift:
-            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Apache-Thrift/index.md
-            - paper-Thrift-Scalable-Cross-Language-Services-Implementation:
-              - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Apache-Thrift/paper-Thrift-Scalable-Cross-Language-Services-Implementation/index.md
-            - "cnblogs-thrift\u7684\u539F\u7406\u548C\u4F7F\u7528":
-              - Introduction: "Network/Protocol/Application-layer/Protocol-data-format/IDL/Apache-Thrift/cnblogs-thrift\u7684\
-                  \u539F\u7406\u548C\u4F7F\u7528/index.md"
-            - "zhihu-Thrift\u7684\u90A3\u4E9B\u670D\u52A1\u6A21\u578B":
-              - Introduction: "Network/Protocol/Application-layer/Protocol-data-format/IDL/Apache-Thrift/zhihu-Thrift\u7684\
-                  \u90A3\u4E9B\u670D\u52A1\u6A21\u578B/index.md"
-          - Google-Protobuf:
-            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/Google-Protobuf/index.md
-          - POCO:
-            - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/POCO/index.md
-            - POCO-PRO-C++framework:
-              - Introduction: Network/Protocol/Application-layer/Protocol-data-format/IDL/POCO/POCO-PRO-C++framework/index.md
       - Domain-Name-System:
         - Introduction: Network/Protocol/Application-layer/Domain-Name-System/index.md
         - "TODO-\u6839\u57DF\u540D\u670D\u52A1\u5668\u662F\u5426\u53EA\u670913\u53F0":
@@ -963,6 +971,16 @@ nav:
           - "CSDN-Linux socket\u8BBE\u7F6Emark\u7684\u5FC5\u8981\u6027":
             - Introduction: "Network/Programming/Socket/Socket-option/Mark-socket/CSDN-Linux\
                 \ socket\u8BBE\u7F6Emark\u7684\u5FC5\u8981\u6027/index.md"
+        - SO_REUSEADDR-SO_REUSEPORT:
+          - SO_REUSEADDR:
+            - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEADDR/index.md
+          - SO_REUSEPORT:
+            - lwn-The-SO_REUSEPORT-socket-option:
+              - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEPORT/lwn-The-SO_REUSEPORT-socket-option/index.md
+          - microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE:
+            - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE/index.md
+          - stackoverflow-How-do-SO_REUSEADDR-and-SO_REUSEPORT-differ:
+            - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/stackoverflow-How-do-SO_REUSEADDR-and-SO_REUSEPORT-differ/index.md
       - Control-message:
         - Introduction: Network/Programming/Socket/Control-message/index.md
         - man-3-cmsg:
@@ -1066,6 +1084,7 @@ nav:
     - Restart-network-service:
       - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Centos-network/Restart-network-service/index.md"
 - Shell-and-tool:
+  - Introduction: Shell-and-tool/index.md
   - Shell:
     - Introduction: Shell-and-tool/Shell/index.md
     - bash:
@@ -1162,10 +1181,11 @@ nav:
         - Stack-trace: Shell-and-tool/Tools/Debug/Stack-trace/Stack-trace.md
         - pstack:
           - pstack: Shell-and-tool/Tools/Debug/Stack-trace/pstack/pstack.md
-      - System-call-trace:
-        - ptrace: Shell-and-tool/Tools/Debug/System-call-trace/ptrace.md
-        - strace:
-          - strace: Shell-and-tool/Tools/Debug/System-call-trace/strace/strace.md
+      - trace-system-call:
+        - man-1-ptrace:
+          - Introduction: Shell-and-tool/Tools/Debug/trace-system-call/man-1-ptrace/index.md
+        - man-1-strace:
+          - Introduction: Shell-and-tool/Tools/Debug/trace-system-call/man-1-strace/index.md
       - Library-call-tracer:
         - ltrace: Shell-and-tool/Tools/Debug/Library-call-tracer/ltrace.md
       - Application:
@@ -1178,11 +1198,10 @@ nav:
         - uptime: Shell-and-tool/Tools/Performance/System-load/uptime.md
         - Troubleshoot-disk-IO-bottleneck: Shell-and-tool/Tools/Performance/System-load/Troubleshoot-disk-IO-bottleneck.md
         - Troubleshoot-CPU-bound-bottleneck: Shell-and-tool/Tools/Performance/System-load/Troubleshoot-CPU-bound-bottleneck.md
-      - perf:
-        - perf: Shell-and-tool/Tools/Performance/perf/perf.md
-        - Linux-kernel-profiling-with-perf: Shell-and-tool/Tools/Performance/perf/Linux-kernel-profiling-with-perf.md
-        - expert-Brendan-D-Gregg:
-          - Introduction: Shell-and-tool/Tools/Performance/perf/expert-Brendan-D-Gregg/index.md
+      - man-1-perf:
+        - Introduction: Shell-and-tool/Tools/Performance/man-1-perf/index.md
+        - Expert-Brendan-D-Gregg:
+          - Introduction: Shell-and-tool/Tools/Performance/man-1-perf/Expert-Brendan-D-Gregg/index.md
       - sysstat:
         - Introduction: Shell-and-tool/Tools/Performance/sysstat/index.md
         - iostat:

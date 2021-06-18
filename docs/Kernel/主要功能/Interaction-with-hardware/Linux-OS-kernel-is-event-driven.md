@@ -20,19 +20,19 @@ Chapter 13. I/O Architecture and Device Drivers
 
 2、Clock and Timer Circuits
 
-[Chapter 6. Timing Measurements](../../Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements.md)
+"Chapter 6. Timing Measurements"
 
 目前，基本上所有的hardware都是通过[interrupt](https://en.wikipedia.org/wiki/Interrupt)来通知OS kernel的，然后其对应的[Interrupt handler](https://en.wikipedia.org/wiki/Interrupt_handler)会被触发执行，也就是OS kernel是[interrupt-driven](https://en.wikipedia.org/wiki/Interrupt)的。拥有这样的认知对于完整地掌握本书的内容十分重要，因为它描述了OS kernel运行的概况。
 
-本书的[Chapter 4. Interrupts and Exceptions](../../Book-Understanding-the-Linux-Kernel/Chapter-4-Interrupts-and-Exceptions/Chapter-4-Interrupts-and-Exceptions.md)专门描述中断相关内容，它是后面很多章节的基础，因为OS中有太多太多的活动都是interrupt触发的，比如：
+本书的"Chapter 4. Interrupts and Exceptions"专门描述中断相关内容，它是后面很多章节的基础，因为OS中有太多太多的活动都是interrupt触发的，比如：
 
 TODO: 此处添加一些例子
 
-本书的[Chapter 6. Timing Measurements](../../Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/Chapter-6-Timing-Measurements.md)主要描述的是timing measurements相关的hardware（主要包括Clock and Timer Circuits）以及OS kernel中由timing measurement驱动的重要的活动（下面会有介绍），正如本章开头所述：
+本书的"Chapter 6. Timing Measurements"主要描述的是timing measurements相关的hardware（主要包括Clock and Timer Circuits）以及OS kernel中由timing measurement驱动的重要的活动（下面会有介绍），正如本章开头所述：
 
 > Countless computerized activities are driven by timing measurements
 
-OS kernel的众多核心activity是driven by timing measurements，正如[6.2. The Linux Timekeeping Architecture](../../Book-Understanding-the-Linux-Kernel/Chapter-6-Timing-Measurements/6.2-The-Linux-Timekeeping-Architecture.md)中所总结的：
+OS kernel的众多核心activity是driven by timing measurements，正如"6.2. The Linux Timekeeping Architecture"中所总结的：
 
 1、Updates the time elapsed since system startup
 

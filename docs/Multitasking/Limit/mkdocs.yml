@@ -2,7 +2,8 @@ nav:
     - Introduction: index.md
     - Limit-via-configuration: Limit-via-configuration.md
     - Limit-via-system-call: Limit-via-system-call.md
-    - Ulimit: Ulimit.md
+    - man-ulimit: man-ulimit
     - Process-resource-limits-under-the-hood: Process-resource-limits-under-the-hood.md
+    - man-5-limits.conf: man-5-limits.conf
     - man-5-sysctl.conf: man-5-sysctl.conf
     
