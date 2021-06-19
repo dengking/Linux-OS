@@ -2,6 +2,7 @@ nav:
     - Unix-filesystem: Unix-filesystem
     - man-7-file-hierarchy: man-7-file-hierarchy
     - Inode: Inode
+    - Vnode: Vnode
     - man-2-stat: man-2-stat
     - File-type: File-type
     - Tools: Tools
