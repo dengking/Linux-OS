@@ -37,3 +37,4 @@ On some Linux systems, this value can be checked by either of the commands below
    cat /proc/sys/net/ipv4/tcp_fin_timeout
 ```
 
+## stackoverflow [What is Maximum Segment Lifetime (MSL) in TCP? [closed]](https://stackoverflow.com/questions/289194/what-is-maximum-segment-lifetime-msl-in-tcp)

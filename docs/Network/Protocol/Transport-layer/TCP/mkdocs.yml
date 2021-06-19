@@ -9,7 +9,7 @@ nav:
     
     - TCP-connection: TCP-connection
     
-    - MSL-Maximum-segment-lifetime: MSL-Maximum-segment-lifetime
+    - TCP-glossary: TCP-glossary
     # 可以看做是TCP lifetime的概述
     - TCP-FSM: TCP-FSM
     #####lifetime#####
