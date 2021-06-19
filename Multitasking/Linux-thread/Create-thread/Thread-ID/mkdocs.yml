@@ -1,0 +1,4 @@
+nav:
+    - man-3-pthread_self: man-3-pthread_self
+    - man-3-pthread_equal: man-3-pthread_equal
+    

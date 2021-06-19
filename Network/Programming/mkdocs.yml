@@ -1,6 +1,24 @@
 nav:
     - Introduction: index.md
-    - Socket: Socket.md
-    - man-7-socket: man-7-socket.md
+    
+    - course-dartmouth-CS60-Computer-Networks: course-dartmouth-CS60-Computer-Networks
+    
+    - Book-Beej's-Guide-to-Network-Programming: Book-Beej's-Guide-to-Network-Programming
+    
+    - Socket: Socket
+    
+    - man-2-bind: man-2-bind
+    
+    - man-2-listen: man-2-listen
+    
+    - man-3-getaddrinfo: man-3-getaddrinfo
+    
+    - man-2-shutdown: man-2-shutdown
+    
     - Reconnect: Reconnect.md
-    - Send-file: Send-file
+    
+    - man-2-sendfile: man-2-sendfile
+    
+    - TCP-Wrappers: TCP-Wrappers
+    
+    - Relationship-between-process-and-port: Relationship-between-process-and-port

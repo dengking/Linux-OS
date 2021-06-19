@@ -1,4 +1,0 @@
-nav:
-    - Linux-OS-kernel-is-event-driven: Linux-OS-kernel-is-event-driven.md
-    - Kernel-control-path-and-reentrant-kernel: Kernel-control-path-and-reentrant-kernel.md
-    - Linux-OS-interrupt-and-interrupte-handler: Linux-OS-interrupt-and-interrupte-handler.md

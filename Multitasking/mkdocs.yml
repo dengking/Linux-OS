@@ -1,0 +1,25 @@
+nav:
+    - Introduction: index.md # multitask是OS的关键特性，本章就是沿着它来进行展开
+    # 综述process model，这是理论上的
+    - Process-model: Process-model
+    # 
+    - Process-memory: Process-memory
+    
+    - Process-file: Process-file
+    # Sched
+    - Scheduler: Scheduler
+
+    - System-call-summary: System-call-summary
+    
+    - Linux-process: Linux-process
+    
+    - Linux-thread: Linux-thread
+    
+    - Limit: Limit
+    # 对它进行专门的描述   
+    - Credential: Credential    
+
+    - proc-filesystem: proc-filesystem
+
+    - Tools: Tools    
+    

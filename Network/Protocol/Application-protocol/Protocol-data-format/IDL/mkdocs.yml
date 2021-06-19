@@ -1,5 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Schema-evaluation: Schema-evaluation.md
-    - Thrift: Thrift
-    - Protobuf: Protobuf

@@ -1,0 +1,18 @@
+nav:
+    - wikipedia-epoll: wikipedia-epoll
+    
+    - man-7-epoll: man-7-epoll
+    
+    - man-2-epoll_create: man-2-epoll_create
+    
+    - man-2-epoll_wait: man-2-epoll_wait
+    
+    - man-2-epoll_ctl: man-2-epoll_ctl
+    
+    - Edge-trigger-VS-level-trigger: Edge-trigger-VS-level-trigger
+    
+    - epoll-nonblocking-IO: epoll-nonblocking-IO
+    
+    - epoll-VS-select: epoll-VS-select
+    
+    - kovyrin-Using-epoll-For-Asynchronous-Network-Programming: kovyrin-Using-epoll-For-Asynchronous-Network-Programming

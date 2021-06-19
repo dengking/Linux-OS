@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    
+    - Abstraction-in-GDB: Abstraction-in-GDB.md
+    - Structure-in-GDB: Structure-in-GDB.md    
+    

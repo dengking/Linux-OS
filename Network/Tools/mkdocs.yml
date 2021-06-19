@@ -1,12 +1,11 @@
 nav:
     - Introduction: index.md
     - Packet-analyzer: Packet-analyzer
-    - netstat: netstat.md
+    - netstat(obsolete): netstat(obsolete)
     - iproute2: iproute2
-    - nmap: nmap.md
+    - software-Nmap: software-Nmap
+    - software-netfilter: software-netfilter
+    
     - Port-in-use: Port-in-use.md
     - Port-opened-by-process: Port-opened-by-process.md
-    - TODO-Troubleshoot-local-network: TODO-Troubleshoot-local-network.md
-    - TODO-Troubleshoot-remote-network: TODO-Troubleshoot-remote-network.md
-    - TODO-Troubleshoot-packet-loss: TODO-Troubleshoot-packet-loss.md
-    
+    - Troubleshoot: Troubleshoot

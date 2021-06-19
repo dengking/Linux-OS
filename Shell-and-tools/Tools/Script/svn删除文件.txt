@@ -1,4 +1,0 @@
-1，输入命令：svn st
-2，输入命令：svn st | grep "\!" | cut -c 8->deleted.txt
-3. svn delete --targets deleted.txt
-4，只将deleted.txt中记录的文件递交到SVN服务器,输入命令：svn ci -m "note" --targets deleted.txt

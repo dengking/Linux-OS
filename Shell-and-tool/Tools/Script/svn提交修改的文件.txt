@@ -1,0 +1,15 @@
+1，查看所有文件的状态
+
+2，通过文件状态筛选出状态为“M”（修改）的文件
+
+3，递交
+
+
+
+1，输入命令：$svn st
+2，输入命令：$svn st | grep "M" | cut -c 8->modified.txt
+3，只将modified.txt中记录的文件递交到SVN服务器,输入命令：svn ci -m "note" --targets modified.txt
+
+
+
+

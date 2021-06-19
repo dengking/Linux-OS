@@ -1,0 +1,10 @@
+nav:
+    - Introduction: index.md
+    - 3.2-File-Descriptors: 3.2-File-Descriptors
+    - 3.3-open-and-openat-Functions: 3.3-open-and-openat-Functions
+    - 3.4-creat-Function: 3.4-creat-Function
+    - 3.5-close-Function: 3.5-close-Function
+    - 3.10-File-Sharing: 3.10-File-Sharing
+    - 3.11-Atomic-Operations: 3.11-Atomic-Operations
+    - 3.12-dup-and-dup2-Functions: 3.12-dup-and-dup2-Functions
+    - 3.13-sync-fsync-and-fdatasync-Functions: 3.13-sync-fsync-and-fdatasync-Functions

@@ -1,0 +1,26 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+export PATH
+
+# This configuration may change.
+export FBASE_HOME=$HOME/workspace
+export APPCOM=$HOME/appcom
+
+# This configuration does not need to change.
+export LD_LIBRARY_PATH=$APPCOM:/lib:/usr/lib/:/usr/local/lib:$FBASE_HOME/lib
+export PATH=$PATH:$HOME/workspace:$FBASE_HOME/bin
+export LC_ALL="zh_CN.GBK"
+export LANG="zh_CN.GBK"
+export EDITOR="vim"
+ulimit -c unlimited
+
+echo WELCOME!

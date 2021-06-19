@@ -1,44 +1,34 @@
 nav:
     - Introduction: index.md
     
+    - Book-APUE: Book-APUE
+    
+    - Book-TLPL: Book-TLPL
+    
+    - Book-UNP: Book-UNP
     ########## 一些杂项、公共问题##########                  
     - Common: Common
-    
+    ########## 在Linux OS中进行programming的哲学##########       
     - Philosophy: Philosophy
     ########## lib描述linux OS的重要的库等##########     
-    - Lib: Lib
-    
-    ########## 在Linux OS中进行programming的哲学##########       
-    - Philosophy: philosophy
-    
-    ########## process是这些内容的核心##########
-    - Multitasking: Multitasking
-    
+    - library: library
     ########## process的一个主要活动就是IO##########
     - IO: IO
-    
     ########## 时间是一个非常重要的话题##########
-    - Time: Time
-
+    - Date-and-time: Date-and-time
     ########## 信号是一个非常重要的话题##########
     - Signal: Signal
-    
     ########## 系统提供的虚拟化功能##########
     - Virtualization: Virtualization
-        
     ########## OS提供的一些基础功能，比如日志等##########
     - Util: Util
-      
-    ########## 终端也是一个非常重要的内容，我们都是通过pseudo-terminal登录到系统的##########
-    - Terminal: Terminal
-
     ########## 那些经常会碰到的错误##########
     - Computer-errors: Computer-errors
   
     - Kernel-module: Kernel-module
     
     - Object-file: Object-file
-
-    - Terminal: Terminal
     
-    - Book-APUE: Book-APUE
+    - Core-dump: Core-dump
+    ########## 终端也是一个非常重要的内容，我们都是通过pseudo-terminal登录到系统的##########
+    - Terminal: Terminal

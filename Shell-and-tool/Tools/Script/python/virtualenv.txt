@@ -1,0 +1,2 @@
+virtualenv algoface
+source algoface/bin/activate

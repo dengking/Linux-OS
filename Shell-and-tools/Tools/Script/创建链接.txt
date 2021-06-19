@@ -1,2 +1,0 @@
-ln -s /usr/lib64/libssl.so /home/cres/workspace/lib/libssl.so
-ln -s /usr/lib64/libcrypto.so.10 /home/cres/workspace/lib/libcrypto.so

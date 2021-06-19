@@ -1,6 +1,0 @@
-nav:
-    - Introduction: index.md
-    - ps: ps
-    - top: top
-    - pgrep: pgrep.md
-    - pstree: pstree.md

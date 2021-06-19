@@ -1,0 +1,3 @@
+nav:
+    - man-7-daemon: man-7-daemon.md
+    - man-3-daemon: man-3-daemon.md

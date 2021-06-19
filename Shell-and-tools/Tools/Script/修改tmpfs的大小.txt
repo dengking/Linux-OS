@@ -1,2 +1,0 @@
-[root@hundsun ~]# vi /etc/fstab 
-[root@hundsun ~]# mount -o remount /dev/shm

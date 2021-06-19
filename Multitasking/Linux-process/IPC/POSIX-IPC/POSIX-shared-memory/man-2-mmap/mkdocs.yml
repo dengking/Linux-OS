@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - man-2-mmap: man-2-mmap
+    - linuxhint-How-to-use-mmap-function-in-C-language: linuxhint-How-to-use-mmap-function-in-C-language

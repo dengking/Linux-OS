@@ -1,5 +1,0 @@
-nav:
-    - man-7-pthreads: man-7-pthreads.md
-    - man-7-attributes: man-7-attributes.md
-    - Thread-model: Thread-model.md
-    - Synchronization: Synchronization

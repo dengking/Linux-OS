@@ -1,0 +1,20 @@
+nav:
+    - Guide: Guide
+    - 2-Getting-In-and-Out-of-gdb: 2-Getting-In-and-Out-of-gdb
+  
+    - 4-Running-Programs-Under-gdb: 4-Running-Programs-Under-gdb
+    - 5-Stopping-and-Continuing: 5-Stopping-and-Continuing
+    - 6-Running-programs-backward: 6-Running-programs-backward
+    - 7-Recording-Inferior's-Execution-and-Replaying-It: 7-Recording-Inferior's-Execution-and-Replaying-It
+    - 8-Examining-the-Stack: 8-Examining-the-Stack
+    - 9-Examining-Source-Files: 9-Examining-Source-Files
+    - 10-Examining-Data: 10-Examining-Data
+    - 11-Debugging-Optimized-Code: 11-Debugging-Optimized-Code
+    - 13-Tracepoints: 13-Tracepoints
+    - 15-Using-GDB-with-Different-Languages: 15-Using-GDB-with-Different-Languages
+    - 16-Examining-the-Symbol-Table: 16-Examining-the-Symbol-Table
+    - 18-gdb-Files: 18-gdb-Files
+    - 19-Specifying-a-Debugging-Target: 19-Specifying-a-Debugging-Target
+    - 23-Extending-GDB: 23-Extending-GDB
+    - 25-gdb-Text-User-Interface: 25-gdb-Text-User-Interface
+    

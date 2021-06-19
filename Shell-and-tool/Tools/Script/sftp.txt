@@ -1,0 +1,180 @@
+sftp 是一个交互式文件传输程式。它类似于 ftp, 但它进行加密传输，比FTP有更高的安全性。下边就简单介绍一下如何远程连接主机，进行文件的上传和下载，以及一些相关操作。
+
+举例，如远程主机的 IP 是 202.206.64.33或者是域名www.hebust.edu.cn,用户名是  fyt ,在命令行模式下:sftp fyt@202.206.64.33或者  fyt@www.hebust.edu.cn。回车提示输入密码。进入提示符
+
+sftp>
+
+如果登陆远程机器不是为了上传下载文件，而是要修改远程主机上的某些文件。可以
+
+ssh  fyt@202.206.64.33 （其实sftp就是ssh 的一个程式。）
+
+sftp> get /var/www/fuyatao/index.php  /home/fuyatao/
+这条语句将从远程主机的  /var/www/fuyatao/目录下将 index.php 下载到本地  /home/fuyatao/目录下。
+
+sftp> put /home/fuyatao/downloads/Linuxgl.pdf /var/www/fuyatao/
+这条语句将把本地 /home/fuyatao/downloads/目录下的 linuxgl.pdf文件上传至远程主机/var/www/fuyatao/ 目录下。
+
+你如果不知道远程主机的目录是什么样， pwd命令可以帮您查询远程主机的当前路径。查询本机当前工作目录 lpwd.
+
+改变路径可以用cd ，改变本机路径可以用 lcd;
+
+ls rm rmdir mkdir 这些命令都可以使用。同理调用本机都是加 l , 即 lls lrm.
+
+要离开sftp，用exit 或quit、 bye 均可。详细情况可以查阅 man  sftp.
+
+如果觉得在命令行模式下不太方便，可以 sudo apt-get install gftp。在图形界面下操作就简便多了。
+
+
+
+
+
+
+
+最近编程中用到sftp上传文件，且需要用crontab预设定时上传事件。而sftp不同于ftp，没有提供选项如 -i 可以将密码直接编码进程序。使用sftp指令，会自动请求用户输入密码。
+
+总结一下可以避免sftp输入密码的三种方式：
+
+1. lftp方式
+
+LFTP是一款非常著名的字符界面的文件传输工具。支持FTP、HTTP、FISH、SFTP、HTTPS和FTPS协议。
+例子：（本例为下载例子）
+ 
+
+[plain] view plaincopy 
+#!/bin/sh   
+HOST=172.16.2.X  
+USER=kg_sftp    
+PASS=tnzk4a7w    
+echo "Starting to sftp..."  
+lftp -u ${USER},${PASS} sftp://${HOST} <<EOF   
+cd /kagou/datafile    
+mget *.*    
+bye    
+EOF    
+echo "done"  
+ 
+
+2. expect方式
+
+Expect是一个免费的编程工具语言，用来实现自动和交互式任务进行通信，而无需人的干预。
+
+要使用expect需要预先安装tcl这个东西,然后再安装expect包。
+
+tcl:     http://prdownloads.sourceforge.net/tcl/tcl8.4.16-src.tar.gz
+
+expect:     http://sourceforge.net/projects/expect/files/Expect/5.45/expect5.45.tar.gz/download
+
+例子：
+
+
+[plain] view plaincopy 
+#!/usr/local/bin/expect -f    
+#<---insert here your expect program location  
+#procedure to attempt connecting; result 0 if OK, 1 elsewhere  
+ proc connect {passw} {  
+  expect {  
+    "(yes/no)?" {send "yes/r";exp_continue} #第一次使用SFTP时候会要求输入yes/no   
+    "password:" {send "$passw/r"            #自动输入密码  
+  expect {  
+     "sftp*" {        #检测返回sftp>  
+   return 0  
+      }    
+  }  
+     }  
+  }  
+  # timed out  
+  return 1  
+ }  
+   
+ #read the input parameters  
+ set user [lindex $argv 0]  
+ set passw [lindex $argv 1]  
+ set host [lindex $argv 2]  
+ set location [lindex $argv 3]  
+ set file1 [lindex $argv 4]  
+   
+ #puts "Am citit:/n";  
+ #puts "user: $user";  
+ #puts "passw: $passw";  
+ #puts "host: $host";  
+ #puts "location: $location";  
+ #puts "file1: $file1";  
+  
+   
+ #check if all were provided  
+ if { $user == "" || $passw == "" || $host == "" || $location == "" || $file1 == "" }  {  
+   puts "Usage: <user> <passw> <host> <location> <file1 to send>/n"  
+   exit 1  
+ }  
+   
+ #sftp to specified host and send the files  
+ spawn sftp $user@$host  
+   
+ set rez [connect $passw]  
+ if { $rez == 0 } {  
+   send "cd $location/r"  
+   set timeout -1  
+   send "put $file1/r"  
+   #send "ls -l/r"  
+   #send "quit/r"  
+   #send "mkdir testsftp/r"  
+   send "quit/r"  
+   expect eof  
+   exit 0  
+ }  
+ puts "/nCMD_ERR: connecting to server: $host!/n"  
+ exit 1  
+ 0  
+expect也可以用两种形式调用
+
+1   ./my.exp $usr $pwd $host $local $file
+
+2. 代码中直接插入 
+
+expect<<!
+
+...
+
+!
+
+ 
+
+3. (推荐)生成密钥对
+
+因为这种方式不用把密钥卸载程序里,所以更安全
+
+第一步：生成密匙对，我用的是rsa的密钥。使用命令 "ssh-keygen -t rsa"
+   [user1@rh user1]$ ssh-keygen -t rsa
+   Generating public/private rsa key pair.
+   Enter file in which to save the key (/home/user1/.ssh/id_rsa):
+   Created directory '/home/user1/.ssh'.
+   Enter passphrase (empty for no passphrase):
+   Enter same passphrase again:
+   Your identification has been saved in /home/user1/.ssh/id_rsa.
+   Your public key has been saved in /home/user1/.ssh/id_rsa.pub.
+   The key fingerprint is:
+   e0:f0:3b:d3:0a:3d:da:42:01:6a:61:2f:6c:a0:c6:e7user1@rh.test.com
+   [user1@rh user1]$
+
+生成的过程中提示输入密钥对保存位置，直接回车，接受默认值就行了。接着会提示输入一个不同于你的password的密码，直接回车，让它空着。
+当然，也可以输入一个。(我比较懒，不想每次都要输入密码。) 这样，密钥对就生成完了。
+
+其中公共密钥保存在 ~/.ssh/id_rsa.pub
+私有密钥保存在 ~/.ssh/id_rsa
+然后改一下 .ssh 目录的权限，使用命令 "chmod 755 ~/.ssh"
+   [user1@rh user1]$ chmod 755 ~/.ssh
+ 
+之后把这个密钥对中的公共密钥复制到你要访问的机器上去，并保存为
+   ~/.ssh/authorized_keys
+   [user1@rh user1]$ scp ~/.ssh/id_rsa.pub rh1:/home/user1/.ssh/authorized_keys 
+   
+   user1@rh1's password:
+   id_rsa.pub                                    100%  228     3.2MB/s   00:00
+   [user1@rh user1]$
+
+之这样就大功告成了。之后再用ssh scp sftp 之类的访问那台机器时，就不用输入密码
+了，用在script上更是方便。
+
+
+
+原文地址：http://blog.csdn.net/hereiskxm/article/details/7861759

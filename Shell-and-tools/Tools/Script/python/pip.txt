@@ -1,4 +1,0 @@
-pip install virtualenv
-pip list
-pip install flask
-pip install flask-bootstrap
