@@ -4,3 +4,4 @@ nav:
     - Protocol-data-format: Protocol-data-format
     - Domain-Name-System: Domain-Name-System
     - WebSocket: WebSocket
+    - HTTP: HTTP
