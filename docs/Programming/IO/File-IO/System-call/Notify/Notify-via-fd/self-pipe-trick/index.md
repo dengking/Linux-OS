@@ -1,4 +1,24 @@
-the linux programming interface的63.5.2 The Self-Pipe Trick，demo代码已经递交到了GitHub：
+# The Self-Pipe Trick
+
+**https://news.ycombinator.com/item?id=27185522**
+
+## yp [The self-pipe trick](http://cr.yp.to/docs/selfpipe.html)
+
+Richard Stevens's 1992 book ``Advanced programming in the UNIX environment'' says that you can't safely mix select() or poll() with SIGCHLD (or other signals). The SIGCHLD might go off while select() is starting, too early to interrupt it, too late to change its timeout.
+
+Solution: the self-pipe trick. Maintain a pipe and select for readability on the pipe input. Inside the SIGCHLD handler, write a byte (non-blocking, just in case) to the pipe output. Done.
+
+> NOTE: 
+>
+> 在 [select(2)](https://www.man7.org/linux/man-pages/man2/select.2.html) 中，也对此进行了说明
+
+
+
+Of course, the Right Thing would be to have fork() return a file descriptor, not a process ID.
+
+
+
+## The linux programming interface 63.5.2 The Self-Pipe Trick
 
 
 
