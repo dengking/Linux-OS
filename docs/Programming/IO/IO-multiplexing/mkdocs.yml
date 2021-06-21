@@ -2,7 +2,7 @@ nav:
     - Introduction: index.md
     - What-is-multiplexing: What-is-multiplexing
     - What-is-IO-multiplexing: What-is-IO-multiplexing
-    - IO-events-and-IO-multiplexing: IO-events-and-IO-multiplexing
+    - IO-events: IO-events
     - Multiplex-on-file-descriptor: Multiplex-on-file-descriptor
     - Implementation-in-OS: Implementation-in-OS    
     - select: select
@@ -10,3 +10,4 @@ nav:
     - epoll: epoll
 
     - select-VS-poll-VS-epoll: select-VS-poll-VS-epoll
+    - IO-multiplexing-and-signal: IO-multiplexing-and-signal
