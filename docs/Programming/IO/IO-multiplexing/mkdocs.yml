@@ -4,10 +4,8 @@ nav:
     - What-is-IO-multiplexing: What-is-IO-multiplexing
     - IO-events: IO-events
     - Multiplex-on-file-descriptor: Multiplex-on-file-descriptor
-    - Implementation-in-OS: Implementation-in-OS    
+    - System-call-summary: System-call-summary
     - select: select
     - poll: poll
     - epoll: epoll
-
     - select-VS-poll-VS-epoll: select-VS-poll-VS-epoll
-    - IO-multiplexing-and-signal: IO-multiplexing-and-signal

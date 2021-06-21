@@ -238,6 +238,8 @@ nav:
       - Introduction: "System-call/Zero-copy/splice\u7CFB\u5217-zero-copy-system-call/index.md"
     - Zero-copy-VS-COW-copy-on-write:
       - Introduction: System-call/Zero-copy/Zero-copy-VS-COW-copy-on-write/index.md
+  - p-system-call:
+    - Introduction: System-call/p-system-call/index.md
 - Multitasking:
   - Introduction: Multitasking/index.md
   - Process-model:
@@ -557,8 +559,6 @@ nav:
       - Introduction: Programming/Book-APUE/Race-condition/index.md
   - Book-TLPL:
     - Introduction: Programming/Book-TLPL/index.md
-    - TLPI-Self-pipe-trick:
-      - Introduction: Programming/Book-TLPL/TLPI-Self-pipe-trick/index.md
   - Book-UNP:
     - Introduction: Programming/Book-UNP/index.md
     - Chapter-6-IO-Multiplexing-The-select-and-poll-Functions:
@@ -659,12 +659,22 @@ nav:
         - Introduction: Programming/IO/IO-multiplexing/What-is-IO-multiplexing/index.md
         - zhihu-What-is-IO-multiplexing:
           - Introduction: Programming/IO/IO-multiplexing/What-is-IO-multiplexing/zhihu-What-is-IO-multiplexing/index.md
-      - IO-events-and-IO-multiplexing:
-        - Introduction: Programming/IO/IO-multiplexing/IO-events-and-IO-multiplexing/index.md
+      - IO-events:
+        - Introduction: Programming/IO/IO-multiplexing/IO-events/index.md
       - Multiplex-on-file-descriptor:
         - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/index.md
-      - Implementation-in-OS:
-        - Introduction: Programming/IO/IO-multiplexing/Implementation-in-OS/index.md
+      - System-call-summary:
+        - Introduction: Programming/IO/IO-multiplexing/System-call-summary/index.md
+        - IO-multiplexing-and-signal:
+          - Introduction: Programming/IO/IO-multiplexing/System-call-summary/IO-multiplexing-and-signal/index.md
+      - select:
+        - Introduction: Programming/IO/IO-multiplexing/select/index.md
+        - man-2-select:
+          - Introduction: Programming/IO/IO-multiplexing/select/man-2-select/index.md
+        - man-2-select_tut:
+          - Introduction: Programming/IO/IO-multiplexing/select/man-2-select_tut/index.md
+      - poll:
+        - Introduction: Programming/IO/IO-multiplexing/poll/index.md
       - epoll:
         - wikipedia-epoll:
           - Introduction: Programming/IO/IO-multiplexing/epoll/wikipedia-epoll/index.md
@@ -686,10 +696,10 @@ nav:
           - Introduction: Programming/IO/IO-multiplexing/epoll/Edge-trigger-VS-level-trigger/index.md
         - epoll-nonblocking-IO:
           - Introduction: Programming/IO/IO-multiplexing/epoll/epoll-nonblocking-IO/index.md
-        - epoll-VS-select:
-          - Introduction: Programming/IO/IO-multiplexing/epoll/epoll-VS-select/index.md
         - kovyrin-Using-epoll-For-Asynchronous-Network-Programming:
           - Introduction: Programming/IO/IO-multiplexing/epoll/kovyrin-Using-epoll-For-Asynchronous-Network-Programming/index.md
+      - select-VS-poll-VS-epoll:
+        - Introduction: Programming/IO/IO-multiplexing/select-VS-poll-VS-epoll/index.md
     - File-IO:
       - Introduction: Programming/IO/File-IO/index.md
       - File-system:
@@ -727,14 +737,6 @@ nav:
           - man-2-flock:
             - Introduction: Programming/IO/File-IO/System-call/File-lock/man-2-flock/index.md
         - Notify:
-          - Notify-via-fd:
-            - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/index.md
-            - Eventfd:
-              - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/Eventfd/index.md
-              - yangyang-Worker-Pool-With-Eventfd:
-                - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/Eventfd/yangyang-Worker-Pool-With-Eventfd/index.md
-            - Timefd:
-              - Introduction: Programming/IO/File-IO/System-call/Notify/Notify-via-fd/Timefd/index.md
           - inotify:
             - man-7-inotify:
               - Introduction: Programming/IO/File-IO/System-call/Notify/inotify/man-7-inotify/index.md
