@@ -5,4 +5,8 @@ nav:
     - IO-events-and-IO-multiplexing: IO-events-and-IO-multiplexing
     - Multiplex-on-file-descriptor: Multiplex-on-file-descriptor
     - Implementation-in-OS: Implementation-in-OS    
+    - select: select
+    - poll: poll
     - epoll: epoll
+
+    - select-VS-poll-VS-epoll: select-VS-poll-VS-epoll

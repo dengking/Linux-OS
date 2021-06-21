@@ -4,7 +4,7 @@
 
 Linux-OS支持:
 
-1、single to file descriptor
+1、signal to file descriptor / self-pipe trick
 
 2、eventfd
 
@@ -16,7 +16,7 @@ Linux-OS支持:
 
 二、Linux-OS的IO multiplexing其实是一种监控机制，用于监控event
 
-1、利用"支持设置timeout(system call with timeout)"的特性，可以同时实现Multiplex on file and time event
+1、利用"支持设置timeout(system call with timeout)"的特性，可以同时实现Multiplex on file event and time event
 
 2、同时实现Multiplex on file and time event的实现往往只需要single thread即可
 
@@ -32,7 +32,7 @@ Linux-OS支持:
 >
 > 3：对于一个内存型数据库，如果不考虑数据持久化，也就是读写物理磁盘，不会有阻塞操作，内存操作是非常快的。
 
-
+三、上述策略是当今大多数Linux-OS event-driven concurrent server的event/main loop的实现方式
 
 下面是使用了这个特性的library:
 

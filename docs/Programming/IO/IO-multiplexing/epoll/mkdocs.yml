@@ -13,6 +13,4 @@ nav:
     
     - epoll-nonblocking-IO: epoll-nonblocking-IO
     
-    - epoll-VS-select: epoll-VS-select
-    
     - kovyrin-Using-epoll-For-Asynchronous-Network-Programming: kovyrin-Using-epoll-For-Asynchronous-Network-Programming
