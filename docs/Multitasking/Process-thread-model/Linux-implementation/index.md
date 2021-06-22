@@ -1,6 +1,12 @@
-# Linux OS implementation of process model
+# Linux OS implementation of process thread model
 
-在本书的chapter 1.1. Linux Versus Other Unix-Like Kernels对linux OS中process model的实现思路进行了概括：
+> NOTE: 
+>
+> 本文还处于草稿状态，内容需要进一步地整理
+
+## 《Understanding.The.Linux.kernel》
+
+在《Understanding.The.Linux.kernel》的chapter 1.1. Linux Versus Other Unix-Like Kernels对linux OS中process model的实现思路进行了概括：
 
 > Most modern operating systems have some kind of support for multithreaded applications that is, user programs that are designed in terms of many relatively independent execution flows that share a large portion of the application data structures. A multithreaded user application could be composed of many **lightweight processes** (LWP), which are **processes** that can operate on a common address space, common physical memory pages, common opened files, and so on. Linux defines its own version of **lightweight processes**, which is different from the types used on other systems such as SVR4 and Solaris. While all the commercial Unix variants of LWP are based on **kernel threads**, Linux regards **lightweight processes** as the basic **execution context** and handles them via the nonstandard   [clone(2)](http://man7.org/linux/man-pages/man2/clone.2.html)  system call.
 
@@ -20,7 +26,7 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 ---
 
-需要注意的是，在本书中有时候会将lightweight process简称为process，比如上面这段话中的这句：
+需要注意的是，在《Understanding.The.Linux.kernel》中有时候会将lightweight process简称为process，比如上面这段话中的这句：
 
 > A multithreaded user application could be composed of many **lightweight processes** (LWP), which are **processes** that can operate on a common address space, common physical memory pages, common opened files, and so on. 
 
@@ -34,11 +40,11 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 
 
-## 更加深入的分析
+### 更加深入的分析
 
 上面这段话告诉了我们，lightweight process是由nonstandard   [clone(2)](http://man7.org/linux/man-pages/man2/clone.2.html)  system call创建。标准给出的创建process的api是[fork(2)](http://man7.org/linux/man-pages/man2/fork.2.html)，POSIX标准所定义的创建thread的api是[pthread_create(3)](http://man7.org/linux/man-pages/man3/pthread_create.3.html)，下面通过linux的man来探索它们的实现细节：
 
-在[PTHREADS(7)](http://man7.org/linux/man-pages/man7/pthreads.7.html)的Linux implementations of POSIX threads章节给出了linux中POSIX threads的实现方式的详细信息
+在 [PTHREADS(7)](http://man7.org/linux/man-pages/man7/pthreads.7.html) 的Linux implementations of POSIX threads章节给出了linux中POSIX threads的实现方式的详细信息
 
 > Over time, two threading implementations have been provided by the GNU C library on Linux:
 >
@@ -63,6 +69,15 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 
 
+## nginx blog [Inside NGINX: How We Designed for Performance & Scale # Why Is Architecture Important?](https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/)
+
+The fundamental basis of any Unix application is the thread or process. (From the Linux OS perspective, threads and processes are mostly identical; the major difference is the degree to which they share memory.) A thread or process is a self‑contained set of instructions that the operating system can schedule to run on a CPU core. Most complex applications run multiple threads or processes in parallel for two reasons:
+
+- They can use more compute cores at the same time.
+- Threads and processes make it very easy to do operations in parallel (for example, to handle multiple connections at the same time).
+
+
+
 ## Linux kernel如何实现process与thread
 
 参见3.1. Processes, Lightweight Processes, and Threads
@@ -80,22 +95,6 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 2、显然，多个lightweight process是可以共享per-process kernel data structure的（这是标准规定的），这种共享，我觉得实现上应该也是非常简单的，无非就是传入一个指针。
 
 
-
-## LWP VS thread VS kernel thread?
-
-关于本段，有疑问：LWP VS thread VS kernel thread?
-
-上一段中所描述的：Linux **kernel threads** do not represent the basic **execution context** abstraction.
-
-本段中所描述的：Linux regards **lightweight processes** as the basic **execution context** and handles them via the nonstandard  `clone( )` system call.
-
-显然，kernel thread不是linux的lightweight process。
-
-显然linux的lightweight process是需要由linux的scheduler来进行调度的，那kernel thread是由谁来进行调度呢？下面是一些有价值的内容：
-
-- [Are kernel threads processes and daemons?](https://unix.stackexchange.com/questions/266434/are-kernel-threads-processes-and-daemons)
-- [Difference between user-level and kernel-supported threads?](https://stackoverflow.com/questions/15983872/difference-between-user-level-and-kernel-supported-threads)
-- [Kernel threads made easy](https://lwn.net/Articles/65178/)
 
 
 
@@ -116,9 +115,11 @@ Process和Thread的概念在前面的章节已经描述了，上面这段话引�
 
 之前我一直有一个疑问就是：一个process的所有的thread都共享该process的address space，而每个thread有一个自己的[call stack](https://en.wikipedia.org/wiki/Call_stack)，并且call stack是向下生长的，当时我就非常疑惑，这要如何实现呀？今天在阅读[Call stack](https://en.wikipedia.org/wiki/Call_stack)、[Stack register](https://en.wikipedia.org/wiki/Stack_register)的时候，我有了如下的认知：
 
-- 函数调用所使用的是JMP指令
-- x86有segment register，这样就可以指定call stack
-- 其实call stack就是一片内存区域而已，只要指定一片内存区域作为call stack，就可以使用calling convention来实现函数调用了。实现函数调用、执行的指令是与这片内存区域在何处无关的，所以用户是可以指定任意的、合法的内存区域来作为call stack的。
+1、函数调用所使用的是JMP指令
+
+2、x86有segment register，这样就可以指定call stack
+
+3、其实call stack就是一片内存区域而已，只要指定一片内存区域作为call stack，就可以使用calling convention来实现函数调用了。实现函数调用、执行的指令是与这片内存区域在何处无关的，所以用户是可以指定任意的、合法的内存区域来作为call stack的。
 
 所以我就去看了[pthread_create](https://linux.die.net/man/3/pthread_create)的文档，其中是有这样的描述的：
 
@@ -136,7 +137,11 @@ https://blog.csdn.net/zDavid_2018/article/details/89255630
 
 
 
-## Process VS thread VS lightweight-process
+
+
+## TODO
+
+### Process VS thread VS lightweight-process
 
 下面是一些我觉得比较好的关于这个问题的讨论：
 
@@ -144,4 +149,22 @@ https://blog.csdn.net/zDavid_2018/article/details/89255630
 - [What is the difference between LWP and threads?](https://www.answers.com/Q/What_is_the_difference_between_LWP_and_threads)
 - [What are the relations between processes, kernel threads, lightweight processes and user threads in Unix? [closed]](https://unix.stackexchange.com/questions/472324/what-are-the-relations-between-processes-kernel-threads-lightweight-processes)
 - [What are Linux Processes, Threads, Light Weight Processes, and Process State](https://www.thegeekstuff.com/2013/11/linux-process-and-threads/)
+
+
+
+### LWP VS thread VS kernel thread?
+
+关于本段，有疑问：LWP VS thread VS kernel thread?
+
+上一段中所描述的：Linux **kernel threads** do not represent the basic **execution context** abstraction.
+
+本段中所描述的：Linux regards **lightweight processes** as the basic **execution context** and handles them via the nonstandard  `clone( )` system call.
+
+显然，kernel thread不是linux的lightweight process。
+
+显然linux的lightweight process是需要由linux的scheduler来进行调度的，那kernel thread是由谁来进行调度呢？下面是一些有价值的内容：
+
+- [Are kernel threads processes and daemons?](https://unix.stackexchange.com/questions/266434/are-kernel-threads-processes-and-daemons)
+- [Difference between user-level and kernel-supported threads?](https://stackoverflow.com/questions/15983872/difference-between-user-level-and-kernel-supported-threads)
+- [Kernel threads made easy](https://lwn.net/Articles/65178/)
 

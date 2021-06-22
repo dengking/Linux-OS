@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md # multitask是OS的关键特性，本章就是沿着它来进行展开
     # 综述process model，这是理论上的
-    - Process-model: Process-model
+    - Process-thread-model: Process-thread-model
     # 
     - Process-memory: Process-memory
     

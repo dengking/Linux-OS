@@ -133,24 +133,6 @@ An asterisk ‘`*`’ to the left of the GDB thread number indicates the current
 
 
 
-#### Example
-
-- stackoverflow [How do I get the backtrace for all the threads in GDB?](https://stackoverflow.com/questions/18391808/how-do-i-get-the-backtrace-for-all-the-threads-in-gdb)
-
-```shell
-thread apply all bt
-```
-
-- drdobbs [Multithreaded Debugging Techniques](https://www.drdobbs.com/cpp/multithreaded-debugging-techniques/199200938?pgno=6)
-
-- fayewilliams [View A Backtrace For All Threads With GDB](https://www.fayewilliams.com/2015/05/05/view-a-backtrace-for-all-threads-with-gdb/)
-
-### TO READ
-
-- csdn [线程的查看以及利用gdb调试多线程](https://blog.csdn.net/zhangye3017/article/details/80382496)
-
-  
-
 ## 4.11 Debugging Forks
 
 On most systems, `gdb` has no special support for debugging programs which create additional processes using the fork function. When a program forks, `gdb` will continue to debug the parent process and the child process will run unimpeded（未受阻的）. If you have set a breakpoint in any code which the child then executes, the child will get a `SIGTRAP` signal which (unless it catches the signal) will cause it to terminate.

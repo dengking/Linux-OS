@@ -6,3 +6,4 @@ nav:
     - Unix-domain-socket: Unix-domain-socket
     - Tools: Tools
     - man-7-ipc_namespaces: man-7-ipc_namespaces
+    - Inter-process-lock: Inter-process-lock

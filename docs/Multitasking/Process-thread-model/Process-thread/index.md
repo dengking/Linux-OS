@@ -83,7 +83,7 @@ TODO
 
 ## [Multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)) VS [Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing)
 
-不禁要问：[multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture))相较于[Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing)优势是什么？
+### [Multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)) 相较于 [Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing) 优势是什么？
 
 对-两者的比较，落脚点都在 "multiple thread 处于同一个process address space"，这带来了如下优势:
 
@@ -95,7 +95,7 @@ multiple thread天然的share the same process address space。
 
 > 这段话源自: wikipedia [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking) # [Multithreading](https://en.wikipedia.org/wiki/Computer_multitasking#Multithreading) 章节
 
-### wikipedia [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的 [Multithreading](https://en.wikipedia.org/wiki/Computer_multitasking#Multithreading) 
+#### wikipedia [Computer multitasking](https://en.wikipedia.org/wiki/Computer_multitasking)的 [Multithreading](https://en.wikipedia.org/wiki/Computer_multitasking#Multithreading) 
 
 As multitasking greatly improved the throughput of computers, programmers started to implement applications as sets of cooperating processes (e. g., one process gathering input data, one process processing input data, one process writing out results on disk). This, however, required some tools to allow processes to efficiently exchange data.
 
@@ -111,9 +111,19 @@ As multitasking greatly improved the throughput of computers, programmers starte
 
 
 
-### 另外一个优势
+#### 另外一个优势
 
 我觉得另外一个优势是：thread使concurrency编程更加容易实现。我们常常需要使用第三方库，如果想要充分实现concurrency，如果不支持thread，则库中只能够使用process，在这种情况下，就涉及和第三方库中的process中的IPC，显然这会导致和第三库的交互会变得非常困难；而如果使用thread，则库的使用者和库处于同一个process space，两者之间的交互是非常容易的，显然这种设计能够设计发挥concurrency的优势。
+
+### [Multiprocessing](https://en.wikipedia.org/wiki/Multiprocessing) 相较于 [Multithreading](https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)) 优势是什么？
+
+csdn [Nginx资料之Master与Worker基础概念](https://blog.csdn.net/sky6even/article/details/81409800)
+
+> ### nginx进程模型的好处：
+>
+> 1、对于每个worker进程来说，独立的进程，不需要加锁，所以省掉了锁带来的开销，同时在编程以及问题查找时，也会方便很多。
+>
+> 2、采用独立的进程，可以让互相之间不会影响，一个进程退出后，其它进程还在工作，服务不会中断，master进程则很快启动新的worker进程。当然，worker进程的异常退出，肯定是程序有bug了，异常退出，会导致当前worker上的所有请求失败，不过不会影响到所有请求，所以降低了风险。
 
 
 
