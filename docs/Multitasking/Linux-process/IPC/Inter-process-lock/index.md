@@ -6,11 +6,13 @@
 
 三、参考的文章、实现方式
 
-| 文章、章节                                                   |      |      |
-| ------------------------------------------------------------ | ---- | ---- |
-| csdn [进程互斥锁](https://blog.csdn.net/luansxx/article/details/7736618) |      |      |
-| `Nginx-accept_mutex-implementation`                          |      |      |
-| csdn [【Linux】进程间同步（进程间互斥锁、文件锁）](https://blog.csdn.net/qq_35396127/article/details/78942245) |      |      |
+| 文章、章节                                                   |                    |      |
+| ------------------------------------------------------------ | ------------------ | ---- |
+| csdn [进程互斥锁](https://blog.csdn.net/luansxx/article/details/7736618) |                    |      |
+| `Nginx-accept_mutex-implementation`                          |                    |      |
+| csdn [【Linux】进程间同步（进程间互斥锁、文件锁）](https://blog.csdn.net/qq_35396127/article/details/78942245) |                    |      |
+| uwsgi [Serializing accept(), AKA Thundering Herd, AKA the Zeeg Problem](https://uwsgi-docs.readthedocs.io/en/latest/articles/SerializingAccept.html) | 进行了非常好的总结 |      |
+| wang-yimu [A Tutorial on Shared Memory Inter-Process Communication](https://wang-yimu.com/a-tutorial-on-shared-memory-inter-process-communication/) |                    |      |
 
 
 
@@ -118,7 +120,7 @@ System V信号量通过UNDO方式可以解决该问题。但是如果考虑到�
 
 ## csdn [【Linux】进程间同步（进程间互斥锁、文件锁）](https://blog.csdn.net/qq_35396127/article/details/78942245)
 
-
+### 一、互斥量 mutex
 
 ```C
 /*
@@ -211,7 +213,71 @@ int main(void)
 // gcc test.c -lpthread
 ```
 
+### 二、文件锁
 
+借助 fcntl 函数来实现文件锁。操作文件的进程没有获得锁时，可以打开，但无法执行 read,write 操作。
+
+进程间文件锁 代码示例：
+
+```C++
+
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<stdio.h>
+#include<stdlib.h>
+ 
+void sys_err(char*str)
+{
+    perror(str);
+    exit(1);
+}
+ 
+ 
+int main(int argc,char *argv[])
+{
+    int fd;
+    struct flock f_lock;
+ 
+    if( argc< 2 )
+    {
+        printf("./a.out filename\n");
+        exit(1);
+    }
+ 
+    if( ( fd = open(argv[1],O_RDWR)) < 0 )
+        sys_err("open");
+ 
+//    f_lock.l_type = F_WRLCK;          // 选用写锁
+    f_lock.l_type = F_RDLCK;            // 选用读锁
+    f_lock.l_whence = 0;
+    f_lock.l_len = 0;                 // 0 表示整个文件加锁
+ 
+    fcntl(fd,F_SETLKW,&f_lock);
+    printf("get flock\n");
+ 
+    sleep(10);
+ 
+    f_lock.l_type = F_UNLCK;
+    fcntl(fd,F_SETLKW,&f_lock);
+    printf("un flock\n");
+ 
+    close(fd);
+    return 0;
+}
+
+```
+
+
+
+## deadlock的处理
+
+一、在 csdn [进程互斥锁](https://blog.csdn.net/luansxx/article/details/7736618) 中，提及了这个问题:
+
+> 与多线程环境不一样的是，在多进程环境中，一个进程的异常退出不会影响其他进程，但是如果使用了进程互斥锁呢？假如一个进程获取了互斥锁，但是在访问互斥资源的代码中crash了，或者遇到信号退出了，那么其他等待同一个锁的进程（内部某个线程）就挂死了。在多线程环境中，程序异常整个进程退出，不需要考虑异常时锁的释放，多进程环境则是一个实实在在的问题。
+>
+> System V信号量通过UNDO方式可以解决该问题。但是如果考虑到平台兼容性等问题，这三个方案仍不能满足需求，我会接着介绍一种更好的方案。
 
 
 

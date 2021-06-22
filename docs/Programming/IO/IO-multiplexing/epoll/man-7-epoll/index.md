@@ -100,9 +100,11 @@ If multiple threads (or processes, if child processes have inherited the `epoll`
 
 > NOTE: 
 >
-> "thundering herd" 是 "惊群效应"，参见: 
+> 一、"thundering herd" 是 "惊群效应"，参见: 
 >
 > `Parallel-computing\docs\Concurrent-computing\Classic-problem\Thundering-herd-problem`
+>
+> 二、需要注意的是: 在比较旧版本中，"thundering herd" wake-ups 依然是存在的
 
 ## Interaction with autosleep
 
