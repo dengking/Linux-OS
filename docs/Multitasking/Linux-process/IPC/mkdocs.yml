@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Beej's-Guide-to-Unix-IPC: Beej's-Guide-to-Unix-IPC
     - pipe: pipe
     - System-V-IPC: System-V-IPC
     - POSIX-IPC: POSIX-IPC
