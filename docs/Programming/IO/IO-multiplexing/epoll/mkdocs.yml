@@ -9,6 +9,8 @@ nav:
     
     - man-2-epoll_ctl: man-2-epoll_ctl
     
+    - idndx-The-Implementation-of-epoll: idndx-The-Implementation-of-epoll
+    
     - Edge-trigger-VS-level-trigger: Edge-trigger-VS-level-trigger
     
     - epoll-nonblocking-IO: epoll-nonblocking-IO
