@@ -1,5 +1,15 @@
 # Idempotence
 
+## 参考文章:
+
+1、stackoverflow [What is an idempotent operation?](https://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation)
+
+解释了幂等的含义，但是并没有讨论如何实现幂等、需要幂等的场景
+
+2、csdn [这三年被分布式坑惨了，曝光十大坑](https://blog.csdn.net/jackson0714/article/details/108775573?spm=1001.2014.3001.5501) 
+
+非常好的文章，详细说明了如何实现幂等、需要幂等的场景
+
 
 
 ## stackoverflow [What is an idempotent operation?](https://stackoverflow.com/questions/1077412/what-is-an-idempotent-operation)
@@ -38,6 +48,10 @@ In mathematics, an idempotent operation is one where *f(f(x)) = f(x)*. For examp
 
 These slightly different definitions can be reconciled by considering that *x* in the mathematical definition represents the state of an object, and *f* is an operation that may mutate that object. For example, consider the [Python `set`](https://docs.python.org/2/library/stdtypes.html#set) and its `discard` method. The `discard` method removes an element from a set, and does nothing if the element does not exist. So:
 
+> NOTE: 
+>
+> set操作是天然幂等的
+
 ```python
 my_set.discard(x)
 ```
@@ -57,16 +71,27 @@ See the Wikipedia article on [idempotence](http://en.wikipedia.org/wiki/Idempote
 
 ## wikipedia [Idempotence](https://en.wikipedia.org/wiki/Idempotence)
 
+## 如何实现幂等
 
+一、在 csdn [这三年被分布式坑惨了，曝光十大坑](https://blog.csdn.net/jackson0714/article/details/108775573?spm=1001.2014.3001.5501)  中进行了比较好的总结。
 
-## Example
+二、核心思想: "通过标志来来自动过滤掉重复的消息"
 
+## 需要幂等的场景
 
+### Message queue重复消息
 
-### [celery tasks](http://docs.celeryproject.org/en/latest/userguide/tasks.html)
+这在 csdn [这三年被分布式坑惨了，曝光十大坑](https://blog.csdn.net/jackson0714/article/details/108775573?spm=1001.2014.3001.5501) 中进行了详细讨论，下面补充一些例子: 
 
+比如:
 
-### [hiredis `redisAsyncContext`](https://github.com/redis/hiredis/blob/master/async.h)
+1、[celery tasks](http://docs.celeryproject.org/en/latest/userguide/tasks.html)
+
+### Callback、hook
+
+在一些场景中，callback、hook需要实现幂等，下面是一些例子: 
+
+1、[hiredis `redisAsyncContext`](https://github.com/redis/hiredis/blob/master/async.h)
 
 hiredis的`async.h`中的`struct redisAsyncContext`就有如下定义：
 ```C
