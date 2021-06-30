@@ -32,7 +32,9 @@ while (1) {
 }
 ```
 
-would work, as you're guaranteed to call `do_read_write()` as long as there is data. When using edge-triggered `epoll`, there is potential for the notification that new data is available to be missed, if it comes in between the finish of `do_read_write()` and the next call to `epoll()`.
+> NOTE: 
+>
+> 在这种情况下，只要`epoll();`返回就可以进行read、write，因为此时一定是由数据的；
 
 
 

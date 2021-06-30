@@ -84,3 +84,10 @@ stackoverflow [poll vs. epoll insight [duplicate]](https://stackoverflow.com/que
 
 ### stackoverflow [Why is epoll faster than select?](https://stackoverflow.com/questions/17355593/why-is-epoll-faster-than-select)
 
+
+
+## cnblogs [为什么人们总是认为epoll 效率比select高！！！！！！](https://www.cnblogs.com/codestack/p/13393658.html) 
+
+> NOTE: 
+>
+> 从实现原理上对它们进行对比
