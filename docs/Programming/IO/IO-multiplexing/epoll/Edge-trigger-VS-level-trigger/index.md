@@ -10,7 +10,15 @@
 
 我的一些总结:
 
-1、Edge-trigger只有在状态变更的时候，才会触发
+一、Edge-trigger只有在状态变更的时候，才会触发
+
+二、Level-trigger只要条件满足就一直触发
+
+三、它们的差异主要体现在"处理`EPOLLOUT`事件"上，在 csdn [epoll LT/ET 深入剖析](https://blog.csdn.net/dongfuye/article/details/50880251) 中进行了非常好的剖析
+
+1、Redis level trigger、响应小、`EPOLLOUT`事件并不频繁
+
+2、Nginx edge trigger、响应大、`EPOLLOUT`事件可能频繁
 
 ## zhihu [epoll的边沿触发模式(ET)真的比水平触发模式(LT)快吗？(当然LT模式也使用非阻塞IO，重点是要求ET模式下的代码不能造成饥饿)](https://www.zhihu.com/question/20502870)
 
@@ -47,6 +55,100 @@ ET本身并不会造成饥饿，由于事件只通知一次，开发者一不小
 [handy/epoll-et.cc at master · yedf/handy · GitHub](https://link.zhihu.com/?target=https%3A//github.com/yedf/handy/blob/master/raw-examples/epoll-et.cc)
 [handy/epoll.cc at master · yedf/handy · GitHub](https://link.zhihu.com/?target=https%3A//github.com/yedf/handy/blob/master/raw-examples/epoll.cc)
 
+
+
+## csdn [epoll LT/ET 深入剖析](https://blog.csdn.net/dongfuye/article/details/50880251)
+
+> NOTE: 
+>
+> 这篇文章的作者和 zhihu [epoll的边沿触发模式(ET)真的比水平触发模式(LT)快吗？(当然LT模式也使用非阻塞IO，重点是要求ET模式下的代码不能造成饥饿)](https://www.zhihu.com/question/20502870) # [dong的回答](https://www.zhihu.com/question/20502870/answer/89738959) 的作者是同一个人
+
+EPOLL事件有两种模型：
+
+**Level Triggered (LT) 水平触发**
+
+socket接收缓冲区不为空 有数据可读 读事件一直触发
+
+socket发送缓冲区不满 可以继续写入数据 写事件一直触发
+
+> NOTE: 
+>
+> 刚开始的时候，send buffer是空的，如果刚开始的时候就注册`EPOLLOUT`，则会一直导致触发；
+
+符合思维习惯，`epoll_wait`返回的事件就是socket的状态
+
+**Edge Triggered (ET) 边沿触发**
+
+socket的接收缓冲区状态变化时触发读事件，即空的接收缓冲区刚接收到数据时触发读事件
+
+socket的发送缓冲区状态变化时触发写事件，即**满的缓冲区刚空出空间时触发读事件**
+
+> NOTE: 
+>
+> 一、"**满的缓冲区刚空出空间时触发读事件**"
+>
+> 也就是刚开始的时候，是不会触发的
+
+仅在状态变化时触发事件
+
+### ET还是LT?
+
+**LT的处理过程：**
+
+1、`accept`一个连接，添加到`epoll`中监听`EPOLLIN`事件
+
+2、当`EPOLLIN`事件到达时，read fd中的数据并处理
+
+3、当需要写出数据时，把数据write到fd中；如果数据较大，无法一次性写出，那么在epoll中监听`EPOLLOUT`事件
+
+4、当EPOLLOUT事件到达时，继续把数据write到fd中；如果数据写出完毕，那么在epoll中关闭EPOLLOUT事件
+
+> NOTE: 
+>
+> 由于LT只有send buffer中有空间就一直触发的特性，导致了对它的`EPOLLIN`事件的处理是比较特殊的，遵循: 只有当一次发不完的情况下，才注册`EPOLLIN`事件，并且在发完后，需要注销，下面是对此的分析:
+>
+> 1、刚开始的时候，send buffer是空的，如果刚开始的时候就注册`EPOLLOUT`，则会一直导致触发，所以刚开始的时候，是不能够注册`EPOLLOUT`事件的；
+>
+> 2、在write的时候，如果能够发生完成，显然是不需要进行特殊的处理的；如果写不完，则需要注册`EPOLLIN`事件；在写完后，是需要注销的，否则会一直受到消息。
+
+**ET的处理过程：**
+
+1、accept一个一个连接，添加到epoll中监听`EPOLLIN`|`EPOLLOUT`事件
+
+2、当`EPOLLIN`事件到达时，read fd中的数据并处理，read需要一直读，直到返回`EAGAIN`为止
+
+3、当需要写出数据时，把数据write到fd中，直到数据全部写完，或者write返回`EAGAIN`
+
+4、当EPOLLOUT事件到达时，继续把数据write到fd中，直到数据全部写完，或者write返回EAGAIN
+
+> NOTE: 
+>
+> 由于ET是**满的缓冲区刚空出空间时触发读事件**，因此在刚开始的时候，就需要注册`EPOLLOUT`事件；一直注册`EPOLLOUT`事件并没有问题，因为平时它不会触发；只有当将它写满后，它才会触发；显然它省去了频繁的注册、注销的动作。
+
+从ET的处理过程中可以看到，ET的要求是需要一直读写，直到返回EAGAIN，否则就会遗漏事件。而LT的处理过程中，直到返回EAGAIN不是硬性要求，但通常的处理过程都会读写直到返回EAGAIN，但LT比ET多了一个开关EPOLLOUT事件的步骤
+
+LT的编程与poll/select接近，符合一直以来的习惯，不易出错；
+
+ET的编程可以做到更加简洁，某些场景下更加高效，但另一方面容易遗漏事件，容易产生bug；
+
+这里有两个简单的例子演示了LT与ET的用法(其中epoll-et的代码比epoll要少10行)：
+https://github.com/yedf/handy/blob/master/raw-examples/epoll.cc
+https://github.com/yedf/handy/blob/master/raw-examples/epoll-et.cc
+
+针对容易触发LT开关EPOLLOUT事件的情景（让服务器返回1M大小的数据），我用ab做了性能测试
+测试的结果显示ET的性能稍好，详情如下：
+LT 启动命令 ./epoll a
+ET 启动命令 ./epoll-et a
+ab 命令：ab -n 1000 -k 127.0.0.1/
+LT 结果：Requests per second:    42.56 [#/sec] (mean)
+ET 结果：Requests per second:    48.55 [#/sec] (mean)
+
+当我把服务器返回的数据大小改为48576时，开关EPOLLOUT更加频繁，性能的差异更大
+ab 命令：ab -n 5000 -k 127.0.0.1/
+LT 结果：Requests per second:    745.30 [#/sec] (mean)
+ET 结果：Requests per second:    927.56 [#/sec] (mean)
+
+对于nginx这种高性能服务器，ET模式是很好的，而其他的通用网络库，更多是使用LT，避免使用的过程中出现bug
 
 
 ## stackoverflow [What is the purpose of epoll's edge triggered option?](https://stackoverflow.com/questions/9162712/what-is-the-purpose-of-epolls-edge-triggered-option)
