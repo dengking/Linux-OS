@@ -240,24 +240,32 @@ nav:
       - Introduction: System-call/Zero-copy/Zero-copy-VS-COW-copy-on-write/index.md
   - p-system-call:
     - Introduction: System-call/p-system-call/index.md
+  - Linux-system-call-table:
+    - Introduction: System-call/Linux-system-call-table/index.md
 - Multitasking:
   - Introduction: Multitasking/index.md
-  - Process-model:
-    - Introduction: Multitasking/Process-model/index.md
-    - Process:
-      - Introduction: Multitasking/Process-model/Process/index.md
+  - Process-thread-model:
+    - Introduction: Multitasking/Process-thread-model/index.md
+    - Process-thread:
+      - Introduction: Multitasking/Process-thread-model/Process-thread/index.md
       - wikipedia-Process(computing):
-        - Introduction: Multitasking/Process-model/Process/wikipedia-Process(computing)/index.md
-    - Process-control-block:
-      - Introduction: Multitasking/Process-model/Process-control-block/index.md
-    - Process-table:
-      - Introduction: Multitasking/Process-model/Process-table/index.md
+        - Introduction: Multitasking/Process-thread-model/Process-thread/wikipedia-Process(computing)/index.md
     - Process-run-model:
-      - Introduction: Multitasking/Process-model/Process-run-model/index.md
+      - Introduction: Multitasking/Process-thread-model/Process-run-model/index.md
+    - Process-control-block:
+      - Introduction: Multitasking/Process-thread-model/Process-control-block/index.md
+    - Process-table:
+      - Introduction: Multitasking/Process-thread-model/Process-table/index.md
     - Process-resource:
-      - Introduction: Multitasking/Process-model/Process-resource/index.md
+      - Introduction: Multitasking/Process-thread-model/Process-resource/index.md
     - Process-lifetime:
-      - Introduction: Multitasking/Process-model/Process-lifetime/index.md
+      - Introduction: Multitasking/Process-thread-model/Process-lifetime/index.md
+    - Linux-implementation:
+      - Introduction: Multitasking/Process-thread-model/Linux-implementation/index.md
+      - man-2-clone:
+        - Introduction: Multitasking/Process-thread-model/Linux-implementation/man-2-clone/index.md
+      - opensourceforu-The-Life-of-a-Process:
+        - Introduction: Multitasking/Process-thread-model/Linux-implementation/opensourceforu-The-Life-of-a-Process/index.md
   - Process-memory:
     - Introduction: Multitasking/Process-memory/index.md
     - Process-address-space:
@@ -365,6 +373,8 @@ nav:
       - man-3-daemon: Multitasking/Linux-process/Daemon/man-3-daemon.md
     - IPC:
       - Introduction: Multitasking/Linux-process/IPC/index.md
+      - Beej's-Guide-to-Unix-IPC:
+        - Introduction: Multitasking/Linux-process/IPC/Beej's-Guide-to-Unix-IPC/index.md
       - pipe:
         - man-7-pipe:
           - Introduction: Multitasking/Linux-process/IPC/pipe/man-7-pipe/index.md
@@ -374,21 +384,22 @@ nav:
           - Introduction: Multitasking/Linux-process/IPC/System-V-IPC/man-7-SVIPC/index.md
       - POSIX-IPC:
         - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/index.md
-        - POSIX-message-queues:
+        - message-queues:
           - man-7-mq_overview:
-            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-message-queues/man-7-mq_overview/index.md
-        - POSIX-semaphores:
+            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/message-queues/man-7-mq_overview/index.md
+        - semaphores:
           - man-7-sem_overview:
-            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-semaphores/man-7-sem_overview/index.md
-        - POSIX-shared-memory:
+            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/semaphores/man-7-sem_overview/index.md
+        - shared-memory:
+          - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/shared-memory/index.md
           - man-7-shm_overview:
-            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-shared-memory/man-7-shm_overview/index.md
+            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/shared-memory/man-7-shm_overview/index.md
           - man-2-mmap:
-            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-shared-memory/man-2-mmap/index.md
+            - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/shared-memory/man-2-mmap/index.md
             - man-2-mmap:
-              - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-shared-memory/man-2-mmap/man-2-mmap/index.md
+              - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/shared-memory/man-2-mmap/man-2-mmap/index.md
             - linuxhint-How-to-use-mmap-function-in-C-language:
-              - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/POSIX-shared-memory/man-2-mmap/linuxhint-How-to-use-mmap-function-in-C-language/index.md
+              - Introduction: Multitasking/Linux-process/IPC/POSIX-IPC/shared-memory/man-2-mmap/linuxhint-How-to-use-mmap-function-in-C-language/index.md
       - Unix-domain-socket:
         - man-7-unix:
           - Introduction: Multitasking/Linux-process/IPC/Unix-domain-socket/man-7-unix/index.md
@@ -403,12 +414,8 @@ nav:
           - Introduction: Multitasking/Linux-process/IPC/Tools/man-1-lsipc/index.md
       - man-7-ipc_namespaces:
         - Introduction: Multitasking/Linux-process/IPC/man-7-ipc_namespaces/index.md
-    - Linux-implementation:
-      - Introduction: Multitasking/Linux-process/Linux-implementation/index.md
-      - man-2-clone:
-        - Introduction: Multitasking/Linux-process/Linux-implementation/man-2-clone/index.md
-      - opensourceforu-The-Life-of-a-Process:
-        - Introduction: Multitasking/Linux-process/Linux-implementation/opensourceforu-The-Life-of-a-Process/index.md
+      - Inter-process-lock:
+        - Introduction: Multitasking/Linux-process/IPC/Inter-process-lock/index.md
   - Linux-thread:
     - Introduction: Multitasking/Linux-thread/index.md
     - Thread-control-block:
@@ -626,6 +633,23 @@ nav:
     - Introduction: Programming/IO/index.md
     - What-is-IO:
       - Introduction: Programming/IO/What-is-IO/index.md
+    - File-system:
+      - Unix-filesystem:
+        - Introduction: Programming/IO/File-system/Unix-filesystem/index.md
+      - Linux-virtual-file-system:
+        - Introduction: Programming/IO/File-system/Linux-virtual-file-system/index.md
+        - Vnode:
+          - Introduction: Programming/IO/File-system/Linux-virtual-file-system/Vnode/index.md
+      - man-7-file-hierarchy:
+        - Introduction: Programming/IO/File-system/man-7-file-hierarchy/index.md
+      - Inode:
+        - Introduction: Programming/IO/File-system/Inode/index.md
+      - man-2-stat:
+        - Introduction: Programming/IO/File-system/man-2-stat/index.md
+      - File-type:
+        - Introduction: Programming/IO/File-system/File-type/index.md
+      - Tools:
+        - Introduction: Programming/IO/File-system/Tools/index.md
     - IO-model:
       - Introduction: Programming/IO/IO-model/index.md
       - UNP-6.1-IO-Multiplexing:
@@ -638,6 +662,8 @@ nav:
           - Introduction: Programming/IO/IO-data-structure/File-descriptor/wikipedia-File-descriptor/index.md
         - Pass-file-descriptor:
           - Introduction: Programming/IO/IO-data-structure/File-descriptor/Pass-file-descriptor/index.md
+      - IO-buffer:
+        - Introduction: Programming/IO/IO-data-structure/IO-buffer/index.md
     - "IO-\u6D41\u6D3E":
       - Introduction: "Programming/IO/IO-\u6D41\u6D3E/index.md"
       - Stream-based-IO:
@@ -663,6 +689,22 @@ nav:
         - Introduction: Programming/IO/IO-multiplexing/IO-events/index.md
       - Multiplex-on-file-descriptor:
         - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/index.md
+        - Notify-via-fd:
+          - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/index.md
+          - eventfd:
+            - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/eventfd/index.md
+            - yangyang-Worker-Pool-With-Eventfd:
+              - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/eventfd/yangyang-Worker-Pool-With-Eventfd/index.md
+            - man-2-eventfd:
+              - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/eventfd/man-2-eventfd/index.md
+          - timefd:
+            - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/timefd/index.md
+          - signalfd:
+            - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/signalfd/index.md
+            - man-2-signalfd:
+              - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/signalfd/man-2-signalfd/index.md
+          - self-pipe-trick:
+            - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/self-pipe-trick/index.md
       - System-call-summary:
         - Introduction: Programming/IO/IO-multiplexing/System-call-summary/index.md
         - IO-multiplexing-and-signal:
@@ -692,6 +734,10 @@ nav:
             - Introduction: Programming/IO/IO-multiplexing/epoll/man-2-epoll_ctl/EPOLLRDHUP/index.md
           - EPOLLRDHUP-VS-EPOLLHUP:
             - Introduction: Programming/IO/IO-multiplexing/epoll/man-2-epoll_ctl/EPOLLRDHUP-VS-EPOLLHUP/index.md
+        - epoll-impl:
+          - Introduction: Programming/IO/IO-multiplexing/epoll/epoll-impl/index.md
+          - idndx-The-Implementation-of-epoll:
+            - Introduction: Programming/IO/IO-multiplexing/epoll/epoll-impl/idndx-The-Implementation-of-epoll/index.md
         - Edge-trigger-VS-level-trigger:
           - Introduction: Programming/IO/IO-multiplexing/epoll/Edge-trigger-VS-level-trigger/index.md
         - epoll-nonblocking-IO:
@@ -702,21 +748,6 @@ nav:
         - Introduction: Programming/IO/IO-multiplexing/select-VS-poll-VS-epoll/index.md
     - File-IO:
       - Introduction: Programming/IO/File-IO/index.md
-      - File-system:
-        - Unix-filesystem:
-          - Introduction: Programming/IO/File-IO/File-system/Unix-filesystem/index.md
-        - man-7-file-hierarchy:
-          - Introduction: Programming/IO/File-IO/File-system/man-7-file-hierarchy/index.md
-        - Inode:
-          - Introduction: Programming/IO/File-IO/File-system/Inode/index.md
-        - Vnode:
-          - Introduction: Programming/IO/File-IO/File-system/Vnode/index.md
-        - man-2-stat:
-          - Introduction: Programming/IO/File-IO/File-system/man-2-stat/index.md
-        - File-type:
-          - Introduction: Programming/IO/File-IO/File-system/File-type/index.md
-        - Tools:
-          - Introduction: Programming/IO/File-IO/File-system/Tools/index.md
       - File-format:
         - Introduction: Programming/IO/File-IO/File-format/index.md
       - System-call:
@@ -749,17 +780,15 @@ nav:
       - Introduction: Programming/IO/IO-redirection/index.md
       - opengroup-dup-and-dup2:
         - Introduction: Programming/IO/IO-redirection/opengroup-dup-and-dup2/index.md
+    - Vectored-IO:
+      - Introduction: Programming/IO/Vectored-IO/index.md
+      - man-2-readv-writev:
+        - Introduction: Programming/IO/Vectored-IO/man-2-readv-writev/index.md
     - Tools:
       - man-1-fuser:
         - Introduction: Programming/IO/Tools/man-1-fuser/index.md
       - man-1-lsof:
         - Introduction: Programming/IO/Tools/man-1-lsof/index.md
-    - Buffered-queued-IO:
-      - Introduction: Programming/IO/Buffered-queued-IO/index.md
-    - Vectored-IO:
-      - Introduction: Programming/IO/Vectored-IO/index.md
-      - man-2-readv-writev:
-        - Introduction: Programming/IO/Vectored-IO/man-2-readv-writev/index.md
   - Date-and-time:
     - Introduction: Programming/Date-and-time/index.md
     - man-2-clock_gettime:
@@ -922,12 +951,20 @@ nav:
               - Introduction: Network/Protocol/Transport-layer/TCP/3-Connection-termination/Connection-finish/freesoft-4.2.2.13-Closing-a-Connection-RFC-793-Section-3.5/index.md
           - Connection-reset:
             - Introduction: Network/Protocol/Transport-layer/TCP/3-Connection-termination/Connection-reset/index.md
-        - man-7-TCP:
-          - Introduction: Network/Protocol/Transport-layer/TCP/man-7-TCP/index.md
-        - TCP-backlog:
-          - Introduction: Network/Protocol/Transport-layer/TCP/TCP-backlog/index.md
+        - Linux-implementation:
+          - Introduction: Network/Protocol/Transport-layer/TCP/Linux-implementation/index.md
+          - man-7-TCP:
+            - Introduction: Network/Protocol/Transport-layer/TCP/Linux-implementation/man-7-TCP/index.md
+          - TCP-parameter:
+            - Introduction: Network/Protocol/Transport-layer/TCP/Linux-implementation/TCP-parameter/index.md
+            - tcp_max_syn_backlog-VS-somaxcon:
+              - Introduction: Network/Protocol/Transport-layer/TCP/Linux-implementation/TCP-parameter/tcp_max_syn_backlog-VS-somaxcon/index.md
       - UDP:
         - Introduction: Network/Protocol/Transport-layer/UDP/index.md
+        - UDP-broadcast:
+          - Introduction: Network/Protocol/Transport-layer/UDP/UDP-broadcast/index.md
+        - Reliable-UDP-RUDP:
+          - Introduction: Network/Protocol/Transport-layer/UDP/Reliable-UDP-RUDP/index.md
         - "tencent-\u544A\u77E5\u4F60\u4E0D\u4E3A\u4EBA\u77E5\u7684UDP\u7591\u96BE\u6742\u75C7\u548C\u4F7F\u7528":
           - Introduction: "Network/Protocol/Transport-layer/UDP/tencent-\u544A\u77E5\
               \u4F60\u4E0D\u4E3A\u4EBA\u77E5\u7684UDP\u7591\u96BE\u6742\u75C7\u548C\
@@ -956,6 +993,12 @@ nav:
           - Introduction: Network/Protocol/Application-layer/HTTP/HTTP-persistent-connection/index.md
     - MAC-address: Network/Protocol/MAC-address.md
     - Message-boundary: Network/Protocol/Message-boundary.md
+  - Network-security:
+    - Introduction: Network/Network-security/index.md
+    - DoS-attack:
+      - Introduction: Network/Network-security/DoS-attack/index.md
+      - Syn-flood:
+        - Introduction: Network/Network-security/DoS-attack/Syn-flood/index.md
   - Network-topology:
     - Introduction: Network/Network-topology/index.md
     - mesh:
@@ -985,6 +1028,8 @@ nav:
         - Introduction: Network/Programming/Socket/man-7-socket/index.md
       - man-2-socket:
         - Introduction: Network/Programming/Socket/man-2-socket/index.md
+      - Buffer:
+        - Introduction: Network/Programming/Socket/Buffer/index.md
       - man-7-address_families:
         - Introduction: Network/Programming/Socket/man-7-address_families/index.md
       - Socket-option:
@@ -1150,27 +1195,31 @@ nav:
             - Guide-to-controlling-process: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Guide-to-controlling-process.md
             - Guide-to-examining-data: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Guide-to-examining-data.md
             - Point-in-GDB: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Point-in-GDB.md
-            - Shared-library:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Shared-library/index.md
             - Function:
               - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Function/index.md
             - Automate:
               - Gdb-automate-debug: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Automate/Gdb-automate-debug.md
-            - Debug-assembly: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-assembly.md
             - gdb-primer:
               - gdb-primer: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/gdb-primer/gdb-primer.md
             - Args:
               - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Args/index.md
+            - Debug-shared-library:
+              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-shared-library/index.md
             - Debug-HS-middleware:
               - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-HS-middleware/index.md
+            - Debug-multi-thread:
+              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-multi-thread/index.md
+              - Show-thread-start-rtn:
+                - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-multi-thread/Show-thread-start-rtn/index.md
+              - Debug-race-condition:
+                - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-multi-thread/Debug-race-condition/index.md
+              - Debug-dead-lock:
+                - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-multi-thread/Debug-dead-lock/index.md
+            - Debug-assembly: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-assembly.md
           - 2-Getting-In-and-Out-of-gdb:
             - 2-Getting-In-and-Out-of-gdb: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/2-Getting-In-and-Out-of-gdb/2-Getting-In-and-Out-of-gdb.md
           - 4-Running-Programs-Under-gdb:
-            - 4-Running-Programs-Under-gdb: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/4-Running-Programs-Under-gdb.md
-            - Debug-multithreaded-application:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/index.md
-              - Show-thread-start-rtn: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/Show-thread-start-rtn.md
-              - Race-condition: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/Debug-multithreaded-application/Race-condition.md
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/index.md
           - 5-Stopping-and-Continuing:
             - 5-Stopping-and-Continuing: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5-Stopping-and-Continuing.md
             - 5.5-Stopping-and-Starting-Multi-thread-Programs: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5.5-Stopping-and-Starting-Multi-thread-Programs.md
@@ -1218,7 +1267,6 @@ nav:
         - ltrace: Shell-and-tool/Tools/Debug/Library-call-tracer/ltrace.md
       - Application:
         - Stuck-process: Shell-and-tool/Tools/Debug/Application/Stuck-process.md
-        - Dead-lock: Shell-and-tool/Tools/Debug/Application/Dead-lock.md
     - Performance:
       - Introduction: Shell-and-tool/Tools/Performance/index.md
       - System-load:
@@ -1261,6 +1309,9 @@ nav:
         - lscpu: Shell-and-tool/Tools/Hardware/CPU/lscpu.md
     - Cron:
       - Introduction: Shell-and-tool/Tools/Cron/index.md
+- Book:
+  - gitbooks-Linux-insides:
+    - Introduction: Book/gitbooks-Linux-insides/index.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Linux-OS
