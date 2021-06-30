@@ -34,3 +34,6 @@ Applications can invoke a system call in two different ways:
 
 
 
+## TODO
+
+gitbooks Linux insides [System calls in the Linux kernel. Part 1.](https://0xax.gitbooks.io/linux-insides/content/SysCall/linux-syscall-1.html)

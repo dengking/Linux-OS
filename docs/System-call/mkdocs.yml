@@ -5,3 +5,4 @@ nav:
     - Interrupted-system-call: Interrupted-system-call
     - Zero-copy: Zero-copy
     - p-system-call: p-system-call
+    - Linux-system-call-table: Linux-system-call-table

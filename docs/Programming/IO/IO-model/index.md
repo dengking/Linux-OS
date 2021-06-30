@@ -18,24 +18,11 @@
 
 参见 `Parallel-computing\docs\Event-driven-concurrent-server\Design-pattern\Proactor-reactor`
 
-## Summary
+## Blocking I/O、nonblocking I/O
 
+在下面文章中，对它们进行了介绍:
 
-
-可以看出，它们对IO model的分类是基本相同的。
-
-
-
-
-## Linux中基于signal的asynchronous IO
-
-在[pipe(7) - Linux man page](https://linux.die.net/man/7/pipe)的I/O on pipes and FIFOs章节，介绍了pipe和FIFO的blocking 和nonblocking IO，以及asynchronous IO，从其中可以看到，pipe的asynchronous IO是基于signal的；
-
-
-
-
-
-## APUE 16.8
+### APUE 16.8
 
 这一节描述了非阻塞和异步的socket IO。
 
@@ -45,12 +32,11 @@
 
 在APUE的第14章，对这些内容进行了整体地介绍。
 
-
+### UNP 6.1 I/O Multiplexing: The `select` and `poll` Functions[¶](https://notes.shichao.io/unp/ch6/#chapter-6-io-multiplexing-the-select-and-poll-functions)
 
 ## TODO
 
 https://eklitzke.org/blocking-io-nonblocking-io-and-epoll
 
 https://stackoverflow.com/questions/14643249/why-having-to-use-non-blocking-fd-in-a-edge-triggered-epoll-function
-
 

@@ -2,7 +2,7 @@
 
 什么是IO，看看维基百科[Input/output](https://en.wikipedia.org/wiki/Input/output)的解释吧。
 
-## 维基百科 [Input/output](https://en.wikipedia.org/wiki/Input/output)
+## wikipedia [Input/output](https://en.wikipedia.org/wiki/Input/output)
 
 In [computing](https://en.wikipedia.org/wiki/Computing), **input/output** or **I/O** (or, informally, **io** or **IO**) is the communication between an [information processing system](https://en.wikipedia.org/wiki/Information_processing_system), such as a [computer](https://en.wikipedia.org/wiki/Computer), and the outside world, possibly a human or another [information processing system](https://en.wikipedia.org/wiki/Information_processor). [Inputs](https://en.wikipedia.org/wiki/Information) are the signals or data received by the system and outputs are the signals or [data](https://en.wikipedia.org/wiki/Data_(computing)) sent from it. The term can also be used as part of an action; to "perform I/O" is to perform an [input or output operation](https://en.wikipedia.org/wiki/I/O_scheduling).
 
@@ -44,6 +44,21 @@ IO也可以看做是一种通信，因此，双方需要约定好协议。
 
 本节总结IO的原理，下面是一些素材:
 
-stackoverflow [What are the advantages of memory-mapped files?](https://stackoverflow.com/questions/192527/what-are-the-advantages-of-memory-mapped-files) # [A](https://stackoverflow.com/a/192854)
+### stackoverflow [What are the advantages of memory-mapped files?](https://stackoverflow.com/questions/192527/what-are-the-advantages-of-memory-mapped-files) # [A](https://stackoverflow.com/a/192854)
 
 > if you use a system call (e.g. Linux's `pread()` ) then that typically involves the kernel copying the data from its own buffers into user space. This extra copying not only takes time, but decreases the effectiveness of the CPU's caches by accessing this extra copy of the data.
+
+### UNP 6.1 I/O Multiplexing: The `select` and `poll` Functions[¶](https://notes.shichao.io/unp/ch6/#chapter-6-io-multiplexing-the-select-and-poll-functions)c
+
+As we show in all the examples in this section, there are normally two distinct phases for an input operation:
+
+1、Waiting for the data to be ready
+
+> NOTE: 
+>
+> 等待数据就绪
+
+2、Copying the data from the kernel to the process
+
+> NOTE: 将数据从kernel拷贝到用户态
+

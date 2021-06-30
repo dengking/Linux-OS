@@ -22,3 +22,9 @@
 >
 > 
 
+
+
+## Linux中基于signal的asynchronous IO
+
+在[pipe(7) - Linux man page](https://linux.die.net/man/7/pipe)的I/O on pipes and FIFOs章节，介绍了pipe和FIFO的blocking 和nonblocking IO，以及asynchronous IO，从其中可以看到，pipe的asynchronous IO是基于signal的；
+
