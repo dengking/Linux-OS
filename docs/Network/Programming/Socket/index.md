@@ -42,3 +42,10 @@ A socket is an abstract representation ([handle](https://en.wikipedia.org/wiki/H
 
 Berkeley sockets evolved with little modification from a [*de facto* standard](https://en.wikipedia.org/wiki/De_facto_standard) into a component of the [POSIX](https://en.wikipedia.org/wiki/POSIX) specification. The term **POSIX sockets** is essentially synonymous with *Berkeley sockets*, but they are also known as *BSD sockets*, acknowledging the first implementation in the [Berkeley Software Distribution](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution).
 
+## Linux name convention
+
+对于network socket IO，Linux使用的是:
+
+1、read、recv
+
+2、write、send

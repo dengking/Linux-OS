@@ -2,6 +2,7 @@ nav:
     - Introduction: index.md
     - man-7-socket: man-7-socket
     - man-2-socket: man-2-socket
+    - Buffer: Buffer
     - man-7-address_families: man-7-address_families
     - Socket-option: Socket-option
     - Control-message: Control-message
