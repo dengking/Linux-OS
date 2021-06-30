@@ -1,7 +1,3 @@
-
-
-
-
 # [bind(2) - Linux man page](https://linux.die.net/man/2/bind)
 
 ## Synopsis

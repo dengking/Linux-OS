@@ -28,8 +28,6 @@ Note that while a local process can communicate with a foreign process by sendin
 
 
 
-
-
 ### Socket pairs
 
 Communicating local and remote sockets are called **socket pairs**. Each socket pair is described by a unique [4-tuple](https://en.wikipedia.org/wiki/4-tuple) consisting of source and destination IP addresses and port numbers, i.e. of local and remote socket addresses.[[8\]](https://en.wikipedia.org/wiki/Network_socket#cite_note-8)[[9\]](https://en.wikipedia.org/wiki/Network_socket#cite_note-9) As seen in the discussion above, in the TCP case, each unique socket pair 4-tuple is assigned a socket number, while in the UDP case, each unique local socket address is assigned a socket number.

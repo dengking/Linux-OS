@@ -53,19 +53,19 @@
 
 通过上述例子可以总结如下：
 
-- bind函数的IP只能够是：
+bind函数的IP只能够是：
 
-  1. `0.0.0.0` 
-  2. `127.0.0.1` 
-  3. 本机的IP，显然这种情况是不好的，因为本机的IP是可能变动的，不如`127.0.0.1`
+1. `0.0.0.0` 
+2. `127.0.0.1` 
+3. 本机的IP，显然这种情况是不好的，因为本机的IP是可能变动的，不如`127.0.0.1`
 
-  不可能bind到出这三种情况外的IP，上述例子中的第四种情况就是这样的。
-
-
+不可能bind到出这三种情况外的IP，上述例子中的第四种情况就是这样的。
 
 
 
-# [What client-side situations need bind()?](https://stackoverflow.com/questions/4118241/what-client-side-situations-need-bind)
+
+
+## stackoverflow [What client-side situations need bind()?](https://stackoverflow.com/questions/4118241/what-client-side-situations-need-bind)
 
 
 
