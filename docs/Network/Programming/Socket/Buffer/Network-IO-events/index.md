@@ -1,0 +1,34 @@
+# network IO event and IO multiplexing
+
+一、需要结合socket的data structure来进行理解
+
+
+
+| event    | buffer      | socket option                  |
+| -------- | ----------- | ------------------------------ |
+| readable | recv buffer | `SO_RCVLOWAT` / **接收低水位** |
+| writable | send buffer | `SO_SNDLOWAT` / **发送低水位** |
+|          |             |                                |
+
+
+
+## 参考文章
+
+csdn [网络编程学习笔记--1.socket可读可写条件](https://blog.csdn.net/majianfei1023/article/details/45788591)
+
+
+
+### 官方说明文档
+
+在下面文章中，对此进行了介绍:
+
+一、[socket(7) Linux Programmer's Manual](http://man7.org/linux/man-pages/man7/socket.7.html)  
+
+其中的内容是以 [poll(2)](https://man7.org/linux/man-pages/man2/poll.2.html)、[select(2)](https://man7.org/linux/man-pages/man2/select.2.html) 为例进行说明的
+
+二、[epoll_ctl(2) — Linux manual page](http://man7.org/linux/man-pages/man2/epoll_ctl.2.html)
+
+其中描述了epoll的IO event
+
+## csdn [网络编程学习笔记--1.socket可读可写条件](https://blog.csdn.net/majianfei1023/article/details/45788591)
+
