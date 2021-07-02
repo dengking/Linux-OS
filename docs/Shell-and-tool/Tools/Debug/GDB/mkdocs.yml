@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
+    - Guide: Guide
     - Debugging-with-gdb: Debugging-with-gdb

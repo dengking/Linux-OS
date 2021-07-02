@@ -34,9 +34,9 @@ System-call-trace: `Shell-and-tools\Tools\Debug\System-call-trace`
 
 
 
-### Library call tracer
+### Library call trace
 
-Library-call-tracer: `Shell-and-tools\Tools\Debug\Library-call-tracer`
+Library-call-tracer: `Shell-and-tools\Tools\Debug\Library-call-trace`
 
 
 
@@ -67,3 +67,16 @@ wikipedia [Signal trace](https://en.wikipedia.org/wiki/Signal_trace)
 | [DTrace](https://en.wikipedia.org/wiki/DTrace) | - [Solaris](https://en.wikipedia.org/wiki/Solaris_(operating_system)) |
 
 wikipedia [LTTng](https://en.wikipedia.org/wiki/LTTng)
+
+
+
+## TODO
+
+3.2.1. Process State  `TASK_TRACED`
+
+
+
+## TODO
+
+dev [Say this five times fast: strace, ptrace, dtrace, dtruss](https://dev.to/captainsafia/say-this-five-times-fast-strace-ptrace-dtrace-dtruss-3e1b)
+
