@@ -77,3 +77,8 @@ if ((nready = pselet(..., &zero)) < 0)
 }
 ```
 
+
+
+## see also
+
+stackoverflow [How to block signals in C?](https://stackoverflow.com/questions/13481186/how-to-block-signals-in-c)

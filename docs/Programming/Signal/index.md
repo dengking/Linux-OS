@@ -29,3 +29,11 @@ signal是什么？
 
 
 ## [SIGNAL(7)](http://man7.org/linux/man-pages/man7/signal.7.html)
+
+
+
+
+
+## csdn [linux下 signal信号机制的透彻分析与各种实例讲解](https://blog.csdn.net/u012183924/article/details/53888972/)
+
+这篇文章讲解signal还是比较详细的，可以作为guide。
