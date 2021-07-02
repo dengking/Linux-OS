@@ -6,6 +6,5 @@ Linux中，每个socket file descriptor，都有:
 
 2、recv buffer
 
+socket的很多内容都和它们相关。
 
-
-socket的很多内容都和它相关。

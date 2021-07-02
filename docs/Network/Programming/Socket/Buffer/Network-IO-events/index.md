@@ -20,7 +20,7 @@
 
 其中描述了epoll的IO event
 
+## 参考文章
 
-
-## 相关章节
+csdn [网络编程学习笔记--1.socket可读可写条件](https://blog.csdn.net/majianfei1023/article/details/45788591)
 

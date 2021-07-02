@@ -84,7 +84,7 @@ Rather than **asynchronously** catching a signal via a **signal handler**, it is
 
 A signal may be ***blocked***, which means that it will not be delivered until it is later unblocked.  Between the time when it is generated and when it is delivered a signal is said to be ***pending***.
 
-
+### per-thread signal mask
 
 Each thread in a process has an independent ***signal mask***, which indicates the set of signals that the thread is currently blocking. A thread can manipulate its signal mask using [pthread_sigmask(3)](http://man7.org/linux/man-pages/man3/pthread_sigmask.3.html).  In a traditional single-threaded application, [sigprocmask(2)](http://man7.org/linux/man-pages/man2/sigprocmask.2.html) can be used to manipulate the signal mask.
 
@@ -95,6 +95,8 @@ A child created via [fork(2)](http://man7.org/linux/man-pages/man2/fork.2.html) 
 > NOTE: 
 >
 > 这和signal disposition是不同的
+
+### Signal direction
 
 A signal may be generated (and thus pending) for a process as a whole (e.g., when sent using [kill(2)](http://man7.org/linux/man-pages/man2/kill.2.html)) or for a specific thread (e.g., certain signals, such as `SIGSEGV` and `SIGFPE`, generated as a consequence of executing a specific machine-language instruction are thread directed, as are signals targeted at a specific thread using [pthread_kill(3)](http://man7.org/linux/man-pages/man3/pthread_kill.3.html)).  A process-directed signal may be delivered to any one of the threads that does not currently have the signal blocked. If more than one of the threads has the signal unblocked, then the kernel chooses an arbitrary thread to which to deliver the signal.
 

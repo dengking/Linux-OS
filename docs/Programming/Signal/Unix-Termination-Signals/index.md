@@ -48,13 +48,7 @@ This signal is also used to report the termination of the controlling process on
 
 在《`APUE-10.2 Signal Concepts.md`》中总结了`SIGKILL` 和 `SIGTERM`的异同
 
-
-
----
-
 major [SIGTERM vs. SIGKILL](https://major.io/2010/03/18/sigterm-vs-sigkill/)
-
-
 
 [Redis Signals Handling](https://redis.io/topics/signals)是了解一些信号的非常好的example
 

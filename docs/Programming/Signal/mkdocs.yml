@@ -6,3 +6,5 @@ nav:
     - Signal-handler: Signal-handler
     - Scheduler-signal: Scheduler-signal
     - Ctrl-z-and-Ctrl-c: Ctrl-z-and-Ctrl-c    
+    - Block-signal: Block-signal
+    
