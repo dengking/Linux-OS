@@ -50,7 +50,7 @@ A child created via [fork(2)](http://man7.org/linux/man-pages/man2/fork.2.html) 
 
 The following system calls and library functions allow the caller to send a signal:
 
-|                                                              |                                                              |
+| system call                                                  |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [raise(3)](http://man7.org/linux/man-pages/man3/raise.3.html) | Sends a signal to the calling thread.                        |
 | [kill(2)](http://man7.org/linux/man-pages/man2/kill.2.html)  | Sends a signal to a specified process, to all members of a specified process group, or to all processes on the system. |
@@ -63,7 +63,7 @@ The following system calls and library functions allow the caller to send a sign
 ## Waiting for a signal to be caught
 The following system calls suspend execution of the calling thread until a signal is caught (or an unhandled signal terminates the process):
 
-|                                                              |                                                              |
+| system call                                                  |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [pause(2)](http://man7.org/linux/man-pages/man2/pause.2.html) | Suspends execution until **any** signal is caught.           |
 | [sigsuspend(2)](http://man7.org/linux/man-pages/man2/sigsuspend.2.html) | Temporarily changes the signal mask (see below) and suspends execution until one of the unmasked signals is caught. |

@@ -24,3 +24,6 @@
 
 
 
+## Print
+
+[perror](https://linux.die.net/man/3/perror)
