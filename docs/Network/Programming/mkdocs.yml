@@ -20,5 +20,3 @@ nav:
     - man-2-sendfile: man-2-sendfile
     
     - TCP-Wrappers: TCP-Wrappers
-    
-    - Relationship-between-process-and-port: Relationship-between-process-and-port
