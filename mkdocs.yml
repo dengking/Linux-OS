@@ -685,8 +685,6 @@ nav:
         - Introduction: Programming/IO/IO-multiplexing/What-is-IO-multiplexing/index.md
         - zhihu-What-is-IO-multiplexing:
           - Introduction: Programming/IO/IO-multiplexing/What-is-IO-multiplexing/zhihu-What-is-IO-multiplexing/index.md
-      - IO-events:
-        - Introduction: Programming/IO/IO-multiplexing/IO-events/index.md
       - Multiplex-on-file-descriptor:
         - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/index.md
         - Notify-via-fd:
@@ -705,16 +703,14 @@ nav:
               - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/signalfd/man-2-signalfd/index.md
           - self-pipe-trick:
             - Introduction: Programming/IO/IO-multiplexing/Multiplex-on-file-descriptor/Notify-via-fd/self-pipe-trick/index.md
-      - System-call-summary:
-        - Introduction: Programming/IO/IO-multiplexing/System-call-summary/index.md
-        - IO-multiplexing-and-signal:
-          - Introduction: Programming/IO/IO-multiplexing/System-call-summary/IO-multiplexing-and-signal/index.md
       - select:
         - Introduction: Programming/IO/IO-multiplexing/select/index.md
         - man-2-select:
           - Introduction: Programming/IO/IO-multiplexing/select/man-2-select/index.md
         - man-2-select_tut:
           - Introduction: Programming/IO/IO-multiplexing/select/man-2-select_tut/index.md
+        - pselect-VS-select:
+          - Introduction: Programming/IO/IO-multiplexing/select/pselect-VS-select/index.md
       - poll:
         - Introduction: Programming/IO/IO-multiplexing/poll/index.md
       - epoll:
@@ -744,8 +740,12 @@ nav:
           - Introduction: Programming/IO/IO-multiplexing/epoll/epoll-nonblocking-IO/index.md
         - kovyrin-Using-epoll-For-Asynchronous-Network-Programming:
           - Introduction: Programming/IO/IO-multiplexing/epoll/kovyrin-Using-epoll-For-Asynchronous-Network-Programming/index.md
-      - select-VS-poll-VS-epoll:
-        - Introduction: Programming/IO/IO-multiplexing/select-VS-poll-VS-epoll/index.md
+      - Summary:
+        - Introduction: Programming/IO/IO-multiplexing/Summary/index.md
+        - IO-multiplexing-and-signal:
+          - Introduction: Programming/IO/IO-multiplexing/Summary/IO-multiplexing-and-signal/index.md
+        - select-VS-poll-VS-epoll:
+          - Introduction: Programming/IO/IO-multiplexing/Summary/select-VS-poll-VS-epoll/index.md
     - File-IO:
       - Introduction: Programming/IO/File-IO/index.md
       - File-format:
@@ -789,14 +789,14 @@ nav:
         - Introduction: Programming/IO/Tools/man-1-fuser/index.md
       - man-1-lsof:
         - Introduction: Programming/IO/Tools/man-1-lsof/index.md
-  - Date-and-time:
-    - Introduction: Programming/Date-and-time/index.md
+  - Date-time:
+    - Introduction: Programming/Date-time/index.md
     - man-2-clock_gettime:
-      - Introduction: Programming/Date-and-time/man-2-clock_gettime/index.md
+      - Introduction: Programming/Date-time/man-2-clock_gettime/index.md
     - localtime:
-      - Introduction: Programming/Date-and-time/localtime/index.md
+      - Introduction: Programming/Date-time/localtime/index.md
     - codeofmatt-List-of-2020-Leap-Day-Bugs:
-      - Introduction: Programming/Date-and-time/codeofmatt-List-of-2020-Leap-Day-Bugs/index.md
+      - Introduction: Programming/Date-time/codeofmatt-List-of-2020-Leap-Day-Bugs/index.md
   - Signal:
     - Introduction: Programming/Signal/index.md
     - wikipedia-Signal(IPC):
@@ -811,6 +811,8 @@ nav:
       - Introduction: Programming/Signal/Scheduler-signal/index.md
     - Ctrl-z-and-Ctrl-c:
       - Introduction: Programming/Signal/Ctrl-z-and-Ctrl-c/index.md
+    - Block-signal:
+      - Introduction: Programming/Signal/Block-signal/index.md
   - Virtualization:
     - Introduction: Programming/Virtualization/index.md
     - Virtualization:
@@ -991,8 +993,8 @@ nav:
         - Introduction: Network/Protocol/Application-layer/HTTP/index.md
         - HTTP-persistent-connection:
           - Introduction: Network/Protocol/Application-layer/HTTP/HTTP-persistent-connection/index.md
-    - MAC-address: Network/Protocol/MAC-address.md
-    - Message-boundary: Network/Protocol/Message-boundary.md
+    - Message-boundary:
+      - Introduction: Network/Protocol/Message-boundary/index.md
   - Network-security:
     - Introduction: Network/Network-security/index.md
     - DoS-attack:
@@ -1030,6 +1032,8 @@ nav:
         - Introduction: Network/Programming/Socket/man-2-socket/index.md
       - Buffer:
         - Introduction: Network/Programming/Socket/Buffer/index.md
+        - Network-IO-events:
+          - Introduction: Network/Programming/Socket/Buffer/Network-IO-events/index.md
       - man-7-address_families:
         - Introduction: Network/Programming/Socket/man-7-address_families/index.md
       - Socket-option:
@@ -1070,8 +1074,6 @@ nav:
       - Introduction: Network/Programming/man-2-sendfile/index.md
     - TCP-Wrappers:
       - Introduction: Network/Programming/TCP-Wrappers/index.md
-    - Relationship-between-process-and-port:
-      - Introduction: Network/Programming/Relationship-between-process-and-port/index.md
   - Expert-packetlife:
     - Introduction: Network/Expert-packetlife/index.md
     - packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers:
@@ -1116,6 +1118,8 @@ nav:
       - "jianshu-KeepAlive\u8BE6\u89E3":
         - Introduction: "Network/Glossary/Keepalive/jianshu-KeepAlive\u8BE6\u89E3\
             /index.md"
+    - MAC-address:
+      - Introduction: Network/Glossary/MAC-address/index.md
 - Security:
   - Introduction: Security/index.md
   - Capability-based-security:
@@ -1180,42 +1184,57 @@ nav:
       - Rsync: Shell-and-tool/Tools/Rsync/Rsync.md
     - Debug:
       - Introduction: Shell-and-tool/Tools/Debug/index.md
-      - Debugger: Shell-and-tool/Tools/Debug/Debugger.md
-      - Trap: Shell-and-tool/Tools/Debug/Trap.md
-      - Trace: Shell-and-tool/Tools/Debug/Trace.md
+      - Trace:
+        - Introduction: Shell-and-tool/Tools/Debug/Trace/index.md
+        - System-call-trace:
+          - man-1-ptrace:
+            - Introduction: Shell-and-tool/Tools/Debug/Trace/System-call-trace/man-1-ptrace/index.md
+          - man-1-strace:
+            - Introduction: Shell-and-tool/Tools/Debug/Trace/System-call-trace/man-1-strace/index.md
+        - Library-call-trace:
+          - man-1-ltrace:
+            - Introduction: Shell-and-tool/Tools/Debug/Trace/Library-call-trace/man-1-ltrace/index.md
+        - Stack-trace:
+          - Introduction: Shell-and-tool/Tools/Debug/Trace/Stack-trace/index.md
+          - man-1-pstack:
+            - Introduction: Shell-and-tool/Tools/Debug/Trace/Stack-trace/man-1-pstack/index.md
       - GDB:
         - Introduction: Shell-and-tool/Tools/Debug/GDB/index.md
+        - Guide:
+          - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/index.md
+          - gdb-primer:
+            - gdb-primer: Shell-and-tool/Tools/Debug/GDB/Guide/gdb-primer/gdb-primer.md
+          - Design-of-gdb:
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Design-of-gdb/index.md
+            - Abstraction-in-GDB: Shell-and-tool/Tools/Debug/GDB/Guide/Design-of-gdb/Abstraction-in-GDB.md
+            - Structure-in-GDB: Shell-and-tool/Tools/Debug/GDB/Guide/Design-of-gdb/Structure-in-GDB.md
+          - Guide-to-examining-data: Shell-and-tool/Tools/Debug/GDB/Guide/Guide-to-examining-data.md
+          - Point-in-GDB: Shell-and-tool/Tools/Debug/GDB/Guide/Point-in-GDB.md
+          - Function:
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Function/index.md
+          - Automate:
+            - Gdb-automate-debug: Shell-and-tool/Tools/Debug/GDB/Guide/Automate/Gdb-automate-debug.md
+          - Args:
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Args/index.md
+          - Debug-process:
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-process/index.md
+            - Debug-stuck-process:
+              - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-process/Debug-stuck-process/index.md
+          - Debug-shared-library:
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-shared-library/index.md
+          - Debug-HS-middleware:
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-HS-middleware/index.md
+          - Debug-multi-thread:
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-multi-thread/index.md
+            - Show-thread-start-rtn:
+              - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Show-thread-start-rtn/index.md
+            - Debug-race-condition:
+              - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Debug-race-condition/index.md
+            - Debug-dead-lock:
+              - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Debug-dead-lock/index.md
+          - Debug-assembly:
+            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-assembly/index.md
         - Debugging-with-gdb:
-          - Guide:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/index.md
-            - Design-of-gdb:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/index.md
-              - Abstraction-in-GDB: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/Abstraction-in-GDB.md
-              - Structure-in-GDB: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Design-of-gdb/Structure-in-GDB.md
-            - Guide-to-controlling-process: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Guide-to-controlling-process.md
-            - Guide-to-examining-data: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Guide-to-examining-data.md
-            - Point-in-GDB: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Point-in-GDB.md
-            - Function:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Function/index.md
-            - Automate:
-              - Gdb-automate-debug: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Automate/Gdb-automate-debug.md
-            - gdb-primer:
-              - gdb-primer: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/gdb-primer/gdb-primer.md
-            - Args:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Args/index.md
-            - Debug-shared-library:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-shared-library/index.md
-            - Debug-HS-middleware:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-HS-middleware/index.md
-            - Debug-multi-thread:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-multi-thread/index.md
-              - Show-thread-start-rtn:
-                - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-multi-thread/Show-thread-start-rtn/index.md
-              - Debug-race-condition:
-                - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-multi-thread/Debug-race-condition/index.md
-              - Debug-dead-lock:
-                - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-multi-thread/Debug-dead-lock/index.md
-            - Debug-assembly: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/Guide/Debug-assembly.md
           - 2-Getting-In-and-Out-of-gdb:
             - 2-Getting-In-and-Out-of-gdb: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/2-Getting-In-and-Out-of-gdb/2-Getting-In-and-Out-of-gdb.md
           - 4-Running-Programs-Under-gdb:
@@ -1254,19 +1273,6 @@ nav:
             - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/23-Extending-GDB/index.md
           - 25-gdb-Text-User-Interface:
             - 25-gdb-Text-User-Interface: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/25-gdb-Text-User-Interface/25-gdb-Text-User-Interface.md
-      - Stack-trace:
-        - Stack-trace: Shell-and-tool/Tools/Debug/Stack-trace/Stack-trace.md
-        - pstack:
-          - pstack: Shell-and-tool/Tools/Debug/Stack-trace/pstack/pstack.md
-      - trace-system-call:
-        - man-1-ptrace:
-          - Introduction: Shell-and-tool/Tools/Debug/trace-system-call/man-1-ptrace/index.md
-        - man-1-strace:
-          - Introduction: Shell-and-tool/Tools/Debug/trace-system-call/man-1-strace/index.md
-      - Library-call-tracer:
-        - ltrace: Shell-and-tool/Tools/Debug/Library-call-tracer/ltrace.md
-      - Application:
-        - Stuck-process: Shell-and-tool/Tools/Debug/Application/Stuck-process.md
     - Performance:
       - Introduction: Shell-and-tool/Tools/Performance/index.md
       - System-load:
