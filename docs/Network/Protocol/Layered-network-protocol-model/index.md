@@ -13,9 +13,13 @@
 
 The **Open Systems Interconnection model** (**OSI model**) is a [conceptual model](https://en.wikipedia.org/wiki/Conceptual_model) that characterizes and standardizes the communication functions of a [telecommunication](https://en.wikipedia.org/wiki/Telecommunication) or computing system without regard to its underlying internal structure and technology. Its goal is the interoperability of diverse communication systems with **standard protocols**. The model partitions a communication system into [abstraction layers](https://en.wikipedia.org/wiki/Abstraction_layer). The **original** version of the model defined seven layers.
 
-> NOTE: 上面这段话中的最后一句中的original让我想起来了在大学的时候学习network的时候，其中说明过**实现**和**理论**之间的差异：即实现可能并不会按照理论中所定义的模型来进行，在实现的时候可能会进行简化。
+> NOTE: 
+>
+> 一、上面这段话中的最后一句中的original让我想起来了在大学的时候学习network的时候，其中说明过**实现**和**理论**之间的差异：即实现可能并不会按照理论中所定义的模型来进行，在实现的时候可能会进行简化。
+>
+> 二、需要和[Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)对比着来看。
 
-> NOTE: 需要和[Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)对比着来看。
+
 
 A layer serves the layer above it and is served by the layer below it. For example, a layer that provides error-free communications across a network provides the **path** needed by applications **above** it, while it calls the next **lower** layer to send and receive packets that constitute（组成） the contents of that **path**. Two instances at the same layer are visualized as connected by a *horizontal* connection in that layer.
 
@@ -114,58 +118,6 @@ The characteristic architecture of the Internet Protocol Suite is its broad divi
 
 
 
-## Protocol data unit
-
-一个非常重要的概念就是protocol data unit，PDU，即“协议数据单元”，它是描述下一节Mechanism的前提。它符合在文章《Unit》中提出的思想的。
-
-### wikipedia [Protocol data unit](https://en.wikipedia.org/wiki/Protocol_data_unit)
-
-#### Example: PDU of layer of OSI model
-
-| layer | name                                                         | PDU                                                          |
-| ----- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 4     | [transport layer](https://en.wikipedia.org/wiki/Transport_layer) | TCP [segment](https://en.wikipedia.org/wiki/Packet_segment) or UDP datagram |
-| 3     | [network layer](https://en.wikipedia.org/wiki/Network_layer) | [packet](https://en.wikipedia.org/wiki/Network_packet)       |
-| 2     | [data link layer](https://en.wikipedia.org/wiki/Data_link_layer) | [frame](https://en.wikipedia.org/wiki/Frame_(networking))    |
-| 1     | [physical layer](https://en.wikipedia.org/wiki/Physical_layer) | [bit](https://en.wikipedia.org/wiki/Bit) or, more generally, [symbol](https://en.wikipedia.org/wiki/Symbol_(data)). |
-
-
-
-### [RFC 1122](https://tools.ietf.org/html/rfc1122)
-
-
-
-下面是[RFC 1122](https://tools.ietf.org/html/rfc1122)中给出的描述
-
-| terminology | explanation                                                  |
-| ----------- | ------------------------------------------------------------ |
-| Segment     | A **segment** is the unit of end-to-end transmission in the<br/>**TCP protocol**. A segment consists of a **TCP header** followed<br/>by **application data**. A segment is transmitted by<br/>encapsulation inside an **IP datagram**. |
-| Message     | In this description of the lower-layer protocols, <br/>a **message** is the unit of transmission in a **transport layer protocol**. <br>In particular, a TCP segment is a message. <br/>A message consists of a **transport protocol header** followed<br/>by application protocol data. To be transmitted end-to-end through the Internet, <br/>a message must be encapsulated inside a **datagram**. |
-| IP Datagram | An IP datagram is the unit of end-to-end transmission in<br/>the IP protocol. An IP datagram consists of an IP header<br/>followed by transport layer data, i.e., of an IP header<br/>followed by a message. |
-| Packet      | A packet is the unit of data passed across the interface<br/>between the internet layer and the link layer. It<br/>includes an IP header and data. A packet may be a<br/>complete IP datagram or a fragment of an IP datagram. |
-| Frame       | A frame is the unit of transmission in a link layer<br/>protocol, and consists of a link-layer header followed by<br/>a packet. |
-
-![](./Unit-of-layer.png)
-
-
-
-### Max length of PDU
-
-前面介绍了PUC，与它相关的另外一个问题是：它的最大长度；
-
-
-
-#### Example: PDU of layer of OSI model
-
-| layer | name                                                         | PDU                                                          | max length                                                   |
-| ----- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 4     | [transport layer](https://en.wikipedia.org/wiki/Transport_layer) | TCP [segment](https://en.wikipedia.org/wiki/Packet_segment) or UDP datagram | [Maximum segment size](https://en.wikipedia.org/wiki/Maximum_segment_size) |
-| 3     | [network layer](https://en.wikipedia.org/wiki/Network_layer) | [packet](https://en.wikipedia.org/wiki/Network_packet)       | [Maximum transmission unit](https://en.wikipedia.org/wiki/Maximum_transmission_unit) |
-| 2     | [data link layer](https://en.wikipedia.org/wiki/Data_link_layer) | [frame](https://en.wikipedia.org/wiki/Frame_(networking))    |                                                              |
-| 1     | [physical layer](https://en.wikipedia.org/wiki/Physical_layer) | [bit](https://en.wikipedia.org/wiki/Bit) or, more generally, [symbol](https://en.wikipedia.org/wiki/Symbol_(data)). |                                                              |
-
-
-
 ## Mechanism
 
 > NOTE: 这是我在阅读wikipedia [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)的[Key architectural principles](https://en.wikipedia.org/wiki/Internet_protocol_suite#Key_architectural_principles)的插图"Encapsulation of application data descending through the layers described in [RFC 1122](https://tools.ietf.org/html/rfc1122)"时，有感而发，本节标题的含义是: 机制，network protocol model的运行机制。
@@ -188,7 +140,7 @@ Reassemble 重新装配、重新集合
 
 1、[IP fragmentation](https://en.wikipedia.org/wiki/IP_fragmentation)
 
-2、TCP segment of a reassembled PDU（在`Network\Theory\TCPTCP-segment-of-a-reassembled-PDU`中，对这个问题进行了讨论）
+2、TCP segment of a reassembled PDU（在 `Network\Theory\TCPTCP-segment-of-a-reassembled-PDU` 中，对这个问题进行了讨论）
 
 
 
@@ -215,8 +167,4 @@ Encapsulation of application data descending through the layers described in [RF
 1) Unpack/Expose
 
 2) Reassemble: 将多个本层的PDU，组装为上层的PDU
-
-
-
-
 

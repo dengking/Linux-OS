@@ -75,7 +75,7 @@ Protocol data format(有时候也被称为data exchange format)的设计是appli
 
 
 
-## How to descript protocol data format?
+## How to describe protocol data format?
 
 下面描述如何来描述protocol data format。
 
