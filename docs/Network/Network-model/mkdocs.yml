@@ -4,6 +4,8 @@ nav:
     - Layered-network-protocol-model: Layered-network-protocol-model
     
     - RCF: RCF
+    
+    - Link-layer: Link-layer
     # 网络层
     - Network-layer: Network-layer    
     # 传输层
@@ -12,4 +14,6 @@ nav:
     - Application-layer: Application-layer
 
     - Message-boundary: Message-boundary
+    
+    - Ethernet: Ethernet
     

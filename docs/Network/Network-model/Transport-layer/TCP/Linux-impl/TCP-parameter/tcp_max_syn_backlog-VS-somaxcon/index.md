@@ -1,5 +1,10 @@
 # `tcp_max_syn_backlog`  VS `somaxconn`
 
+| queue               |                                                              |                                 |
+| ------------------- | ------------------------------------------------------------ | ------------------------------- |
+| `SYN_RECV` queue    | [`listen()`](https://www.man7.org/linux/man-pages/man2/listen.2.html)'s `backlog` argument | `tcp_max_syn_backlog` in kernel |
+| `ESTABLISHED` queue | [`listen()`](https://www.man7.org/linux/man-pages/man2/listen.2.html)'s `backlog` argument | `somaxconn` in kernel           |
+
 
 
 ## stackoverflow [What is the difference between tcp_max_syn_backlog and somaxconn?](https://stackoverflow.com/questions/62641621/what-is-the-difference-between-tcp-max-syn-backlog-and-somaxconn)
@@ -30,3 +35,4 @@ Let's consider a [TCP-handshake](https://www.geeksforgeeks.org/tcp-3-way-handsha
 Recall the previously mentioned `SYN_RECV` queue - your server is waiting for ACK from client. When the ACK arrives the kernel roughly speaking makes the big full-fledged(完整的、羽翼丰满的) socket from "request socket" and moves it to ESTABLISHED queue. Then you can do [`accept()`](https://man7.org/linux/man-pages/man2/accept.2.html) on this socket. This queue is also affected by `listen()`'s `backlog` argument and limited by `somaxconn` in kernel.
 
 Useful links: [1](https://stackoverflow.com/questions/23862410/invalid-argument-setting-key-net-core-somaxconn/25074725#25074725), [2](http://veithen.io/2014/01/01/how-tcp-backlog-works-in-linux.html).
+
