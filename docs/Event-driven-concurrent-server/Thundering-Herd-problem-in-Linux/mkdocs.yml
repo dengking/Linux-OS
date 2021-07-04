@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem: uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem
+    - SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd: SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd
