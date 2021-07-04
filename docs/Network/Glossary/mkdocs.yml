@@ -4,3 +4,5 @@ nav:
     - Host(network): Host(network)
     - Hostname: Hostname
     - Keepalive: Keepalive
+    - MAC-address: MAC-address
+    

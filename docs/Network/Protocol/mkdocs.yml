@@ -10,8 +10,6 @@ nav:
     - Transport-layer: Transport-layer
     # 应用层
     - Application-layer: Application-layer
-    
-    - MAC-address: MAC-address.md
 
-    - Message-boundary: Message-boundary.md
+    - Message-boundary: Message-boundary
     
