@@ -28,102 +28,119 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 
-int main(int argc, char const *argv[]) {
-    int lfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    if (lfd == -1) {
-        perror("socket: ");
-        return -1;
-    }
+int main(int argc, char const *argv[])
+{
+	int lfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if (lfd == -1)
+	{
+		perror("socket: ");
+		return -1;
+	}
 
-    struct sockaddr_in sockaddr;
-    memset(&sockaddr, 0, sizeof(struct sockaddr_in));
-    sockaddr.sin_family = AF_INET;
-    sockaddr.sin_port = htons(3459);
-    inet_pton(AF_INET, "127.0.0.1", &sockaddr.sin_addr);
+	struct sockaddr_in sockaddr;
+	memset(&sockaddr, 0, sizeof(struct sockaddr_in));
+	sockaddr.sin_family = AF_INET;
+	sockaddr.sin_port = htons(3459);
+	inet_pton(AF_INET, "127.0.0.1", &sockaddr.sin_addr);
 
-    // int optval = 1;
-    // setsockopt(lfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
+	// int optval = 1;
+	// setsockopt(lfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
 
-    if (bind(lfd, (struct sockaddr*)&sockaddr, sizeof(sockaddr)) == -1) {
-        perror("bind: ");
-        return -1;
-    }
+	if (bind(lfd, (struct sockaddr*) &sockaddr, sizeof(sockaddr)) == -1)
+	{
+		perror("bind: ");
+		return -1;
+	}
 
-    if (listen(lfd, 128) == -1) {
-        perror("listen: ");
-        return -1;
-    }
+	if (listen(lfd, 128) == -1)
+	{
+		perror("listen: ");
+		return -1;
+	}
 
-    struct sockaddr_storage claddr;
-    socklen_t addrlen = sizeof(struct sockaddr_storage);
-    int cfd = accept(lfd, (struct sockaddr*)&claddr, &addrlen);
-    if (cfd == -1) {
-        perror("accept: ");
-        return -1;
-    }
-    printf("client connected: %d\n", cfd);
+	struct sockaddr_storage claddr;
+	socklen_t addrlen = sizeof(struct sockaddr_storage);
+	int cfd = accept(lfd, (struct sockaddr*) &claddr, &addrlen);
+	if (cfd == -1)
+	{
+		perror("accept: ");
+		return -1;
+	}
+	printf("client connected: %d\n", cfd);
 
-    char buff[100];
-    for (;;) {
-        ssize_t num = read(cfd, buff, 100);
-        if (num == 0) {
-            printf("client close: %d\n", cfd);
-            close(cfd);
-            break;
-        } else if (num == -1) {
-            int no = errno;
-            if (no != EINTR && no != EAGAIN && no != EWOULDBLOCK) {
-                printf("client error: %d\n", cfd);
-                close(cfd);
-            }
-        } else {
-            if (write(cfd, buff, num) != num) {
-                printf("client error: %d\n", cfd);
-                close(cfd);
-            }
-        }
-    }
-    return 0;
+	char buff[100];
+	for (;;)
+	{
+		ssize_t num = read(cfd, buff, 100);
+		if (num == 0)
+		{
+			printf("client close: %d\n", cfd);
+			close(cfd);
+			break;
+		}
+		else if (num == -1)
+		{
+			int no = errno;
+			if (no != EINTR && no != EAGAIN && no != EWOULDBLOCK)
+			{
+				printf("client error: %d\n", cfd);
+				close(cfd);
+			}
+		}
+		else
+		{
+			if (write(cfd, buff, num) != num)
+			{
+				printf("client error: %d\n", cfd);
+				close(cfd);
+			}
+		}
+	}
+	return 0;
 }
+// gcc test.c
+
 ```
 
 注意中间注释掉的两行，编译程序并执行它：
 
-```text
+```shell
 gcc -o treuseaddr treuseaddr.c
 ./treuseaddr
 ```
 
 然后用nc模拟客户端连接：
 
-```text
+```shell
 nc 127.0.0.1 3459
 ```
 
 连接后可以正常和服务器通常，用netstat看看连接的状态：
 
-```text
+```shell
 $ netstat -tna | grep 3459
 tcp        0      0 127.0.0.1:3459          0.0.0.0:*               LISTEN     
 tcp        0      0 127.0.0.1:36463         127.0.0.1:3459          ESTABLISHED
 tcp        0      0 127.0.0.1:3459          127.0.0.1:36463         ESTABLISHED
 ```
 
-第1条是监听套接字，第2条客户端的连接，第3条是服务器和客户端的连接；我们强制中止服务器(Ctrl+C)，再看看netstat:
+第1条是监听套接字，第2条客户端的连接，第3条是服务器和客户端的连接；我们强制中止服务器(Ctrl+C)，再看看`netstat`:
 
-```text
+```shell
 $ netstat -tna | grep 3459
 tcp        0      0 127.0.0.1:3459          127.0.0.1:36463         TIME_WAIT
 ```
 
-此时只有服务器建立的连接，处于是TIME_WAIT状态，再次启动服务器，会报下面错误：
+此时只有服务器建立的连接，处于是`TIME_WAIT`状态，再次启动服务器，会报下面错误：
 
-```text
+```shell
 $ ./treuseaddr 
 bind: : Address already in use
 ```
 
 如果把上面两行注释的去掉，就能解决这个问题，可以自己动手试试看。
+
+
 
 再来看另外一个例子；
 
