@@ -40,4 +40,18 @@ The second of the traditional approaches used by multithreaded servers operating
 
 The problem with this technique, as Tom [pointed out](https://lwn.net/Articles/542718/), is that when multiple threads are waiting in the `accept()` call, wake-ups are not fair, so that, under high load, incoming connections may be distributed across threads in a very unbalanced fashion. At Google, they have seen a factor-of-three difference between the thread accepting the most connections and the thread accepting the fewest connections; that sort of imbalance can lead to underutilization of CPU cores. By contrast, the `SO_REUSEPORT` implementation distributes connections evenly across all of the threads (or processes) that are blocked in `accept()` on the same port.
 
+## `SO_REUSEPORT` UDP sockets 
+
 As with TCP, `SO_REUSEPORT` allows multiple UDP sockets to be bound to the same port. This facility could, for example, be useful in a DNS server operating over UDP. With `SO_REUSEPORT`, each thread could use `recv()` on its own socket to accept datagrams arriving on the port. The traditional approach is that all threads would compete to perform `recv()` calls on a single shared socket. As with the second of the traditional TCP scenarios described above, this can lead to unbalanced loads across the threads. By contrast, `SO_REUSEPORT` distributes datagrams evenly across all of the receiving threads.
+
+## `SO_REUSEADDR` 
+
+Tom [noted](https://lwn.net/Articles/542728/) that the traditional `SO_REUSEADDR` socket option already allows multiple UDP sockets to be bound to, and accept datagrams on, the same UDP port. However, by contrast with `SO_REUSEPORT`, `SO_REUSEADDR` does not prevent port hijacking and does not distribute datagrams evenly across the receiving threads.
+
+## Implementation
+
+There are two other noteworthy points about Tom's patches. The first of these is a useful aspect of the implementation. Incoming connections and datagrams are distributed to the server sockets using a hash based on the 4-tuple of the connection—that is, the peer IP address and port plus the local IP address and port. This means, for example, that if a client uses the same socket to send a series of datagrams to the server port, then those datagrams will all be directed to the same receiving server (as long as it continues to exist). This eases the task of conducting stateful conversations between the client and server.
+
+The other noteworthy point is that there is a [defect](https://lwn.net/Articles/542738/) in the current implementation of TCP `SO_REUSEPORT`. If the number of listening sockets bound to a port changes because new servers are started or existing servers terminate, it is possible that incoming connections can be dropped during the three-way handshake. The problem is that connection requests are tied to a specific listening socket when the initial SYN packet is received during the handshake. If the number of servers bound to the port changes, then the `SO_REUSEPORT` logic might not route the final ACK of the handshake to the correct listening socket. In this case, the client connection will be reset, and the server is left with an orphaned request structure. A solution to the problem is still being worked on, and may consist of implementing a connection request table that can be shared among multiple listening sockets.
+
+The `SO_REUSEPORT` option is non-standard, but available in a similar form on a number of other UNIX systems (notably, the BSDs, where the idea originated). It seems to offer a useful alternative for squeezing the maximum performance out of network applications running on multicore systems, and thus is likely to be a welcome addition for some application developers.

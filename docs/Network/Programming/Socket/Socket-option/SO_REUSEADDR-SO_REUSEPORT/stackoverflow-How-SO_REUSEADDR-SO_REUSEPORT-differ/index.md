@@ -32,6 +32,10 @@ There are a couple of basics you should know before we look at these two options
 
 Any unique combination of these values identifies a **connection**. As a result, no two connections can have the same five values, otherwise the system would not be able to distinguish these connections any longer.
 
+> NOTE: 
+>
+> 这段话是非常重要的
+
 The **protocol** of a socket is set when a socket is created with the `socket()` function. The **source address** and **port** are set with the `bind()` function. The **destination address** and **port** are set with the `connect()` function. Since `UDP` is a connectionless protocol, `UDP` sockets can be used without connecting them. Yet it is allowed to connect them and in some cases very advantageous for your code and general application design. In connectionless mode, `UDP` sockets that were not explicitly bound when data is sent over them for the first time are usually automatically bound by the system, as an **unbound UDP socket** cannot receive any (reply) data. Same is true for an **unbound TCP socket**, it is automatically bound before it will be connected.
 
 > NOTE : 参见APUE 16.3.4 Associating Addresses with Sockets
@@ -109,17 +113,7 @@ Most people ignore the fact that multicast addresses exist, but they do exist. W
 
 The meaning of `SO_REUSEADDR` changes for multicast addresses as it allows multiple sockets to be bound to exactly the same combination of source multicast address and port. In other words, for multicast addresses `SO_REUSEADDR` behaves exactly as `SO_REUSEPORT` for unicast addresses. Actually, the code treats `SO_REUSEADDR` and `SO_REUSEPORT` identically for multicast addresses, that means you could say that `SO_REUSEADDR` implies `SO_REUSEPORT` for all multicast addresses and the other way round.
 
-##  FreeBSD/OpenBSD/NetBSD
 
-All these are rather late forks of the original BSD code, that's why they all three offer the same options as BSD and they also behave the same way as in BSD.
-
-##  macOS (MacOS X)
-
-At its core, macOS is simply a BSD-style UNIX named "*Darwin*", based on a rather late fork of the BSD code (BSD 4.3), which was then later on even re-synchronized with the (at that time current) FreeBSD 5 code base for the Mac OS 10.3 release, so that Apple could gain full POSIX compliance (macOS is POSIX certified). Despite having a microkernel at its core ("*Mach*"), the rest of the kernel ("*XNU*") is basically just a BSD kernel, and that's why macOS offers the same options as BSD and they also behave the same way as in BSD.
-
-### iOS / watchOS / tvOS
-
-iOS is just a macOS fork with a slightly modified and trimmed kernel, somewhat stripped down user space toolset and a slightly different default framework set. watchOS and tvOS are iOS forks, that are stripped down even further (especially watchOS). To my best knowledge they all behave exactly as macOS does.
 
 ##  Linux
 
@@ -127,8 +121,9 @@ iOS is just a macOS fork with a slightly modified and trimmed kernel, somewhat s
 
 Prior to Linux 3.9, only the option `SO_REUSEADDR` existed. This option behaves generally the same as in BSD with two important exceptions:
 
-1. As long as a listening (server) TCP socket is bound to a specific port, the `SO_REUSEADDR` option is entirely ignored for all sockets targeting that port. Binding a second socket to the same port is only possible if it was also possible in BSD without having `SO_REUSEADDR` set. E.g. you cannot bind to a wildcard address and then to a more specific one or the other way round, both is possible in BSD if you set `SO_REUSEADDR`. What you can do is you can bind to the same port and two different non-wildcard addresses, as that's always allowed. In this aspect Linux is more restrictive than BSD.
-2. The second exception is that for client sockets, this option behaves exactly like `SO_REUSEPORT`in BSD, as long as both had this flag set before they were bound. The reason for allowing that was simply that it is important to be able to bind multiple sockets to exactly to the same UDP socket address for various protocols and as there used to be no `SO_REUSEPORT` prior to 3.9, the behavior of `SO_REUSEADDR` was altered accordingly to fill that gap. In that aspect Linux is less restrictive than BSD.
+1、As long as a listening (server) TCP socket is bound to a specific port, the `SO_REUSEADDR` option is entirely ignored for all sockets targeting that port. Binding a second socket to the same port is only possible if it was also possible in BSD without having `SO_REUSEADDR` set. E.g. you cannot bind to a wildcard address and then to a more specific one or the other way round, both is possible in BSD if you set `SO_REUSEADDR`. What you can do is you can bind to the same port and two different non-wildcard addresses, as that's always allowed. In this aspect Linux is more restrictive than BSD.
+
+2、The second exception is that for client sockets, this option behaves exactly like `SO_REUSEPORT`in BSD, as long as both had this flag set before they were bound. The reason for allowing that was simply that it is important to be able to bind multiple sockets to exactly to the same UDP socket address for various protocols and as there used to be no `SO_REUSEPORT` prior to 3.9, the behavior of `SO_REUSEADDR` was altered accordingly to fill that gap. In that aspect Linux is less restrictive than BSD.
 
 ### Linux >= 3.9
 
@@ -136,43 +131,10 @@ Linux 3.9 added the option `SO_REUSEPORT` to Linux as well. This option behaves 
 
 Yet, there are still two differences to `SO_REUSEPORT` on other systems:
 
-1. To prevent "port hijacking", there is one special limitation: **All sockets that want to share the same address and port combination must belong to processes that share the same effective user ID!** So one user cannot "steal" ports of another user. This is some special magic to somewhat compensate for the missing `SO_EXCLBIND`/`SO_EXCLUSIVEADDRUSE` flags.
-2. Additionally the kernel performs some "special magic" for `SO_REUSEPORT` sockets that isn't found in other operating systems: For UDP sockets, it tries to distribute datagrams evenly, for TCP listening sockets, it tries to distribute incoming connect requests (those accepted by calling `accept()`) evenly across all the sockets that share the same address and port combination. Thus an application can easily open the same port in multiple child processes and then use `SO_REUSEPORT` to get a very inexpensive load balancing.
+1、To prevent "port hijacking", there is one special limitation: **All sockets that want to share the same address and port combination must belong to processes that share the same effective user ID!** So one user cannot "steal" ports of another user. This is some special magic to somewhat compensate for the missing `SO_EXCLBIND`/`SO_EXCLUSIVEADDRUSE` flags.
 
-###  Android
+2、Additionally the kernel performs some "special magic" for `SO_REUSEPORT` sockets that isn't found in other operating systems: For UDP sockets, it tries to distribute datagrams evenly, for TCP listening sockets, it tries to distribute incoming connect requests (those accepted by calling `accept()`) evenly across all the sockets that share the same address and port combination. Thus an application can easily open the same port in multiple child processes and then use `SO_REUSEPORT` to get a very inexpensive load balancing.
 
-Even though the whole Android system is somewhat different from most Linux distributions, at its core works a slightly modified Linux kernel, thus everything that applies to Linux should apply to Android as well.
 
-##  Windows
-
-Windows only knows the `SO_REUSEADDR` option, there is no `SO_REUSEPORT`. Setting `SO_REUSEADDR` on a socket in Windows behaves like setting `SO_REUSEPORT` and `SO_REUSEADDR` on a socket in BSD, with one exception: A socket with `SO_REUSEADDR` can always bind to exactly the same source address and port as an already bound socket, **even if the other socket did not have this option set when it was bound**. This behavior is somewhat dangerous because it allows an application "to steal" the connected port of another application. Needless to say, this can have major security implications. Microsoft realized that this might be a problem and thus added another socket option `SO_EXCLUSIVEADDRUSE`. Setting `SO_EXCLUSIVEADDRUSE` on a socket makes sure that if the binding succeeds, the combination of source address and port is owned exclusively by this socket and no other socket can bind to them, not even if it has `SO_REUSEADDR` set.
-
-For even more details on how the flags `SO_REUSEADDR` and `SO_EXCLUSIVEADDRUSE` work on Windows, how they influence binding/re-binding, Microsoft kindly provided a table similar to my table near the top of that reply. [Just visit this page](https://msdn.microsoft.com/en-us/library/windows/desktop/ms740621(v=vs.85).aspx) and scroll down a bit. Actually there are three tables, the first one shows the old behavior (prior Windows 2003), the second one the behavior (Windows 2003 and up) and the third one shows how the behavior changes in Windows 2003 and later if the `bind()`calls are made by different users.
-
-##  Solaris
-
-Solaris is the successor of SunOS. SunOS was originally based on a fork of BSD, SunOS 5 and later was based on a fork of SVR4, however SVR4 is a merge of BSD, System V, and Xenix, so up to some degree Solaris is also a BSD fork, and a rather early one. As a result Solaris only knows `SO_REUSEADDR`, there is no `SO_REUSEPORT`. The `SO_REUSEADDR` behaves pretty much the same as it does in BSD. As far as I know there is no way to get the same behavior as `SO_REUSEPORT` in Solaris, that means it is not possible to bind two sockets to exactly the same address and port.
-
-Similar to Windows, Solaris has an option to give a socket an exclusive binding. This option is named `SO_EXCLBIND`. If this option is set on a socket prior to binding it, setting `SO_REUSEADDR` on another socket has no effect if the two sockets are tested for an address conflict. E.g. if `socketA` is bound to a wildcard address and `socketB` has `SO_REUSEADDR` enabled and is bound to a non-wildcard address and the same port as `socketA`, this bind will normally succeed, unless `socketA`had `SO_EXCLBIND` enabled, in which case it will fail regardless the `SO_REUSEADDR` flag of `socketB`.
-
-##  Other Systems
-
-In case your system is not listed above, I wrote a little test program that you can use to find out how your system handles these two options. **Also if you think my results are wrong**, please first run that program before posting any comments and possibly making false claims.
-
-All that the code requires to build is a bit POSIX API (for the network parts) and a C99 compiler (actually most non-C99 compiler will work as well as long as they offer `inttypes.h` and `stdbool.h`; e.g. `gcc` supported both long before offering full C99 support).
-
-All that the program needs to run is that at least one interface in your system (other than the local interface) has an IP address assigned and that a default route is set which uses that interface. The program will gather that IP address and use it as the second "specific address".
-
-It tests all possible combinations you can think of:
-
-- TCP and UDP protocol
-- Normal sockets, listen (server) sockets, multicast sockets
-- `SO_REUSEADDR` set on socket1, socket2, or both sockets
-- `SO_REUSEPORT` set on socket1, socket2, or both sockets
-- All address combinations you can make out of `0.0.0.0` (wildcard), `127.0.0.1` (specific address), and the second specific address found at your primary interface (for multicast it's just `224.1.2.3` in all tests)
-
-and prints the results in a nice table. It will also work on systems that don't know `SO_REUSEPORT`, in which case this option is simply not tested.
-
-What the program cannot easily test is how `SO_REUSEADDR` acts on sockets in `TIME_WAIT` state as it's very tricky to force and keep a socket in that state. Fortunately most operating systems seems to simply behave like BSD here and most of the time programmers can simply ignore the existence of that state.
 
 [Here's the code](http://rextester.com/BUAFK86204) (I cannot include it here, answers have a size limit and the code would push this reply over the limit).
