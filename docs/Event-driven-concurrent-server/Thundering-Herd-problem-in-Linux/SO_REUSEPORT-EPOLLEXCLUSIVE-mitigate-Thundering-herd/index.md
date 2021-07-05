@@ -1,6 +1,6 @@
 # SO_REUSEPORT、EPOLLEXCLUSIVE 解决惊群问题
 
-在 [Core functionality](https://nginx.org/en/docs/ngx_core_module.html) # [**accept_mutex**](https://nginx.org/en/docs/ngx_core_module.html#accept_mutex) 
+在 nginx [Core functionality](https://nginx.org/en/docs/ngx_core_module.html) # [**accept_mutex**](https://nginx.org/en/docs/ngx_core_module.html#accept_mutex) 
 
 > If `accept_mutex` is enabled, worker processes will accept new connections by turn. Otherwise, all worker processes will be notified about new connections, and if volume of new connections is low, some of the worker processes may just waste system resources.
 >

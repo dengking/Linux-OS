@@ -1,6 +1,12 @@
 # `TIME_WAIT` state
 
-这是一个比较特殊的状态，在下面的文章中，对它进行了描述:
+一、2 `*` MSL 正好是一个来回，参见:
+
+1、coolshell [TCP 的那些事儿（上）](https://coolshell.cn/articles/11564.html)
+
+2、miami [TCP in a nutshell](https://www.cs.miami.edu/home/burt/learning/Csc524.032/notes/tcp_nutshell.html) 
+
+二、这是一个比较特殊的状态，在下面的文章中，对它进行了描述:
 
 1、coolshell [TCP 的那些事儿（上）](https://coolshell.cn/articles/11564.html)
 
