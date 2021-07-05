@@ -4,6 +4,10 @@
 
 ## zhihu [网络编程：SO_REUSEADDR的使用](https://zhuanlan.zhihu.com/p/79999012)
 
+> NOTE: 
+>
+> 这篇文章给出了例子，非常好
+
 `SO_REUSEADDR`是一个很有用的选项，一般服务器的监听socket都应该打开它。它的大意是允许服务器bind一个地址，即使这个地址当前已经存在已建立的连接，比如：
 
 1、服务器启动后，有客户端连接并已建立，如果服务器主动关闭，那么和客户端的连接会处于TIME_WAIT状态，此时再次启动服务器，就会bind不成功，报：Address already in use。

@@ -36,7 +36,7 @@ Any unique combination of these values identifies a **connection**. As a result,
 >
 > 这段话是非常重要的
 
-The **protocol** of a socket is set when a socket is created with the `socket()` function. The **source address** and **port** are set with the `bind()` function. The **destination address** and **port** are set with the `connect()` function. Since `UDP` is a connectionless protocol, `UDP` sockets can be used without connecting them. Yet it is allowed to connect them and in some cases very advantageous for your code and general application design. In connectionless mode, `UDP` sockets that were not explicitly bound when data is sent over them for the first time are usually automatically bound by the system, as an **unbound UDP socket** cannot receive any (reply) data. Same is true for an **unbound TCP socket**, it is automatically bound before it will be connected.
+The **protocol** of a socket is set when a socket is created with the `socket()` function. The **source address** and **port** are set with the `bind()` function. The **destination address** and **port** are set with the `connect()` function. Since `UDP` is a connectionless protocol, `UDP` sockets can be used without connecting them. Yet it is allowed to connect them and in some cases very advantageous(有益的) for your code and general application design. In connectionless mode, `UDP` sockets that were not explicitly bound when data is sent over them for the first time are usually automatically bound by the system, as an **unbound UDP socket** cannot receive any (reply) data. Same is true for an **unbound TCP socket**, it is automatically bound before it will be connected.
 
 > NOTE : 参见APUE 16.3.4 Associating Addresses with Sockets
 
