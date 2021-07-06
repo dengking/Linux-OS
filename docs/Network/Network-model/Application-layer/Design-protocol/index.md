@@ -6,12 +6,6 @@
 
 在设计application protocol的时候，需要考虑的问题有: 
 
-### Message boundary
-
-使用TCP的一个非常重要的内容是: 如何描述message boundary？
-
-
-
 ### 底层协议
 
 network protocol model是层次化的结构，在设计一个application protocol的时候，需要考虑它的下一层所采用的protocol，目前主要有如下两种:
@@ -69,6 +63,10 @@ stackoverflow [When is TCP option SO_LINGER (0) required?](https://stackoverflow
 在设计protocol的时候，也是需要考虑implementation相关的问题:
 
 1) 成本的、难易程度
+
+### Message boundary
+
+1、使用TCP的一个非常重要的内容是: 如何描述message boundary？
 
 
 

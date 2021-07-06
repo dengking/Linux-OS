@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
     - Protocol-data-format: Protocol-data-format    
-    - Binary-VS-textual-protocol: Binary-VS-textual-protocol    
+    - Binary-VS-textual-protocol: Binary-VS-textual-protocol
+    - IDL: IDL    

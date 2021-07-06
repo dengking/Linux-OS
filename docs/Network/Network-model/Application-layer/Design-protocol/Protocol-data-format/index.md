@@ -77,10 +77,6 @@ IDL的含义是: interface description language。
 
 
 
-
-
-
-
 ## Thrift VS Protobuf
 
 ## stackoverflow [Biggest differences of Thrift vs Protocol Buffers?](https://stackoverflow.com/questions/69316/biggest-differences-of-thrift-vs-protocol-buffers)
