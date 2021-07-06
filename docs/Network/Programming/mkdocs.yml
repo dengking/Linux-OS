@@ -5,6 +5,8 @@ nav:
     
     - Book-Beej's-Guide-to-Network-Programming: Book-Beej's-Guide-to-Network-Programming
     
+    - Linux-TCP-impl: Linux-TCP-impl
+    
     - Socket: Socket
     
     - man-2-bind: man-2-bind
@@ -13,7 +15,7 @@ nav:
     
     - man-3-getaddrinfo: man-3-getaddrinfo
     
-    - man-2-shutdown: man-2-shutdown
+    - Close-socket: Close-socket
     
     - Reconnect: Reconnect.md
     

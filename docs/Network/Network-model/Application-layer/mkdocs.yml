@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
-    - Design: Design
-    - Protocol-data-format: Protocol-data-format
+    - Design-protocol: Design-protocol
     - Domain-Name-System: Domain-Name-System
     - WebSocket: WebSocket
     - HTTP: HTTP
