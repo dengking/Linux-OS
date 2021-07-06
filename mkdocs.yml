@@ -662,6 +662,8 @@ nav:
           - Introduction: Programming/IO/IO-data-structure/File-descriptor/wikipedia-File-descriptor/index.md
         - Pass-file-descriptor:
           - Introduction: Programming/IO/IO-data-structure/File-descriptor/Pass-file-descriptor/index.md
+      - fd-is-reference:
+        - Introduction: Programming/IO/IO-data-structure/fd-is-reference/index.md
       - IO-buffer:
         - Introduction: Programming/IO/IO-data-structure/IO-buffer/index.md
     - "IO-\u6D41\u6D3E":
@@ -877,6 +879,12 @@ nav:
       - Introduction: Programming/Terminal/linusakesson-The-TTY-demystified/index.md
     - tty-pty:
       - Introduction: Programming/Terminal/tty-pty/index.md
+  - Expert-Marek:
+    - Introduction: Programming/Expert-Marek/index.md
+    - When-Bloom-filters-don't-bloom:
+      - Introduction: Programming/Expert-Marek/When-Bloom-filters-don't-bloom/index.md
+    - Bind-before-connect:
+      - Introduction: Programming/Expert-Marek/Bind-before-connect/index.md
 - Network:
   - Introduction: Network/index.md
   - Network-model:
@@ -920,16 +928,16 @@ nav:
             - Introduction: Network/Network-model/Transport-layer/TCP/TCP-connection/Half-open-close/index.md
         - TCP-glossary:
           - Introduction: Network/Network-model/Transport-layer/TCP/TCP-glossary/index.md
-          - MSL-Maximum-segment-lifetime:
-            - Introduction: Network/Network-model/Transport-layer/TCP/TCP-glossary/MSL-Maximum-segment-lifetime/index.md
         - TCP-FSM:
           - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/index.md
-          - TIME_WAIT:
-            - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT/index.md
+          - TIME_WAIT=2MSL:
+            - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT=2MSL/index.md
+            - MSL-Maximum-segment-lifetime:
+              - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT=2MSL/MSL-Maximum-segment-lifetime/index.md
             - serverframework-TIME_WAIT:
-              - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT/serverframework-TIME_WAIT/index.md
+              - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT=2MSL/serverframework-TIME_WAIT/index.md
             - "cnblogs-\u89E3\u51B3TIME_WAIT\u8FC7\u591A\u9020\u6210\u7684\u95EE\u9898":
-              - Introduction: "Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT/cnblogs-\u89E3\
+              - Introduction: "Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT=2MSL/cnblogs-\u89E3\
                   \u51B3TIME_WAIT\u8FC7\u591A\u9020\u6210\u7684\u95EE\u9898/index.md"
         - Connection-synchronization:
           - Introduction: Network/Network-model/Transport-layer/TCP/1-Connection-synchronization/index.md
@@ -958,14 +966,6 @@ nav:
               - Introduction: Network/Network-model/Transport-layer/TCP/3-Connection-termination/Connection-finish/freesoft-4.2.2.13-Closing-a-Connection-RFC-793-Section-3.5/index.md
           - Connection-reset:
             - Introduction: Network/Network-model/Transport-layer/TCP/3-Connection-termination/Connection-reset/index.md
-        - Linux-implementation:
-          - Introduction: Network/Network-model/Transport-layer/TCP/Linux-impl/index.md
-          - man-7-TCP:
-            - Introduction: Network/Network-model/Transport-layer/TCP/Linux-impl/man-7-TCP/index.md
-          - TCP-parameter:
-            - Introduction: Network/Network-model/Transport-layer/TCP/Linux-impl/TCP-parameter/index.md
-            - tcp_max_syn_backlog-VS-somaxcon:
-              - Introduction: Network/Network-model/Transport-layer/TCP/Linux-impl/TCP-parameter/tcp_max_syn_backlog-VS-somaxcon/index.md
       - UDP:
         - Introduction: Network/Network-model/Transport-layer/UDP/index.md
         - UDP-broadcast:
@@ -980,15 +980,15 @@ nav:
         - Introduction: Network/Network-model/Transport-layer/TCP-VS-UDP/index.md
     - Application-layer:
       - Introduction: Network/Network-model/Application-layer/index.md
-      - Design:
-        - Introduction: Network/Network-model/Application-layer/Design/index.md
-      - Protocol-data-format:
-        - Introduction: Network/Network-model/Application-layer/Protocol-data-format/index.md
+      - Design-protocol:
+        - Introduction: Network/Network-model/Application-layer/Design-protocol/index.md
+        - Protocol-data-format:
+          - Introduction: Network/Network-model/Application-layer/Design-protocol/Protocol-data-format/index.md
         - Binary-VS-textual-protocol:
-          - Introduction: Network/Network-model/Application-layer/Protocol-data-format/Binary-VS-textual-protocol/index.md
+          - Introduction: Network/Network-model/Application-layer/Design-protocol/Binary-VS-textual-protocol/index.md
         - IDL:
-          - Introduction: Network/Network-model/Application-layer/Protocol-data-format/IDL/index.md
-          - Schema-evaluation: Network/Network-model/Application-layer/Protocol-data-format/IDL/Schema-evaluation.md
+          - Introduction: Network/Network-model/Application-layer/Design-protocol/IDL/index.md
+          - Schema-evaluation: Network/Network-model/Application-layer/Design-protocol/IDL/Schema-evaluation.md
       - Domain-Name-System:
         - Introduction: Network/Network-model/Application-layer/Domain-Name-System/index.md
         - "TODO-\u6839\u57DF\u540D\u670D\u52A1\u5668\u662F\u5426\u53EA\u670913\u53F0":
@@ -1033,18 +1033,18 @@ nav:
         - Introduction: Network/Programming/Book-Beej's-Guide-to-Network-Programming/5-System-Calls-or-Bust/index.md
       - 6-Client-Server-Background:
         - Introduction: Network/Programming/Book-Beej's-Guide-to-Network-Programming/6-Client-Server-Background/index.md
+    - Linux-TCP-impl:
+      - Introduction: Network/Programming/Linux-TCP-impl/index.md
+      - man-7-TCP:
+        - Introduction: Network/Programming/Linux-TCP-impl/man-7-TCP/index.md
+      - TCP-parameter:
+        - Introduction: Network/Programming/Linux-TCP-impl/TCP-parameter/index.md
+        - tcp_max_syn_backlog-VS-somaxcon:
+          - Introduction: Network/Programming/Linux-TCP-impl/TCP-parameter/tcp_max_syn_backlog-VS-somaxcon/index.md
     - Socket:
       - Introduction: Network/Programming/Socket/index.md
       - man-7-socket:
         - Introduction: Network/Programming/Socket/man-7-socket/index.md
-      - Data-structure:
-        - Introduction: Network/Programming/Socket/Data-structure/index.md
-        - SND-RCV-Buffer:
-          - Introduction: Network/Programming/Socket/Data-structure/SND-RCV-Buffer/index.md
-          - Network-IO-events:
-            - Introduction: Network/Programming/Socket/Data-structure/SND-RCV-Buffer/Network-IO-events/index.md
-        - backlog:
-          - Introduction: Network/Programming/Socket/Data-structure/backlog/index.md
       - man-2-socket:
         - Introduction: Network/Programming/Socket/man-2-socket/index.md
       - man-7-address_families:
@@ -1059,15 +1059,18 @@ nav:
             - Introduction: "Network/Programming/Socket/Socket-option/Mark-socket/CSDN-Linux\
                 \ socket\u8BBE\u7F6Emark\u7684\u5FC5\u8981\u6027/index.md"
         - SO_REUSEADDR-SO_REUSEPORT:
+          - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/index.md
+          - stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ:
+            - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ/index.md
           - SO_REUSEADDR:
             - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEADDR/index.md
+            - microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE:
+              - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEADDR/microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE/index.md
           - SO_REUSEPORT:
             - lwn-The-SO_REUSEPORT-socket-option:
               - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEPORT/lwn-The-SO_REUSEPORT-socket-option/index.md
-          - microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE:
-            - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE/index.md
-          - stackoverflow-How-do-SO_REUSEADDR-and-SO_REUSEPORT-differ:
-            - Introduction: Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/stackoverflow-How-do-SO_REUSEADDR-and-SO_REUSEPORT-differ/index.md
+        - SO_LINGER:
+          - Introduction: Network/Programming/Socket/Socket-option/SO_LINGER/index.md
       - Control-message:
         - Introduction: Network/Programming/Socket/Control-message/index.md
         - man-3-cmsg:
@@ -1080,8 +1083,11 @@ nav:
       - Introduction: Network/Programming/man-2-listen/index.md
     - man-3-getaddrinfo:
       - Introduction: Network/Programming/man-3-getaddrinfo/index.md
-    - man-2-shutdown:
-      - Introduction: Network/Programming/man-2-shutdown/index.md
+    - Close-socket:
+      - Introduction: Network/Programming/Close-socket/index.md
+      - man-2-shutdown:
+        - Introduction: Network/Programming/Close-socket/man-2-shutdown/index.md
+      - close-VS-shutdown: Network/Programming/Close-socket/close-VS-shutdown.md
     - Reconnect: Network/Programming/Reconnect.md
     - man-2-sendfile:
       - Introduction: Network/Programming/man-2-sendfile/index.md
@@ -1108,8 +1114,6 @@ nav:
       - Introduction: Network/Tools/software-Nmap/index.md
     - software-netfilter:
       - Introduction: Network/Tools/software-netfilter/index.md
-    - Port-in-use: Network/Tools/Port-in-use.md
-    - Port-opened-by-process: Network/Tools/Port-opened-by-process.md
     - Troubleshoot:
       - Introduction: Network/Tools/Troubleshoot/index.md
       - Troubleshoot-local-network:

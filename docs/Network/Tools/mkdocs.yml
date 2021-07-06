@@ -5,7 +5,4 @@ nav:
     - iproute2: iproute2
     - software-Nmap: software-Nmap
     - software-netfilter: software-netfilter
-    
-    - Port-in-use: Port-in-use.md
-    - Port-opened-by-process: Port-opened-by-process.md
     - Troubleshoot: Troubleshoot
