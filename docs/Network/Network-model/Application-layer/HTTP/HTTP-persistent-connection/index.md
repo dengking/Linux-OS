@@ -1,6 +1,8 @@
 # HTTP persistent connection
 
+一、需要注意，HTTP是application layer protocol，它的传输层使用的TCP，HTTP persistent connection指的是它的TCP connection是长连接还是短连接
 
+这在 jianshu [http的长连接和短连接（史上最通俗！）](https://www.jianshu.com/p/3fc3646fad80) 中，进行了非常好的解释
 
 ## wanweibaike [HTTP persistent connection](https://en.wanweibaike.com/wiki-HTTP_persistent_connection)
 
@@ -22,6 +24,8 @@ All modern web browsers including [Google Chrome](https://en.wanweibaike.com/wik
 
 
 
+## TODO
 
+jianshu [http的长连接和短连接（史上最通俗！）](https://www.jianshu.com/p/3fc3646fad80)
 
-## csdn [HTTP协议浅谈（一）之TCP长连接](https://blog.csdn.net/huangyuhuangyu/article/details/78220005)
+csdn [HTTP协议浅谈（一）之TCP长连接](https://blog.csdn.net/huangyuhuangyu/article/details/78220005)

@@ -72,6 +72,10 @@ If the server needs to close the connection, design the application protocol so 
 
 #### When to use `SO_LINGER` with timeout 0
 
+> NOTE: 
+>
+> 一、下面介绍的是一些场景
+
 Again, according to "UNIX Network Programming" third edition page 202-203, setting `SO_LINGER` with timeout 0 prior to calling `close()` will cause the **normal termination sequence** *not* to be initiated.
 
 Instead, the peer setting this option and calling `close()` will send a `RST` (connection reset) which indicates an error condition and this is how it will be perceived(感知) at the other end. You will typically see errors like "Connection reset by peer".
@@ -97,3 +101,9 @@ The typical reason to set a `SO_LINGER` timeout of zero is to avoid large number
 When a TCP connection is closed cleanly, the end that initiated the close ("active close") ends up with the connection sitting in `TIME_WAIT` for several minutes. So if your protocol is one where the *server* initiates the connection close, and involves very large numbers of short-lived connections, then it might be susceptible to this problem.
 
 This isn't a good idea, though - `TIME_WAIT` exists for a reason (to ensure that stray packets from old connections don't interfere with new connections). It's a better idea to redesign your protocol to one where the client initiates the connection close, if possible.
+
+
+
+## TODO
+
+csdn [socket选项LINGER介绍](https://blog.csdn.net/ET_Endeavoring/article/details/94662762)

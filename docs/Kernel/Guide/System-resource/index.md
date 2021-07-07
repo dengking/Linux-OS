@@ -39,3 +39,7 @@ In [computing](https://en.wikipedia.org/wiki/Computing), a **system resource**, 
 
 显然，OS需要描述各种system resource，需要记录下每个进程占用 哪些资源。
 
+## limit
+
+系统资源是有限(具有上限)，所以一个系统能够支持的最大用户数也是有上限的，这是在阅读 https://idea.popcount.org/2014-04-03-bind-before-connect/ 时，想到的
+
