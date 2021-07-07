@@ -10,9 +10,9 @@
 
 1、如何设计protocol
 
-3、如何解决`TIME_WAIT`过多问题
+2、如何解决`TIME_WAIT`过多问题
 
-4、如何解决Thundering-Herd-problem
+3、如何解决Thundering-Herd-problem
 
 ## 并发模型
 

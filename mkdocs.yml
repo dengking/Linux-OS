@@ -930,15 +930,6 @@ nav:
           - Introduction: Network/Network-model/Transport-layer/TCP/TCP-glossary/index.md
         - TCP-FSM:
           - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/index.md
-          - TIME_WAIT=2MSL:
-            - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT=2MSL/index.md
-            - MSL-Maximum-segment-lifetime:
-              - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT=2MSL/MSL-Maximum-segment-lifetime/index.md
-            - serverframework-TIME_WAIT:
-              - Introduction: Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT=2MSL/serverframework-TIME_WAIT/index.md
-            - "cnblogs-\u89E3\u51B3TIME_WAIT\u8FC7\u591A\u9020\u6210\u7684\u95EE\u9898":
-              - Introduction: "Network/Network-model/Transport-layer/TCP/TCP-FSM/TIME_WAIT=2MSL/cnblogs-\u89E3\
-                  \u51B3TIME_WAIT\u8FC7\u591A\u9020\u6210\u7684\u95EE\u9898/index.md"
         - Connection-synchronization:
           - Introduction: Network/Network-model/Transport-layer/TCP/1-Connection-synchronization/index.md
         - Data-transfer:
@@ -1077,8 +1068,16 @@ nav:
           - Introduction: Network/Programming/Socket/Control-message/man-3-cmsg/index.md
       - Out-of-band:
         - Introduction: Network/Programming/Socket/Out-of-band/index.md
+    - Port:
+      - Introduction: Network/Programming/Port/index.md
+      - Ephemeral-port:
+        - Introduction: Network/Programming/Port/Ephemeral-port/index.md
+      - Process&port:
+        - Introduction: Network/Programming/Port/Process&port/index.md
     - man-2-bind:
       - Introduction: Network/Programming/man-2-bind/index.md
+    - INADDR_ANY-local_host:
+      - Introduction: Network/Programming/INADDR_ANY-local_host/index.md
     - man-2-listen:
       - Introduction: Network/Programming/man-2-listen/index.md
     - man-3-getaddrinfo:
@@ -1091,8 +1090,29 @@ nav:
     - Reconnect: Network/Programming/Reconnect.md
     - man-2-sendfile:
       - Introduction: Network/Programming/man-2-sendfile/index.md
+    - Broadcast-multicast:
+      - Introduction: Network/Programming/Broadcast-multicast/index.md
     - TCP-Wrappers:
       - Introduction: Network/Programming/TCP-Wrappers/index.md
+    - TCP-Keepalive:
+      - Introduction: Network/Programming/TCP-Keepalive/index.md
+      - "jianshu-KeepAlive\u8BE6\u89E3":
+        - Introduction: "Network/Programming/TCP-Keepalive/jianshu-KeepAlive\u8BE6\
+            \u89E3/index.md"
+    - TIME_WAIT=2MSL:
+      - Introduction: Network/Programming/TIME_WAIT=2MSL/index.md
+      - "\u89E3\u51B3TIME_WAIT\u8FC7\u591A\u95EE\u9898":
+        - Introduction: "Network/Programming/TIME_WAIT=2MSL/\u89E3\u51B3TIME_WAIT\u8FC7\
+            \u591A\u95EE\u9898/index.md"
+        - serverframework-TIME_WAIT:
+          - Introduction: "Network/Programming/TIME_WAIT=2MSL/\u89E3\u51B3TIME_WAIT\u8FC7\
+              \u591A\u95EE\u9898/serverframework-TIME_WAIT/index.md"
+        - "cnblogs-\u89E3\u51B3TIME_WAIT\u8FC7\u591A\u9020\u6210\u7684\u95EE\u9898":
+          - Introduction: "Network/Programming/TIME_WAIT=2MSL/\u89E3\u51B3TIME_WAIT\u8FC7\
+              \u591A\u95EE\u9898/cnblogs-\u89E3\u51B3TIME_WAIT\u8FC7\u591A\u9020\u6210\
+              \u7684\u95EE\u9898/index.md"
+      - MSL-Maximum-segment-lifetime:
+        - Introduction: Network/Programming/TIME_WAIT=2MSL/MSL-Maximum-segment-lifetime/index.md
   - Expert-packetlife:
     - Introduction: Network/Expert-packetlife/index.md
     - packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers:
@@ -1123,18 +1143,12 @@ nav:
       - Troubleshoot-packet-loss:
         - Introduction: Network/Tools/Troubleshoot/Troubleshoot-packet-loss/index.md
   - Glossary:
-    - Introduction: Network/Glossary/index.md
     - Wire-protocol:
       - Introduction: Network/Glossary/Wire-protocol/index.md
     - Host(network):
       - Introduction: Network/Glossary/Host(network)/index.md
     - Hostname:
       - Introduction: Network/Glossary/Hostname/index.md
-    - Keepalive:
-      - Introduction: Network/Glossary/Keepalive/index.md
-      - "jianshu-KeepAlive\u8BE6\u89E3":
-        - Introduction: "Network/Glossary/Keepalive/jianshu-KeepAlive\u8BE6\u89E3\
-            /index.md"
     - MAC-address:
       - Introduction: Network/Glossary/MAC-address/index.md
 - Security:
