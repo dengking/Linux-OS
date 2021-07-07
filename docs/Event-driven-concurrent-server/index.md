@@ -28,7 +28,7 @@
 
 大多数都是使用:
 
-1、reactor
+1、reactor、handler、acceptor
 
 2、master worker
 
