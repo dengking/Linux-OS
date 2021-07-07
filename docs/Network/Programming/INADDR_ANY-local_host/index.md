@@ -80,3 +80,6 @@ bind函数的IP只能够是：
 
 
 
+## TODO
+
+stackoverflow [Understanding INADDR_ANY for socket programming](https://stackoverflow.com/questions/16508685/understanding-inaddr-any-for-socket-programming)
