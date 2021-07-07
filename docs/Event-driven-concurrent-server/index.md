@@ -22,6 +22,16 @@
 
 2、lwn [The SO_REUSEPORT socket option](https://lwn.net/Articles/542629/) 
 
+3、zhihu [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938) # [小林coding的回答](https://www.zhihu.com/question/26943938/answer/1856426252)
+
+非常好的文章，将可能的并发模型总结得非常好。
+
+大多数都是使用:
+
+1、reactor
+
+2、master worker
+
 
 
 ### multiple thread
@@ -30,3 +40,16 @@
 
 ### multiple process
 
+
+
+## case
+
+### Nginx 
+
+### Memcached
+
+### Redis
+
+### Initd
+
+###  
