@@ -13,6 +13,8 @@ nav:
     
     - man-2-bind: man-2-bind
     
+    - INADDR_ANY-local_host: INADDR_ANY-local_host
+    
     - man-2-listen: man-2-listen
     
     - man-3-getaddrinfo: man-3-getaddrinfo

@@ -14,7 +14,9 @@ client会被分配一个临时的port
 
 1、wanweibaike [Ephemeral port](https://en.wanweibaike.com/wiki-Ephemeral%20port)
 
-2、[Bind before connect](https://idea.popcount.org/2014-04-03-bind-before-connect/)
+2、idea.popcount [Bind before connect](https://idea.popcount.org/2014-04-03-bind-before-connect/)
+
+3、linuxperf [临时端口号(EPHEMERAL PORT)的动态分配](http://linuxperf.com/?p=178)
 
 这篇文章，描述了kernel如何分配 ephemeral port
 
@@ -26,3 +28,20 @@ On [servers](https://en.wanweibaike.com/wiki-Server_(computing)), ephemeral port
 
 The allocations are temporary and only valid for the duration of the communication session. After completion (or timeout) of the communication session, the ports become available for reuse.[[note 1\]](https://en.wanweibaike.com/wiki-Ephemeral port#cite_note-1) Since the ports are used on a per request basis they are also called **dynamic ports**.
 
+
+
+
+
+## csdn [linux临时端口（port）以及最大值](https://blog.csdn.net/bdss58/article/details/78546551)
+
+在一个Linux上跑一个服务，需要指定一个监听端口（系统调用listen），当client请求服务时，系统为该请求建立 tcp连接，该连接的port值是一个随机数字。该数字的取值范围配置在`/proc/sys/net/ipv4/ip_local_port_range` 文件中，我的机器上的内容如下：
+
+```
+32768   61000
+```
+
+**port的最大值其实可以达到65535（2^16 - 1)。**
+
+65535这个数字与操作系统无关，不管Linux系统是32位的还是64位的。
+
+**这个数字是由网络tcp协议决定的**，tcp协议头部中的16位表示端口号，这就决定了其最大值65535，操作系统只能跟着这个限制。
