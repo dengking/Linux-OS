@@ -1,4 +1,4 @@
-# lwn [The SO_REUSEPORT socket option](https://lwn.net/Articles/542629/)
+# lwn [The SO_REUSEPORT socket option](https://lwn.net/Articles/542629/) 
 
 > NOTE: 
 >
@@ -48,13 +48,19 @@ The second of the traditional approaches used by multithreaded servers operating
 
 The problem with this technique, as Tom [pointed out](https://lwn.net/Articles/542718/), is that when multiple threads are waiting in the `accept()` call, wake-ups are not fair, so that, under high load, incoming connections may be distributed across threads in a very unbalanced fashion. At Google, they have seen a factor-of-three difference between the thread accepting the most connections and the thread accepting the fewest connections; that sort of imbalance can lead to underutilization of CPU cores. By contrast, the `SO_REUSEPORT` implementation distributes connections evenly across all of the threads (or processes) that are blocked in `accept()` on the same port.
 
+
+
 ## `SO_REUSEPORT` UDP sockets 
 
 As with TCP, `SO_REUSEPORT` allows multiple UDP sockets to be bound to the same port. This facility could, for example, be useful in a DNS server operating over UDP. With `SO_REUSEPORT`, each thread could use `recv()` on its own socket to accept datagrams arriving on the port. The traditional approach is that all threads would compete to perform `recv()` calls on a single shared socket. As with the second of the traditional TCP scenarios described above, this can lead to unbalanced loads across the threads. By contrast, `SO_REUSEPORT` distributes datagrams evenly across all of the receiving threads.
 
+
+
 ## `SO_REUSEADDR` 
 
 Tom [noted](https://lwn.net/Articles/542728/) that the traditional `SO_REUSEADDR` socket option already allows multiple UDP sockets to be bound to, and accept datagrams on, the same UDP port. However, by contrast with `SO_REUSEPORT`, `SO_REUSEADDR` does not prevent port hijacking and does not distribute datagrams evenly across the receiving threads.
+
+
 
 ## Implementation
 

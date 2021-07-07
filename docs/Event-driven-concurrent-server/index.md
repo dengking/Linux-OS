@@ -16,6 +16,14 @@
 
 ## 并发模型
 
+在下面文章中，对此进行了讨论:
+
+1、kegel [The C10K problem](http://www.kegel.com/c10k.html)
+
+2、lwn [The SO_REUSEPORT socket option](https://lwn.net/Articles/542629/) 
+
+
+
 ### multiple thread
 
 
