@@ -1,12 +1,58 @@
 # Linux TCP implementation
 
+## TCP/IP connection四要素
+
+一个TCP/IP connection是由四要素组成:
+
+```
+{source address, source port, destination address, destination port}
+```
+
+因此在使用socket进行TCP/IP编程的时候，涉及上述四个要素:
+
+1、有的是需要由programmer来进行指定的
+
+2、有的是有kernel来动态分配
+
+### 两端/endpoint
+
+一个TCP connection由两端构成:
+
+source: `{source address, source port}`
+
+destination: `{destination address, destination port}`
+
+
+
+### address、port的reuse
+
+TCP option:
+
+1、`SO_REUSEADDR`
+
+2、`SO_REUSEPORT`
+
+
+
 ## socket
 
 socket是Linux network programming的核心。
 
-1、TCP connection socket相当于一个TCP connection的一端、
 
-2、listen socket
+
+### listen socket VS connection socket
+
+listen socket是比较特殊的，由于它并不参与TCP connection，因此它和connection socket是有明显差异的:
+
+1、connection socket会参与TCP FSM，但是listen socket并不参与
+
+2、TCP connection socket相当于一个TCP connection endpoint
+
+3、listen socket
+
+### connection socket、connection endpoint
+
+connection socket是TCP connection endpoint。
 
 ## TCP connection、socket、file descriptor、process
 
@@ -162,8 +208,3 @@ bind: : Address already in use
 
 
 
-## listen socket VS connection socket
-
-listen socket是比较特殊的，由于它并不参与TCP connection，因此它和connection socket是有明显差异的:
-
-1、connection socket会参与TCP FSM，但是listen socket并不参与

@@ -55,20 +55,14 @@
 
 bind函数的IP只能够是：
 
-1. `0.0.0.0` 
-2. `127.0.0.1` 
-3. 本机的IP，显然这种情况是不好的，因为本机的IP是可能变动的，不如`127.0.0.1`
+1、`0.0.0.0` 
+
+2、`127.0.0.1` 
+
+3、本机的IP，显然这种情况是不好的，因为本机的IP是可能变动的，不如`127.0.0.1`
 
 不可能bind到出这三种情况外的IP，上述例子中的第四种情况就是这样的。
 
 
 
 
-
-## stackoverflow [What client-side situations need bind()?](https://stackoverflow.com/questions/4118241/what-client-side-situations-need-bind)
-
-
-
-## [A](https://stackoverflow.com/a/4118325)
-
-On the client side, you would only use bind if you want to use a specific client-side port, which is rare. Usually on the client, you specify the IP address and port of the server machine, and the OS will pick which port you will use. Generally you don't care, but in some cases, there may be a firewall on the client that only allows outgoing connections on certain port. In that case, you will need to bind to a specific port before the connection attempt will work.

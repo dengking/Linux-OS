@@ -1,5 +1,9 @@
 # [bind(2) - Linux man page](https://linux.die.net/man/2/bind)
 
+> NOTE: 
+>
+> 一、bind(2) 用于绑定IP、port
+
 ## Synopsis
 
 ```C
@@ -18,9 +22,9 @@ It is normally necessary to assign a local address using **bind**() before a **S
 
 The rules used in name binding vary between **address families**. Consult the manual entries in Section 7 for detailed information. For **AF_INET** see [**ip**(7)](https://linux.die.net/man/7/ip), for **AF_INET6** see [**ipv6**(7)](https://linux.die.net/man/7/ipv6), for **AF_UNIX** see [**unix**(7)](https://linux.die.net/man/7/unix), for **AF_APPLETALK** see **ddp**(7), for **AF_PACKET** see **packet**(7), for **AF_X25** see **x25**(7) and for **AF_NETLINK** see **netlink**(7).
 
-***SUMMARY*** : 在Unix中，address family是domain的同义词，参见APUE的chapter 16.2 Socket Descriptors。
+> NOTE:  : 在Unix中，address family是domain的同义词，参见APUE的chapter 16.2 Socket Descriptors。
 
-***SUMMARY*** : 当address family是**AF_INET**的时候，在调用`bind`之前往往是需要先调用`getaddrinfo`来获得`struct sockaddr *addr`，而当address family是**AF_UNIX**的时候，则不是调用`getaddrinfo`，具体的用法参见下面的例子；
+> NOTE:  : 当address family是**AF_INET**的时候，在调用`bind`之前往往是需要先调用`getaddrinfo`来获得`struct sockaddr *addr`，而当address family是**AF_UNIX**的时候，则不是调用`getaddrinfo`，具体的用法参见下面的例子；
 
 The actual structure passed for the *addr* argument will depend on the **address family**. The *sockaddr* structure is defined as something like:
 
@@ -108,6 +112,8 @@ For a server socket, this is the ultimate way to go - it is exactly what is need
 
 For a client socket, however, the local address and port is normally not of importance. So you don't `bind()`. If the server restricts its clients to maybe have a certain port number, or a port number out of a given range, you can use `bind()` on client side as well.
 
+> NOTE: 
+
 On the other hand, you might as well be able to `listen()` on a socket where you haven't called `bind()` (actually I'm not sure about that, but it would make sense). In this scenario, your server port would be random, and the server process would communicate its port via a different means to the client. Imagine a "double-connection" protocol such as FTP, where you have a control connection and a data connection. The port the data connection listens on is completely arbitrary, but must be communicated to the other side. So the "automatically determined port" is used and communicated.
 
 One example in Python:
@@ -134,4 +140,14 @@ s3.getpeername()
 s2.send('hello')
 print s3.recv(10)
 ```
+
+
+
+## stackoverflow [What client-side situations need bind()?](https://stackoverflow.com/questions/4118241/what-client-side-situations-need-bind)
+
+
+
+### [A](https://stackoverflow.com/a/4118325)
+
+On the client side, you would only use bind if you want to use a specific client-side port, which is rare. Usually on the client, you specify the IP address and port of the server machine, and the OS will pick which port you will use. Generally you don't care, but in some cases, there may be a firewall on the client that only allows outgoing connections on certain port. In that case, you will need to bind to a specific port before the connection attempt will work.
 

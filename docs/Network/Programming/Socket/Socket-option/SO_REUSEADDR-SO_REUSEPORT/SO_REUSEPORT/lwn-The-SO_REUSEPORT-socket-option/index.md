@@ -2,7 +2,15 @@
 
 > NOTE: 
 >
-> 在 stackoverflow [Can two applications listen to the same port?](https://stackoverflow.com/questions/1694144/can-two-applications-listen-to-the-same-port) # [A](https://stackoverflow.com/a/1694148) 中，发现的这篇文章
+> 一、在 stackoverflow [Can two applications listen to the same port?](https://stackoverflow.com/questions/1694144/can-two-applications-listen-to-the-same-port) # [A](https://stackoverflow.com/a/1694148) 中，发现的这篇文章
+>
+> 二、这篇文章梳理了 `SO_REUSEPORT` 对 `SO_REUSEADDR` 的改进
+>
+> 三、关于这个option的发展史，参见: 
+>
+> 1、idea.popcoun [Bind before connect](https://idea.popcount.org/2014-04-03-bind-before-connect/)
+>
+> 其中对`SO_REUSEPORT`的发展史进行了非常好的说明
 
 One of the features merged in the 3.9 development cycle was TCP and UDP support for the `SO_REUSEPORT` socket option; that support was implemented in a series of patches by Tom Herbert. The new socket option allows multiple sockets on the same host to bind to the same port, and is intended to improve the performance of multithreaded network server applications running on top of multicore systems.
 

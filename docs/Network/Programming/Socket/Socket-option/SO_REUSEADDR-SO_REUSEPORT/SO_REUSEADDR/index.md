@@ -1,6 +1,26 @@
 # `SO_REUSEADDR`
 
+参考如下文章: 
 
+1、zhihu [网络编程：SO_REUSEADDR的使用](https://zhuanlan.zhihu.com/p/79999012)
+
+2、idea.popcoun [Bind before connect](https://idea.popcount.org/2014-04-03-bind-before-connect/)
+
+其中对 `SO_REUSEADDR` 的使用场景进行了非常好的总结，非常值得借鉴。
+
+3、ip(7)
+
+> **A TCP local socket address that has been bound is unavailable for some time after closing, unless the SO_REUSEADDR flag has been set. Care should be taken when using this flag as it makes TCP less reliable.**
+
+
+
+4、 `socket(7)`
+
+> **SO_REUSEADDR: **
+>
+> **Indicates that the rules used in validating addresses supplied in a bind(2) call should allow reuse of local addresses. **
+>
+> **For AF_INET sockets this means that a socket may bind, except when there is an active listening socket bound to the address. When the listening socket is bound to INADDR_ANY with a specific port then it is not possible to bind to this port for any local address. Argument is an integer boolean flag.**
 
 ## zhihu [网络编程：SO_REUSEADDR的使用](https://zhuanlan.zhihu.com/p/79999012)
 
@@ -10,9 +30,9 @@
 
 `SO_REUSEADDR`是一个很有用的选项，一般服务器的监听socket都应该打开它。它的大意是允许服务器bind一个地址，即使这个地址当前已经存在已建立的连接，比如：
 
-1、服务器启动后，有客户端连接并已建立，如果服务器主动关闭，那么和客户端的连接会处于TIME_WAIT状态，此时再次启动服务器，就会bind不成功，报：Address already in use。
+1、服务器启动后，有客户端连接并已建立，如果服务器主动关闭，那么和客户端的连接会处于TIME_WAIT状态，此时再次启动服务器，就会bind不成功，报：**Address already in use**。
 
-2、服务器父进程监听客户端，当和客户端建立链接后，fork一个子进程专门处理客户端的请求，如果父进程停止，因为子进程还和客户端有连接，所以再次启动父进程，也会报Address already in use。
+2、服务器父进程监听客户端，当和客户端建立链接后，fork一个子进程专门处理客户端的请求，如果父进程停止，因为子进程还和客户端有连接，所以再次启动父进程，也会报**Address already in use**。
 
 ### 服务器程序1
 
