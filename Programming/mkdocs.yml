@@ -15,7 +15,7 @@ nav:
     ########## process的一个主要活动就是IO##########
     - IO: IO
     ########## 时间是一个非常重要的话题##########
-    - Date-and-time: Date-and-time
+    - Date-time: Date-time
     ########## 信号是一个非常重要的话题##########
     - Signal: Signal
     ########## 系统提供的虚拟化功能##########
@@ -32,3 +32,5 @@ nav:
     - Core-dump: Core-dump
     ########## 终端也是一个非常重要的内容，我们都是通过pseudo-terminal登录到系统的##########
     - Terminal: Terminal
+    
+    - Expert-Marek: Expert-Marek

@@ -1,0 +1,21 @@
+nav:
+    - Introduction: index.md
+    #####下面三篇是入门guide#####
+    - Course-miami-TCP-in-a-nutshell: Course-miami-TCP-in-a-nutshell # guide1
+    
+    - coolshell-TCP的那些事儿: coolshell-TCP的那些事儿 # guide2
+    
+    - wikipedia-Transmission-Control-Protocol: wikipedia-Transmission-Control-Protocol # guide3
+    
+    - TCP-connection: TCP-connection
+    
+    - TCP-glossary: TCP-glossary
+    # 可以看做是TCP lifetime的概述
+    - TCP-FSM: TCP-FSM
+    #####lifetime#####
+    - Connection-synchronization: 1-Connection-synchronization # 第一阶段
+    
+    - Data-transfer: 2-Data-transfer # 第二阶段
+    
+    - Connection-termination: 3-Connection-termination # 第三阶段
+    

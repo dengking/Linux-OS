@@ -1,0 +1,4 @@
+# Trap
+
+"Book-Understanding-the-Linux-Kerne # 4.2. Interrupts and Exceptions"节对Trap的定义 和 wikipedia [Trap (computing)](https://en.wikipedia.org/wiki/Trap_(computing))中的描述有差异，经过对比，Book-Understanding-the-Linux-Kerne的描述是更加准确的。
+

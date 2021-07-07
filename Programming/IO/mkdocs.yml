@@ -1,16 +1,15 @@
 nav:
     - Introduction: index.md
     - What-is-IO: What-is-IO
-    ########## IO 模型##########    
-    - IO-model: IO-model
+    - File-system: File-system    
+    - IO-model: IO-model ########## IO 模型##########    
     - IO-data-structure: IO-data-structure
-
     - IO-流派: IO-流派
     - Asynchronous-IO: Asynchronous-IO
     - IO-multiplexing: IO-multiplexing
     - File-IO: File-IO
     - Network-IO: Network-IO
     - IO-redirection: IO-redirection
+    - Vectored-IO: Vectored-IO    
     - Tools: Tools
-    - Buffered-queued-IO: Buffered-queued-IO    
-    - Vectored-IO: Vectored-IO
+

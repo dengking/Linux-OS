@@ -1,0 +1,16 @@
+nav:
+    - Introduction: index.md
+    - gdb-primer: gdb-primer    
+    - Design-of-gdb: Design-of-gdb
+    - Guide-to-examining-data: Guide-to-examining-data.md
+    - Point-in-GDB: Point-in-GDB.md
+    - Function: Function
+    - Automate: Automate
+
+    - Args: Args
+    - Debug-process: Debug-process    
+    - Debug-shared-library: Debug-shared-library
+    - Debug-HS-middleware: Debug-HS-middleware
+    - Debug-multi-thread: Debug-multi-thread
+    - Debug-assembly: Debug-assembly
+    

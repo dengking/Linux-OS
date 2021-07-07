@@ -1,8 +1,10 @@
 nav:
     - Introduction: index.md
+    - Beej's-Guide-to-Unix-IPC: Beej's-Guide-to-Unix-IPC
     - pipe: pipe
     - System-V-IPC: System-V-IPC
     - POSIX-IPC: POSIX-IPC
     - Unix-domain-socket: Unix-domain-socket
     - Tools: Tools
     - man-7-ipc_namespaces: man-7-ipc_namespaces
+    - Inter-process-lock: Inter-process-lock

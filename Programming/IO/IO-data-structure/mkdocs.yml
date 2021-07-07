@@ -1,3 +1,6 @@
 nav:
     - Introduction: index.md
-    - File-descriptor: File-descriptor        
+    - File-descriptor: File-descriptor     
+    - fd-is-reference: fd-is-reference
+    - IO-buffer: IO-buffer
+    

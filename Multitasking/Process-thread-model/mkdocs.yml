@@ -1,0 +1,16 @@
+nav:
+    - Introduction: index.md
+    # 综述进程模型、进程的运行模型、概述Linux OS的实现
+    - Process-thread: Process-thread
+    - Process-run-model: Process-run-model
+    
+    - Process-control-block: Process-control-block
+    - Process-table: Process-table
+
+  
+    # 进程所占用的资源以及对资源的管理
+    - Process-resource: Process-resource
+    # 进程生命周期
+    - Process-lifetime: Process-lifetime
+
+    - Linux-implementation: Linux-implementation

@@ -1,5 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Sequence-number&&acknowledge-number: Sequence-number&&acknowledge-number
-    - Nagle's-algorithm: Nagle's-algorithm
-    - TCP-segment-of-a-reassembled-PDU: TCP-segment-of-a-reassembled-PDU.md

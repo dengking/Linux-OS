@@ -1,6 +1,5 @@
 nav:
     - Linux-name-convention: Linux-name-convention
     - Function-attribute: Function-attribute
-
     - Path-resolution: Path-resolution.md
     - errno: errno

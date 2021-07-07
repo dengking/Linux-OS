@@ -3,3 +3,5 @@ nav:
     - man-2-setsockopt: man-2-setsockopt
     - Mark-socket: Mark-socket
     - SO_REUSEADDR-SO_REUSEPORT: SO_REUSEADDR-SO_REUSEPORT
+    - SO_LINGER: SO_LINGER
+    
