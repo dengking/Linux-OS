@@ -1026,6 +1026,14 @@ nav:
         - Introduction: Network/Programming/Book-Beej's-Guide-to-Network-Programming/6-Client-Server-Background/index.md
     - Linux-TCP-impl:
       - Introduction: Network/Programming/Linux-TCP-impl/index.md
+      - Data-structure:
+        - Introduction: Network/Programming/Linux-TCP-impl/Data-structure/index.md
+        - SND-RCV-Buffer:
+          - Introduction: Network/Programming/Linux-TCP-impl/Data-structure/SND-RCV-Buffer/index.md
+          - Network-IO-events:
+            - Introduction: Network/Programming/Linux-TCP-impl/Data-structure/SND-RCV-Buffer/Network-IO-events/index.md
+        - backlog:
+          - Introduction: Network/Programming/Linux-TCP-impl/Data-structure/backlog/index.md
       - man-7-TCP:
         - Introduction: Network/Programming/Linux-TCP-impl/man-7-TCP/index.md
       - TCP-parameter:
