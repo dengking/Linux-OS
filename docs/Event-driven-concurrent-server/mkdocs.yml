@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
+    - linuxgazette-Concurrent-Server-Design: linuxgazette-Concurrent-Server-Design
+    - linuxjournal-Thinking-Concurrently: linuxjournal-Thinking-Concurrently
     

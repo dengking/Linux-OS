@@ -1116,6 +1116,12 @@ nav:
               \u7684\u95EE\u9898/index.md"
       - MSL-Maximum-segment-lifetime:
         - Introduction: Network/Programming/TIME_WAIT=2MSL/MSL-Maximum-segment-lifetime/index.md
+    - Thundering-Herd-problem:
+      - Introduction: Network/Programming/Thundering-Herd-problem/index.md
+      - uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem:
+        - Introduction: Network/Programming/Thundering-Herd-problem/uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem/index.md
+      - SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd:
+        - Introduction: Network/Programming/Thundering-Herd-problem/SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd/index.md
   - Expert-packetlife:
     - Introduction: Network/Expert-packetlife/index.md
     - packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers:
@@ -1154,6 +1160,12 @@ nav:
       - Introduction: Network/Glossary/Hostname/index.md
     - MAC-address:
       - Introduction: Network/Glossary/MAC-address/index.md
+- Event-driven-concurrent-server:
+  - Introduction: Event-driven-concurrent-server/index.md
+  - linuxgazette-Concurrent-Server-Design:
+    - Introduction: Event-driven-concurrent-server/linuxgazette-Concurrent-Server-Design/index.md
+  - linuxjournal-Thinking-Concurrently:
+    - Introduction: Event-driven-concurrent-server/linuxjournal-Thinking-Concurrently/index.md
 - Security:
   - Introduction: Security/index.md
   - Capability-based-security:
@@ -1194,161 +1206,161 @@ nav:
       - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Centos-network/CentOS-8-ifconfig-ens33-not-exist/index.md"
     - Restart-network-service:
       - Introduction: "\u8FD0\u7EF4\u7BA1\u7406/Centos-network/Restart-network-service/index.md"
-- Shell-and-tool:
-  - Introduction: Shell-and-tool/index.md
+- Shell&&tool:
+  - Introduction: Shell&&tool/index.md
   - Shell:
-    - Introduction: Shell-and-tool/Shell/index.md
+    - Introduction: Shell&&tool/Shell/index.md
     - bash:
-      - Introduction: Shell-and-tool/Shell/bash/index.md
+      - Introduction: Shell&&tool/Shell/bash/index.md
       - Manual:
-        - Introduction: Shell-and-tool/Shell/bash/Manual/index.md
+        - Introduction: Shell&&tool/Shell/bash/Manual/index.md
         - 7-Job-Control:
-          - Introduction: Shell-and-tool/Shell/bash/Manual/7-Job-Control/index.md
+          - Introduction: Shell&&tool/Shell/bash/Manual/7-Job-Control/index.md
     - Run-command:
-      - Introduction: Shell-and-tool/Shell/Run-command/index.md
+      - Introduction: Shell&&tool/Shell/Run-command/index.md
   - Tools:
-    - Introduction: Shell-and-tool/Tools/index.md
+    - Introduction: Shell&&tool/Tools/index.md
     - GNU-toolchain:
-      - Introduction: Shell-and-tool/Tools/GNU-toolchain/index.md
+      - Introduction: Shell&&tool/Tools/GNU-toolchain/index.md
     - Dmesg:
-      - Dmesg: Shell-and-tool/Tools/Dmesg/Dmesg.md
-      - Dmesg-format: Shell-and-tool/Tools/Dmesg/Dmesg-format.md
-      - Dmesg-segfaulting: Shell-and-tool/Tools/Dmesg/Dmesg-segfaulting.md
+      - Dmesg: Shell&&tool/Tools/Dmesg/Dmesg.md
+      - Dmesg-format: Shell&&tool/Tools/Dmesg/Dmesg-format.md
+      - Dmesg-segfaulting: Shell&&tool/Tools/Dmesg/Dmesg-segfaulting.md
     - Rsync:
-      - Rsync: Shell-and-tool/Tools/Rsync/Rsync.md
+      - Rsync: Shell&&tool/Tools/Rsync/Rsync.md
     - Debug:
-      - Introduction: Shell-and-tool/Tools/Debug/index.md
+      - Introduction: Shell&&tool/Tools/Debug/index.md
       - Trace:
-        - Introduction: Shell-and-tool/Tools/Debug/Trace/index.md
+        - Introduction: Shell&&tool/Tools/Debug/Trace/index.md
         - System-call-trace:
           - man-1-ptrace:
-            - Introduction: Shell-and-tool/Tools/Debug/Trace/System-call-trace/man-1-ptrace/index.md
+            - Introduction: Shell&&tool/Tools/Debug/Trace/System-call-trace/man-1-ptrace/index.md
           - man-1-strace:
-            - Introduction: Shell-and-tool/Tools/Debug/Trace/System-call-trace/man-1-strace/index.md
+            - Introduction: Shell&&tool/Tools/Debug/Trace/System-call-trace/man-1-strace/index.md
         - Library-call-trace:
           - man-1-ltrace:
-            - Introduction: Shell-and-tool/Tools/Debug/Trace/Library-call-trace/man-1-ltrace/index.md
+            - Introduction: Shell&&tool/Tools/Debug/Trace/Library-call-trace/man-1-ltrace/index.md
         - Stack-trace:
-          - Introduction: Shell-and-tool/Tools/Debug/Trace/Stack-trace/index.md
+          - Introduction: Shell&&tool/Tools/Debug/Trace/Stack-trace/index.md
           - man-1-pstack:
-            - Introduction: Shell-and-tool/Tools/Debug/Trace/Stack-trace/man-1-pstack/index.md
+            - Introduction: Shell&&tool/Tools/Debug/Trace/Stack-trace/man-1-pstack/index.md
       - GDB:
-        - Introduction: Shell-and-tool/Tools/Debug/GDB/index.md
+        - Introduction: Shell&&tool/Tools/Debug/GDB/index.md
         - Guide:
-          - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/index.md
+          - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/index.md
           - gdb-primer:
-            - gdb-primer: Shell-and-tool/Tools/Debug/GDB/Guide/gdb-primer/gdb-primer.md
+            - gdb-primer: Shell&&tool/Tools/Debug/GDB/Guide/gdb-primer/gdb-primer.md
           - Design-of-gdb:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Design-of-gdb/index.md
-            - Abstraction-in-GDB: Shell-and-tool/Tools/Debug/GDB/Guide/Design-of-gdb/Abstraction-in-GDB.md
-            - Structure-in-GDB: Shell-and-tool/Tools/Debug/GDB/Guide/Design-of-gdb/Structure-in-GDB.md
-          - Guide-to-examining-data: Shell-and-tool/Tools/Debug/GDB/Guide/Guide-to-examining-data.md
-          - Point-in-GDB: Shell-and-tool/Tools/Debug/GDB/Guide/Point-in-GDB.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Design-of-gdb/index.md
+            - Abstraction-in-GDB: Shell&&tool/Tools/Debug/GDB/Guide/Design-of-gdb/Abstraction-in-GDB.md
+            - Structure-in-GDB: Shell&&tool/Tools/Debug/GDB/Guide/Design-of-gdb/Structure-in-GDB.md
+          - Guide-to-examining-data: Shell&&tool/Tools/Debug/GDB/Guide/Guide-to-examining-data.md
+          - Point-in-GDB: Shell&&tool/Tools/Debug/GDB/Guide/Point-in-GDB.md
           - Function:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Function/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Function/index.md
           - Automate:
-            - Gdb-automate-debug: Shell-and-tool/Tools/Debug/GDB/Guide/Automate/Gdb-automate-debug.md
+            - Gdb-automate-debug: Shell&&tool/Tools/Debug/GDB/Guide/Automate/Gdb-automate-debug.md
           - Args:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Args/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Args/index.md
           - Debug-process:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-process/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-process/index.md
             - Debug-stuck-process:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-process/Debug-stuck-process/index.md
+              - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-process/Debug-stuck-process/index.md
           - Debug-shared-library:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-shared-library/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-shared-library/index.md
           - Debug-HS-middleware:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-HS-middleware/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-HS-middleware/index.md
           - Debug-multi-thread:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-multi-thread/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-multi-thread/index.md
             - Show-thread-start-rtn:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Show-thread-start-rtn/index.md
+              - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Show-thread-start-rtn/index.md
             - Debug-race-condition:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Debug-race-condition/index.md
+              - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Debug-race-condition/index.md
             - Debug-dead-lock:
-              - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Debug-dead-lock/index.md
+              - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-multi-thread/Debug-dead-lock/index.md
           - Debug-assembly:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Guide/Debug-assembly/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Guide/Debug-assembly/index.md
         - Debugging-with-gdb:
           - 2-Getting-In-and-Out-of-gdb:
-            - 2-Getting-In-and-Out-of-gdb: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/2-Getting-In-and-Out-of-gdb/2-Getting-In-and-Out-of-gdb.md
+            - 2-Getting-In-and-Out-of-gdb: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/2-Getting-In-and-Out-of-gdb/2-Getting-In-and-Out-of-gdb.md
           - 4-Running-Programs-Under-gdb:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/4-Running-Programs-Under-gdb/index.md
           - 5-Stopping-and-Continuing:
-            - 5-Stopping-and-Continuing: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5-Stopping-and-Continuing.md
-            - 5.5-Stopping-and-Starting-Multi-thread-Programs: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5.5-Stopping-and-Starting-Multi-thread-Programs.md
-            - Breakpoint-conditional-expressions: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/Breakpoint-conditional-expressions.md
+            - 5-Stopping-and-Continuing: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5-Stopping-and-Continuing.md
+            - 5.5-Stopping-and-Starting-Multi-thread-Programs: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/5.5-Stopping-and-Starting-Multi-thread-Programs.md
+            - Breakpoint-conditional-expressions: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/5-Stopping-and-Continuing/Breakpoint-conditional-expressions.md
           - 6-Running-programs-backward:
-            - 6-Running-programs-backward: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/6-Running-programs-backward/6-Running-programs-backward.md
+            - 6-Running-programs-backward: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/6-Running-programs-backward/6-Running-programs-backward.md
           - 7-Recording-Inferior's-Execution-and-Replaying-It:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/7-Recording-Inferior's-Execution-and-Replaying-It/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/7-Recording-Inferior's-Execution-and-Replaying-It/index.md
           - 8-Examining-the-Stack:
-            - 8-Examining-the-Stack: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/8-Examining-the-Stack/8-Examining-the-Stack.md
+            - 8-Examining-the-Stack: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/8-Examining-the-Stack/8-Examining-the-Stack.md
           - 9-Examining-Source-Files:
-            - 9-Examining-Source-Files: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/9-Examining-Source-Files/9-Examining-Source-Files.md
+            - 9-Examining-Source-Files: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/9-Examining-Source-Files/9-Examining-Source-Files.md
           - 10-Examining-Data:
-            - 10.11-Convenience-Variables: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.11-Convenience-Variables.md
-            - 10.13-Registers: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.13-Registers.md
-            - 10.19-Produce-a-Core-File-from-Your-Program: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.19-Produce-a-Core-File-from-Your-Program.md
+            - 10.11-Convenience-Variables: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.11-Convenience-Variables.md
+            - 10.13-Registers: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.13-Registers.md
+            - 10.19-Produce-a-Core-File-from-Your-Program: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/10-Examining-Data/10.19-Produce-a-Core-File-from-Your-Program.md
           - 11-Debugging-Optimized-Code:
-            - 11-Debugging-Optimized-Code: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/11-Debugging-Optimized-Code/11-Debugging-Optimized-Code.md
+            - 11-Debugging-Optimized-Code: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/11-Debugging-Optimized-Code/11-Debugging-Optimized-Code.md
           - 13-Tracepoints:
-            - Tracepoints: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/13-Tracepoints/Tracepoints.md
+            - Tracepoints: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/13-Tracepoints/Tracepoints.md
           - 15-Using-GDB-with-Different-Languages:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/15-Using-GDB-with-Different-Languages/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/15-Using-GDB-with-Different-Languages/index.md
             - 15.4-Supported-Languages:
-              - C-family-language: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/15-Using-GDB-with-Different-Languages/15.4-Supported-Languages/C-family-language.md
+              - C-family-language: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/15-Using-GDB-with-Different-Languages/15.4-Supported-Languages/C-family-language.md
           - 16-Examining-the-Symbol-Table:
-            - Symbol-table: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/16-Examining-the-Symbol-Table/Symbol-table.md
+            - Symbol-table: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/16-Examining-the-Symbol-Table/Symbol-table.md
           - 18-gdb-Files:
-            - 18-gdb-Files: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/18-gdb-Files/18-gdb-Files.md
+            - 18-gdb-Files: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/18-gdb-Files/18-gdb-Files.md
           - 19-Specifying-a-Debugging-Target:
-            - Specifying-a-Debugging-Target: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/19-Specifying-a-Debugging-Target/19-Specifying-a-Debugging-Target.md
+            - Specifying-a-Debugging-Target: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/19-Specifying-a-Debugging-Target/19-Specifying-a-Debugging-Target.md
           - 23-Extending-GDB:
-            - Introduction: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/23-Extending-GDB/index.md
+            - Introduction: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/23-Extending-GDB/index.md
           - 25-gdb-Text-User-Interface:
-            - 25-gdb-Text-User-Interface: Shell-and-tool/Tools/Debug/GDB/Debugging-with-gdb/25-gdb-Text-User-Interface/25-gdb-Text-User-Interface.md
+            - 25-gdb-Text-User-Interface: Shell&&tool/Tools/Debug/GDB/Debugging-with-gdb/25-gdb-Text-User-Interface/25-gdb-Text-User-Interface.md
     - Performance:
-      - Introduction: Shell-and-tool/Tools/Performance/index.md
+      - Introduction: Shell&&tool/Tools/Performance/index.md
       - System-load:
-        - System-Load: Shell-and-tool/Tools/Performance/System-load/System-Load.md
-        - uptime: Shell-and-tool/Tools/Performance/System-load/uptime.md
-        - Troubleshoot-disk-IO-bottleneck: Shell-and-tool/Tools/Performance/System-load/Troubleshoot-disk-IO-bottleneck.md
-        - Troubleshoot-CPU-bound-bottleneck: Shell-and-tool/Tools/Performance/System-load/Troubleshoot-CPU-bound-bottleneck.md
+        - System-Load: Shell&&tool/Tools/Performance/System-load/System-Load.md
+        - uptime: Shell&&tool/Tools/Performance/System-load/uptime.md
+        - Troubleshoot-disk-IO-bottleneck: Shell&&tool/Tools/Performance/System-load/Troubleshoot-disk-IO-bottleneck.md
+        - Troubleshoot-CPU-bound-bottleneck: Shell&&tool/Tools/Performance/System-load/Troubleshoot-CPU-bound-bottleneck.md
       - man-1-perf:
-        - Introduction: Shell-and-tool/Tools/Performance/man-1-perf/index.md
+        - Introduction: Shell&&tool/Tools/Performance/man-1-perf/index.md
         - Expert-Brendan-D-Gregg:
-          - Introduction: Shell-and-tool/Tools/Performance/man-1-perf/Expert-Brendan-D-Gregg/index.md
+          - Introduction: Shell&&tool/Tools/Performance/man-1-perf/Expert-Brendan-D-Gregg/index.md
       - sysstat:
-        - Introduction: Shell-and-tool/Tools/Performance/sysstat/index.md
+        - Introduction: Shell&&tool/Tools/Performance/sysstat/index.md
         - iostat:
-          - Introduction: Shell-and-tool/Tools/Performance/sysstat/iostat/index.md
+          - Introduction: Shell&&tool/Tools/Performance/sysstat/iostat/index.md
     - Build:
       - Autoconf:
-        - Introduction: Shell-and-tool/Tools/Build/Autoconf/index.md
+        - Introduction: Shell&&tool/Tools/Build/Autoconf/index.md
         - Configure-script:
-          - Introduction: Shell-and-tool/Tools/Build/Autoconf/Configure-script/index.md
+          - Introduction: Shell&&tool/Tools/Build/Autoconf/Configure-script/index.md
       - Automake:
-        - Automake: Shell-and-tool/Tools/Build/Automake/Automake.md
+        - Automake: Shell&&tool/Tools/Build/Automake/Automake.md
       - Autotools-Mythbuster:
-        - Introduction: Shell-and-tool/Tools/Build/Autotools-Mythbuster/index.md
+        - Introduction: Shell&&tool/Tools/Build/Autotools-Mythbuster/index.md
       - pkg-config:
-        - Introduction: Shell-and-tool/Tools/Build/pkg-config/index.md
+        - Introduction: Shell&&tool/Tools/Build/pkg-config/index.md
       - Make:
-        - Make-and-makefile: Shell-and-tool/Tools/Build/Make/Make-and-makefile.md
+        - Make-and-makefile: Shell&&tool/Tools/Build/Make/Make-and-makefile.md
         - Makefile:
-          - Makefile: Shell-and-tool/Tools/Build/Make/Makefile/Makefile.md
+          - Makefile: Shell&&tool/Tools/Build/Make/Makefile/Makefile.md
           - Code:
-            - Introduction: Shell-and-tool/Tools/Build/Make/Makefile/Code/index.md
+            - Introduction: Shell&&tool/Tools/Build/Make/Makefile/Code/index.md
             - Code1:
-              - Introduction: Shell-and-tool/Tools/Build/Make/Makefile/Code/Code1/index.md
+              - Introduction: Shell&&tool/Tools/Build/Make/Makefile/Code/Code1/index.md
             - Code2:
-              - Introduction: Shell-and-tool/Tools/Build/Make/Makefile/Code/Code2/index.md
+              - Introduction: Shell&&tool/Tools/Build/Make/Makefile/Code/Code2/index.md
     - Hardware:
-      - lshw: Shell-and-tool/Tools/Hardware/lshw.md
+      - lshw: Shell&&tool/Tools/Hardware/lshw.md
       - CPU:
-        - lscpu: Shell-and-tool/Tools/Hardware/CPU/lscpu.md
+        - lscpu: Shell&&tool/Tools/Hardware/CPU/lscpu.md
     - Cron:
-      - Introduction: Shell-and-tool/Tools/Cron/index.md
+      - Introduction: Shell&&tool/Tools/Cron/index.md
 - Book:
   - gitbooks-Linux-insides:
     - Introduction: Book/gitbooks-Linux-insides/index.md
