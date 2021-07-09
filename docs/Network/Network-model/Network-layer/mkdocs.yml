@@ -1,5 +1,5 @@
 nav:
     - man-7-ip: man-7-ip
     - man-7-ipv6: man-7-ipv6
-    
-    
+    - ICMP: ICMP
+    - IGMP: IGMP
