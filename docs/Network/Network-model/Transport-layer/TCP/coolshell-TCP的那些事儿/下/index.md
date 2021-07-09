@@ -190,3 +190,12 @@ setsockopt(sock_fd, IPPROTO_TCP, TCP_NODELAY, (char *)&value,sizeof(int));
 
 ![](./tcp.slow_.start_.jpg)
 
+### 拥塞避免算法 – Congestion Avoidance
+
+前面说过，还有一个ssthresh（slow start threshold），是一个上限，当cwnd >= ssthresh时，就会进入“拥塞避免算法”。一般来说ssthresh的值是65535，单位是字节，当cwnd达到这个值时后，算法如下：
+
+1）收到一个ACK时，cwnd = cwnd + 1/cwnd
+
+2）当每过一个RTT时，cwnd = cwnd + 1
+
+这样就可以避免增长过快导致网络拥塞，慢慢的增加调整到网络的最佳值。很明显，是一个线性上升的算法。

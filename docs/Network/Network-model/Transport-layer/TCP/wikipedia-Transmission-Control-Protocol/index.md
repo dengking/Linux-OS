@@ -10,7 +10,7 @@ TCP is [connection-oriented](https://en.wikipedia.org/wiki/Connection-oriented_c
 
 Major internet applications such as the [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web), [email](https://en.wikipedia.org/wiki/Email), [remote administration](https://en.wikipedia.org/wiki/Remote_administration), and [file transfer](https://en.wikipedia.org/wiki/File_transfer) rely on TCP. 
 
-
+However, there are vulnerabilities(缺陷) to TCP including [denial of service](https://en.wanweibaike.com/wiki-Denial-of-service_attack), [connection hijacking](https://en.wanweibaike.com/wiki-TCP_sequence_prediction_attack), TCP veto, and [reset attack](https://en.wanweibaike.com/wiki-TCP_reset_attack).
 
 ## Network function
 

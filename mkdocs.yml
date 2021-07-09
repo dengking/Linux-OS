@@ -947,6 +947,10 @@ nav:
               - Introduction: Network/Network-model/Transport-layer/TCP/3-Connection-termination/Connection-finish/freesoft-4.2.2.13-Closing-a-Connection-RFC-793-Section-3.5/index.md
           - Connection-reset:
             - Introduction: Network/Network-model/Transport-layer/TCP/3-Connection-termination/Connection-reset/index.md
+        - Flow-control:
+          - Introduction: Network/Network-model/Transport-layer/TCP/Flow-control/index.md
+          - Sliding-window:
+            - Introduction: Network/Network-model/Transport-layer/TCP/Flow-control/Sliding-window/index.md
       - UDP:
         - Introduction: Network/Network-model/Transport-layer/UDP/index.md
         - UDP-broadcast:
