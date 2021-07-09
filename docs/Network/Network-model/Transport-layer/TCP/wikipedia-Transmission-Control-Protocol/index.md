@@ -362,15 +362,15 @@ The Transmission Control Protocol differs in several key features from the [User
 
 
 
-# 4.5 Maximum segment size
+## 4.5 Maximum segment size
 
 
 
-# 4.9 Out-of-band data
+## 4.9 Out-of-band data
 
 
 
-# 4.10 Forcing data delivery
+## 4.10 Forcing data delivery
 
 
 
