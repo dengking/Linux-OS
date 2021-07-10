@@ -903,6 +903,10 @@ nav:
         - Introduction: Network/Network-model/Network-layer/man-7-ip/index.md
       - man-7-ipv6:
         - Introduction: Network/Network-model/Network-layer/man-7-ipv6/index.md
+      - ICMP:
+        - Introduction: Network/Network-model/Network-layer/ICMP/index.md
+      - IGMP:
+        - Introduction: Network/Network-model/Network-layer/IGMP/index.md
     - Transport-layer:
       - TCP:
         - Introduction: Network/Network-model/Transport-layer/TCP/index.md
@@ -951,6 +955,8 @@ nav:
           - Introduction: Network/Network-model/Transport-layer/TCP/Flow-control/index.md
           - Sliding-window:
             - Introduction: Network/Network-model/Transport-layer/TCP/Flow-control/Sliding-window/index.md
+        - Congestion-control:
+          - Introduction: Network/Network-model/Transport-layer/TCP/Congestion-control/index.md
       - UDP:
         - Introduction: Network/Network-model/Transport-layer/UDP/index.md
         - UDP-broadcast:
