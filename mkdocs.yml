@@ -1,45 +1,35 @@
 nav:
     - Home: index.md
-    ##########
+    
     - Architecture-of-computing-system: Architecture-of-computing-system
     
-    ##########
     - Operating-system: Operating-system
     
-    ##########
     - Course-upenn-CSE-380-Computer-Operating-Systems: Course-upenn-CSE-380-Computer-Operating-Systems
     
-    ########## 描述linux OS的标准与实现##########
-    - Unix-standardization-and-implementation: Unix-standardization-and-implementation
+    - Unix-standardization-and-implementation: Unix-standardization-and-implementation ########## 描述linux OS的标准与实现##########
     
-    ##########Linux-Foundation定义了linux OS的方方面面##########               
-    - Linux-Foundation: Linux-Foundation
+    - Linux-Foundation: Linux-Foundation ##########Linux-Foundation定义了linux OS的方方面面##########               
     
-    ########## 描述内核的相关知识##########             
-    - Kernel: Kernel
+    - Kernel: Kernel ########## 描述内核的相关知识##########             
     
-    ########## 启动过程 ##########
-    - Linux-startup-process: Linux-startup-process
+    - Linux-startup-process: Linux-startup-process ########## 启动过程 ##########
     
-    # 系统调用
-    - System-call: System-call
+    - System-call: System-call # 系统调用
     
-    ########## 多任务 ###########
-    - Multitasking: Multitasking
+    - Multitasking: Multitasking ########## 多任务 ###########
 
-    ########## 描述linux OS中进行programming时的知识##########            
-    - Programming: Programming
+    - Programming: Programming ########## 描述linux OS中进行programming时的知识##########            
+
+    - Network: Network ########## 描述网络的知识##########                 
     
-    ########## 描述网络的知识##########                 
-    - Network: Network
+    - Event-driven-concurrent-server: Event-driven-concurrent-server
     
-    # 安全
-    - Security: Security
+    - Security: Security # 安全
     
-    ##########
     - 运维管理: 运维管理
     
-    ########## 描述在linux OS中进行programming时，需要使用的一些工具####################                     
-    - Shell-and-tool: Shell-and-tool
+    - Shell&&tool: Shell&&tool # 描述在linux OS中进行programming时，需要使用的一些工具
 
     - Book: Book
+    
