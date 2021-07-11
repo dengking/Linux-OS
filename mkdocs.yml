@@ -222,8 +222,10 @@ nav:
   - Introduction: System-call/index.md
   - Why-system-call-slow:
     - Introduction: System-call/Why-system-call-slow/index.md
-  - System-call-classification:
-    - Introduction: System-call/System-call-classification/index.md
+  - Classification:
+    - Introduction: System-call/Classification/index.md
+    - System-call-with-timeout:
+      - Introduction: System-call/Classification/System-call-with-timeout/index.md
   - Interrupted-system-call:
     - Introduction: System-call/Interrupted-system-call/index.md
   - Zero-copy:
