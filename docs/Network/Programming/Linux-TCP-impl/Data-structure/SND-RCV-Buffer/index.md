@@ -1,6 +1,6 @@
 # send buffer、recv buffer
 
-Linux中，每个socket file descriptor，都有:
+Linux中，每个TCP socket file descriptor，都有:
 
 1、send buffer
 
