@@ -3,7 +3,9 @@ nav:
     - Network-model: Network-model
     - Network-security: Network-security
     - Network-topology: Network-topology
+    - RDMA: RDMA
     - Programming: Programming
+    - Performance-optimization: Performance-optimization
     - Expert-packetlife: Expert-packetlife
     - Tools: Tools
     - Glossary: Glossary

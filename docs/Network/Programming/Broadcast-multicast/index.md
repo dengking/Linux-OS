@@ -8,3 +8,5 @@
 
 3、stackoverflow [Receiving multiple multicast feeds on the same port - C, Linux](https://stackoverflow.com/questions/2741611/receiving-multiple-multicast-feeds-on-the-same-port-c-linux)
 
+4、csdn [TCP/IP协议之单播, 多播, 广播](https://blog.csdn.net/freestyle4568world/article/details/50609435)
+
