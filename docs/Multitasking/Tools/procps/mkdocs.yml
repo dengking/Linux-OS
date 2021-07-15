@@ -2,5 +2,6 @@ nav:
     - Introduction: index.md
     - ps: ps
     - top: top
+    - htop: htop
     - pgrep: pgrep.md
     - pstree: pstree.md

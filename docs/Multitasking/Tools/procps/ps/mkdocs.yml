@@ -1,4 +1,4 @@
 nav:
-    - man-1-ps: man-1-ps.md
+    - Introduction: index.md
+    - man-1-ps: man-1-ps
     - Wait-channel: Wait-channel.md
-    - wikipedia-ps(Unix): wikipedia-ps(Unix).md

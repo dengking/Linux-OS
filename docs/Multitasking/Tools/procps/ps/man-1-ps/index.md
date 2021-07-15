@@ -14,9 +14,11 @@
 
 This version of **ps** accepts several kinds of options:
 
-- 1UNIX options, which may be grouped and must be preceded by a dash.
-- 2 BSD options, which may be grouped and must not be used with a dash.
-- 3 GNU long options, which are preceded by two dashes.
+1、UNIX options, which may be grouped and must be preceded by a dash.
+
+2、BSD options, which may be grouped and must not be used with a dash.
+
+3、GNU long options, which are preceded by two dashes.
 
 > NOTE: 显然`ps`的实现，根据dash个数来区分是哪种option。结合后文来看，1UNIX option是standard。
 
@@ -167,26 +169,6 @@ extra full format. See the **-f** option, which **-F** implies.
 
 
 
-
-
-
-
-## Output Modifiers
-
-
-
-
-
-## Thread Display
-
-
-
-## Other Information
-
-
-
-
-
 ## Notes
 
 This **ps** works by reading the virtual files in `/proc`. This **ps** does not need to be `setuid kmem` or have any privileges to run. Do not give this **ps** any special permissions.
@@ -329,12 +311,3 @@ From the [ps manpage](http://unixhelp.ed.ac.uk/CGI/man-cgi?ps):
 
 
 
-## STANDARD FORMAT SPECIFIERS 
-
-
-
-## ENVIRONMENT VARIABLES  
-
-
-
-## PERSONALITY     
