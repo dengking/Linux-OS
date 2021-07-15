@@ -8,9 +8,11 @@ Linux zero copy system call
 
 
 
-## 三、pipeline
+## 三、pipeline / batch
 
-redis [Using pipelining to speedup Redis queries](https://redis.io/topics/pipelining)
+1、redis [Using pipelining to speedup Redis queries](https://redis.io/topics/pipelining)
+
+2、批量IO来减少来回耗时
 
 ## 四、delayed ACK
 
