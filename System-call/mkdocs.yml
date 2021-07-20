@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md
     - Why-system-call-slow: Why-system-call-slow
-    - System-call-classification: System-call-classification
+    - Classification: Classification
     - Interrupted-system-call: Interrupted-system-call
     - Zero-copy: Zero-copy
     - p-system-call: p-system-call

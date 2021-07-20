@@ -13,7 +13,7 @@
         <meta name="author" content="DengKing">
       
       
-        <link rel="canonical" href="https://dengking.github.io/Linux-OS/System-call/System-call-classification/">
+        <link rel="canonical" href="https://dengking.github.io/Linux-OS/Network/RDMA/">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#classification#of#system#call" class="md-skip">
+        <a href="#rdma" class="md-skip">
           Skip to content
         </a>
       
@@ -3785,14 +3785,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
       
       <label class="md-nav__link" for="__nav_9">
         System-call
@@ -3810,7 +3808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../System-call/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -3843,7 +3841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Why-system-call-slow/" class="md-nav__link">
+      <a href="../../System-call/Why-system-call-slow/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -3859,134 +3857,71 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3" type="checkbox" id="__nav_9_3" >
       
       <label class="md-nav__link" for="__nav_9_3">
-        System-call-classification
+        Classification
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="System-call-classification" data-md-level="2">
+      <nav class="md-nav" aria-label="Classification" data-md-level="2">
         <label class="md-nav__title" for="__nav_9_3">
           <span class="md-nav__icon md-icon"></span>
-          System-call-classification
+          Classification
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introduction
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../System-call/Classification/" class="md-nav__link">
         Introduction
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    </li>
+  
+
+          
+            
+  
   
   
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    <li class="md-nav__item md-nav__item--nested">
       
-        <li class="md-nav__item">
-  <a href="#blockingsystem#call" class="md-nav__link">
-    从blocking的角度来对system call进行分类
-  </a>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#max#blocking#timesystem#call" class="md-nav__link">
-    带有max blocking time的system call非常重要，有必要进行总结：
-  </a>
-  
-</li>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9_3_2" type="checkbox" id="__nav_9_3_2" >
       
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    和阻塞相关问题
-  </a>
+      <label class="md-nav__link" for="__nav_9_3_2">
+        System-call-with-timeout
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="System-call-with-timeout" data-md-level="3">
+        <label class="md-nav__title" for="__nav_9_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          System-call-with-timeout
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#io" class="md-nav__link">
-    非阻塞与异步IO
-  </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#socketio#with#timeout" class="md-nav__link">
-    socket是如何实现的IO with timeout？
-  </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#polling#and#non-polling" class="md-nav__link">
-    Polling and non-polling
-  </a>
+    <li class="md-nav__item">
+      <a href="../../System-call/Classification/System-call-with-timeout/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
   
-    <nav class="md-nav" aria-label="Polling and non-polling">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#polling#and#busy-waiting" class="md-nav__link">
-    Polling and Busy-waiting
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#non-polling" class="md-nav__link">
-    Non-polling
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#to#read" class="md-nav__link">
-    TO READ
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -4023,7 +3958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Interrupted-system-call/" class="md-nav__link">
+      <a href="../../System-call/Interrupted-system-call/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -4062,7 +3997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Zero-copy/" class="md-nav__link">
+      <a href="../../System-call/Zero-copy/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -4095,7 +4030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Zero-copy/linuxjournal-Zero-Copy-I-User-Mode-Perspective/" class="md-nav__link">
+      <a href="../../System-call/Zero-copy/linuxjournal-Zero-Copy-I-User-Mode-Perspective/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -4134,7 +4069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Zero-copy/developpaper-Analysis-of-zero-copy-technology-in-Linux/" class="md-nav__link">
+      <a href="../../System-call/Zero-copy/developpaper-Analysis-of-zero-copy-technology-in-Linux/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -4173,7 +4108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Zero-copy/joshbialkowski-Linux-Zero-Copy/" class="md-nav__link">
+      <a href="../../System-call/Zero-copy/joshbialkowski-Linux-Zero-Copy/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -4212,7 +4147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Zero-copy/splice%E7%B3%BB%E5%88%97-zero-copy-system-call/" class="md-nav__link">
+      <a href="../../System-call/Zero-copy/splice%E7%B3%BB%E5%88%97-zero-copy-system-call/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -4251,7 +4186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Zero-copy/Zero-copy-VS-COW-copy-on-write/" class="md-nav__link">
+      <a href="../../System-call/Zero-copy/Zero-copy-VS-COW-copy-on-write/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -4296,7 +4231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../p-system-call/" class="md-nav__link">
+      <a href="../../System-call/p-system-call/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -4335,7 +4270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-system-call-table/" class="md-nav__link">
+      <a href="../../System-call/Linux-system-call-table/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -8835,9 +8770,48 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Multitasking/Tools/procps/ps/man-1-ps/" class="md-nav__link">
-        man-1-ps
+      <a href="../../Multitasking/Tools/procps/ps/" class="md-nav__link">
+        Introduction
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_12_2_2_2" type="checkbox" id="__nav_10_12_2_2_2" >
+      
+      <label class="md-nav__link" for="__nav_10_12_2_2_2">
+        man-1-ps
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-1-ps" data-md-level="5">
+        <label class="md-nav__title" for="__nav_10_12_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          man-1-ps
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Multitasking/Tools/procps/ps/man-1-ps/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -8849,18 +8823,6 @@
     <li class="md-nav__item">
       <a href="../../Multitasking/Tools/procps/ps/Wait-channel/" class="md-nav__link">
         Wait-channel
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Multitasking/Tools/procps/ps/wikipedia-ps%28Unix%29/" class="md-nav__link">
-        wikipedia-ps(Unix)
       </a>
     </li>
   
@@ -8898,9 +8860,15 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Multitasking/Tools/procps/top/top/" class="md-nav__link">
-        top
+      <a href="../../Multitasking/Tools/procps/top/" class="md-nav__link">
+        Introduction
       </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -8909,9 +8877,30 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../Multitasking/Tools/procps/top/htop/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_12_2_4" type="checkbox" id="__nav_10_12_2_4" >
+      
+      <label class="md-nav__link" for="__nav_10_12_2_4">
         htop
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="htop" data-md-level="4">
+        <label class="md-nav__title" for="__nav_10_12_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          htop
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Multitasking/Tools/procps/htop/" class="md-nav__link">
+        Introduction
       </a>
     </li>
   
@@ -16450,6 +16439,45 @@
   
 
           
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_15_3_3_2" type="checkbox" id="__nav_11_15_3_3_2" >
+      
+      <label class="md-nav__link" for="__nav_11_15_3_3_2">
+        version
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="version" data-md-level="5">
+        <label class="md-nav__title" for="__nav_11_15_3_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          version
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Programming/Object-file/Shared-library/Tools/version/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -16831,12 +16859,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" checked>
       
       <label class="md-nav__link" for="__nav_12">
         Network
@@ -16854,7 +16884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -16887,7 +16917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/" class="md-nav__link">
+      <a href="../Network-model/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -16920,7 +16950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Layered-network-protocol-model/" class="md-nav__link">
+      <a href="../Network-model/Layered-network-protocol-model/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -16953,7 +16983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Layered-network-protocol-model/PDU-MTU-SDU-MSS/" class="md-nav__link">
+      <a href="../Network-model/Layered-network-protocol-model/PDU-MTU-SDU-MSS/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -16998,7 +17028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/RCF/" class="md-nav__link">
+      <a href="../Network-model/RCF/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17058,7 +17088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Link-layer/Address-Resolution-Protocol/" class="md-nav__link">
+      <a href="../Network-model/Link-layer/Address-Resolution-Protocol/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17124,7 +17154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Network-layer/man-7-ip/" class="md-nav__link">
+      <a href="../Network-model/Network-layer/man-7-ip/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17163,7 +17193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Network-layer/man-7-ipv6/" class="md-nav__link">
+      <a href="../Network-model/Network-layer/man-7-ipv6/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17202,7 +17232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Network-layer/ICMP/" class="md-nav__link">
+      <a href="../Network-model/Network-layer/ICMP/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17241,7 +17271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Network-layer/IGMP/" class="md-nav__link">
+      <a href="../Network-model/Network-layer/IGMP/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17307,7 +17337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17340,7 +17370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/Course-miami-TCP-in-a-nutshell/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/Course-miami-TCP-in-a-nutshell/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17400,7 +17430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/coolshell-TCP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/%E4%B8%8A/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/coolshell-TCP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/%E4%B8%8A/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17439,7 +17469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/coolshell-TCP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/%E4%B8%8B/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/coolshell-TCP%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/%E4%B8%8B/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17484,7 +17514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/wikipedia-Transmission-Control-Protocol/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/wikipedia-Transmission-Control-Protocol/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17523,7 +17553,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/TCP-connection/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/TCP-connection/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17556,7 +17586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/TCP-connection/TCP-connection-tuple/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/TCP-connection/TCP-connection-tuple/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17595,7 +17625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/TCP-connection/TCP-%E9%95%BF%E8%BF%9E%E6%8E%A5-%E7%9F%AD%E8%BF%9E%E6%8E%A5/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/TCP-connection/TCP-%E9%95%BF%E8%BF%9E%E6%8E%A5-%E7%9F%AD%E8%BF%9E%E6%8E%A5/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17634,7 +17664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/TCP-connection/Half-open-close/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/TCP-connection/Half-open-close/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17679,7 +17709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/TCP-glossary/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/TCP-glossary/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17718,7 +17748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/TCP-FSM/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/TCP-FSM/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17757,7 +17787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/1-Connection-synchronization/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/1-Connection-synchronization/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17796,7 +17826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/2-Data-transfer/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/2-Data-transfer/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17829,7 +17859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/2-Data-transfer/Sequence-number%26%26acknowledge-number/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/2-Data-transfer/Sequence-number%26%26acknowledge-number/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17868,7 +17898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/2-Data-transfer/Nagle%27s-algorithm/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/2-Data-transfer/Nagle%27s-algorithm/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17886,7 +17916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/2-Data-transfer/TCP-segment-of-a-reassembled-PDU/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/2-Data-transfer/TCP-segment-of-a-reassembled-PDU/" class="md-nav__link">
         TCP-segment-of-a-reassembled-PDU
       </a>
     </li>
@@ -17925,7 +17955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/3-Connection-termination/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/3-Connection-termination/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17958,7 +17988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/3-Connection-termination/Connection-finish/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/3-Connection-termination/Connection-finish/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -17991,7 +18021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/3-Connection-termination/Connection-finish/freesoft-4.2.2.13-Closing-a-Connection-RFC-793-Section-3.5/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/3-Connection-termination/Connection-finish/freesoft-4.2.2.13-Closing-a-Connection-RFC-793-Section-3.5/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18036,7 +18066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/3-Connection-termination/Connection-reset/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/3-Connection-termination/Connection-reset/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18081,7 +18111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/Flow-control/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/Flow-control/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18114,7 +18144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/Flow-control/Sliding-window/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/Flow-control/Sliding-window/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18159,7 +18189,46 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP/Congestion-control/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP/Congestion-control/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_2_6_1_13" type="checkbox" id="__nav_12_2_6_1_13" >
+      
+      <label class="md-nav__link" for="__nav_12_2_6_1_13">
+        TCP-tuning
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="TCP-tuning" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_2_6_1_13">
+          <span class="md-nav__icon md-icon"></span>
+          TCP-tuning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Network-model/Transport-layer/TCP/TCP-tuning/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18204,7 +18273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/UDP/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/UDP/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18237,7 +18306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/UDP/UDP-broadcast/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/UDP/UDP-broadcast/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18276,7 +18345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/UDP/Reliable-UDP-RUDP/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/UDP/Reliable-UDP-RUDP/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18315,7 +18384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/UDP/tencent-%E5%91%8A%E7%9F%A5%E4%BD%A0%E4%B8%8D%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84UDP%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E5%92%8C%E4%BD%BF%E7%94%A8/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/UDP/tencent-%E5%91%8A%E7%9F%A5%E4%BD%A0%E4%B8%8D%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84UDP%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87%E5%92%8C%E4%BD%BF%E7%94%A8/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18360,7 +18429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Transport-layer/TCP-VS-UDP/" class="md-nav__link">
+      <a href="../Network-model/Transport-layer/TCP-VS-UDP/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18405,7 +18474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18438,7 +18507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Design-protocol/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Design-protocol/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18471,7 +18540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Design-protocol/Protocol-data-format/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Design-protocol/Protocol-data-format/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18510,7 +18579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Design-protocol/Binary-VS-textual-protocol/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Design-protocol/Binary-VS-textual-protocol/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18549,7 +18618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Design-protocol/IDL/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Design-protocol/IDL/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18561,7 +18630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Design-protocol/IDL/Schema-evaluation/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Design-protocol/IDL/Schema-evaluation/" class="md-nav__link">
         Schema-evaluation
       </a>
     </li>
@@ -18600,7 +18669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Design-protocol/TCP-message-boundary/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Design-protocol/TCP-message-boundary/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18633,7 +18702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Design-protocol/TCP-message-boundary/CSDN-%E7%BB%8F%E5%85%B8-tcp%E7%B2%98%E5%8C%85%E5%88%86%E6%9E%90/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Design-protocol/TCP-message-boundary/CSDN-%E7%BB%8F%E5%85%B8-tcp%E7%B2%98%E5%8C%85%E5%88%86%E6%9E%90/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18684,7 +18753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Domain-Name-System/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Domain-Name-System/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18717,7 +18786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/Domain-Name-System/TODO-%E6%A0%B9%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E5%90%A6%E5%8F%AA%E6%9C%8913%E5%8F%B0/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/Domain-Name-System/TODO-%E6%A0%B9%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%98%AF%E5%90%A6%E5%8F%AA%E6%9C%8913%E5%8F%B0/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18762,7 +18831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/WebSocket/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/WebSocket/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18801,7 +18870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/HTTP/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/HTTP/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18834,7 +18903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Application-layer/HTTP/HTTP-persistent-connection/" class="md-nav__link">
+      <a href="../Network-model/Application-layer/HTTP/HTTP-persistent-connection/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18885,7 +18954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Message-boundary/" class="md-nav__link">
+      <a href="../Network-model/Message-boundary/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18924,7 +18993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-model/Ethernet/" class="md-nav__link">
+      <a href="../Network-model/Ethernet/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -18969,7 +19038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-security/" class="md-nav__link">
+      <a href="../Network-security/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -19002,7 +19071,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-security/DoS-attack/" class="md-nav__link">
+      <a href="../Network-security/DoS-attack/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -19035,7 +19104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-security/DoS-attack/Syn-flood/" class="md-nav__link">
+      <a href="../Network-security/DoS-attack/Syn-flood/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -19086,7 +19155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-topology/" class="md-nav__link">
+      <a href="../Network-topology/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -19119,7 +19188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Network-topology/mesh/" class="md-nav__link">
+      <a href="../Network-topology/mesh/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -19141,32 +19210,92 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" type="checkbox" id="__nav_12_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5" type="checkbox" id="__nav_12_5" checked>
       
       <label class="md-nav__link" for="__nav_12_5">
-        Programming
+        RDMA
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Programming" data-md-level="2">
+      <nav class="md-nav" aria-label="RDMA" data-md-level="2">
         <label class="md-nav__title" for="__nav_12_5">
           <span class="md-nav__icon md-icon"></span>
-          Programming
+          RDMA
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Introduction
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#guide" class="md-nav__link">
+    Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdma_1" class="md-nav__link">
+    RDMA的优势 / 普通网卡的劣势
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csdn#rdma" class="md-nav__link">
+    csdn RDMA简介
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -19182,13 +19311,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_2" type="checkbox" id="__nav_12_5_2" >
       
       <label class="md-nav__link" for="__nav_12_5_2">
-        course-dartmouth-CS60-Computer-Networks
+        zhihu-RDMA技术详解
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="course-dartmouth-CS60-Computer-Networks" data-md-level="3">
+      <nav class="md-nav" aria-label="zhihu-RDMA技术详解" data-md-level="3">
         <label class="md-nav__title" for="__nav_12_5_2">
           <span class="md-nav__icon md-icon"></span>
-          course-dartmouth-CS60-Computer-Networks
+          zhihu-RDMA技术详解
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -19197,48 +19326,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Programming/course-dartmouth-CS60-Computer-Networks/" class="md-nav__link">
+      <a href="zhihu-RDMA%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
         Introduction
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_2_2" type="checkbox" id="__nav_12_5_2_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_2_2">
-        Lecture 3-and-4-Socket-Programming
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Lecture 3-and-4-Socket-Programming" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          Lecture 3-and-4-Socket-Programming
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/course-dartmouth-CS60-Computer-Networks/Lecture%203-and-4-Socket-Programming/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -19260,13 +19350,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_3" type="checkbox" id="__nav_12_5_3" >
       
       <label class="md-nav__link" for="__nav_12_5_3">
-        Book-Beej's-Guide-to-Network-Programming
+        paper-RDMC-A-Reliable-RDMA-Multicast-for-Large-Objects
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Book-Beej's-Guide-to-Network-Programming" data-md-level="3">
+      <nav class="md-nav" aria-label="paper-RDMC-A-Reliable-RDMA-Multicast-for-Large-Objects" data-md-level="3">
         <label class="md-nav__title" for="__nav_12_5_3">
           <span class="md-nav__icon md-icon"></span>
-          Book-Beej's-Guide-to-Network-Programming
+          paper-RDMC-A-Reliable-RDMA-Multicast-for-Large-Objects
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -19275,2088 +19365,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Programming/Book-Beej%27s-Guide-to-Network-Programming/" class="md-nav__link">
+      <a href="paper-RDMC-A-Reliable-RDMA-Multicast-for-Large-Objects/" class="md-nav__link">
         Introduction
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_3_2" type="checkbox" id="__nav_12_5_3_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_3_2">
-        1-Intro
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="1-Intro" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          1-Intro
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Book-Beej%27s-Guide-to-Network-Programming/1-Intro/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_3_3" type="checkbox" id="__nav_12_5_3_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_3_3">
-        2-What-is-a-socket
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="2-What-is-a-socket" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_3_3">
-          <span class="md-nav__icon md-icon"></span>
-          2-What-is-a-socket
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Book-Beej%27s-Guide-to-Network-Programming/2-What-is-a-socket/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_3_4" type="checkbox" id="__nav_12_5_3_4" >
-      
-      <label class="md-nav__link" for="__nav_12_5_3_4">
-        3-IP-Addresses-structs-and-Data-Munging
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="3-IP-Addresses-structs-and-Data-Munging" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_3_4">
-          <span class="md-nav__icon md-icon"></span>
-          3-IP-Addresses-structs-and-Data-Munging
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Book-Beej%27s-Guide-to-Network-Programming/3-IP-Addresses-structs-and-Data-Munging/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_3_5" type="checkbox" id="__nav_12_5_3_5" >
-      
-      <label class="md-nav__link" for="__nav_12_5_3_5">
-        5-System-Calls-or-Bust
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="5-System-Calls-or-Bust" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_3_5">
-          <span class="md-nav__icon md-icon"></span>
-          5-System-Calls-or-Bust
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Book-Beej%27s-Guide-to-Network-Programming/5-System-Calls-or-Bust/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_3_6" type="checkbox" id="__nav_12_5_3_6" >
-      
-      <label class="md-nav__link" for="__nav_12_5_3_6">
-        6-Client-Server-Background
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="6-Client-Server-Background" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_3_6">
-          <span class="md-nav__icon md-icon"></span>
-          6-Client-Server-Background
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Book-Beej%27s-Guide-to-Network-Programming/6-Client-Server-Background/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_4" type="checkbox" id="__nav_12_5_4" >
-      
-      <label class="md-nav__link" for="__nav_12_5_4">
-        Linux-TCP-impl
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Linux-TCP-impl" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_4">
-          <span class="md-nav__icon md-icon"></span>
-          Linux-TCP-impl
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Linux-TCP-impl/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_4_2" type="checkbox" id="__nav_12_5_4_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_4_2">
-        Data-structure
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Data-structure" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_4_2">
-          <span class="md-nav__icon md-icon"></span>
-          Data-structure
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Linux-TCP-impl/Data-structure/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_4_2_2" type="checkbox" id="__nav_12_5_4_2_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_4_2_2">
-        SND-RCV-Buffer
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="SND-RCV-Buffer" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_4_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          SND-RCV-Buffer
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Linux-TCP-impl/Data-structure/SND-RCV-Buffer/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_4_2_2_2" type="checkbox" id="__nav_12_5_4_2_2_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_4_2_2_2">
-        Network-IO-events
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Network-IO-events" data-md-level="6">
-        <label class="md-nav__title" for="__nav_12_5_4_2_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          Network-IO-events
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Linux-TCP-impl/Data-structure/SND-RCV-Buffer/Network-IO-events/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_4_2_3" type="checkbox" id="__nav_12_5_4_2_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_4_2_3">
-        backlog
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="backlog" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_4_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          backlog
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Linux-TCP-impl/Data-structure/backlog/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_4_3" type="checkbox" id="__nav_12_5_4_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_4_3">
-        man-7-TCP
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-7-TCP" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_4_3">
-          <span class="md-nav__icon md-icon"></span>
-          man-7-TCP
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Linux-TCP-impl/man-7-TCP/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_4_4" type="checkbox" id="__nav_12_5_4_4" >
-      
-      <label class="md-nav__link" for="__nav_12_5_4_4">
-        TCP-parameter
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="TCP-parameter" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_4_4">
-          <span class="md-nav__icon md-icon"></span>
-          TCP-parameter
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Linux-TCP-impl/TCP-parameter/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_4_4_2" type="checkbox" id="__nav_12_5_4_4_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_4_4_2">
-        tcp_max_syn_backlog-VS-somaxcon
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="tcp_max_syn_backlog-VS-somaxcon" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_4_4_2">
-          <span class="md-nav__icon md-icon"></span>
-          tcp_max_syn_backlog-VS-somaxcon
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Linux-TCP-impl/TCP-parameter/tcp_max_syn_backlog-VS-somaxcon/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5" type="checkbox" id="__nav_12_5_5" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5">
-        Socket
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Socket" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_5">
-          <span class="md-nav__icon md-icon"></span>
-          Socket
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_2" type="checkbox" id="__nav_12_5_5_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_2">
-        man-7-socket
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-7-socket" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          man-7-socket
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/man-7-socket/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_3" type="checkbox" id="__nav_12_5_5_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_3">
-        man-2-socket
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-2-socket" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_5_3">
-          <span class="md-nav__icon md-icon"></span>
-          man-2-socket
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/man-2-socket/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_4" type="checkbox" id="__nav_12_5_5_4" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_4">
-        man-7-address_families
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-7-address_families" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_5_4">
-          <span class="md-nav__icon md-icon"></span>
-          man-7-address_families
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/man-7-address_families/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5" type="checkbox" id="__nav_12_5_5_5" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5">
-        Socket-option
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Socket-option" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_5_5">
-          <span class="md-nav__icon md-icon"></span>
-          Socket-option
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_2" type="checkbox" id="__nav_12_5_5_5_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_2">
-        man-2-setsockopt
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-2-setsockopt" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_5_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          man-2-setsockopt
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/man-2-setsockopt/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_3" type="checkbox" id="__nav_12_5_5_5_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_3">
-        Mark-socket
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Mark-socket" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_5_5_3">
-          <span class="md-nav__icon md-icon"></span>
-          Mark-socket
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/Mark-socket/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_3_2" type="checkbox" id="__nav_12_5_5_5_3_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_3_2">
-        CSDN-Linux socket设置mark的必要性
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="CSDN-Linux socket设置mark的必要性" data-md-level="6">
-        <label class="md-nav__title" for="__nav_12_5_5_5_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          CSDN-Linux socket设置mark的必要性
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/Mark-socket/CSDN-Linux%20socket%E8%AE%BE%E7%BD%AEmark%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_4" type="checkbox" id="__nav_12_5_5_5_4" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_4">
-        SO_REUSEADDR-SO_REUSEPORT
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="SO_REUSEADDR-SO_REUSEPORT" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_5_5_4">
-          <span class="md-nav__icon md-icon"></span>
-          SO_REUSEADDR-SO_REUSEPORT
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_4_2" type="checkbox" id="__nav_12_5_5_5_4_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_4_2">
-        stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ" data-md-level="6">
-        <label class="md-nav__title" for="__nav_12_5_5_5_4_2">
-          <span class="md-nav__icon md-icon"></span>
-          stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_4_3" type="checkbox" id="__nav_12_5_5_5_4_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_4_3">
-        SO_REUSEADDR
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="SO_REUSEADDR" data-md-level="6">
-        <label class="md-nav__title" for="__nav_12_5_5_5_4_3">
-          <span class="md-nav__icon md-icon"></span>
-          SO_REUSEADDR
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEADDR/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_4_3_2" type="checkbox" id="__nav_12_5_5_5_4_3_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_4_3_2">
-        microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE" data-md-level="7">
-        <label class="md-nav__title" for="__nav_12_5_5_5_4_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEADDR/microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_4_4" type="checkbox" id="__nav_12_5_5_5_4_4" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_4_4">
-        SO_REUSEPORT
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="SO_REUSEPORT" data-md-level="6">
-        <label class="md-nav__title" for="__nav_12_5_5_5_4_4">
-          <span class="md-nav__icon md-icon"></span>
-          SO_REUSEPORT
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_4_4_1" type="checkbox" id="__nav_12_5_5_5_4_4_1" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_4_4_1">
-        lwn-The-SO_REUSEPORT-socket-option
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="lwn-The-SO_REUSEPORT-socket-option" data-md-level="7">
-        <label class="md-nav__title" for="__nav_12_5_5_5_4_4_1">
-          <span class="md-nav__icon md-icon"></span>
-          lwn-The-SO_REUSEPORT-socket-option
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEPORT/lwn-The-SO_REUSEPORT-socket-option/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_5_5" type="checkbox" id="__nav_12_5_5_5_5" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_5_5">
-        SO_LINGER
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="SO_LINGER" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_5_5_5">
-          <span class="md-nav__icon md-icon"></span>
-          SO_LINGER
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Socket-option/SO_LINGER/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_6" type="checkbox" id="__nav_12_5_5_6" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_6">
-        Control-message
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Control-message" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_5_6">
-          <span class="md-nav__icon md-icon"></span>
-          Control-message
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Control-message/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_6_2" type="checkbox" id="__nav_12_5_5_6_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_6_2">
-        man-3-cmsg
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-3-cmsg" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_5_6_2">
-          <span class="md-nav__icon md-icon"></span>
-          man-3-cmsg
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Control-message/man-3-cmsg/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_5_7" type="checkbox" id="__nav_12_5_5_7" >
-      
-      <label class="md-nav__link" for="__nav_12_5_5_7">
-        Out-of-band
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Out-of-band" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_5_7">
-          <span class="md-nav__icon md-icon"></span>
-          Out-of-band
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Socket/Out-of-band/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_6" type="checkbox" id="__nav_12_5_6" >
-      
-      <label class="md-nav__link" for="__nav_12_5_6">
-        Port
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Port" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_6">
-          <span class="md-nav__icon md-icon"></span>
-          Port
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Port/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_6_2" type="checkbox" id="__nav_12_5_6_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_6_2">
-        Ephemeral-port
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Ephemeral-port" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_6_2">
-          <span class="md-nav__icon md-icon"></span>
-          Ephemeral-port
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Port/Ephemeral-port/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_6_3" type="checkbox" id="__nav_12_5_6_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_6_3">
-        Process&port
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Process&port" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_6_3">
-          <span class="md-nav__icon md-icon"></span>
-          Process&port
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Port/Process%26port/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_7" type="checkbox" id="__nav_12_5_7" >
-      
-      <label class="md-nav__link" for="__nav_12_5_7">
-        man-2-bind
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-2-bind" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_7">
-          <span class="md-nav__icon md-icon"></span>
-          man-2-bind
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/man-2-bind/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_8" type="checkbox" id="__nav_12_5_8" >
-      
-      <label class="md-nav__link" for="__nav_12_5_8">
-        INADDR_ANY-local_host
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="INADDR_ANY-local_host" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_8">
-          <span class="md-nav__icon md-icon"></span>
-          INADDR_ANY-local_host
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/INADDR_ANY-local_host/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_9" type="checkbox" id="__nav_12_5_9" >
-      
-      <label class="md-nav__link" for="__nav_12_5_9">
-        man-2-listen
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-2-listen" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_9">
-          <span class="md-nav__icon md-icon"></span>
-          man-2-listen
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/man-2-listen/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_10" type="checkbox" id="__nav_12_5_10" >
-      
-      <label class="md-nav__link" for="__nav_12_5_10">
-        man-3-getaddrinfo
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-3-getaddrinfo" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_10">
-          <span class="md-nav__icon md-icon"></span>
-          man-3-getaddrinfo
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/man-3-getaddrinfo/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_11" type="checkbox" id="__nav_12_5_11" >
-      
-      <label class="md-nav__link" for="__nav_12_5_11">
-        Close-socket
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Close-socket" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_11">
-          <span class="md-nav__icon md-icon"></span>
-          Close-socket
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Close-socket/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_11_2" type="checkbox" id="__nav_12_5_11_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_11_2">
-        man-2-shutdown
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-2-shutdown" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_11_2">
-          <span class="md-nav__icon md-icon"></span>
-          man-2-shutdown
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Close-socket/man-2-shutdown/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Close-socket/close-VS-shutdown/" class="md-nav__link">
-        close-VS-shutdown
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Reconnect/" class="md-nav__link">
-        Reconnect
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_13" type="checkbox" id="__nav_12_5_13" >
-      
-      <label class="md-nav__link" for="__nav_12_5_13">
-        man-2-sendfile
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="man-2-sendfile" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_13">
-          <span class="md-nav__icon md-icon"></span>
-          man-2-sendfile
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/man-2-sendfile/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_14" type="checkbox" id="__nav_12_5_14" >
-      
-      <label class="md-nav__link" for="__nav_12_5_14">
-        Broadcast-multicast
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Broadcast-multicast" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_14">
-          <span class="md-nav__icon md-icon"></span>
-          Broadcast-multicast
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Broadcast-multicast/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_15" type="checkbox" id="__nav_12_5_15" >
-      
-      <label class="md-nav__link" for="__nav_12_5_15">
-        TCP-Wrappers
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="TCP-Wrappers" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_15">
-          <span class="md-nav__icon md-icon"></span>
-          TCP-Wrappers
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/TCP-Wrappers/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_16" type="checkbox" id="__nav_12_5_16" >
-      
-      <label class="md-nav__link" for="__nav_12_5_16">
-        TCP-Keepalive
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="TCP-Keepalive" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_16">
-          <span class="md-nav__icon md-icon"></span>
-          TCP-Keepalive
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/TCP-Keepalive/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_16_2" type="checkbox" id="__nav_12_5_16_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_16_2">
-        jianshu-KeepAlive详解
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="jianshu-KeepAlive详解" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_16_2">
-          <span class="md-nav__icon md-icon"></span>
-          jianshu-KeepAlive详解
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/TCP-Keepalive/jianshu-KeepAlive%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_17" type="checkbox" id="__nav_12_5_17" >
-      
-      <label class="md-nav__link" for="__nav_12_5_17">
-        TIME_WAIT=2MSL
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="TIME_WAIT=2MSL" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_17">
-          <span class="md-nav__icon md-icon"></span>
-          TIME_WAIT=2MSL
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/TIME_WAIT%3D2MSL/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_17_2" type="checkbox" id="__nav_12_5_17_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_17_2">
-        解决TIME_WAIT过多问题
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="解决TIME_WAIT过多问题" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_17_2">
-          <span class="md-nav__icon md-icon"></span>
-          解决TIME_WAIT过多问题
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/TIME_WAIT%3D2MSL/%E8%A7%A3%E5%86%B3TIME_WAIT%E8%BF%87%E5%A4%9A%E9%97%AE%E9%A2%98/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_17_2_2" type="checkbox" id="__nav_12_5_17_2_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_17_2_2">
-        serverframework-TIME_WAIT
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="serverframework-TIME_WAIT" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_17_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          serverframework-TIME_WAIT
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/TIME_WAIT%3D2MSL/%E8%A7%A3%E5%86%B3TIME_WAIT%E8%BF%87%E5%A4%9A%E9%97%AE%E9%A2%98/serverframework-TIME_WAIT/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_17_2_3" type="checkbox" id="__nav_12_5_17_2_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_17_2_3">
-        cnblogs-解决TIME_WAIT过多造成的问题
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="cnblogs-解决TIME_WAIT过多造成的问题" data-md-level="5">
-        <label class="md-nav__title" for="__nav_12_5_17_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          cnblogs-解决TIME_WAIT过多造成的问题
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/TIME_WAIT%3D2MSL/%E8%A7%A3%E5%86%B3TIME_WAIT%E8%BF%87%E5%A4%9A%E9%97%AE%E9%A2%98/cnblogs-%E8%A7%A3%E5%86%B3TIME_WAIT%E8%BF%87%E5%A4%9A%E9%80%A0%E6%88%90%E7%9A%84%E9%97%AE%E9%A2%98/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_17_3" type="checkbox" id="__nav_12_5_17_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_17_3">
-        MSL-Maximum-segment-lifetime
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="MSL-Maximum-segment-lifetime" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_17_3">
-          <span class="md-nav__icon md-icon"></span>
-          MSL-Maximum-segment-lifetime
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/TIME_WAIT%3D2MSL/MSL-Maximum-segment-lifetime/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_18" type="checkbox" id="__nav_12_5_18" >
-      
-      <label class="md-nav__link" for="__nav_12_5_18">
-        Thundering-Herd-problem
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Thundering-Herd-problem" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_5_18">
-          <span class="md-nav__icon md-icon"></span>
-          Thundering-Herd-problem
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Thundering-Herd-problem/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_18_2" type="checkbox" id="__nav_12_5_18_2" >
-      
-      <label class="md-nav__link" for="__nav_12_5_18_2">
-        uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_18_2">
-          <span class="md-nav__icon md-icon"></span>
-          uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Thundering-Herd-problem/uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_5_18_3" type="checkbox" id="__nav_12_5_18_3" >
-      
-      <label class="md-nav__link" for="__nav_12_5_18_3">
-        SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_5_18_3">
-          <span class="md-nav__icon md-icon"></span>
-          SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Programming/Thundering-Herd-problem/SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -21384,13 +19395,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6" type="checkbox" id="__nav_12_6" >
       
       <label class="md-nav__link" for="__nav_12_6">
-        Expert-packetlife
+        Programming
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Expert-packetlife" data-md-level="2">
+      <nav class="md-nav" aria-label="Programming" data-md-level="2">
         <label class="md-nav__title" for="__nav_12_6">
           <span class="md-nav__icon md-icon"></span>
-          Expert-packetlife
+          Programming
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -21399,7 +19410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Expert-packetlife/" class="md-nav__link">
+      <a href="../Programming/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -21417,13 +19428,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_2" type="checkbox" id="__nav_12_6_2" >
       
       <label class="md-nav__link" for="__nav_12_6_2">
-        packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers
+        course-dartmouth-CS60-Computer-Networks
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers" data-md-level="3">
+      <nav class="md-nav" aria-label="course-dartmouth-CS60-Computer-Networks" data-md-level="3">
         <label class="md-nav__title" for="__nav_12_6_2">
           <span class="md-nav__icon md-icon"></span>
-          packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers
+          course-dartmouth-CS60-Computer-Networks
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -21432,9 +19443,2205 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Expert-packetlife/packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers/" class="md-nav__link">
+      <a href="../Programming/course-dartmouth-CS60-Computer-Networks/" class="md-nav__link">
         Introduction
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_2_2" type="checkbox" id="__nav_12_6_2_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_2_2">
+        Lecture 3-and-4-Socket-Programming
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Lecture 3-and-4-Socket-Programming" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Lecture 3-and-4-Socket-Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/course-dartmouth-CS60-Computer-Networks/Lecture%203-and-4-Socket-Programming/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_3" type="checkbox" id="__nav_12_6_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_3">
+        Book-Beej's-Guide-to-Network-Programming
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Book-Beej's-Guide-to-Network-Programming" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Book-Beej's-Guide-to-Network-Programming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Book-Beej%27s-Guide-to-Network-Programming/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_3_2" type="checkbox" id="__nav_12_6_3_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_3_2">
+        1-Intro
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="1-Intro" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          1-Intro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Book-Beej%27s-Guide-to-Network-Programming/1-Intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_3_3" type="checkbox" id="__nav_12_6_3_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_3_3">
+        2-What-is-a-socket
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="2-What-is-a-socket" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          2-What-is-a-socket
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Book-Beej%27s-Guide-to-Network-Programming/2-What-is-a-socket/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_3_4" type="checkbox" id="__nav_12_6_3_4" >
+      
+      <label class="md-nav__link" for="__nav_12_6_3_4">
+        3-IP-Addresses-structs-and-Data-Munging
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="3-IP-Addresses-structs-and-Data-Munging" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          3-IP-Addresses-structs-and-Data-Munging
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Book-Beej%27s-Guide-to-Network-Programming/3-IP-Addresses-structs-and-Data-Munging/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_3_5" type="checkbox" id="__nav_12_6_3_5" >
+      
+      <label class="md-nav__link" for="__nav_12_6_3_5">
+        5-System-Calls-or-Bust
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="5-System-Calls-or-Bust" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          5-System-Calls-or-Bust
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Book-Beej%27s-Guide-to-Network-Programming/5-System-Calls-or-Bust/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_3_6" type="checkbox" id="__nav_12_6_3_6" >
+      
+      <label class="md-nav__link" for="__nav_12_6_3_6">
+        6-Client-Server-Background
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="6-Client-Server-Background" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          6-Client-Server-Background
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Book-Beej%27s-Guide-to-Network-Programming/6-Client-Server-Background/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4" type="checkbox" id="__nav_12_6_4" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4">
+        Linux-TCP-impl
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Linux-TCP-impl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          Linux-TCP-impl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4_2" type="checkbox" id="__nav_12_6_4_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4_2">
+        Data-structure
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data-structure" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Data-structure
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/Data-structure/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4_2_2" type="checkbox" id="__nav_12_6_4_2_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4_2_2">
+        SND-RCV-Buffer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SND-RCV-Buffer" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          SND-RCV-Buffer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/Data-structure/SND-RCV-Buffer/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4_2_2_2" type="checkbox" id="__nav_12_6_4_2_2_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4_2_2_2">
+        Network-IO-events
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Network-IO-events" data-md-level="6">
+        <label class="md-nav__title" for="__nav_12_6_4_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Network-IO-events
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/Data-structure/SND-RCV-Buffer/Network-IO-events/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4_2_3" type="checkbox" id="__nav_12_6_4_2_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4_2_3">
+        backlog
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="backlog" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          backlog
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/Data-structure/backlog/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4_2_4" type="checkbox" id="__nav_12_6_4_2_4" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4_2_4">
+        Bufferbloat
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Bufferbloat" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_4_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Bufferbloat
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/Data-structure/Bufferbloat/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4_3" type="checkbox" id="__nav_12_6_4_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4_3">
+        man-7-TCP
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-7-TCP" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          man-7-TCP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/man-7-TCP/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4_4" type="checkbox" id="__nav_12_6_4_4" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4_4">
+        TCP-parameter
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="TCP-parameter" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          TCP-parameter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/TCP-parameter/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_4_4_2" type="checkbox" id="__nav_12_6_4_4_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_4_4_2">
+        tcp_max_syn_backlog-VS-somaxcon
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="tcp_max_syn_backlog-VS-somaxcon" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_4_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          tcp_max_syn_backlog-VS-somaxcon
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Linux-TCP-impl/TCP-parameter/tcp_max_syn_backlog-VS-somaxcon/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5" type="checkbox" id="__nav_12_6_5" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5">
+        Socket
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Socket" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          Socket
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_2" type="checkbox" id="__nav_12_6_5_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_2">
+        man-7-socket
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-7-socket" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          man-7-socket
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/man-7-socket/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_3" type="checkbox" id="__nav_12_6_5_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_3">
+        man-2-socket
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-2-socket" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          man-2-socket
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/man-2-socket/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_4" type="checkbox" id="__nav_12_6_5_4" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_4">
+        man-7-address_families
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-7-address_families" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          man-7-address_families
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/man-7-address_families/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5" type="checkbox" id="__nav_12_6_5_5" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5">
+        Socket-option
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Socket-option" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Socket-option
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_2" type="checkbox" id="__nav_12_6_5_5_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_2">
+        man-2-setsockopt
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-2-setsockopt" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_5_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          man-2-setsockopt
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/man-2-setsockopt/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_3" type="checkbox" id="__nav_12_6_5_5_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_3">
+        Mark-socket
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mark-socket" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_5_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Mark-socket
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/Mark-socket/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_3_2" type="checkbox" id="__nav_12_6_5_5_3_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_3_2">
+        CSDN-Linux socket设置mark的必要性
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="CSDN-Linux socket设置mark的必要性" data-md-level="6">
+        <label class="md-nav__title" for="__nav_12_6_5_5_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          CSDN-Linux socket设置mark的必要性
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/Mark-socket/CSDN-Linux%20socket%E8%AE%BE%E7%BD%AEmark%E7%9A%84%E5%BF%85%E8%A6%81%E6%80%A7/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_4" type="checkbox" id="__nav_12_6_5_5_4" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_4">
+        SO_REUSEADDR-SO_REUSEPORT
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SO_REUSEADDR-SO_REUSEPORT" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_5_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          SO_REUSEADDR-SO_REUSEPORT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_4_2" type="checkbox" id="__nav_12_6_5_5_4_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_4_2">
+        stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ" data-md-level="6">
+        <label class="md-nav__title" for="__nav_12_6_5_5_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/stackoverflow-How-SO_REUSEADDR-SO_REUSEPORT-differ/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_4_3" type="checkbox" id="__nav_12_6_5_5_4_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_4_3">
+        SO_REUSEADDR
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SO_REUSEADDR" data-md-level="6">
+        <label class="md-nav__title" for="__nav_12_6_5_5_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          SO_REUSEADDR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEADDR/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_4_3_2" type="checkbox" id="__nav_12_6_5_5_4_3_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_4_3_2">
+        microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE" data-md-level="7">
+        <label class="md-nav__title" for="__nav_12_6_5_5_4_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEADDR/microsoft-Using-SO_REUSEADDR-and-SO_EXCLUSIVEADDRUSE/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_4_4" type="checkbox" id="__nav_12_6_5_5_4_4" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_4_4">
+        SO_REUSEPORT
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SO_REUSEPORT" data-md-level="6">
+        <label class="md-nav__title" for="__nav_12_6_5_5_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          SO_REUSEPORT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_4_4_1" type="checkbox" id="__nav_12_6_5_5_4_4_1" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_4_4_1">
+        lwn-The-SO_REUSEPORT-socket-option
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="lwn-The-SO_REUSEPORT-socket-option" data-md-level="7">
+        <label class="md-nav__title" for="__nav_12_6_5_5_4_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          lwn-The-SO_REUSEPORT-socket-option
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/SO_REUSEADDR-SO_REUSEPORT/SO_REUSEPORT/lwn-The-SO_REUSEPORT-socket-option/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_5_5" type="checkbox" id="__nav_12_6_5_5_5" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_5_5">
+        SO_LINGER
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SO_LINGER" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_5_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          SO_LINGER
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Socket-option/SO_LINGER/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_6" type="checkbox" id="__nav_12_6_5_6" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_6">
+        Control-message
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Control-message" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Control-message
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Control-message/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_6_2" type="checkbox" id="__nav_12_6_5_6_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_6_2">
+        man-3-cmsg
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-3-cmsg" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_5_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          man-3-cmsg
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Control-message/man-3-cmsg/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_5_7" type="checkbox" id="__nav_12_6_5_7" >
+      
+      <label class="md-nav__link" for="__nav_12_6_5_7">
+        Out-of-band
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Out-of-band" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          Out-of-band
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Socket/Out-of-band/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_6" type="checkbox" id="__nav_12_6_6" >
+      
+      <label class="md-nav__link" for="__nav_12_6_6">
+        Port
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Port" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          Port
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Port/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_6_2" type="checkbox" id="__nav_12_6_6_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_6_2">
+        Ephemeral-port
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Ephemeral-port" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          Ephemeral-port
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Port/Ephemeral-port/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_6_3" type="checkbox" id="__nav_12_6_6_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_6_3">
+        Process&port
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Process&port" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Process&port
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Port/Process%26port/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_7" type="checkbox" id="__nav_12_6_7" >
+      
+      <label class="md-nav__link" for="__nav_12_6_7">
+        man-2-bind
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-2-bind" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_7">
+          <span class="md-nav__icon md-icon"></span>
+          man-2-bind
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/man-2-bind/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_8" type="checkbox" id="__nav_12_6_8" >
+      
+      <label class="md-nav__link" for="__nav_12_6_8">
+        INADDR_ANY-local_host
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="INADDR_ANY-local_host" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_8">
+          <span class="md-nav__icon md-icon"></span>
+          INADDR_ANY-local_host
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/INADDR_ANY-local_host/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_9" type="checkbox" id="__nav_12_6_9" >
+      
+      <label class="md-nav__link" for="__nav_12_6_9">
+        man-2-listen
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-2-listen" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_9">
+          <span class="md-nav__icon md-icon"></span>
+          man-2-listen
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/man-2-listen/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_10" type="checkbox" id="__nav_12_6_10" >
+      
+      <label class="md-nav__link" for="__nav_12_6_10">
+        man-3-getaddrinfo
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-3-getaddrinfo" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_10">
+          <span class="md-nav__icon md-icon"></span>
+          man-3-getaddrinfo
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/man-3-getaddrinfo/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_11" type="checkbox" id="__nav_12_6_11" >
+      
+      <label class="md-nav__link" for="__nav_12_6_11">
+        Close-socket
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Close-socket" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_11">
+          <span class="md-nav__icon md-icon"></span>
+          Close-socket
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Close-socket/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_11_2" type="checkbox" id="__nav_12_6_11_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_11_2">
+        man-2-shutdown
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-2-shutdown" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          man-2-shutdown
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Close-socket/man-2-shutdown/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Close-socket/close-VS-shutdown/" class="md-nav__link">
+        close-VS-shutdown
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Reconnect/" class="md-nav__link">
+        Reconnect
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_13" type="checkbox" id="__nav_12_6_13" >
+      
+      <label class="md-nav__link" for="__nav_12_6_13">
+        man-2-sendfile
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="man-2-sendfile" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_13">
+          <span class="md-nav__icon md-icon"></span>
+          man-2-sendfile
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/man-2-sendfile/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_14" type="checkbox" id="__nav_12_6_14" >
+      
+      <label class="md-nav__link" for="__nav_12_6_14">
+        Broadcast-multicast
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Broadcast-multicast" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_14">
+          <span class="md-nav__icon md-icon"></span>
+          Broadcast-multicast
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Broadcast-multicast/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_15" type="checkbox" id="__nav_12_6_15" >
+      
+      <label class="md-nav__link" for="__nav_12_6_15">
+        TCP-Wrappers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="TCP-Wrappers" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_15">
+          <span class="md-nav__icon md-icon"></span>
+          TCP-Wrappers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/TCP-Wrappers/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_16" type="checkbox" id="__nav_12_6_16" >
+      
+      <label class="md-nav__link" for="__nav_12_6_16">
+        TCP-Keepalive
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="TCP-Keepalive" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_16">
+          <span class="md-nav__icon md-icon"></span>
+          TCP-Keepalive
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/TCP-Keepalive/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_16_2" type="checkbox" id="__nav_12_6_16_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_16_2">
+        jianshu-KeepAlive详解
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="jianshu-KeepAlive详解" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_16_2">
+          <span class="md-nav__icon md-icon"></span>
+          jianshu-KeepAlive详解
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/TCP-Keepalive/jianshu-KeepAlive%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_17" type="checkbox" id="__nav_12_6_17" >
+      
+      <label class="md-nav__link" for="__nav_12_6_17">
+        TIME_WAIT=2MSL
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="TIME_WAIT=2MSL" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_17">
+          <span class="md-nav__icon md-icon"></span>
+          TIME_WAIT=2MSL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/TIME_WAIT%3D2MSL/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_17_2" type="checkbox" id="__nav_12_6_17_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_17_2">
+        解决TIME_WAIT过多问题
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="解决TIME_WAIT过多问题" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_17_2">
+          <span class="md-nav__icon md-icon"></span>
+          解决TIME_WAIT过多问题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/TIME_WAIT%3D2MSL/%E8%A7%A3%E5%86%B3TIME_WAIT%E8%BF%87%E5%A4%9A%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_17_2_2" type="checkbox" id="__nav_12_6_17_2_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_17_2_2">
+        serverframework-TIME_WAIT
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="serverframework-TIME_WAIT" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_17_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          serverframework-TIME_WAIT
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/TIME_WAIT%3D2MSL/%E8%A7%A3%E5%86%B3TIME_WAIT%E8%BF%87%E5%A4%9A%E9%97%AE%E9%A2%98/serverframework-TIME_WAIT/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_17_2_3" type="checkbox" id="__nav_12_6_17_2_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_17_2_3">
+        cnblogs-解决TIME_WAIT过多造成的问题
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="cnblogs-解决TIME_WAIT过多造成的问题" data-md-level="5">
+        <label class="md-nav__title" for="__nav_12_6_17_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          cnblogs-解决TIME_WAIT过多造成的问题
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/TIME_WAIT%3D2MSL/%E8%A7%A3%E5%86%B3TIME_WAIT%E8%BF%87%E5%A4%9A%E9%97%AE%E9%A2%98/cnblogs-%E8%A7%A3%E5%86%B3TIME_WAIT%E8%BF%87%E5%A4%9A%E9%80%A0%E6%88%90%E7%9A%84%E9%97%AE%E9%A2%98/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_17_3" type="checkbox" id="__nav_12_6_17_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_17_3">
+        MSL-Maximum-segment-lifetime
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="MSL-Maximum-segment-lifetime" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_17_3">
+          <span class="md-nav__icon md-icon"></span>
+          MSL-Maximum-segment-lifetime
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/TIME_WAIT%3D2MSL/MSL-Maximum-segment-lifetime/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_18" type="checkbox" id="__nav_12_6_18" >
+      
+      <label class="md-nav__link" for="__nav_12_6_18">
+        Thundering-Herd-problem
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Thundering-Herd-problem" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_6_18">
+          <span class="md-nav__icon md-icon"></span>
+          Thundering-Herd-problem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Thundering-Herd-problem/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_18_2" type="checkbox" id="__nav_12_6_18_2" >
+      
+      <label class="md-nav__link" for="__nav_12_6_18_2">
+        uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_18_2">
+          <span class="md-nav__icon md-icon"></span>
+          uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Thundering-Herd-problem/uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_6_18_3" type="checkbox" id="__nav_12_6_18_3" >
+      
+      <label class="md-nav__link" for="__nav_12_6_18_3">
+        SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_6_18_3">
+          <span class="md-nav__icon md-icon"></span>
+          SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Programming/Thundering-Herd-problem/SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -21462,13 +21669,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7" type="checkbox" id="__nav_12_7" >
       
       <label class="md-nav__link" for="__nav_12_7">
-        Tools
+        Performance-optimization
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+      <nav class="md-nav" aria-label="Performance-optimization" data-md-level="2">
         <label class="md-nav__title" for="__nav_12_7">
           <span class="md-nav__icon md-icon"></span>
-          Tools
+          Performance-optimization
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -21477,7 +21684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Tools/" class="md-nav__link">
+      <a href="../Performance-optimization/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -21495,13 +21702,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_2" type="checkbox" id="__nav_12_7_2" >
       
       <label class="md-nav__link" for="__nav_12_7_2">
-        Packet-analyzer
+        Delayed-ACK
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Packet-analyzer" data-md-level="3">
+      <nav class="md-nav" aria-label="Delayed-ACK" data-md-level="3">
         <label class="md-nav__title" for="__nav_12_7_2">
           <span class="md-nav__icon md-icon"></span>
-          Packet-analyzer
+          Delayed-ACK
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -21510,411 +21717,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Tools/Packet-analyzer/" class="md-nav__link">
+      <a href="../Performance-optimization/Delayed-ACK/" class="md-nav__link">
         Introduction
       </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_2_2" type="checkbox" id="__nav_12_7_2_2" >
-      
-      <label class="md-nav__link" for="__nav_12_7_2_2">
-        tcpdump
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="tcpdump" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_7_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          tcpdump
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/Packet-analyzer/tcpdump/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_2_3" type="checkbox" id="__nav_12_7_2_3" >
-      
-      <label class="md-nav__link" for="__nav_12_7_2_3">
-        Wireshark
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Wireshark" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_7_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          Wireshark
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/Packet-analyzer/Wireshark/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/Packet-analyzer/TODO-ngrep/" class="md-nav__link">
-        TODO-ngrep
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_3" type="checkbox" id="__nav_12_7_3" >
-      
-      <label class="md-nav__link" for="__nav_12_7_3">
-        netstat(obsolete)
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="netstat(obsolete)" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_7_3">
-          <span class="md-nav__icon md-icon"></span>
-          netstat(obsolete)
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/netstat%28obsolete%29/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_4" type="checkbox" id="__nav_12_7_4" >
-      
-      <label class="md-nav__link" for="__nav_12_7_4">
-        iproute2
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="iproute2" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_7_4">
-          <span class="md-nav__icon md-icon"></span>
-          iproute2
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/iproute2/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_5" type="checkbox" id="__nav_12_7_5" >
-      
-      <label class="md-nav__link" for="__nav_12_7_5">
-        software-Nmap
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="software-Nmap" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_7_5">
-          <span class="md-nav__icon md-icon"></span>
-          software-Nmap
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/software-Nmap/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_6" type="checkbox" id="__nav_12_7_6" >
-      
-      <label class="md-nav__link" for="__nav_12_7_6">
-        software-netfilter
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="software-netfilter" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_7_6">
-          <span class="md-nav__icon md-icon"></span>
-          software-netfilter
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/software-netfilter/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_7" type="checkbox" id="__nav_12_7_7" >
-      
-      <label class="md-nav__link" for="__nav_12_7_7">
-        Troubleshoot
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Troubleshoot" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_7_7">
-          <span class="md-nav__icon md-icon"></span>
-          Troubleshoot
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/Troubleshoot/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_7_2" type="checkbox" id="__nav_12_7_7_2" >
-      
-      <label class="md-nav__link" for="__nav_12_7_7_2">
-        Troubleshoot-local-network
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Troubleshoot-local-network" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_7_7_2">
-          <span class="md-nav__icon md-icon"></span>
-          Troubleshoot-local-network
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/Troubleshoot/Troubleshoot-local-network/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_7_3" type="checkbox" id="__nav_12_7_7_3" >
-      
-      <label class="md-nav__link" for="__nav_12_7_7_3">
-        Troubleshoot-remote-network
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Troubleshoot-remote-network" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_7_7_3">
-          <span class="md-nav__icon md-icon"></span>
-          Troubleshoot-remote-network
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/Troubleshoot/Troubleshoot-remote-network/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_7_7_4" type="checkbox" id="__nav_12_7_7_4" >
-      
-      <label class="md-nav__link" for="__nav_12_7_7_4">
-        Troubleshoot-packet-loss
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Troubleshoot-packet-loss" data-md-level="4">
-        <label class="md-nav__title" for="__nav_12_7_7_4">
-          <span class="md-nav__icon md-icon"></span>
-          Troubleshoot-packet-loss
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Network/Tools/Troubleshoot/Troubleshoot-packet-loss/" class="md-nav__link">
-        Introduction
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -21942,34 +21747,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_8" type="checkbox" id="__nav_12_8" >
       
       <label class="md-nav__link" for="__nav_12_8">
-        Glossary
+        Expert-packetlife
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Glossary" data-md-level="2">
+      <nav class="md-nav" aria-label="Expert-packetlife" data-md-level="2">
         <label class="md-nav__title" for="__nav_12_8">
           <span class="md-nav__icon md-icon"></span>
-          Glossary
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_8_1" type="checkbox" id="__nav_12_8_1" >
-      
-      <label class="md-nav__link" for="__nav_12_8_1">
-        Wire-protocol
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Wire-protocol" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_8_1">
-          <span class="md-nav__icon md-icon"></span>
-          Wire-protocol
+          Expert-packetlife
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -21978,15 +21762,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Glossary/Wire-protocol/" class="md-nav__link">
+      <a href="../Expert-packetlife/" class="md-nav__link">
         Introduction
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -22002,11 +21780,596 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_8_2" type="checkbox" id="__nav_12_8_2" >
       
       <label class="md-nav__link" for="__nav_12_8_2">
+        packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_8_2">
+          <span class="md-nav__icon md-icon"></span>
+          packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Expert-packetlife/packetlife-Understanding-TCP-Sequence-and-Acknowledgment-Numbers/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9" type="checkbox" id="__nav_12_9" >
+      
+      <label class="md-nav__link" for="__nav_12_9">
+        Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tools" data-md-level="2">
+        <label class="md-nav__title" for="__nav_12_9">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_2" type="checkbox" id="__nav_12_9_2" >
+      
+      <label class="md-nav__link" for="__nav_12_9_2">
+        Packet-analyzer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Packet-analyzer" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_9_2">
+          <span class="md-nav__icon md-icon"></span>
+          Packet-analyzer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/Packet-analyzer/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_2_2" type="checkbox" id="__nav_12_9_2_2" >
+      
+      <label class="md-nav__link" for="__nav_12_9_2_2">
+        tcpdump
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="tcpdump" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_9_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          tcpdump
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/Packet-analyzer/tcpdump/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_2_3" type="checkbox" id="__nav_12_9_2_3" >
+      
+      <label class="md-nav__link" for="__nav_12_9_2_3">
+        Wireshark
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Wireshark" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_9_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Wireshark
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/Packet-analyzer/Wireshark/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/Packet-analyzer/TODO-ngrep/" class="md-nav__link">
+        TODO-ngrep
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_3" type="checkbox" id="__nav_12_9_3" >
+      
+      <label class="md-nav__link" for="__nav_12_9_3">
+        netstat(obsolete)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="netstat(obsolete)" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_9_3">
+          <span class="md-nav__icon md-icon"></span>
+          netstat(obsolete)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/netstat%28obsolete%29/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_4" type="checkbox" id="__nav_12_9_4" >
+      
+      <label class="md-nav__link" for="__nav_12_9_4">
+        iproute2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="iproute2" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_9_4">
+          <span class="md-nav__icon md-icon"></span>
+          iproute2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/iproute2/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_5" type="checkbox" id="__nav_12_9_5" >
+      
+      <label class="md-nav__link" for="__nav_12_9_5">
+        software-Nmap
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="software-Nmap" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_9_5">
+          <span class="md-nav__icon md-icon"></span>
+          software-Nmap
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/software-Nmap/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_6" type="checkbox" id="__nav_12_9_6" >
+      
+      <label class="md-nav__link" for="__nav_12_9_6">
+        software-netfilter
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="software-netfilter" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_9_6">
+          <span class="md-nav__icon md-icon"></span>
+          software-netfilter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/software-netfilter/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_7" type="checkbox" id="__nav_12_9_7" >
+      
+      <label class="md-nav__link" for="__nav_12_9_7">
+        Troubleshoot
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Troubleshoot" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_9_7">
+          <span class="md-nav__icon md-icon"></span>
+          Troubleshoot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/Troubleshoot/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_7_2" type="checkbox" id="__nav_12_9_7_2" >
+      
+      <label class="md-nav__link" for="__nav_12_9_7_2">
+        Troubleshoot-local-network
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Troubleshoot-local-network" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_9_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          Troubleshoot-local-network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/Troubleshoot/Troubleshoot-local-network/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_7_3" type="checkbox" id="__nav_12_9_7_3" >
+      
+      <label class="md-nav__link" for="__nav_12_9_7_3">
+        Troubleshoot-remote-network
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Troubleshoot-remote-network" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_9_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          Troubleshoot-remote-network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/Troubleshoot/Troubleshoot-remote-network/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_9_7_4" type="checkbox" id="__nav_12_9_7_4" >
+      
+      <label class="md-nav__link" for="__nav_12_9_7_4">
+        Troubleshoot-packet-loss
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Troubleshoot-packet-loss" data-md-level="4">
+        <label class="md-nav__title" for="__nav_12_9_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          Troubleshoot-packet-loss
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tools/Troubleshoot/Troubleshoot-packet-loss/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_10" type="checkbox" id="__nav_12_10" >
+      
+      <label class="md-nav__link" for="__nav_12_10">
+        Glossary
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Glossary" data-md-level="2">
+        <label class="md-nav__title" for="__nav_12_10">
+          <span class="md-nav__icon md-icon"></span>
+          Glossary
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_10_1" type="checkbox" id="__nav_12_10_1" >
+      
+      <label class="md-nav__link" for="__nav_12_10_1">
+        Wire-protocol
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Wire-protocol" data-md-level="3">
+        <label class="md-nav__title" for="__nav_12_10_1">
+          <span class="md-nav__icon md-icon"></span>
+          Wire-protocol
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Glossary/Wire-protocol/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_10_2" type="checkbox" id="__nav_12_10_2" >
+      
+      <label class="md-nav__link" for="__nav_12_10_2">
         Host(network)
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Host(network)" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_8_2">
+        <label class="md-nav__title" for="__nav_12_10_2">
           <span class="md-nav__icon md-icon"></span>
           Host(network)
         </label>
@@ -22017,7 +22380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Glossary/Host%28network%29/" class="md-nav__link">
+      <a href="../Glossary/Host%28network%29/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -22038,14 +22401,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_8_3" type="checkbox" id="__nav_12_8_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_10_3" type="checkbox" id="__nav_12_10_3" >
       
-      <label class="md-nav__link" for="__nav_12_8_3">
+      <label class="md-nav__link" for="__nav_12_10_3">
         Hostname
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Hostname" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_8_3">
+        <label class="md-nav__title" for="__nav_12_10_3">
           <span class="md-nav__icon md-icon"></span>
           Hostname
         </label>
@@ -22056,7 +22419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Glossary/Hostname/" class="md-nav__link">
+      <a href="../Glossary/Hostname/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -22077,14 +22440,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_8_4" type="checkbox" id="__nav_12_8_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12_10_4" type="checkbox" id="__nav_12_10_4" >
       
-      <label class="md-nav__link" for="__nav_12_8_4">
+      <label class="md-nav__link" for="__nav_12_10_4">
         MAC-address
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="MAC-address" data-md-level="3">
-        <label class="md-nav__title" for="__nav_12_8_4">
+        <label class="md-nav__title" for="__nav_12_10_4">
           <span class="md-nav__icon md-icon"></span>
           MAC-address
         </label>
@@ -22095,7 +22458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Network/Glossary/MAC-address/" class="md-nav__link">
+      <a href="../Glossary/MAC-address/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -26063,71 +26426,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#blockingsystem#call" class="md-nav__link">
-    从blocking的角度来对system call进行分类
+  <a href="#guide" class="md-nav__link">
+    Guide
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#max#blocking#timesystem#call" class="md-nav__link">
-    带有max blocking time的system call非常重要，有必要进行总结：
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    和阻塞相关问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#io" class="md-nav__link">
-    非阻塞与异步IO
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#socketio#with#timeout" class="md-nav__link">
-    socket是如何实现的IO with timeout？
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#polling#and#non-polling" class="md-nav__link">
-    Polling and non-polling
-  </a>
-  
-    <nav class="md-nav" aria-label="Polling and non-polling">
+    <nav class="md-nav" aria-label="Guide">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#polling#and#busy-waiting" class="md-nav__link">
-    Polling and Busy-waiting
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#non-polling" class="md-nav__link">
-    Non-polling
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#to#read" class="md-nav__link">
-    TO READ
+  <a href="#rdma_1" class="md-nav__link">
+    RDMA的优势 / 普通网卡的劣势
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#csdn#rdma" class="md-nav__link">
+    csdn RDMA简介
+  </a>
   
 </li>
       
@@ -26144,42 +26465,28 @@
               
                 
                 
-                <h1 id="classification#of#system#call">Classification of system call</h1>
-<p>1、总结system call的分类法。</p>
-<p>2、本文内容还没有整理好</p>
-<h2 id="blockingsystem#call">从blocking的角度来对system call进行分类</h2>
-<p>在APUE的10.5 Interrupted System Calls中介绍了slow system call，这提示有必要对linux的system call进行一下总结；</p>
-<h2 id="max#blocking#timesystem#call">带有max blocking time的system call非常重要，有必要进行总结：</h2>
-<ul>
-<li><code>pthread_mutex_timedlock</code></li>
-<li><code>pthread_rwlock_timedrdlock</code></li>
-<li><code>pthread_cond_timedwait</code></li>
-<li><code>select</code></li>
-<li><code>poll</code></li>
-<li><a href="http://man7.org/linux/man-pages/man2/epoll_wait.2.html"><code>epoll_wait</code></a></li>
-</ul>
-<h2 id="_1">和阻塞相关问题</h2>
-<ul>
-<li>如何取消阻塞的系统调用（可以使用信号）</li>
-<li><code>sleep</code>是否是阻塞，如果不是，它和阻塞有什么异同？</li>
-</ul>
-<h2 id="io">非阻塞与异步IO</h2>
-<p>非阻塞IO参见APUE 14.2</p>
-<p>通过设置标志来实现非阻塞</p>
-<p>异步IO参见14.5</p>
-<h2 id="socketio#with#timeout">socket是如何实现的IO with timeout？</h2>
-<h2 id="polling#and#non-polling">Polling and non-polling</h2>
-<h3 id="polling#and#busy-waiting">Polling and Busy-waiting</h3>
-<p>参见: </p>
-<p>1、维基百科<a href="https://en.wikipedia.org/wiki/Polling_(computer_science)">Polling (computer science)</a></p>
-<p>2、维基百科<a href="https://en.wikipedia.org/wiki/Busy_waiting">Busy waiting</a></p>
-<p>Examples</p>
-<p>1、维基百科<a href="https://en.wikipedia.org/wiki/Spinlock">Spinlock</a></p>
-<p>2、polling sleep</p>
-<h3 id="non-polling">Non-polling</h3>
-<p>blocking、waiting、sleep</p>
-<h3 id="to#read">TO READ</h3>
-<p><a href="https://stackoverflow.com/questions/26541119/whats-different-between-the-blocked-and-busy-waiting">what's different between the Blocked and Busy Waiting?</a></p>
+                <h1 id="rdma">RDMA</h1>
+<p>参考文章:</p>
+<p>1、zhihu <a href="https://zhuanlan.zhihu.com/p/55142557">RDMA技术详解（一）：RDMA概述</a></p>
+<p>比较系统</p>
+<p>2、geeksforgeeks <a href="https://www.geeksforgeeks.org/remote-direct-memory-access-rdma/">Remote Direct Memory Access (RDMA)</a></p>
+<p>比较简练</p>
+<p>3、baike <a href="https://baike.baidu.com/item/RDMA/1453093?fr=aladdin">RDMA</a></p>
+<p>讲解得不错</p>
+<p>4、csdn <a href="https://blog.csdn.net/zxpoiu/article/details/111166088">RDMA简介</a></p>
+<p>讲到了很多内容</p>
+<p>5、cornell <a href="https://research.cs.cornell.edu/projects/Quicksilver/public_pdfs/RDMC.pdf">RDMC: A Reliable RDMA Multicast for Large Objects</a></p>
+<h2 id="guide">Guide</h2>
+<h3 id="rdma_1">RDMA的优势 / 普通网卡的劣势</h3>
+<p>在下面的文章中，都进行了很好的讨论:</p>
+<p>1、baike <a href="https://baike.baidu.com/item/RDMA/1453093?fr=aladdin">RDMA</a></p>
+<p>2、zhihu <a href="https://zhuanlan.zhihu.com/p/55142557">RDMA技术详解（一）：RDMA概述</a></p>
+<h2 id="csdn#rdma">csdn <a href="https://blog.csdn.net/zxpoiu/article/details/111166088">RDMA简介</a></h2>
+<blockquote>
+<p>NOTE: </p>
+<p>下面的这张图非常好</p>
+</blockquote>
+<p><img alt="rdma_vs_tcp" src="https://img-blog.csdnimg.cn/20201214135107315.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p4cG9pdQ==,size_16,color_FFFFFF,t_70#pic_center" /></p>
                 
               
               
@@ -26197,7 +26504,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../Why-system-call-slow/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../Network-topology/mesh/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -26212,7 +26519,7 @@
         </a>
       
       
-        <a href="../Interrupted-system-call/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="zhihu-RDMA%E6%8A%80%E6%9C%AF%E8%AF%A6%E8%A7%A3/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
