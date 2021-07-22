@@ -97,4 +97,7 @@ If the server needs to close the connection, design the application protocol so 
 >
 > 这种方式是不推荐的
 
+
+
 ## serverfault [How to forcibly close a socket in TIME_WAIT?](https://serverfault.com/questions/329845/how-to-forcibly-close-a-socket-in-time-wait)
+

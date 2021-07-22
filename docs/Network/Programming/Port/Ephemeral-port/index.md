@@ -30,8 +30,6 @@ The allocations are temporary and only valid for the duration of the communicati
 
 
 
-
-
 ## csdn [linux临时端口（port）以及最大值](https://blog.csdn.net/bdss58/article/details/78546551)
 
 在一个Linux上跑一个服务，需要指定一个监听端口（系统调用listen），当client请求服务时，系统为该请求建立 tcp连接，该连接的port值是一个随机数字。该数字的取值范围配置在`/proc/sys/net/ipv4/ip_local_port_range` 文件中，我的机器上的内容如下：
@@ -45,3 +43,4 @@ The allocations are temporary and only valid for the duration of the communicati
 65535这个数字与操作系统无关，不管Linux系统是32位的还是64位的。
 
 **这个数字是由网络tcp协议决定的**，tcp协议头部中的16位表示端口号，这就决定了其最大值65535，操作系统只能跟着这个限制。
+
