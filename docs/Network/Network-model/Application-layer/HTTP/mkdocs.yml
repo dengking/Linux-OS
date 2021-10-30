@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
+    - cookie-session: cookie-session
     - HTTP-persistent-connection: HTTP-persistent-connection
