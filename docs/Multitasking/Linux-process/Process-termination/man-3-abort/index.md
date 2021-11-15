@@ -58,3 +58,10 @@ Missing separate debuginfos, use: debuginfo-install glibc-2.17-157.el7_3.1.x86_6
 
 ## stackoverflow [Difference between raise(SIGABRT) and abort() methods](https://stackoverflow.com/questions/20212927/difference-between-raisesigabrt-and-abort-methods)
 
+
+
+## stackoverflow [When does a process get SIGABRT (signal 6)?](https://stackoverflow.com/questions/3413166/when-does-a-process-get-sigabrt-signal-6)
+
+
+
+> NOTE: call不到`nim_api::sdkInit`，所以，跳转到了libdyld.dylib`_dyld_missing_symbol_abort:

@@ -1,3 +1,6 @@
+# Stack trace
+
+在出现错误而导致program退出执行之前，如果打印出stack trace，那么对于排查问题将有很大的裨益。
 
 ## wikipedia [Stack trace](https://en.wikipedia.org/wiki/Stack_trace)
 
@@ -9,3 +12,28 @@ A stack trace allows tracking the sequence of [nested functions](https://en.wiki
 
 As an example, the following [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) program contains an error.
 
+
+
+## Examples
+
+### python
+
+python是典型的一旦抛出exception，则默认行为是终止执行，并且打印出stack trace。
+
+
+
+### Redis
+
+
+
+## Implementation
+
+https://tombarta.wordpress.com/2008/08/01/c-stack-traces-with-gcc/
+
+
+
+### stackoverflow[How to automatically generate a stacktrace when my program crashes](https://stackoverflow.com/questions/77005/how-to-automatically-generate-a-stacktrace-when-my-program-crashes)
+
+
+
+### stackoverflow [C++ display stack trace on exception](https://stackoverflow.com/questions/691719/c-display-stack-trace-on-exception)
