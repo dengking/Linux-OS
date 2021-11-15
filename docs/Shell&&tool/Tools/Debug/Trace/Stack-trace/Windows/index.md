@@ -14,7 +14,5 @@
 
 ### pandion MiniDumper
 
-https://blog.csdn.net/freedom8531/article/details/53195919
-
-https://blog.csdn.net/xiarendeniao/article/details/7306282
+CSDN [windows下生成core dump文件](https://blog.csdn.net/xiarendeniao/article/details/7306282)
 
