@@ -109,3 +109,20 @@ The `uaddr` argument points to the **futex word**.
 >
 > 简单的IPC
 
+## locklessinc [Futex Cheat Sheet](http://locklessinc.com/articles/futex_cheat_sheet/)
+
+### `FUTEX_WAIT_BITSET` and `FUTEX_WAKE_BITSET`
+
+The normal `FUTEX_WAIT` and `FUTEX_WAKE` operations act like this mask has all bits set. The `FUTEX_WAKE_BITSET` operation will only wake threads that have a bit set after the expression `mask_wait & mask_wake` is evaluated. Thus the `FUTEX_WAIT_BITSET` operation allows waiters that can ignore some wakeup requests, and `FUTEX_WAKE_BITSET` operation allows one to choose which subset of waiters to wake.
+
+> NOTE: 
+>
+> 可以仅仅wake-up指定的一些waiter
+
+The bitset functions effectively allow up to 32 different **wait queues** to share a single Futex location in `addr1`. However, using the functionality like this is inefficient. It is much better to simply have a larger lock object, and several Futex locations within it. That way only the waiters that you are interested in need to be scanned for wakeups.
+
+> NOTE: 
+>
+> 每个bit对应一个wait queue
+
+Another difference between `FUTEX_WAIT_BITSET` and `FUTEX_WAIT` is that the latter uses a **relative timeout**, and the former an **absolute timeout**. This makes `FUTEX_WAIT_BITSET` much more useful than it would otherwise be. 
