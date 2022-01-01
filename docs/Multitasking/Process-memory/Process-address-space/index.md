@@ -112,9 +112,11 @@ Allocating memory via [C](https://en.wikipedia.org/wiki/C_(programming_language)
 
 For [x86](https://en.wikipedia.org/wiki/X86) CPUs, [Linux](https://en.wikipedia.org/wiki/Linux) 32-bit allows splitting the user and kernel address ranges in different ways: *3G/1G user/kernel* (default), *1G/3G user/kernel* or *2G/2G user/kernel*. 
 
+## 组成部分
 
+下面是素材: 
 
-## wikipedia [Data segment # Program memory](https://en.wikipedia.org/wiki/Data_segment#Program_memory)
+一、wikipedia [Data segment # Program memory](https://en.wikipedia.org/wiki/Data_segment#Program_memory)
 
 A computer program memory can be largely categorized into two sections: read-only and read/write. This distinction grew from early systems holding their main program in [read-only memory](https://en.wikipedia.org/wiki/Read-only_memory) such as [Mask ROM](https://en.wikipedia.org/wiki/Mask_ROM), [PROM](https://en.wikipedia.org/wiki/Programmable_read-only_memory) or [EEPROM](https://en.wikipedia.org/wiki/EEPROM). As systems became more complex and programs were loaded from other media into RAM instead of executing from ROM, the idea that some portions of the program's memory should not be modified was retained. These became the *.text* and *.rodata* segments of the program, and the remainder which could be written to divided into a number of other segments for specific tasks.
 
@@ -122,31 +124,29 @@ A computer program memory can be largely categorized into two sections: read-onl
 
 This shows the typical layout of a simple computer's program memory with the text, various data, and stack and heap sections.
 
-### Text
+1、Text
+
+2、Data
+
+3、BSS
+
+4、Heap
+
+5、Stack
 
 
 
-### Data
+二、stackoverflow [What is program break? Where does it start from,0x00?](https://stackoverflow.com/questions/6338162/what-is-program-break-where-does-it-start-from-0x00) # [A](https://stackoverflow.com/a/6351139)
+
+nowadays it's much more complex. There is a **rodata segment**, a uninitialized data segment, mappings allocated via mmap, a vdso.
+
+> NOTE: 
+>
+> 随着OS的不断发展，会不断地出现新的segment。
 
 
 
-### BSS
-
-
-
-### Heap
-
-
-
-### Stack
-
-
-
-
-
-
-
-## Memory layout of process with thread
+## 思考: Memory layout of process with thread
 
 前面介绍了每个thread都有自己的call stack，那它们的call  stack的layout是如何的呢？本节对此进行讨论。
 

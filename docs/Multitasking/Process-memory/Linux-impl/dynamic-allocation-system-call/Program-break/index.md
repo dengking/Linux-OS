@@ -26,7 +26,13 @@ A process has several segments of memory:
 - Data segment, which contains data the compiler knows about (globals and statics).
 - Stack segment, which contains (drumroll...) the stack.
 
-(Of course, nowadays it's much more complex. There is a rodata segment, a uninitialized data segment, mappings allocated via mmap, a vdso, ...)
+(Of course, nowadays it's much more complex. There is a **rodata segment**, a uninitialized data segment, mappings allocated via mmap, a vdso, ...)
+
+> NOTE: 
+>
+> 一、"mappings allocated via mmap"
+>
+> 这总结地还是不错的: `mmap` 让programmer能够custom memory mapping。
 
 One traditional way a program can request more memory in a Unix-like OS is to increment the size of the data segment, and use a memory allocator (i.e. `malloc()` implementation) to manage the resulting space. This is done via the `brk()` system call, which changes the point where the data segment "breaks"/ends.
 
