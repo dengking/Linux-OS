@@ -1,5 +1,6 @@
 nav:
     - man-2-brk: man-2-brk
     - man-2-sbrk: man-2-sbrk
+    - man-2-mmap: man-2-mmap
     - Program-break: Program-break
     

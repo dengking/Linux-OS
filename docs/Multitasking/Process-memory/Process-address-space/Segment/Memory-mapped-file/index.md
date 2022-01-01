@@ -22,13 +22,43 @@ A **memory-mapped file** is a segment of [virtual memory](https://en.wikipedia.o
 >
 > 这充分体现了: "Unix philosophy everything is a file descriptor"
 
+### Benefits
+
+The benefit of memory mapping a file is increasing I/O performance, especially when used on large files. For small files, memory-mapped files can result in a waste of [slack space](https://en.wikipedia.org/wiki/Slack_space) as memory maps are always aligned to the page size, which is mostly 4 KiB. Therefore, a 5 KiB file will allocate 8 KiB and thus 3 KiB are wasted. Accessing memory mapped files is faster than using direct read and write operations for two reasons. Firstly, a system call is orders of magnitude slower than a simple change to a program's local memory. Secondly, in most operating systems the memory region mapped actually *is* the kernel's [page cache](https://en.wikipedia.org/wiki/Page_cache) (file cache), meaning that no copies need to be created in user space.
+
+> NOTE: 
+>
+> 一、上述[slack space](https://en.wikipedia.org/wiki/Slack_space) 链接到的是 [Internal fragmentation](https://en.wikipedia.org/wiki/Fragmentation_(computing)#Internal_fragmentation)
+>
+> 二、上述对memory-mapped file的优势的介绍是非常好的
+
+### Types
+
+#### Persisted
+
+> NOTE: 
+>
+> 这种file是一个 "file on disk"
+
+#### Non-persisted
+
+> NOTE: 
+>
+> 这种file不是一个 "file on disk"，对于这种情况，我们要使用"Unix philosophy everything is a file descriptor"来进行理解
+
+These files are suitable for creating shared memory for inter-process communications (IPC).
+
 ### Common uses
 
 > NOTE: 
 >
 > 本节总结的两种application都是非常典型的
 
+#### Process loader
+
 Perhaps the most common use for a memory-mapped file is the [process loader](https://en.wikipedia.org/wiki/Loader_(computing)) in most modern operating systems (including [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) and [Unix-like](https://en.wikipedia.org/wiki/Unix-like) systems.) When a [process](https://en.wikipedia.org/wiki/Process_(computing)) is started, the operating system uses a memory mapped file to bring the executable file, along with any loadable modules, into memory for execution. Most memory-mapping systems use a technique called [demand paging](https://en.wikipedia.org/wiki/Demand_paging), where the file is loaded into physical memory in subsets (one page each), and only when that page is actually referenced.[[11\]](https://en.wikipedia.org/wiki/Memory-mapped_file#cite_note-11) In the specific case of executable files, this permits the OS to selectively load only those portions of a process image that actually need to execute.
+
+#### Shared memory IPC
 
 Another common use for memory-mapped files is to share memory between multiple processes. In modern [protected mode](https://en.wikipedia.org/wiki/Protected_mode) operating systems, processes are generally not permitted to access memory space that is allocated for use by another process. (A program's attempt to do so causes [invalid page faults](https://en.wikipedia.org/wiki/Page_fault#Invalid) or [segmentation violations](https://en.wikipedia.org/wiki/Segmentation_violation).) There are a number of techniques available to safely **share memory**, and **memory-mapped file I/O** is one of the most popular. Two or more applications can simultaneously map a single physical file into memory and access this memory. For example, the Microsoft Windows operating system provides a mechanism for applications to memory-map a shared segment of the system's page file itself and share data via this section.
 
