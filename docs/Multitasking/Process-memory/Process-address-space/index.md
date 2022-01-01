@@ -47,6 +47,10 @@ In [computing](https://en.wikipedia.org/wiki/Computing), a **virtual address spa
 
 ![Virtual address space and physical address space relationship.svg](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Virtual_address_space_and_physical_address_space_relationship.svg/300px-Virtual_address_space_and_physical_address_space_relationship.svg.png)
 
+> NOTE: 
+>
+> 上图展示了典型的map virtual address to physical address
+
 ### Example
 
 

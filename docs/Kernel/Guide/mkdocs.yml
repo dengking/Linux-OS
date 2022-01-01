@@ -1,5 +1,5 @@
 nav:
     - Kernel-architecture: Kernel-architecture
-    - Control-path-and-context-switch: Control-path-and-context-switch
+    - Control-path&context-switch: Control-path&context-switch
     - Kernel-thread: Kernel-thread
     - System-resource: System-resource  

@@ -107,9 +107,11 @@ Nearly all current implementations of virtual memory divide a [virtual address s
 
 Systems can have one
 
-- **page table** for the whole system
-- separate page tables for each application and **segment**
-- a tree of page tables for large segments or some combination of these. 
+1、**page table** for the whole system
+
+2、separate page tables for each application and **segment**
+
+3、a tree of page tables for large segments or some combination of these. 
 
 If there is only one page table, different applications [running at the same time](https://en.wikipedia.org/wiki/Multiprogramming) use different parts of a single range of virtual addresses. If there are multiple page or segment tables, there are multiple virtual address spaces and concurrent applications with separate page tables redirect to different real addresses.
 
