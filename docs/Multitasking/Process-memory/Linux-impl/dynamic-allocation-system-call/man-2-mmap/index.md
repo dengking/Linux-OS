@@ -159,3 +159,13 @@ int main(int argc, char *argv[])
 
 ## gnu libc [13.8 Memory-mapped I/O](https://www.gnu.org/software/libc/manual/html_node/Memory_002dmapped-I_002fO.html)
 
+
+
+## see also
+
+本节讨论如何使用memory mapped file，素材如下:
+
+1、bertvandenbroucke [Memory mapping files](https://bertvandenbroucke.netlify.app/2019/12/08/memory-mapping-files/)
+
+2、[**C++ Programming: Memory Mapped Files using RAII**](https://www.codeguru.com/cpp/article.php/c17975/C-Programming-Memory-Mapped-Files-using-RAII.htm)
+

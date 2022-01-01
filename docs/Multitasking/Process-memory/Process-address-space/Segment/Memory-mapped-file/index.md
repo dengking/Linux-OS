@@ -116,11 +116,3 @@ At runtime the file is memory mapped, cast to a `C`-style `struct` array, and we
 3、Performance - The lookup is extremely fast. As users type a popup window displays a list of matching product part numbers, the list shrinks as they continue to type. There is no noticeable lag while typing.
 
 
-
-## How to use
-
-本节讨论如何使用memory mapped file，素材如下:
-
-1、bertvandenbroucke [Memory mapping files](https://bertvandenbroucke.netlify.app/2019/12/08/memory-mapping-files/)
-
-2、[**C++ Programming: Memory Mapped Files using RAII**](https://www.codeguru.com/cpp/article.php/c17975/C-Programming-Memory-Mapped-Files-using-RAII.htm)
