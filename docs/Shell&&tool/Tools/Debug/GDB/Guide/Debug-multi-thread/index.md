@@ -12,13 +12,25 @@
 
 其中有描述"debug multi thread"相关的内容
 
-## stackoverflow [How do I get the backtrace for all the threads in GDB?](https://stackoverflow.com/questions/18391808/how-do-i-get-the-backtrace-for-all-the-threads-in-gdb)
+## 获得所有thread的堆栈
+
+### stackoverflow [How do I get the backtrace for all the threads in GDB?](https://stackoverflow.com/questions/18391808/how-do-i-get-the-backtrace-for-all-the-threads-in-gdb)
 
 ```shell
 thread apply all bt
 ```
 
+## 给所有thread都下断点
 
+stackoverflow [gdb how to break in new thread when debugging multi threaded daemon program on linux](https://stackoverflow.com/questions/55067510/gdb-how-to-break-in-new-thread-when-debugging-multi-threaded-daemon-program-on-l)
+
+```sh
+thread apply all b 'nertc_wrap.cc':4767
+```
+
+
+
+案例: 在multiple thread的情况下，调试一个`Swig::DirectorMethodException`
 
 ### TO READ
 
@@ -27,3 +39,4 @@ thread apply all bt
 2、drdobbs [Multithreaded Debugging Techniques](https://www.drdobbs.com/cpp/multithreaded-debugging-techniques/199200938?pgno=6)
 
 3、fayewilliams [View A Backtrace For All Threads With GDB](https://www.fayewilliams.com/2015/05/05/view-a-backtrace-for-all-threads-with-gdb/)
+
