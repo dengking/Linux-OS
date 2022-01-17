@@ -2,7 +2,7 @@ nav:
     - Introduction: index.md
     - gdb-primer: gdb-primer    
     - Design-of-gdb: Design-of-gdb
-    - Guide-to-examining-data: Guide-to-examining-data.md
+    - GDB-CRUD-data: GDB-CRUD-data
     - Point-in-GDB: Point-in-GDB.md
     - Function: Function
     - Automate: Automate
