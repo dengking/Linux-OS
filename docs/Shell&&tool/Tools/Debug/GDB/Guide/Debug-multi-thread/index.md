@@ -20,6 +20,8 @@
 thread apply all bt
 ```
 
+
+
 ## 给所有thread都下断点
 
 stackoverflow [gdb how to break in new thread when debugging multi threaded daemon program on linux](https://stackoverflow.com/questions/55067510/gdb-how-to-break-in-new-thread-when-debugging-multi-threaded-daemon-program-on-l)
@@ -32,6 +34,8 @@ thread apply all b 'nertc_wrap.cc':4767
 
 案例: 在multiple thread的情况下，调试一个`Swig::DirectorMethodException`
 
+
+
 ### TO READ
 
 1、csdn [线程的查看以及利用gdb调试多线程](https://blog.csdn.net/zhangye3017/article/details/80382496)
@@ -40,3 +44,24 @@ thread apply all b 'nertc_wrap.cc':4767
 
 3、fayewilliams [View A Backtrace For All Threads With GDB](https://www.fayewilliams.com/2015/05/05/view-a-backtrace-for-all-threads-with-gdb/)
 
+
+
+## 如何找到目标线程
+
+1、thread apply all bt的输出重定向到文件中
+
+2、根据**线程执行函数**从多线程中找到你感兴趣的线程，然后切换到这个线程的stack中；
+
+如果使用C++`std::thread`创建，则"thread apply all bt"的输出中一般是能够带出的
+
+## 如何判断目标线程是否还在运行
+
+还是根据线程执行函数来定位，如果"thread apply all bt"中找不到，则说明这个thread已经退出了。
+
+
+
+## 如何判断thread的状态
+
+wait/block: 一般都是`condition_wait`
+
+那running呢？

@@ -10,13 +10,33 @@
 | watchpoint | A **watchpoint** is a special breakpoint that stops your program when the value of an expression changes. | `watch` |      |      |
 | catchpoint | A catchpoint is another special breakpoint that stops your program when a certain kind of event occurs, such as the throwing of a C++ exception or the loading of a library. | `catch` |      |      |
 
-查
-
-`info break`
-
-删
-
-5.1.4 Deleting Breakpoints节
+> NOTE: 
+>
+> 一、CRUD
+>
+> 查
+>
+> `info break`
+>
+> 删
+>
+> 5.1.4 Deleting Breakpoints节
+>
+> 二、biancheng [GDB watch命令：监控变量值的变化](http://m.biancheng.net/view/8191.html)
+>
+> 要知道，GDB 调试器支持在程序中打 3 种断点，分别为
+>
+> 1、普通断点
+>
+> 2、观察断点
+>
+> 3、捕捉断点。
+>
+> 其中 break 命令打的就是普通断点，而 watch 命令打的为观察断点，关于捕捉断点，后续章节会做详细讲解。
+>
+> > NOTE:
+> >
+> > 本质上都是让程序在特定情况下停止下来
 
 ### 5.1.1 Setting Breakpoints
 
@@ -188,6 +208,8 @@ Catchpoint 1 (returned from syscall ’chroot’), \
 ### 5.1.4 Deleting Breakpoints
 
 #### `clear`
+
+
 
 ### 5.1.6 Break Conditions
 

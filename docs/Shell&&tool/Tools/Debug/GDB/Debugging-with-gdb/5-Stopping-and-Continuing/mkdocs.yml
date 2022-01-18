@@ -1,4 +1,6 @@
 nav:
-    - 5-Stopping-and-Continuing: 5-Stopping-and-Continuing.md
-    - 5.5-Stopping-and-Starting-Multi-thread-Programs: 5.5-Stopping-and-Starting-Multi-thread-Programs.md
+    - Introduction: index.md
+    - 5.5-Stopping-and-Starting-Multi-thread-Programs: 5.5-Stopping-and-Starting-Multi-thread-Programs
     - Breakpoint-conditional-expressions: Breakpoint-conditional-expressions.md
+    - gdb-watch: gdb-watch
+    
