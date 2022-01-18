@@ -103,7 +103,7 @@ gdb能够直接load shared library，即使没有可执行程序，这个特性�
 
 
 
-## Google: gdb break when library is loaded
+## TODO: Google: gdb break when library is loaded
 
 在按照hs-middle-ware的方式进行debug shared library的时候，其实是非常缓慢的，因为加载的shared library非常多，导致要不断地进行交互；那是否有一种方法: 当某个library load的时候，则break；
 

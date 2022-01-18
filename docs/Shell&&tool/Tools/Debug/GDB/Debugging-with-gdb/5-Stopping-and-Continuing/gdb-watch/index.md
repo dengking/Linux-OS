@@ -36,3 +36,7 @@
 > 本质上都是让程序在特定情况下停止下来
 
 使用 GDB 调试程序的过程中，借助观察断点可以监控程序中某个变量或者表达式的值，只要发生改变，程序就会停止执行。相比普通断点，观察断点不需要我们预测变量（表达式）值发生改变的具体位置。
+
+
+
+## stackoverflow [Can I set a breakpoint on 'memory access' in GDB?](https://stackoverflow.com/questions/58851/can-i-set-a-breakpoint-on-memory-access-in-gdb)
