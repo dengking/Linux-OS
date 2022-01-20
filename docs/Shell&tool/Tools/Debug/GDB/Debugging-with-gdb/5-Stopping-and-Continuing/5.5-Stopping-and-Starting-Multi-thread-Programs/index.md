@@ -11,9 +11,17 @@ There are two modes of controlling execution of your program within the debugger
 
 
 
-
-
 ## [5.5.1 All-Stop Mode](https://sourceware.org/gdb/current/onlinedocs/gdb/All_002dStop-Mode.html#All_002dStop-Mode)
+
+> NOTE: 
+>
+> 在 [How does gdb multi-thread debugging coordinate with Linux thread scheduling?](https://stackoverflow.com/questions/50055181/how-does-gdb-multi-thread-debugging-coordinate-with-linux-thread-scheduling) # [A](https://stackoverflow.com/a/50055234/10173843) 中对all-stop mode有着比较好的描述
+>
+> > By default, GDB operates in all-stop mode. That means that all threads are *stopped* whenever you see the `(gdb)` prompt. Switching between 2 stopped threads doesn't need any coordination with the kernel, because kernel will not run non-runnable (stopped) threads.
+>
+> 需要注意的是: gdb 的 all-stop mode的本质含义是: 当一个thread被stop的时候，所有的其他的thread都被stop。
+>
+> 默认情况下gdb的breakpoint仅仅适用于当前线程，如果不进行显示的说明，其他thread是不会使用这个breakpoint，包括新线程。关于新线程，在 stackoverflow [gdb how to break in new thread when debugging multi threaded daemon program on linux](https://stackoverflow.com/questions/55067510/gdb-how-to-break-in-new-thread-when-debugging-multi-threaded-daemon-program-on-l) 中对此进行了讨论。
 
 Conversely, whenever you restart the program, all threads start executing. This is true even when single-stepping with commands like step or next.
 

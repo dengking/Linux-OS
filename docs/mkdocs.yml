@@ -7,7 +7,7 @@ nav:
     
     - Course-upenn-CSE-380-Computer-Operating-Systems: Course-upenn-CSE-380-Computer-Operating-Systems
     
-    - Unix-standardization-and-implementation: Unix-standardization-and-implementation ########## 描述linux OS的标准与实现##########
+    - Unix-standardization&implementation: Unix-standardization&implementation ########## 描述linux OS的标准与实现##########
     
     - Linux-Foundation: Linux-Foundation ##########Linux-Foundation定义了linux OS的方方面面##########               
     
@@ -29,9 +29,11 @@ nav:
     
     - 运维管理: 运维管理
     
-    - Shell&&tool: Shell&&tool # 描述在linux OS中进行programming时，需要使用的一些工具
+    - Shell&tool: Shell&tool # 描述在linux OS中进行programming时，需要使用的一些工具
 
     - Book: Book
     
     - Ubuntu: Ubuntu
+    
+    - docker: docker
     

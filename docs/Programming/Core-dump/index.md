@@ -10,7 +10,7 @@
 
 2、csdn [linux下的core文件路径及文件名设置](https://blog.csdn.net/qq_15437667/article/details/83934113)
 
-
+下面是可行的: 
 
 ```shell
 ulimit -c unlimited
@@ -25,19 +25,15 @@ echo "./%e.%s.core" > /proc/sys/kernel/core_pattern
 
 ### TODO
 
-stackoverflow [Core dumped, but core file is not in the current directory?](https://stackoverflow.com/questions/2065912/core-dumped-but-core-file-is-not-in-the-current-directory)
-
 stackoverflow [Changing location of core dump](https://stackoverflow.com/questions/16048101/changing-location-of-core-dump)
 
-https://linux-audit.com/understand-and-configure-core-dumps-work-on-linux/
 
 
+### Ubuntu
 
-https://wiki.archlinux.org/index.php/Core_dump
+askubuntu [Where do I find the core dump in ubuntu 16.04LTS?](https://askubuntu.com/questions/966407/where-do-i-find-the-core-dump-in-ubuntu-16-04lts)
 
-https://www.akadia.com/services/ora_enable_core.html
-
-
+stackoverflow [Core dumped, but core file is not in the current directory?](https://stackoverflow.com/questions/2065912/core-dumped-but-core-file-is-not-in-the-current-directory)
 
 ## wikipedia [Core dump](https://en.wikipedia.org/wiki/Core_dump)
 

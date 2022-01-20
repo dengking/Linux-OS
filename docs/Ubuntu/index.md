@@ -25,3 +25,10 @@ csdn [在Virtualbox环境下win10与虚拟机通过FileZilla传输文件（FTP�
 3、askubuntu [How to access a shared folder in VirtualBox?](https://askubuntu.com/questions/161759/how-to-access-a-shared-folder-in-virtualbox)
 
 4、geeksforgeeks [Create a shared Folder between Host OS and Guest OS ( Virtual Box)](https://www.geeksforgeeks.org/create-shared-folder-host-os-guest-os-virtual-box/)
+
+
+
+## 配置阿里云源
+
+cnblogs [ubuntu配置阿里云源](https://www.cnblogs.com/nixingguo/p/9017805.html)
+

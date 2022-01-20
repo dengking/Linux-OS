@@ -6,7 +6,6 @@ nav:
     - Point-in-GDB: Point-in-GDB.md
     - Function: Function
     - Automate: Automate
-
     - Args: Args
     - Debug-process: Debug-process    
     - Debug-shared-library: Debug-shared-library
@@ -14,3 +13,5 @@ nav:
     - Debug-multi-thread: Debug-multi-thread
     - Debug-assembly: Debug-assembly
     - Debug-Python: Debug-Python
+    - 保存输出到文件: 保存输出到文件
+    
