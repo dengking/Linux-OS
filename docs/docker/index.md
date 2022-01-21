@@ -17,3 +17,16 @@ docker run -it --mount src=`pwd`,target=/app/demo,type=bind ubuntu:18.04 bash
 sudo !!
 ```
 
+在启动的时候，指定磁盘映射。
+
+```
+docker commit 898e279df534 ubuntu:base
+```
+
+
+
+```sh
+docker images
+```
+
+查看本地所有的镜像。
