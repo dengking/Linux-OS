@@ -28,6 +28,17 @@ csdn [在Virtualbox环境下win10与虚拟机通过FileZilla传输文件（FTP�
 
 
 
+需要注意: 一定要按照 cnblogs [Linux（Ubuntu,openEuler）系统安装图文教程](https://www.cnblogs.com/rocedu/p/6012545.html#2-%E5%9F%BA%E4%BA%8Evirtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu) 的步骤来，不要遗漏了最后一步: 往 `/etc/fstab` 中添加自动挂载的内容，否则下次启动的时候，又没有挂载:
+
+```C++
+shared /home/dengkai/shared vboxsf rw,gid=1000,uid=1000,auto 0 0
+NetEase /home/dengkai/NetEase vboxsf rw,gid=1000,uid=1000,auto 0 0
+```
+
+
+
+
+
 ## 配置阿里云源
 
 cnblogs [ubuntu配置阿里云源](https://www.cnblogs.com/nixingguo/p/9017805.html)

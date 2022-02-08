@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
+    - Kernel-based-Virtual-Machine: Kernel-based-Virtual-Machine
     - Memory-virtualization: Memory-virtualization
