@@ -1,3 +1,7 @@
 nav:
     - Introduction: index.md
     - 1.7-Error-Handling: 1.7-Error-Handling
+    - 1.9-Signals: 1.9-Signals
+    - 1.10-Time-Values: 1.10-Time-Values
+    - 1.11-System-Calls-and-Library-Functions: 1.11-System-Calls-and-Library-Functions
+    

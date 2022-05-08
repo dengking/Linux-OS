@@ -10,8 +10,9 @@
 
 现代 [computing system](https://en.wikipedia.org/wiki/Computing) 的整体架构的发展是受到计算机科学领域的[layers of abstraction](https://en.wikipedia.org/wiki/Abstraction_layer)思想（分层思想）的影响的，一个[computing system](https://en.wikipedia.org/wiki/Computing) 可以认为由两层构成：
 
-- **software**
-- **hardware**
+1、**software**
+
+2、**hardware**
 
 [Instruction set](https://en.wikipedia.org/wiki/Instruction_set_architecture)是software和hardware之间的接口。
 
@@ -52,11 +53,11 @@
 
 通过上述的OS的architecture，我们能够更加深刻地了解OS的作用了，下面是摘抄自[Understanding.The.Linux.kernel.3rd.Edition](https://www.oreilly.com/library/view/understanding-the-linux/0596005652/)的Chapter 1.4. Basic Operating System Concepts中关于OS的作用的描述：
 
-The operating system must fulfill two main objectives:
-
-1) Interact with the **hardware** components, servicing all low-level programmable elements included in the hardware platform.
-
-2) Provide an **execution environment** to the applications that run on the computer system (the so-called user programs).
+> The operating system must fulfill two main objectives:
+>
+> 1) Interact with the **hardware** components, servicing all low-level programmable elements included in the hardware platform.
+>
+> 2) Provide an **execution environment** to the applications that run on the computer system (the so-called user programs).
 
 这两个objective（其实就是OS的作用、使命）相当于两条线，后面我们将沿着这两条线深入对linux OS的学习。
 

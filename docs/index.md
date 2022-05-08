@@ -4,13 +4,13 @@
 
 ## 理论部分
 
-这部分的内容大多数: philosophy、design、structure；
+这部分的内容大多数和philosophy、design、structure有关。
 
 主要包含如下几大部分: 
 
 ### 1) Architecture of computing system
 
-首先描述Computing system的architecture，建立起一个高屋建瓴的视角，这是采用的结构化思维。从中我们可以看到一个Computing system的组成，其中涉及到hardware的地方可以参加工程Hardware（TODO: 需要给Hardware添加链接）;
+首先描述Computing system的architecture，建立起一个高屋建瓴的视角，这是采用的结构化思维。从中我们可以看到一个Computing system的组成，其中涉及到hardware的地方可以参加工程Hardware;
 
 ### 2) Operating system
 

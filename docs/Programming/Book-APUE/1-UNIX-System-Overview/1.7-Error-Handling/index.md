@@ -7,8 +7,8 @@ When an error occurs in one of the UNIX System functions, a negative value is of
 But in an environment that supports threads, the process address space is shared among multiple threads, and each thread needs its own local copy of `errno` to prevent one thread from interfering with another. Linux, for example, supports multithreaded access to `errno` by defining it as
 
 ```C++
-extern int *_ _errno_location(void);
-#define errno (*_ _errno_location())
+extern int *_ _errno_location(void); // 这个函数返回error no地址
+#define errno (*_ _errno_location()) // errno其实是一个macro
 ```
 
 > NOTE: tag-per-thread private私有-errno
