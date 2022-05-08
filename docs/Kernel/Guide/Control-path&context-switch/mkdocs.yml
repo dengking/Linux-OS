@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
+    - Kernel-control-path-and-reentrant-kernel: Kernel-control-path-and-reentrant-kernel.md
 
     

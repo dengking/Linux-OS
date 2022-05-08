@@ -28,13 +28,13 @@
 
 如何来实现reentrant kernel呢？这是一个需要系统地进行设计才能够解决的问题，下面总结了和这个问题相关的一些章节：
 
-- 1.6.4. Process Address Space
+一、1.6.4. Process Address Space
 
-  Kernel control path refers to its own private kernel stack.
+Kernel control path refers to its own private kernel stack.
 
-- 1.6.5. Synchronization and Critical Regions
+二、1.6.5. Synchronization and Critical Regions
 
-  描述了kernel control path的Synchronization
+描述了kernel control path的Synchronization
 
 
 
