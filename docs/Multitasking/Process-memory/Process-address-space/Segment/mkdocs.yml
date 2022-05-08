@@ -1,5 +1,4 @@
 nav:
-    - BSS: BSS
     - Data-segment: Data-segment
     - Code-segment: Code-segment
     - Heap: Heap

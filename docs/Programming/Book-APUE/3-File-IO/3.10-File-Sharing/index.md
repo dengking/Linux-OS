@@ -62,8 +62,6 @@ We assume here that the first process has the file open on descriptor 3 and that
 
 
 
-
-
 Given these data structures, we now need to be more specific about what happens with certain operations that we’ve already described.
 
 1、After each `write` is complete, the **current file offset** in the **file table entry** is incremented by the number of bytes written. If this causes the **current file offset** to exceed the **current file size**, the **current file size** in the **i-node table entry** is set to the **current file offset** (for example, the file is extended).
@@ -79,6 +77,14 @@ Given these data structures, we now need to be more specific about what happens 
 It is possible for more than one **file descriptor entry** to point to the same **file table entry**, as we’ll see when we discuss the `dup` function in Section 3.12. This also happens after a `fork` when the parent and the child share the same **file table entry** for each open descriptor (Section 8.3).
 
 ## File descriptor flag and file status flag
+
+> NOTE:
+>
+> 一、其实从命名就能够看出它们之间的差异:
+>
+> "file descriptor flag"显然是和"file descriptor"相关的
+>
+> "file status flag"显然是和"file"相关的
 
 Note the difference in scope between the **file descriptor flags** and the **file status flags**. The former apply only to a single descriptor in a single process, whereas the latter apply to all descriptors in any process that point to the given file table entry. When we describe the `fcntl` function in Section 3.14, we’ll see how to fetch and modify both the **file descriptor flags** and the **file status flags**.
 

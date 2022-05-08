@@ -111,3 +111,4 @@ If `fd` is `3`, however, after the three calls to `dup2`, four descriptors are p
 
 > tag-not leak泄露resource into child process-unintended file descriptor
 
+2、默认情况下0、1、2三个file descriptor都是打开的

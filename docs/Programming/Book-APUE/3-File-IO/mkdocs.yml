@@ -8,3 +8,5 @@ nav:
     - 3.11-Atomic-Operations: 3.11-Atomic-Operations
     - 3.12-dup-and-dup2-Functions: 3.12-dup-and-dup2-Functions
     - 3.13-sync-fsync-and-fdatasync-Functions: 3.13-sync-fsync-and-fdatasync-Functions
+    - 3.14-fcntl-Function: 3.14-fcntl-Function
+    
