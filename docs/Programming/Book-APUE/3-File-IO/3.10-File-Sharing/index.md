@@ -1,6 +1,6 @@
 # 3.10 File Sharing
 
-The UNIX System supports the sharing of open files among different processes. Before describing the dup function, we need to describe this sharing. To do this, we’ll examine the **data structures** used by the kernel for all I/O.
+The UNIX System supports the sharing of open files among different processes. Before describing the `dup` function, we need to describe this sharing. To do this, we’ll examine the **data structures** used by the kernel for all I/O.
 
 > The following description is conceptual; it may or may not match a particular implementation.
 

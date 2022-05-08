@@ -24,10 +24,6 @@ Vice versa, if shown only code but not data structures, it's very hard to unders
 
 
 
-
-
-
-
 ## Kernel data structure
 
 
@@ -45,8 +41,9 @@ kernel管理着OS的一切资源，因此，它一般使用table来进行管理�
 
 底层采用何种data structure来进行实现，需要考虑多重因素：
 
-- 查找的时间复杂度
-- 空间复杂度
+1、查找的时间复杂度
+
+2、空间复杂度
 
 
 
@@ -77,27 +74,17 @@ kernel管理着OS的一切资源，因此，它一般使用table来进行管理�
 | Memory Descriptor  | 9.2. The Memory Descriptor | `mm_struct`   | - https://elixir.bootlin.com/linux/latest/ident/mm_struct <br/>- https://github.com/torvalds/linux/blob/master/include/linux/mm_types.h |
 | Page Descriptor    | 8.1.1. Page Descriptors    | `page`        | - https://elixir.bootlin.com/linux/latest/source/include/linux/mm_types.h#L68 |
 
-
-
 Task State Segment Descriptor 
 
 3.3. Process Switch
 
 Global Descriptor Table
 
-
-
 memory descriptor
-
-
 
 signal descriptor 
 
-
-
 file descriptors
-
-
 
 Interrupt Descriptor Table
 
