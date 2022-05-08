@@ -18,9 +18,9 @@
 
 
 ## virtual address的意义
-lazy，即无需一次性分配整个virtual address space，而是用时再分配。
+一、lazy，即无需一次性分配整个virtual address space，而是用时再分配。
 
-copy on write
+二、copy on write
 
 其实通过这个思考才发现virtual memory的重要价值所在，它是实现demand page的基础，它是实现扩充memory的基础，它是实现copy on write的基础。
 

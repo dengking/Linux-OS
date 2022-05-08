@@ -8,10 +8,9 @@ A daemon is a service process that runs in the background and supervises the sys
 
 When a traditional SysV daemon starts, it should execute the following steps as part of the initialization. Note that these steps are unnecessary for new-style daemons (see below), and should only be implemented if compatibility with SysV is essential.
 
-1. Close all open file descriptors except standard input, output, and error (i.e. the first three file descriptors 0, 1, 2). This ensures that no accidentally passed file descriptor stays around
-in the **daemon process**. On Linux, this is best implemented by iterating through `/proc/self/fd`, with a fallback of iterating from file descriptor 3 to the value returned by `getrlimit()` for `RLIMIT_NOFILE`.
+1. Close all open file descriptors except standard input, output, and error (i.e. the first three file descriptors 0, 1, 2). This ensures that no accidentally passed file descriptor stays around in the **daemon process**. On Linux, this is best implemented by iterating through `/proc/self/fd`, with a fallback of iterating from file descriptor 3 to the value returned by `getrlimit()` for `RLIMIT_NOFILE`.
 
-***SUMMARY*** : 文件描述符标志[close-on-exec](http://man7.org/linux/man-pages/man2/fcntl.2.html)
+> NOTE: 文件描述符标志[close-on-exec](http://man7.org/linux/man-pages/man2/fcntl.2.html)
 
 2. Reset all signal handlers to their default. This is best done by iterating through the available signals up to the limit of `_NSIG` and resetting them to `SIG_DFL`.
   

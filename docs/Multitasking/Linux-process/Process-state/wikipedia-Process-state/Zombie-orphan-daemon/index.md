@@ -1,0 +1,2 @@
+# zombie、orphan、daemon
+
