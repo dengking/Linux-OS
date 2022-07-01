@@ -3,3 +3,5 @@ nav:
     - man-2-clock_gettime: man-2-clock_gettime
     - localtime: localtime
     - codeofmatt-List-of-2020-Leap-Day-Bugs: codeofmatt-List-of-2020-Leap-Day-Bugs
+    - man-1-time: man-1-time
+    
