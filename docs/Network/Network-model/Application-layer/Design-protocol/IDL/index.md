@@ -10,7 +10,11 @@
 
 3) [Apache Avro](http://avro.apache.org/)
 
+4) [Web IDL](https://en.wikipedia.org/wiki/Web_IDL)
 
+5) [OMG IDL Syntax and the C++ IDL Compiler](https://docs.oracle.com/cd/E13203_01/tuxedo/tux80/cref/idlchap.htm)
+
+6) [CORBA](https://www.ibm.com/docs/en/rhapsody/8.3.1?topic=developing-in-corba)
 
 ## 时代背景
 
@@ -42,3 +46,10 @@
 
 
 
+## wikipedia [IDL specification language](https://en.wikipedia.org/wiki/IDL_specification_language)
+
+
+
+## Example
+
+[chromium **IDL compiler**](https://chromium.googlesource.com/chromium/src/+/master/third_party/blink/renderer/bindings/IDLCompiler.md) 
