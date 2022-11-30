@@ -25,3 +25,15 @@ zhihu [gatieme](https://www.zhihu.com/people/gatieme)
 ## Sky
 
 zhihu [Linux Kernel](https://www.zhihu.com/column/c_1387375372250480640)
+
+
+
+## zhihu [Linux 平台下阅读 Linux 内核源码好用的工具有哪些？](https://www.zhihu.com/question/26011742)
+
+
+
+## zhihu [Linux 内核的操作系统是不是得一直运行着？](https://www.zhihu.com/question/23561375/answer/25345790)
+
+
+
+## [Linux kernel map](https://makelinux.github.io/kernel/map/)
