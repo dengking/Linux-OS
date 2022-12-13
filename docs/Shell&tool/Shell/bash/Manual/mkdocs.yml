@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
     - 7-Job-Control: 7-Job-Control
+    - 9-Using-History-Interactively: 9-Using-History-Interactively
+    
