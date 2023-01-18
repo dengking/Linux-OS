@@ -1,3 +1,7 @@
 nav:
     - Introduction: index.md
+    - Linux-namespaces: Linux-namespaces
+    - Linux-control-groups: Linux-control-groups    
+    - docker: docker
+    - K8s: K8s
     
