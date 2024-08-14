@@ -6,13 +6,10 @@
 
 ### What is a container?
 
-To summarize, a container:
+To summarize, a container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the DockerAPI or CLI.
 
-1、is a runnable instance of an image. You can create, start, stop, move, or delete a container using the DockerAPI or CLI.
-
-> NOTE:
+> NOTE: 如process 和 program的关系
 >
-> 一、如process 和 program的关系
 
 
 
