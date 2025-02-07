@@ -155,13 +155,13 @@ Simply remember this rule...
 
 
 
-## 安装
+## 实践
+
+### Docker Linux
 
 cnblogs [docker学习（一）ubuntu上安装docker](https://www.cnblogs.com/walker-lin/p/11214127.html)
 
 
-
-## 实战
 
 ```shell
 docker pull ubuntu:18.04
@@ -185,4 +185,80 @@ docker images
 ```
 
 查看本地所有的镜像。
+
+
+
+### docker pull 报http 500
+
+```
+(HTTP code 500) server error - Head "https://registry-1.docker.io/v2/pytorch/pytorch/manifests/latest": Get "https://auth.docker.io/token?scope=repository%3Apytorch%2Fpytorch%3Apull&service=registry.docker.io": net/http: TLS handshake timeout
+```
+
+The error message you're encountering indicates that there is a problem with the **TLS certificate verification** when trying to access Docker Hub. Specifically, it suggests that the certificate presented by the server does not match the expected hostname (`auth.docker.io`), which can happen for a few reasons. Here are some steps you can take to troubleshoot and resolve this issue:
+
+#### 1. Check Your Network Configuration
+
+- **Firewall/Proxy**: If you're behind a corporate **firewall** or using a **proxy**, it might be intercepting your requests and presenting its own certificate. Ensure that your Docker client is configured to work with your network settings.
+- **VPN**: If you're using a VPN, try disconnecting from it and see if the issue persists.
+
+
+
+#### 7. Disable Certificate Verification (Not Recommended)
+
+As a last resort, you can disable **TLS verification**, but this is **not recommended** for production environments as it exposes you to security risks.
+
+You can do this by adding the following to your Docker daemon configuration file (`/etc/docker/daemon.json`):
+
+```
+{
+  "insecure-registries": ["auth.docker.io"]
+}
+```
+
+After making changes, restart the Docker service:
+
+```
+sudo systemctl restart docker
+```
+
+
+
+#### 8. Check Docker Hub Status
+
+Sometimes, the issue might be on Docker Hub's side. You can check the [Docker Hub Status Page](https://status.docker.com/) to see if there are any ongoing incidents.
+
+通过命令 `ping -c 5 registry-1.docker.io` 可以确定网络不通
+
+
+
+#### 我的解决方法
+
+这是可能是因为"Docker Hub限频计划"，可通过腾讯云提供的docker代理[**https://mirror.ccs.tencentyun.com**](https://mirror.ccs.tencentyun.com",/)拉取镜像，在Docker Engine的 [configuration file⁠](https://docs.docker.com/engine/reference/commandline/dockerd/) 中添加:
+
+```
+  "registry-mirrors": [
+    "https://mirror.ccs.tencentyun.com"
+  ]
+```
+
+完整 [configuration file⁠](https://docs.docker.com/engine/reference/commandline/dockerd/) 如下
+
+```
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "experimental": false,
+  "registry-mirrors": [
+    "https://mirror.ccs.tencentyun.com"
+  ]
+}
+```
+
+
+
+
 
