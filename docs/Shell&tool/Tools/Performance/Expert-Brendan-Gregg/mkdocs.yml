@@ -1,3 +1,6 @@
 nav:
     - Introduction: index.md
-    
+    - Books: Books
+    - Graphs: Graphs
+    - Performance-analysis-methodologies: Performance-analysis-methodologies
+    - Java: Java
