@@ -1,20 +1,16 @@
-# 关于本章
+# Network model
 
 本章讨论首先讨论communication protocol，它是比network protocol更加宽泛的概念，然后讨论network protocol(网络的主要内容)。
 
-
-
 ## What is communication protocol?
-
-
 
 ### Communication protocol is a kind of language
 
-从language的角度来看，[Communication protocol](https://en.wikipedia.org/wiki/Communication_protocol)是一种语言，它是通信多方的约定的沟通的语言。
+从language的角度来看，[Communication protocol](https://en.wikipedia.org/wiki/Communication_protocol)是一种语言，它是通信多方约定的沟通的语言。
 
 ### Protocol VS format
 
-#### superuser [What are the general differences between a format and a protocol](https://superuser.com/questions/736401/what-are-the-general-differences-between-a-format-and-a-protocol) 
+#### superuser [What are the general differences between a format and a protocol](https://superuser.com/questions/736401/what-are-the-general-differences-between-a-format-and-a-protocol)
 
 **A**: 
 
@@ -28,11 +24,11 @@ In both instances you are talking about the index of various bytes in a stream a
 
 > NOTE: 这是两者的共同之处，关于stream，参见工程discrete的`Relation-structure-computation\Model\Stream`章节
 
-**Protocol** can get more involved, as many protocols work in a "**request-response**" fashion where the client issues a **well-formed request**, and then a server responds with a **well-formed response**. So there may be different **schema** for request, response. Requests may change client or server "state" and thus the schema may be different again given a particular state.
+**Protocol** can get more involved(复杂), as many protocols work in a "**request-response**" fashion where the client issues a **well-formed request**, and then a server responds with a **well-formed response**. So there may be different **schema** for request, response. Requests may change client or server "state" and thus the schema may be different again given a particular state.
 
 > NOTE: protocol涉及到多方的参与，因此它比format考虑的问题要多得多
 
-File formats are typically always following the same **schema** unless they are a different version, though they can be complex as well - later bytes in a file format may depend on earlier bytes (the .PST file format or the Windows Registry hive format, for example).
+File formats are typically always following the same **schema**(纲要) unless they are a different version, though they can be complex as well - later bytes in a file format may depend on earlier bytes (the .PST file format or the Windows Registry hive format, for example).
 
 **A**: 
 
@@ -43,8 +39,6 @@ A **format** describes the **structure** of some data, whereas a **protocol** de
 ### 如何评判protocol的好坏？
 
 protocol的优点与缺点，以[Redis Protocol specification](https://redis.io/topics/protocol)为例进行说明。
-
-
 
 ## Network protocol
 
@@ -66,8 +60,6 @@ baike [NAT](https://baike.baidu.com/item/nat/320024?fr=aladdin)
 
 另外，这种通过使用少量的全球IP地址（公网IP地址）代表较多的私有IP地址的方式，将有助于减缓可用的IP地址空间的枯竭。在[RFC](https://baike.baidu.com/item/RFC/10718878) 2663中有对NAT的说明。
 
-
-
 ## 地址
 
 ### MAC 地址和 IP 地址分别有什么作用
@@ -75,4 +67,3 @@ baike [NAT](https://baike.baidu.com/item/nat/320024?fr=aladdin)
 **MAC 地址**是数据链路层和物理层使用的地址，是写在网卡上的物理地址。MAC 地址用来定义网络设备的位置。
 
 **IP 地址**是网络层和以上各层使用的地址，是一种逻辑地址。IP 地址用来区别网络上的计算机。
-
