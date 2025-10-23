@@ -66,5 +66,3 @@ BCC and bpftrace do not live in the kernel code base but in a Linux Foundation p
 - https://github.com/iovisor/bpftrace
 
 Throughout this book I use the term *BPF tracing* to refer to both BCC and bpftrace tools.
-
-
